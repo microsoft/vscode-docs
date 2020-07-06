@@ -515,8 +515,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the editor should highlight matches similar to the selection.
     "editor.selectionHighlight": true,
 
-    // Controls whether the semanticHighlighting is shown for the languages that support it.
-    "editor.semanticHighlighting.enabled": true,
+    //  - true: Semantic highlighting enabled for all color themes.
+    //  - false: Semantic highlighting disabled for all color themes.
+    //  - configuredByTheme: Semantic highlighting is configured by the current color theme's `semanticHighlighting` setting.
+    "editor.semanticHighlighting.enabled": "configuredByTheme",
 
     // Overrides editor semantic token color and styles from the currently selected color theme.
     "editor.semanticTokenColorCustomizations": {},
@@ -724,9 +726,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether inline actions are always visible in the Source Control view.
     "scm.alwaysShowActions": false,
 
-    // Controls whether to show the Source Control Provider section even when there's only one Provider registered.
-    "scm.alwaysShowProviders": false,
-
     // Controls whether the SCM view should automatically reveal and select files when opening them.
     "scm.autoReveal": true,
 
@@ -759,9 +758,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the font for the input message. Use `default` for the workbench user interface font family, `editor` for the `editor.fontFamily`'s value, or a custom font family.
     "scm.inputFontFamily": "default",
-
-    // Controls how many providers are visible in the Source Control Provider section. Set to `0` to be able to manually resize the view.
-    "scm.providers.visible": 10,
 
     // If set, automatically switch to the preferred color theme based on the OS appearance.
     "window.autoDetectColorScheme": false,
@@ -2142,7 +2138,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A path that when set will override `terminal.integrated.shell.windows` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
     "terminal.integrated.automationShell.windows": null,
 
-    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open. Use the command prefixed with `-` to remove default commands from the list.
+    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by VS Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open. Use the command prefixed with `-` to remove default commands from the list.
     "terminal.integrated.commandsToSkipShell": [],
 
     // Controls whether to confirm on exit if there are active terminal sessions.
