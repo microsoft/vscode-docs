@@ -148,7 +148,7 @@ To configure it:
 
 1. Ensure you have a **local OpenSSH 6.7+ SSH client** on Windows, macOS, or Linux and an **OpenSSH 6.7+ Linux or macOS Host** (Windows does not support this mode).
 
-2. Switch Remote - SSH into socket mode by enabling **Remote.SSH: Remote Listen On Socket** in your **local** VS Code [User settings](/docs/getstarted/settings.md).
+2. Switch Remote - SSH into socket mode by enabling **Remote.SSH: Remote Server Listen On Socket** in your **local** VS Code [User settings](/docs/getstarted/settings.md).
 
     ![Listen on socket VS Code setting](images/ssh/ssh-listen-on-socket.png)
 
