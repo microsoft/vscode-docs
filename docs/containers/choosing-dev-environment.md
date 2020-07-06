@@ -76,6 +76,8 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 
 The recommended way to enable container development with a remote machine is to do [a full Docker installation](https://docs.docker.com/install/) on the machine, including Docker daemon.
 
+>**NOTE**: Docker Desktop product is supported only on physical Windows and macOS machines, not virtual machines. If you want to use a virtual machine as a remote development environment, we recommend to use a Linux VM with [Docker Engine](https://docs.docker.com/engine/).
+
 After Docker is installed and working on the remote machine, you can use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack to connect to your remote machine and work there.
 
 1. Run command **Remote-SSH: Add new SSH host...** and follow the prompts to set up a connection to the target host.
@@ -90,7 +92,7 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 >**NOTE**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
 
-### Local VM
+### Local Linux VM
 
 To use a virtual machine running on your developer workstation, you need to enable **nested virtualization** in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization), [Parallels](https://kb.parallels.com/116239), or [Oracle VirtualBox](https://docs.oracle.com/en/virtualization/virtualbox/6.0/admin/nested-virt.html). You can then [install Docker](https://docs.docker.com/install/) in the same way as you would install it on a remote machine, and use the [Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to the VM.
 
