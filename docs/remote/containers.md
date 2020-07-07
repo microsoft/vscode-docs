@@ -1169,13 +1169,13 @@ Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore genera
 
 ![Docker Path setting](images/containers/docker-path-setting.png)
 
-You [may need to symbolically link](https://github.com/microsoft/vscode-remote-release/issues/116#issuecomment-619329668[Podman support · Issue #116 · microsoft/vscode-remote-release · GitHub](https://github.com/microsoft/vscode-remote-release/issues/116#issuecomment-619329668)) docker to podman in order for the extension to function when docker and docker-compose are not installed on the system. If not linked, the extension will require docker to be installed even if you change the executable docker path settings of the extension mentioned above.
+You [may need to symbolically link](https://github.com/microsoft/vscode-remote-release/issues/116#issuecomment-619329668) Docker to Podman in order for the extension to function when Docker and Docker-Compose are not installed on the system. If not linked, the extension will require Docker to be installed even if you change the executable path settings of the extension mentioned above.
 
 ```
 sudo ln -s /usr/bin/docker /usr/bin/podman
 ```
 
-Depending on the linux distribution you install podman on, you may also need to configure selinux for the extension to be able to mount project folders. For Fedora 31+ or container centric linux distributions such as CoreOS and Fedora CoreOS, there may already be a `container-selinux` package present that ships with the correct selinux configs for rootless operation of podman. For other distributions not based on EL that still use selinux, [refer to container-selinux](https://github.com/containers/container-selinux) for appropriate selinux labels and policies that can be applied to your project directories in order to mount projects while selinux is set to enforcing mode.
+Depending on the Linux distribution you install Podman on, you may also need to configure SELinux for the extension to be able to mount project folders. For Fedora 31+ or container centric Linux distributions such as CoreOS and Fedora CoreOS, there may already be a `container-selinux` package present that ships with the correct SELinux configs for rootless operation of Podman. For other distributions that use SELinux, [refer to container-selinux](https://github.com/containers/container-selinux) for appropriate SELinux labels and policies that can be applied to your project directories in order to mount projects while SELinux is set to enforcing mode.
 
 Certain tricks like [Docker-from-Docker currently do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the [**Remote-Containers: Try a Sample...**](https://github.com/microsoft/vscode-remote-release/issues/2881) and **[Remote- Containers: Open repository in container...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
