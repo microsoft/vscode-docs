@@ -3,9 +3,9 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Syntax Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
+PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
 DateApproved: 7/6/2020
-MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
+MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
