@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 3
 Area: cpp
 TOCTitle: GCC on Windows Subsystem for Linux
 ContentId: dc79a06a-6665-478c-9298-a1fc9cf8010d
