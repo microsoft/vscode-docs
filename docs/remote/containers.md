@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 6/10/2020
+DateApproved: 7/7/2020
 ---
 # Developing inside a Container
 
@@ -30,7 +30,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 **Containers**:
 
 * x86_64 / ARMv7l (AArch32) / ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+, CentOS / RHEL 7+
-* x86_64 Alpine Linux 3.8+
+* x86_64 Alpine Linux 3.9+
 
 Other `glibc` based Linux containers may work if they have [needed prerequisites](/docs/remote/linux.md).
 
