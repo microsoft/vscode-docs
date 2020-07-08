@@ -360,7 +360,7 @@ The multi-cell issues arise from the fact that all rendered outputs of a noteboo
 Diagramatically, the architecture is as below:
 ![Visualization of static renderer, showing multiple rich outputs being mapped by an NotebookOutputRenderer to HTML, then piped to a shared "notebook output context".](images/notebook/static-renderer.png)
 
-This architecture allows for advanced notebooks where output cells can communicate between eachother, but it makes cases such as ours slightly more complicated. While we could fiddle with the script a bit to get the correct behaviour in multi-output cases, we can solve the above problem as well as the earlier inconviniences of requiring preloaded comment data and a dedicated mimetype and kernel by using a Dynamic Renderer.
+While this architecture allows for advanced notebooks where output cells can communicate between eachother, it also makes cases such as ours slightly more complicated. While we could fiddle with the script a bit to get the correct behaviour in multi-output cases, we can solve the above problem as well as the earlier inconviniences of requiring preloaded comment data and a dedicated mimetype and kernel by using a Dynamic Renderer.
 
 #### Dynamic Renderers
 Dynamic renderers build upon the concept of generating HTML for a particular output by adding the ability to preload scripts into the output context in order to establish a notebook runtime. The runtime can then communicate between the extension host context and the output context through message passing, facilitating the creation of fully interactive "applet" outputs. A visualization of data flow in a dynamic renderer can be seen below:
