@@ -430,9 +430,9 @@ notebookApi.onDidCreateOutput(({ element }) => {
 let seq = 0
 const inflightRequests: Record<number, (response: any) => void> = {}
 const postMessageAndWaitForResponse = (repo: string, number: string, message: string) => {
+	seq++
 	notebookApi.postMessage({ seq, message, repo, number })
 	return new Promise((resolve) => (inflightRequests[seq] = resolve))
-	seq++
 }
 notebookApi.onDidReceiveMessage(({ message, seq }) => inflightRequests[seq](message))
 
