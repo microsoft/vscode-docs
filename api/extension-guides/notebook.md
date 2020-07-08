@@ -107,6 +107,8 @@ Now try running your extension and opening a Jupyter Notebook formatted file sav
 
 You should be able to open Jupyter-formatted notebooks and view their cells as both plaintext and rendered markdown, as well as edit the cells. However, edits will not be persisted to disk, and you won't be able to run any cells. Saving requires implementing the `saveNotebook`-family commands above, and to run a cell we'll need to implement a `NotebookKernel`.
 
+*Note:* The default ordering of output mimetypes is defined by the notebook content provider via the `NotebookData#metadata.displayOrder` property, which can be set in a content provider's `openNotebook` method.
+
 ### Kernel
 [`NotebookKernel` API Reference](/api/references/vscode-api#NotebookKernel)
 
