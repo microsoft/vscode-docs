@@ -224,7 +224,7 @@ An output renderer is responsible for taking output data of a specific mimetype 
 #### Static Renderers
 A static renderer simply takes output of a particular mimetype and produces an HTML view of that data. This is similar to having the kernel itself return a `text/html` output, but it decouples data rendering from data generation which allows for many possible representations of the same output, potentilly even contributed by a variety of different extensions.
 
-Renderers are declared for a set of mimetypes by contributing to the `constributes.notebookOutputRenderer` property of an extension's `package.json`. the renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed kernel is able to provide:
+Renderers are declared for a set of mimetypes by contributing to the `constributes.notebookOutputRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed kernel is able to provide:
 
 ```json
 {
@@ -349,11 +349,13 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-This immediately raises some flags. For one, we're requiring full comment data for all issues, even before we've clicked the button. Additionally, we require a whole different mimetype even though we just want to use a bit more data. And while this renderer does work as expected for a single output cell, further problems surface when multiple output cells are rendered in the same notebook:
+This immediately raises some flags. For one, we're loading full comment data for all issues, even before we've clicked the button. Additionally, we require kernel support for a whole different mimetype even though we just want to show a bit more data. And while this renderer does work as expected for a single output cell, further problems surface when multiple output cells are rendered in the same notebook:
 
 ![Multiple cells with comment buttons. Clicking any of the cells comment buttons affects only the topmost cell](images/notebook/dynamic-renderer-issues.gif)
 
-The multi-cell issues arise from the fact that all rendered outputs of a notebook share a single context, which you can think of like a single shared `iframe`. In our case this means each time a cell is created it actually overwrites the `showComments` function for the entire context, and DOM accessors like `document.querySelector` operate on the entire set of outputs, rather than only the output cell they are invoked in. Diagramatically, the architecture is as below:
+The multi-cell issues arise from the fact that all rendered outputs of a notebook share a single context, which you can think of like a single shared `iframe`. In our case this means each time a cell is created it actually overwrites the `showComments` function for the entire context, and DOM accessors like `document.querySelector` operate on the entire set of outputs, rather than only the output cell they are invoked in. This means that when we called `document.querySelector('#showComments').remove()`, rather than removing the button from only the current cell, it will query the entire document for the first instance of that `id` and remove it, giving the problem we saw above.
+
+Diagramatically, the architecture is as below:
 ![Visualization of static renderer, showing multiple rich outputs being mapped by an NotebookOutputRenderer to HTML, then piped to a shared "notebook output context".](images/notebook/static-renderer.png)
 
 This architecture allows for advanced notebooks where output cells can communicate between eachother, but it makes cases such as ours slightly more complicated. While we could fiddle with the script a bit to get the correct behaviour in multi-output cases, we can solve the above problem as well as the earlier inconviniences of requiring preloaded comment data and a dedicated mimetype and kernel by using a Dynamic Renderer.
@@ -368,22 +370,11 @@ Now that we can set up a runtime inside the output context, the extension host s
 ```ts
 import * as vscode from 'vscode'
 
-// Type of data with `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype
-type Issue = {
-	author: {
-		name: string
-		profileImageUrl: string }
-	body: string
-	repo: string
-	title: string
-	number: number }
-
-
 class DynamicRenderer implements vscode.NotebookOutputRenderer {
 	render(_document: vscode.NotebookDocument, { output, mimeType }: vscode.NotebookRenderRequest): string {
 		return `
 			<script data-renderer="github-issue-dynamic-renderer" data-mime-type="${mimeType}" type="application/json">
-				${JSON.stringify(output.data[mimeType] as Issue)}
+				${JSON.stringify(output.data[mimeType])}
 			</script>
 		`
 	}
@@ -400,23 +391,13 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-We next create the runtime script which will live inside the output context and listen for the creastion of new outputs. To facilitate communication between the two contexts, scripts running in the output context have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host context from within the output context.
+We next create the runtime script which will live inside the output context and listen for the creation of new outputs. To facilitate communication between the two contexts, scripts running in the output context have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host context from within the output context.
 
 Our script for rendering outputs insider the extension host context is as follows:
 
 `client.js`:
 ```ts
 const notebookApi = acquireNotebookRendererApi('github-issue-dynamic-renderer')
-
-// Messaging utilities
-let seq = 0
-const inflightRequests: Record<number, (response: any) => void> = {}
-const postMessageAndWaitForResponse = (repo: string, number: string, message: string) => {
-	notebookApi.postMessage({ seq, message, repo, number })
-	return new Promise((resolve) => (inflightRequests[seq] = resolve))
-	seq++
-}
-notebookApi.onDidReceiveMessage(({ message, seq }) => inflightRequests[seq](message))
 
 // Output renderer
 notebookApi.onDidCreateOutput(({ element }) => {
@@ -442,6 +423,17 @@ notebookApi.onDidCreateOutput(({ element }) => {
 		comments.forEach((comment) => commentsContainer.appendChild(document.createTextNode(comment.body)))
 	}
 })
+
+// Messaging utilities
+let seq = 0
+const inflightRequests: Record<number, (response: any) => void> = {}
+const postMessageAndWaitForResponse = (repo: string, number: string, message: string) => {
+	notebookApi.postMessage({ seq, message, repo, number })
+	return new Promise((resolve) => (inflightRequests[seq] = resolve))
+	seq++
+}
+notebookApi.onDidReceiveMessage(({ message, seq }) => inflightRequests[seq](message))
+
 ```
 
 *Note:* Typings for the renderer context can be acquired by installing `@types/vscode-notebook-renderer`. These typings inject `acquireNotebookRendererApi` as global variable, so we keep them seprate from the rest of `@types/vscode`.
@@ -458,10 +450,8 @@ class DynamicRenderer implements vscode.NotebookOutputRenderer {
 
 	resolveNotebook(document: vscode.NotebookDocument, communication: vscode.NotebookCommunication) {
 		communication.onDidReceiveMessage(async ({ seq, repo: _repo, number, message }) => {
-			const [owner, repo] = _repo.split('/')
 			vscode.window.showInformationMessage('Fetching comments for issue #' + number)
-			const octokit = new OctoKitIssue(token, { owner, repo }, { number: +number })
-			const commentData = await octokit.getComments()
+			const commentData = await // call GitHub APIs
 			await communication.postMessage({ seq, message: commentData })
 		})
 	}
@@ -472,7 +462,7 @@ class DynamicRenderer implements vscode.NotebookOutputRenderer {
 
 *Note:* `resolveNotebook` is called whenever a new editor is created for a notebook. A single notebook will have multiple editors, webviews, and `communication` channels if the user splits the notebook's editor. These can be differentiated through the `communication.editorId` field.
 
-The end result. Multiple outputs are correctly handled, and comments are not loaded until they are requested:
+Here's the end result. Multiple outputs are correctly handled, and comments are not loaded until they are requested:
 ![Multiple cell outputs shown. Clicking each cell's `load comments` button correctly loads its comments](images/notebook/dynamic-renderer.gif)
 
 Samples:
