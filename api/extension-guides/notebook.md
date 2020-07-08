@@ -219,24 +219,24 @@ To render an alternative mimetype, a `NotebookOutputRenderer` must be registered
 ### Output Renderer
 [`NotebookOutputRenderer` API Reference](/api/references/vscode-api#NotebookOutputRenderer)
 
-An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets.
+An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section we'll explore various techniques for rendering an output representing a GitHub Issue, ranging from a purely static HTML rendering of the issue to a fully interactive GitHub Issue applet which communicates with both GitHub and VS Code API's.
 
-Renderers can be thought of in two categories: static renderers, which generate all rendered output in the context of the extension and simply pass it as HTML to become an element in the *notebook output context* webview; and dynamic renderers, which preload scripts into the output context in order to establish a runtime within the *notebook output context* webview capable of dynamically rendering outputs and communicating back to the extension host.
+#### Static Renderers
+A static renderer simply takes output of a particular mimetype and produces an HTML view of that data. This is similar to having the kernel itself return a `text/html` output, but it decouples data rendering from data generation which allows for many possible representations of the same output, potentilly even contributed by a variety of different extensions.
 
-Renderers are declared for a set of mimetypes by contributing to the `constributes.notebookOutputRenderer` property of an extension's `package.json`:
+Renderers are declared for a set of mimetypes by contributing to the `constributes.notebookOutputRenderer` property of an extension's `package.json`. the renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed kernel is able to provide:
 
 ```json
 {
-	...
 	"activationEvents": ["...."],
 	"contributes": {
 		...
 		"notebookOutputRenderer": [
 			{
-				"viewType": "my-notebook-renderer",
-				"displayName": "My Notebook Renderer",
+				"viewType": "github-issue-static-renderer",
+				"displayName": "Static Issue Renderer",
 				"mimeTypes": [
-					"application/hello-world"
+					"ms-vscode.github-issue-notebook/github-issue"
 				]
 			}
 		]
@@ -245,118 +245,235 @@ Renderers are declared for a set of mimetypes by contributing to the `constribut
 ```
 
 The renderer is then registered in the extension's activation event:
+
 ```ts
 import * as vscode from 'vscode';
 
-class SampleRenderer implements vscode.NotebookOutputRenderer {
-	...
+// Type of data with `ms-vscode.github-issue-notebook/github-issue` mimetype
+type Issue = {
+	author: {
+		name: string
+		profileImageUrl: string }
+	body: string
+	repo: string
+	title: string
+	number: number }
+
+class StaticRenderer implements vscode.NotebookOutputRenderer {
+	render(_document: vscode.NotebookDocument, { output, mimeType }: vscode.NotebookRenderRequest): string {
+		const issue = output.data[mimeType] as Issue
+		return `
+		<h2>
+			${issue.title}
+			(<a href='https://github.com/${issue.repo}/issues/${issue.number}'>
+				#${issue.number}
+			</a>)
+		</h2>
+		<img src="${issue.author.profileImageUrl}" style="float: left; width: 32px; border-radius: 50%; margin-right: 20px;"/>
+		<i>@${issue.author.name}</i> Opened:
+		<div style="margin-top: 10px">${issue.body}</div>
+		`
+	}
 }
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.notebook.registerNotebookOutputRenderer(
-			"my-notebook-renderer",
-			{ mimeTypes: ['application/hello-world'] },
-			new SampleRenderer(),
+			"github-issue-static-renderer",
+			{ mimeTypes: ['ms-vscode.github-issue-notebook/github-issue'] },
+			new StaticRenderer(),
 		)
 	);
 }
 ```
 
-#### Static Renderers
-A static renderer simply takes output of a particular mimetype and produces an HTML view of that data. This is similar to having the kernel itself return a `text/html` output, but it allows for multiple different HTML rendered views of the same output.
+Running this renderer on an output cell with a `ms-vscode.github-issue-notebook/github-issue` data field gives us the following static HTML view:
+![Cell output showing rendered HTML view of issue](images/notebook/static-renderer-sample.png)
 
-All rendered outputs of a notebook live in a single webview isolated from the main VS Code Extension Host runtime. This means state can be shared across notebook outputs through use of global variables in `<script>` tags, though for use cases where shared state is needed it may be desirable to instead use a [Dynamic Renderer](#dynamic-renderers), which adds the ability to define a set of scripts to preload into the *notebook output context* webview to establish a shared output runtime. A visualization of the data flow of a static renderer can be seen below.
-
-![Visualization of static renderer, showing multiple rich outputs being mapped by an NotebookOutputRenderer to HTML, then piped to a shared "notebook output context".](images/notebook/static-renderer.png)
-
-A static renderer is implemented by simply generating HTML in the extension host proccess to render a given output. VS Code core handles transfering the rendered HTML to the notebook output context. An example of how this might look:
+##### JavaScript in Static Renderers
+Imagine we want to add the ability to view an issue's comments after clicking a button in the rendered output. Assuming a kernel can provide issue data with comments under the `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype, we might try to implement this as follows:
 
 ```ts
-class SampleRenderer implements vscode.NotebookOutputRenderer {
-	render(
-		document: vscode.NotebookDocument,
-		{ output, mimeType }: vscode.NotebookRenderRequest,
-	): string {
-		const name = output.data[mimeType];
-		return `Hello <b>${name}</b>! You're viewing data in ${mimeType} format.`;
+import * as vscode from 'vscode'
+
+// Type of data with `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype
+type IssueWithComments = {
+	issue: {
+		author: {
+			name: string
+			profileImageUrl: string }
+		body: string
+		repo: string
+		title: string
+		number: number }
+	comments: { body: string }[]
+}
+
+class ScriptedStaticRenderer implements vscode.NotebookOutputRenderer {
+	render(_document: vscode.NotebookDocument, { output, mimeType }: vscode.NotebookRenderRequest): string {
+		const { issue, comments } = output.data[mimeType] as IssueWithComments
+		const serializedComments = JSON.stringify(JSON.stringify(comments))
+		return `
+		<script>
+			function showComments() {
+				const commentContainer = document.querySelector('#comments')
+				commentContainer.innerHTML = ""
+				const comments = JSON.parse(${serializedComments})
+				comments.forEach(comment =>
+					commentContainer.appendChild(document.createTextNode(comment.body))
+				)
+				document.querySelector('#showComments').remove()
+			}
+		</script>
+		<h2>
+			${issue.title}
+			(<a href='https://github.com/${issue.repo}/issues/${issue.number}'>
+				#${issue.number}
+			</a>)
+		</h2>
+		<img src="${issue.author.profileImageUrl}" style="float: left; width: 32px; border-radius: 50%; margin-right: 20px;"/>
+		<i>@${issue.author.name}</i> Opened:
+		<div style="margin-top: 10px">${issue.body}</div>
+		`
 	}
+}
+
+export function activate(context: vscode.ExtensionContext) {
+	context.subscriptions.push(
+		vscode.notebook.registerNotebookOutputRenderer(
+			"github-issue-scripted-static-renderer",
+			{ mimeTypes: ['ms-vscode.github-issue-notebook/github-issue-with-comments'] },
+			new ScriptedStaticRenderer(),
+		)
+	);
 }
 ```
 
-![Cell output switching between multiple different rendered views](images/notebook/static-renderer.gif)
+This immediately raises some flags. For one, we're requiring full comment data for all issues, even before we've clicked the button. Additionally, we require a whole different mimetype even though we just want to use a bit more data. And while this renderer does work as expected for a single output cell, further problems surface when multiple output cells are rendered in the same notebook:
+
+![Multiple cells with comment buttons. Clicking any of the cells comment buttons affects only the topmost cell](images/notebook/dynamic-renderer-issues.gif)
+
+The multi-cell issues arise from the fact that all rendered outputs of a notebook share a single context, which you can think of like a single shared `iframe`. In our case this means each time a cell is created it actually overwrites the `showComments` function for the entire context, and DOM accessors like `document.querySelector` operate on the entire set of outputs, rather than only the output cell they are invoked in. Diagramatically, the architecture is as below:
+![Visualization of static renderer, showing multiple rich outputs being mapped by an NotebookOutputRenderer to HTML, then piped to a shared "notebook output context".](images/notebook/static-renderer.png)
+
+This architecture allows for advanced notebooks where output cells can communicate between eachother, but it makes cases such as ours slightly more complicated. While we could fiddle with the script a bit to get the correct behaviour in multi-output cases, we can solve the above problem as well as the earlier inconviniences of requiring preloaded comment data and a dedicated mimetype and kernel by using a Dynamic Renderer.
 
 #### Dynamic Renderers
-Dynamic renderers build upon the static renderer concept of generating HTML for a particular output, but add the ability to preload scripts into the webview by adding a set of uri's to the `NotebookOutputRenderer#preloads` field of the renderer. These scripts can contain arbitrary JavaScript, and additionally can communicate between the extension host context and the *notebook output context* in a variets of ways. A visualization of data flow in a dynamic renderer can be seen below:
+Dynamic renderers build upon the concept of generating HTML for a particular output by adding the ability to preload scripts into the output context in order to establish a notebook runtime. The runtime can then communicate between the extension host context and the output context through message passing, facilitating the creation of fully interactive "applet" outputs. A visualization of data flow in a dynamic renderer can be seen below:
 
 ![Visualization of dynamic renderer, showing multiple rich outputs being mapped by an NotebookOutputRenderer to HTML or JSON, then piped to a shared "notebook output context", which contains a preloaded script and can communicate with the extension host context as described in this section](images/notebook/dynamic-renderer.png)
 
-To facilitate communication between the two contexts, scripts running in the *notebook output context* have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host from within the webview context. A client script running in the ouput context might look like this:
+Now that we can set up a runtime inside the output context, the extension host side of the renderer code can be simplified dramatically. Whereas before we statically constructed HTML strings to directly render in the output context, we now will simply pass the kernel's data through to the output context as a JSON blob. Additionally, we can now go back to using the simpler `ms-vscode.github-issue-notebook/github-issue` mimetype, as we will dynamically fetch comment data on an as-needed basis:
+
+```ts
+import * as vscode from 'vscode'
+
+// Type of data with `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype
+type Issue = {
+	author: {
+		name: string
+		profileImageUrl: string }
+	body: string
+	repo: string
+	title: string
+	number: number }
+
+
+class DynamicRenderer implements vscode.NotebookOutputRenderer {
+	render(_document: vscode.NotebookDocument, { output, mimeType }: vscode.NotebookRenderRequest): string {
+		return `
+			<script data-renderer="github-issue-dynamic-renderer" data-mime-type="${mimeType}" type="application/json">
+				${JSON.stringify(output.data[mimeType] as Issue)}
+			</script>
+		`
+	}
+}
+
+export function activate(context: vscode.ExtensionContext) {
+	context.subscriptions.push(
+		vscode.notebook.registerNotebookOutputRenderer(
+			"github-issue-dynamic-renderer",
+			{ mimeTypes: ['ms-vscode.github-issue-notebook/github-issue'] },
+			new DynamicRenderer(),
+		)
+	);
+}
+```
+
+We next create the runtime script which will live inside the output context and listen for the creastion of new outputs. To facilitate communication between the two contexts, scripts running in the output context have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host context from within the output context.
+
+Our script for rendering outputs insider the extension host context is as follows:
 
 `client.js`:
 ```ts
-const notebookApi = acquireNotebookRendererApi("notebook-renderer-demo");
+const notebookApi = acquireNotebookRendererApi('github-issue-dynamic-renderer')
 
-let totalRenders = 0;
+// Messaging utilities
+let seq = 0
+const inflightRequests: Record<number, (response: any) => void> = {}
+const postMessageAndWaitForResponse = (repo: string, number: string, message: string) => {
+	notebookApi.postMessage({ seq, message, repo, number })
+	return new Promise((resolve) => (inflightRequests[seq] = resolve))
+	seq++
+}
+notebookApi.onDidReceiveMessage(({ message, seq }) => inflightRequests[seq](message))
 
-// element is the HTMLElement returned by the `render` prociess.
-// In this case, a script element containg JSON-encoded information.
+// Output renderer
 notebookApi.onDidCreateOutput(({ element }) => {
-	totalRenders++;
+	const tag = element.querySelector('script')!
+	const issue = JSON.parse(tag.innerHTML)
+	const outputContainer = element.appendChild(document.createElement('div'))
 
-	const tag = element.querySelector('script')!;
-	const mimeType = tag.dataset.mimeType as string;
-	const data = JSON.parse(tag.innerHTML);
+	outputContainer.innerHTML = `
+	<h2>${issue.title} (<a href='https://github.com/${issue.repo}/issues/${issue.number}'>#${issue.number}</a>)</h2>
+	<img src="${issue.author.profileImageUrl}" style="float: left; width: 32px; border-radius: 50%; margin-right: 20px;"/>
+	<i>@${issue.author.name}</i> Opened:
+	<div style="margin-top: 10px">${issue.body}</div>`
 
-	// Dynamically generate DOM nodes insider the notebook output context
-	const outputContainer = element.appendChild(document.createElement('div'));
-	outputContainer.innerText = `${totalRenders} -- ${mimeType}: ${data.message}`;
+	const button = outputContainer.appendChild(document.createElement('button'))
+	button.innerText = 'Load Comments'
+	const commentsContainer = outputContainer.appendChild(document.createElement('div'))
 
-	const button = outputContainer.appendChild(document.createElement('button'));
-	button.innerText = data.buttonTitle;
-
-	// Allow for communication back to extension host process.
-	button.onclick = () => notebookApi.postMessage("Clicked " + data.buttonTitle);
-});
+	button.onclick = async () => {
+		button.remove()
+		const comments = (await postMessageAndWaitForResponse(issue.repo, issue.number, 'load-comments')) as {
+			body: string
+		}[]
+		comments.forEach((comment) => commentsContainer.appendChild(document.createTextNode(comment.body)))
+	}
+})
 ```
-This client script must then be preloaded into the *notebook output context* by referencing it from `NotebookOutputRenderer#preloads`.
 
 *Note:* Typings for the renderer context can be acquired by installing `@types/vscode-notebook-renderer`. These typings inject `acquireNotebookRendererApi` as global variable, so we keep them seprate from the rest of `@types/vscode`.
 
+Finally, we link this script to our dynamic output renderer by adding it to the `NotebookOutputRenderer#preloads` array, and register a listener to resolve comment data by implementing `NotebookOutputRenderer#resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](/api/references/vscode-api#NotebookCommunication) that is able to communicate bidirectionally between the extension host and the editor's output context:
 
-To facilitate communication between the extension host and output contenxts, the renderer must implement `resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](/api/references/vscode-api#NotebookCommunication) that is able to communicate bidirectionally between the extension host and the editor's output context.
-
-For example, a `NotebookOutputRenderer` that injects `out/client.js` into the output context, transfers data into the output context via JSON blobs, and logs all of the messages it recieves from the outoput context as information dialogs might look like this:
 ```ts
-class SampleRenderer implements vscode.NotebookOutputRenderer {
-	public readonly preloads: vscode.Uri[] = [];
+class DynamicRenderer implements vscode.NotebookOutputRenderer {
+	preloads: vscode.Uri[] = []
 
 	constructor(context: vscode.ExtensionContext) {
-		this.preloads.push(vscode.Uri.file(path.join(context.extensionPath, 'out/client.js')));
+		this.preloads.push(vscode.Uri.file(path.join(context.extensionPath, 'src/client.js')))
 	}
 
-	render(
-		document: vscode.NotebookDocument,
-		{ output, mimeType }: vscode.NotebookRenderRequest,
-	): string {
-		return `
-		<script data-renderer="notebook-renderer-demo" data-mime-type="${mimeType}" type="application/json">
-			${JSON.stringify(output.data[mimeType])}
-		</script>
-		`;
+	resolveNotebook(document: vscode.NotebookDocument, communication: vscode.NotebookCommunication) {
+		communication.onDidReceiveMessage(async ({ seq, repo: _repo, number, message }) => {
+			const [owner, repo] = _repo.split('/')
+			vscode.window.showInformationMessage('Fetching comments for issue #' + number)
+			const octokit = new OctoKitIssue(token, { owner, repo }, { number: +number })
+			const commentData = await octokit.getComments()
+			await communication.postMessage({ seq, message: commentData })
+		})
 	}
 
-	public resolveNotebook(document: vscode.NotebookDocument, communication: vscode.NotebookCommunication) {
-		communication.onDidReceiveMessage(message =>
-			vscode.window.showInformationMessage(message));
-	}
+	// `render` method as above
+}
 ```
 
 *Note:* `resolveNotebook` is called whenever a new editor is created for a notebook. A single notebook will have multiple editors, webviews, and `communication` channels if the user splits the notebook's editor. These can be differentiated through the `communication.editorId` field.
 
-Using the above renderer with a kernel that produces output in the `application/hello-world` mimetype, the final rendered notebook would function as below:
-
-![Multiple cell outputs shown. Outputs display a counter of the total number of gobal renders triggered. Clicking buttons triggers a vscode native information message](images/notebook/dynamic-renderer.gif)
+The end result. Multiple outputs are correctly handled, and comments are not loaded until they are requested:
+![Multiple cell outputs shown. Clicking each cell's `load comments` button correctly loads its comments](images/notebook/dynamic-renderer.gif)
 
 Samples:
  - [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with support for debugging in the output context, webpack, hot reloading, and css modules.
@@ -366,5 +483,5 @@ Samples:
 For some kernels, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To accomplish this, a notebook kernel can implement a [debug adapter](https://microsoft.github.io/debug-adapter-protocol/), either by directly implementing the protocol, or providing an interface between an existing notebook debugger and the protocol.
 
 Samples:
-- (vscode-nodebook)[https://github.com/microsoft/vscode-nodebook]: Node.js notebook debugger, which directly implements the debug adapter protocol
-- (vscode-simple-jupyter-notebook)[https://github.com/microsoft/vscode-simple-jupyter-notebook]: Jupyter notebook with debugging support provided by the existing Xeus debugger
+- [vscode-nodebook](https://github.com/microsoft/vscode-nodebook): Node.js notebook debugger, which directly implements the debug adapter protocol
+- [vscode-simple-jupyter-notebook](https://github.com/microsoft/vscode-simple-jupyter-notebook): Jupyter notebook with debugging support provided by the existing Xeus debugger
