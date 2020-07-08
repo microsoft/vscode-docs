@@ -23,7 +23,7 @@ Scaffolding or pasting a launch configuration into `launch.json` is **not suffic
 - `docker-build` and `docker-run` tasks in `tasks.json`.
 - A launch configuration that invokes these tasks.
 
-We recommend using the **Docker: Add Docker Files to Workspace...** command create these items if none of these assets already exist. If you already have a functional Dockerfile, we recommend using the **Docker: Initialize for Docker debugging** command to scaffold a launch configuration and Docker-related tasks.
+We recommend using the **Docker: Add Docker Files to Workspace...** command to create these items, if none of these assets already exist. If you already have a functional Dockerfile, we recommend using the **Docker: Initialize for Docker debugging** command to scaffold a launch configuration and Docker-related tasks.
 
 ## Node.js
 
@@ -106,7 +106,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `containerName` | Name of the container used for debugging. |
 | `dockerServerReadyAction` | Options for launching a browser to the Docker container. Similar to serverReadyAction, but replaces container ports with host ports. |
 | `removeContainerAfterDebug` | Whether to remove the debug container after debugging. |
-| `platform` | The target plaform for the application. Can be `netCore` or `node`. |
+| `platform` | The target platform for the application. Can be `netCore` or `node`. |
 | `netCore` | Options for debugging .NET Core projects in Docker. |
 | `node` | Options for debugging Node.js projects in Docker. |
 | `python` | Options for debugging Python projects in Docker. |
