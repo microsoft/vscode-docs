@@ -21,7 +21,7 @@ Not going native, we had to find ways to improve our JavaScript/TypeScript code.
 
 The mental model for an editor is line based. Developers read and write source code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because typical text documents are relatively small. When the user is typing, we located the line to modify in the array and replaced it. When inserting a new line, we spliced a new line object into the line array and the JavaScript engine would do the heavy lifting for us.
 
-However, we kept receiving reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the line array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
+However, we kept receiving reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the line array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
 
 Another problem with the line array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance which you'll see in benchmarks further down.
 
@@ -194,7 +194,7 @@ Having a theoretical understanding of this data structure is one thing, real wor
 
 For telling results, I looked for realistic files online:
 
-* [checker.ts](https://github.com/Microsoft/TypeScript/blob/master/src/compiler/checker.ts) - 1.46 MB, 26k lines.
+* [checker.ts](https://github.com/microsoft/TypeScript/blob/master/src/compiler/checker.ts) - 1.46 MB, 26k lines.
 * [sqlite.c](https://github.com/kripken/emscripten/blob/master/tests/sqlite/sqlite3.c) - 4.31MB, 128k lines.
 * [Russian English Bilingual dictionary](https://github.com/titoBouzout/Dictionaries/blob/master/Russian-English%20Bilingual.dic) - 14MB, 552k lines.
 

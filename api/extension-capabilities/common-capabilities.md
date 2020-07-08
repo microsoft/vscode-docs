@@ -55,7 +55,7 @@ Almost all extensions need to present information to the user at some point. VS 
 
 ## Quick Pick
 
-With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/quickinput-sample) illustrates the API.
+With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/quickinput-sample) illustrates the API.
 
 ## File Picker
 
@@ -75,4 +75,4 @@ Progress can be shown in different locations using the [`ProgressLocation`](/api
 - In the Source Control view
 - General progress in the VS Code window
 
-The [Progress Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/progress-sample) illustrates this API.
+The [Progress Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/progress-sample) illustrates this API.

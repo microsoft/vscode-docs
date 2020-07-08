@@ -19,7 +19,7 @@ This topics covers:
 
 ## vsce
 
-[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
+[vsce](https://github.com/microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 

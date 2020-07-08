@@ -354,7 +354,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     }
     ```
 
-    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new).
+    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/microsoft/vscode/issues/new).
 
 ## Next steps
 

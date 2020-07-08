@@ -170,4 +170,4 @@ Read on to find out about:
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
 * [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).

@@ -275,7 +275,7 @@ main();
 
 ### Migrating from `vscode`
 
-The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
+The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
 
 - Remove `vscode` dependency.
 - Add `vscode-test` dependency.

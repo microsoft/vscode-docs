@@ -13,7 +13,7 @@ In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (
 
 After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you about GCC or Mingw-w64 or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 

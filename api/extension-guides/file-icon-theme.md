@@ -13,7 +13,7 @@ Visual Studio Code displays icons next to filenames throughout its UI, and exten
 
 ## Adding a new File Icon Theme
 
-You can create your own file icon theme from icons (preferably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
+You can create your own file icon theme from icons (preferably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/microsoft/vscode/tree/master/extensions/theme-seti).
 
 To begin, create a VS Code extension and add the `iconTheme` contribution point.
 

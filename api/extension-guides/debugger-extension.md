@@ -100,7 +100,7 @@ Before using Mock Debug as a starting point for your own development, we recomme
 Now let's get the source for Mock Debug and start development on it within VS Code:
 
 ```bash
-git clone https://github.com/Microsoft/vscode-mock-debug.git
+git clone https://github.com/microsoft/vscode-mock-debug.git
 cd vscode-mock-debug
 yarn
 ```
@@ -309,7 +309,7 @@ Instead of defining the initial content of the `launch.json` statically in the `
 The **variables** contribution binds "variables" to "commands". These variables can be used in the launch configuration using the **\${command:xyz}** syntax and the variables are substituted by the value returned from the bound command when a debug session is started.
 
 The implementation of a command lives in the extension and it can range from a simple expression with no UI, to sophisticated functionality based on the UI features available in the extension API.
-Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/Microsoft/vscode-mock-debug/blob/606454ff3bd669867a38d9b2dc7b348d324a3f6b/src/extension.ts#L21-L26) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
+Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/microsoft/vscode-mock-debug/blob/606454ff3bd669867a38d9b2dc7b348d324a3f6b/src/extension.ts#L21-L26) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
 
 ```ts
 vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {

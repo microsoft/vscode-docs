@@ -151,7 +151,7 @@ The [Spring Boot Starter](https://docs.microsoft.com/java/azure/spring-framework
 
 ### Config your project
 
-1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/Microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-cosmosdb-spring-boot-sample).
+1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-cosmosdb-spring-boot-sample).
 
 2. Navigate to `src/main/resources` and open `application.properties`. Replace below properties in `application.properties` with information of your database.
 

@@ -76,8 +76,8 @@ You can learn more about debugging Node.js apps in VS Code in the [Node.js Debug
 
 In the next topic, [Extension Anatomy](/api/get-started/extension-anatomy), we'll take a closer look at the source code of the `Hello World` sample and explain key concepts.
 
-You can find the source code of this tutorial at: https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-sample. The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point.
+You can find the source code of this tutorial at: https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-sample. The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point.
 
 ### Using JavaScript
 
-In this guide, we mainly describe how to develop VS Code extension with TypeScript because we believe TypeScript offers the best experience for developing VS Code extensions. However, if you prefer JavaScript, you can still follow along using [helloworld-minimal-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/helloworld-minimal-sample).
+In this guide, we mainly describe how to develop VS Code extension with TypeScript because we believe TypeScript offers the best experience for developing VS Code extensions. However, if you prefer JavaScript, you can still follow along using [helloworld-minimal-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-minimal-sample).
