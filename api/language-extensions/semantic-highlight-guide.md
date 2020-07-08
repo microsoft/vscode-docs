@@ -124,12 +124,10 @@ If enabled, semantic tokens are first matched against the semantic token rules d
 
 `variable.readonly:java` is called a selector and has the form `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
 
-
 Here are other examples of selectors and styles:
 
 - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
 - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
-
 
 If no rule matches, the VS Code uses the [Semantic Token Scope Map](#semantic-token-scope-map) to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
 

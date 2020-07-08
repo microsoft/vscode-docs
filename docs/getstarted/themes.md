@@ -49,7 +49,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 You can customize your active color theme with the `workbench.colorCustomizations` and `editor.tokenColorCustomizations` user [settings](/docs/getstarted/settings.md).
 
-To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more, use `workbench.colorCustomizations`.
+To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons, and more, use `workbench.colorCustomizations`.
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
@@ -65,9 +65,7 @@ To customize a specific theme only, use the following syntax:
 }
 ```
 
-
 ### Editor syntax highlighting
-
 
 To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
 
@@ -93,7 +91,7 @@ Again, to customize a specific theme only, use the following syntax:
 
 Some languages (currently: TypeScript, JavaScript, Java) provide semantic tokens. Semantic tokens are based on the language service's symbol understanding and are more accurate than the syntax tokens coming from the TextMate grammars that are driven by regular expressions. The semantic highlighting that is computed from the semantic tokens goes on top of syntax highlighting and can correct and enrich the highlighting as seen in the following example:
 
-The "Tomorrow Night Blue" color theme without semantic highlighting :
+The "Tomorrow Night Blue" color theme without semantic highlighting:
 
 ![without semantic highlighting](images/themes/no-semantic-highlighting.png)
 
@@ -107,11 +105,13 @@ Notice the color differences based on language service symbol understanding:
 - line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 - line 13: `getFoldingRanges` is colored as a function.
 
-The settings `editor.semanticHighlighting.enabled` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false` and `configuredByTheme`.
+The settings `editor.semanticHighlighting.enabled` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
+
 - `true` and `false` turn semantic highlighting on or off for all themes.
-- `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example the "Dark+" default) have semantic highlighting enabled by default.
+- `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.
 
 Users can override the theme setting by:
+
 ```json
 "editor.semanticTokenColorCustomizations": {
     "[Rouge]": {
@@ -120,8 +120,7 @@ Users can override the theme setting by:
 },
 ```
 
-When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether semantic tokens are colored and how. Some semantic tokens are standardized and map to well-established TextMate scopes.  If the theme has a coloring rule for these TextMate scopes, the semantic token will be rendered with that color, without the need for any additional coloring rules.
-
+When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether and how semantic tokens are colored. Some semantic tokens are standardized and map to well-established TextMate scopes. If the theme has a coloring rule for these TextMate scopes, the semantic token will be rendered with that color, without the need for any additional coloring rules.
 
 Additional styling rules can be configured by the user in `editor.semanticTokenColorCustomizations"`:
 
@@ -136,17 +135,17 @@ Additional styling rules can be configured by the user in `editor.semanticTokenC
 },
 ```
 
-To see what semantic tokens are computed and how they are styled, users can use the scope inspector.
+To see what semantic tokens are computed and how they are styled, users can use the scope inspector (**Developer: Inspect Editor Tokens and Scopes**), which displays information for the text at the current cursor position.
 
 ![scope inspector](images/themes/semantic-highlighting-scope-inspector.png)
 
 If semantic tokens are available for the language at the given position and enabled by theme, the inspect tool shows a section `semantic token type`. The section shows the semantic token information (type and any number of modifiers) as well as the styling rules that apply.
 
-More information on semantic tokens and styling rule syntax can be found in the [Semantic Highlighting Guide](/api/extension-guides/semantic-highlight-guide).
+More information on semantic tokens and styling rule syntax can be found in the [Semantic Highlighting Guide](/api/language-extensions/semantic-highlight-guide.md).
 
 ## Creating your own Color Theme
 
-Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
+Creating and publishing a theme extension is easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
 VS Code's Yeoman [extension generator](/api/get-started/your-first-extension.md) will help you generate the rest of the extension.
 
@@ -175,7 +174,7 @@ File icon themes can be contributed by extensions and selected by users as their
 
 ![file icon theme drop-down](images/themes/file-icon-theme-dropdown.png)
 
-By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once an file icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
+By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once a file icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
 
 VS code ships with two file icon themes; **Minimal** and **Seti**. To install more file icon themes, select the **Install Additional File Icon Themes** item in the file icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
 
