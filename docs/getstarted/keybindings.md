@@ -393,6 +393,16 @@ There is a key-value pair operator for `when` clauses. The expression `key =~ va
    "when": "resourceFilename =~ /docker/"
 ```
 
+### Using a custom When Clause Context
+If you are authoring your own VSCode extension and need to enable/disable commands, menus or views by using the when clause context and none of the keys above suit your needs, then you can use the following code.
+
+The example below is taken from the source code of VSCode and sets the key `npm:showScriptExplorer` to true if it can find a package.json file in the workspace.
+
+```js
+vscode.commands.executeCommand('setContext', 'npm:showScriptExplorer', true);
+```
+
+
 ## Custom keybindings for refactorings
 
 The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
