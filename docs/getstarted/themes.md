@@ -45,6 +45,8 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Customizing a Color Theme
 
+### Workbench colors
+
 You can customize your active color theme with the `workbench.colorCustomizations` and `editor.tokenColorCustomizations` user [settings](/docs/getstarted/settings.md).
 
 To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more, use `workbench.colorCustomizations`.
@@ -62,6 +64,10 @@ To customize a specific theme only, use the following syntax:
     }
 }
 ```
+
+
+### Editor syntax highlighting
+
 
 To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
 
@@ -83,34 +89,9 @@ Again, to customize a specific theme only, use the following syntax:
 },
 ```
 
-## Semantic highlighting
+### Editor semantic highlighting
 
-Semantic highlighting is available for TypeScript and JavaScript in VS Code release 1.43. We expect it to be adopted by other languages soon.
-
-Semantic highlighting enriches syntax coloring based on symbol information from the language service, which has more complete understanding of the project. The coloring changes appear once the language server is running and has computed the semantic tokens.
-
-Each theme controls whether to enable semantic highlighting with a specific setting that is part of the theme definition. The style of each semantic token is defined by the theme's styling rules.
-
-Users can override the semantic highlighting feature and colorization rules using the `editor.tokenColorCustomizations` setting:
-
-Enable semantic highlighting for a specific theme:
-
-```json
-"editor.tokenColorCustomizations": {
-    "[Material Theme]": {
-        "semanticHighlighting": true
-    }
-},
-```
-
-Enable semantic highlighting for all themes:
-```json
-"editor.tokenColorCustomizations": {
-    "semanticHighlighting": true
-},
-```
-
-The themes that ship with VS Code (for example the "Dark+" default) have `semanticHighlighting` enabled by default. You can disable semantic highlighting for those themes as described above.
+Some languages (currently: TypeScript, JavaScript, Java) provide semantic tokens. Semantic tokens are based on the language service's symbol understanding and are more accurate than the syntax tokens coming from the TextMate grammars that are driven by regular expressions. The semantic highlighting that is computed from the semantic tokens goes on top of syntax highlighting and can correct and enrich the highlighting as seen in the following example:
 
 The "Tomorrow Night Blue" color theme without semantic highlighting :
 
@@ -125,6 +106,43 @@ Notice the color differences based on language service symbol understanding:
 - line 10: `languageMode` is colored as a parameter.
 - line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 - line 13: `getFoldingRanges` is colored as a function.
+
+The settings `editor.semanticHighlighting.enabled` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false` and `configuredByTheme`.
+- `true` and `false` turn semantic highlighting on or off for all themes.
+- `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example the "Dark+" default) have semantic highlighting enabled by default.
+
+Users can override the theme setting by:
+```json
+"editor.semanticTokenColorCustomizations": {
+    "[Rouge]": {
+        "enabled": true
+    }
+},
+```
+
+When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether semantic tokens are colored and how. Some semantic tokens are standardized and map to well-established TextMate scopes.  If the theme has a coloring rule for these TextMate scopes, the semantic token will be rendered with that color, without the need for any additional coloring rules.
+
+
+Additional styling rules can be configured by the user in `editor.semanticTokenColorCustomizations"`:
+
+```json
+"editor.semanticTokenColorCustomizations": {
+    "[Rouge]": {
+        "enabled": true,
+        "rules": {
+            "*.declaration": { "bold": true }
+        }
+    }
+},
+```
+
+To see what semantic tokens are computed and how they are styled, users can use the scope inspector.
+
+![scope inspector](images/themes/semantic-highlighting-scope-inspector.png)
+
+If semantic tokens are available for the language at the given position and enabled by theme, the inspect tool shows a section `semantic token type`. The section shows the semantic token information (type and any number of modifiers) as well as the styling rules that apply.
+
+More information on semantic tokens and styling rule syntax can be found in the [Semantic Highlighting Guide](/api/extension-guides/semantic-highlight-guide).
 
 ## Creating your own Color Theme
 
