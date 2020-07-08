@@ -144,7 +144,7 @@ Linux:
 
         `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
 
-    1. To remove the error permanently, edit `/etc/sysctl.d/10-ptrace.conf` and modify `kernel.yama.ptrace_scope` value of `1` to `0`.
+    1. To remove the error permanently, add a file called `10-ptrace.conf` to `/etc/sysctl.d/` and add the following `kernel.yama.ptrace_scope = 0`.
 
 macOS:
 
