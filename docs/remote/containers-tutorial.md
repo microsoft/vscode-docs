@@ -154,7 +154,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
 | `forwardPorts`  | Make a list of ports inside the container available locally. |
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
-| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the containerUser.  |
+| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
 
 [Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
 
