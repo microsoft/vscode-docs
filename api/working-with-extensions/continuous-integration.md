@@ -95,9 +95,11 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 ```yaml
 trigger:
-  tags:
+  branches:
     include:
     - master
+  tags:
+    include:
     - refs/tags/v*
 ```
 
