@@ -62,29 +62,21 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 ## Get the sample
 
-To create a Docker container, we are going to clone a GitHub repository with a Node.js project.
+To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Run the git clone command in a terminal or command prompt.
+Select **Remote-Containers: Try a Sample...** from the command list that appears and select the Node sample from the list.
 
-```bash
-git clone https://github.com/Microsoft/vscode-remote-try-node
-```
-
-<!-- TBD switch to Try Sample flow -->
+![Select a sample from the list](images/containers/select-a-sample.png)
 
 **Note**: There are other remote container samples such as `vscode-remote-try-python` or `vscode-remote-try-java`, but this tutorial will use `vscode-remote-try-node`.
 
-### Open the repo in Visual Studio Code
-
-Upon opening one of the sample projects listed above, you should see the following notification prompting you to reopen the workspace inside a dev container. Select **Reopen in Container**.
-
-![Dev container notification](images/containers-tutorial/dev-container-toast.png)
-
 ### Wait for the container to build
 
-If this is your first time connecting, a Docker image will be downloaded, built, and starts a container with a copy of VS Code Server running. This might take a few minutes the first time, but future connections will only take seconds.
+The window will then reload, but since the container does not exist yet, VS Code will create one and clone the sample repository into an isolated [container volume](https://docs.docker.com/storage/volumes/). This may take some time, and a progress notification will provide status updates. Fortunately, this step isn't necessary the next time you open the folder since the container will already exist.
 
-![Building image](images/containers-tutorial/building-image.png)
+![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container.
 
 ### Check the container
 
@@ -97,7 +89,7 @@ Once the container is running and you're connected, you should see your remote c
 
 One of the useful things about developing in a container is that you can use specific versions of dependencies that your application needs without impacting your local development environment.
 
-The specific container for this tutorial has Node.js v10 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
+The specific container for this tutorial has Node.js v12 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
 
 ```bash
 node --version; npm --version
@@ -105,7 +97,7 @@ node --version; npm --version
 
 This should show the following versions:
 
-![Node.js version check](images/containers-tutorial/version-check.png)
+![Node.js version check](images/containers-tutorial/version-check-updated.png)
 
 ### Run the application
 
@@ -136,17 +128,20 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 {
     "name": "Node.js Sample",
     "dockerFile": "Dockerfile",
-    "appPort": 3000,
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
+
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ],
+    
+    "forwardPorts": [3000],
+
     "postCreateCommand": "yarn install",
-    // Comment out the next line to run as root instead. Linux users, update
-    // Dockerfile with your user's UID/GID if not 1000.
-    "runArgs": [ "-u", "node" ]
+        
+    "remoteUser": "node"
 }
 ```
 
@@ -155,11 +150,11 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | Option | Description |
 |---|---|
 | `dockerfile` | Relative path to a `Dockerfile` that you wish to use as your image. |
-| `appPort`  | A port or array of ports that should be made available locally when the container is running  |
-| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
+| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
+| `forwardPorts`  | Make a list of ports inside the container available locally. |
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
-| `runArgs`  | An array of [Docker CLI](https://docs.docker.com/engine/reference/commandline/run/) arguments that should be used when running the container. |
+| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
 
 [Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
 
@@ -167,7 +162,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 Congratulations, you've successfully completed this tutorial!
 
-This has been a brief overview of what is possible using dev containers. To learn about other scenarios or learn more about containerized development, checkout the [Developing inside Containers](/docs/remote/containers.md) documentation.
+This has been a brief overview of what is possible using dev containers. As a next step, we recommend checking out how you can [open an existing folder from your machine in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container) or [opening a GitHub repository or PR in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
 
 Check out the other Remote Development extensions.
 
