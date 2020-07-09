@@ -159,7 +159,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 Congratulations, you've successfully completed this tutorial!
 
-This has been a brief overview of what is possible using dev containers. To learn about other scenarios or learn more about containerized development, checkout the [Developing inside Containers](/docs/remote/containers.md) documentation.
+This has been a brief overview of what is possible using dev containers. As a next step, we recommend checking out how you can [open an existing folder from your machine in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container) or [opening a GitHub repository or PR in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
 
 Check out the other Remote Development extensions.
 
