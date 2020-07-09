@@ -83,7 +83,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
-3. Declare a `deploy` script in `package.json` without the PAT.
+3. Declare a `deploy` script in `package.json` without the PAT (by default, `vsce` will use the `VSCE_PAT` environment variable as the Personal Access Token).
 
 ```json
 "scripts": {
@@ -95,9 +95,11 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 ```yaml
 trigger:
-  tags:
+  branches:
     include:
     - master
+  tags:
+    include:
     - refs/tags/v*
 ```
 
@@ -109,6 +111,8 @@ trigger:
     yarn deploy
   displayName: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
+  env:
+    VSCE_PAT: $(VSCE_PAT)
 ```
 
 The [condition](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) property tells the CI to run the publish step only in certain cases.
@@ -118,6 +122,8 @@ In our example, the condition has three checks:
 - `succeeded()` - Publish only if the tests pass.
 - `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` - Publish only if a tagged (release) build.
 - `eq(variables['Agent.OS'], 'Linux')` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
+
+Since `VSCE_PAT` is a secret variable, it is not immediately usable as an environment variable. Thus, we need to explicitly map the environment variable `VSCE_PAT` to the secret variable.
 
 ## GitHub Actions
 
