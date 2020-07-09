@@ -19,6 +19,8 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
+**Note**: After reviewing this topic, you can get started with the introductory [Containers tutorial](/docs/remote/containers-tutorial.md).
+
 ### System requirements
 
 **Local:**
@@ -598,13 +600,13 @@ If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https:/
 Next, install `gnupg2` in your container by updating your Dockerfile. For example:
 
 ```bash
-RUN apt-get update && apt-get install gnupg2
+RUN apt-get update && apt-get install gnupg2 -y
 ```
 
 Or if running as a [non-root user](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container):
 
 ```bash
-RUN sudo apt-get update && sudo apt-get install gnupg2
+RUN sudo apt-get update && sudo apt-get install gnupg2 -y
 ```
 
 The next time the container starts, your GPG keys should be accessible inside the container as well.

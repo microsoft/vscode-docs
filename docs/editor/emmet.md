@@ -13,7 +13,7 @@ Emmet support is built right into Visual Studio Code, **no extension is required
 
 ## How to expand Emmet abbreviations and snippets
 
-Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `pug`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files. As well as any language that inherits from any of the above like `handlebars` and `php`.
+Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `pug`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files, as well as any language that inherits from any of the above like `handlebars` and `php`.
 
 ![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 

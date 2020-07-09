@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: remote
 TOCTitle: Visual Studio Codespaces
 PageTitle: Developing with Visual Studio Codespaces

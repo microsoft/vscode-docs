@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
 PageTitle: c_cpp_properties.json reference
-DateApproved: 07/25/2019
+DateApproved: 06/26/2020
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
 # c_cpp_properties.json reference
@@ -92,7 +92,7 @@ For more information about changing these settings, see [Customizing Default Set
   The version of the C++ language standard to use for IntelliSense.
 
 - `configurationProvider`
-  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `vector-of-bool.cmake-tools` to provide configuration information from the CMake Tools extension.
+  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension.
 
 - `windowsSdkVersion`
   The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.

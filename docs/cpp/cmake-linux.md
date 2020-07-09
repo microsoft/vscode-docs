@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 6
 Area: cpp
 TOCTitle: CMake Tools on Linux
 ContentId: 86543311-5452-4b1f-a44c-03cc3df04c3f
@@ -170,5 +170,5 @@ You've now used the VS Code CMake Tools extension to use CMake to build and debu
 
 ## Next steps
 
-* Explore the [CMake Tools](https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html) documentation
+* Explore the [CMake Tools](https://github.com/microsoft/vscode-cmake-tools/blob/develop/docs/README.md) documentation
 * Review the [Overview of the C++ extension](/docs/languages/cpp.md)

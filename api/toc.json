@@ -9,17 +9,6 @@
     ]
   },
   {
-    "name": "Working With Extensions",
-    "area": "working-with-extensions",
-    "topics": [
-      ["Testing Extensions", "/api/working-with-extensions/testing-extension"],
-      ["Publishing Extensions", "/api/working-with-extensions/publishing-extension"],
-      ["Bundling Extensions", "/api/working-with-extensions/bundling-extension"],
-      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
-      // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
-    ]
-  },
-  {
     "name": "Extension Capabilities",
     "area": "extension-capabilities",
     "topics": [
@@ -65,6 +54,17 @@
     ]
   },
   {
+    "name": "Testing and Publishing",
+    "area": "working-with-extensions",
+    "topics": [
+      ["Testing Extensions", "/api/working-with-extensions/testing-extension"],
+      ["Publishing Extensions", "/api/working-with-extensions/publishing-extension"],
+      ["Bundling Extensions", "/api/working-with-extensions/bundling-extension"],
+      ["Continuous Integration", "/api/working-with-extensions/continuous-integration"]
+      // ["Profiling Extension", "/api/advanced-topics/profiling-extension"],
+    ]
+  },
+  {
     "name": "Advanced Topics",
     "area": "advanced-topics",
     "topics": [
@@ -87,7 +87,7 @@
       ["Contribution Points", "/api/references/contribution-points"],
       ["Activation Events", "/api/references/activation-events"],
       ["Extension Manifest", "/api/references/extension-manifest"],
-      ["Commands", "/api/references/commands"],
+      ["Built-in Commands", "/api/references/commands"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
       ["Document Selector", "/api/references/document-selector"]

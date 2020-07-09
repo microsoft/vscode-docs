@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 4
 Area: remote
 TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
@@ -18,6 +18,8 @@ The extension runs commands and other extensions directly in WSL so you can edit
 This lets VS Code provide a **local-quality development experience** — including full IntelliSense (completions), code navigation, and debugging — **regardless of where your code is hosted**.
 
 ## Getting started
+
+**Note**: After reviewing this topic, you can get started with the introductory [WSL tutorial](/docs/remote/wsl-tutorial.md).
 
 ### Installation
 
