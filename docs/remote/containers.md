@@ -7,6 +7,7 @@ PageTitle: Developing inside a Container using Visual Studio Code Remote Develop
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
 DateApproved: 7/9/2020
+
 ---
 
 # Developing inside a Container
@@ -63,6 +64,7 @@ To get started, follow these steps:
     2. Add your user to the `docker` group by using a terminal to run: `sudo usermod -aG docker $USER`
 
     3. Sign out and back in again so your changes take effect.
+
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
 
@@ -1111,6 +1113,7 @@ See [Setting up a folder to run in a container](#indepth-setting-up-a-folder-to-
 | `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code has attached to a running container (in all cases). The parameters behave exactly like `postCreateCommand`, but the commands execute on attach rather than create. Not set by default. |
 | `initializeCommand` | string,<br>array | A command string or list of command arguments to run on the **local machine** before the container is created. This runs either when the container image is being built and when the running container is created or started. The commands execute from the `workspaceFolder` locally. For example, `"yarn install"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
+
 
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
