@@ -89,7 +89,7 @@ Once the container is running and you're connected, you should see your remote c
 
 One of the useful things about developing in a container is that you can use specific versions of dependencies that your application needs without impacting your local development environment.
 
-The specific container for this tutorial has Node.js v10 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
+The specific container for this tutorial has Node.js v12 installed, which you can check by opening a new terminal **Terminal** > **New Terminal** (`kb(workbench.action.terminal.new)`) and entering:
 
 ```bash
 node --version; npm --version
@@ -97,7 +97,7 @@ node --version; npm --version
 
 This should show the following versions:
 
-![Node.js version check](images/containers-tutorial/version-check.png)
+![Node.js version check](images/containers-tutorial/version-check-updated.png)
 
 ### Run the application
 
