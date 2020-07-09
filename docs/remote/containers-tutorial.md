@@ -129,23 +129,18 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "name": "Node.js Sample",
     "dockerFile": "Dockerfile",
 
-    // Use 'settings' to set *default* container specific settings.json values on container create. 
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
 
-    // Add the IDs of extensions you want installed when the container is created in the array below.
     "extensions": [
         "dbaeumer.vscode-eslint"
     ],
     
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [3000],
 
-    // Specifies a command that should be run after the container has been created.
     "postCreateCommand": "yarn install",
         
-    // Comment out the next line to run as root instead.
     "remoteUser": "node"
 }
 ```
@@ -155,11 +150,11 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | Option | Description |
 |---|---|
 | `dockerfile` | Relative path to a `Dockerfile` that you wish to use as your image. |
-| `appPort`  | A port or array of ports that should be made available locally when the container is running  |
-| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
+| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
+| `forwardPorts`  | Make a list of ports inside the container available locally. |
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
-| `runArgs`  | An array of [Docker CLI](https://docs.docker.com/engine/reference/commandline/run/) arguments that should be used when running the container. |
+| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the containerUser.  |
 
 [Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
 
