@@ -393,7 +393,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-We next create the runtime script which will live inside the output context and listen for the creation of new outputs. To facilitate communication between the two contexts, scripts running in the output context have access to a global `acquireNotebookRendererApi()`(https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host context from within the output context.
+We next create the runtime script which will live inside the output context and listen for the creation of new outputs. To facilitate communication between the two contexts, scripts running in the output context have access to a global [`acquireNotebookRendererApi()`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts) function, which provides an interface for interacting with the extension host context from within the output context.
 
 Our script for rendering outputs insider the extension host context is as follows:
 
