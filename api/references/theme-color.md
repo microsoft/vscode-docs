@@ -176,7 +176,6 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 
-
 ## Side Bar
 
 The Side Bar contains views like the Explorer and Search.
@@ -373,7 +372,6 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
-
 
 Folding:
 
@@ -670,7 +668,6 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `debugTokenExpression.number`: Foreground color for numbers in debug views
 - `debugTokenExpression.error`: Foreground color for expression errors in debug views
 
-
 ## Welcome page colors
 
 - `welcomePage.background`: Background color for the Welcome page.
@@ -801,7 +798,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
-- `notebook.cellToolbarSeperator`: The color of the seperator in the cell bottom toolbar
+- `notebook.cellToolbarSeperator`: The color of the separator in the cell bottom toolbar
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
@@ -811,8 +808,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
-
-
 
 ## Extension colors
 
