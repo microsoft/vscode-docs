@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 ---
 # Advanced Container Configuration
 
@@ -196,11 +196,11 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 The Remote - Containers extension uses "bind mounts" to source code in your local filesystem by default. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these type of issues.
 
-### Store your source code in the WSL2 filesystem on Windows
+### Store your source code in the WSL 2 filesystem on Windows
 
-Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL2) that provides a full Linux kernel and has significantly improved performance over WSL1. Docker Desktop 2.3+ includes a new WSL2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
+Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL 2) that provides a full Linux kernel and has significantly improved performance over WSL 1. Docker Desktop 2.3+ includes a new WSL 2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL 2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
 
-See [Open a WSL2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
+See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
 
 ### Update the mount consistency to 'delegated' for macOS
 

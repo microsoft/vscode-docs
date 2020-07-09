@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -124,12 +124,10 @@ If enabled, semantic tokens are first matched against the semantic token rules d
 
 `variable.readonly:java` is called a selector and has the form `(*|tokenType)(.tokenModifier)*(:tokenLanguage)?`.
 
-
 Here are other examples of selectors and styles:
 
 - "*.declaration": { "fontStyle": "bold" }: // all declarations are bold
 - "class:java": { "foreground": "#00ff00" "fontStyle": "bold" } // classes in java
-
 
 If no rule matches, the VS Code uses the [Semantic Token Scope Map](#semantic-token-scope-map) to evaluate a TextMate scope for the given semantic token. That scope is matched against the TextMate theming rules in `tokenColors`.
 
