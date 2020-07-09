@@ -83,7 +83,6 @@ After the container is built, VS Code automatically connects to it and maps the 
 Once the container is running and you're connected, you should see your remote context change in the bottom left of the Status bar:
 
 ![Building image](images/containers-tutorial/connected.png)
-<!-- TBD old settings icon -->
 
 ## Check your environment
 
@@ -136,11 +135,11 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "extensions": [
         "dbaeumer.vscode-eslint"
     ],
-    
+
     "forwardPorts": [3000],
 
     "postCreateCommand": "yarn install",
-        
+
     "remoteUser": "node"
 }
 ```
@@ -162,7 +161,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 Congratulations, you've successfully completed this tutorial!
 
-This has been a brief overview of what is possible using dev containers. As a next step, we recommend checking out how you can [open an existing folder from your machine in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container) or [opening a GitHub repository or PR in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
+This has been a brief overview of what is possible using dev containers. As a next step, we recommend checking out how you can [open an existing folder from your machine in a container](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) or [opening a GitHub repository or PR in a container](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
 
 Check out the other Remote Development extensions.
 
