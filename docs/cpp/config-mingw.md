@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 2
 Area: cpp
 TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
