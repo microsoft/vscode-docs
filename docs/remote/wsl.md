@@ -27,7 +27,7 @@ To get started, you need to:
 
 1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
-    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
+    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native source code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) on the **Windows** side (not in WSL).
 
@@ -133,11 +133,11 @@ The script needs to be a valid Bourne shell script. Be aware that an invalid scr
 
 Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
 
-## Advanced: Opening a WSL2 folder in a container
+## Advanced: Opening a WSL 2 folder in a container
 
-If you are using WSL2 and [Docker Desktop's WSL2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
+If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
 
-1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL2 support.
+1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL 2 support.
 
     > **Tip:**  Go to **Settings > Resources > WSL Integration** and enable Docker integration with the WSL distribution you will be using.
 
@@ -165,7 +165,7 @@ This section contains a list of common know issues with WSL. The intent is not t
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace in WSL1
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace in WSL 1
 
 That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
@@ -175,13 +175,13 @@ For large workspace you want to increase the polling interval: `remote.WSL.fileW
 
 [WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
 
-### Golang in WSL1
+### Golang in WSL 1
 
 | Issue | Existing issues |
 |---|---|
 Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/Microsoft/vscode-go/issues/926) |
 
-### Node.js in WSL1
+### Node.js in WSL 1
 
 | Issue | Existing issues |
 |---|---|

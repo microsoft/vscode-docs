@@ -53,6 +53,8 @@ To get started, you need to:
 
 2. **[Optional]** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/getstarted/settings.md) for improved security.
 
+    In the Settings editor:
+
     ![Listen on socket VS Code setting](images/ssh/ssh-listen-on-socket.png)
 
     See the [Tips and Tricks](/docs/remote/troubleshooting.md#improving-security-on-multi-user-servers) article for details.
