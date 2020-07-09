@@ -128,17 +128,25 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 {
     "name": "Node.js Sample",
     "dockerFile": "Dockerfile",
-    "appPort": 3000,
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    // Use 'settings' to set *default* container specific settings.json values on container create. 
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
+
+    // Add the IDs of extensions you want installed when the container is created in the array below.
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ],
+    
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [3000],
+
+    // Specifies a command that should be run after the container has been created.
     "postCreateCommand": "yarn install",
-    // Comment out the next line to run as root instead. Linux users, update
-    // Dockerfile with your user's UID/GID if not 1000.
-    "runArgs": [ "-u", "node" ]
+        
+    // Comment out the next line to run as root instead.
+    "remoteUser": "node"
 }
 ```
 
