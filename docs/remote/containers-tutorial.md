@@ -62,29 +62,21 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 ## Get the sample
 
-To create a Docker container, we are going to clone a GitHub repository with a Node.js project.
+To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Run the git clone command in a terminal or command prompt.
+Select **Remote-Containers: Try a Sample...** from the command list that appears and select the Node sample from the list.
 
-```bash
-git clone https://github.com/Microsoft/vscode-remote-try-node
-```
-
-<!-- TBD switch to Try Sample flow -->
+![Select a sample from the list](images/containers/select-a-sample.png)
 
 **Note**: There are other remote container samples such as `vscode-remote-try-python` or `vscode-remote-try-java`, but this tutorial will use `vscode-remote-try-node`.
 
-### Open the repo in Visual Studio Code
-
-Upon opening one of the sample projects listed above, you should see the following notification prompting you to reopen the workspace inside a dev container. Select **Reopen in Container**.
-
-![Dev container notification](images/containers-tutorial/dev-container-toast.png)
-
 ### Wait for the container to build
 
-If this is your first time connecting, a Docker image will be downloaded, built, and starts a container with a copy of VS Code Server running. This might take a few minutes the first time, but future connections will only take seconds.
+The window will then reload, but since the container does not exist yet, VS Code will create one and clone the sample repository into an isolated [container volume](https://docs.docker.com/storage/volumes/). This may take some time, and a progress notification will provide status updates. Fortunately, this step isn't necessary the next time you open the folder since the container will already exist.
 
-![Building image](images/containers-tutorial/building-image.png)
+![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+After the container is built, VS Code automatically connects to it and maps the project folder from your local file system into the container.
 
 ### Check the container
 
