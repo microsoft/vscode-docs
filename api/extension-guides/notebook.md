@@ -18,7 +18,7 @@ Visually:
 ![Overview of 3 componenets of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
 
 ### Content Provider
-[`NotebookContentProvider` API Reference](/api/references/vscode-api#NotebookContentProvider)
+[`NotebookContentProvider` API Reference](https://github.com/microsoft/vscode/blob/43184b2beda9edb613caadc2bab29ec50bad863f/src/vs/vscode.proposed.d.ts#L1792-L1805)
 
 A `NotebookContentProvider` is responsible for taking a serialized description of a notebook and generating a list of markdown and code cells. It additionally handles saving modifications made in the notebook back to the original resource.
 
@@ -110,7 +110,7 @@ You should be able to open Jupyter-formatted notebooks and view their cells as b
 *Note:* The default ordering of output mimetypes is defined by the notebook content provider via the `NotebookData#metadata.displayOrder` property, which can be set in a content provider's `openNotebook` method.
 
 ### Kernel
-[`NotebookKernel` API Reference](/api/references/vscode-api#NotebookKernel)
+[`NotebookKernel` API Reference](https://github.com/microsoft/vscode/blob/43184b2beda9edb613caadc2bab29ec50bad863f/src/vs/vscode.proposed.d.ts#L1807-L1812)
 
 A `NotebookKernel` is responsible for taking a *code cell* and from it producing some output or set of outputs.
 
@@ -219,7 +219,7 @@ By default VS Code can render the mimetypes:
 To render an alternative mimetype, a `NotebookOutputRenderer` must be registered for that mimetype.
 
 ### Output Renderer
-[`NotebookOutputRenderer` API Reference](/api/references/vscode-api#NotebookOutputRenderer)
+[`NotebookOutputRenderer` API Reference](https://github.com/microsoft/vscode/blob/43184b2beda9edb613caadc2bab29ec50bad863f/src/vs/vscode.proposed.d.ts#L1610-L1633)
 
 An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section we'll explore various techniques for rendering an output representing a GitHub Issue, ranging from a purely static HTML rendering of the issue to a fully interactive GitHub Issue applet which communicates with both GitHub and VS Code API's.
 
@@ -440,7 +440,7 @@ notebookApi.onDidReceiveMessage(({ message, seq }) => inflightRequests[seq](mess
 
 *Note:* Typings for the renderer context can be acquired by installing `@types/vscode-notebook-renderer`. These typings inject `acquireNotebookRendererApi` as global variable, so we keep them seprate from the rest of `@types/vscode`.
 
-Finally, we link this script to our dynamic output renderer by adding it to the `NotebookOutputRenderer#preloads` array, and register a listener to resolve comment data by implementing `NotebookOutputRenderer#resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](/api/references/vscode-api#NotebookCommunication) that is able to communicate bidirectionally between the extension host and the editor's output context:
+Finally, we link this script to our dynamic output renderer by adding it to the `NotebookOutputRenderer#preloads` array, and register a listener to resolve comment data by implementing `NotebookOutputRenderer#resolveNotebook`, which is called whenever new editor is created for a notebook and provides a [communication object](https://github.com/microsoft/vscode/blob/43184b2beda9edb613caadc2bab29ec50bad863f/src/vs/vscode.proposed.d.ts#L1764-L1790) that is able to communicate bidirectionally between the extension host and the editor's output context:
 
 ```ts
 class DynamicRenderer implements vscode.NotebookOutputRenderer {
