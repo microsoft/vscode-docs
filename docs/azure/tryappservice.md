@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Try Azure App Service
 ContentId: d99d21e4-f799-48ba-a7bc-58953d71c39d
 PageTitle: Try Azure App Service
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 MetaDescription: Try Azure App Service for a limited time without a subscription, free of charge and commitment.
 ---
 # Try Azure App Service

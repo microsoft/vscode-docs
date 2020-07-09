@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: How it works
 PageTitle: How remote dev containers work in Visual Studio Code
 MetaDescription: How remote dev containers work in Visual Studio Code
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 ---
 # How it works
 
