@@ -43,7 +43,7 @@ gulp.task('build-dist', done => {
 
   // Copy over MD/asset files
   $.mkdir('vscode-website/vscode-docs')
-  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../remote-release-notes', '../tutorials', '../build', '../api', '../remote-tutorials'], 'vscode-website/vscode-docs')
+  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../remote-release-notes', '../tutorials', '../build', '../api'], 'vscode-website/vscode-docs')
 
   // Clone tas-client
   $.exec(`git clone ${TAS_URL} vscode-website/tas-client`)

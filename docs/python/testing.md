@@ -167,7 +167,7 @@ Once VS Code recognizes tests, it provides several ways to run those tests as de
 
 ![Test adornments that appear in the VS Code editor for pytest code](images/testing/editor-adornments-pytest.png)
 
-> **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/Microsoft/vscode-python/issues).
+> **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/microsoft/vscode-python/issues).
 
 For Python, test discovery also activates the **Test Explorer** with an icon on the VS Code activity bar. The **Test Explorer** helps you visualize, navigate, and run tests:
 

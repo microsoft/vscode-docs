@@ -29,6 +29,7 @@
       ["Product Icon Theme", "/api/extension-guides/product-icon-theme"],
       ["Tree View", "/api/extension-guides/tree-view"],
       ["Webview", "/api/extension-guides/webview"],
+      ["Notebook", "/api/extension-guides/notebook"],
       ["Custom Editors", "/api/extension-guides/custom-editors"],
       ["Virtual Documents", "/api/extension-guides/virtual-documents"],
       ["Task Provider", "/api/extension-guides/task-provider"],

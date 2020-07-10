@@ -13,7 +13,7 @@ The Source Control API allows extension authors to define Source Control Managem
 
 ![VS Code SCM](images/scm-provider/main.png)
 
-VS Code itself ships with one Source Control provider, the Git extension, which is the best reference for this API and is [a great starting point](https://github.com/Microsoft/vscode/blob/master/extensions/git/src/repository.ts) if you'd like to contribute your very own SCM provider. There are other great examples in the Marketplace such as the [SVN extension](https://marketplace.visualstudio.com/items?itemName=johnstoncode.svn-scm).
+VS Code itself ships with one Source Control provider, the Git extension, which is the best reference for this API and is [a great starting point](https://github.com/microsoft/vscode/blob/master/extensions/git/src/repository.ts) if you'd like to contribute your very own SCM provider. There are other great examples in the Marketplace such as the [SVN extension](https://marketplace.visualstudio.com/items?itemName=johnstoncode.svn-scm).
 
 This documentation will help you build an extension which can make any SCM system work with VS Code.
 
@@ -25,7 +25,7 @@ A `SourceControl` is the entity responsible for populating the Source Control mo
 
 You can create a new SourceControl with `vscode.scm.createSourceControl`.
 
-In order to better understand how these three entities correlate with each other, let's take [Git](https://github.com/Microsoft/vscode/tree/master/extensions/git) as an example. Consider the following output of `git status`:
+In order to better understand how these three entities correlate with each other, let's take [Git](https://github.com/microsoft/vscode/tree/master/extensions/git) as an example. Consider the following output of `git status`:
 
 ```bash
 vsce master* → git status
@@ -182,7 +182,7 @@ You can combine this API with the [`registerTextDocumentContentProvider` method 
 To learn more about VS Code extensibility model, try these topics:
 
 - [SCM API Reference](/api/references/vscode-api#scm) - Read the full SCM API documentation
-- [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Learn by reading the Git extension implementation
+- [Git Extension](https://github.com/microsoft/vscode/tree/master/extensions/git) - Learn by reading the Git extension implementation
 - [Extension API Overview](/api) - Learn about the full VS Code extensibility model.
 - [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference

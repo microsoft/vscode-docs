@@ -128,7 +128,7 @@ VS Code supports basic Gradle Java project (not including Android). There are al
 
 ### Additional resources
 
-Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
+Visit the [GitHub Repo](https://github.com/microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
 In addition to Maven, there's also a [Bazel extension](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) if you use Bazel to build and test your project.
 

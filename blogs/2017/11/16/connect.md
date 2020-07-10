@@ -43,8 +43,8 @@ There was a lot of VS Code activity at Connect(); but as we look back at the las
 
 Many of the new features have come from the community; through issues, pull requests, and though the creation of Extensions. We have seen a huge amount of progress and again we want to say **THANK YOU!**
 
-* We processed over [2,300 PRs](https://github.com/Microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).
-* We closed over [30,000 issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed).
+* We processed over [2,300 PRs](https://github.com/microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).
+* We closed over [30,000 issues](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed).
 * There are now more than [4,700 published extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=All%20categories&sortBy=Downloads).
 
 ## A sampling of features across the last 12 months
@@ -72,9 +72,9 @@ December 2016 | OK - You got us, we took a break over the holiday period 😊
 Phew - that was a long list of updates.
 
 ## Looking forward
-We are only getting started, and with [almost 3,000 open feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc) we are not running out of ideas soon.  So earlier this month we updated our [public roadmap](https://github.com/Microsoft/vscode/wiki/Roadmap), which gives you an idea of where we are focusing next.  As always push us along by up-voting requests you care about.
+We are only getting started, and with [almost 3,000 open feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc) we are not running out of ideas soon.  So earlier this month we updated our [public roadmap](https://github.com/microsoft/vscode/wiki/Roadmap), which gives you an idea of where we are focusing next.  As always push us along by up-voting requests you care about.
 
-If you want to know what we have been up to check out our [release notes](https://code.visualstudio.com/updates) if you are ever interested in what we shipped in a given month that's the first place to look.  Of course you can track along with us by looking at our [monthly iteration plans](https://github.com/Microsoft/vscode/wiki/Iteration-Plans) and by using our [insiders build](https://code.visualstudio.com/insiders/) where you can get new stuff every day.
+If you want to know what we have been up to check out our [release notes](https://code.visualstudio.com/updates) if you are ever interested in what we shipped in a given month that's the first place to look.  Of course you can track along with us by looking at our [monthly iteration plans](https://github.com/microsoft/vscode/wiki/Iteration-Plans) and by using our [insiders build](https://code.visualstudio.com/insiders/) where you can get new stuff every day.
 
 Ok that's it - but don't worry we will be back with more news and updates soon.
 

@@ -47,7 +47,7 @@ In this release we have also enabled localization of core parts of our debugger,
 
 ## Breakpoints set before your app runs
 
-Another feature we have been working on with [our friends in Visual Studio](https://github.com/Microsoft/vscode-chrome-debug-core/pull/241) is the ability for us to set breakpoints in JavaScript before it gets executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed asynchronously.
+Another feature we have been working on with [our friends in Visual Studio](https://github.com/microsoft/vscode-chrome-debug-core/pull/241) is the ability for us to set breakpoints in JavaScript before it gets executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed asynchronously.
 
 Many users have had the experience that their breakpoints aren't hit when launching Chrome. To add to their confusion, their breakpoints are hit after a simple page refresh. Why would that be? It's a bit complicated, but it comes down to a timing issue between VS Code and Chrome, which is best illustrated in a timeline:
 
@@ -57,7 +57,7 @@ As you can see on the timeline in yellow, the issue is that some JavaScript is e
 
 This means that if you have breakpoints in source code that would get *immediately executed* as a part of a page load, VS Code hasn't been able to set the breakpoints before execution had completed. The workaround is to do a page refresh which re-executes the code and therefore triggers the breakpoint.
 
-Good news! We have found a way where you reliably can set breakpoints in early executed source code, which we call [`break-on-load breakpoints`](https://github.com/Microsoft/vscode-chrome-debug/issues/445).
+Good news! We have found a way where you reliably can set breakpoints in early executed source code, which we call [`break-on-load breakpoints`](https://github.com/microsoft/vscode-chrome-debug/issues/445).
 
 Break-on-load breakpoints are powered by DOM Instrumentation Breakpoints in Chrome that allow us to pause script execution every time a new script is loaded. This changes the workflow for our debugger, and allows us to have more time to set breakpoints before your JavaScript is executed.
 

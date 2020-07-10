@@ -29,7 +29,7 @@ No longer do you need to manage settings to switch between the two. The Insiders
 
 The Insiders build will automatically update when we release new builds, generally towards the end of each month. Depending on how successful this process is we will consider releasing new updates even more often.
 
-The features included in the Insiders build is tracked in [our iteration plans](https://github.com/Microsoft/vscode/issues?utf8=%E2%9C%93&q=label%3Aiteration-plan+). Feel free to communicate your thoughts, ideas and bug reports on these builds – we will be paying close attention to the feedback as it helps us stabilize before an official release.
+The features included in the Insiders build is tracked in [our iteration plans](https://github.com/microsoft/vscode/issues?utf8=%E2%9C%93&q=label%3Aiteration-plan+). Feel free to communicate your thoughts, ideas and bug reports on these builds – we will be paying close attention to the feedback as it helps us stabilize before an official release.
 
 [Download the Insiders build](/insiders) today! Again, you only need to install it once and it will update itself when we push new builds each month.
 

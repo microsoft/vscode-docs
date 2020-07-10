@@ -25,7 +25,7 @@ VS Code was initially built for developers creating web apps using JavaScript an
 
 And we have strived to make VS Code 1.0 a great editor for every developer. VS Code is now fully localizable, and ships in 9 different languages, including French, German, Japanese, and Chinese. And, we have worked to make VS Code the most accessible of modern editors, with full keyboard navigation and support for screen reading and accessible navigation for visually impaired developers.
 
-We could not have reached this important milestone without the help of all our contributors. Since committing to doing development in the open less than four months ago, we’ve consumed over [300 pull requests](https://github.com/Microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).  Whether you created a PR, filed an issue, gave a thumbs up, tweeted, or simply used VS Code in your day-to-day, you’re a part of the team. **Thank you!**
+We could not have reached this important milestone without the help of all our contributors. Since committing to doing development in the open less than four months ago, we’ve consumed over [300 pull requests](https://github.com/microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).  Whether you created a PR, filed an issue, gave a thumbs up, tweeted, or simply used VS Code in your day-to-day, you’re a part of the team. **Thank you!**
 
 ![installs graphic](installs.png)
 
@@ -49,7 +49,7 @@ The initial response to a code editor running on OS X, Windows, and Linux was ov
 
 Keeping our principle of using VS Code the way our customers do, we decided that the best way to deliver a rich and stable API was to build VS Code using the same API we would expose to extension developers. In fact, the core language services for JavaScript and TypeScript are actually extensions that just happen to be bundled with the distribution. Today, we use VS Code to build and debug VS Code, its extensions, and Node-based services. The same rich TypeScript editing, navigation, and debugging experiences we enjoy when building VS Code are available to everyone developing an extension for VS Code. Six months after our initial preview release, we declared VS Code to be Beta quality at Connect(); 2015, with a full extensibility model, and support in the new Visual Studio Marketplace.
 
-And at the same time, we open sourced the VS Code [repository](https://github.com/Microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
+And at the same time, we open sourced the VS Code [repository](https://github.com/microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
 
 ![timeline graphic](timeline.png)
 
