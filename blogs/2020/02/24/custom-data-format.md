@@ -78,7 +78,7 @@ The extension's source code is at the [vscode-mavo](https://github.com/octref/vs
 
 ## Using Custom Data for language servers
 
-The [vscode-html-languageservice](https://github.com/Microsoft/vscode-html-languageservice) and [vscode-css-languageservice](https://github.com/Microsoft/vscode-css-languageservice) libraries allow extension authors to easily implement language servers for languages that extend or embed HTML and CSS. Recently, we added an API for loading custom data:
+The [vscode-html-languageservice](https://github.com/microsoft/vscode-html-languageservice) and [vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice) libraries allow extension authors to easily implement language servers for languages that extend or embed HTML and CSS. Recently, we added an API for loading custom data:
 
 ```ts
 import { getLanguageService } from 'vscode-html-languageservice'

@@ -167,7 +167,7 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) 
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace in WSL 1
 
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based file watching has a performance impact for large workspaces.
 
@@ -179,15 +179,15 @@ For large workspace you want to increase the polling interval: `remote.WSL.fileW
 
 | Issue | Existing issues |
 |---|---|
-Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/Microsoft/vscode-go/issues/926) |
+Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/microsoft/vscode-go/issues/926) |
 
 ### Node.js in WSL 1
 
 | Issue | Existing issues |
 |---|---|
-NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/Microsoft/WSL/issues/3886) |
-Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/Microsoft/WSL/issues/2709) |
-Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/Microsoft/WSL/issues/2657) |
+NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/microsoft/WSL/issues/3886) |
+Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/microsoft/WSL/issues/2709) |
+Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/microsoft/WSL/issues/2657) |
 
 ### Git limitations
 
@@ -281,5 +281,5 @@ The VS Code extension API abstracts away local/remote details so most extensions
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#wsl-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature requests](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+- Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

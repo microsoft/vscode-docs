@@ -15,7 +15,7 @@ Think of a webview as an `iframe` within VS Code that your extension controls. A
 
 ## Links
 
-- [Webview Sample](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+- [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
 
 ### VS Code API Usage
 
@@ -40,7 +40,7 @@ Remember: Just because you can do something with webviews, doesn't mean you shou
 
 To explain the webview API, we are going to build a simple extension called **Cat Coding**. This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of source code our cat has written and notifications that inform the user when the cat introduces a bug.
 
-Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
+Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
 
 ```json
 {
@@ -820,7 +820,7 @@ The policy `default-src 'none';` disallows all content. We can then turn back on
 />
 ```
 
-The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample) for a complete example of how to use this value.
+The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample) for a complete example of how to use this value.
 
 This content security policy also implicitly disables inline scripts and styles. It is a best practice to extract all inline styles and scripts to external files so that they can be properly loaded without relaxing the content security policy.
 

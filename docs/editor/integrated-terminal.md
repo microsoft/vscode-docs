@@ -316,7 +316,7 @@ You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-
 
 ### PowerShell on macOS is complaining about a "-l" argument, how do I fix it?
 
-When configuring the integrated terminal to use PowerShell on macOS, you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+When configuring the integrated terminal to use PowerShell on macOS, you may hit [this error](https://github.com/microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
 
 ```js
 "terminal.integrated.shellArgs.osx": []

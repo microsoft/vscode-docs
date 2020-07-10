@@ -201,6 +201,6 @@ There are two use cases for extensions to do that:
 
 ## Try it out
 
-We have a [Semantic Tokens sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/semantic-tokens-sample) that illustrates how to create a semantic token provider.
+We have a [Semantic Tokens sample](https://github.com/microsoft/vscode-extension-samples/tree/master/semantic-tokens-sample) that illustrates how to create a semantic token provider.
 
 The [scope inspector](/api/language-extensions/syntax-highlight-guide#scope-inspector) tool allows you to explore what semantic tokens are present in a source file and what theme rules they match to. To see semantic token, use a built-in theme (for example, Dark+) on a TypeScript file.

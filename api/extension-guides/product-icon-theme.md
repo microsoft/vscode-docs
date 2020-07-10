@@ -118,4 +118,4 @@ To find out which icon is used at a certain location in the VS Code UI, open Dev
 
 ## Sample
 
-The [Product Color Theme Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/product-icon-theme-sample) can be used as a playground.
+The [Product Color Theme Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/product-icon-theme-sample) can be used as a playground.

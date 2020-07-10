@@ -9,13 +9,13 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/Microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
+Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
 ## Automated publishing
 
 You can also configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/Microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
+The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
 
 ## Azure Pipelines
 

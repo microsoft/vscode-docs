@@ -234,7 +234,7 @@ Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as
 
 **Dockerfile or image**:
 
-Let's use the [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repository to illustrate how to speed up `yarn install`.
+Let's use the [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) repository to illustrate how to speed up `yarn install`.
 
 Follow these steps:
 
@@ -928,5 +928,5 @@ If the command fails, you will still be able to see the errors but they won't be
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-* Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

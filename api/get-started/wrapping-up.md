@@ -17,7 +17,7 @@ In this section, we split the [VS Code API](/api/references/vscode-api) and [Con
 
 ## Guides & Samples
 
-We have a great collection of sample extensions that you can adapt from, and some of them include a detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) repository.
+We have a great collection of sample extensions that you can adapt from, and some of them include a detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) repository.
 
 ## Testing and Publishing
 

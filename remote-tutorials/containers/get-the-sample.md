@@ -11,7 +11,7 @@ DateApproved: 7/9/2020
 To create a Docker container, we are going to clone a GitHub repository with a Node.js project.
 
 ```bash
-git clone https://github.com/Microsoft/vscode-remote-try-node
+git clone https://github.com/microsoft/vscode-remote-try-node
 ```
 
 **Note**: There are other remote container samples such as `vscode-remote-try-python` or `vscode-remote-try-java`, but this tutorial will use `vscode-remote-try-node`.

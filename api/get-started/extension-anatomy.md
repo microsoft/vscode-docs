@@ -66,7 +66,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "description": "HelloWorld example for VS Code",
   "version": "0.0.1",
   "publisher": "vscode-samples",
-  "repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
+  "repository": "https://github.com/microsoft/vscode-extension-samples/helloworld-sample",
   "engines": {
     "vscode": "^1.34.0"
   },

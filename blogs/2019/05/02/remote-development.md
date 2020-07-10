@@ -36,7 +36,7 @@ Because the code bases are so large, we see engineers at shops like Facebook (an
 
 Data Scientists building and training data models often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
 
-The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/Microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
+The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
 
 > ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
@@ -140,13 +140,13 @@ Thanks for reading this far!
 
 Here are 3 quick steps to get started doing Visual Studio Code Remote Development:
 
-1. Install the [Insiders](https://code.visualstudio.com/insiders/) build. You'll need this for remote development until it is available in Stable. The Insiders build ships daily with the latest features and bug fixes. If you are concerned about stability, don't be! We use the Insiders builds to develop VS Code and it can be installed side by side with Stable in case something does break ([and let us know](https://github.com/Microsoft/vscode/issues/new)).
+1. Install the [Insiders](https://code.visualstudio.com/insiders/) build. You'll need this for remote development until it is available in Stable. The Insiders build ships daily with the latest features and bug fixes. If you are concerned about stability, don't be! We use the Insiders builds to develop VS Code and it can be installed side by side with Stable in case something does break ([and let us know](https://github.com/microsoft/vscode/issues/new)).
 
 2. Get the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack), which installs support for WSL, SSH, and Containers and is the easiest way to get started. If you don't need them all, you can uninstall the individual extensions.
 
 3. Read the [Docs](https://aka.ms/vscode-remote). Try the [Dev Container samples](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-). If you develop with Python (many of you do!), check out Dan Taylor's [blog post on remote Python development](https://devblogs.microsoft.com/python/remote-python-development-in-visual-studio-code?utm_campaign_id=vscblog).
 
-Last, if you run into problems, please [submit an issue](https://github.com/Microsoft/vscode-remote-release/issues). For answers to common questions, see our [FAQ](https://code.visualstudio.com/docs/remote/faq).
+Last, if you run into problems, please [submit an issue](https://github.com/microsoft/vscode-remote-release/issues). For answers to common questions, see our [FAQ](https://code.visualstudio.com/docs/remote/faq).
 
 Let us know what you think!
 

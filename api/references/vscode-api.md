@@ -16,7 +16,7 @@ MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
 
 ## API namespaces and classes
 
-This listing is compiled from the [`vscode.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
+This listing is compiled from the [`vscode.d.ts`](https://github.com/microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
 
 ## commands
 
@@ -20494,4 +20494,4 @@ An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is
 
 ### Strict null
 
-The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/Microsoft/TypeScript/pull/7140).
+The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/microsoft/TypeScript/pull/7140).

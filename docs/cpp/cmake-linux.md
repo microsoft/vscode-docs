@@ -15,7 +15,7 @@ The CMake Tools extension integrates Visual Studio Code and CMake to make it eas
 
 In this tutorial, you'll use the CMake Tools extension for Visual Studio Code to configure, build, and debug a simple C++ CMake project on Linux. Aside from installing CMake, your compiler, debugger, and build tools, the steps in this tutorial apply generally to how you'd use CMake on other platforms, like Windows.
 
-If you have any trouble, please file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any trouble, please file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
