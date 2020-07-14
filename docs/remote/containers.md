@@ -607,7 +607,7 @@ eval "$(ssh-agent -s)"
 Then add these lines to your `~/.bash_profile` or `~/.zprofile` (for Zsh) so it starts on login:
 
 ```bash
-if [ ! -z "$SSH_AUTH_SOCK" ]; then
+if [ -z "$SSH_AUTH_SOCK" ]; then
    # Check for a currently running instance of the agent
    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
    if [ "$RUNNING_AGENT" = "0" ]; then
