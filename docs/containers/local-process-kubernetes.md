@@ -69,10 +69,10 @@ Checking directory /home/<user>/mindaro for GIT repo Microsoft/Mindaro
 Setting the Kube context
 ...
 To try out the app, open the url:
-dev.bikesharingweb.EXTERNAL_IP.nip.io
+bikeapp.bikesharingweb.EXTERNAL_IP.nip.io
 ```
 
-In the above sample, the public URL is `dev.bikesharingweb.EXTERNAL_IP.nip.io`.
+In the above sample, the public URL is `bikeapp.bikesharingweb.EXTERNAL_IP.nip.io`.
 
 ## Connect to your cluster and debug a service
 
