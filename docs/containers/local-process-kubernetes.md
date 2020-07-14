@@ -31,33 +31,17 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * [Visual Studio Code][vs-code] running on macOS or Windows 10.
 * The [Azure Dev Spaces][azds-vs-code] extension version 2.0.220200601 or greater installed in Visual Studio Code.
 * [Azure Dev Spaces CLI installed][azds-cli].
-
-## Create a Kubernetes cluster
-
-Create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
-
-```azurecli-interactive
-az group create \
-    --name MyResourceGroup \
-    --location eastus
-
-az aks create \
-    --resource-group MyResourceGroup \
-    --name MyAKS \
-    --location eastus \
-    --node-count 3 \
-    --generate-ssh-keys
-```
+* A Kubernetes cluster. If you don't have one, use Azure Kubernetes Service to create one by following this [quickstart][azure-kubernetes-service].
 
 ## Install the sample application
 
-Install the sample application on your cluster using the provided script. You can run this script on your development computer or using the [Azure Cloud Shell][azure-cloud-shell].
+Install the sample application on your cluster using the provided script. You can run this script on your development computer or using the [Azure Cloud Shell][azure-cloud-shell]. Use the name of your cluster and resource group.
 
 > **Important**: You must have *Owner* or *Contributor* access to your cluster in order to run the script.
 
 ```azurecli-interactive
-git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/
+git clone https://github.com/Microsoft/mindaro
+cd mindaro/
 chmod +x ./local-process-quickstart.sh
 ./local-process-quickstart.sh -g MyResourceGroup -n MyAKS
 ```
@@ -66,7 +50,7 @@ Navigate to the sample application running your cluster by opening its public UR
 
 ```console
 $ ./local-process-quickstart.sh -g MyResourceGroup -n MyAKS
-Defaulting Dev spaces repository root to current directory : ~/dev-spaces
+Checking directory /home/<user>/mindaro for GIT repo Microsoft/Mindaro
 Setting the Kube context
 ...
 To try out the app, open the url:
@@ -178,6 +162,7 @@ Use the provided script to remove the sample application from your cluster.
 ./local-process-quickstart.sh -c -g MyResourceGroup -n MyAKS
 ```
 
+[azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
 [azds-cli]: https://docs.microsoft.com/azure/dev-spaces/install-dev-spaces#install-the-client-side-tools
 [azds-tmp-dir]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
@@ -185,7 +170,7 @@ Use the provided script to remove the sample application from your cluster.
 [azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-vs-code]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools
-[bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[bike-sharing-github]: https://github.com/Microsoft/mindaro
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [server-js-breakpoint]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L233
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
