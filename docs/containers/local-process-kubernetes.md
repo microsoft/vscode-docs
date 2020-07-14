@@ -67,7 +67,7 @@ On your development computer, download and configure the Kubernetes CLI to conne
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 ```
 
-Open *dev-spaces/samples/BikeSharingApp/Bikes* from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the *dev* namespace in the *MyAKS* cluster.
+Open *mindaro/samples/BikeSharingApp/Bikes* from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the *dev* namespace in the *MyAKS* cluster.
 
 ![Select Namespace](images/local-process-kubernetes-vs-code/select-namespace.png)
 
