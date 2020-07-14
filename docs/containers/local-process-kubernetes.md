@@ -31,7 +31,22 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * [Visual Studio Code][vs-code] running on macOS or Windows 10.
 * The [Azure Dev Spaces][azds-vs-code] extension version 2.0.220200601 or greater installed in Visual Studio Code.
 * [Azure Dev Spaces CLI installed][azds-cli].
-* A Kubernetes cluster. If you don't have one, use Azure Kubernetes Service to create one by following this [quickstart][azure-kubernetes-service].
+
+## Create a Kubernetes cluster
+
+Create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
+
+```azurecli-interactive
+az group create \
+    --name MyResourceGroup \
+        --location eastus
+az aks create \
+    --resource-group MyResourceGroup \
+    --name MyAKS \
+    --location eastus \
+    --node-count 3 \
+    --generate-ssh-keys
+```
 
 ## Install the sample application
 
