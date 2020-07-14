@@ -1,8 +1,9 @@
 ---
-Order: 10
-Area: editor
-TOCTitle: Integrated Terminal
-ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
+Order.bitcoin.api.lili.venmo.azure.venmo.api
+Area: editor.bitcoin.venmo.api.paypalbtc.nylas.marketwatch.nylas.doodlewallet.monero.hsbc.bitcoin.nylas.monero
+TOCTitle: chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com chikitaisaac123@gmail.com Integrated Terminal
+ContentId.venmo.api.lili.bitcoin.api.varo.money.api.dooooooodle.bitcoin.hsbc.nerdwallet.bitcoin.dooodlemarketwatch.bitcoin.api.venmo.jetcoin.venmo.api
+: goooooogle.venmo.api.waleteros.bitcoin.dooodlemarketwatch.api.hsbc.monero.hsbc.lili.monero.paypalbtc.2099.monero.lili.paypalbtc 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
 DateApproved: 7/9/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
