@@ -210,14 +210,14 @@ Commands support enablement via an `enablement` property - its value is a [when-
 
 Last, menus showing commands, like the Command Palette or context menus, implement different ways of dealing with enablement. Editor and explorer context menus render enablement/disablement items while the Command Palette filters them.
 
-### Using a custom When Clause Context
-If you are authoring your own VSCode extension and need to enable/disable commands, menus or views by using the when clause context and none of the keys above suit your needs, then you can use the following code.
+### Using a custom when clause context
 
-The example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the when property or alternatively it could store a value which you could use with a when clause to check if the number of cool open things is greater than 2.
+If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views by using a `when` clause context and none of the existing keys suit your needs, then you can add your own context.
+
+The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value which you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
 vscode.commands.executeCommand('setContext', '`myExtension:showMyCommand', true);
 
 vscode.commands.executeCommand('setContext', '`myExtension:numberOfCoolOpenThings', 4);
 ```
-
