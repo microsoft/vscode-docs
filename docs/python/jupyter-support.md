@@ -45,11 +45,11 @@ It's possible for malicious code to be contained in a Jupyter Notebook. With tha
 
 > **Note**: Before setting a Notebook as **Trusted**, it is up to you to verify that the code and markdown are safe to run. VS Code does not perform any sanitizing of markdown, it merely prevents it from being rendered until a Notebook is marked as **Trusted** to help protect you from malicious code.
 
-When you first open a Notebook that's **Not trusted** the following notification prompt is displayed.
+When you first open a Notebook that's **Not Trusted** the following notification prompt is displayed.
 
 ![Trusted Notebook prompt](images/jupyter/native-trusted-prompt.png)
 
-If you select **Trust**, the Notebook will be trusted going forward. If you opt not to trust the Notebook, then **Not trusted** will be displayed in the toolbar and the Notebook will remain in a read-only state as described previously. If you select **Trust all notebooks** you will be taken to settings, where you can specify that all Notebooks opened in VS Code be trusted. That means you will no longer be prompted to trust individual notebooks and harmful code could automatically run.
+If you select **Trust**, the Notebook will be trusted going forward. If you opt not to trust the Notebook, then **Not Trusted** will be displayed in the toolbar and the Notebook will remain in a read-only state as described previously. If you select **Trust all notebooks** you will be taken to settings, where you can specify that all Notebooks opened in VS Code be trusted. That means you will no longer be prompted to trust individual notebooks and harmful code could automatically run.
 
 ![Trust status in toolbar](images/jupyter/native-trust-status-bar.png)
 
