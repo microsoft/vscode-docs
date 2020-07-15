@@ -116,7 +116,7 @@ Choose **Launch via NPM** as the launch task.
 
 > **Note**: You will be prompted to allow the **KubernetesDNSManager** to run elevated and modify your hosts file.
 
-Your development computer is connected when the status bar turns orange and the Dev Spaces extension shows you are connected.
+Your development computer is connected when the VS Code status bar turns orange and the Dev Spaces extension shows you are connected.
 
 ![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
 
