@@ -155,7 +155,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
 | `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
 
-[Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
+[Full list](/docs/remote/devcontainerjson-reference.md) of `devcontainer.json` options.
 
 ### Congratulations!
 
