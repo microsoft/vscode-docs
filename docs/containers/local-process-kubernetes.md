@@ -34,7 +34,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 
 ## Create a Kubernetes cluster
 
-Create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
+Create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called `MyResourceGroup` and an AKS cluster called `MyAKS`.
 
 ```azurecli-interactive
 az group create \
@@ -52,7 +52,7 @@ az aks create \
 
 Install the sample application on your cluster using the provided script. You can run this script on your development computer or using the [Azure Cloud Shell][azure-cloud-shell]. Use the name of your cluster and resource group.
 
-> **Important**: You must have *Owner* or *Contributor* access to your cluster in order to run the script.
+> **Important**: You must have **Owner** or **Contributor** access to your cluster in order to run the script.
 
 ```azurecli-interactive
 git clone https://github.com/Microsoft/mindaro
@@ -82,7 +82,7 @@ On your development computer, download and configure the Kubernetes CLI to conne
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 ```
 
-Open *mindaro/samples/BikeSharingApp/Bikes* from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the *dev* namespace in the *MyAKS* cluster.
+Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **dev** namespace in the **MyAKS** cluster.
 
 ![Select Namespace](images/local-process-kubernetes-vs-code/select-namespace.png)
 
@@ -92,43 +92,43 @@ Use the `npm install` command to install the dependencies for the application.
 npm install
 ```
 
-Select the *Debug* icon on the left and select *Local Process with Kubernetes (Preview)* at the top.
+Select the **Debug** icon on the left and select **Local Process with Kubernetes (Preview)** at the top.
 
 ![Choose Local Process with Kubernetes](images/local-process-kubernetes-vs-code/choose-local-process.png)
 
-Click on the start button next to *Local Process with Kubernetes (Preview)*. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
+Click on the start button next to **Local Process with Kubernetes (Preview)**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
 
-Choose the *bikes* service.
+Choose the **bikes** service.
 
 ![Choose Service](images/local-process-kubernetes-vs-code/choose-service.png)
 
-All traffic in the Kubernetes cluster is redirected for the *bikes* service to the version of your application running in your development computer. Local Process with Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
+All traffic in the Kubernetes cluster is redirected for the bikes service to the version of your application running in your development computer. Local Process with Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
 > **Important**: You can only redirect services that have a single pod.
 
-After you select your service, you are prompted to enter the TCP port for your local application. For this example, enter *3000*.
+After you select your service, you are prompted to enter the TCP port for your local application. For this example, enter "3000".
 
 ![Connect choose port](images/local-process-kubernetes-vs-code/choose-port.png)
 
-Choose *Launch via NPM* as the launch task.
+Choose **Launch via NPM** as the launch task.
 
 ![Connect choose launch task](images/local-process-kubernetes-vs-code/choose-launch.png)
 
-> **Note**: You will be prompted to allow the *KubernetesDNSManager* to run elevated and modify your hosts file.
+> **Note**: You will be prompted to allow the **KubernetesDNSManager** to run elevated and modify your hosts file.
 
 Your development computer is connected when the status bar turns orange and the Dev Spaces extension shows you are connected.
 
 ![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note** On subesquent launches, you will not be prompted for the service name, port, or launch task. These values are saved in *.vscode/tasks.json*.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, or launch task. These values are saved in `.vscode/tasks.json`.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
 ## Set a break point
 
-Open [server.js][server-js-breakpoint] and click somewhere on line 233 to put your cursor there. Set a breakpoint by hitting `kb(editor.debug.action.toggleBreakpoint)` or clicking *Run* then *Toggle Breakpoint*.
+Open [server.js][server-js-breakpoint] and click somewhere on line 233 to put your cursor there. Set a breakpoint by hitting `kb(editor.debug.action.toggleBreakpoint)` or clicking **Run** then **Toggle Breakpoint**.
 
-Navigate to the sample application by opening the public URL. Select *Aurelia Briggs (customer)* as the user, then select a bike to rent. Notice the image for the bike does not load. Return to Visual Studio Code and observe line 233 is highlighted. The breakpoint you set has paused the service at line 233. To resume the service, hit `kb(workbench.action.debug.run)` or click *Run* then *Continue*. Return to your browser and verify you see a placeholder image for the bike.
+Navigate to the sample application by opening the public URL. Select **Aurelia Briggs (customer)** as the user, then select a bike to rent. Notice the image for the bike does not load. Return to Visual Studio Code and observe line 233 is highlighted. The breakpoint you set has paused the service at line 233. To resume the service, hit `kb(workbench.action.debug.run)` or click **Run** then **Continue**. Return to your browser and verify you see a placeholder image for the bike.
 
 Remove the breakpoint by putting your cursor on line 233 in `server.js` and hitting `kb(editor.debug.action.toggleBreakpoint)`.
 
@@ -149,25 +149,25 @@ The section should now look like:
     delete theBike._id;
 ```
 
-Save your changes and press `kb(workbench.action.debug.restart)` or click *Run* then *Restart Debugging*. After you are reconnected, refresh your browser and verify that you no longer see a placeholder image for the bike.
+Save your changes and press `kb(workbench.action.debug.restart)` or click **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and verify that you no longer see a placeholder image for the bike.
 
-Click *Run* then *Stop Debugging* or press `kb(workbench.action.debug.stop)` to stop the debugger.
+Click **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
-> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for *Local Process With Kubernetes: Disconnect After Debugging* in the Visual Studio Code settings and removing the check next to *Disconnect automatically when Debugging ends.* After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the Azure Dev Spaces extension on the status bar then choose *Disconnect current session*.
+> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Local Process With Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the Azure Dev Spaces extension on the status bar then choose **Disconnect current session**.
 >
 > If Visual Studio Code abruptly ends the connection to the cluster or terminates, the service you are redirecting may not be restored to its original state before you connected with Local Process with Kubernetes. To fix this issue, see the [Troubleshooting guide][troubleshooting].
 
 ## Using logging and diagnostics
 
-Logging output is written to the *Dev Spaces* window after your development computer is connected to your Kubernetes cluster.
+Logging output is written to the **Dev Spaces** window after your development computer is connected to your Kubernetes cluster.
 
 ![Output](images/local-process-kubernetes-vs-code/output.png)
 
-Click on the Azure Dev Spaces status bar and choose *Show connection diagnostics information*. This command prints the current environment variables and DNS entires in the logging output.
+Click on the Azure Dev Spaces status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
 
 ![Output with diagnostics](images/local-process-kubernetes-vs-code/output-diagnostics.png)
 
-Additionally, you can find the diagnostic logs in `Azure Dev Spaces` directory in your [development computer's *TEMP* directory][azds-tmp-dir].
+Additionally, you can find the diagnostic logs in the `Azure Dev Spaces` directory in your [development computer's TEMP directory][azds-tmp-dir].
 
 ## Remove the sample application from your cluster
 
@@ -178,16 +178,16 @@ Use the provided script to remove the sample application from your cluster.
 ```
 
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
-[azds-cli]: https://docs.microsoft.com/azure/dev-spaces/install-dev-spaces#install-the-client-side-tools
+[azds-cli]: https://docs.microsoft.com/azure/dev-spaces/how-to/install-dev-spaces#install-the-client-side-tools
 [azds-tmp-dir]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
-[azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview.md
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-vs-code]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools
 [bike-sharing-github]: https://github.com/Microsoft/mindaro
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [server-js-breakpoint]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L233
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[troubleshooting]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting.md#fail-to-restore-original-configuration-of-deployment-on-cluster
+[troubleshooting]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#fail-to-restore-original-configuration-of-deployment-on-cluster
 [vs-code]: https://code.visualstudio.com/download
