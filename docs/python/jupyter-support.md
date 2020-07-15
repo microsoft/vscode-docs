@@ -33,7 +33,7 @@ You can create a Jupyter Notebook by running the **Python: Create Blank New Jupy
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
-If you have an existing Jupyter Notebook, you can open it in the Notebook Editor by double clicking on the file and opening with Visual Studio Code, through the Visual Studio Code, or using the Command Palette **Python: Open in Notebook Editor** command.
+If you have an existing Jupyter Notebook, you can open it in the Notebook Editor by double-clicking on the file and opening with Visual Studio Code, through the Visual Studio Code, or using the Command Palette **Python: Open in Notebook Editor** command.
 
 Once you have a Notebook created, you can run a code cell using the green run icon above the cell and the output will appear directly below the code cell.
 
@@ -41,15 +41,15 @@ Once you have a Notebook created, you can run a code cell using the green run ic
 
 ## Trusted Notebooks
 
-It's possible for malicious code to be contained in a Jupyter Notebook. With that in mind, to help protect you, any Notebook that's not created with VS Code on your local machine (or explicitly set to **Trusted** by you) is considered **Not Trusted**. When a Notebook is **Not Trusted** VS Code will not render markdown cells or display the output of code cells within the Notebook. Instead, just the source of markdown and code cells will be shown. The Notebook is essentially in read-only mode, with toolbars disabled and no ability to edit the file, until you set it as **Trusted**.
+It's possible for malicious source code to be contained in a Jupyter Notebook. With that in mind, to help protect you, any Notebook that's not created with VS Code on your local machine (or explicitly set to **Trusted** by you) is considered **Not Trusted**. When a Notebook is **Not Trusted**, VS Code will not render Markdown cells or display the output of code cells within the Notebook. Instead, just the source of Markdown and code cells will be shown. The Notebook is essentially in read-only mode, with toolbars disabled and no ability to edit the file, until you set it as **Trusted**.
 
-> **Note**: Before setting a Notebook as **Trusted**, it is up to you to verify that the code and markdown are safe to run. VS Code does not perform any sanitizing of markdown, it merely prevents it from being rendered until a Notebook is marked as **Trusted** to help protect you from malicious code.
+> **Note**: Before setting a Notebook as **Trusted**, it is up to you to verify that the source code and Markdown are safe to run. VS Code does not perform any sanitizing of Markdown, it merely prevents it from being rendered until a Notebook is marked as **Trusted** to help protect you from malicious code.
 
-When you first open a Notebook that's **Not Trusted** the following notification prompt is displayed.
+When you first open a Notebook that's **Not Trusted**, the following notification prompt is displayed.
 
 ![Trusted Notebook prompt](images/jupyter/native-trusted-prompt.png)
 
-If you select **Trust**, the Notebook will be trusted going forward. If you opt not to trust the Notebook, then **Not Trusted** will be displayed in the toolbar and the Notebook will remain in a read-only state as described previously. If you select **Trust all notebooks** you will be taken to settings, where you can specify that all Notebooks opened in VS Code be trusted. That means you will no longer be prompted to trust individual notebooks and harmful code could automatically run.
+If you select **Trust**, the Notebook will be trusted going forward. If you opt not to trust the Notebook, then **Not Trusted** will be displayed in the toolbar and the Notebook will remain in a read-only state as described previously. If you select **Trust all notebooks**, you will be taken to settings, where you can specify that all Notebooks opened in VS Code be trusted. That means you will no longer be prompted to trust individual notebooks and harmful code could automatically run.
 
 ![Trust status in toolbar](images/jupyter/native-trust-status-bar.png)
 
@@ -96,7 +96,7 @@ An unselected cell isn't editable, but you can hover over it to reveal additiona
 
 ![Simple Jupyter code cell being hovered over](images/jupyter/native-code-cells-02a.png)
 
-When a cell is selected, it can be in two different modes. It can be in command mode or in edit mode. When the cell is in command mode, it can be operated on and accept keyboard commands. When the cell is in edit mode, the cell's contents (code or markdown) can be modified.
+When a cell is selected, it can be in two different modes. It can be in command mode or in edit mode. When the cell is in command mode, it can be operated on and accept keyboard commands. When the cell is in edit mode, the cell's contents (code or Markdown) can be modified.
 
 When a cell is in command mode, the vertical bar to the left of the cell will be solid to indicate it's selected.
 
@@ -106,7 +106,7 @@ When a cell is in command mode, the vertical bar to the left of the cell will be
 
 ![Code cell in edit mode](images/jupyter/native-code-cells-10.png)
 
-To move from edit mode to command mode, press the `kbstyle(ESC)` key. To move from command mode to edit mode, press the `kbstyle(Enter)` key. You can also use the mouse to change the mode by clicking into or out of the code/markdown region in the code cell.
+To move from edit mode to command mode, press the `kbstyle(ESC)` key. To move from command mode to edit mode, press the `kbstyle(Enter)` key. You can also use the mouse to change the mode by clicking into or out of the code/Markdown region in the code cell.
 
 ### Add additional code cells
 
