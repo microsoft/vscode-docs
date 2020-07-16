@@ -145,7 +145,7 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
     && mkdir /commandhistory \
     && touch /commandhistory/.bash_history \
     && chown -R $USERNAME /commandhistory \
-    && echo $SNIPPET >> "/home/$USERNAME/.bashrc" \
+    && echo $SNIPPET >> "/home/$USERNAME/.bashrc"
 ```
 
 Next, add a local volume to store the command history. This step varies depending on whether or not you are using Docker Compose.
