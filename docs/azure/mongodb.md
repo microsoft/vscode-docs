@@ -9,21 +9,21 @@ DateApproved: 7/9/2020
 ---
 # Working with MongoDB
 
-Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases. Through the [Azure CosmosDB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension, you can create, manage and query MongoDB databases from within VS Code.
+Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases. Through the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension, you can create, manage and query MongoDB databases from within VS Code.
 
 ## Install the extension
 
-MongoDB support for VS Code is provided by the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension. To install the Cosmos DB extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'cosmos' to filter the results. Select the Microsoft **Azure Cosmos DB** extension.
+MongoDB support for VS Code is provided by the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension. To install the Azure Databases extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'azure databases' to filter the results. Select the Microsoft **Azure Databases** extension.
 
-![Select Cosmos DB extension](images/mongodb/install-cosmosdb-extension.png)
+![Select Azure Databases extension](images/mongodb/install-cosmosdb-extension.png)
 
 ## Connect to MongoDB
 
-Once you've installed the Cosmos DB extension and reloaded VS Code, you'll notice there is a new **Azure** Activity Bar view. Click on the Azure view and you'll see the Cosmos DB Explorer.
+Once you've installed the Azure Databases extension, you'll notice there is a new **Azure** Activity Bar view. Click on the Azure view and you'll see the Azure Databases Explorer.
 
-![cosmos db explorer](images/mongodb/cosmosdb-explorer.png)
+![Azure Databases explorer](images/mongodb/cosmosdb-explorer.png)
 
-To connect to a MongoDB database, expand the **Attached Database Accounts** and click **Attach Database Account**, and choose the **MongoDB** from the Database Account API drop-down list.
+To connect to a MongoDB database, expand the **Attached Database Accounts** and click **Attach Database Account**, and choose the **MongoDB** from the Database Type drop-down list.
 
 ![attach database account drop-down](images/mongodb/attach-database-account.png)
 
@@ -49,7 +49,7 @@ There are MongoDB specific commands available in the VS Code **Command Palette**
 
 ## Using Scrapbooks
 
-One of the most powerful features of the VS Code MongoDB integration is **Mongo Scrapbooks**. Scrapbooks let you create, run, and save MongoDB commands from a VS Code editor. Create a new scrapbook from the Cosmos DB Explorer or with the **Cosmos DB: New Mongo Scrapbook** command.
+One of the most powerful features of the VS Code MongoDB integration is **Mongo Scrapbooks**. Scrapbooks let you create, run, and save MongoDB commands from a VS Code editor. Create a new scrapbook from the Cosmos DB Explorer or with the **MongoDB: New Mongo Scrapbook** command.
 
 ![new mongo scrapbook](images/mongodb/new-mongo-scrapbook.png)
 
@@ -65,23 +65,17 @@ You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB
 
 The Cosmos DB extension includes the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which allows you to sign in to Azure. If you don't have an Azure Subscription, you can [sign up today](https://azure.microsoft.com/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To sign in to Azure, use the **Sign in to Azure** command in the Cosmos DB Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign in to your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
-
-![Azure Login](images/mongodb/devicelogin.png)
-
-Paste in the access code and continue the sign in process.
-
-![Azure Login](images/mongodb/devicelogin2.png)
+To sign in to Azure, use the **Sign in to Azure** command in the Cosmos DB Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign in to your account using your default browser.
 
 In VS Code, you can sign out of Azure with **Azure: Sign Out** command.
 
 ### Create a Cosmos DB account
 
-To create Cosmos DB assets on Azure, you need a Cosmos DB account. Create a Cosmos DB account with the **Create Account** '+' icon on the Explorer toolbar or with the **Cosmos DB: Create Account** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+To create Cosmos DB assets on Azure, you need a Cosmos DB account. Create a Cosmos DB account with the **Create Account** '+' icon on the Explorer toolbar or with the **Azure Databases: Create Server** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![create CosmosDB account](images/mongodb/create-cosmosdb-account.png)
 
-Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (MongoDB), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is created (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
+Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (Azure Cosmos DB for MongoDB API), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is created (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
 
 ![Cosmos DB content menu](images/mongodb/cosmosdb-context-menu.png)
 
