@@ -74,6 +74,6 @@ To attach to a container in a Kubernetes cluster, first install the [Kubernetes 
 
 ## Next steps
 
+* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
+* [Advanced Containers](/docs/remote/containers-advanced.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
-* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom development container for your work environment.
-* [Advanced Containers](/docs/remote/advanced-containers.md) - Find solutions to advanced container scenarios.

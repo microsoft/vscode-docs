@@ -43,11 +43,11 @@ Or reuse an existing Docker Compose file:
 
 For example, through a `devcontainer.json` file, you can:
 
-* Spin up a [stand-alone "sandbox" container](#indepth-setting-up-a-folder-to-run-in-a-container) to isolate your toolchain or speed up setup.
+* Spin up a [stand-alone "sandbox" container](#set-up-a-folder-to-run-in-a-container) to isolate your toolchain or speed up setup.
 * Work with a container deployed application defined by an [image, Dockerfile](#using-an-image-or-dockerfile), or [Docker Compose](#using-docker-compose).
 * [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 
-All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` for different scenarios. You can [alter your configuration](#indepth-setting-up-a-folder-to-run-in-a-container) to:
+All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` for different scenarios. You can [alter your configuration](#set-up-a-folder-to-run-in-a-container) to:
 
 * Install additional tools such as Git in the container.
 * Automatically install extensions.
@@ -86,7 +86,7 @@ You can also iterate on your container when using the **Remote-Containers: Open 
 5. Edit the contents of the `.devcontainer` folder as required in this "recovery container."
 6. Use **Remote-Containers: Reopen in Container** and jump to step 4 if you still hit problems.
 
-### Add configuration files to public or private repositories
+## Add configuration files to public or private repositories
 
 You can easily share a customized dev container definition for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Remote - Containers extension installed.
 
@@ -250,7 +250,7 @@ By default, when VS Code starts a container, it will **override the container's 
 
 After you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json` or your Dockerfile to take effect.
 
-### Install additional software
+## Install additional software
 
 Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
 
@@ -300,7 +300,7 @@ The `postCreateCommand` is run once the container is running, so you can also us
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-### Using Docker Compose
+## Using Docker Compose
 
 In some cases, a single container environment isn't sufficient. Fortunately, Remote - Containers supports [Docker Compose](https://docs.docker.com/compose/) managed multi-container configurations.
 
@@ -493,6 +493,6 @@ The following are dev container definitions that use Docker Compose:
 
 ## Next steps
 
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Advanced Containers](/docs/remote/advanced-containers.md) - Find solutions to advanced container scenarios.
+* [Advanced Containers](/docs/remote/containers-advanced.md) - Find solutions to advanced container scenarios.
+* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.

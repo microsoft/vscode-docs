@@ -9,7 +9,7 @@ DateApproved: 7/9/2020
 ---
 # Developing inside a Container
 
-The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set. A [devcontainer.json file](/docs/remote/create-dev-container.md#create-a-devcontainerjson-file) in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase.
+The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set. A [devcontainer.json file](#create-a-devcontainerjson-file) in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase.
 
 Workspace files are mounted from the local file system or copied or cloned into the container. Extensions are installed and run inside the container, where they have full access to the tools, platform, and file system. This means that you can seamlessly switch your entire development environment just by connecting to a different container.
 
@@ -78,7 +78,7 @@ The Remote - Containers extension supports two primary operating models:
 
 ## Quick start: Try a development container
 
-The easiest way to get started is to try one of the sample development containers. The [Containers tutorial](/docs/remote/container-tutorial.md) will walk you through setting up Docker and the Remote - Containers extension and let you select a sample:
+The easiest way to get started is to try one of the sample development containers. The [Containers tutorial](/docs/remote/containers-tutorial.md) will walk you through setting up Docker and the Remote - Containers extension and let you select a sample:
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
@@ -592,6 +592,6 @@ The following articles may help answer your question:
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom development container for your work environment.
+* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
+* [Advanced Containers](/docs/remote/containers-advanced.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
-* [Advanced Containers](/docs/remote/advanced-containers.md) - Find solutions to advanced container scenarios.
