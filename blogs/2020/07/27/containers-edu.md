@@ -18,6 +18,8 @@ When you create a container, its initial contents come from what’s known as an
 
 Dev containers provide a separate coding environment from your computer. If you download a specific version of a dependency, that version will be unique to the container and completely separate from your computer. In the diagram below, notice how the container includes the app and its necessary dependencies, keeping the computer (Host OS and Infrastructure) free and clean of any dependencies:
 
+![Containers diagram](1-containers-abc.png)
+
 As an instructor, you can create an image that is specific for an assignment. Then, each student gets the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
 Remote – Containers in VS Code
@@ -52,11 +54,19 @@ Prerequisites
 
 Let’s start off by launching VS Code, which we can do by typing `code .` in the command prompt (or just by selecting VS Code on your computer):
 
+![Launch VS Code from command prompt](2-code-ps.png)
+
 Once VS Code launches, ensure you’ve installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension:
+
+![Remote containers extension](3-extension.png)
 
 When we install any of the Remote extensions, we’ll see the green Remote indicator on the bottom left of the Status bar:
 
+![Remote indicator in VS Code](4-remote-indicator.png)
+
 You can click on it to open the Command Palette and verify the Remote-Containers commands are listed:
+
+![List of remote commands in Command Palette](5-commands.png)
 
 Accessing a container for your class
 
@@ -68,29 +78,51 @@ You can select the Remote indicator in the bottom left, or use the Command Palet
 
 Let’s start off by calling, “Open Repository in Container...”
 
+![Open Repository in Container command](6-open-repo-command.png)
+
 We need to enter the URL to the GitHub repo where our container is stored, which in our case is https://github.com/microsoft/vscode-course-sample:
+
+![Paste GitHub URL in Command Palette](7-paste-repo-command.png)
 
 You can “Create a unique volume.” A volume is where files will be stored in our container:
 
+![Volume options in Command Palette](8-volume-command.png)
+
 Now that we’ve chosen our container repo, VS Code reloads to build the image and start the container:
+
+![VS Code reload to start container](9-vsc-reload.png)
+
+![Close-up on starting container notification](10-starting-container.png)
 
 Once the container is built and running, we can see our files and starting coding within our Python environment!
 
 Click on sort.py in the Explorer to open it, and press “F5” (or the green Run icon in the top right) to run it:
 
+![Run sort.py program](11-sortpy.png)
+
 You can see our Python code ran successfully without ever having to set up Python on our local computer.
 
 We can leverage the full benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let’s set a breakpoint when we sort our list of words.
 
+![Setting a breakpoint](12-breakpoint.png)
+
 We can run with “F5.” Notice the program stops once it hits the breakpoint:
+
+![Program stops at breakpoint](13-debug.png)
 
 Creating a container for your class
 
 Now that we’ve seen a fantastic example of a container, let’s set up our first container ourselves using the Remote – Containers extension. I’m starting off in a basic “Hello World” Python application:
 
+![Hello world Python app](14-helloworld.png)
+
 I’ll select Remote-Containers: Add Development Container Configuration Files… to begin setting up the files necessary for a development container:
 
+![Add Development Container Configuration Files command](15-add-config.png)
+
 Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-python-3) that appears are filtered based on the contents of your application, which in our case is a Python file. Let’s select Python 3:
+
+![Select Python 3 config file in Command Palette](16-python-config.png)
 
 The Remote - Containers extension automatically adds a .devcontainer folder and two configuration files within it: devcontainer.json and a Dockerfile.
 
@@ -102,7 +134,11 @@ devcontainer.json
 
 Here is a simple example of a devcontainer.json. It pulls a preconfigured Node image, automatically sets up port forwarding for port 3000, and will install the eslint extension when the container is created:
 
+![Simple Node devcontainer.json](17-node-devcontainer.png)
+
 Here is an example of what a slightly more elaborate devcontainer.json looks like for our Python project. Note that it references a Dockerfile rather than an image directly using the `dockerfile` property, it installs the Python extension automatically, and it also establishes a set of container-specific settings once the container is created, such as linting:
+
+![More detailed Python devcontainer.json](18-python-devcontainer.png)
 
 devcontainer.json is a great opportunity to create a customized coding environment to fit the specific needs of your students. You can specify a few variables to create a unique environment for each class or assignment.
 
@@ -126,6 +162,8 @@ Docker can build images automatically by reading the instructions from your [Doc
 
 Here’s what the Dockerfile looks like in our Python app:
 
+![Python dockerfile in app](19-dockerfile.png)
+
 We technically didn’t need to use the Remote – Containers: Add Development Container Configuration Files… command- we could have created a .devcontainer folder and added a .devcontainer.json and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files setup for us so that we can simply call a command and save even more time.
 
 Editing Components
@@ -136,17 +174,21 @@ You add the necessary configuration files (i.e. devcontainer.json), edit or cust
 
 This process, including error-handling, is expressed by the chart below:
 
+![Chart explaining editing config files](20-change-cycle.png)
+
 Opening the container
 
-Once our container configuration files were added, we got a notification from the extension indicating that our folder now contains a devcontainer.json file. Let’s select “Reopen in Container.”
+Once our container configuration files were added, we got a notification from the extension indicating that our folder now contains a devcontainer.json file. Let’s select “Reopen in Container." We can also select this option from the Command Palette (F1 > “Reopen in Container”).
 
-We can also select this option from the Command Palette (F1 > “Reopen in Container”):
+![Reopen in container notification](21-reopen-notif.png)
 
 A new instance of VS Code launches, and we can see our image is being built and our app is starting in our dev container:
 
-Once our container is built, we can see we have all the same files present, but now the bottom left corner indicator reads, “Dev Container: Python 3,” signifying we’re inside our container:
+![Relaunch VS Code to start dev container](22-reload-starting.png)
 
-We can select the green run button to run our code with ease, regardless of which version of Python we have installed on our local machine:
+Once our container is built, we can see we have all the same files present, but now the bottom left corner indicator reads, “Dev Container: Python 3,” signifying we’re inside our container. We can select the green run button to run our code with ease, regardless of which version of Python we have installed on our local machine:
+
+![Run Python code in dev container](24-run-code.png)
 
 Creating and sharing assignments
 
@@ -158,13 +200,19 @@ Following the guide [here](https://kbroman.org/github_tutorial/pages/init.html),
 
 GitHub gives us some tips about how to add code to our newly created repo:
 
+![Create a new GitHub repo online](25-create-repo.png)
+
 Let’s connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
 
-You may be prompted to log into GitHub:
+![Connect Git repos in command prompt](26-git-setup.png)
 
-Once you log in, your files can be added to your remote Git repository:
+You may be prompted to log into GitHub. Once you log in, your files can be added to your remote Git repository:
+
+![Push remote files in command prompt](27-git-push.png)
 
 Now when I refresh GitHub in the browser, I can see my files!
+
+![View files in GitHub repo in browser online](28-github-browser.png)
 
 Accessing assignments
 
