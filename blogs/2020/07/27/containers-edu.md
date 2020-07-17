@@ -16,7 +16,7 @@ We’ve heard from many educators that the first days or weeks of the semester c
 
 <Quote 1>
 
-<Quote 2>
+“I would prefer a version of VS Code, specifically set up for a Python installation...” -[Assistant Professor, Liberal Arts College]
 
 Development containers are a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors alike can quickly move past configuration and instead focus on what’s truly important: learning and coding something great!
 
