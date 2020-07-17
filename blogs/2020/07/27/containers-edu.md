@@ -122,15 +122,15 @@ We can run with **F5**. Notice the program stops once it hits the breakpoint:
 
 ### Creating a container for your class
 
-Now that we’ve seen a fantastic example of a container, let’s set up our first container ourselves using the Remote – Containers extension. I’m starting off in a basic “Hello World” Python application:
+Now that we’ve seen a fantastic example of a container, let’s set up our first container ourselves using the Remote – Containers extension. Let's start off in a “Hello World” Python application:
 
 ![Hello world Python app](14-helloworld.png)
 
-I’ll select **Remote-Containers: Add Development Container Configuration Files…** to begin setting up the files necessary for a development container:
+We'll select **Remote-Containers: Add Development Container Configuration Files…** to begin setting up the files necessary for a development container:
 
 ![Add Development Container Configuration Files command](15-add-config.png)
 
-Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-python-3) that appears are filtered based on the contents of your application, which in our case is a Python file. Let’s select **Python 3**:
+Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3) that appears are filtered based on the contents of your application, which in our case is a Python file. Let’s select **Python 3**:
 
 ![Select Python 3 config file in Command Palette](16-python-config.png)
 
