@@ -45,7 +45,7 @@ Given the number of modules that do not exist under the `@types` scope, a large 
 
 ## Going forward
 
-You should have been prompted to install VS Code 1.7.1. This release has ATA disabled, however all other 1.7 features are available to use. Over the next few days, we will work with the TypeScript team on a satisfactory fix for ATA (one was started last night in this [PR](https://github.com/Microsoft/TypeScript/pull/12014)) and we will notify you when this update is available.
+You should have been prompted to install VS Code 1.7.1. This release has ATA disabled, however all other 1.7 features are available to use. Over the next few days, we will work with the TypeScript team on a satisfactory fix for ATA (one was started last night in this [PR](https://github.com/microsoft/TypeScript/pull/12014)) and we will notify you when this update is available.
 
 [#HappyCoding](https://twitter.com/hashtag/HappyCoding?src=hash)
 

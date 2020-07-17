@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -74,6 +74,9 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
 - `button.hoverBackground`: Button background color when hovering.
+- `button.secondaryForeground`: Secondary button foreground color.
+- `button.secondaryBackground`: Secondary button background color.
+- `button.secondaryHoverBackground`: Secondary button background color when hovering.
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
 - `checkbox.border`: Border color of checkbox widget.
@@ -172,7 +175,6 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
-
 
 ## Side Bar
 
@@ -371,7 +373,6 @@ Bracket matches:
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
 
-
 Folding:
 
 - `editor.foldBackground`: Background color for folded ranges. The color must not be opaque so as not to hide underlying decorations.
@@ -422,7 +423,6 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
-
 
 ## Diff editor colors
 
@@ -488,7 +488,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewTitleDescription.foreground`: Color of the peek view title info.
 - `peekViewTitleLabel.foreground`: Color of the peek view title.
 
-## Merge conflicts
+## Merge conflicts colors
 
 Merge conflict decorations are shown when the editor contains special diff ranges.
 
@@ -504,7 +504,6 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
-
 
 ## Panel colors
 
@@ -524,7 +523,7 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 
-### Preview
+### Preview colors
 
 - `imagePreview.border`: Border color for image in image preview.
 
@@ -610,7 +609,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `notification.warningBackground`
 - `notification.warningForeground`
 
-## Extensions
+## Extensions colors
 
 - `extensionButton.prominentForeground`: Extension view button foreground color (for example **Install** button).
 - `extensionButton.prominentBackground`: Extension view button background color.
@@ -618,7 +617,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 
-## Quick picker
+## Quick picker colors
 
 - `pickerGroup.border`: Quick picker (Quick Open) color for grouping borders.
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
@@ -651,7 +650,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 
-## Debug
+## Debug colors
 
 - `debugToolBar.background`: Debug toolbar background color.
 - `debugToolBar.border`: Debug toolbar border color.
@@ -669,13 +668,16 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `debugTokenExpression.number`: Foreground color for numbers in debug views
 - `debugTokenExpression.error`: Foreground color for expression errors in debug views
 
-
-## Welcome page
+## Welcome page colors
 
 - `welcomePage.background`: Background color for the Welcome page.
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
+
+## Source Control colors
+
+- `scm.providerBorder`: SCM Provider separator border.
 
 ## Git colors
 
@@ -707,7 +709,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
 
-## Breadcrumbs
+## Breadcrumbs colors
 
 The theme colors for breadcrumbs navigation:
 
@@ -717,7 +719,7 @@ The theme colors for breadcrumbs navigation:
 - `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
 - `breadcrumbPicker.background`: Background color of breadcrumb item picker.
 
-## Snippets
+## Snippets colors
 
 The theme colors for snippets:
 
@@ -726,7 +728,7 @@ The theme colors for snippets:
 - `editor.snippetFinalTabstopHighlightBackground`: Highlight background color of the final tabstop of a snippet.
 - `editor.snippetFinalTabstopHighlightBorder`: Highlight border color of the final tabstop of a snippet.
 
-## Symbol Icons
+## Symbol Icons colors
 
 The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget:
 
@@ -764,7 +766,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `symbolIcon.unitForeground`: The foreground color for unit symbols.
 - `symbolIcon.variableForeground`: The foreground color for variable symbols.
 
-## Debug Icons
+## Debug Icons colors
 
 - `debugIcon.breakpointForeground`: Icon color for breakpoints.
 - `debugIcon.breakpointDisabledForeground`: Icon color for disabled breakpoints.
@@ -788,9 +790,24 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `debugConsole.sourceForeground`: Foreground color for source filenames in debug REPL console.
 - `debugConsoleInputIcon.foreground`: Foreground color for debug console input marker icon.
 
+## Notebook colors
 
-
-
+- `notebook.cellBorderColor`: The border color for notebook cells.
+- `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
+- `notebookStatusSuccessIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
+- `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.cellToolbarSeperator`: The color of the separator in the cell bottom toolbar
+- `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
+- `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
+- `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
+- `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
+- `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
+- `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
+- `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
+- `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
+- `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
 
 ## Extension colors
 

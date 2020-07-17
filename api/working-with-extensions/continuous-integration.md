@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -9,13 +9,13 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/Microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
+Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/master/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/master/sample/azure-pipelines.yml).
 
 ## Automated publishing
 
 You can also configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/Microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
+The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
 
 ## Azure Pipelines
 
@@ -83,7 +83,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://docs.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
 2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
-3. Declare a `deploy` script in `package.json` without the PAT.
+3. Declare a `deploy` script in `package.json` without the PAT (by default, `vsce` will use the `VSCE_PAT` environment variable as the Personal Access Token).
 
 ```json
 "scripts": {
@@ -95,9 +95,11 @@ You can enable the build to run continuously when pushing to a branch and even o
 
 ```yaml
 trigger:
-  tags:
+  branches:
     include:
     - master
+  tags:
+    include:
     - refs/tags/v*
 ```
 
@@ -109,6 +111,8 @@ trigger:
     yarn deploy
   displayName: Publish
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
+  env:
+    VSCE_PAT: $(VSCE_PAT)
 ```
 
 The [condition](https://docs.microsoft.com/azure/devops/pipelines/process/conditions) property tells the CI to run the publish step only in certain cases.
@@ -118,6 +122,8 @@ In our example, the condition has three checks:
 - `succeeded()` - Publish only if the tests pass.
 - `startsWith(variables['Build.SourceBranch'], 'refs/tags/')` - Publish only if a tagged (release) build.
 - `eq(variables['Agent.OS'], 'Linux')` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
+
+Since `VSCE_PAT` is a secret variable, it is not immediately usable as an environment variable. Thus, we need to explicitly map the environment variable `VSCE_PAT` to the secret variable.
 
 ## GitHub Actions
 

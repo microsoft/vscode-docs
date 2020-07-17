@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -76,14 +76,14 @@ Here is a complete `package.json`
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
   },
-  "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md"
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md"
 }
 ```
 
@@ -124,14 +124,14 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 ```json
 {
   "license": "SEE LICENSE IN LICENSE.txt",
-  "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md",
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
   }
 }
 ```
@@ -202,7 +202,7 @@ We allow badges from the following URL prefixes:
 - www.bithound.io
 - www.versioneye.com
 
-If you have other badges you would like to use, please open a GitHub [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
+If you have other badges you would like to use, please open a GitHub [issue](https://github.com/microsoft/vscode/issues) and we're happy to take a look.
 
 ## Combining Extension Contributions
 

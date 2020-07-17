@@ -18,7 +18,7 @@ Downloads: [Windows](https://az764295.vo.msecnd.net/public/0.10.6/VSCodeSetup.ex
 
 A big thanks for the great contributions we have received. The community has filed over 200 bugs, 280 feature requests, and submitted 70 pull requests. We have addressed many of these issues and merged most of the pull requests.
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
+These are the [closed bugs](https://github.com/microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and these are the [closed feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
 
 Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
 
@@ -26,7 +26,7 @@ Regarding fixes, if you want to find out when a fix to your issue is available i
 
 In regex mode:
 
-* Can now search for `^`, `$` or `^$` thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/314).
+* Can now search for `^`, `$` or `^$` thanks to a [community contribution](https://github.com/microsoft/vscode/pull/314).
 * Can now replace with `\n` or `\t`.
 
 Keyboard shortcuts:
@@ -43,15 +43,15 @@ Keyboard shortcuts:
 
 ## Editor - Cursor Blinking Options
 
-New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
+New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/microsoft/vscode/pull/500).
 
 ## Editor - Select Current Line Command
 
-New select current line command (`kb(expandLineSelection)`) thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/961).
+New select current line command (`kb(expandLineSelection)`) thanks to a [community contribution](https://github.com/microsoft/vscode/pull/961).
 
 ## Editor - Scroll Viewport Commands
 
-Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/1051), VS Code has improved editor scroll support:
+Thanks to a [community contribution](https://github.com/microsoft/vscode/pull/1051), VS Code has improved editor scroll support:
 
 * Scroll by one line up (`kb(scrollLineUp)`) / down (`kb(scrollLineDown)`)
 * Scroll by one page up (`kb(scrollPageUp)`) / down (`kb(scrollPageDown)`)
@@ -87,7 +87,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 ## ES6 is the new default
 
-We have made ES6 the default for JavaScript files. This means you don't need to create `jsconfig.json` files to enable new syntax and by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
+We have made ES6 the default for JavaScript files. This means you don't need to create `jsconfig.json` files to enable new syntax and by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/microsoft/vscode/pull/337).
 
 At the same time, the grammar used to colorize JavaScript was also updated to support the ES6 syntax.
 
@@ -97,7 +97,7 @@ The TypeScript language service was updated to version [1.7.5](https://devblogs.
 
 ## JSX Support
 
-To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
+To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
 
 * Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure JSX support. This will provide you with validation in JSX files.
 
@@ -121,7 +121,7 @@ We improved extension debugging when connecting the debugger to the extension. T
 
 ## Extensions Show Outdated Extensions
 
-Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517), there is now a `Show Outdated Extensions` command, that shows all outdated extensions and lets you quickly install their updates.
+Thanks to a [community contribution](https://github.com/microsoft/vscode/pull/517), there is now a `Show Outdated Extensions` command, that shows all outdated extensions and lets you quickly install their updates.
 
 ## Installed Extension Issues
 
@@ -131,7 +131,7 @@ If VS Code identifies an issue with an installed extension, it will display an `
 
 ## Extension Gallery
 
-There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
+There is now [proxy support for the extension gallery](https://github.com/microsoft/vscode/issues/69).
 
 ## Extension Deactivation
 
@@ -226,7 +226,7 @@ For Node.js based debug adapter development, we've made the VS Code Debug Protoc
 * [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol)
 * [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter)
 
-The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node). Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
+The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/microsoft/vscode-debugadapter-node). Both [mock-debug](https://github.com/microsoft/vscode-mock-debug) and [node-debug](https://github.com/microsoft/vscode-node-debug) have been updated to use the npm modules.
 
 ## Engineering
 
@@ -237,14 +237,14 @@ The VS Code GitHub repository supports continued integration for branches and pu
 
 During this first iteration of VS Code being open source, we tuned and documented more of our development workflows:
 
-* [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking)
-* [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
+* [How we do issue tracking](https://github.com/microsoft/vscode/wiki/Issue-Tracking)
+* [How we use the different feedback channels](https://github.com/microsoft/vscode/wiki/Feedback-Channels)
 
 We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 
 ## Notable Bug Fixes
 
-* Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
+* Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
 
 ## What's next
 

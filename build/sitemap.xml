@@ -26,6 +26,11 @@
         <priority>0.70</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/events</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/supporting/FAQ</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -571,11 +576,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-azurefunctions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/java/java-debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -811,6 +811,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/containers/local-process-kubernetes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/other/unity</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -909,6 +914,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/tree-view</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/notebook</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

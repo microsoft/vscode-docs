@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -66,7 +66,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "description": "HelloWorld example for VS Code",
   "version": "0.0.1",
   "publisher": "vscode-samples",
-  "repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
+  "repository": "https://github.com/microsoft/vscode-extension-samples/helloworld-sample",
   "engines": {
     "vscode": "^1.34.0"
   },

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -474,9 +474,13 @@ The **editor tab context menu** has these default groups:
 
 The **editor title menu** has these default groups:
 
+- `navigation` - Commands related to navigating.
+- `1_run` - Commands related to running and debugging the editor.
 - `1_diff` - Commands related to working with diff editors.
 - `3_open` - Commands related to opening editors.
 - `5_close` - Commands related to closing editors.
+
+`navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
 
 The **Timeline view item context menu** has these default groups:
 
@@ -844,7 +848,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/contribution-points/views.png)
 
-Extension writers should create a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+Extension writers should create a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 ## contributes.viewsContainers
 
@@ -1010,7 +1014,7 @@ const errorColor = new vscode.ThemeColor("superstatus.error");
 
 ## contributes.typescriptServerPlugins
 
-Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
+Contributes [TypeScript server plugins](https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
 
 ```json
 {
@@ -1024,7 +1028,7 @@ Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/
 }
 ```
 
-The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be installed as a normal NPM `dependency` in the extension:
+The above example extension contributes the [`typescript-styled-plugin`](https://github.com/microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be installed as a normal NPM `dependency` in the extension:
 
 ```json
 {
@@ -1124,4 +1128,4 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
 };
 ```
 
-This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
