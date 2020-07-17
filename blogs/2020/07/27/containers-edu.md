@@ -38,9 +38,11 @@ The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.co
 
 The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
-We’ve already seen instructors using Remote – Containers in their classrooms with success. You can check out [Using DevContainers to Standardize Student Development Environments: An Experience Report](https://dl.acm.org/doi/pdf/10.1145/3341525.3387424) to learn more about the experiences of three researchers who used dev containers in a semester-long course at UC San Diego.
+We’ve already seen instructors using Remote – Containers in their classrooms with success. You can check out [Using DevContainers to Standardize Student Development Environments: An Experience Report](https://dl.acm.org/doi/pdf/10.1145/3341525.3387424) to learn more about the experiences of three researchers who used dev containers in a course at UC San Diego.
 
 This post will serve as a guide to instructors looking to implement development containers in the classroom to create a smoother, more consistent environment for their students.
+
+To see dev containers in action and how students can get started in less than 5 minutes, check out our introductory student video ***link to video.***
 
 ## Guide for Instructors
 
