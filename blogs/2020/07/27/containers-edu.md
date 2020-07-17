@@ -176,16 +176,6 @@ Here’s what the Dockerfile looks like in our Python app:
 
 We technically didn’t need to use the **Remote – Containers: Add Development Container Configuration Files…** command- we could have created a .devcontainer folder and added a `devcontainer.json` and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files setup for us so that we can simply call a command and save even more time.
 
-### Editing Components
-
-It’s a smooth process to [make changes and customize](https://code.visualstudio.com/docs/remote/containers#_configuration-edit-loop) your container configuration files.
-
-You add the necessary configuration files (i.e. `devcontainer.json`), edit or customize them if you want, reopen your source code in the container, and that’s it!
-
-This process, including error-handling, is expressed by the chart below:
-
-![Chart explaining editing config files](20-change-cycle.png)
-
 ### Opening the container
 
 Once our container configuration files were added, we got a notification from the extension indicating that our folder now contains a `devcontainer.json` file. Let’s select **Reopen in Container**. We can also select this option from the Command Palette (**F1** > **Reopen in Container**).
