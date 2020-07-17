@@ -156,8 +156,8 @@ Variables we’d recommend starting off with in a `devcontainer.json` for educat
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `image` | string | **Required** when [using an image](#using-an-image-or-dockerfile). The name of an image in a container registry ([DockerHub](https://hub.docker.com), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code should use to create the dev container. |
-| `build.dockerfile` / `dockerFile` | string |**Required** when [using a Dockerfile](#using-an-image-or-dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/master/containers). |
+| `image` | string | The name of an image in a container registry (i.e. [DockerHub](https://hub.docker.com)) that VS Code should use to create the dev container. |
+| `dockerFile` | string | The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/master/containers). |
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
