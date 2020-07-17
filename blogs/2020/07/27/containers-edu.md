@@ -34,7 +34,7 @@ As an instructor, you can create an image that is specific for an assignment. Th
 
 ## Remote – Containers in VS Code
 
-The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [exisiting dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers) or create their own and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code’s full feature set, including IntelliSense and debugging, while developing their code.
+The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [exisiting dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers) or create their own and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code’s full feature set, including IntelliSense and debugging, while coding.
 
 The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
