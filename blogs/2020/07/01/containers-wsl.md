@@ -78,7 +78,7 @@ Installing the Remote - WSL extension added the Remote Explorer to VS Code. When
 ## Working with containers
 
 We can leverage the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension to view and attach to containers, in addition to a variety of other scenarios, such as:
-* [Developing within a set of sample containers](https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container)
+* [Developing within a set of sample containers](https://code.visualstudio.com/docs/remote/containers-tutorial)
 * [Opening existing source code in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
 * [Working with a GitHub repository](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container) in an isolated container volume.
 
