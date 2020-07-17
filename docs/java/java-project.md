@@ -85,7 +85,7 @@ If you're just starting to learn Java and don't know what Maven or Gradle are, t
 
 ### Adding external JAR
 
-You can use the Java Dependency Viewer to add any JAR file to your project. Go to the **JAVA DEPENDENCIE** view, find the **Referenced Libraries** node, and click the **+** button to add a JAR file:
+You can use the Java Dependency Viewer to add any JAR file to your project. Go to the **JAVA DEPENDENCIES** view, find the **Referenced Libraries** node, and click the **+** button to add a JAR file:
 
 ![Add Dependency](images/java-project/manage-dependencies.gif)
 
