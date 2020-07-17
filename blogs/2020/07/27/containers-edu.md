@@ -86,7 +86,7 @@ We have an example [vscode-course-sample GitHub repo](https://github.com/microso
 
 You can select the Remote indicator in the bottom left, or use the Command Palette, to bring up the Remote-Containers commands.
 
-Let’s start off by calling, “Open Repository in Container...”
+Let’s call **Open Repository in Container...**
 
 ![Open Repository in Container command](6-open-repo-command.png)
 
@@ -94,7 +94,7 @@ We need to enter the URL to the GitHub repo where our container is stored, which
 
 ![Paste GitHub URL in Command Palette](7-paste-repo-command.png)
 
-You can “Create a unique volume.” A volume is where files will be stored in our container:
+You can **Create a unique volume.** A volume is where files will be stored in our container:
 
 ![Volume options in Command Palette](8-volume-command.png)
 
@@ -106,7 +106,7 @@ Now that we’ve chosen our container repo, VS Code reloads to build the image a
 
 Once the container is built and running, we can see our files and starting coding within our Python environment!
 
-Click on sort.py in the Explorer to open it, and press “F5” (or the green Run icon in the top right) to run it:
+Click on `sort.py` in the Explorer to open it, and press **F5** (or the green Run icon in the top right) to run it:
 
 ![Run sort.py program](11-sortpy.png)
 
@@ -116,7 +116,7 @@ We can leverage the full benefits of VS Code, such as setting breakpoints to pau
 
 ![Setting a breakpoint](12-breakpoint.png)
 
-We can run with “F5.” Notice the program stops once it hits the breakpoint:
+We can run with **F5**. Notice the program stops once it hits the breakpoint:
 
 ![Program stops at breakpoint](13-debug.png)
 
@@ -126,33 +126,33 @@ Now that we’ve seen a fantastic example of a container, let’s set up our fir
 
 ![Hello world Python app](14-helloworld.png)
 
-I’ll select Remote-Containers: Add Development Container Configuration Files… to begin setting up the files necessary for a development container:
+I’ll select **Remote-Containers: Add Development Container Configuration Files…** to begin setting up the files necessary for a development container:
 
 ![Add Development Container Configuration Files command](15-add-config.png)
 
-Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-python-3) that appears are filtered based on the contents of your application, which in our case is a Python file. Let’s select Python 3:
+Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/azure-functions-python-3) that appears are filtered based on the contents of your application, which in our case is a Python file. Let’s select **Python 3**:
 
 ![Select Python 3 config file in Command Palette](16-python-config.png)
 
-The Remote - Containers extension automatically adds a .devcontainer folder and two configuration files within it: devcontainer.json and a Dockerfile.
+The Remote - Containers extension automatically adds a .devcontainer folder and two configuration files within it: `devcontainer.json` and a Dockerfile.
 
-The Dockerfile defines what should be inside the container, while devcontainer.json describes how VS Code should start it, and what to do after it connects. Let’s take a closer look at both files.
+The Dockerfile defines what should be inside the container, while `devcontainer.json` describes how VS Code should start it, and what to do after it connects. Let’s take a closer look at both files.
 
 ### devcontainer.json
 
-[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under .devcontainer/devcontainer.json or stored directly as .devcontainer.json in the root of a project.
+[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under .devcontainer/devcontainer.json or stored directly as `.devcontainer.json` in the root of a project.
 
-Here is a simple example of a devcontainer.json. It pulls a preconfigured Node image, automatically sets up port forwarding for port 3000, and will install the eslint extension when the container is created:
+Here is a simple example of a `devcontainer.json`. It pulls a preconfigured Node image, automatically sets up port forwarding for port 3000, and will install the eslint extension when the container is created:
 
 ![Simple Node devcontainer.json](17-node-devcontainer.png)
 
-Here is an example of what a slightly more elaborate devcontainer.json looks like for our Python project. Note that it references a Dockerfile rather than an image directly using the `dockerfile` property, it installs the Python extension automatically, and it also establishes a set of container-specific settings once the container is created, such as linting:
+Here is an example of what a slightly more elaborate `devcontainer.json` looks like for our Python project. Note that it references a Dockerfile rather than an image directly using the `dockerfile` property, it installs the Python extension automatically, and it also establishes a set of container-specific settings once the container is created, such as linting:
 
 ![More detailed Python devcontainer.json](18-python-devcontainer.png)
 
-devcontainer.json is a great opportunity to create a customized coding environment to fit the specific needs of your students. You can specify a few variables to create a unique environment for each class or assignment.
+`devcontainer.json` is a great opportunity to create a customized coding environment to fit the specific needs of your students. You can specify a few variables to create a unique environment for each class or assignment.
 
-Variables we’d recommend starting off with in a devcontainer.json for education are:
+Variables we’d recommend starting off with in a `devcontainer.json` for education are:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -174,13 +174,13 @@ Here’s what the Dockerfile looks like in our Python app:
 
 ![Python dockerfile in app](19-dockerfile.png)
 
-We technically didn’t need to use the Remote – Containers: Add Development Container Configuration Files… command- we could have created a .devcontainer folder and added a .devcontainer.json and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files setup for us so that we can simply call a command and save even more time.
+We technically didn’t need to use the **Remote – Containers: Add Development Container Configuration Files…** command- we could have created a .devcontainer folder and added a `devcontainer.json` and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files setup for us so that we can simply call a command and save even more time.
 
 ### Editing Components
 
 It’s a smooth process to [make changes and customize](https://code.visualstudio.com/docs/remote/containers#_configuration-edit-loop) your container configuration files.
 
-You add the necessary configuration files (i.e. devcontainer.json), edit or customize them if you want, reopen your source code in the container, and that’s it!
+You add the necessary configuration files (i.e. `devcontainer.json`), edit or customize them if you want, reopen your source code in the container, and that’s it!
 
 This process, including error-handling, is expressed by the chart below:
 
@@ -188,7 +188,7 @@ This process, including error-handling, is expressed by the chart below:
 
 ### Opening the container
 
-Once our container configuration files were added, we got a notification from the extension indicating that our folder now contains a devcontainer.json file. Let’s select “Reopen in Container." We can also select this option from the Command Palette (F1 > “Reopen in Container”).
+Once our container configuration files were added, we got a notification from the extension indicating that our folder now contains a `devcontainer.json` file. Let’s select **Reopen in Container**. We can also select this option from the Command Palette (**F1** > **Reopen in Container**).
 
 ![Reopen in container notification](21-reopen-notif.png)
 
@@ -196,7 +196,7 @@ A new instance of VS Code launches, and we can see our image is being built and 
 
 ![Relaunch VS Code to start dev container](22-reload-starting.png)
 
-Once our container is built, we can see we have all the same files present, but now the bottom left corner indicator reads, “Dev Container: Python 3,” signifying we’re inside our container. We can select the green run button to run our code with ease, regardless of which version of Python we have installed on our local machine:
+Once our container is built, we can see we have all the same files present, but now the bottom left corner indicator reads, "Dev Container: Python 3,” signifying we’re inside our container. We can select the green run button to run our code with ease, regardless of which version of Python we have installed on our local machine:
 
 ![Run Python code in dev container](24-run-code.png)
 
@@ -226,11 +226,12 @@ Now when I refresh GitHub in the browser, I can see my files!
 
 ### Accessing assignments
 
-To see how students can access the dev container from GitHub and begin programming with ease, check out our quick 5 minute video <link to video>.
+To see how students can access the dev container from GitHub and begin programming with ease, check out our quick 5 minute video ***link to video.***
 
 ## Feedback & further resources
 
 To help set up VS Code with containers, we have detailed articles on the VS Code [Remote Development documentation](https://code.visualstudio.com/docs/remote/containers). If you have any questions or feedback for our team, please feel free to open an issue on the VS Code [Remote Development GitHub Repository](https://github.com/microsoft/vscode-remote-release/issues) or Tweet us [@code](https://twitter.com/code).
 
 Happy Coding!
+
 Brigit Murtaugh, VS Code Program Manager [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
