@@ -162,7 +162,7 @@ Variables we’d recommend starting off with in a `devcontainer.json` for educat
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 
-Setting up a handful of variables in this file will save your class time in the long run. For example, instead of having to provide an extensive list of extensions to install, or specifying an exact extension name and hoping all students grab the right one, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students’ computers, but by specifying path information via the `settings` variable, you’ll save your class time and ensure they’re computers’ path variables aren’t harmed in the process.
+Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students’ computers, but by specifying path information via the `settings` variable, you’ll save your class time and ensure they’re computers’ path variables aren’t harmed in the process.
 
 We have a reference table [here](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) of all available properties you can include in this configuration file.
 
