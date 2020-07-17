@@ -48,13 +48,11 @@ To see dev containers in action and how students can get started in less than 5 
 
 ### Scenario
 
-Students can run into a wide variety of issues while setting up their environment, caused by a plethora of reasons: subtle differences in their unique OS, basic configuration, where project files are stored on their system, or small differences in version in every runtime or tool installed. Instructors need to be well-versed in all these subtleties to help students as they encounter them.
+Students can run into a wide variety of issues while setting up their environment, caused by many different reasons: subtle differences in their unique OS, where project files are stored, or small differences runtimes or tools they have installed. Instructors need to be well-versed in all these subtleties to help students as they encounter them.
 
-A common issue is managing different versions of a tool. Let’s take Python as an example: there’s Python 2 and Python 3, along with different minor versions as well. Having multiple versions of Python, and then multiple accompanying tools like linters, can be confusing and lead to errors.
+A common issue is managing different versions of a tool. Let’s take Python as an example: there’s Python 2 and Python 3, along with different minor versions. Having multiple versions of Python, and then multiple accompanying tools like linters, can be confusing and lead to errors.
 
-To save tremendous time and confusion, we can use dev containers to create a standardized Python development environment across our class.
-
-If we select a development container with one version of Python, we can keep our own computer’s environment intact as we don’t have to install any new versions of Python or uninstall any old ones, and we can ensure anyone else who runs our container and source code will also be able to run our application just as easily with the exact same results.
+To save tremendous time and confusion, we can use dev containers to create a standardized Python development environment across our class. Students will all get the same version of Python, avoiding the need to install a new version or uninstall any old ones, and everyone running the same container and source code will get the same exact results.
 
 ### Prerequisites
 
