@@ -1,7 +1,7 @@
 ---
-Order:
+Order: 12
 Area: remote
-TOCTitle: Containers
+TOCTitle: devcontainer.json
 PageTitle: devcontainer.json reference
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
@@ -56,7 +56,7 @@ See [Set up a folder to run in a container](/docs/remote/create-dev-container.md
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
-### Variables in devcontainer.json
+## Variables in devcontainer.json
 
 Variables can be referenced in certain string values in `devcontainer.json` in the following format: **${variableName}**. The following is a list of available variables you can use.
 
@@ -69,7 +69,7 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 | `${localWorkspaceFolderBasename}` | Any | Name of the local folder that was opened in VS Code (that contains `.devcontainer/devcontainer.json`). |
 | `${containerWorkspaceFolderBasename}` | Any | Name of the folder where the workspace files can be found in the container. |
 
-### Attached container configuration reference
+## Attached container configuration reference
 
 [Attached container configuration files](/docs/remote/attach-container.md#attached-container-configuration-files) are similar to `devcontainer.json` and supports a subset of its properties.
 
@@ -83,7 +83,7 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 | `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the user the container as a whole is running as (often `root`). |
 | `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code attaches to the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. Not set by default. |
 
-### Variables in attached container configuration files
+## Variables in attached container configuration files
 
 Variables can be referenced in certain string values in attached configuration files in the following format: **${variableName}**. The following is a list of available variables you can use.
 

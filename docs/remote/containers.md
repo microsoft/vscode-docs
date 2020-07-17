@@ -62,12 +62,16 @@ To get started, follow these steps:
 
 3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
-**Working with Git?** Here are two tips to consider:
+### Working with Git?
+
+Here are two tips to consider:
 
 * If you are working with the same repository both locally in Windows and inside a container, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
 * If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt in to sharing them. See [Sharing Git credentials with your container](#sharing-git-credentials-with-your-container) for details.
 
-**Next Steps:** The Remote - Containers extension supports two primary operating models:
+### Working with Containers
+
+The Remote - Containers extension supports two primary operating models:
 
 * You can use a container as your [full-time development environment](/docs/remote/create-dev-container.md#create-a-devcontainerjson-file).
 * You can [attach to a running container](/docs/remote/attach-container.md) to inspect it.
@@ -171,6 +175,26 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 Note that if the container fails to come up due to something like a Docker build error, you can select **Open in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. Once done, use **File > Open Recent** to select the repository container and retry.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
+
+## Create a devcontainer.json file
+
+VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
+
+You can use any image, Dockerfile, or set of Docker Compose files as a starting point. Here is a simple example that uses one of the pre-built [VS Code Development Container images](https://hub.docker.com/_/microsoft-vscode-devcontainers):
+
+```json
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
+    "forwardPorts": [ 3000 ],
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ]
+}
+```
+
+Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
+
+To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
 
 ## Inspecting volumes
 
@@ -450,6 +474,11 @@ See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) 
 * [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
 * [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
 
+## devcontainer.json reference
+
+There is a full [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md), where you can review
+the file schema to help you customize your development containers and control how you attach to running containers.
+
 ## Known limitations
 
 ### Remote - Containers limitations
@@ -559,3 +588,10 @@ The following articles may help answer your question:
 * Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
+
+## Next steps
+
+* [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
+* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom development container for your work environment.
+* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [Advanced Containers](/docs/remote/advanced-containers.md) - Find solutions to advanced container scenarios.
