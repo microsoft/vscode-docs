@@ -138,7 +138,7 @@ The Remote - Containers extension automatically adds a .devcontainer folder and 
 
 The Dockerfile defines what should be inside the container, while `devcontainer.json` describes how VS Code should start it, and what to do after it connects. Let’s take a closer look at both files.
 
-### devcontainer.json
+#### devcontainer.json
 
 [`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under .devcontainer/devcontainer.json or stored directly as `.devcontainer.json` in the root of a project.
 
@@ -166,7 +166,7 @@ Setting up a handful of variables in this file will save your class time in the 
 
 We have a reference table [here](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) of all available properties you can include in this configuration file.
 
-### Dockerfile
+#### Dockerfile
 
 Docker can build images automatically by reading the instructions from your [Dockerfile](https://docs.docker.com/engine/reference/builder/). This file will at the very least have a base image specified using “FROM,” and it can include command-line instructions as well.
 
