@@ -192,15 +192,15 @@ Once our container is built, we can see we have all the same files, but now the 
 
 ### Creating and sharing assignments
 
-Now that you have an application with a dev container, you can upload this to a repository in which your students can access it, such as GitHub. You could include assignment instructions in a README, any base or template code needed for the application, and then a .devcontainer. This can all be uploaded as a single project or repo.
+Now that you have a dev container, you can upload this to a repository in which your students can access it for their assignments. You could include assignment instructions in a README, any base or template code needed for the assignment, and then a .devcontainer so that they all have a consistent development experience. This can all be uploaded as a single repo.
 
 Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project’s directory in the command line.
 
 Following the guide [here](https://kbroman.org/github_tutorial/pages/init.html), the next step is to connect your local repository to a [new repo](https://github.com/new) from the GitHub desktop client:
 
-GitHub gives us some tips about how to add code to our newly created repo:
-
 ![Create a new GitHub repo online](25-create-repo.png)
+
+GitHub gives us some tips about how to add code to our newly created repo.
 
 Let’s connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
 
