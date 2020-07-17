@@ -178,7 +178,7 @@ We technically didn’t need to use the **Remote – Containers: Add Development
 
 ### Opening the container
 
-Once our container configuration files were added, we got a notification from the extension indicating that our folder now contains a `devcontainer.json` file. Let’s select **Reopen in Container**. We can also select this option from the Command Palette (**F1** > **Reopen in Container**).
+Once our container configuration files were added, we got a notification that our folder now has a `devcontainer.json` file. Let’s select **Reopen in Container**:
 
 ![Reopen in container notification](21-reopen-notif.png)
 
@@ -186,7 +186,7 @@ A new instance of VS Code launches, and we can see our image is being built and 
 
 ![Relaunch VS Code to start dev container](22-reload-starting.png)
 
-Once our container is built, we can see we have all the same files present, but now the bottom left corner indicator reads, "Dev Container: Python 3,” signifying we’re inside our container. We can select the green run button to run our code with ease, regardless of which version of Python we have installed on our local machine:
+Once our container is built, we can see we have all the same files, but now the bottom left indicator reads, "Dev Container: Python 3,” signifying we’re inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
 
 ![Run Python code in dev container](24-run-code.png)
 
