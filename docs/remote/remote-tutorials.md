@@ -22,7 +22,7 @@ Tutorial | Description
 [Remote via SSH](/remote-tutorials/ssh/getting-started) | Connect to remote and virtual machines with Visual Studio Code via SSH.
 [Working in WSL](/remote-tutorials/wsl/getting-started) | Run Visual Studio Code in Windows Subsystem for Linux.
 [Containers](/remote-tutorials/containers/getting-started) | Run Visual Studio Code in a Docker Container.
-[Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/online/how-to/vscode) | Connect to a Codespace with Visual Studio Code.
+[Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/codespaces/how-to/vscode) | Connect to a Codespace with Visual Studio Code.
 
 ## Remote extensions
 
