@@ -116,7 +116,7 @@ Choose **Launch via NPM** as the launch task.
 
 > **Note**: You will be prompted to allow the **KubernetesDNSManager** to run elevated and modify your hosts file.
 
-You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-local-process-kubernetes).
+You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-local-process-kubernetes#using-routing-capabilities-for-developing-in-isolation).
 
 ![Isolation prompt](images/local-process-kubernetes-vs-code/lpk-isolation-prompt.png)
 
