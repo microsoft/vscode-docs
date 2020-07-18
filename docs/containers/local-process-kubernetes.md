@@ -116,11 +116,15 @@ Choose **Launch via NPM** as the launch task.
 
 > **Note**: You will be prompted to allow the **KubernetesDNSManager** to run elevated and modify your hosts file.
 
+You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-local-process-kubernetes).
+
+![Isolation prompt](images/local-process-kubernetes-vs-code/lpk-isolation-prompt.png)
+
 Your development computer is connected when the VS Code status bar turns orange and the Dev Spaces extension shows you are connected.
 
 ![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, or launch task. These values are saved in `.vscode/tasks.json`.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command `Local Process Kubernetes: Configure Local Process Kubernetes`.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
