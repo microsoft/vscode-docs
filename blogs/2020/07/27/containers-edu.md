@@ -166,8 +166,6 @@ Here’s what the Dockerfile looks like in our Python app:
 
 ![Python dockerfile in app](19-dockerfile.png)
 
-We technically didn’t need to use the **Remote – Containers: Add Development Container Configuration Files…** command- we could have created a .devcontainer folder and added a `devcontainer.json` and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files set up for us, so that we can use the command and save even more time.
-
 ### Opening the container
 
 Once our container configuration files were added, we got a notification that our folder now has a `devcontainer.json` file. Let’s select **Reopen in Container**:
