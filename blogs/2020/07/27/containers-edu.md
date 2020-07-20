@@ -10,8 +10,6 @@ Author: Brigit Murtaugh
 
 July 27, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
-## Context
-
 We’ve heard from many educators that the first days or weeks of the semester can be lost to downloading and configuring various toolsets. Students may still end up without a correct environment, resulting in a lower-quality development experience or insufficient grading of their assignments:
 
 <Quote 1>
