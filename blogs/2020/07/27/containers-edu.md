@@ -160,7 +160,7 @@ We have a reference table [here](https://code.visualstudio.com/docs/remote/conta
 
 #### Dockerfile
 
-Docker can build images automatically by reading the instructions from your [Dockerfile](https://docs.docker.com/engine/reference/builder/). This file will at the very least have a base image specified using “FROM,” and it can include command-line instructions as well.
+Docker can build images automatically by reading the instructions from your [Dockerfile](https://docs.docker.com/engine/reference/builder/). This file will at the very least have a base image specified using `FROM`, and it can include command-line instructions as well.
 
 Here’s what the Dockerfile looks like in our Python app:
 
