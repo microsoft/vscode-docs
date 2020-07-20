@@ -108,11 +108,11 @@ Click on `sort.py` in the Explorer to open it, and press **F5** (or the green Ru
 
 You can see our Python code ran successfully without ever having to set up Python on our local computer.
 
-We can leverage the full benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let’s set a breakpoint when we sort our list of words.
+We also have access to all the benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let’s set a breakpoint when we sort our list of words.
 
 ![Setting a breakpoint](12-breakpoint.png)
 
-We can run with **F5**. Notice the program stops once it hits the breakpoint:
+We can run our program with **F5**. Notice that the program stops once it hits the breakpoint:
 
 ![Program stops at breakpoint](13-debug.png)
 
@@ -126,23 +126,21 @@ We'll select **Remote-Containers: Add Development Container Configuration Files�
 
 ![Add Development Container Configuration Files command](15-add-config.png)
 
-Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3) that appears are filtered based on the contents of your application, which in our case is a Python file. Let’s select **Python 3**:
+Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3) that appears is filtered based on the contents of your application, which in our case is a Python file. Let’s select **Python 3**:
 
 ![Select Python 3 config file in Command Palette](16-python-config.png)
 
-The Remote - Containers extension automatically adds a .devcontainer folder and two configuration files within it: `devcontainer.json` and a Dockerfile.
-
-The Dockerfile defines what should be inside the container, while `devcontainer.json` describes how VS Code should start it, and what to do after it connects. Let’s take a closer look at both files.
+The Remote - Containers extension automatically adds a .devcontainer folder and two configuration files within it: `devcontainer.json` and a Dockerfile. Let’s take a closer look at both files.
 
 #### devcontainer.json
 
-[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under .devcontainer/devcontainer.json or stored directly as `.devcontainer.json` in the root of a project.
+[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under `.devcontainer/devcontainer.json` or stored directly as `.devcontainer.json` in the root of a project.
 
 Here is a simple example of a `devcontainer.json`. It pulls a preconfigured Node image, automatically sets up port forwarding for port 3000, and will install the eslint extension when the container is created:
 
 ![Simple Node devcontainer.json](17-node-devcontainer.png)
 
-Here is an example of what a slightly more elaborate `devcontainer.json` looks like for our Python project. Note that it references a Dockerfile rather than an image directly using the `dockerfile` property, it installs the Python extension automatically, and it also establishes a set of container-specific settings once the container is created, such as linting:
+Here is an example of what a slightly more elaborate `devcontainer.json` looks like for our Python project. Note that it references a Dockerfile rather than an image directly using the `dockerfile` property. It also installs the Python extension automatically, and establishes a set of container-specific settings once the container is created, such as linting:
 
 ![More detailed Python devcontainer.json](18-python-devcontainer.png)
 
@@ -158,7 +156,7 @@ Variables we’d recommend starting off with in a `devcontainer.json` for educat
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 
-Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students’ computers, but by specifying path information via the `settings` variable, you’ll save your class time and ensure they’re computers’ path variables aren’t harmed in the process.
+Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students’ computers, but by specifying path information via the `settings` variable, you’ll save your class time and ensure their computers’ path variables aren’t harmed in the process.
 
 We have a reference table [here](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) of all available properties you can include in this configuration file.
 
@@ -170,7 +168,7 @@ Here’s what the Dockerfile looks like in our Python app:
 
 ![Python dockerfile in app](19-dockerfile.png)
 
-We technically didn’t need to use the **Remote – Containers: Add Development Container Configuration Files…** command- we could have created a .devcontainer folder and added a `devcontainer.json` and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files setup for us so that we can simply call a command and save even more time.
+We technically didn’t need to use the **Remote – Containers: Add Development Container Configuration Files…** command- we could have created a .devcontainer folder and added a `devcontainer.json` and Dockerfile to it. The great part of the Remote – Containers extension is that it has configuration files set up for us, so that we can use the command and save even more time.
 
 ### Opening the container
 
@@ -188,7 +186,7 @@ Once our container is built, we can see we have all the same files, but now the 
 
 ### Creating and sharing assignments
 
-Now that you have a dev container, you can upload this to a repository in which your students can access it for their assignments. You could include assignment instructions in a README, any base or template code needed for the assignment, and then a .devcontainer so that they all have a consistent development experience. This can all be uploaded as a single repo.
+Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a README, as well as any base or template code needed for the assignment, and a .devcontainer file so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
 
 Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project’s directory in the command line.
 
