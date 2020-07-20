@@ -10,29 +10,29 @@ Author: Brigit Murtaugh
 
 July 27, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
-We’ve heard from many educators that the first days or weeks of the semester can be lost to downloading and configuring various toolsets. Students may still end up without a correct environment, resulting in a lower-quality development experience or insufficient grading of their assignments:
+We’ve heard from many educators that the first days or weeks of the semester can be lost to configuring the correct environment for students. Even so, students may still end up with a low-quality development experience or insufficient grading of their assignments:
 
 <Quote 1>
 
-“I would prefer a version of VS Code, specifically set up for a Python installation...” -[Assistant Professor, Liberal Arts College]
+***“I would prefer a version of VS Code, specifically set up for a Python installation...”*** -[Assistant Professor, Liberal Arts College]
 
-Development containers are a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors alike can quickly move past configuration and instead focus on what’s truly important: learning and coding something great!
+Development containers can serve as a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors can quickly move past configuration, and instead focus on what’s truly important: learning and coding something great!
 
 ## Development containers
 
-So, what are development containers? [Containers](https://www.docker.com/resources/what-container) are pieces of software that package code and all the dependencies that code needs to run, including the runtime, tools, libraries, and settings. Containers were initially a way to deploy and manage apps in a consistent environment and make more efficient use of hardware. They later evolved to help in other areas, such as providing a consistent build environment, and more recently, development environment. That’s where the name dev container comes from.
+So, what are development containers? [Containers](https://www.docker.com/resources/what-container) are pieces of software that package code and all of the dependencies that code needs to run, including the runtime, tools, libraries, and settings. Containers were initially created as a way to deploy and manage apps in a consistent environment and make more efficient use of hardware. They later evolved to help in providing a consistent build environment, and more recently, development environment. That’s where the name dev container comes from.
 
-When you create a container, its initial contents come from what’s known as an “image.” This can be thought of as a mini-disk drive with things like the operating system, tools, and more pre-installed. You describe what goes into the image using a Dockerfile, and once you run the image, it becomes a container.
+When you create a container, its initial contents come from what’s known as an “image.” An image can be thought of as a mini-disk drive with things like the operating system and other tools pre-installed. You describe what goes into the image using a Dockerfile, and once you run the image, it becomes a container.
 
-Dev containers provide a separate coding environment from your computer. If you download a specific version of a dependency, that version will be unique to the container and completely separate from your computer. In the diagram below, notice how the container includes the app and its necessary dependencies, keeping the computer (Host OS and Infrastructure) free and clean of any dependencies:
+Dev containers provide a separate coding environment from your computer. For example, if you download a specific version of a dependency, that version will be unique to the container. In the diagram below, notice how the container includes the app and its necessary dependencies, keeping the computer (Host OS and Infrastructure) free and clean of any dependencies:
 
 ![Containers diagram](1-containers-abc.png)
 
-As an instructor, you can create an image that is specific for an assignment. Then, each student gets the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
+As an instructor, you can create a specific image for an assignment. Each student will get the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
 ## Remote – Containers in VS Code
 
-The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [exisiting dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers) or create their own and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code’s full feature set, including IntelliSense and debugging, while coding.
+The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code’s full feature set, including IntelliSense and debugging, while coding.
 
 The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
@@ -44,11 +44,9 @@ To see dev containers in action and how students can get started in less than 5 
 
 ## Guide for Instructors
 
-### Scenario
+Students can run into a wide variety of issues while setting up their environment. Some examples include differences in their unique OS, where project files are stored, or small differences in runtimes or tools they've installed. Instructors need to be well versed in all these subtleties to be able to help students solve these issues.
 
-Students can run into a wide variety of issues while setting up their environment, caused by many different reasons: subtle differences in their unique OS, where project files are stored, or small differences runtimes or tools they have installed. Instructors need to be well-versed in all these subtleties to help students as they encounter them.
-
-A common issue is managing different versions of a tool. Let’s take Python as an example: there’s Python 2 and Python 3, along with different minor versions. Having multiple versions of Python, and then multiple accompanying tools like linters, can be confusing and lead to errors.
+A common issue is managing different versions of a tool. Let’s take Python as an example: there’s Python 2 and Python 3, along with different minor versions. Having multiple versions of Python, and then multiple accompanying tools such as linters, can be confusing and lead to errors.
 
 To save tremendous time and confusion, we can use dev containers to create a standardized Python development environment across our class. Students will all get the same version of Python, avoiding the need to install a new version or uninstall any old ones, and everyone running the same container and source code will get the same exact results.
 
