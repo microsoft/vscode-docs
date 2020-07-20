@@ -124,7 +124,7 @@ Your development computer is connected when the VS Code status bar turns orange 
 
 ![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command `Local Process Kubernetes: Configure Local Process Kubernetes`.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Local Process Kubernetes: Configure Local Process Kubernetes**.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
