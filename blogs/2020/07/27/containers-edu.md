@@ -140,7 +140,7 @@ Here is a simple example of a `devcontainer.json`. It pulls a preconfigured Node
 
 ![Simple Node devcontainer.json](17-node-devcontainer.png)
 
-Here is an example of what a slightly more elaborate `devcontainer.json` looks like for our Python project. Note that it references a Dockerfile rather than an image directly using the `dockerfile` property. It also installs the Python extension automatically, and establishes a set of container-specific settings once the container is created, such as linting:
+Here is an example of what a slightly more elaborate `devcontainer.json` looks like for our Python project. It references a Dockerfile rather than an image directly using the `dockerfile` property. It also installs the Python extension automatically, and establishes a set of container-specific settings once the container is created, such as linting:
 
 ![More detailed Python devcontainer.json](18-python-devcontainer.png)
 
@@ -180,13 +180,13 @@ A new instance of VS Code launches, and we can see our image is being built and 
 
 ![Relaunch VS Code to start dev container](22-reload-starting.png)
 
-Once our container is built, we can see we have all the same files, but now the bottom left indicator reads, "Dev Container: Python 3,” signifying we’re inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
+Once our container is built, we can see we have all the same files, but now the bottom-left indicator reads, "Dev Container: Python 3,” signifying we’re inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
 
 ![Run Python code in dev container](24-run-code.png)
 
 ### Creating and sharing assignments
 
-Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a README, as well as any base or template code needed for the assignment, and a .devcontainer file so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
+Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a README, as well as any base or template code needed for the assignment, and a .devcontainer folder so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
 
 Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project’s directory in the command line.
 
@@ -200,7 +200,7 @@ Let’s connect our local Git repo (the container project on our computer) to th
 
 ![Connect Git repos in command prompt](26-git-setup.png)
 
-You may be prompted to log into GitHub. Once you log in, your files can be added to your remote Git repository:
+You may be prompted to log into GitHub. Once you sign in, your files can be added to your remote Git repository:
 
 ![Push remote files in command prompt](27-git-push.png)
 
@@ -210,7 +210,7 @@ Now when I refresh GitHub in the browser, I can see my files!
 
 ### Accessing assignments
 
-To see how students can access the dev container from GitHub and begin programming with ease, check out our quick 5 minute video ***link to video.***
+To see how students can access the dev container from GitHub and begin programming with ease, check out our quick 5-minute video ***link to video.***
 
 ## Feedback & further resources
 
