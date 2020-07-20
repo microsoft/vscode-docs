@@ -96,8 +96,6 @@ You can **Create a unique volume.** A volume is where files will be stored in ou
 
 Now that we’ve chosen our container repo, VS Code reloads to build the image and start the container:
 
-![VS Code reload to start container](9-vsc-reload.png)
-
 ![Close-up on starting container notification](10-starting-container.png)
 
 Once the container is built and running, we can see our files and starting coding within our Python environment!
