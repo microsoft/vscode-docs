@@ -60,7 +60,7 @@ To save tremendous time and confusion, we can use dev containers to create a sta
 
 Let’s start off by launching VS Code, which we can do by typing `code .` in the command prompt (or just by selecting VS Code on your computer):
 
-![Launch VS Code from command prompt](2-code-ps.png)
+![Launch VS Code from command prompt](2-code-ps-cropped.png)
 
 Once VS Code launches, ensure you’ve installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension:
 
