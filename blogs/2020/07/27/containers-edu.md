@@ -10,19 +10,19 @@ Author: Brigit Murtaugh
 
 July 27, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
-We’ve heard from many educators that the first days or weeks of the semester can be lost to configuring the correct environment for students. Even so, students may still end up with a low-quality development experience or insufficient grading of their assignments:
+We've heard from many educators that the first days or weeks of the semester can be lost to configuring the correct environment for students. Even so, students may still end up with a low-quality development experience or insufficient grading of their assignments:
 
 <Quote 1>
 
 ***“I would prefer a version of VS Code, specifically set up for a Python installation...”*** -[Assistant Professor, Liberal Arts College]
 
-Development containers can serve as a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors can quickly move past configuration, and instead focus on what’s truly important: learning and coding something great!
+Development containers can serve as a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors can quickly move past configuration, and instead focus on what's truly important: learning and coding something great!
 
 ## Development containers
 
-So, what are development containers? [Containers](https://www.docker.com/resources/what-container) are pieces of software that package code and all of the dependencies that code needs to run, including the runtime, tools, libraries, and settings. Containers were initially created as a way to deploy and manage apps in a consistent environment and make more efficient use of hardware. They later evolved to help in providing a consistent build environment, and more recently, development environment. That’s where the name dev container comes from.
+So, what are development containers? [Containers](https://www.docker.com/resources/what-container) are pieces of software that package code and all of the dependencies that code needs to run, including the runtime, tools, libraries, and settings. Containers were initially created as a way to deploy and manage apps in a consistent environment and make more efficient use of hardware. They later evolved to help in providing a consistent build environment, and more recently, development environment. That's where the name dev container comes from.
 
-When you create a container, its initial contents come from what’s known as an “image.” An image can be thought of as a mini-disk drive with things like the operating system and other tools pre-installed. You describe what goes into the image using a Dockerfile, and once you run the image, it becomes a container.
+When you create a container, its initial contents come from what's known as an “image.” An image can be thought of as a mini-disk drive with things like the operating system and other tools pre-installed. You describe what goes into the image using a Dockerfile, and once you run the image, it becomes a container.
 
 Dev containers provide a separate coding environment from your computer. For example, if you download a specific version of a dependency, that version will be unique to the container. In the diagram below, notice how the container includes the app and its necessary dependencies, keeping the computer (Host OS and Infrastructure) free and clean of any dependencies:
 
@@ -32,11 +32,11 @@ As an instructor, you can create a specific image for an assignment. Each studen
 
 ## Remote – Containers in VS Code
 
-The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code’s full feature set, including IntelliSense and debugging, while coding.
+The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code's full feature set, including IntelliSense and debugging, while coding.
 
 The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
-We’ve already seen instructors using Remote – Containers in their classrooms with success. You can check out [Using DevContainers to Standardize Student Development Environments: An Experience Report](https://dl.acm.org/doi/pdf/10.1145/3341525.3387424) to learn more about the experiences of three researchers who used dev containers in a course at UC San Diego.
+We've already seen instructors using Remote – Containers in their classrooms with success. You can check out [Using DevContainers to Standardize Student Development Environments: An Experience Report](https://dl.acm.org/doi/pdf/10.1145/3341525.3387424) to learn more about the experiences of three researchers who used dev containers in a course at UC San Diego.
 
 This post will serve as a guide to instructors looking to implement development containers in the classroom to create a smoother, more consistent environment for their students.
 
@@ -46,7 +46,7 @@ To see dev containers in action and how students can get started in less than 5 
 
 Students can run into a wide variety of issues while setting up their environment. Some examples include differences in their unique OS, where project files are stored, or small differences in runtimes or tools they've installed. Instructors need to be well versed in all these subtleties to be able to help students solve these issues.
 
-A common issue is managing different versions of a tool. Let’s take Python as an example: there’s Python 2 and Python 3, along with different minor versions. Having multiple versions of Python, and then multiple accompanying tools such as linters, can be confusing and lead to errors.
+A common issue is managing different versions of a tool. Let's take Python as an example: there's Python 2 and Python 3, along with different minor versions. Having multiple versions of Python, and then multiple accompanying tools such as linters, can be confusing and lead to errors.
 
 To save tremendous time and confusion, we can use dev containers to create a standardized Python development environment across our class. Students will all get the same version of Python, avoiding the need to install a new version or uninstall any old ones, and everyone running the same container and source code will get the same exact results.
 
@@ -58,15 +58,15 @@ To save tremendous time and confusion, we can use dev containers to create a sta
      * There is newly introduced [Docker Desktop support on Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/). It requires Windows 10, version 2004 and enabling the Windows Subsystem for Linux 2 (WSL 2) backend. Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/wsl2-install).
      * For students who would prefer to not configure the WSL 2 backend, [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/#:~:text=System%20Requirements,Hyper%2DV%20on%20Windows%2010%3A&text=4GB%20system%20RAM) can alternatively be used on Windows 10 Pro, Enterprise, or Education (Build 16299 or later), and Hyper-V and Containers Windows features must be enabled.
 
-Let’s start off by launching VS Code, which we can do by typing `code .` in the command prompt (or just by selecting VS Code on your computer):
+Let's start off by launching VS Code, which we can do by typing `code .` in the command prompt (or just by selecting VS Code on your computer):
 
 ![Launch VS Code from command prompt](2-code-ps-cropped.png)
 
-Once VS Code launches, ensure you’ve installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension:
+Once VS Code launches, ensure you've installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension:
 
 ![Remote containers extension](3-extension.png)
 
-When we install any of the Remote extensions, we’ll see the green Remote indicator on the bottom left of the Status bar:
+When we install any of the Remote extensions, we'll see the green Remote indicator on the bottom left of the Status bar:
 
 ![Remote indicator in VS Code](4-remote-indicator.png)
 
@@ -76,13 +76,13 @@ You can click on it to open the Command Palette and verify the Remote-Containers
 
 ### Accessing a container for your class
 
-Let’s walk through an example dev container to help students get a consistent coding environment. In our classroom, we could create a single GitHub repository to store exercises that share the same tech stack. For instance, all the Python assignments can use the same container and be stored in the same repo.
+Let's walk through an example dev container to help students get a consistent coding environment. In our classroom, we could create a single GitHub repository to store exercises that share the same tech stack. For instance, all the Python assignments can use the same container and be stored in the same repo.
 
-We have an example [vscode-course-sample GitHub repo](https://github.com/microsoft/vscode-course-sample) with a Python dev container and two Python intro assignments. Let’s open it in VS Code.
+We have an example [vscode-course-sample GitHub repo](https://github.com/microsoft/vscode-course-sample) with a Python dev container and two Python intro assignments. Let's open it in VS Code.
 
 You can select the Remote indicator in the bottom left, or use the Command Palette, to bring up the Remote-Containers commands.
 
-Let’s call **Open Repository in Container...**
+Let's call **Open Repository in Container...**
 
 ![Open Repository in Container command](6-open-repo-command.png)
 
@@ -94,7 +94,7 @@ You can **Create a unique volume.** A volume is where files will be stored in ou
 
 ![Volume options in Command Palette](8-volume-command.png)
 
-Now that we’ve chosen our container repo, VS Code reloads to build the image and start the container:
+Now that we've chosen our container repo, VS Code reloads to build the image and start the container:
 
 ![Close-up on starting container notification](10-starting-container.png)
 
@@ -106,7 +106,7 @@ Click on `sort.py` in the Explorer to open it, and press **F5** (or the green Ru
 
 You can see our Python code ran successfully without ever having to set up Python on our local computer.
 
-We also have access to all the benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let’s set a breakpoint when we sort our list of words.
+We also have access to all the benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let's set a breakpoint when we sort our list of words.
 
 ![Setting a breakpoint](12-breakpoint.png)
 
@@ -116,7 +116,7 @@ We can run our program with **F5**. Notice that the program stops once it hits t
 
 ### Creating a container for your class
 
-Now that we’ve seen a fantastic example of a container, let’s set up our first container ourselves using the Remote – Containers extension. Let's start off in a “Hello World” Python application:
+Now that we've seen a fantastic example of a container, let's set up our first container ourselves using the Remote – Containers extension. Let's start off in a “Hello World” Python application:
 
 ![Hello world Python app](14-helloworld.png)
 
@@ -124,11 +124,11 @@ We'll select **Remote-Containers: Add Development Container Configuration Files�
 
 ![Add Development Container Configuration Files command](15-add-config.png)
 
-Container configuration files are what’s needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3) that appears is filtered based on the contents of your application, which in our case is a Python file. Let’s select **Python 3**:
+Container configuration files are what's needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3) that appears is filtered based on the contents of your application, which in our case is a Python file. Let's select **Python 3**:
 
 ![Select Python 3 config file in Command Palette](16-python-config.png)
 
-The Remote - Containers extension automatically adds a .devcontainer folder and two configuration files within it: `devcontainer.json` and a Dockerfile. Let’s take a closer look at both files.
+The Remote - Containers extension automatically adds a `.devcontainer` folder and two configuration files within it: `devcontainer.json` and a Dockerfile. Let's take a closer look at both files.
 
 #### devcontainer.json
 
@@ -144,7 +144,7 @@ Here is an example of what a slightly more elaborate `devcontainer.json` looks l
 
 `devcontainer.json` is a great opportunity to create a customized coding environment to fit the specific needs of your students. You can specify a few variables to create a unique environment for each class or assignment.
 
-Variables we’d recommend starting off with in a `devcontainer.json` for education are:
+Variables we'd recommend starting off with in a `devcontainer.json` for education are:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -154,7 +154,7 @@ Variables we’d recommend starting off with in a `devcontainer.json` for educat
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
 
-Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students’ computers, but by specifying path information via the `settings` variable, you’ll save your class time and ensure their computers’ path variables aren’t harmed in the process.
+Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students' computers, but by specifying path information via the `settings` variable, you'll save your class time and ensure their computers' path variables aren't harmed in the process.
 
 We have a reference table [here](https://code.visualstudio.com/docs/remote/containers#_devcontainerjson-reference) of all available properties you can include in this configuration file.
 
@@ -162,13 +162,13 @@ We have a reference table [here](https://code.visualstudio.com/docs/remote/conta
 
 Docker can build images automatically by reading the instructions from your [Dockerfile](https://docs.docker.com/engine/reference/builder/). This file will at the very least have a base image specified using `FROM`, and it can include command-line instructions as well.
 
-Here’s what the Dockerfile looks like in our Python app:
+Here's what the Dockerfile looks like in our Python app:
 
 ![Python dockerfile in app](19-dockerfile-cropped.png)
 
 ### Opening the container
 
-Once our container configuration files were added, we got a notification that our folder now has a `devcontainer.json` file. Let’s select **Reopen in Container**:
+Once our container configuration files were added, we got a notification that our folder now has a `devcontainer.json` file. Let's select **Reopen in Container**:
 
 ![Reopen in container notification](21-reopen-notif.png)
 
@@ -176,15 +176,15 @@ A new instance of VS Code launches, and we can see our image is being built and 
 
 ![Relaunch VS Code to start dev container](22-reload-starting.png)
 
-Once our container is built, we can see we have all the same files, but now the bottom-left indicator reads, "Dev Container: Python 3,” signifying we’re inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
+Once our container is built, we can see we have all the same files, but now the bottom-left indicator reads, "Dev Container: Python 3,” signifying we're inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
 
 ![Run Python code in dev container](24-run-code.png)
 
 ### Creating and sharing assignments
 
-Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a README, as well as any base or template code needed for the assignment, and a .devcontainer folder so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
+Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a `README`, as well as any base or template code needed for the assignment, and a `.devcontainer` folder so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
 
-Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project’s directory in the command line.
+Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
 
 Following the guide [here](https://kbroman.org/github_tutorial/pages/init.html), the next step is to connect your local repository to a [new repo](https://github.com/new) from the GitHub desktop client:
 
@@ -192,7 +192,7 @@ Following the guide [here](https://kbroman.org/github_tutorial/pages/init.html),
 
 GitHub gives us some tips about how to add code to our newly created repo.
 
-Let’s connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
+Let's connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
 
 ![Connect Git repos in command prompt](26-git-setup-cropped.png)
 
