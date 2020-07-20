@@ -22,7 +22,7 @@ If you'd like to watch an introductory video, see [Getting started with Node.js 
 
 Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) topic.
 
-Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options [here](https://github.com/microsoft/vscode-js-debug/blob/master/OPTIONS.md).
+Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options in the [vscode-js-debug Options](https://github.com/microsoft/vscode-js-debug/blob/master/OPTIONS.md) documentation.
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
@@ -204,7 +204,7 @@ If the **Auto Attach** feature is enabled, the Node debugger automatically attac
 
 To enable the feature, either use the **Toggle Auto Attach** action or, if the Node debugger is already activated, use the **Auto Attach** Status Bar item.
 
-After enabling **Auto Attach** the debugger should attach to your program within a second:
+After enabling **Auto Attach**, the debugger should attach to your program within a second:
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
 
@@ -271,7 +271,7 @@ If the debug session was started in "attach" mode (and the red terminate button 
 
 If the debug session is in "launch" mode, pressing **Stop** does the following:
 
-1. When pressing **Stop** for the first time, the debuggee is requested to shutdown gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal and clean up anything as necessary and then shut down. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
+1. When pressing **Stop** for the first time, the debuggee is requested to shut down gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal and clean up anything as necessary and then shut down. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
 
 2. However if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case, pressing **Stop** again will force terminate the debuggee and its child processes (`SIGKILL`).
 
@@ -285,22 +285,22 @@ The Node.js debugger of VS Code supports JavaScript source maps that help debugg
 
 Source maps can be generated with two kinds of inlining:
 
-* _Inlined source maps_: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
-* _Inlined source_: the source map contains the original source (instead of referencing the source through a path).
+* **Inlined source maps**: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
+* **Inlined source**: the source map contains the original source (instead of referencing the source through a path).
 
-VS Code supports both the _inlined source maps_ and the _inlined source_.
+VS Code supports both the inlined source maps and the inlined source.
 
 The source map feature is controlled by the `sourceMaps` attribute that  defaults to `true`. This means that node debugging always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute.
 
 If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
-Since source maps are not always automatically created, you must configure the transpiler you are using to create them. For TypeScript this can be done in the following way:
+Since source maps are not always automatically created, you must configure the transpiler you are using to create them. For TypeScript, this can be done in the following way:
 
 ```
 tsc --sourceMap --outDir bin app.ts
 ```
 
-By default, VS Code will search your entire workspace for sourcemaps, but in very large workspaces this search might be slow. You can configure the locations where VS Code will search for source maps by setting the `outFiles` attribute in your launch.json. For example, this will discover sourcemaps for all `.js` files in the `bin` folder:
+By default, VS Code will search your entire workspace for sourcemaps, but in very large workspaces, this search might be slow. You can configure the locations where VS Code will search for source maps by setting the `outFiles` attribute in your `launch.json`. For example, this will discover sourcemaps for all `.js` files in the `bin` folder:
 
 ```json
 {
@@ -404,7 +404,7 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
-The **LOADED SCRIPTS** view lets you quickly select the script by typing it's name or filter the list when **Enable Filter on Type** is on.
+The **LOADED SCRIPTS** view lets you quickly select the script by typing its name or filter the list when **Enable Filter on Type** is on.
 
 Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
 
@@ -549,7 +549,7 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 ]
 ```
 
->**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
+>**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the **V8 Debugger Protocol** does not support it natively. This might result in slow stepping performance.
 
 ## Supported Node-like runtimes
 
