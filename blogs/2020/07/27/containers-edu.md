@@ -194,7 +194,7 @@ GitHub gives us some tips about how to add code to our newly created repo.
 
 Let’s connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
 
-![Connect Git repos in command prompt](26-git-setup.png)
+![Connect Git repos in command prompt](26-git-setup-cropped.png)
 
 You may be prompted to log into GitHub. Once you sign in, your files can be added to your remote Git repository:
 
