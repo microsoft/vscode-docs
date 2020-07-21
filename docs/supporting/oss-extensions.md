@@ -25,7 +25,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights)| | [Microsoft](https://marketplace.visualstudio.com/items/VisualStudioOnlineApplicationInsights.application-insights/license) |
 | [Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) | ✔ | [MIT](https://marketplace.visualstudio.com/items/AzBlockchain.azure-blockchain/license) |
 | [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.azurecli/license) |
-| [Azure CosmosDB](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license) |
+| [Azure Databases](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license) |
 | [Azure Data Lake Tools](https://marketplace.visualstudio.com/items/usqlextpublisher.usql-vscode-ext) |  | [Microsoft](https://marketplace.visualstudio.com/items/usqlextpublisher.usql-vscode-ext/license) |
 | [Azure Data Studio Debugger](https://marketplace.visualstudio.com/items/ms-mssql.sqlops-debug)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-mssql.sqlops-debug/license) |
 | [Azure Dev Spaces](https://marketplace.visualstudio.com/items/azuredevspaces.azds/) | | [Microsoft](https://marketplace.visualstudio.com/items/azuredevspaces.azds/license) |
