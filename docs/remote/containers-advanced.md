@@ -200,7 +200,7 @@ The Remote - Containers extension uses "bind mounts" to source code in your loca
 
 Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL 2) that provides a full Linux kernel and has significantly improved performance over WSL 1. Docker Desktop 2.3+ includes a new WSL 2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL 2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
 
-See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
+See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl-2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
 
 ### Update the mount consistency to 'delegated' for macOS
 
