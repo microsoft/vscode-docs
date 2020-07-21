@@ -3,9 +3,9 @@ Order: 6
 Area: java
 TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
-PageTitle: Syntax Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 6/17/2019
-MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
+PageTitle: Maven and Gradle support for Java in Visual Studio Code
+DateApproved: 7/6/2020
+MetaDescription: Maven and Gradle support for Java in Visual Studio Code
 MetaSocialImage:
 ---
 
@@ -128,7 +128,7 @@ VS Code supports basic Gradle Java project (not including Android). There are al
 
 ### Additional resources
 
-Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
+Visit the [GitHub Repo](https://github.com/microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
 In addition to Maven, there's also a [Bazel extension](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) if you use Bazel to build and test your project.
 

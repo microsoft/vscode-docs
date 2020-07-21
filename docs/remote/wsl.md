@@ -1,11 +1,11 @@
 ---
-Order: 5
+Order: 4
 Area: remote
 TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 ---
 # Developing in WSL
 
@@ -19,13 +19,15 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
+**Note**: After reviewing this topic, you can get started with the introductory [WSL tutorial](/docs/remote/wsl-tutorial.md).
+
 ### Installation
 
 To get started, you need to:
 
 1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
-    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development and WSL 2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
+    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native source code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) on the **Windows** side (not in WSL).
 
@@ -131,11 +133,11 @@ The script needs to be a valid Bourne shell script. Be aware that an invalid scr
 
 Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
 
-## Advanced: Opening a WSL2 folder in a container
+## Advanced: Opening a WSL 2 folder in a container
 
-If you are using WSL2 and [Docker Desktop's WSL2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
+If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
 
-1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL2 support.
+1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL 2 support.
 
     > **Tip:**  Go to **Settings > Resources > WSL Integration** and enable Docker integration with the WSL distribution you will be using.
 
@@ -163,9 +165,9 @@ This section contains a list of common know issues with WSL. The intent is not t
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace in WSL 1
 
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based file watching has a performance impact for large workspaces.
 
@@ -173,19 +175,19 @@ For large workspace you want to increase the polling interval: `remote.WSL.fileW
 
 [WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
 
-### Golang in WSL
+### Golang in WSL 1
 
 | Issue | Existing issues |
 |---|---|
-Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/Microsoft/vscode-go/issues/926) |
+Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/microsoft/vscode-go/issues/926) |
 
-### Node.js in WSL
+### Node.js in WSL 1
 
 | Issue | Existing issues |
 |---|---|
-NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/Microsoft/WSL/issues/3886) |
-Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/Microsoft/WSL/issues/2709) |
-Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/Microsoft/WSL/issues/2657) |
+NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/microsoft/WSL/issues/3886) |
+Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/microsoft/WSL/issues/2709) |
+Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/microsoft/WSL/issues/2657) |
 
 ### Git limitations
 
@@ -279,5 +281,5 @@ The VS Code extension API abstracts away local/remote details so most extensions
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#wsl-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature requests](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+- Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

@@ -12,7 +12,7 @@ Author: Ethan Dennis, João Moreno
 
 February 18, 2020 by Ethan Dennis, [@erdennis13](https://twitter.com/erdennis13) and João Moreno, [@joaomoreno](https://twitter.com/joaomoreno)
 
-Visual Studio Code is a large project with lots of moving parts and an active participant list. We have [shown](https://code.visualstudio.com/blogs/2018/09/12/engineering-with-azure-pipelines) how we actively use Azure Pipelines to keep up with good engineering practices by maintaining our build and continuous integration infrastructure. In this blog post, we’ll talk about how we used the [Azure Pipelines Artifact Caching Tasks](https://github.com/Microsoft/azure-pipelines-artifact-caching-tasks) to dramatically reduce our CI build times.
+Visual Studio Code is a large project with lots of moving parts and an active participant list. We have [shown](https://code.visualstudio.com/blogs/2018/09/12/engineering-with-azure-pipelines) how we actively use Azure Pipelines to keep up with good engineering practices by maintaining our build and continuous integration infrastructure. In this blog post, we’ll talk about how we used the [Azure Pipelines Artifact Caching Tasks](https://github.com/microsoft/azure-pipelines-artifact-caching-tasks) to dramatically reduce our CI build times.
 
 We described in an [earlier blog post](https://medium.com/crawl-walk-sprint/reducing-vs-code-ci-build-times-by-33-dbb1715b5028) how we reduced CI build times by 33%. This was accomplished by using custom build tasks that cache the node modules that VS Code consumes instead of resolving the packages at build time. While we were happy with this performance boost, we wanted to see how much further we could push the caching tasks that we built.
 

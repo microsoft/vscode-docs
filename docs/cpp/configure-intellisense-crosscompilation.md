@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: cpp
 TOCTitle: Configure IntelliSense for cross-compiling
 ContentId: 381b7ce1-5766-49b0-ad26-f9eedae70e63
@@ -74,6 +74,6 @@ Given the settings above, your `c_cpp_configuration.json` file will look somethi
 ## Next steps
 
 - For more information about IntelliSense configuration, see [Customizing default settings](/docs/cpp/customize-default-settings-cpp.md).
-- If you have trouble configuring the settings, file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+- If you have trouble configuring the settings, file an issue in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 - Explore the [c_cpp_properties schema](/docs/cpp/c-cpp-properties-schema-reference.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).

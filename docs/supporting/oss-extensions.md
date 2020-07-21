@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 6/10/2020
+DateApproved: 7/9/2020
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -62,7 +62,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Java Dependency Viewer](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency/license) |
 | [Java for Dev Spaces](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debugger-azds) |  | [Microsoft](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debugger-azds/license) |
 | [Java Test Runner](https://marketplace.visualstudio.com/items/vscjava.vscode-java-test) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-test/license) |
-| [JavaScript Atom Grammar](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar) | ✔ ([Repo](https://github.com/Microsoft/vscode-js-atom-grammar)) | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar/license) |
+| [JavaScript Atom Grammar](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar) | ✔ ([Repo](https://github.com/microsoft/vscode-js-atom-grammar)) | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar/license) |
 | [JSCS Linting](https://marketplace.visualstudio.com/items/ms-vscode.jscs) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.jscs/license    ) |
 | [Kubernetes](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-kubernetes-tools) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.vscode-kubernetes-tools/license) |
 | [Latest TypeScript and Javascript Grammar](https://marketplace.visualstudio.com/items/ms-vscode.typescript-javascript-grammar) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.typescript-javascript-grammar/license) |

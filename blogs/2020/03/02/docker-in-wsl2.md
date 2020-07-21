@@ -55,7 +55,7 @@ Running the `docker ps` command over in WSL, you'll see the container as expecte
 
 ## Using VS Code
 
-With this set up and running, you can install the VS Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension and access your containers. If you're already running WSL 2 and the [Remote - WSL](https://code.visualstudio.com/remote-tutorials/wsl/getting-started) extension, this will help you get Docker integrated into your WSL workflow rather than switching contexts when you need containers. And because the Docker CLI's context is set to use DockerD in WSL, the extension will work with your containers regardless of whether you opened VS Code using the Remote - WSL extension.
+With this set up and running, you can install the VS Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension and access your containers. If you're already running WSL 2 and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, this will help you get Docker integrated into your WSL workflow rather than switching contexts when you need containers. And because the Docker CLI's context is set to use DockerD in WSL, the extension will work with your containers regardless of whether you opened VS Code using the Remote - WSL extension.
 
 Notice how in the screenshot below, I'm connected and working in WSL and still building/running containers without changing from my preferred environment (zsh in Ubuntu).
 

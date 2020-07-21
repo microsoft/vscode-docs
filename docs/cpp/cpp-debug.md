@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: cpp
 TOCTitle: Debugging
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
@@ -138,7 +138,13 @@ Windows:
 
 Linux:
 
-* GDB needs elevated permissions to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin.
+* You may see an error saying: `ptrace: Operation not permitted`. This is due to GDB needing elevated permissions in order to attach to a process. This can be solved using the solutions below:
+    1. When using *attach to process*, you need to provide your password before the debugging session can begin.
+    1. To disable this error temporarily, use the following command:
+
+        `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
+
+    1. To remove the error permanently, add a file called `10-ptrace.conf` to `/etc/sysctl.d/` and add the following `kernel.yama.ptrace_scope = 0`.
 
 macOS:
 
@@ -164,4 +170,4 @@ Read on to find out about:
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
 * [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).

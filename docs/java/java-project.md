@@ -3,33 +3,33 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Syntax Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 6/17/2019
-MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
+PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
+DateApproved: 7/6/2020
+MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
 # Java project management in VS Code
 
-This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Syntax Mode which works best for reading and navigating through source files even without a project structure.
+This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Lightweight Mode which works best for reading and navigating through source files even without a project structure.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
 
-## Syntax Mode
+## Lightweight Mode
 
-Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Syntax Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
+Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Lightweight Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
 
-Usually you won't even know Syntax Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Syntax Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Syntax Mode through the context menu. See the screenshots below.
+Usually you won't even know Lightweight Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Lightweight Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Lightweight Mode through the context menu. See the screenshots below.
 
 ![Enable Semantic](images/java-project/enablesemantic.png)
 
-The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Syntax Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
+The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Lightweight Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
 
-![Switch to Syntax](images/java-project/syntaxonly.png)
+![Switch to Lightweight](images/java-project/syntaxonly.png)
 
-You can also configure your editor to control whether to enable syntax mode. The configuration is `java.server.launchMode`, below are the accepted values:
+You can also configure your editor to control whether to enable lightweight mode. The configuration is `java.server.launchMode`, below are the accepted values:
 
 - `Hybrid` (default) - Provides full features with better responsiveness. It starts a standard language server and a secondary syntax server. The syntax server provides syntax features until the standard server is ready. The syntax server will be shutdown automatically after the standard server up and running.
 - `Standard` - Provides full features such as IntelliSense, refactoring, building, Maven/Gradle support etc. With this option, you will wait until the full server is up for all features.
@@ -65,7 +65,7 @@ The extension also has a hierarchy view of your project and dependencies, which 
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Syntax Mode](#syntax-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Lightweight Mode](#lightweight-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
@@ -85,7 +85,7 @@ If you're just starting to learn Java and don't know what Maven or Gradle are, t
 
 ### Adding external JAR
 
-You can use the Java Dependency Viewer to add any JAR file to your project. Go to the **JAVA DEPENDENCIE** view, find the **Referenced Libraries** node, and click the **+** button to add a JAR file:
+You can use the Java Dependency Viewer to add any JAR file to your project. Go to the **JAVA DEPENDENCIES** view, find the **Referenced Libraries** node, and click the **+** button to add a JAR file:
 
 ![Add Dependency](images/java-project/manage-dependencies.gif)
 
@@ -209,7 +209,7 @@ When you edit Java source code in Visual Studio Code, the Java language server i
 
 ### Additional resources
 
-Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
+Visit the [GitHub Repo](https://github.com/microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
 In addition to Maven, there's also a [Bazel extension](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) if you use Bazel to build and test your project.
 

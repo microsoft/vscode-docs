@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 6/23/2020
+DateApproved: 7/6/2020
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -28,7 +28,7 @@ VS Code provides essential language features such as code completion, refactorin
 
 ## Install Visual Studio Code for Java
 
-VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. Visual Studio Code works with all major Java versions from various vendors up to 14.
+VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. Visual Studio Code works with all major Java versions from 11.
 
 To help you get started quickly, there are special installers of Visual Studio Code for Java developers, which include all the necessary dependencies and extensions for Java development in Visual Studio Code:
 
@@ -86,9 +86,9 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ## Standalone Java source files
 
-You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can provide you features such as syntax and [semantic](/docs/getstarted/themes.md#semantic-highlighting) highlighting and error detection, code navigation, outline as well as Javadoc features with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) immediately without resolving the project. Syntax mode makes VS Code an ideal tool for reading and learning any Java code base.
+You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can run in so-called lightweight mode, where syntax and [semantic](/docs/getstarted/themes.md#semantic-highlighting) highlighting and error detection, code navigation, code completion, outline as well as Javadoc features are available immediately with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) without resolving the project. Lightweight mode makes VS Code an ideal tool for reading and learning any Java code base.
 
-At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between Syntax mode and full language server as you need.
+At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between lightweight mode and full language server as you need.
 
 ## Java project support
 
@@ -132,7 +132,7 @@ More details about Java project support can be found in [Java Project Management
 
 Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
 
-One of the key advantages of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Syntax Mode](/docs/java/java-project.md#Syntax-Mode), you will be able to navigate your code base with Outline view as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
+One of the key advantages of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Lightweight Mode](/docs/java/java-project.md#lightweight-mode), you will be able to navigate your code base with Outline view as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
 
 ### Code Completion
 
@@ -146,7 +146,7 @@ See also in [Java Code Navigation and Editing](/docs/java/java-editing.md). VS C
 
 ## Debugging
 
-[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users to debug Java code within Visual Studio Code.
+[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users to debug Java code within Visual Studio Code.
 
 Starting a debugging session is easy, click on the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
