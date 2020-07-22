@@ -102,17 +102,17 @@ Once the container is built and running, we can see our files and starting codin
 
 Click on `sort.py` in the Explorer to open it, and press **F5** (or the green Run icon in the top right) to run it:
 
-![Run sort.py program](11-sortpy.png)
+![Run sort.py program](11-sortpy-cropped.png)
 
 You can see our Python code ran successfully without ever having to set up Python on our local computer.
 
 We also have access to all the benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let's set a breakpoint when we sort our list of words.
 
-![Setting a breakpoint](12-breakpoint.png)
+![Setting a breakpoint](12-breakpoint-cropped.png)
 
 We can run our program with **F5**. Notice that the program stops once it hits the breakpoint:
 
-![Program stops at breakpoint](13-debug.png)
+![Program stops at breakpoint](13-debug-cropped.png)
 
 ### Creating a container for your class
 
