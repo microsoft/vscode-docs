@@ -103,7 +103,40 @@ During the **Docker: Add Docker Files to Workspace...** command, you configure t
 
   > **Tip**: If your main module was in the root folder as a file named `main.py` and had a Flask instance variable was named `myapp`, the final argument in the command above will be `"main:myapp"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.main:myapp"`.
 
-## Build, run, and debug the container
+## Add an environment variable to the image
+
+You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these:
+
+1. Open the `Dockerfile` file.
+1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file).
+
+   ![Add an environment variable to Docker image](images/quickstarts/python-intellisense-env.png)
+
+   Note how the Docker extension lists all available Dockerfile instructions and describes the syntax.
+
+   > The Docker extension uses the `base` stage of the `Dockerfile` to create a debug version of the container image for your service. Put the environment variable definition in the `base` stage to have this variable available in both debug and release versions of the container image.
+1. Save the `Dockerfile` file.
+
+## Build the service image
+
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Docker Images: Build Image...** command.
+1. Open the Docker view and verify that the new image is visible in the Images tree:
+
+   ![Verify Docker image exists](images/quickstarts/python-verify-image.png)
+
+## Run the service container
+
+1. Right-click on the image built in the previous section and select **Run** or **Run Interactive**. The container should start and you should be able to see it in the Docker Containers tree:
+
+   ![Running service container](images/quickstarts/python-running-container.png)
+
+1. Open the web browser and navigate to [http://localhost:3000](http://localhost:3000). You should see a page similar to the following:
+
+   ![Application page in browser](images/quickstarts/python-run-browser.png)
+
+1. When done testing, right-click the container in the Containers tree and select **Stop**.
+
+## Debug the container
 
 The **Docker: Add Docker Files to Workspace...** command automatically creates a Docker launch configuration to build and run your container in debug mode. To debug your Python app container:
 
@@ -133,6 +166,12 @@ The Docker extension will launch your browser to a randomly mapped port:
   ![Django website launches](images/quickstarts/python-web-launch.png)
 
 >**Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
+
+## View logs
+
+To view the logs for your app running in the container, right-click the entry in the **Containers** section and choose **View Logs**. VS Code runs `docker logs` and logs are displayed in the **Terminal** window.
+
+![Screenshot of logs in the terminal](images/quickstarts/python-view-logs-dark.png)
 
 ## Next steps
 
