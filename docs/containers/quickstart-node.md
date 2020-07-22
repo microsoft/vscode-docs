@@ -46,6 +46,20 @@ In this guide you will learn how to:
 
 The extension will create `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
+## Add an environment variable to the image
+
+You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these:
+
+1. Open the `Dockerfile` file.
+1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file).
+
+   ![Add an environment variable to Docker image](images/quickstarts/nodejs-intellisense-env.png)
+
+   Note how the Docker extension lists all available Dockerfile instructions and describes the syntax.
+
+   > The Docker extension uses the `base` stage of the `Dockerfile` to create a debug version of the container image for your service. Put the environment variable definition in the `base` stage to have this variable available in both debug and release versions of the container image.
+1. Save the `Dockerfile` file.
+
 ## Run the service locally
 
 1. Open a terminal (`kb(workbench.action.terminal.toggleTerminal)`).
@@ -67,13 +81,13 @@ The extension will create `Dockerfile` and `.dockerignore` files. If you elected
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Docker Images: Build Image...** command.
 1. Open the Docker view and verify that the new image is visible in the Images tree:
 
-   ![Verify Docker image exists](images/quickstarts/node-verify-image.png)
+   ![Verify Docker image exists](images/quickstarts/node-verify-image-dark.png)
 
 ## Run the service container
 
 1. Right-click on the image built in the previous section and select **Run** or **Run Interactive**. The container should start and you should be able to see it in the Docker Containers tree:
 
-   ![Running service container](images/quickstarts/node-running-container.png)
+   ![Running service container](images/quickstarts/node-running-container-dark.png)
 
 1. Open the web browser and navigate to [http://localhost:3000](http://localhost:3000). You should see a page similar to the following:
 
@@ -100,6 +114,12 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
     > Note that, because the debugger attaches *after* the application starts, the breakpoint may missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
     >
     > You can configure the application to wait for the debugger to attach before starting execution by setting the [inspectMode](/docs/containers/reference.md#node-object-properties-docker-run-task) property to `break` in the `docker-run: debug` task in `tasks.json` under the `node` object.
+
+## View logs
+
+To view the logs for your app running in the container, right-click the entry in the **Containers** section and choose **View Logs**. VS Code runs `docker logs` and logs are displayed in the **Terminal** window.
+
+![Screenshot of logs in the terminal](images/quickstarts/node-view-logs-dark.png)
 
 ## Next steps
 
