@@ -118,7 +118,7 @@ We can run our program with **F5**. Notice that the program stops once it hits t
 
 Now that we've seen a fantastic example of a container, let's set up our first container ourselves using the Remote – Containers extension. Let's start off in a “Hello World” Python application:
 
-![Hello world Python app](14-helloworld.png)
+![Hello world Python app](14-helloworld-cropped.png)
 
 We'll select **Remote-Containers: Add Development Container Configuration Files…** to begin setting up the files necessary for a development container:
 
@@ -178,7 +178,7 @@ A new instance of VS Code launches, where our image is being built and our app i
 
 Once our container is built, we have all the same files, but now the bottom-left indicator reads, "Dev Container: Python 3,” signifying we're inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
 
-![Run Python code in dev container](24-run-code.png)
+![Run Python code in dev container](24-run-code-cropped.png)
 
 ### Creating and sharing assignments
 
