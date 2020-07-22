@@ -16,7 +16,7 @@ We've heard from many educators that the first days or weeks of the semester can
 
 ***“I would prefer a version of VS Code, specifically set up for a Python installation...”*** -[Assistant Professor, Liberal Arts College]
 
-Development containers can serve as a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors can quickly move past configuration, and instead focus on what's truly important: learning and coding something great!
+Development containers with Visual Studio Code can serve as a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors can quickly move past configuration, and instead focus on what's truly important: learning and coding something great!
 
 ## Development containers
 
