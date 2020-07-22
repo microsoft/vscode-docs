@@ -164,7 +164,7 @@ Docker can build images automatically by reading the instructions from your [Doc
 
 Here's what the Dockerfile looks like in our Python app:
 
-![Python dockerfile in app](19-dockerfile-cropped.png)
+![Python dockerfile in app](19-dockerfile-crop.png)
 
 ### Opening the container
 
