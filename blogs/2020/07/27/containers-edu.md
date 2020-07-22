@@ -1,8 +1,8 @@
 ---
 Order: 60
 TOCTitle: Development Containers in Education
-PageTitle: Development Containers in Education
-MetaDescription: Development Containers in Education
+PageTitle: Development Containers in Education with Visual Studio Code
+MetaDescription: Development Containers in Education with Visual Studio Code
 Date: 2020-07-27
 Author: Brigit Murtaugh
 ---
