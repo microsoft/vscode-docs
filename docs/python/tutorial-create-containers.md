@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Create Docker containers for Python
 
-This tutorial walks you through the full process of containerizing an existing Python application using [Docker](https://www.docker.com/) and pushing the app image to a Docker registry, all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both [Django](https://www.djangoproject.com/) and [Flask](http://flask.pocoo.org/) web apps, which is helpful to know no matter what your deployment target.
+This tutorial walks you through the full process of containerizing an existing Python application using [Docker](https://www.docker.com/) and pushing the app image to a Docker registry, all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both [Django](https://www.djangoproject.com/) and [Flask](https://flask.palletsprojects.com) web apps, which is helpful to know no matter what your deployment target.
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 

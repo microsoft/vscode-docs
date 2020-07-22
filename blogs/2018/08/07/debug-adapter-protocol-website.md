@@ -97,7 +97,7 @@ This move should emphasize that the Debug Adapter Protocol in not specific to Vi
 In the new location we provide:
 
 - An [overview and introduction](https://microsoft.github.io/debug-adapter-protocol/overview) to the protocol.
-- The [protocol specification](https://microsoft.github.io/debug-adapter-protocol/debugAdapterProtocol.json) as a machine-processable [JSON-schema](http://json-schema.org).
+- The [protocol specification](https://microsoft.github.io/debug-adapter-protocol/debugAdapterProtocol.json) as a machine-processable [JSON-schema](https://json-schema.org).
 - [Detailed documentation](https://microsoft.github.io/debug-adapter-protocol/specification) automatically generated from the protocol specification.
 - [Debug Adapters](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/) implementing the protocol.
 - [Development tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/) hosting the protocol.

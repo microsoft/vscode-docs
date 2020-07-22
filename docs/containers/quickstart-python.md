@@ -12,7 +12,7 @@ MetaDescription: Develop, build, and debug a Python app in a Docker container, u
 In this guide you will learn how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
-- Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/), [Flask](http://flask.pocoo.org/), or General Python app.
+- Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x), or General Python app.
 - Debug the app running in a container.
 
 ## Prerequisites

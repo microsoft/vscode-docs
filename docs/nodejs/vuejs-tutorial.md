@@ -37,7 +37,7 @@ This may take a few minutes to install. You can now create a new Vue.js applicat
 vue create my-app
 ```
 
-where `my-app` is the name of the folder for your application. You will be prompted to select a preset and you can keep the default `(babel, eslint)`, which will use [Babel](https://babeljs.io) to transpile the JavaScript to browser compatible ES5 and install the [ESLint](http://eslint.org/) linter to detect coding errors. It may take a few minutes to create the Vue application and install its dependencies.
+where `my-app` is the name of the folder for your application. You will be prompted to select a preset and you can keep the default `(babel, eslint)`, which will use [Babel](https://babeljs.io) to transpile the JavaScript to browser compatible ES5 and install the [ESLint](https://eslint.org/) linter to detect coding errors. It may take a few minutes to create the Vue application and install its dependencies.
 
 Let's quickly run our Vue application by navigating to the new folder and typing `npm run serve` to start the web server and open the application in a browser:
 

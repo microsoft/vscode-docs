@@ -415,7 +415,7 @@ Optional path to a file that contains environment variable definitions. See [Con
 
 ### `gevent`
 
-If set to `true`, enables debugging of [gevent monkey-patched code](http://www.gevent.org/intro.html).
+If set to `true`, enables debugging of [gevent monkey-patched code](https://www.gevent.org/intro.html).
 
 ## Breakpoints and logpoints
 

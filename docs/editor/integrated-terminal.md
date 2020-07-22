@@ -221,7 +221,7 @@ This feature supports [variable substitution](/docs/editor/variables-reference.m
 
 Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
 
-* [XTerm Control Sequences](http://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+* [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
 * [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
 
 ## Rename terminal sessions
@@ -305,7 +305,7 @@ Currently the terminal consumes many key bindings, preventing Visual Studio Code
 
 ### Can I use Cmder's shell with the terminal on Windows?
 
-Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
+Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",

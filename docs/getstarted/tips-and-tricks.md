@@ -307,7 +307,7 @@ Enabled by default for many file types. Create your own schema and validation in
         "fileMatch": [
             "/bower.json"
         ],
-        "url": "http://json.schemastore.org/bower"
+        "url": "https://json.schemastore.org/bower"
     }
 ]
 ```

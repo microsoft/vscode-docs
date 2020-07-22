@@ -49,9 +49,9 @@ In addition to the default JSON mode following the [JSON specification](https://
 
 ## JSON schemas and settings
 
-To understand the structure of JSON files, we use [JSON schemas](http://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports JSON Schema Draft 7.
+To understand the structure of JSON files, we use [JSON schemas](https://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports JSON Schema Draft 7.
 
-Servers like [JSON Schema Store](http://schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
+Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
 The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `json.schemas`.
 
@@ -63,16 +63,16 @@ In the following example, the JSON file specifies that its contents follow the [
 
 ```json
 {
-   "$schema": "http://json.schemastore.org/coffeelint",
+   "$schema": "https://json.schemastore.org/coffeelint",
    "line_endings": "unix"
 }
 ```
 
-Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](http://json-schema.org/latest/json-schema-core.html#rfc.section.7). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
+Note that this syntax is VS Code-specific and not part of the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7). Adding the `$schema` key changes the JSON itself, which systems consuming the JSON might not expect, for example, schema validation might fail. If this is the case, you can use one of the other mapping methods.
 
 ### Mapping in the User Settings
 
-The following excerpt from User [Settings](/docs/getstarted/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [http://json.schemastore.org/babelrc](http://json.schemastore.org/babelrc).
+The following excerpt from User [Settings](/docs/getstarted/settings.md) shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on [https://json.schemastore.org/babelrc](https://json.schemastore.org/babelrc).
 
 ```json
 "json.schemas": [
@@ -80,7 +80,7 @@ The following excerpt from User [Settings](/docs/getstarted/settings.md) shows h
         "fileMatch": [
             "/.babelrc"
         ],
-        "url": "http://json.schemastore.org/babelrc"
+        "url": "https://json.schemastore.org/babelrc"
     }
 ]
 ```

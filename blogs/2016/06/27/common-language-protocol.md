@@ -18,7 +18,7 @@ Visual Studio Code is an editor for any developer, no matter what programming la
 
 ## Any Language, Any Tool
 
-Today at the [DevNation](https://www.devnation.org) conference in San Francisco, we’ve announced along with [Red Hat and Codenvy](https://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) that this language server protocol is now being adopted by tool creators and language providers across the industry. For language creators, this means an enhanced tooling experience for their language across a variety of development tools and operating systems, similar to the experience that [TypeScript](https://www.typescriptlang.org) developers or C# developers (via [OmniSharp](http://www.omnisharp.net)) get today.  It also means any developer can have a consistent editing experience for their favorite programming language on any tool – even if that tool isn’t VS Code.
+Today at the [DevNation](https://www.devnation.org) conference in San Francisco, we’ve announced along with [Red Hat and Codenvy](https://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) that this language server protocol is now being adopted by tool creators and language providers across the industry. For language creators, this means an enhanced tooling experience for their language across a variety of development tools and operating systems, similar to the experience that [TypeScript](https://www.typescriptlang.org) developers or C# developers (via [OmniSharp](https://www.omnisharp.net)) get today.  It also means any developer can have a consistent editing experience for their favorite programming language on any tool – even if that tool isn’t VS Code.
 
 ## How it works
 
@@ -36,7 +36,7 @@ Here’s an example of how a tool and a language server could communicate semant
 
 * The user closes the document (file): A `didClose` notification is sent from the tool, informing the language server that the document is now no longer in memory and instead maintained by (i.e. stored on) the file system.
 
-This communication, which takes place over [JSON-RPC](http://www.jsonrpc.org/specification), happens many times over the course of a typical session.
+This communication, which takes place over [JSON-RPC](https://www.jsonrpc.org/specification), happens many times over the course of a typical session.
 
 ![language server sequence](language-server-sequence.png)
 
