@@ -58,7 +58,7 @@ To save tremendous time and confusion, we can use dev containers to create a sta
      * There is newly introduced [Docker Desktop support on Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/). It requires Windows 10, version 2004 and enabling the Windows Subsystem for Linux 2 (WSL 2) backend. Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/wsl2-install).
      * For students who would prefer to not configure the WSL 2 backend, [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/#:~:text=System%20Requirements,Hyper%2DV%20on%20Windows%2010%3A&text=4GB%20system%20RAM) can alternatively be used on Windows 10 Pro, Enterprise, or Education (Build 16299 or later), and Hyper-V and Containers Windows features must be enabled.
 
-Let's start off by launching VS Code, which we can do by typing `code .` in the command prompt (or just by selecting VS Code on your computer):
+Let's start off by launching VS Code, which we can do by typing `code .` in the command prompt or terminal (or just by selecting VS Code on your computer):
 
 ![Launch VS Code from command prompt](2-code-ps-cropped.png)
 
