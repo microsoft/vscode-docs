@@ -100,7 +100,7 @@ This should show the following versions:
 
 ### Run the application
 
-We can now hit `kb(workbench.action.debug.start)`, which will run the application inside the container. Once the process starts, navigate to http://localhost:3000 and you should see the simple Node.js server running!
+We can now hit `kb(workbench.action.debug.start)`, which will run the application inside the container. Once the process starts, navigate to [http://localhost:3000](http://localhost:3000) and you should see the simple Node.js server running!
 
 ![Running the application](images/containers-tutorial/hello-remote-world.png)
 

@@ -195,7 +195,7 @@ Name the connection "browser":
 
 ![Name the port](images/ssh-tutorial/name-port.png)
 
-The server will now forward traffic on port 3000 to your local machine. When you browse to http://localhost:3000, you see the running web app.
+The server will now forward traffic on port 3000 to your local machine. When you browse to [http://localhost:3000](http://localhost:3000), you see the running web app.
 
 ![Running Express Application](images/ssh-tutorial/express.png)
 

@@ -172,7 +172,7 @@ Name the connection "browser":
 
 ![Name the port](name-port.png)
 
-The server will now forward traffic on port 5000 to our local machine. When you browse to http://localhost:5000, you see the running web app.
+The server will now forward traffic on port 5000 to our local machine. When you browse to [http://localhost:5000](http://localhost:5000), you see the running web app.
 
 ![Hello Remote World in a browser](hello-world-browser.png)
 

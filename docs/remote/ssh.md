@@ -208,7 +208,7 @@ You'll be asked to enter the port you would like to forward and you can give it 
 
 ![Forward port input](images/ssh/forward-port-ssh.png)
 
-A notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost since 3000 was already in use. You can then connect to this remote HTTP server using http://localhost:4123.
+A notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost since 3000 was already in use. You can then connect to this remote HTTP server using `http://localhost:4123`.
 
 This same information is available in the **Forwarded Ports** section of the Remote Explorer if you need to access it later.
 

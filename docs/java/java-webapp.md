@@ -55,7 +55,7 @@ You can learn more about how VS Code launches your application in Debugging [Lau
 
 ![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
 
-Test the web app by browsing to `http://localhost:8080` using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
+Test the web app by browsing to [http://localhost:8080](http://localhost:8080) using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
 
 ![Greeting from Spring](images/java-webapp/greeting-from-spring.png)
 
@@ -126,6 +126,7 @@ Once you have signed in, you can open the command prompt or terminal window and 
 ```bash
 mvn clean package
 ```
+
 After building the project, open the `target` directory in VS Code Explorer. Right-click on the artifact and choose **Deploy to Web App**, and follow the prompts to choose the Web App for your deployment.
 
 ![Deploy to Web App](images/java-webapp/deploy-webapp.png)

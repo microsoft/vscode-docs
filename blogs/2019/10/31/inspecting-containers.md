@@ -52,7 +52,7 @@ If everything worked, you should see output like this:
 
 ![docker-compose up output](docker-compose-output.png)
 
-And, you should be able to navigate to http://localhost:3000 and see the following:
+And, you should be able to navigate to [http://localhost:3000](http://localhost:3000) and see the following:
 
 ![Welcome to Express web page](welcome-express.png)
 
@@ -108,7 +108,7 @@ Next, open `index.js` and place a breakpoint on line 6 by clicking on the gutter
 res.render('index', { title: 'Express' });
 ```
 
-Now go to http://localhost:3000 in your browser and see the breakpoint trigger as expected!
+Now go to [http://localhost:3000](http://localhost:3000) in your browser and see the breakpoint trigger as expected!
 
 ## Install extensions
 

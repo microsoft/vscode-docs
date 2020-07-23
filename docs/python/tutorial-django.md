@@ -617,7 +617,7 @@ Many web apps work with information stored in a database, and Django makes it ea
 
 With Django, your work with your database almost exclusively through the models you define in code. Django's "migrations" then handle all the details of the underlying database automatically as you evolve the models over time. The general workflow is as follows:
 
-1. Make changes to the models in your *models.py* file.
+1. Make changes to the models in your `models.py` file.
 1. Run `python manage.py makemigrations` to generate scripts in the `migrations` folder that migrate the database from its current state to the new state.
 1. Run `python manage.py migrate` to apply the scripts to the actual database.
 

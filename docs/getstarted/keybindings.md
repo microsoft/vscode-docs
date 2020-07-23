@@ -111,7 +111,6 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "ctrl+k ctrl+w",   "command": "workbench.action.closeAllEditors" },
 ```
 
-
 ## Accepted keys
 
 The `key` is made up of modifiers and the key itself.
