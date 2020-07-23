@@ -12,7 +12,7 @@ July 27, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMu
 
 We've heard from many educators that the first days or weeks of the semester can be lost to configuring the correct environment for students. Even so, students may still end up with a low-quality development experience or insufficient grading of their assignments:
 
-<Quote 1>
+***"Set up for my students normally takes five class periods. There are version of Python to deal with. There's a lot of complexity. Sadly that complexity takes a lot of time and money to sort out."*** -[Community College US Professor CS 101]
 
 ***“I would prefer a version of VS Code, specifically set up for a Python installation...”*** -[Assistant Professor, Liberal Arts College]
 
