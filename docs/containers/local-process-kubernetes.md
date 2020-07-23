@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Develop with Kubernetes
 ContentId: 1b347391-cb5e-46ac-8fa0-e893c13e6a24
 PageTitle: Use Local Process to run and debug locally with Kubernetes
-DateApproved: 06/25/2020
+DateApproved: 07/22/2020
 MetaDescription: Learn how to use Local Process with Kubernetes to connect your development computer to a Kubernetes cluster
 ---
 
@@ -29,8 +29,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli].
 * [Visual Studio Code][vs-code] running on macOS or Windows 10.
-* The [Azure Dev Spaces][azds-vs-code] extension version 2.0.220200601 or greater installed in Visual Studio Code.
-* [Azure Dev Spaces CLI installed][azds-cli].
+* The [Local Process with Kubernetes][lpk-vs-code] extension installed in Visual Studio Code.
 
 ## Create a Kubernetes cluster
 
@@ -82,7 +81,7 @@ On your development computer, download and configure the Kubernetes CLI to conne
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 ```
 
-Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **dev** namespace in the **MyAKS** cluster.
+Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **bikeapp** namespace in the **MyAKS** cluster. Right-click the **bikeapp** node, and choose **Use Namespace**.
 
 ![Select Namespace](images/local-process-kubernetes-vs-code/select-namespace.png)
 
@@ -114,13 +113,17 @@ Choose **Launch via NPM** as the launch task.
 
 ![Connect choose launch task](images/local-process-kubernetes-vs-code/choose-launch.png)
 
-> **Note**: You will be prompted to allow the **KubernetesDNSManager** to run elevated and modify your hosts file.
+> **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
-Your development computer is connected when the VS Code status bar turns orange and the Dev Spaces extension shows you are connected.
+You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-local-process-kubernetes#using-routing-capabilities-for-developing-in-isolation).
+
+![Isolation prompt](images/local-process-kubernetes-vs-code/lpk-isolation-prompt.png)
+
+Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
 ![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, or launch task. These values are saved in `.vscode/tasks.json`.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Local Process with Kubernetes: Configure Local Process with Kubernetes**.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
@@ -153,21 +156,21 @@ Save your changes and press `kb(workbench.action.debug.restart)` or click **Run*
 
 Click **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
-> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Local Process With Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the Azure Dev Spaces extension on the status bar then choose **Disconnect current session**.
+> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Local Process With Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the LPK extension on the status bar then choose **Disconnect current session**.
 >
 > If Visual Studio Code abruptly ends the connection to the cluster or terminates, the service you are redirecting may not be restored to its original state before you connected with Local Process with Kubernetes. To fix this issue, see the [Troubleshooting guide][troubleshooting].
 
 ## Using logging and diagnostics
 
-Logging output is written to the **Dev Spaces** window after your development computer is connected to your Kubernetes cluster.
+Logging output is written to the **Local Process with Kubernetes** window after your development computer is connected to your Kubernetes cluster.
 
 ![Output](images/local-process-kubernetes-vs-code/output.png)
 
-Click on the Azure Dev Spaces status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
+Click on the **Kubernetes** status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
 
 ![Output with diagnostics](images/local-process-kubernetes-vs-code/output-diagnostics.png)
 
-Additionally, you can find the diagnostic logs in the `Azure Dev Spaces` directory in your [development computer's TEMP directory][azds-tmp-dir].
+Additionally, you can find the diagnostic logs in the `Local Process with Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
 
 ## Remove the sample application from your cluster
 
@@ -180,7 +183,7 @@ Use the provided script to remove the sample application from your cluster.
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
 [azds-cli]: https://docs.microsoft.com/azure/dev-spaces/how-to/install-dev-spaces#install-the-client-side-tools
 [azds-tmp-dir]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#before-you-begin
-[azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
+[lpk-vs-code]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
