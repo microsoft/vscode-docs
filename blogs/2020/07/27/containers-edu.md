@@ -40,7 +40,7 @@ We've already seen instructors using Remote – Containers in their classrooms w
 
 This post will serve as a guide to instructors looking to implement development containers in the classroom to create a smoother, more consistent environment for their students.
 
-To see dev containers in action and how students can get started in less than 5 minutes, check out our introductory student video ***link to video.***
+To see dev containers in action and how students can get started in just 5 minutes, check out our [introductory student video](https://youtu.be/Uvf2FVS1F8k).
 
 ## Guide for Instructors
 
@@ -206,7 +206,7 @@ Now when I refresh GitHub in the browser, I can see my files!
 
 ### Accessing assignments
 
-To see how students can access the dev container from GitHub and begin programming with ease, check out our quick 5-minute video ***link to video.***
+To see how students can access the dev container from GitHub and begin programming with ease, check out our [quick 5-minute video](https://youtu.be/Uvf2FVS1F8k).
 
 ## Feedback & further resources
 
