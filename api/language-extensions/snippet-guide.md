@@ -30,7 +30,7 @@ The [Creating snippets](https://code.visualstudio.com/docs/editor/userdefinedsni
 }
 ```
 
-You can find the complete source code at: https://github.com/microsoft/vscode-extension-samples/tree/master/snippet-sample
+You can find the complete source code at: [https://github.com/microsoft/vscode-extension-samples/tree/master/snippet-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/snippet-sample).
 
 **Tip**: Tag your extension as a snippet extension with the following config in your `package.json`:
 

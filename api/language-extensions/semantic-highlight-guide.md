@@ -94,7 +94,6 @@ Standard semantic token modifiers:
 - readonly, static, deprecated, abstract
 - async, modification, documentation, defaultLibrary
 
-
 If necessary, extensions can define new types and modifiers or create sub types of existing type through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
 
 ```json

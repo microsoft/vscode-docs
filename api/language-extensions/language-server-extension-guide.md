@@ -933,4 +933,4 @@ You will see this timeout error if the server isn't running when you try to atta
 
 ### I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help?
 
-Please open an issue at https://github.com/microsoft/language-server-protocol.
+Please open an issue at [https://github.com/microsoft/language-server-protocol](https://github.com/microsoft/language-server-protocol).

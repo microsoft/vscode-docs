@@ -9,7 +9,7 @@ MetaDescription: A guide to using Virtual Documents in Visual Studio Code extens
 
 # Virtual Documents
 
-The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: https://github.com/microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md
+The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md](https://github.com/microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md).
 
 ## TextDocumentContentProvider
 
@@ -67,7 +67,7 @@ const myProvider = class implements vscode.TextDocumentContentProvider {
 
 The event emitter has a `fire` method which is can be used to notify VS Code when a change has happened in a document. The document which has changed is identified by its uri given as argument to the `fire` method. The provider will then be called again to provide the updated content, assuming the document is still open.
 
-That's all what's needed to make VS Code listen for changes of virtual document. To see a more complex example making use of this feature, look at: https://github.com/microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md
+That's all what's needed to make VS Code listen for changes of virtual document. To see a more complex example making use of this feature, look at: [https://github.com/microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md](https://github.com/microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md).
 
 ### Add Editor Commands
 
