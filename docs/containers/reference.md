@@ -397,7 +397,7 @@ For each of these customizable Docker commands, a configuration setting is avail
 
 ### Settings JSON schema
 
-You have two options for configuring each of the templates (listed below). The first is a single template that overrides the default behavior:
+You have two options for configuring each of the templates (listed below). The first option is a single template that overrides the default behavior:
 
 ```json
 {
@@ -405,9 +405,9 @@ You have two options for configuring each of the templates (listed below). The f
 }
 ```
 
-The second is multiple templates that will be chosen based on the `match` regular expression as well as user input.
+The second option is multiple templates that will be chosen based on the `match` regular expression, the `contextTypes` in which it is applicable, as well as user input. The `contextTypes` property is a list of Docker context types in which a command template applies. If it is undefined or empty, the template is applicable in all Docker contexts.
 
-For example, two templates are shown in the following example:
+For example, three templates are shown in the following example:
 
 ```json
 {
@@ -420,6 +420,11 @@ For example, two templates are shown in the following example:
             "label": "Alpine-specific build command",
             "template": "docker build -p 1234:1234 -f \"${dockerfile}\" -t ${tag} \"${context}\"",
             "match": "alpine"
+        },
+        {
+            "label": "Context-specific build command",
+            "template": "docker build -f \"${dockerfile}\" .",
+            "contextTypes": ["moby"]
         }
     ]
 }
@@ -432,10 +437,10 @@ The command template chosen to execute is selected based on the following rules:
 1. If no setting is configured, the default command template is chosen.
 1. If only a single template is configured (the first example above), that template is chosen.
 1. If multiple templates are configured:
-    1. Templates containing a defined `match` property are examined first. The `match` regular expression is compared against the context--for example, image name, container name, etc. All matching templates are selected. More information on the matching context is available below.
-    1. If no templates match the `match` property, all templates without a defined `match` property are selected.
-    1. If no templates match the `match` property, and there are no templates without a defined `match` property, then the default command template is chosen.
-    1. Any time that multiple templates are selected, the user will be prompted to choose between them on which to execute.
+    1. Constrained templates are checked. A constrained template has either `match` or `contextTypes`, or both. The `match` regular expression is compared against contextual hints--for example, image name, container name, etc. The `contextTypes` property causes the template to apply only in certain context types, for example, `moby` or `aci` (or both).
+    1. If multiple constrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
+    1. If there no applicable constrained templates, unconstrained templates are checked. An unconstrained template has neither `match` nor `contextTypes`, and is therefore always applicable.
+    1. If multiple unconstrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
 
 ### Docker Build
 
