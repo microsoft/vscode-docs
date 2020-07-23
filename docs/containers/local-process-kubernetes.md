@@ -81,7 +81,7 @@ On your development computer, download and configure the Kubernetes CLI to conne
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 ```
 
-Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **dev** namespace in the **MyAKS** cluster.
+Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **bikeapp** namespace in the **MyAKS** cluster. Right-click the **bikeapp** node, and choose **Use Namespace**.
 
 ![Select Namespace](images/local-process-kubernetes-vs-code/select-namespace.png)
 
@@ -170,7 +170,7 @@ Click on the **Kubernetes** status bar and choose **Show connection diagnostics 
 
 ![Output with diagnostics](images/local-process-kubernetes-vs-code/output-diagnostics.png)
 
-Additionally, you can find the diagnostic logs in the `Local Process with Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the *TEMP* directory can be found by running `echo $TMPDIR` from a terminal window.
+Additionally, you can find the diagnostic logs in the `Local Process with Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
 
 ## Remove the sample application from your cluster
 
