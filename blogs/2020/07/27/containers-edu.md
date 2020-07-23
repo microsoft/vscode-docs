@@ -132,7 +132,7 @@ The Remote - Containers extension automatically adds a `.devcontainer` folder an
 
 #### devcontainer.json
 
-[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under `.devcontainer/devcontainer.json` or stored directly as `.devcontainer.json` in the root of a project.
+[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under `.devcontainer/devcontainer.json` or stored directly as `devcontainer.json` in the root of a project.
 
 Here is a simple example of a `devcontainer.json`. It pulls a preconfigured Node image, automatically sets up port forwarding for port 3000, and will install the eslint extension when the container is created:
 
