@@ -66,7 +66,7 @@ Once VS Code launches, ensure you've installed the [Remote - Containers](https:/
 
 ![Remote containers extension](3-extension.png)
 
-When we install any of the Remote extensions, we'll see the green Remote indicator on the bottom left of the Status bar:
+When we install any of the Remote extensions, the green Remote indicator is added to the bottom left of the Status bar:
 
 ![Remote indicator in VS Code](4-remote-indicator.png)
 
