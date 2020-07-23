@@ -186,7 +186,7 @@ Now that you have a dev container, you can upload it to a repository so that you
 
 Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
 
-Following [this guide](https://kbroman.org/github_tutorial/pages/init.html), the next step is to connect your local repository to a [new repo](https://github.com/new) from the GitHub desktop client:
+Following [this guide](https://kbroman.org/github_tutorial/pages/init.html), the next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
 
 ![Create a new GitHub repo online](25-create-repo.png)
 
