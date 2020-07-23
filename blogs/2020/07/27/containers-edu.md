@@ -40,7 +40,7 @@ We've already seen instructors using Remote – Containers in their classrooms w
 
 This post will serve as a guide to instructors looking to implement development containers in the classroom to create a smoother, more consistent environment for their students.
 
-To see dev containers in action and how students can get started in just 5 minutes, check out our [introductory student video](https://youtu.be/Uvf2FVS1F8k).
+To witness dev containers in action and how students can get started in just 5 minutes, check out our [introductory student video](https://youtu.be/Uvf2FVS1F8k).
 
 ## Guide for Instructors
 
@@ -98,13 +98,13 @@ Now that we've chosen our container repo, VS Code reloads to build the image and
 
 ![Close-up on starting container notification](10-starting-container.png)
 
-Once the container is built and running, we can see our files and starting coding within our Python environment!
+Once the container is built and running, our files are loaded and we can start coding within our Python environment!
 
 Click on `sort.py` in the Explorer to open it, and press **F5** (or the green Run icon in the top right) to run it:
 
 ![Run sort.py program](11-sortpy-cropped.png)
 
-You can see our Python code ran successfully without ever having to set up Python on our local computer.
+Our Python code ran successfully without ever having to set up Python on our local computer.
 
 We also have access to all the benefits of VS Code, such as setting breakpoints to pause our program and help us debug. Let's set a breakpoint when we sort our list of words.
 
@@ -200,7 +200,7 @@ You may be prompted to log into GitHub. Once you sign in, your files can be adde
 
 ![Push remote files in command prompt](27-git-push.png)
 
-Now when I refresh GitHub in the browser, I can see my files!
+Now when I refresh GitHub in the browser, I can view my files!
 
 ![View files in GitHub repo in browser online](28-github-browser.png)
 
