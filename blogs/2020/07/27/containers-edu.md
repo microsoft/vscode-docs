@@ -40,7 +40,7 @@ We've already seen instructors using Remote – Containers in their classrooms w
 
 This post will serve as a guide to instructors looking to implement development containers in the classroom to create a smoother, more consistent environment for their students.
 
-**To see dev containers in action and how students can get started in just 5 minutes, check out our [introductory student video](https://youtu.be/Uvf2FVS1F8k).**
+To see dev containers in action and how students can get started in just 5 minutes, check out our [introductory student video](https://youtu.be/Uvf2FVS1F8k).
 
 ## Guide for Instructors
 
