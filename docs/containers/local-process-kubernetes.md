@@ -129,9 +129,9 @@ Once your development computer is connected, traffic starts redirecting to your 
 
 ## Set a break point
 
-Open [server.js][server-js-breakpoint] and click somewhere on line 233 to put your cursor there. Set a breakpoint by hitting `kb(editor.debug.action.toggleBreakpoint)` or clicking **Run** then **Toggle Breakpoint**.
+Open [server.js][server-js-breakpoint] and click somewhere on line 233 to put your cursor there. Set a breakpoint by hitting `kb(editor.debug.action.toggleBreakpoint)` or selecting **Run** then **Toggle Breakpoint**.
 
-Navigate to the sample application by opening the public URL. Select **Aurelia Briggs (customer)** as the user, then select a bike to rent. Notice the image for the bike does not load. Return to Visual Studio Code and observe line 233 is highlighted. The breakpoint you set has paused the service at line 233. To resume the service, hit `kb(workbench.action.debug.run)` or click **Run** then **Continue**. Return to your browser and verify you see a placeholder image for the bike.
+Navigate to the sample application by opening the public URL. Select **Aurelia Briggs (customer)** as the user, then select a bike to rent. Notice the image for the bike does not load. Return to Visual Studio Code and observe line 233 is highlighted. The breakpoint you set has paused the service at line 233. To resume the service, hit `kb(workbench.action.debug.run)` or select **Run** then **Continue**. Return to your browser and verify you see a placeholder image for the bike.
 
 Remove the breakpoint by putting your cursor on line 233 in `server.js` and hitting `kb(editor.debug.action.toggleBreakpoint)`.
 
