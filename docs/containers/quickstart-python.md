@@ -67,12 +67,15 @@ After verifying your app runs properly, you can now Dockerize your application.
     > **Important note**: To use our setup, the Python framework (Django/Flask) and Gunicorn **must be included** in the `requirements.txt` file. If the virtual environment/host machine already has these prerequisites installed and is supposed to be identical to the container environment, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal. **This will overwrite your current `requirements.txt` file.**
 
 ### Add an environment variable to the image
-The Docker Extension helps you author Dockerfiles by using [IntelliSense](../editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
+
+The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action:
 
 1. Open the `Dockerfile`.
-1. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.
+2. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.
+
   ![Adding environment variable to Dockerfile](images/quickstarts/python-edit-dockerfile.png)
-2. Press `kbstyle(Tab)` or `kbstyle(Enter)` to complete the statement, then set the `key` to VAR1 and the `value` to 10.
+
+3. Press `kbstyle(Tab)` or `kbstyle(Enter)` to complete the statement, then set the `key` to VAR1 and the `value` to 10.
 
 ### Gunicorn modifications for Django/Flask apps
 
@@ -142,10 +145,12 @@ The Docker extension will launch your browser to a randomly mapped port:
 
 >**Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
 
-#### Use the Docker view
-The Docker view provides an interactive experience to examine and manage Docker assets such as containers, images and so on. To see an example:
+## Use the Docker view
+
+The Docker view provides an interactive experience to examine and manage Docker assets such as containers, images, and so on. To see an example:
+
 1. Navigate to the Docker view.
-1. In the **Containers** tab, right click on your container and choose **View Logs**.
+1. In the **Containers** tab, right-click on your container and choose **View Logs**.
 
     ![Viewing the logs of a container](images/quickstarts/python-view-logs.png)
 
