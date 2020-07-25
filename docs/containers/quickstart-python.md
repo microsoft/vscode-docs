@@ -46,6 +46,7 @@ After verifying your app runs properly, you can now Dockerize your application.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use the **Docker: Add Docker Files to Workspace...** command:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
+    
 1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
 2. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. Compose is typically used when running multiple containers at once.
 
@@ -73,7 +74,7 @@ The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/
 1. Open the `Dockerfile`.
 2. Underneath the `EXPOSE` statement, type `kb(editor.action.triggerSuggest)` to trigger IntelliSense and scroll to `ENV`.
 
-  ![Adding environment variable to Dockerfile](images/quickstarts/python-edit-dockerfile.png)
+    ![Adding environment variable to Dockerfile](images/quickstarts/python-edit-dockerfile.png)
 
 3. Press `kbstyle(Tab)` or `kbstyle(Enter)` to complete the statement, then set the `key` to VAR1 and the `value` to 10.
 
