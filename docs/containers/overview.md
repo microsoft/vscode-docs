@@ -25,7 +25,7 @@ To install the extension, open the Extensions view (`kb(workbench.view.extension
 
 ## Editing Docker files
 
-You can get IntelliSense when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
+You can get [IntelliSense](../editor/intellisense.md) when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
 
 ![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 
