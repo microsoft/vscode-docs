@@ -160,6 +160,10 @@ Click **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)`
 >
 > If Visual Studio Code abruptly ends the connection to the cluster or terminates, the service you are redirecting may not be restored to its original state before you connected with Local Process with Kubernetes. To fix this issue, see the [Troubleshooting guide][troubleshooting].
 
+## Additional configuration
+
+Local Process with Kubernetes can handle routing traffic and replicating environment variables without any additional configuration. If you need to download any files that are mounted to the container in your Kubernetes cluster, such as a ConfigMap file, you can create a `KubernetesLocalProcessConfig.yaml` to download those files to your development computer. For more information, see [Configure Local Process with Kubernetes][kubernetesLocalProcessConfig-yaml].
+
 ## Using logging and diagnostics
 
 Logging output is written to the **Local Process with Kubernetes** window after your development computer is connected to your Kubernetes cluster.
@@ -194,3 +198,4 @@ Use the provided script to remove the sample application from your cluster.
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [troubleshooting]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#fail-to-restore-original-configuration-of-deployment-on-cluster
 [vs-code]: https://code.visualstudio.com/download
+[kubernetesLocalProcessConfig-yaml]: https://docs.microsoft.com/visualstudio/containers/configure-local-process-with-kubernetes
