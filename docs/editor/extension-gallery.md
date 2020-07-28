@@ -232,14 +232,13 @@ An example `extensions.json` could be:
 ```json
 {
     "recommendations": [
-        "ms-vscode.vscode-typescript-tslint-plugin",
         "dbaeumer.vscode-eslint",
         "msjsdiag.debugger-for-chrome"
     ]
 }
 ```
 
-which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
+which recommends two linter extensions: ESLint, and the Chrome debugger extension.
 
 An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 
