@@ -44,7 +44,7 @@ To witness dev containers in action and how students can get started in just 5 m
 
 ## Guide for Instructors
 
-Students can run into a wide variety of issues while setting up their environment. Some examples include differences in their unique OS, where project files are stored, or small differences in runtimes or tools they've installed. Instructors need to be well versed in all these subtleties to be able to help students solve these issues.
+With traditional set up approaches, students can run into a wide variety of issues while setting up their environment. Some examples include differences in their unique OS, where project files are stored, or small differences in runtimes or tools they've installed. Instructors need to be well versed in all these subtleties to be able to help students solve these issues.
 
 A common issue is managing different versions of a tool. Let's take Python as an example: there's Python 2 and Python 3, along with different minor versions. Having multiple versions of Python, and then multiple accompanying tools such as linters, can be confusing and lead to errors.
 
@@ -58,7 +58,7 @@ To save tremendous time and confusion, we can use dev containers to create a sta
      * There is newly introduced [Docker Desktop support on Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/). It requires Windows 10, version 2004 and enabling the Windows Subsystem for Linux 2 (WSL 2) backend. Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/wsl2-install).
      * For students who would prefer to not configure the WSL 2 backend, [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/#:~:text=System%20Requirements,Hyper%2DV%20on%20Windows%2010%3A&text=4GB%20system%20RAM) can alternatively be used on Windows 10 Pro, Enterprise, or Education (Build 16299 or later), and Hyper-V and Containers Windows features must be enabled.
 
-Let's start off by launching VS Code, which we can do by typing `code .` in the command prompt or terminal (or just by selecting VS Code on your computer):
+Let's start off by launching VS Code, which we can do by typing `code .` in the command prompt or terminal to open your current folder (or just by selecting VS Code on your computer):
 
 ![Launch VS Code from command prompt](2-code-ps-cropped.png)
 
@@ -86,7 +86,7 @@ Let's call **Open Repository in Container...**
 
 ![Open Repository in Container command](6-open-repo-command.png)
 
-We need to enter the URL to the GitHub repo where our container is stored, which in our case is https://github.com/microsoft/vscode-course-sample:
+We need to enter the URL to the GitHub repo where our container is stored, which in our case is microsoft/vscode-course-sample:
 
 ![Paste GitHub URL in Command Palette](7-paste-repo-command.png)
 
@@ -186,7 +186,7 @@ Now that you have a dev container, you can upload it to a repository so that you
 
 Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
 
-Following [this Start a new git repository guide](https://kbroman.org/github_tutorial/pages/init.html), the next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
+Following [this Adding an existing project to GitHub guide](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line), the next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
 
 ![Create a new GitHub repo online](25-create-repo.png)
 
