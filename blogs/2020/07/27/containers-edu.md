@@ -186,11 +186,11 @@ Now that you have a dev container, you can upload it to a repository so that you
 
 Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
 
-Following [this Adding an existing project to GitHub guide](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line), the next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
+The next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
 
 ![Create a new GitHub repo online](25-create-repo.png)
 
-Let's connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
+Then, we'll connect our local Git repo (the container project on our computer) to the remote repo (the GitHub repo we created in the browser):
 
 ![Connect Git repos in command prompt](26-git-setup-cropped.png)
 
@@ -201,6 +201,8 @@ You may be prompted to log into GitHub. Once you sign in, your files can be adde
 Now when I refresh GitHub in the browser, I can view my files!
 
 ![View files in GitHub repo in browser online](28-github-browser.png)
+
+For more information on how to upload your repository to GitHub, check out [this Adding an existing project to GitHub guide](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line).
 
 ### Accessing assignments
 
