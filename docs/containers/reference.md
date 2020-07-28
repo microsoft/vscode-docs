@@ -487,7 +487,7 @@ Supported tokens:
 | Token | Description |
 | -- | -- |
 | `${containerId}` | The ID of the container to attach to. |
-| `${shellCommand}` | The value of the `docker.attachShellCommand.linuxContainer` or `docker.attachShellCommand.windowsContainer` configuration setting, as appropriate. |
+| `${shellCommand}` | If `bash` is present in the container, it is substituted here, otherwise `sh`. In Windows containers, `cmd` is always used. |
 
 > **Note**: The `match` regular expression will be compared against the container name and full tag of the container image.
 
