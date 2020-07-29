@@ -35,20 +35,18 @@ In this guide you will learn how to:
 1. Open the project folder in VS Code.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use **Docker: Add Docker Files to Workspace...** command:
 
-   ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node.png)
+   ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node-dark.png)
 
 1. Select **Node.js** when prompted for the application platform.
-1. Select either **Yes** or **No** when prompted to include Docker Compose files.
-
-   > The Docker Compose files are optional and not used for debugging the application within a container, so either is a valid choice.
+1. Select either **Yes** or **No** when prompted to include Docker Compose files. Compose is typically used when running multiple containers at once.
 
 1. Enter `3000` when prompted for the application port.
 
-The extension will create `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
+The extension creates `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
 ## Add an environment variable to the image
 
-You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these:
+The Docker extension helps you author Dockerfiles by using [IntelliSense](../editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action, add an environment variable to your service image by following these steps:
 
 1. Open the `Dockerfile` file.
 1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file).
@@ -103,23 +101,28 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
 
 1. Make sure the **Docker Node.js Launch** debugger configuration is selected.
 
-   ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration.png)
+   ![Selected Docker debug configuration](images/quickstarts/node-debug-configuration-dark.png)
 
 1. Start debugging (use the `kb(workbench.action.debug.start)` key).
     - The Docker image for the service builds.
     - The Docker container for the service runs.
     - The browser opens to the (random) port mapped to the service container.
-    - The debugger hits the breakpoint in `index.js`.
+    - The debugger stops at the breakpoint in `index.js`.
 
     > Note that, because the debugger attaches *after* the application starts, the breakpoint may missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
     >
     > You can configure the application to wait for the debugger to attach before starting execution by setting the [inspectMode](/docs/containers/reference.md#node-object-properties-docker-run-task) property to `break` in the `docker-run: debug` task in `tasks.json` under the `node` object.
 
-## View logs
+## Use the Docker view
 
-To view the logs for your app running in the container, right-click the entry in the **Containers** section and choose **View Logs**. VS Code runs `docker logs` and logs are displayed in the **Terminal** window.
+The Docker view provides an interactive experience to examine and manage Docker assets such as containers, images and so on. To see an example:
 
-![Screenshot of logs in the terminal](images/quickstarts/node-view-logs-dark.png)
+1. Navigate to the Docker view.
+1. In the **Containers** tab, right-click on your container and choose **View Logs**.
+
+    ![Screenshot of logs in the terminal](images/quickstarts/node-view-logs-dark.png)
+
+1. The output will be displayed in the terminal.
 
 ## Next steps
 
