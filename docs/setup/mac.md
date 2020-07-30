@@ -46,7 +46,7 @@ Start a new terminal to pick up your `.bash_profile` changes.
 **Note**: Since `zsh` became the default shell in macOS Catalina, run the following commands to add VS Code to your path:
 
 ```zsh
-cat << EOF >> ~/.zshrc
+cat << EOF >> ~/.zprofile
 # Add Visual Studio Code (code)
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 EOF
