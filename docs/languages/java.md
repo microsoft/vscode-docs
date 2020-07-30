@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 7/6/2020
+DateApproved: 7/30/2020
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -84,13 +84,11 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ![Java Getting Started](images/java/getting-started.png)
 
-## Standalone Java source files
+## Working with Java source files
 
-You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can run in so-called lightweight mode, where syntax and [semantic](/docs/getstarted/themes.md#semantic-highlighting) highlighting and error detection, code navigation, code completion, outline as well as Javadoc features are available immediately with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) without resolving the project. Lightweight mode makes VS Code an ideal tool for reading and learning any Java code base.
+You can use VS Code to read, write, run and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
 
-At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between lightweight mode and full language server as you need.
-
-## Java project support
+## Working with Java project
 
 There are three things you must understand to work with Java in VS Code:
 
