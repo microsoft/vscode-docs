@@ -69,11 +69,11 @@ Lightweight mode does neither resolve imported dependencies nor build project, s
 
 You can control which mode to launch with by configuring `java.server.launchMode` with below options:
 
-- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether switch to standard mode, when your source files and JDK are resolved by language server, or when an extension requires to run with standard mode. Or, you can switch by clicking server mode icon on status bar. Once a workspace is in standard mode, it cannot be switched back to lightweight mode.
-- `Standard` - A workspace is opened with standard mode. Standard mode cannot be switched to lightweight mode.
-- `LightWeight` - A workspace is opened with lightweight mode only. Cannot switch to standard mode unless changing this setting to Hybrid or Standard and reload your window.
+- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java project. If you choose "Later", it will stay in lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
+- `Standard` - A workspace is opened with standard mode.
+- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
 
-Status bar indicates which mode current workspace is in using different icons. `rocket`: workspace opened with lightweight mode; `synchronisation`: workspace being opened with standard mode; `thumb up`: workspace opened with standard mode. When in hybrid mode, clicking lightweight mode icon takes you to standard mode.
+Status bar indicates which mode current workspace is in using different icons. ![rocket](images/java-project/lightweight-icon.PNG) workspace opened with lightweight mode; ![synchronisation](images/java-project/processing-icon.png) workspace being opened with standard mode; ![thumb up](images/java-project/standard-icon.PNG) workspace opened with standard mode. When in hybrid mode, clicking lightweight mode icon takes you to standard mode.
 
 ![Switch to Standard](images/java-project/switch-to-standard.gif)
 
