@@ -49,7 +49,7 @@ The extension creates `Dockerfile` and `.dockerignore` files. If you elected to 
 The Docker extension helps you author Dockerfiles by using [IntelliSense](../editor/intellisense.md) to provide auto-completions and contextual help. To see this feature in action, add an environment variable to your service image by following these steps:
 
 1. Open the `Dockerfile` file.
-1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file).
+1. Use `ENV` instruction to add an environment variable to the service container image. 
 
    ![Add an environment variable to Docker image](images/quickstarts/nodejs-intellisense-env.png)
 
@@ -113,9 +113,9 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
     >
     > You can configure the application to wait for the debugger to attach before starting execution by setting the [inspectMode](/docs/containers/reference.md#node-object-properties-docker-run-task) property to `break` in the `docker-run: debug` task in `tasks.json` under the `node` object.
 
-## Use the Docker view
+## View the application logs
 
-The Docker view provides an interactive experience to examine and manage Docker assets such as containers, images and so on. To see an example:
+You can view the logs in VS Code by using the **View Logs** command on the container:
 
 1. Navigate to the Docker view.
 1. In the **Containers** tab, right-click on your container and choose **View Logs**.
