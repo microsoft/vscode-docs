@@ -73,7 +73,9 @@ You can control which mode to launch with by configuring `java.server.launchMode
 - `Standard` - A workspace is opened with standard mode.
 - `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
 
-Status bar indicates which mode current workspace is in using different icons. ![rocket](images/java-project/lightweight-icon.PNG) workspace opened with lightweight mode; ![synchronisation](images/java-project/processing-icon.png) workspace being opened with standard mode; ![thumb up](images/java-project/standard-icon.PNG) workspace opened with standard mode. When in hybrid mode, clicking lightweight mode icon takes you to standard mode.
+<div id="codicon-listing">
+Status bar indicates which mode current workspace is in using different icons. <i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode; <i class="codicon codicon-sync"></i> - workspace being opened with standard mode; <i class="codicon codicon-thumbsup"> - workspace opened with standard mode. Clicking lightweight mode icon takes you to standard mode.
+</div>
 
 ![Switch to Standard](images/java-project/switch-to-standard.gif)
 
