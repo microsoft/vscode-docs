@@ -65,23 +65,25 @@ If you have multiple subfolders that have source code for your project, you can 
 
 VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by language server; with standard mode, imported dependencies are resolved and project is built by language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
 
-Lightweight mode does neither resolve imported dependencies nor build project, so it does not support run, debugging, refactoring, linting or detecting semantic errors. For taking advantage of these features, you need switch your workspace from lightweight mode to standard mode.
+Lightweight mode doesn't resolve imported dependencies nor build the project, so it does not support running, debugging, refactoring, linting, or detecting semantic errors. For these features to be available, you need to switch your workspace from lightweight mode to standard mode.
 
-You can control which mode to launch with by configuring `java.server.launchMode` with below options:
+You can control which mode to launch with by configuring `java.server.launchMode` with the options below:
 
-- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java project. If you choose "Later", it will stay in lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
+- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
 - `Standard` - A workspace is opened with standard mode.
-- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
+- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
 
-Status bar indicates which mode current workspace is in using different icons.
+The Status bar indicates which mode the current workspace is in using different icons.
 
 <div id="codicon-listing">
-<i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode.
-<i class="codicon codicon-sync"></i> - workspace being opened with standard mode.
-<i class="codicon codicon-thumbsup"></i> - workspace opened with standard mode.
+
+- <i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode.
+- <i class="codicon codicon-sync"></i> - workspace in the process of being opened with standard mode.
+- <i class="codicon codicon-thumbsup"></i> - workspace opened with standard mode.
+
 </div>
 
-Clicking lightweight mode icon takes you to standard mode.
+Clicking the lightweight mode icon switches to standard mode.
 
 ![Switch to Standard](images/java-project/switch-to-standard.gif)
 
