@@ -4,40 +4,22 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 7/6/2020
+DateApproved: 7/30/2020
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
 # Java project management in VS Code
 
-This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Lightweight Mode which works best for reading and navigating through source files even without a project structure.
+This document will give you an overview of how to manage your project.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
 
-## Lightweight Mode
-
-Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Lightweight Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
-
-Usually you won't even know Lightweight Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Lightweight Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Lightweight Mode through the context menu. See the screenshots below.
-
-![Enable Semantic](images/java-project/enablesemantic.png)
-
-The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Lightweight Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
-
-![Switch to Lightweight](images/java-project/syntaxonly.png)
-
-You can also configure your editor to control whether to enable lightweight mode. The configuration is `java.server.launchMode`, below are the accepted values:
-
-- `Hybrid` (default) - Provides full features with better responsiveness. It starts a standard language server and a secondary syntax server. The syntax server provides syntax features until the standard server is ready. The syntax server will be shutdown automatically after the standard server up and running.
-- `Standard` - Provides full features such as IntelliSense, refactoring, building, Maven/Gradle support etc. With this option, you will wait until the full server is up for all features.
-- `LightWeight` - Starts a syntax server with lower start-up cost. Only provides syntax features such as outline, navigation, Javadoc, syntax errors. The lightweight mode won't load third party extensions, such as Java test runner, Java debugger, etc. This mode consumes the least resources but won't provide key features such as IntelliSense.
-
 ## Project management
 
-Project Management in Visual Studio Code is provided by the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. This extension has many features including creating projects as well as viewing the package structure of the project and its dependencies.
+Project Management in VS Code for Java requires the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. This extension has many features including creating projects as well as viewing the package structure of the project and its dependencies.
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Java Dependency Viewer</a>
 
@@ -65,7 +47,7 @@ The extension also has a hierarchy view of your project and dependencies, which 
 
 ### Standalone Java file support
 
-Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Lightweight Mode](#lightweight-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
+Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
@@ -78,6 +60,24 @@ If you have multiple subfolders that have source code for your project, you can 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
 </video>
+
+## Lightweight Mode
+
+VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by language server; with standard mode, imported dependencies are resolved and project is built by language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
+
+Lightweight mode does neither resolve imported dependencies nor build project, so it does not support run, debugging, refactoring, linting or detecting semantic errors. For taking advantage of these features, you need switch your workspace from lightweight mode to standard mode.
+
+You can control which mode to launch with by configuring `java.server.launchMode` with below options:
+
+- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java project. If you choose "Later", it will stay in lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
+- `Standard` - A workspace is opened with standard mode.
+- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on status bar to manually switch to standard mode.
+
+<div id="codicon-listing">
+Status bar indicates which mode current workspace is in using different icons. <i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode; <i class="codicon codicon-sync"></i> - workspace being opened with standard mode; <i class="codicon codicon-thumbsup"> - workspace opened with standard mode. Clicking lightweight mode icon takes you to standard mode.
+</div>
+
+![Switch to Standard](images/java-project/switch-to-standard.gif)
 
 ## Working with JAR files
 
