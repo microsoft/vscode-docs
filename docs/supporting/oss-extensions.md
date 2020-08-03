@@ -24,6 +24,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureappservice/license) |
 | [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights)| | [Microsoft](https://marketplace.visualstudio.com/items/VisualStudioOnlineApplicationInsights.application-insights/license) |
 | [Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) | ✔ | [MIT](https://marketplace.visualstudio.com/items/AzBlockchain.azure-blockchain/license) |
+| [Azure Cache](https://marketplace.visualstudio.com/items?itemName=ms-azurecache.vscode-azurecache) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azurecache.vscode-azurecache/license) |
 | [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.azurecli/license) |
 | [Azure Databases](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license) |
 | [Azure Data Lake Tools](https://marketplace.visualstudio.com/items/usqlextpublisher.usql-vscode-ext) |  | [Microsoft](https://marketplace.visualstudio.com/items/usqlextpublisher.usql-vscode-ext/license) |
