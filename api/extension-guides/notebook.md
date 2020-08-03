@@ -500,7 +500,7 @@ Here's the end result. Multiple outputs are correctly handled, and comments are 
 
 Samples:
 
-* [Notebook Renderer Starter](https://github.com/microsoft/notebook-renderer-starter): Starter code for dynamic renderers with support for debugging in the output context, webpack, hot reloading, and CSS modules.
+* [Notebook Renderer Starter](https://github.com/microsoft/vscode-notebook-renderer-starter): Starter code for dynamic renderers with support for debugging in the output context, webpack, hot reloading, and CSS modules.
 * [nteract Renderer](https://github.com/microsoft/notebook-extension-samples/tree/master/notebook-renderer): Example code for rendering [nteract](https://nteract.io/) outputs
 
 ## Supporting debugging
