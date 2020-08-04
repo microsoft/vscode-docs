@@ -11,7 +11,7 @@ MetaSocialImage:
 
 # Java project management in VS Code
 
-This document will give you an overview of how to manage your project.
+This document will give you an overview of how to manage your Java project in Visual Studio Code.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
