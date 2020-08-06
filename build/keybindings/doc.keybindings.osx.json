@@ -1220,9 +1220,5 @@
     { "key": "shift+f4",              "command": "references-view.prev",
                                          "when": "reference-list.hasResult" },
     { "key": "shift+alt+h",           "command": "references-view.showCallHierarchy",
-                                         "when": "editorHasCallHierarchyProvider" },
-    { "key": "ctrl+shift+space",      "command": "issue.suggestRefresh",
-                                         "when": "suggestWidgetVisible" },
-    { "key": "ctrl+s",                "command": "issue.createIssueFromFile",
-                                         "when": "resourceScheme == 'newIssue' && config.files.autoSave != 'off'" }
-    ]
+                                         "when": "editorHasCallHierarchyProvider" }
+]
