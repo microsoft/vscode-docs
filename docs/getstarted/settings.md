@@ -130,6 +130,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Editor
 
+    // Controls whether the editor shows CodeLens.
+    "diffEditor.codeLens": false,
+
     // When enabled, the diff editor ignores changes in leading or trailing whitespace.
     "diffEditor.ignoreTrimWhitespace": true,
 
@@ -206,6 +209,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable that the selection with the mouse and keys is doing column selection.
     "editor.columnSelection": false,
+
+	// Controls if empty lines should be ignored with toggle, add or remove actions for line comments.
+	"editor.comments.ignoreEmptyLines": true,
 
     // Controls whether a space character is inserted when commenting.
     "editor.comments.insertSpace": true,
@@ -515,6 +521,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the editor should highlight matches similar to the selection.
     "editor.selectionHighlight": true,
 
+	// Controls whether the semanticHighlighting is shown for the languages that support it.
     //  - true: Semantic highlighting enabled for all color themes.
     //  - false: Semantic highlighting disabled for all color themes.
     //  - configuredByTheme: Semantic highlighting is configured by the current color theme's `semanticHighlighting` setting.
@@ -522,6 +529,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Overrides editor semantic token color and styles from the currently selected color theme.
     "editor.semanticTokenColorCustomizations": {},
+
+	// Controls strikethrough deprecated variables.
+	"editor.showDeprecated": true,
 
     // Controls when the folding controls on the gutter are shown.
     //  - always: Always show the folding controls.
@@ -726,11 +736,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether inline actions are always visible in the Source Control view.
     "scm.alwaysShowActions": false,
 
+	// Controls whether repositories should always be visible in the SCM view.
+	"scm.alwaysShowRepositories": false,
+
     // Controls whether the SCM view should automatically reveal and select files when opening them.
     "scm.autoReveal": true,
 
-    // Controls the Source Control count badge.
-    //  - all: Show the sum of all Source Control Providers count badges.
+	// Controls the count badge on the Source Control icon on the Activity Bar.
+	//  - all: Show the sum of all Source Control Provider count badges.
     //  - focused: Show the count badge of the focused Source Control Provider.
     //  - off: Disable the Source Control count badge.
     "scm.countBadge": "all",
@@ -759,10 +772,21 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font for the input message. Use `default` for the workbench user interface font family, `editor` for the `editor.fontFamily`'s value, or a custom font family.
     "scm.inputFontFamily": "default",
 
+	// Controls the count badges on Source Control Provider headers. These headers only appear when there is more than one provider.
+	//  - hidden: Hide Source Control Provider count badges.
+	//  - auto: Only show count badge for Source Control Provider when non-zero.
+	//  - visible: Show Source Control Provider count badges.
+    "scm.providerCountBadge": "hidden",
+
     // If set, automatically switch to the preferred color theme based on the OS appearance.
     "window.autoDetectColorScheme": false,
 
 // Workbench
+
+    // Controls the behavior of clicking an activity bar icon in the workbench.
+	//  - toggle: Hide the side bar if the clicked item is already visible.
+	//  - focus: Focus side bar if the clicked item is already visible.
+	"workbench.activityBar.iconClickBehavior": "toggle",
 
     // Controls the visibility of the activity bar in the workbench.
     "workbench.activityBar.visible": true,
@@ -855,7 +879,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the height of the scrollbars used for tabs and breadcrumbs in the editor title area.
     //  - default: The default size.
-    //  - large: Increases the size, so it can be grabed more easily with the mouse
+	//  - large: Increases the size, so it can be grabbed more easily with the mouse
     "workbench.editor.titleScrollbarSizing": "default",
 
     // Controls the format of the label for an untitled editor.
@@ -1402,7 +1426,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "debug.onTaskErrors": "prompt",
 
     // Controls when the debug view should open.
-    "debug.openDebug": "openOnSessionStart",
+	"debug.openDebug": "openOnFirstSessionStart",
 
     // Automatically open the explorer view at the end of a debug session.
     "debug.openExplorerOnEnd": false,
@@ -1637,7 +1661,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Preferred path ending for auto imports.
     //  - auto: Use project settings to select a default.
     //  - minimal: Shorten `./component/index.js` to `./component`.
-    //  - index: Shorten `./component/index.js` to `./component/index`
+	//  - index: Shorten `./component/index.js` to `./component/index`.
     //  - js: Do not shorten path endings; include the `.js` extension.
     "javascript.preferences.importModuleSpecifierEnding": "auto",
 
@@ -1770,15 +1794,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Preferred path ending for auto imports.
     //  - auto: Use project settings to select a default.
     //  - minimal: Shorten `./component/index.js` to `./component`.
-    //  - index: Shorten `./component/index.js` to `./component/index`
+	//  - index: Shorten `./component/index.js` to `./component/index`.
     //  - js: Do not shorten path endings; include the `.js` extension.
     "typescript.preferences.importModuleSpecifierEnding": "auto",
+
+	// Enable/disable searching `package.json` dependencies for available auto imports.
+	//  - auto: Search dependencies based on estimated performance impact.
+	//  - on: Always search dependencies.
+	//  - off: Never search dependencies.
+	"typescript.preferences.includePackageJsonAutoImports": "auto",
 
     // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
     "typescript.preferences.quoteStyle": "auto",
 
-    // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
-    "typescript.preferences.renameShorthandProperties": true,
 
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "typescript.preferences.useAliasesForRenames": true,
@@ -2103,6 +2131,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable the ability of smart scrolling in the output view. Smart scrolling allows you to lock scrolling automatically when you click in the output view and unlocks when you click in the last line.
     "output.smartScroll.enabled": true,
 
+// Settings Sync
+
+    // List of extensions to be ignored while synchronizing. The identifier of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
+    "settingsSync.ignoredExtensions": [],
+
+    // Configure settings to be ignored while synchronizing.
+    "settingsSync.ignoredSettings": [],
+
+	// Synchronize keybindings for each platform.
+	"settingsSync.keybindingsPerPlatform": true,
+
 // Terminal
 
     // Customizes what kind of terminal to launch.
@@ -2138,7 +2177,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A path that when set will override `terminal.integrated.shell.windows` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
     "terminal.integrated.automationShell.windows": null,
 
-    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by VS Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open. Use the command prefixed with `-` to remove default commands from the list.
+    // A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.
     "terminal.integrated.commandsToSkipShell": [],
 
     // Controls whether to confirm on exit if there are active terminal sessions.
@@ -2541,41 +2580,41 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Default Configuration Overrides
 
-    // Configure editor settings to be overridden for [css] language.
+    // Configure settings to be overridden for [css] language.
     "[css]":  {
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [dockerfile] language.
+	// Configure settings to be overridden for [dockerfile] language.
     "[dockerfile]":  {
         "editor.quickSuggestions": {
                 "strings": true
         }
     },
 
-    // Configure editor settings to be overridden for [git-commit] language.
+	// Configure settings to be overridden for [git-commit] language.
     "[git-commit]":  {
         "editor.rulers": [
                 72
         ]
     },
 
-    // Configure editor settings to be overridden for [go] language.
+	// Configure settings to be overridden for [go] language.
     "[go]":  {
         "editor.insertSpaces": false
     },
 
-    // Configure editor settings to be overridden for [handlebars] language.
+	// Configure settings to be overridden for [handlebars] language.
     "[handlebars]":  {
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [html] language.
+	// Configure settings to be overridden for [html] language.
     "[html]":  {
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [json] language.
+	// Configure settings to be overridden for [json] language.
     "[json]":  {
         "editor.quickSuggestions": {
                 "strings": true
@@ -2583,7 +2622,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [jsonc] language.
+	// Configure settings to be overridden for [jsonc] language.
     "[jsonc]":  {
         "editor.quickSuggestions": {
                 "strings": true
@@ -2591,38 +2630,38 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [less] language.
+	// Configure settings to be overridden for [less] language.
     "[less]":  {
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [makefile] language.
+	// Configure settings to be overridden for [makefile] language.
     "[makefile]":  {
         "editor.insertSpaces": false
     },
 
-    // Configure editor settings to be overridden for [markdown] language.
+	// Configure settings to be overridden for [markdown] language.
     "[markdown]":  {
         "editor.wordWrap": "on",
         "editor.quickSuggestions": false
     },
 
-    // Configure editor settings to be overridden for [scss] language.
+	// Configure settings to be overridden for [scss] language.
     "[scss]":  {
         "editor.suggest.insertMode": "replace"
     },
 
-    // Configure editor settings to be overridden for [search-result] language.
+	// Configure settings to be overridden for [search-result] language.
     "[search-result]":  {
         "editor.lineNumbers": "off"
     },
 
-    // Configure editor settings to be overridden for [shellscript] language.
+	// Configure settings to be overridden for [shellscript] language.
     "[shellscript]":  {
         "files.eol": "\n"
     },
 
-    // Configure editor settings to be overridden for [yaml] language.
+	// Configure settings to be overridden for [yaml] language.
     "[yaml]":  {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -2795,6 +2834,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Ignores the warning when Git is missing.
     "git.ignoreMissingGitWarning": false,
 
+	// Ignores the warning when Git 2.25 - 2.26 is installed on Windows.
+	"git.ignoreWindowsGit27Warning": false,
+
     // Controls when to show commit message input validation.
     "git.inputValidation": "warn",
 
@@ -2915,6 +2957,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to "off" to disable this behavior, or "always" to enable debugging in all terminals.
     "debug.javascript.debugByLinkOptions": "on",
 
+	// If true (default), only processes started with --inspect will be debugged. If this setting is toggled to false, we will debug all processes started while Auto Attach is on.
+	// Note: you may need to toggle Auto Attach to "disabled" and then "on" again for changes in this setting to take effect.
+	"debug.javascript.onlyAutoAttachExplicit": true,
+
     // Default options used when debugging a process through the `Debug: Attach to Node.js Process` command
     "debug.javascript.pickAndAttachOptions": {},
 
@@ -2925,7 +2971,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "debug.javascript.terminalOptions": {},
 
     // Use the new in-preview JavaScript debugger for Node.js and Chrome.
-    "debug.javascript.usePreview": false,
+	"debug.javascript.usePreview": true,
 
     // Whether a loading prompt should be shown if breakpoint prediction takes a while.
     "debug.javascript.warnOnLongPrediction": true,
@@ -2961,7 +3007,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.runSilent": false,
 
     // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
-    "npm.scriptExplorerAction": "open"
+	"npm.scriptExplorerAction": "open"
 }
 ```
 
