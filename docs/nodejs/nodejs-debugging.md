@@ -355,7 +355,7 @@ The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. S
     "request": "attach",
     "name": "Attach to remote",
     "address": "TCP/IP address of process to be debugged",
-    "port": "9229"
+    "port": 9229
 }
 ```
 
@@ -367,7 +367,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
     "request": "attach",
     "name": "Attach to remote",
     "address": "TCP/IP address of process to be debugged",
-    "port": "9229",
+    "port": 9229,
     "localRoot": "${workspaceFolder}",
     "remoteRoot": "C:\\Users\\username\\project\\server"
 }
