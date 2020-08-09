@@ -29,6 +29,18 @@ After making this selection, the browser will open so that you can sign in to yo
 
 After signing in, Settings Sync will be turned on and continue to synchronize your preferences automatically in the background.
 
+## Merge or Replace
+
+If you already synced from a machine and turning on sync from another machine, you will be shown with following **Merge or Replace** dialog.
+
+![Settings Sync Merge or Replace dialog](images/settings-sync/sync-merge-replace.png)
+
+* **Merge**: Selecting this option will merge **local** settings with **remote** settings from the cloud.
+* **Replace Local**: Selecting this option will overwrite **local** settings with remote settings from the cloud.
+* **Merge Manually...**: Selecting this option will open **Merges** view where you can merge preferences one by one.
+
+![Settings Sync Merges](images/settings-sync/sync-merges-view.png)
+
 ## Configuring synced data
 
 Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `settingsSync.ignoredSettings`.
