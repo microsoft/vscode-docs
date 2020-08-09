@@ -9,11 +9,11 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 ---
 # Settings Sync
 
->**Note**: Settings Sync is still in Preview and only available on VS Code [Insiders](/insiders).
+>**Note**: Settings Sync is still in preview.
 
 ## Turning on Settings Sync
 
-You can turn on Settings Sync using the **Turn On Preferences Sync...** entry in the **Manage** gear menu at the bottom of the Activity Bar.
+You can turn on Settings Sync using the **Turn On Settings Sync...** entry in the **Manage** gear menu at the bottom of the Activity Bar.
 
 ![Turn on Sync command](images/settings-sync/turn-on-sync.png)
 
@@ -31,13 +31,13 @@ After signing in, Settings Sync will be turned on and continue to synchronize yo
 
 ## Configuring synced data
 
-Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `sync.ignoredSettings`.
+Machine settings (with `machine` or `machine-overridable` [scopes](/updates/v1_34.md#machinespecific-settings)) are not synchronized by default, since their values are specific to a given machine. You can also add or remove settings you want to this list from the Settings editor or using the setting `settingsSync.ignoredSettings`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-settings.png)
 
-Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `sync.keybindingsPerPlatform`.
+Keyboard Shortcuts are synchronized per platform by default. If your keyboard shortcuts are platform-agnostic, you can synchronize them across platforms by disabling the setting `settingsSync.keybindingsPerPlatform`.
 
-All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `sync.ignoredExtensions`.
+All built-in and installed extensions are synchronized along with their global enablement state. You can skip synchronizing an extension, either from the Extensions view (`kb(workbench.view.extensions)`) or using the setting `settingsSync.ignoredExtensions`.
 
 ![Settings Sync ignored settings](images/settings-sync/sync-ignored-extensions.png)
 
@@ -50,7 +50,7 @@ Following UI State is synchronized currently:
 * Recently used commands
 * Do not show again notifications
 
-You can always change what is synced via the **Preferences Sync: Configure** command or by opening the **Manage** gear menu, selecting **Preferences Sync is On**, and then **Preferences Sync: Configure**.
+You can always change what is synced via the **Settings Sync: Configure** command or by opening the **Manage** gear menu, selecting **Settings Sync is On**, and then **Settings Sync: Configure**.
 
 ## Conflicts
 
@@ -64,33 +64,39 @@ When synchronizing settings between multiple machines, there may occasionally be
 
 If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account.
 
+## Syncing Stable vs Insiders
+
+By default VS Code stable & insiders use different settings sync services for syncing. You can always sync your insiders with stable using `Settings Sync: Select Service...` command which is available only in VS Code insiders.
+
+![Settings Sync Switch Service](images/settings-sync/settings-sync-switch.png)
+
 ## Restoring data
 
 VS Code always stores local and remote backups of your preferences while syncing and provides views for accessing these. In case something goes wrong, you can restore your data from these views.
 
 ![Settings Sync backup views](images/settings-sync/sync-backup-views.png)
 
-You can open these views using **Preferences Sync: Show Synced Data** command from the Command Palette. The Local Sync activity view is hidden by default and you can enable it using **Views** submenu under **Preferences Sync** view overflow actions.
+You can open these views using **Settings Sync: Show Synced Data** command from the Command Palette. The Local Sync activity view is hidden by default and you can enable it using **Views** submenu under **Settings Sync** view overflow actions.
 
 ![Settings Sync enable local backup views](images/settings-sync/sync-enable-local-activity-view.png)
 
-Local backups folder in the disk can be accessed via the **Preferences Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files, named with a timestamp of when the backup occurred. These backups are automatically deleted after 30 days.
+Local backups folder in the disk can be accessed via the **Settings Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files, named with a timestamp of when the backup occurred. These backups are automatically deleted after 30 days.
 
 ## Synced Machines
 
-VS Code keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of VS Code (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on another machine using **Turn off Preferences Sync** context menu action on the machine entry in the view.
+VS Code keeps track of the machines synchronizing your preferences and provides a view to access them. Every machine is given a default name based on the type of VS Code (Insiders or Stable) and the platform it is on. You can always update the machine name using the edit action available on the machine entry in the view. You can also disable sync on another machine using **Turn off Settings Sync** context menu action on the machine entry in the view.
 
 ![Settings Sync machines views](images/settings-sync/sync-machines-view.png)
 
-You can open this view using **Preferences Sync: Show Synced Data** command from the Command Palette.
+You can open this view using **Settings Sync: Show Synced Data** command from the Command Palette.
 
 ## Reporting issues
 
-Settings Sync activity can be monitored in the **Log (Preferences Sync)** output view. If you experience a problem with Settings Sync, please include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
+Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, please include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
 
 ## How do I delete my data?
 
-If you want to remove all your data from our servers, just turn off sync via **Preferences Sync is On** menu available under **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
+If you want to remove all your data from our servers, just turn off sync via **Settings Sync is On** menu available under **Manage** gear menu and select the checkbox to clear all cloud data. If you choose to re-enable sync, it will be as if you're signing in for the first time.
 
 ## Next steps
 
