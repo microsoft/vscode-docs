@@ -118,9 +118,17 @@ If you want to remove all your data from our servers, just turn off sync via **S
 
 ## Common questions
 
-## Is VS Code Settings Sync the same as the Settings Sync extension?
+### Is VS Code Settings Sync the same as the Settings Sync extension?
 
 No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your VS Code settings across different machines and is unrelated to the VS Code Settings Sync.
+
+### What types of accounts can I use for Settings Sync sign in?
+
+VS Code Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
+
+### Can I use a different backend or service for Settings Sync?
+
+Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
 
 ## Troubleshooting keychain issues
 
