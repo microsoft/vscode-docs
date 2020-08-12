@@ -9,6 +9,8 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 ---
 # Settings Sync
 
+Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
+
 >**Note**: Settings Sync is still in preview.
 
 ## Turning on Settings Sync
@@ -76,9 +78,9 @@ When synchronizing settings between multiple machines, there may occasionally be
 
 If at any time you want to sync your data to a different account, you can turn off and turn on Settings Sync again with different account.
 
-## Syncing Stable vs Insiders
+## Syncing Stable versus Insiders
 
-By default VS Code stable & insiders use different settings sync services for syncing. You can always sync your insiders with stable using `Settings Sync: Select Service...` command which is available only in VS Code insiders.
+By default, the VS Code Stable and [Insiders](/insiders) builds use different Settings Sync services and so do not share settings. You can sync your Insiders with Stable using the **Settings Sync: Select Service...** command to select the Stable sync service. The **Select Service** command is only available in VS Code Insiders.
 
 ![Settings Sync Switch Service](images/settings-sync/settings-sync-switch.png)
 
@@ -104,7 +106,7 @@ You can open this view using **Settings Sync: Show Synced Data** command from th
 
 ## Reporting issues
 
-Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, please include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
+Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
 
 ## How do I delete my data?
 
@@ -115,6 +117,10 @@ If you want to remove all your data from our servers, just turn off sync via **S
 * [User and Workspace settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 
 ## Common questions
+
+## Is VS Code Settings Sync the same as the Settings Sync extension?
+
+No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your VS Code settings across different machines and is unrelated to the VS Code Settings Sync.
 
 ## Troubleshooting keychain issues
 
