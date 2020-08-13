@@ -38,7 +38,6 @@ The `data` folder can be moved to other VS Code installations. This is useful fo
 
 On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that VS Code can find it. The default folder name is `code-portable-data`:
 
-
 ```
 |- Visual Studio Code.app
 |- code-portable-data

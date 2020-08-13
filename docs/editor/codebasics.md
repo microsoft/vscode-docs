@@ -103,9 +103,9 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 
 If something happens to go wrong with hot exit, all backups are stored in the following folders for standard install locations:
 
-- **Windows** `%APPDATA%\Code\Backups`
-- **macOS** `$HOME/Library/Application Support/Code/Backups`
-- **Linux** `$HOME/.config/Code/Backups`
+* **Windows** `%APPDATA%\Code\Backups`
+* **macOS** `$HOME/Library/Application Support/Code/Backups`
+* **Linux** `$HOME/.config/Code/Backups`
 
 ## Find and Replace
 
@@ -176,7 +176,6 @@ VS Code excludes some folders by default to reduce the number of search results 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
-
 
 ### Search and replace
 

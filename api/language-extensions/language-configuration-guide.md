@@ -203,7 +203,7 @@ For example, `if (true) {` matches `increaseIndentPattern`, then if you press `k
 
 ```javascript
 if (true) {
-	console.log();
+  console.log();
 ```
 
 If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type a closing bracket. The bracket here is defined by `brackets`.

@@ -22,13 +22,10 @@ If you'd like to watch an introductory video, see [Getting started with Node.js 
 
 Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) topic.
 
-Below is a reference on `launch.json` attributes specific to the Node.js debugger.
+Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options in the [vscode-js-debug Options](https://github.com/microsoft/vscode-js-debug/blob/master/OPTIONS.md) documentation.
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
-* `protocol` - debug protocol to use. See section [Supported Node-like runtimes](/docs/nodejs/nodejs-debugging.md#supported-nodelike-runtimes) above.
-* `port` - debug port to use. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
-* `address` - TCP/IP address of the debug port. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `sourceMaps` - enable source maps by setting this to `true`. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `outFiles` - array of glob patterns for locating generated JavaScript files. See section [Source maps](/docs/nodejs/nodejs-debugging.md#source-maps).
 * `restart` - restart session on termination. See section [Restarting debug session automatically](/docs/nodejs/nodejs-debugging.md#restarting-debug-sessions-automatically-when-source-is-edited).
@@ -57,6 +54,9 @@ These attributes are only available for launch configurations of request type `l
 
 This attribute is only available for launch configurations of request type `attach`:
 
+* `protocol` - debug protocol to use. See section [Supported Node-like runtimes](/docs/nodejs/nodejs-debugging.md#supported-nodelike-runtimes) above.
+* `port` - debug port to use. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
+* `address` - TCP/IP address of the debug port. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `processId` - the debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode. When using the `processId` attribute the debug port is determined automatically based on the Node.js version (and the used protocol) and cannot be configured explicitly. So don't specify a `port` attribute.
 
 ### Launch configurations for common scenarios
@@ -94,13 +94,12 @@ Instead of launching the Node.js program directly with node, you can use 'npm' s
 
 - Any program available on the PATH (for example 'npm', 'mocha', 'gulp', etc.) can be used for the `runtimeExecutable` attribute and arguments can be passed via `runtimeArgs`.
 - You do not have to set the `program` attribute if your npm script or other tool implicitly specifies the program to launch.
-- If you specify a debug port via the `port` attribute, VS Code will not automatically add the `--inspect-brk=nnnn` attribute because the debug port is typically specified by the npm script or other tool as well.
 
 Let's look at an 'npm' example. If your `package.json` has a 'debug' script, for example:
 
 ```json
   "scripts": {
-    "debug": "node --nolazy --inspect-brk=9229 myProgram.js"
+    "debug": "node --nolazy myProgram.js"
   },
 ```
 
@@ -116,7 +115,6 @@ the corresponding launch configuration would look like this:
     "runtimeArgs": [
         "run-script", "debug"
     ],
-    "port": 9229
 }
 ```
 
@@ -148,7 +146,7 @@ If you are using '[nvs](https://github.com/jasongin/nvs)' to manage your Node.js
 
 Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` or `nvs add 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
 
->**Note:** If VS Code detects that "nvs" is installed, it does **not** fall back to "nvm" if a specific Node.js version cannot be found in "nvs". Using both "nvs" and "nvm" at the same time is not supported.
+If you omit the minor and patch version and have, for example, `"runtimeVersion": "14"`, then the most recent `14.x.y` version installed on your system will be used.
 
 ### Load environment variables from external file (node)
 
@@ -206,7 +204,7 @@ If the **Auto Attach** feature is enabled, the Node debugger automatically attac
 
 To enable the feature, either use the **Toggle Auto Attach** action or, if the Node debugger is already activated, use the **Auto Attach** Status Bar item.
 
-After enabling **Auto Attach** the debugger should attach to your program within a second:
+After enabling **Auto Attach**, the debugger should attach to your program within a second:
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
 
@@ -273,7 +271,7 @@ If the debug session was started in "attach" mode (and the red terminate button 
 
 If the debug session is in "launch" mode, pressing **Stop** does the following:
 
-1. When pressing **Stop** for the first time, the debuggee is requested to shutdown gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal and clean up anything as necessary and then shut down. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
+1. When pressing **Stop** for the first time, the debuggee is requested to shut down gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal and clean up anything as necessary and then shut down. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
 
 2. However if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case, pressing **Stop** again will force terminate the debuggee and its child processes (`SIGKILL`).
 
@@ -287,24 +285,22 @@ The Node.js debugger of VS Code supports JavaScript source maps that help debugg
 
 Source maps can be generated with two kinds of inlining:
 
-* _Inlined source maps_: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
-* _Inlined source_: the source map contains the original source (instead of referencing the source through a path).
+* **Inlined source maps**: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
+* **Inlined source**: the source map contains the original source (instead of referencing the source through a path).
 
-VS Code supports both the _inlined source maps_ and the _inlined source_.
+VS Code supports both the inlined source maps and the inlined source.
 
 The source map feature is controlled by the `sourceMaps` attribute that  defaults to `true`. This means that node debugging always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute.
 
 If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
-If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you must help the VS Code debugger locating them by setting the `outFiles` attribute. This attribute takes multiple glob patterns for including and excluding files from the set of generated JavaScript files. Whenever you set a breakpoint in the original source, VS Code tries to find the generated JavaScript code in the files specified by `outFiles`.
-
-Since source maps are not automatically created, you must configure the transpiler you are using to create them. For TypeScript this can be done in the following way:
+Since source maps are not always automatically created, you must configure the transpiler you are using to create them. For TypeScript, this can be done in the following way:
 
 ```
 tsc --sourceMap --outDir bin app.ts
 ```
 
-This is the corresponding launch configuration for a TypeScript program:
+By default, VS Code will search your entire workspace for sourcemaps, but in very large workspaces, this search might be slow. You can configure the locations where VS Code will search for source maps by setting the `outFiles` attribute in your `launch.json`. For example, this will discover sourcemaps for all `.js` files in the `bin` folder:
 
 ```json
 {
@@ -343,8 +339,6 @@ Here are some things to try when your breakpoints turn gray:
 
 * Do you have `"sourceMaps": false` in your `launch.json`?
 * Did you build with source maps enabled? Are there `.js.map` files, or inlined source maps in your `.js` files?
-* Did you set the `outFiles` property in your `launch.json`? It should be a glob pattern for an absolute path that matches your `.js` files.
-* Try the 'inspector' protocol implementation. It can handle some more of the more complex source map cases.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Are you using Webpack? By default, it outputs paths with a `webpack:///` prefix, which the debug adapter can't resolve. You can change this in your Webpack configuration with the `devtoolModuleFilenameTemplate` option, or try using the 'inspector' protocol, which provides some extra options for resolving these paths.
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
@@ -361,7 +355,7 @@ The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. S
     "request": "attach",
     "name": "Attach to remote",
     "address": "TCP/IP address of process to be debugged",
-    "port": "9229"
+    "port": 9229
 }
 ```
 
@@ -373,7 +367,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
     "request": "attach",
     "name": "Attach to remote",
     "address": "TCP/IP address of process to be debugged",
-    "port": "9229",
+    "port": 9229,
     "localRoot": "${workspaceFolder}",
     "remoteRoot": "C:\\Users\\username\\project\\server"
 }
@@ -410,7 +404,7 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
-The **LOADED SCRIPTS** view lets you quickly select the script by typing it's name or filter the list when **Enable Filter on Type** is on.
+The **LOADED SCRIPTS** view lets you quickly select the script by typing its name or filter the list when **Enable Filter on Type** is on.
 
 Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
 
@@ -454,28 +448,6 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
 >**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if you use the `integratedTerminal` as shown above).
 
 >**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
-
-## Automatically attach debugger to Node.js subprocesses
-
-The Node debugger has a mechanism that tracks all subprocesses of a debuggee and tries to automatically attach to those processes that are launched in debug mode. This feature simplifies debugging of programs that fork or spawn Node.js processes like programs based on the "cluster" node module:
-
-![Auto Attach shown with Cluster Example](images/nodejs-debugging/auto-attach-cluster.gif)
-
-The feature is enabled by setting the launch config attribute `autoAttachChildProcesses` to true:
-
-```json
-{
-  "type": "node",
-  "request": "launch",
-  "name": "Cluster",
-  "program": "${workspaceFolder}/cluster.js",
-  "autoAttachChildProcesses": true
-}
-```
-
->**Tip:** In order to be able to track the subprocesses, we need the process ID of the parent. For this we require that the main debuggee launched from the launch config is a Node.js process and we use an "evaluate" to find its process ID.
-
->**Tip:** Whether a process is in debug mode is guessed by analyzing the program arguments. Currently we detect the patterns `--inspect`, `--inspect-brk`, `--inspect-port`, `--debug`, `--debug-brk`, `--debug-port` (all optionally followed by a `=` and a port number).
 
 ## Restart frame (node)
 
@@ -577,9 +549,15 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 ]
 ```
 
->**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
+>**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the **V8 Debugger Protocol** does not support it natively. This might result in slow stepping performance.
 
 ## Supported Node-like runtimes
+
+The current VS Code JavaScript debugger supports Node version at or above 8.x, recent Chrome versions, and recent Edge versions.
+
+If you need to debug older Node.js programs, you can revert to the legacy debugger by setting `debug.javascript.usePreview: false`. However, you should also consider upgrading, as Node versions prior to 10 are end-of-life and no longer receive security updates as of April 2020.
+
+### Legacy Debugger Protocols
 
 Since the VS Code Node.js debugger communicates to the Node.js runtimes through [wire protocols](https://en.wikipedia.org/wiki/Wire_protocol), the set of supported runtimes is determined by all runtimes supporting the wire protocols.
 
@@ -613,10 +591,6 @@ If your runtime supports both protocols, here are a few additional reasons for u
 * Debugging via the `inspector` protocol can handle some trickier source map setups. If you have trouble setting breakpoints in source mapped files, try using `inspector`.
 
 We try to keep feature parity between both protocol implementations but this becomes more and more difficult because the technology underlying `legacy` is deprecated whereas the new `inspector` evolves quickly. For this reason, we specify the supported protocols if a feature is not supported by both `legacy` and `inspector`.
-
-## New JavaScript Debugger
-
-We're working on a new version of our debugger for Node.js and Chrome applications. You can head over to its page [on the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) to install it and learn what's new.
 
 ## Next steps
 

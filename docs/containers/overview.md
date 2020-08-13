@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Overview
 ContentId: 4B462667-8915-4BE0-B8D0-EDE51CB2D273
 PageTitle: Container tools extension for Visual Studio Code
-DateApproved: 01/29/2020
+DateApproved: 07/31/2020
 MetaDescription: Tools for developing and debugging with Docker containers, using Visual Studio Code.
 ---
 # Working with containers
@@ -25,7 +25,7 @@ To install the extension, open the Extensions view (`kb(workbench.view.extension
 
 ## Editing Docker files
 
-You can get IntelliSense when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
+You can get [IntelliSense](/docs/editor/intellisense.md) when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
 
 ![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 

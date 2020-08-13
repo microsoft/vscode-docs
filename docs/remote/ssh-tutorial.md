@@ -133,9 +133,10 @@ In this step, you will create a simple Node.js application. You will use an appl
 
 ### Install Node.js and npm
 
-From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), install Node.js and npm, the Node.js package manager.
+From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), update the packages in your Linux VM, then install Node.js and npm, the Node.js package manager.
 
 ```bash
+sudo apt-get update
 sudo apt-get install nodejs npm
 ```
 
@@ -195,7 +196,7 @@ Name the connection "browser":
 
 ![Name the port](images/ssh-tutorial/name-port.png)
 
-The server will now forward traffic on port 3000 to your local machine. When you browse to http://localhost:3000, you see the running web app.
+The server will now forward traffic on port 3000 to your local machine. When you browse to [http://localhost:3000](http://localhost:3000), you see the running web app.
 
 ![Running Express Application](images/ssh-tutorial/express.png)
 

@@ -9,7 +9,7 @@ MetaDescription: Create your first Visual Studio Code extension (plug-in) with a
 
 # Your First Extension
 
-In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed, then install [Yeoman](http://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) with:
+In this topic, we'll teach you the fundamental concepts for building extensions. Make sure you have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed, then install [Yeoman](https://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) with:
 
 ```bash
 npm install -g yo generator-code
@@ -76,7 +76,7 @@ You can learn more about debugging Node.js apps in VS Code in the [Node.js Debug
 
 In the next topic, [Extension Anatomy](/api/get-started/extension-anatomy), we'll take a closer look at the source code of the `Hello World` sample and explain key concepts.
 
-You can find the source code of this tutorial at: https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-sample. The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point.
+You can find the source code of this tutorial at: [https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-sample). The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point.
 
 ### Using JavaScript
 

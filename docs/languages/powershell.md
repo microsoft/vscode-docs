@@ -127,7 +127,7 @@ The PowerShell extension allows the creation of new Plaster projects by running 
 
 ## PSScriptAnalyzer
 
-[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static source code checker for PowerShell modules and scripts. PSScriptAnalyzer checks the quality of PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by the PowerShell Team and the community. Pester generates diagnostic records (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
+[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static source code checker for PowerShell modules and scripts. PSScriptAnalyzer checks the quality of PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by the PowerShell Team and the community. PSScriptAnalyzer generates diagnostic records (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
 
 The PowerShell extension includes PSScriptAnalyzer by default, and automatically performs analysis on PowerShell script files being edited in VS Code.
 

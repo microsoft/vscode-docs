@@ -72,8 +72,8 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ### What command-line arguments are supported by the Windows Setup?
 
-VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
-for Windows. Thus, all the [Inno Setup command-line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+VS Code uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its setup package
+for Windows. Thus, all the [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
 
 Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
 

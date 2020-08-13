@@ -240,7 +240,7 @@ This is a [sample](https://github.com/microsoft/vscode-react-sample) React appli
 
 ### MERN
 
-There is helpful VS Code-specific documentation at [vscode-recipes](https://github.com/microsoft/vscode-recipes/tree/master/MERN-Starter) which details setting up Node.js server debugging. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+There is helpful VS Code-specific documentation at [vscode-recipes](https://github.com/microsoft/vscode-recipes/tree/master/MERN-Starter) which details setting up Node.js server debugging. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
 
 ### TypeScript React
 

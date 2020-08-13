@@ -576,11 +576,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-azurefunctions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/java/java-debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -731,6 +726,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/remote/devcontainerjson-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/attach-container</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/create-dev-container</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/remote/linux</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -812,6 +822,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/containers/ssh</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/containers/local-process-kubernetes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

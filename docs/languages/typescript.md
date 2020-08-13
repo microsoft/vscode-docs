@@ -73,7 +73,7 @@ You can install extensions to get additional snippets or define your own snippet
 
 ## JSDoc support
 
-VS Code's TypeScript IntelliSense understands many standard [JSDoc](http://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
+VS Code's TypeScript IntelliSense understands many standard [JSDoc](https://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
 
 ![TypeScript language within VS Code](images/typescript/jsdocs.png)
 

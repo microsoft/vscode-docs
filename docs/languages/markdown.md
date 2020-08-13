@@ -330,7 +330,7 @@ Not installed with VS Code but there are spell checking extensions. Check the [V
 
 ### Does VS Code support GitHub Flavored Markdown?
 
-No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
+No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
 
 ### In the walkthrough above, I didn't find the Configure Task command in the Command Palette?
 

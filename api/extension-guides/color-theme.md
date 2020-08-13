@@ -77,7 +77,7 @@ Themes can define theming rules for semantic tokens as described in the [Syntax 
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
 
 1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
-2. Use VS Code's [Yeoman](http://yeoman.io) extension generator to generate a new theme extension:
+2. Use VS Code's [Yeoman](https://yeoman.io) extension generator to generate a new theme extension:
 
    ```bash
    npm install -g yo generator-code
