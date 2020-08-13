@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 VSCodeCommitHash: 9f89da69154ac6c99dfa7c82986e2df95b7bbe0b
 VSCodeVersion: 1.46.0
