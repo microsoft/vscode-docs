@@ -223,14 +223,7 @@ The  `editor.codeActionsOnSave` setting lets you configure a set of Code Actions
     "source.organizeImports": true,
 }
 ```
-You can also enable or disable which Code Actions are run on save per language using a language specific setting:
-```json
-"[javascript]": {
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    }
-}
-```
+
 Here are some source actions:
 
 * `"organizeImports"` -  Enables organize imports on save.
@@ -238,33 +231,8 @@ Here are some source actions:
 * `"fixAll.eslint"` -  Auto Fix only for ESLint.
 * `"addMissingImports"` - Adds all missing imports on save.
 
-The TSLint extension already uses `source.fixAll` Code Action kind to implement fix all and auto fix on save.
+See [Node.js/JavaScript](/docs/nodejs/working-with-javascript) for more information.
 
-You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order. You can use this to guarantee that a specific Code Action is always run before or after another one that may conflict with it.
-The following `editor.codeActionsOnSave` will always run Organize Imports followed by Fix All once organize imports finishes:
-```json
-"editor.codeActionsOnSave": [
-    "source.organizeImports",
-    "source.fixAll"
-]
-```
-Note: `editor.codeActionsOnSave` supports both object and array configs in settings.
-
-Examples:
-
-Selective behaviour for different source actions:
-```json
- "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.fixAll.eslint": false
-    }
-```
-Add all missing imports on save:
-```json
-"editor.codeActionsOnSave": [
-    "source.addMissingImports"
-]
-```
 
 ## Code suggestions
 
