@@ -75,7 +75,7 @@ This listing includes the following items for each language feature:
 
 Diagnostics are a way to indicate issues with the code.
 
-![Diagnostics at Work](images/language-support/diagnostics.gif)
+![Diagnostics indicating a misspelled method name](images/language-support/diagnostics.gif)
 
 #### Language Server Protocol
 
@@ -128,7 +128,7 @@ function onChange() {
 
 Code completions provide context sensitive suggestions to the user.
 
-![Code Completion at Work](images/language-support/code-completion.gif)
+![Code Completion prompting variable, method, and parameter names while writing code](images/language-support/code-completion.gif)
 
 #### Language Server Protocol
 
@@ -180,7 +180,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Hovers show information about the symbol/object that's below the mouse cursor. This is usually the type of the symbol and a description.
 
-![Hovers at Work](images/language-support/hovers.gif)
+![Showing details about a workspace and a method when hovering over them](images/language-support/hovers.gif)
 
 #### Language Server Protocol
 
@@ -230,7 +230,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 When the user enters a function or method, display information about the function/method that is being called.
 
-![Type Hover](images/language-support/signature-help.gif)
+![Showing information about the getPackageInfo method including the necessary parameters](images/language-support/signature-help.gif)
 
 #### Language Server Protocol
 
@@ -282,7 +282,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to see the definition of variables/functions/methods right where the variables/functions/methods are being used.
 
-![Type Hover](images/language-support/goto-definition.gif)
+![Right click a variable, function, or method and select "Go to Definition" to jump to the definition](images/language-support/goto-definition.gif)
 
 #### Language Server Protocol
 
@@ -332,7 +332,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to see all the source code locations where a certain variable/function/method/symbol is being used.
 
-![Type Hover](images/language-support/find-references.gif)
+![Right clicking and selecting "Find All References" to highlight all the locations where that symbol is used](images/language-support/find-references.gif)
 
 #### Language Server Protocol
 
@@ -383,7 +383,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to see all occurrences of a symbol in the open editor.
 
-![Type Hover](images/language-support/document-highlights.gif)
+![Select a symbol to highlight all occurences](images/language-support/document-highlights.gif)
 
 #### Language Server Protocol
 
@@ -433,7 +433,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to quickly navigate to any symbol definition in the open editor.
 
-![Type Hover](images/language-support/document-symbols.gif)
+![Navigate to a symbol definition in the open editor using @](images/language-support/document-symbols.gif)
 
 #### Language Server Protocol
 
@@ -483,7 +483,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to quickly navigate to symbol definitions anywhere in the folder (workspace) opened in VS Code.
 
-![Type Hover](images/language-support/workspace-symbols.gif)
+![Navigate to symbol definitions in the workspace using #](images/language-support/workspace-symbols.gif)
 
 #### Language Server Protocol
 
@@ -533,7 +533,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available Code Actions is presented.
 
-![Type Hover](images/language-support/quick-fixes.gif)
+![Selecting a light bulb to view a list of available Code Actions](images/language-support/quick-fixes.gif)
 
 #### Language Server Protocol
 
@@ -584,7 +584,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with actionable, contextual information that is displayed interspersed with the source code.
 
-![Type Hover](images/language-support/code-lens.gif)
+![CodeLens providing context](images/language-support/code-lens.gif)
 
 #### Language Server Protocol
 
@@ -640,7 +640,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to preview and modify colors in the document.
 
-![Type Hover](images/language-support/color-decorators.png)
+![Showing the color picker](images/language-support/color-decorators.png)
 
 #### Language Server Protocol
 
@@ -695,7 +695,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with support for formatting whole documents.
 
-![Document Formatting at Work](images/language-support/format-document.gif)
+![Right click and select format code](images/language-support/format-document.gif)
 
 #### Language Server Protocol
 
@@ -744,7 +744,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with support for formatting a selected range of lines in a document.
 
-![Document Formatting at Work](images/language-support/format-document-range.gif)
+![Select lines, right click, and select format code](images/language-support/format-document-range.gif)
 
 #### Language Server Protocol
 
@@ -797,7 +797,7 @@ Provide the user with support for formatting text as they type.
 
 **Note**: The user [setting](/docs/getstarted/settings) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
-![Document Formatting at Work](images/language-support/format-on-type.gif)
+![Visual indicators for formatting as code is typed](images/language-support/format-on-type.gif)
 
 #### Language Server Protocol
 
@@ -851,7 +851,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to rename a symbol and update all references to the symbol.
 
-![Type Hover](images/language-support/rename.gif)
+![Rename a symbol and update all references to the new name](images/language-support/rename.gif)
 
 #### Language Server Protocol
 
