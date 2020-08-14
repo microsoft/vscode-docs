@@ -223,6 +223,7 @@ The  `editor.codeActionsOnSave` setting lets you configure a set of Code Actions
     "source.organizeImports": true,
 }
 ```
+You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
 
 Here are some source actions:
 
