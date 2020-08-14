@@ -245,6 +245,27 @@ Organize imports can also be automatically when you save a TypeScript file by se
     "source.organizeImports": true
 }
 ```
+## Code Actions on Save
+
+The  `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+```json
+// On save, run both fixAll and organizeImports source actions
+"editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+}
+```
+You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
+
+Here are some source actions:
+
+* `"organizeImports"` -  Enables organize imports on save.
+* `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
+* `"fixAll.eslint"` -  Auto Fix only for ESLint.
+* `"addMissingImports"` - Adds all missing imports on save.
+
+See [TypeScript](/docs/typescript/typescript-tutorial) for more information.
+
 
 ## Code suggestions
 
