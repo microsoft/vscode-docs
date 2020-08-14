@@ -94,7 +94,9 @@ You can open these views using **Settings Sync: Show Synced Data** command from 
 
 ![Settings Sync enable local backup views](images/settings-sync/sync-enable-local-activity-view.png)
 
-Local backups folder in the disk can be accessed via the **Settings Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files, named with a timestamp of when the backup occurred. These backups are automatically deleted after 30 days.
+Local backups folder in the disk can be accessed via the **Settings Sync: Open Local Backups Folder** command. The folder is organized by the type of preference and contains versions of your JSON files, named with a timestamp of when the backup occurred.
+
+>**Note**: Local backups are automatically deleted after 30 days. For remote backups the latest 20 versions of each individual resource (settings, extensions, etc.) is retained.
 
 ## Synced Machines
 
