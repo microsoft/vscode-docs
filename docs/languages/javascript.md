@@ -32,10 +32,10 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for infor
 
 A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, you will want to create one in cases such as:
 
-- If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
-- To ensure that a subset of JavaScript files in your workspace are treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
-- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
-- You are using the TypeScript compiler to down-level compile JavaScript source code.
+* If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
+* To ensure that a subset of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
+* If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
+* You are using the TypeScript compiler to down-level compile JavaScript source code.
 
 To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
 
@@ -53,7 +53,7 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
-> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that the JavaScript file belongs to. A notification is shown if the file is not part of any `jsconfig.json` project.
+> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
 
 ## Snippets
 
@@ -145,15 +145,15 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate JavaScript projects.
 
-- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-- **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-- **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+* **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
+* **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-- **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
-- **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
+* **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
+* **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
 ## Rename
 
@@ -169,10 +169,10 @@ VS Code includes some handy refactorings for JavaScript such as **Extract functi
 
 Available refactorings include:
 
-- Extract to method or function.
-- Extract to constant.
-- Convert between named imports and namespace imports.
-- Move to new file.
+* Extract to method or function.
+* Extract to constant.
+* Convert between named imports and namespace imports.
+* Move to new file.
 
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
@@ -213,9 +213,11 @@ Organize imports can also be automatically when you save a JavaScript file by se
     "source.organizeImports": true
 }
 ```
+
 ## Code Actions on Save
 
-The  `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+
 ```json
 // On save, run both fixAll and organizeImports source actions
 "editor.codeActionsOnSave": {
@@ -223,6 +225,7 @@ The  `editor.codeActionsOnSave` setting lets you configure a set of Code Actions
     "source.organizeImports": true,
 }
 ```
+
 You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
 
 Here are some source actions:
@@ -233,7 +236,6 @@ Here are some source actions:
 * `"addMissingImports"` - Adds all missing imports on save.
 
 See [Node.js/JavaScript](/docs/nodejs/working-with-javascript) for more information.
-
 
 ## Code suggestions
 
