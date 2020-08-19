@@ -101,7 +101,7 @@ Go to [User and Workspace settings](/docs/getstarted/settings.md) for more infor
 
 ## Multi-version support
 
-You can configure the PowerShell extension to use any version of PowerShell installed on your machine by following [these instructions](https://docs.microsoft.com/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6#using-a-specific-installed-version-of-powershell).
+You can configure the PowerShell extension to use any version of PowerShell installed on your machine by following [these instructions](https://docs.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 You can also change the version by clicking on the version number in the lower right corner:
 
