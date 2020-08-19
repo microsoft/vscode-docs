@@ -33,7 +33,7 @@ Here's the `package.json` for the first version of our extension:
 {
     "name": "custom-view-samples",
     "displayName": "Custom view Samples",
-    "description": "Samples for VSCode's view API",
+    "description": "Samples for VS Code's view API",
     "version": "0.0.1",
     "publisher": "alexr00",
     "engines": {
