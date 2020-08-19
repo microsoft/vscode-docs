@@ -128,10 +128,10 @@ The actual Language Client source code and the corresponding `package.json` is i
 
 ```json
 "engines": {
-    "vscode": "^1.1.18"
+    "vscode": "^1.43.0"
 },
 "dependencies": {
-    "vscode-languageclient": "^4.1.4"
+    "vscode-languageclient": "^6.1.3"
 }
 ```
 
@@ -210,11 +210,12 @@ The source code for the Language Server is at `/server`. The interesting section
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^4.1.3"
+    "vscode-languageserver": "^6.1.1",
+    "vscode-languageserver-textdocument": "^1.0.1"
 }
 ```
 
-This pulls in the `vscode-languageserver` library.
+This pulls in the `vscode-languageserver` libraries.
 
 Below is a server implementation that uses the provided simple text document manager that synchronizes text documents by always sending the file's full content from VS Code to the server.
 
@@ -222,7 +223,6 @@ Below is a server implementation that uses the provided simple text document man
 import {
   createConnection,
   TextDocuments,
-  TextDocument,
   Diagnostic,
   DiagnosticSeverity,
   ProposedFeatures,
@@ -230,16 +230,21 @@ import {
   DidChangeConfigurationNotification,
   CompletionItem,
   CompletionItemKind,
-  TextDocumentPositionParams
+  TextDocumentPositionParams,
+  TextDocumentSyncKind,
+  InitializeResult
 } from 'vscode-languageserver';
 
-// Create a connection for the server. The connection uses Node's IPC as a transport.
+import {
+  TextDocument
+} from 'vscode-languageserver-textdocument';
+
+// Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
 let connection = createConnection(ProposedFeatures.all);
 
-// Create a simple text document manager. The text document manager
-// supports full document sync only
-let documents: TextDocuments = new TextDocuments();
+// Create a simple text document manager.
+let documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
 
 let hasConfigurationCapability: boolean = false;
 let hasWorkspaceFolderCapability: boolean = false;
@@ -249,25 +254,36 @@ connection.onInitialize((params: InitializeParams) => {
   let capabilities = params.capabilities;
 
   // Does the client support the `workspace/configuration` request?
-  // If not, we will fall back using global settings
-  hasConfigurationCapability =
-    capabilities.workspace && !!capabilities.workspace.configuration;
-  hasWorkspaceFolderCapability =
-    capabilities.workspace && !!capabilities.workspace.workspaceFolders;
-  hasDiagnosticRelatedInformationCapability =
+  // If not, we fall back using global settings.
+  hasConfigurationCapability = !!(
+    capabilities.workspace && !!capabilities.workspace.configuration
+  );
+  hasWorkspaceFolderCapability = !!(
+    capabilities.workspace && !!capabilities.workspace.workspaceFolders
+  );
+  hasDiagnosticRelatedInformationCapability = !!(
     capabilities.textDocument &&
     capabilities.textDocument.publishDiagnostics &&
-    capabilities.textDocument.publishDiagnostics.relatedInformation;
+    capabilities.textDocument.publishDiagnostics.relatedInformation
+  );
 
-  return {
+  const result: InitializeResult = {
     capabilities: {
-      textDocumentSync: documents.syncKind,
-      // Tell the client that the server supports code completion
+      textDocumentSync: TextDocumentSyncKind.Incremental,
+      // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: true
       }
     }
   };
+  if (hasWorkspaceFolderCapability) {
+    result.capabilities.workspace = {
+      workspaceFolders: {
+        supported: true
+      }
+    };
+  }
+  return result;
 });
 
 connection.onInitialized(() => {
@@ -343,7 +359,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   // The validator creates diagnostics for all uppercase words length 2 and more
   let text = textDocument.getText();
   let pattern = /\b[A-Z]{2,}\b/g;
-  let m: RegExpExecArray;
+  let m: RegExpExecArray | null;
 
   let problems = 0;
   let diagnostics: Diagnostic[] = [];
@@ -379,13 +395,13 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
+  // Send the computed diagnostics to VSCode.
   connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
 connection.onDidChangeWatchedFiles(_change => {
-  // Monitored files have change in VS Code
-  connection.console.log('We received a file change event');
+  // Monitored files have change in VSCode
+  connection.console.log('We received an file change event');
 });
 
 // This handler provides the initial list of the completion items.
@@ -424,26 +440,6 @@ connection.onCompletionResolve(
   }
 );
 
-/*
-connection.onDidOpenTextDocument((params) => {
-    // A text document got opened in VS Code.
-    // params.uri uniquely identifies the document. For documents store on disk this is a file URI.
-    // params.text the initial full content of the document.
-    connection.console.log(`${params.textDocument.uri} opened.`);
-});
-connection.onDidChangeTextDocument((params) => {
-    // The content of a text document did change in VS Code.
-    // params.uri uniquely identifies the document.
-    // params.contentChanges describe the content changes to the document.
-    connection.console.log(`${params.textDocument.uri} changed: ${JSON.stringify(params.contentChanges)}`);
-});
-connection.onDidCloseTextDocument((params) => {
-    // A text document got closed in VS Code.
-    // params.uri uniquely identifies the document.
-    connection.console.log(`${params.textDocument.uri} closed.`);
-});
-*/
-
 // Make the text document manager listen on the connection
 // for open, change and close text document events
 documents.listen(connection);
@@ -459,52 +455,53 @@ To add document validation to the server, we add a listener to the text document
 ```typescript
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
-documents.onDidChangeContent(async (change) => {
-    // In this simple example we get the settings for every validate run.
-    let settings = await getDocumentSettings(textDocument.uri);
+documents.onDidChangeContent(async(change) => {
+  let textDocument = change.document
+  // In this simple example we get the settings for every validate run.
+  let settings = await getDocumentSettings(textDocument.uri);
 
-    // The validator creates diagnostics for all uppercase words length 2 and more
-    let text = textDocument.getText();
-    let pattern = /\b[A-Z]{2,}\b/g;
-    let m: RegExpExecArray;
+  // The validator creates diagnostics for all uppercase words length 2 and more
+  let text = textDocument.getText();
+  let pattern = /\b[A-Z]{2,}\b/g;
+  let m: RegExpExecArray | null;
 
-    let problems = 0;
-    let diagnostics: Diagnostic[] = [];
-    while ((m = pattern.exec(text))) {
-        problems++;
-        let diagnostic: Diagnostic = {
-            severity: DiagnosticSeverity.Warning,
-            range: {
-                start: textDocument.positionAt(m.index),
-                end: textDocument.positionAt(m.index + m[0].length)
-            },
-            message: `${m[0]} is all uppercase.`,
-            source: 'ex'
-        };
-        if (hasDiagnosticRelatedInformationCapability) {
-            diagnostic.relatedInformation = [
-                {
-                    location: {
-                        uri: textDocument.uri,
-                        range: Object.assign({}, diagnostic.range)
-                    },
-                    message: 'Spelling matters'
-                },
-                {
-                    location: {
-                        uri: textDocument.uri,
-                        range: Object.assign({}, diagnostic.range)
-                    },
-                    message: 'Particularly for names'
-                }
-            ];
+  let problems = 0;
+  let diagnostics: Diagnostic[] = [];
+  while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
+    problems++;
+    let diagnostic: Diagnostic = {
+      severity: DiagnosticSeverity.Warning,
+      range: {
+        start: textDocument.positionAt(m.index),
+        end: textDocument.positionAt(m.index + m[0].length)
+      },
+      message: `${m[0]} is all uppercase.`,
+      source: 'ex'
+    };
+    if (hasDiagnosticRelatedInformationCapability) {
+      diagnostic.relatedInformation = [
+        {
+          location: {
+            uri: textDocument.uri,
+            range: Object.assign({}, diagnostic.range)
+          },
+          message: 'Spelling matters'
+        },
+        {
+          location: {
+            uri: textDocument.uri,
+            range: Object.assign({}, diagnostic.range)
+          },
+          message: 'Particularly for names'
         }
-        diagnostics.push(diagnostic);
+      ];
     }
+    diagnostics.push(diagnostic);
+  }
 
-    // Send the computed diagnostics to VS Code.
-    connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
-}
+  // Send the computed diagnostics to VSCode.
+  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+});
 ```
 
 ### Diagnostics Tips and Tricks
@@ -518,7 +515,7 @@ To run the Language Server, do the following:
 - open the Run view, select the `Launch Client` launch configuration, and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 - Create a test.txt file in the root folder and paste the following content:
 
-```bash
+```
 TypeScript lets you write JavaScript the way you really want to.
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 ANY browser. ANY host. ANY OS. Open Source.
@@ -581,7 +578,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
   // The validator creates diagnostics for all uppercase words length 2 and more
   let text = textDocument.getText();
   let pattern = /\b[A-Z]{2,}\b/g;
-  let m: RegExpExecArray;
+  let m: RegExpExecArray | null;
 
   let problems = 0;
   let diagnostics: Diagnostic[] = [];
@@ -617,7 +614,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
     diagnostics.push(diagnostic);
   }
 
-  // Send the computed diagnostics to VS Code.
+  // Send the computed diagnostics to VSCode.
   connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 ```
@@ -728,11 +725,9 @@ Open `.vscode/launch.json`, and you can find a `E2E` test target:
   "runtimeExecutable": "${execPath}",
   "args": [
     "--extensionDevelopmentPath=${workspaceRoot}",
-    "--extensionTestsPath=${workspaceRoot}/client/out/test",
+    "--extensionTestsPath=${workspaceRoot}/client/out/test/index",
     "${workspaceRoot}/client/testFixture"
   ],
-  "stopOnEntry": false,
-  "sourceMaps": true,
   "outFiles": ["${workspaceRoot}/client/out/test/**/*.js"]
 }
 ```
@@ -746,10 +741,10 @@ import * as vscode from 'vscode';
 import * as assert from 'assert';
 import { getDocUri, activate } from './helper';
 
-describe('Should do completion', () => {
+suite('Should do completion', () => {
   const docUri = getDocUri('completion.txt');
 
-  it('Completes JS/TS in txt file', async () => {
+  test('Completes JS/TS in txt file', async () => {
     await testCompletion(docUri, new vscode.Position(0, 0), {
       items: [
         { label: 'JavaScript', kind: vscode.CompletionItemKind.Text },
@@ -773,7 +768,7 @@ async function testCompletion(
     position
   )) as vscode.CompletionList;
 
-  assert.equal(actualCompletionList.items.length, expectedCompletionList.items.length);
+  assert.ok(actualCompletionList.items.length >= 2);
   expectedCompletionList.items.forEach((expectedItem, i) => {
     const actualItem = actualCompletionList.items[i];
     assert.equal(actualItem.label, expectedItem.label);
@@ -804,7 +799,7 @@ export let platformEol: string;
  */
 export async function activate(docUri: vscode.Uri) {
   // The extensionId is `publisher.name` from package.json
-  const ext = vscode.extensions.getExtension('vscode.lsp-sample');
+  const ext = vscode.extensions.getExtension('vscode-samples.lsp-sample')!;
   await ext.activate();
   try {
     doc = await vscode.workspace.openTextDocument(docUri);
