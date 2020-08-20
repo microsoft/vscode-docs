@@ -255,7 +255,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 ## Debug tests
 
-Because tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through and analyze tests in the debugger.
+You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing.
 
 For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
 
