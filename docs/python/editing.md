@@ -216,6 +216,8 @@ To use a custom isort script, use the `python.sortImports.path` setting to speci
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
 
+> **Note**: For those migrating from isort4 to isort5, some CLI flags and config options have changed, refer to the project's [isort5 upgrade guide](https://timothycrosley.github.io/isort/docs/upgrade_guides/5.0.0/) on GitHub for guidance.
+
 ## Next steps
 
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
