@@ -256,7 +256,7 @@ You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, 
 When defining an environment variable in a definitions file, you can use the value of any existing environment variable with the following general syntax:
 
 ```bash
-<VARIABLE>=...${EXISTING_VARIABLE}...
+<VARIABLE>=...${env:EXISTING_VARIABLE}...
 ```
 
 where `...` means any other text as used in the value. The curly braces are required.
@@ -264,10 +264,10 @@ where `...` means any other text as used in the value. The curly braces are requ
 Within this syntax, the following rules apply:
 
 - Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
-- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
+- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${env:VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
 - The `$` character can be escaped with a backslash, as in `\$`.
-- You can use recursive substitution, such as `PYTHONPATH=${PROJ_DIR}:${PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${VAR1}_EX}` is not supported.
+- You can use recursive substitution, such as `PYTHONPATH=${env:PROJ_DIR}:${env:PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
+- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` is not supported.
 - Entries with unsupported syntax are left as-is.
 
 ## Use of the PYTHONPATH variable
