@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -167,7 +167,6 @@ Also remember that if you are working with a structured language such as JSON or
 
 Finally, if updating your webviews is expensive, consider [debouncing](https://davidwalsh.name/javascript-debounce-function) the updates to your webview.
 
-
 ## Custom Editor
 
 `CustomEditorProvider` and `CustomReadonlyEditorProvider` let you create custom editors for binary file formats. This API gives your full control over the file is displayed to users, how edits are made to it, and lets your extension hook into `save` and other file operations. Again, if you are building an editor for a text based file format, strongly consider using a [`CustomTextEditor`](#custom-text-editor) instead as they are far simpler to implement.
@@ -218,7 +217,6 @@ When the first editor instance is closed, VS Code fires the `WebviewPanel.onDidD
 When the second editor is closed, VS Code again fires `WebviewPanel.onDidDispose`. However now we've also closed all the editors associated with the `CustomDocument`. When there are no more editors for a `CustomDocument`, VS Code calls the `CustomDocument.dispose` on it. Our extension's implementation of `dispose` must clean up any resources associated with the document.
 
 If the user then reopens the same resource using our custom editor, we will go back through the whole `openCustomDocument`, `resolveCustomEditor` flow with a new `CustomDocument`.
-
 
 ### Readonly Custom editors
 

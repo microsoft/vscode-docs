@@ -39,8 +39,6 @@ You can run the **Add Docker Files to Workspace** command again to generate the 
 
 In Node.js packages and Python projects, you have the `Dockerfile`, `.dockerignore`, `docker-compose*.yml` files all in the root folder of the workspace. When you add another app or service, move the Dockerfile into the app's folder.
 
-For Python, the situation is similar to Node.js, but there is no `docker-compose.debug.yml` file.
-
 For .NET, the folder structure is already set up to handle multiple projects when you create the Docker Compose files, `.dockerignore` and `docker-compose*.yml` are placed in the workspace root (for example, if the project is in `src/project1`, then the files are in `src`), so when you add another service, you create another project in a folder, say `project2`, and recreate or modify the docker-compose files as described previously.
 
 ## Debug

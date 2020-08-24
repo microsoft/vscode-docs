@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -174,14 +174,14 @@ We allow badges from the following URL prefixes:
 - cdn.travis-ci.org
 - ci.appveyor.com
 - circleci.com
-- [cla.opensource.microsoft.com](https://cla.opensource.microsoft.com)
+- cla.opensource.microsoft.com
 - codacy.com
 - codeclimate.com
 - codecov.io
 - coveralls.io
 - david-dm.org
 - deepscan.io
-- [dev.azure.com](https://dev.azure.com)
+- dev.azure.com
 - docs.rs
 - gemnasium.com
 - githost.io
@@ -191,13 +191,13 @@ We allow badges from the following URL prefixes:
 - goreportcard.com
 - img.shields.io
 - isitmaintained.com
-- [marketplace.visualstudio.com](https://marketplace.visualstudio.com)
+- marketplace.visualstudio.com
 - nodesecurity.io
 - opencollective.com
 - snyk.io
 - travis-ci.com
 - travis-ci.org
-- [visualstudio.com](https://visualstudio.com)
+- visualstudio.com
 - vsmarketplacebadge.apphb.com
 - www.bithound.io
 - www.versioneye.com

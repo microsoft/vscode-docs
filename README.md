@@ -19,7 +19,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight source code editor and powerful development environment for building and debugging modern web , mobile and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight source code editor and powerful development environment for building and debugging modern web, mobile and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 

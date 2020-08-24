@@ -120,7 +120,7 @@ We realized that we needed to start understanding our bugs in a new way, not as 
 * Type oddities. `undefined` vs `null`. `undefined` vs `false`. `undefined` vs empty string.
 * Feeling that we could not trust the code or safely refactor it.
 
-Identifying the root causes was a good first step, but we wanted to go even deeper. What were [the hazards](http://arlobelshee.com/improving-testing-is-not-safe-a-parable/) in all these cases that allowed a well meaning engineer to introduce the bug in the first place? And we quickly identified a glaring hazard common to all these issues: the lack of strict null checking in the VS Code codebase.
+Identifying the root causes was a good first step, but we wanted to go even deeper. What were [the hazards](https://arlobelshee.com/improving-testing-is-not-safe-a-parable/) in all these cases that allowed a well meaning engineer to introduce the bug in the first place? And we quickly identified a glaring hazard common to all these issues: the lack of strict null checking in the VS Code codebase.
 
 To understand strict null checking, you have to remember that TypeScript's aim is to add typing to JavaScript. A consequence of TypeScript's JavaScript legacy is that, by default, TypeScript allows `undefined` and `null` to be used for any value:
 

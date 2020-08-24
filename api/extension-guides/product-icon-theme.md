@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Product Icon Theme in Visual Studio Code
@@ -15,7 +15,7 @@ A product icon theme allows an extension to redefine these icons to give VS Code
 
 VS Code requires the icons to be defined as glyph in an icon font and (currently) limits product icons to consist of a single color. The color used for an icon is specific to the place where it is shown and is defined by the active color theme.
 
-> **Important**: Product icon themes are still in preview. The product icon theme format might still change. Until then, an extension defining a product icon theme needs to set `enableProposedApi`. Running a extension is limited to extension development in [Insider release](https://code.visualstudio.com/insiders/). Also, you cannot publish extensions such an extension to the Marketplace.
+> **Important**: Product icon themes are still in preview. The product icon theme format might still change. Until then, an extension defining a product icon theme needs to set `enableProposedApi`. Running a extension is limited to extension development in [Insider release](https://code.visualstudio.com/insiders/). Also, you cannot publish such an extension to the Marketplace.
 
 ## Adding a new product icon theme
 

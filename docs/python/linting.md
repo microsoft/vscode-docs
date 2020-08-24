@@ -174,7 +174,7 @@ The generated file contains sections for all the Pylint options, along with docu
 
 ### Command-line arguments and configuration files
 
-See [pydocstyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
+See [pydocstyle Command Line Interface](https://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
 
 ```json
 "python.linting.pydocstyleArgs": ["--ignore=D400"]
@@ -186,7 +186,7 @@ A code prefix also instructs pydocstyle to ignore specific categories of errors.
 "python.linting.pydocstyleArgs": ["--ignore=D4"]
 ```
 
-More details can be found in the [pydocstyle documentation](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage).
+More details can be found in the [pydocstyle documentation](https://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage).
 
 Options can also be read from a `[pydocstyle]` section of any of the following configuration files:
 
@@ -197,7 +197,7 @@ Options can also be read from a `[pydocstyle]` section of any of the following c
 - `.pydocstylerc`
 - `.pydocstylerc.ini`
 
-For more information, see [Configuration Files](http://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files).
+For more information, see [Configuration Files](https://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files).
 
 ### Message category mapping
 
@@ -254,7 +254,7 @@ The Python extension maps all Prospector errors and warnings to the Error (E) ca
 
 ### Command-line arguments and configuration files
 
-See [Invoking Flake8](http://flake8.pycqa.org/en/latest/user/invocation.html) for general switches. For example, to ignore error E303 (too many blank lines), use the following setting:
+See [Invoking Flake8](https://flake8.pycqa.org/en/latest/user/invocation.html) for general switches. For example, to ignore error E303 (too many blank lines), use the following setting:
 
 ```json
 "python.linting.flake8Args": ["--ignore=E303"]
@@ -266,7 +266,7 @@ Flake8 user options are read from the `C:\Users\<username>\.flake8` (Windows) or
 
 At the project level, options are read from the `[flake8]` section of a `tox.ini`, `setup.cfg`, or `.flake8` file.
 
-For details, see [Flake8 configuration](http://flake8.pycqa.org/en/latest/user/configuration.html).
+For details, see [Flake8 configuration](https://flake8.pycqa.org/en/latest/user/configuration.html).
 
 ### Message category mapping
 

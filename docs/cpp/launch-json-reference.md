@@ -222,7 +222,7 @@ For information about attaching to a remote process, such as debugging a process
 
 ### processId
 
-Defaults to `${command.pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
+Defaults to `${command:pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
 
 ### request
 

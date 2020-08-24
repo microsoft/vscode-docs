@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -801,7 +801,7 @@ The example below shows adding snippets for the Go language.
 
 ## contributes.jsonValidation
 
-Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
+Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://www.schemastore.org/json).
 
 ```json
 {
@@ -809,7 +809,7 @@ Contribute a validation schema for a specific type of `json` file. The `url` val
     "jsonValidation": [
       {
         "fileMatch": ".jshintrc",
-        "url": "http://json.schemastore.org/jshintrc"
+        "url": "https://json.schemastore.org/jshintrc"
       }
     ]
   }

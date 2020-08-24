@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Additional Components
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
 PageTitle: Setting up additional components to use with Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools
@@ -35,7 +35,7 @@ The extensions shown above are the current most popular on Marketplace. Click on
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
-- [Yeoman](http://yeoman.io/) - An application scaffolding tool, a command line version of **File** > **New Project**.
+- [Yeoman](https://yeoman.io/) - An application scaffolding tool, a command line version of **File** > **New Project**.
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding [ASP.NET Core](https://asp.net) applications.
 - [generator-hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating AngularJS applications.
 - [Express](https://expressjs.com/) - An application framework for Node.js applications using the Pug template engine.

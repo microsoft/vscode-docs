@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 113b458a-3692-4ccf-a181-048bd572a120
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Color Theme in Visual Studio Code
@@ -77,7 +77,7 @@ Themes can define theming rules for semantic tokens as described in the [Syntax 
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
 
 1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
-2. Use VS Code's [Yeoman](http://yeoman.io) extension generator to generate a new theme extension:
+2. Use VS Code's [Yeoman](https://yeoman.io) extension generator to generate a new theme extension:
 
    ```bash
    npm install -g yo generator-code

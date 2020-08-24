@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 ---
 # Developing in WSL
 
@@ -252,7 +252,7 @@ When a remote window is opened out of VSCode, the Remote - WSL extension tries t
 
 When the remote VSCode is started from a WSL terminal, the download is done using `wget` in the WSL distro. Proxy settings can be configured in:
 
-- wget proxy settings: https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget
+- wget proxy settings: [https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget](https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget)
 - manually in the [server setup script](/docs/remote/wsl#_advanced-environment-setup-script)
 
 Once the server is up and running the proxy settings on the *Remote* tab are used.

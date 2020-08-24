@@ -5,7 +5,7 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 ---
 # Remote development in Containers
 
@@ -100,7 +100,7 @@ This should show the following versions:
 
 ### Run the application
 
-We can now hit `kb(workbench.action.debug.start)`, which will run the application inside the container. Once the process starts, navigate to http://localhost:3000 and you should see the simple Node.js server running!
+We can now hit `kb(workbench.action.debug.start)`, which will run the application inside the container. Once the process starts, navigate to [http://localhost:3000](http://localhost:3000) and you should see the simple Node.js server running!
 
 ![Running the application](images/containers-tutorial/hello-remote-world.png)
 
@@ -155,7 +155,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
 | `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
 
-[Full list](/docs/remote/containers.md#devcontainerjson-reference) of `devcontainer.json` options.
+[Full list](/docs/remote/devcontainerjson-reference.md) of `devcontainer.json` options.
 
 ### Congratulations!
 

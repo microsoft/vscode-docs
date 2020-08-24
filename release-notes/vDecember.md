@@ -199,7 +199,7 @@ Extensions can now contribute JSON schema associations. The `jsonValidation` con
     "contributes": {
         "jsonValidation": [{
             "fileMatch": ".jshintrc",
-            "url": "http://json.schemastore.org/jshintrc"
+            "url": "https://json.schemastore.org/jshintrc"
         }]
     }
 ```

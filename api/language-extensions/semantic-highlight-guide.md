@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -41,6 +41,15 @@ const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers);
 const provider: vscode.DocumentSemanticTokensProvider = {
   provideDocumentSemanticTokens(document: vscode.TextDocument): vscode.ProviderResult<vscode.SemanticTokens> {
     // analyze the document and return semantic tokens
+
+    const tokensBuilder = new vscode.SemanticTokensBuilder(legend);
+    // on line 1, characters 1-5 are a class declaration
+    tokensBuilder.push(
+      new vscode.Range(new vscode.Position(1, 1), new vscode.Position(1, 5)),
+      'class',
+      ['declaration'],
+    );
+    return tokensBuilder.build();
   }
 };
 
@@ -84,7 +93,6 @@ Standard semantic token modifiers:
 - declaration
 - readonly, static, deprecated, abstract
 - async, modification, documentation, defaultLibrary
-
 
 If necessary, extensions can define new types and modifiers or create sub types of existing type through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
 

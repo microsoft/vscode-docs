@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
@@ -37,7 +37,6 @@ The `data` folder can be moved to other VS Code installations. This is useful fo
 ### macOS
 
 On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that VS Code can find it. The default folder name is `code-portable-data`:
-
 
 ```
 |- Visual Studio Code.app
