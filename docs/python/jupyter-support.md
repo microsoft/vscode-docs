@@ -106,7 +106,7 @@ When a cell is in command mode, the vertical bar to the left of the cell will be
 
 ![Code cell in edit mode](images/jupyter/native-code-cells-10.png)
 
-To move from edit mode to command mode, press the `kbstyle(ESC)` key. To move from command mode to edit mode, press the `kbstyle(Enter)` key. You can also use the mouse to change the mode by clicking into or out of the code/Markdown region in the code cell.
+To move from edit mode to command mode, press the `kbstyle(ESC)` key. To move from command mode to edit mode, press the `kbstyle(Enter)` key. You can also use the mouse to **change the mode** by clicking the vertical bar to the left of the cell or out of the code/Markdown region in the code cell.
 
 ### Add additional code cells
 
@@ -144,9 +144,13 @@ Moving code cells up or down within a Notebook can be accomplished using the ver
 
 ### Delete a code cell
 
-Deleting a code cell can be accomplished by hovering over a code cell and using the delete icon in the code cell toolbar or through the keyboard combo `kbstyle(dd)` when the selected code cell is in command mode.
+Deleting a code cell can be accomplished by hovering over a code cell and using the delete icon in the code cell toolbar or through the keyboard combo `kbstyle(dd)` when the selected code cell is in command mode. and we can 
 
 ![Delete a code cell](images/jupyter/native-code-cells-06.png)
+
+### Undo what you done last
+
+We can use `kbstyle(z)` to undo what you done last, for example, you can have your carelessness deleted cell be undone. 
 
 ### Switch between code and Markdown
 
