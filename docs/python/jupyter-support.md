@@ -148,7 +148,7 @@ Deleting a code cell can be accomplished by hovering over a code cell and using 
 
 ![Delete a code cell](images/jupyter/native-code-cells-06.png)
 
-### Undo what you done last
+### Undo your last change
 
 We can use `kbstyle(z)` to undo what you done last, for example, you can have your carelessness deleted cell be undone. 
 
