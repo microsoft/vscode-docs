@@ -144,7 +144,7 @@ Moving code cells up or down within a Notebook can be accomplished using the ver
 
 ### Delete a code cell
 
-Deleting a code cell can be accomplished by hovering over a code cell and using the delete icon in the code cell toolbar or through the keyboard combo `kbstyle(dd)` when the selected code cell is in command mode. and we can 
+Deleting a code cell can be accomplished by hovering over a code cell and using the delete icon in the code cell toolbar or through the keyboard combo `kbstyle(dd)` when the selected code cell is in command mode.
 
 ![Delete a code cell](images/jupyter/native-code-cells-06.png)
 
