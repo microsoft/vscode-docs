@@ -150,7 +150,7 @@ Deleting a code cell can be accomplished by hovering over a code cell and using 
 
 ### Undo your last change
 
-We can use `kbstyle(z)` to undo what you done last, for example, you can have your carelessness deleted cell be undone. 
+You can use the `kbstyle(z)` key to undo your previous change, for example, if you've made an accidental edit you can undo it to the previous correct state. 
 
 ### Switch between code and Markdown
 
