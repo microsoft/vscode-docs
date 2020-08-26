@@ -223,7 +223,6 @@ The app will start, and you'll hit the breakpoint. You can inspect variables, cr
 Press `kb(workbench.action.debug.stepOver)` to step or `kb(workbench.action.debug.start)` again to finish your debugging session.
 
 ![VS Code debug view](images/ssh-tutorial/debug-view.png)
- <!-- TBD old image -->
 
 You get the full development experience of Visual Studio Code connected over SSH.
 
