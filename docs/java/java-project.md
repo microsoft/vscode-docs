@@ -35,9 +35,9 @@ You can create a project or source only workload by clicking the **+** sign on p
 
 ![create project](images/java-project/projectmanager-createproject.png)
 
-### Import a project
+### Import a project or module
 
-A project is imported to workspace through **File** > **Open Folder** or **File** > **Open Workspace** menu. VS Code for Java will detect your project type automatically. As a tip, you can run command **Java: Import Java projects in workspace** to re-import a project from workspace to language server, if made change to the project, without reloading your window.
+A project or module is imported to workspace through **File** > **Open Folder** or **File** > **Open Workspace** menu. VS Code for Java will detect your project type automatically. As a tip, you can run command **Java: Import Java projects in workspace** to re-import a project from workspace to language server, if made change to the project, without reloading your window.
 
 ### Add a dependency
 
