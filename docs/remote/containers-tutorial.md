@@ -48,7 +48,7 @@ The Remote - Containers extension lets you run Visual Studio Code inside a Docke
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Remote - Containers extension</a>
 
-<!-- TBD add extension image? -->
+![Remote - Containers extension](images/containers-tutorial/containers-extension.png)
 
 ### Check installation
 
