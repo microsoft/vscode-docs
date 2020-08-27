@@ -26,7 +26,7 @@ After any of the steps above, you'll have a fully functioning dev container, and
 
 VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that stores images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js [VS Code Development Container image] from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-vscode-devcontainers):
+You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that stores images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container image from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-vscode-devcontainers):
 
 ```json
 {
