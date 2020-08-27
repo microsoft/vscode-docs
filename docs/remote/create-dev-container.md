@@ -18,15 +18,15 @@ In this document, we'll take a look at the steps for creating a development cont
 1. Create a `devcontainer.json`, which describes how VS Code should start the container and what to do after it connects.
 2. Make and persist changes to the dev container, such as installation of new software, through use of a Dockerfile.
 3. Configure multiple containers through Docker Compose.
-4. Throughout the configuration process, build your dev container to ensure changes are persisted.
+4. Throughout the configuration process, build your dev container to ensure changes take effect.
 
-After any of the above steps, you'll have a fully functioning dev container and can either continue to the next step of the doc to add more features, or stop there to work in the dev environment you currently have.
+After any of the steps above, you'll have a fully functioning dev container, and you can either continue to the next step of the doc to add more features, or stop there to work in the dev environment you currently have.
 
 ## Create a devcontainer.json file
 
 VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. Here is a simple example that uses a pre-built TypeScript and Node.js [VS Code Development Container image](https://hub.docker.com/_/microsoft-vscode-devcontainers):
+You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that stores images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js [VS Code Development Container image] from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-vscode-devcontainers):
 
 ```json
 {
@@ -46,15 +46,15 @@ Let's say you'd like to install the [eslint extension](https://marketplace.visua
 }
 ```
 
-With this `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Reopen in Container** if you're just working with a single app file).
+With this `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Reopen in Container** if you're just working with a single app file):
 
 ![Quick pick with list of Remote-Containers commands](images\containers\Remote-Containers-Commands-Reopen.png)
 
-With this command, you're now developing within a Node.js and TypeScript dev container with port 3000 forwarded and the eslint extension installed. Notice the green remote indicator updates to show you are connected to your dev container:
+With this command, you're now developing within a Node.js and TypeScript dev container with port 3000 forwarded and the eslint extension installed. Once you're inside, notice the green remote indicator updates to show you are connected to your dev container:
 
 ![VS Code instance connected to dev container](images\containers\connected-to-dev-container.png)
 
-###  Install additional software
+##  Install additional software
 
 You may want to install additional software in your dev container. Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
 
@@ -78,7 +78,7 @@ sudo apt-get update
 sudo apt-get install <package>
 ```
 
-Let's say you want to install Git in our dev container:
+Let's say you want to install Git. You could run the following commands in the integrated terminal in VS Code:
 
 ```bash
 # If sudo is installed and configured
@@ -89,7 +89,7 @@ sudo apt-get install git
 
 ### Rebuilding
 
-When editing the contents of the `.devcontainer` folder, you'll need to rebuild for them to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
+When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
 
 However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use a series of commands in the `postCreateCommand` property in `devcontainer.json`:
 
@@ -110,11 +110,11 @@ The `postCreateCommand` is run once the container is running, so you can also us
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-Rather than referencing an image directly in `devcontainer.json` or installing software via the `postCreateCommand`, an even more robust practice to to use a Dockerfile.
+Rather than referencing an image directly in `devcontainer.json` or installing software via the `postCreateCommand`, an even more efficient practice is to use a Dockerfile.
 
 ## Dockerfile
 
-Rather than referencing an image directly in `devcontainer.json`, you can reference a Dockerfile, which will also live in the `.devcontainer` folder. You can replace the `image` property in `devcontainer.json` with `dockerFile`:
+A Dockerfile will also live in the `.devcontainer` folder. You can replace the `image` property in `devcontainer.json` with `dockerFile`:
 
 ```json
 {
@@ -128,16 +128,30 @@ Rather than referencing an image directly in `devcontainer.json`, you can refere
 
 When you make changes like installing new software, changes made in the Dockerfile will persist even upon a rebuild of the dev container.
 
-Use `FROM` to designate the image, and the `RUN` [instruction](#using-an-image-or-dockerfile) to install any software. You can use `&&` to string together multiple commands.
+In your Dockerfile, use `FROM` to designate the image, and the `RUN` [instruction](#using-an-image-or-dockerfile) to install any software. You can use `&&` to string together multiple commands.
 
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
 RUN apt-get update && apt-get install git
 ```
 
+### Automating dev container creation
+
+Rather than creating a `.devcontainer` by hand, selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs.
+
+The command lets you pick a pre-defined container configuration from a list based on your folder's contents:
+
+![Add a dev container definition](images/containers/select-dev-container-def-all.png)
+
+All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
+
+You can also reuse an existing Dockerfile:
+
+![Select Dockerfile](images/containers/select-dockerfile.png)
+
 Now that you have a `devcontainer.json` and Dockerfile, let's see the general process for editing container configuration files.
 
-### Configuration edit loop
+### Full configuration edit loop
 
 Editing your container configuration is easy. Since rebuilding a container will "reset" the container to its starting contents (with the exception of your local source code), VS Code does not automatically rebuild if you edit a container configuration file (`devcontainer.json`, `Dockerfile`, and `docker-compose.yml`, which we'll get to next). Instead, there are several commands that can be used to make editing your configuration easier.
 
@@ -350,151 +364,6 @@ Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub 
 ```
 
 Once in place, the configuration will be automatically picked up when using any of the remote containers commands. Once in the container, you can also select **Remote-Containers: Open Container Configuration File** from the Command Palette (`kbstyle(F1)`) to open the related `devcontainer.json` file and make further edits.
-
-## Set up a folder to run in a container
-
-There are a few different ways VS Code Remote - Containers can be used to develop an application inside a fully containerized environment. In general, there are two primary scenarios that drive interest in this development style:
-
-* **Stand-Alone Dev Sandboxes:** You may not be deploying your application into a containerized environment but still want to isolate your build and runtime environment from your local OS, speed up setup, or develop in an environment that is more representative of production. For example, you may be running code on your local macOS or Windows machine that will ultimately be deployed to a Linux VM or server, have different toolchain requirements for multiple projects, or want to be able to use tools/packages that could impact your local machine in an unexpected or undesired way. You can reference a container [image or a Dockerfile](#using-an-image-or-dockerfile) for this purpose.
-
-* **Container Deployed Applications**: You deploy your application into one or more containers and would like to work locally in the containerized environment. VS Code currently supports working with container-based applications defined in a number of ways:
-
-  * [Dockerfile](#using-an-image-or-dockerfile): You are working on a single container / service that is described using a single Dockerfile.
-
-  * [Docker Compose](#using-docker-compose): You are working with multiple orchestrated services that are described using a `docker-compose.yml` file.
-
-  * In each case, you may also need to [build container images and deploy to Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside your container.
-
-  * [Attach only](/docs/remote/attach-container.md): While not backed by `devcontainer.json`, you can attach to an already running container if none of the workflows described in this section meet your needs.
-
-This section will walk you through configuring your project for each of these situations. The [vscode-dev-containers GitHub repository](https://aka.ms/vscode-dev-containers) also contains dev container definitions to get you up and running quickly.
-
-### Using an image or Dockerfile
-
-### Preconfigured `devcontainer.json`
-
-Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs.
-
-The command lets you pick a pre-defined container configuration from a list based on your folder's contents:
-
-![Add a dev container definition](images/containers/select-dev-container-def-all.png)
-
-All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` for different scenarios.
-
-You can configure VS Code to reuse an existing image from a source like [DockerHub](https://hub.docker.com) or [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) for your dev container by adding a `.devcontainer/devcontainer.json` (or `.devcontainer.json`) config file to your project. In addition, if you are not able to find an image that meets your needs, have a single container-based project, or just want to automate the installation of several additional dependencies, you can use a [Dockerfile](https://docs.docker.com/engine/reference/builder/) to generate the image instead.
-
-To get started quickly, **open the folder** you want to work with in VS Code and run the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
-
-![Select Dockerfile](images/containers/select-dockerfile.png)
-
-You'll be asked to either select an existing Dockerfile (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers) in a filterable list automatically sorted based on your folder's contents. VS Code will then add `devcontainer.json` and any other required files to the folder. While most of these pre-defined "dev container definitions" include a Dockerfile, you can use them as a starting point for an image instead if you prefer.
-
-> **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
-
-You can also create your configuration manually. The difference between configuring VS Code to build a container image using a Dockerfile or just reuse an exiting image is a single property in `devcontainer.json`:
-
-* **To use an image:**  Set the `image` property. For example, this will use the JavaScript and Node.js 12 pre-built [VS Code Development Container image](https://hub.docker.com/_/microsoft-vscode-devcontainers), forward port 3000, install the ES Lint extension, and run `npm install` when done:
-
-    ```json
-    {
-        "name": "My Project",
-        "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-12",
-        "forwardPorts": [3000],
-        "extensions": [
-            "dbaeumer.vscode-eslint"
-        ],
-        "postCreateCommand": "npm install"
-    }
-    ```
-
-* **To use a Dockerfile:** Set the `dockerFile` property. For example, this will cause VS Code to build the dev container image using the specified `Dockerfile`, forward port 5000, install the C# extension in the container:
-
-    ```json
-    {
-        "name": "My Node.js App",
-        "dockerFile": "Dockerfile",
-        "forwardPorts": [5000],
-        "extensions": [
-            "ms-dotnettools.csharp"
-        ]
-    }
-    ```
-
-See the [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) for information on other available properties such as `forwardPorts`, `postCreateCommand`, and the `extensions` list.
-
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen Folder in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in VS Code)  from the Command Palette (`kbstyle(F1)`). After the container is created, the **local filesystem is automatically "bind" mount into the container**, unless you [change this behavior](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount), and you can start working with it from VS Code.
-
-However, on Linux, you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root.  All of the configuration files and images the extension ships with include a non-root user you can specify. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details.
-
-```yaml
-# Change user for VS Code and sub-processes (terminals, tasks, debugging)
-"remoteUser": "your-user-name-here",
-# Or change the user for all container processes
-"containerUser": "your-user-name-here"
-```
-
-You can also add **additional local mount points** to give your container access to other locations using the `mounts` property.
-
-For example, you can mount your home / user profile folder:
-
-```json
-"mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/host-home-folder,type=bind,consistency=cached"
-]
-```
-
-You can also reference `"${localWorkspaceFolder}` if you need to mount something from the local filesystem into the container.
-
-The `runArgs` property supports the same list of arguments as the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and can be useful for a wide variety of scenarios including [setting environment variables](/docs/remote/containers-advanced.md#adding-environment-variables).
-
-If your application was built using C++, Go, or Rust, or another language that uses a **ptrace-based debugger**, the `runArgs` property can also be used to configure needed runtime security and capability settings.
-
-For example:
-
-```json
-{
-    "name": "My Go App",
-    "dockerFile": "Dockerfile",
-    "extensions": [
-        "golang.go"
-    ],
-    "runArgs": [
-        "--cap-add=SYS_PTRACE",
-        "--security-opt",
-        "seccomp=unconfined"
-    ]
-}
-```
-
-While less efficient than a custom Dockerfile, you can also use the `postCreateCommand` property to **install additional software** that **may not be in your base image** or for cases where you would prefer **not to modify a deployment Dockerfile** you are reusing.
-
-For example, here is a `devcontainer.json` that adds compiler tools and the [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) extension to the base Ubuntu 18.04 container image:
-
-```json
-{
-    "image": "ubuntu:18.04",
-    "extensions": [
-        "ms-vscode.cpptools"
-    ],
-    "postCreateCommand": "apt-get update && apt-get install -y build-essential cmake cppcheck valgrind"
-}
-```
-
-See [installing additional software](#install-additional-software) for more information on using `apt-get` to install software.
-
-This command is run once your source code is mounted, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree.
-
-```json
-"postCreateCommand": "bash scripts/install-dev-tools.sh"
-```
-
-By default, when VS Code starts a container, it will **override the container's default command** to be `/bin/sh -c "while sleep 1000; do :; done"`. This is done because the container will stop if the default command fails or exits. However, this may not work for certain images. If the image you are using requires the default command be run to work properly, add the following to your `devcontainer.json` file.
-
-```json
-"overrideCommand": false
-```
-
-After you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json` or your Dockerfile to take effect.
 
 ## Next steps
 
