@@ -71,9 +71,7 @@ You will then be prompted to enter a secure passphrase, but you can leave that b
 
 ## Add SSH key to your VM
 
-In the previous step, you generated an SSH key pair. Select **Use existing public key** in the drop down for **SSH public key source** so that you can use this generated key. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**.
-
-You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
+In the previous step, you generated an SSH key pair. Select **Use existing public key** in the drop down for **SSH public key source** so that you can use this generated key. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
 
 ![Add SSH public key to VM](images/ssh-tutorial/add-ssh-public-key-updated.png)
 
