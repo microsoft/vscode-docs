@@ -129,11 +129,12 @@ In this step, you will create a simple Node.js application. You will use an appl
 
 ### Install Node.js and npm
 
-From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), update the packages in your Linux VM, then install Node.js and npm, the Node.js package manager.
+From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), update the packages in your Linux VM, then install Node.js, which includes npm, the Node.js package manager.
 
 ```bash
 sudo apt-get update
-sudo apt-get install nodejs npm
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
 You can verify the installations by running:
