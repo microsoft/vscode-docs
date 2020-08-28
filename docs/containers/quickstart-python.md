@@ -46,7 +46,7 @@ After verifying your app runs properly, you can now Dockerize your application.
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use the **Docker: Add Docker Files to Workspace...** command:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
-    
+
 1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
 2. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. Compose is typically used when running multiple containers at once.
 
@@ -82,7 +82,7 @@ The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/
 
 To give Python Web Developers a great starting point, we chose to use [Gunicorn](https://gunicorn.org/#docs) as the default web server. Since it is referenced in the default Dockerfile, it is included as a dependency in the `requirements.txt` file.
 
-> **Note**: To use Gunicorn as your web server, it must be included in the `requirements.txt` file as an app dependency. It does not need to be installed in your virtual environment/host machine.
+> **Note**: To use Gunicorn as your web server, it must be included in the `requirements.txt` file as an app dependency. It does not need to be installed in your virtual environment/host machine. The Gunicorn entry point is overridden locally if your app is run with **Python: Django** or **Python: Flask**.
 
 #### Django Apps
 

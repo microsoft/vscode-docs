@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -33,7 +33,7 @@ Here's the `package.json` for the first version of our extension:
 {
     "name": "custom-view-samples",
     "displayName": "Custom view Samples",
-    "description": "Samples for VSCode's view API",
+    "description": "Samples for VS Code's view API",
     "version": "0.0.1",
     "publisher": "alexr00",
     "engines": {

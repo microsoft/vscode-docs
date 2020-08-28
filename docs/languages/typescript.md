@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -35,7 +35,7 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 ## Syntax highlighting and semantic highlighting
 
-In addition to syntax highlighting, TypeScript and JavaScript also provides semantic highlighting.
+In addition to syntax highlighting, TypeScript and JavaScript also provide semantic highlighting.
 
 Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
 
@@ -45,9 +45,9 @@ If semantic highlighting is enabled and the color theme has a corresponding styl
 
 Semantic highlighting can change colors based on:
 
-- The resolved type of a symbol: namespace, variable, property, variable, property, class, interface, typeParameter.
-- Whether the variable/property is read-only (const) or modifiable.
-- Whether the variable/property type is callable (a function type) or not.
+* The resolved type of a symbol: namespace, variable, property, variable, property, class, interface, typeParameter.
+* Whether the variable/property is read-only (const) or modifiable.
+* Whether the variable/property type is callable (a function type) or not.
 
 ## IntelliSense
 
@@ -141,16 +141,16 @@ Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate TypeScript projects.
 
-- **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-- **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-- **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
-- **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.
+* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+* **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
+* **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-- **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
-- **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
+* **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
+* **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
 ## Rename
 
@@ -202,10 +202,10 @@ Available TypeScript refactorings include:
 
 Quick Fixes are suggested edits that address simple coding errors. Example Quick Fixes include:
 
-- Adding a missing `this` to a member access.
-- Fixing a misspelled property name.
-- Removing unreachable code or unused imports
-- Declaring
+* Adding a missing `this` to a member access.
+* Fixing a misspelled property name.
+* Removing unreachable code or unused imports
+* Declaring
 
 When you move your cursor on to a TypeScript error, VS Code shows a lightbulb that indicates that Quick Fixes are available. Click the lightbulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
 
@@ -245,6 +245,29 @@ Organize imports can also be automatically when you save a TypeScript file by se
     "source.organizeImports": true
 }
 ```
+
+## Code Actions on Save
+
+The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+
+```json
+// On save, run both fixAll and organizeImports source actions
+"editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+}
+```
+
+You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
+
+Here are some source actions:
+
+* `"organizeImports"` -  Enables organize imports on save.
+* `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
+* `"fixAll.eslint"` -  Auto Fix only for ESLint.
+* `"addMissingImports"` - Adds all missing imports on save.
+
+See [TypeScript](/docs/typescript/typescript-tutorial) for more information.
 
 ## Code suggestions
 
@@ -306,7 +329,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 [Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
 
-[ESLint](https://eslint.org) is a popular linter which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [Quick Fixes](#quick-fixes). [The ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/README.md) details how to configure ESLint for your TypeScript projects.
+[ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [Quick Fixes](#quick-fixes). [The ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/README.md) details how to configure ESLint for your TypeScript projects.
 
 ## TypeScript extensions
 

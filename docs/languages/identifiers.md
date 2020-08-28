@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
