@@ -28,14 +28,12 @@ The Remote - SSH extension is used to connect to SSH hosts.
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
 
 ![Remote - SSH extension](images/ssh-tutorial/remote-ssh-extension.png)
-<!-- TBD Refresh -->
 
 ### Remote - SSH
 
 With the Remote - SSH extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/ssh-tutorial/remote-status-bar.png)
- <!-- TBD old settings icon -->
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - SSH commands.
 
@@ -94,7 +92,6 @@ Now that you've created an SSH host, let's connect to it!
 You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
 ![Remote extension commands](images/ssh-tutorial/remote-commands.png)
- <!-- TBD insiders and old icons -->
 
 Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
@@ -114,10 +111,9 @@ You'll know you're connected to your VM by looking at the indicator in the Statu
 
 ![SSH indicator in Status bar](images/ssh-tutorial/ssh-status-bar.png)
 
-The Remote - SSH extension also contributes a new icon on your Activity bar, and clicking on it will open the SSH explorer. Here you can configure your SSH connections. For instance, you can save the hosts you connect to the most and access them from here instead of entering the user and hostname.
+The Remote - SSH extension also contributes a new icon on your Activity bar, and clicking on it will open the Remote explorer. From the dropdown, select **SSH Targets**, where you can configure your SSH connections. For instance, you can save the hosts you connect to the most and access them from here instead of entering the user and hostname.
 
 ![Remote button on Activity bar](images/ssh-tutorial/remote-on-activity-bar.png)
- <!-- TBD old icon, no remote explorer dropdown -->
 
 Once you're connected to your SSH host, you can interact with files and open folders on the remote machine. If you open the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), you'll see you're working inside a bash shell **while you're on Windows**.
 
@@ -133,11 +129,12 @@ In this step, you will create a simple Node.js application. You will use an appl
 
 ### Install Node.js and npm
 
-From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), update the packages in your Linux VM, then install Node.js and npm, the Node.js package manager.
+From the integrated terminal (`kb(workbench.action.terminal.toggleTerminal)`), update the packages in your Linux VM, then install Node.js, which includes npm, the Node.js package manager.
 
 ```bash
 sudo apt-get update
-sudo apt-get install nodejs npm
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
 You can verify the installations by running:
@@ -227,15 +224,12 @@ The app will start, and you'll hit the breakpoint. You can inspect variables, cr
 Press `kb(workbench.action.debug.stepOver)` to step or `kb(workbench.action.debug.start)` again to finish your debugging session.
 
 ![VS Code debug view](images/ssh-tutorial/debug-view.png)
- <!-- TBD old image -->
 
 You get the full development experience of Visual Studio Code connected over SSH.
 
 ### Ending your SSH connection
 
 You can end your session over SSH and go back to running VS Code locally with **File** > **Close Remote Connection**.
-
-<!-- TBD add screenshot of command -->
 
 ### Congratulations!
 
