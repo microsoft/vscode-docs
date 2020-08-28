@@ -85,6 +85,12 @@ Select **Review and Create**, then **Create**, and Azure will deploy your VM for
 
 Once the deployment is finished (it may take several minutes), go to the new resource view for your virtual machine.
 
+Verify you can connect to your VM via a command prompt using `ssh user@hostname`.
+
+> Note: If you run into an error `ssh: connect to host <host ip> port 22: Connection timed out`, you may need to delete NRMS-Rule-106 from the Networking tab of your VM:
+
+![Virtual machine list of NRMS rules](images/ssh-tutorial/vm-nrms-rules.png)
+
 ## Connect using SSH
 
 Now that you've created an SSH host, let's connect to it!
