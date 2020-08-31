@@ -192,7 +192,7 @@ You can customize how your extension looks in the Visual Studio Marketplace. See
 Here are some tips for making your extension look great on the Marketplace:
 
 - A `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` will modify README links for you in two different ways:
-  - If you add a `repository` field to your `package.json` and it is a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly (using the `master` branch by default). You can override the GitHub branch with the `--githubBranch` flag when running `vsce package` or `vsce publish`.
+  - If you add a `repository` field to your `package.json` and it is a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `master` branch by default. You can override the GitHub branch with the `--githubBranch` flag when running `vsce package` or `vsce publish`.
   - For more fine-grained control, you can set the `--baseContentUrl` and `--baseImagesUrl` flags to set the base URLs for relative links.
 - A `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
 - A `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's change log.
