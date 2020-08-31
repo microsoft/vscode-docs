@@ -4,7 +4,7 @@ Area: java
 TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
 PageTitle: Java on Visual Studio Code FAQ and Wiki
-DateApproved: 1/2/2019
+DateApproved: 8/31/2019
 MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
 # Frequent Asked Questions
@@ -29,9 +29,7 @@ Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in 
 
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 
-You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-studio-code-april-update#signup) to follow the latest of Java on Visual Studio Code.
-
-We're currently publishing our updates at [The Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/tag/java/), which will report all our major features and improvements.
+Please follow us at [Java at Microsoft](https://devblogs.microsoft.com/java/) blog, which will keep you updated with our major progress.
 
 While you're using Java within VS Code, you might also see a *Release Notes* once you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). That will give you an overview on the notable updates included in the extensions.
 
