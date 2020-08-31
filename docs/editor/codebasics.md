@@ -76,6 +76,8 @@ Key|Command|Command ID
 
 You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
+The "Editor: Column Selection" setting controls this. The default is off, and turning it on makes column selection the default behavior.
+
 ## Save / Auto Save
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
