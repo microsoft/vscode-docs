@@ -84,7 +84,7 @@ There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <=
 
 ## Go to Symbol in file
 
-You can quickly navigate to the relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
+You can quickly navigate to the relevant CSS symbol in the current file by pressing `kb(workbench.action.gotoSymbol)`.
 
 ## Hovers
 
