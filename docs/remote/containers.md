@@ -146,7 +146,7 @@ Repository Containers use isolated, local Docker volumes instead binding to the 
 
 For example, follow these steps to open one of the "try" repositories in a Repository Container:
 
-1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
+1. Start VS Code and run **Remote-Containers: Clone Repository in Container Volume...** from the Command Palette (`kbstyle(F1)`).
 
 2. Enter `microsoft/vscode-remote-try-node` (or one of the other "try" repositories), a Git URI, a GitHub branch URL, or a GitHub PR URL in the input box that appears and press `kbstyle(Enter)`.
 
@@ -525,7 +525,7 @@ Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore genera
 
 ![Docker Path setting](images/containers/docker-path-setting.png)
 
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Open repository in container...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
+However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
 Docker Compose is also not supported by Podman.
 
