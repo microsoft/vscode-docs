@@ -19,7 +19,7 @@ Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.
 
 ![Extension Sign In](images/github/extension-signin.png)
 
-If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status bar, paste the token, and hit **Enter**.
+If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status bar, paste the token, and hit (`kbstyle(Enter)`).
 
 ## Setting up a repository
 
