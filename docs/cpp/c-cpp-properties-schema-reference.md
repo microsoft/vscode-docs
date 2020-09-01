@@ -80,7 +80,7 @@ For more information about changing these settings, see [Customizing Default Set
   - macOS: `clang-x64`
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. If a path ends with `/**` the IntelliSense engine will do a recursive search for header files starting from that directory. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `**` to indicate recursive search. For example, `${workspaceFolder}/**` will search through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
 
 - `defines`
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
@@ -114,7 +114,7 @@ For more information about changing these settings, see [Customizing Default Set
 ### Browse properties
 
 - `path`
-  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate non-recursive search. For example: `/usr/include` will search through all subdirectories while `/usr/include/*` will not.
+  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate non-recursive search. For example: `${workspaceFolder}` will search through all subdirectories while `${workspaceFolder}/*` will not.
 
 - `limitSymbolsToIncludedHeaders`
   When true, the Tag Parser will only parse code files that have been directly or indirectly included by a source file in `${workspaceFolder}`. When false, the Tag Parser will parse all code files found in the paths specified in the `browse.path` list.

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Visual Studio Code Introductory Videos
-DateApproved: 7/9/2020
+DateApproved: 8/13/2020
 MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
@@ -15,11 +15,11 @@ Start your journey using Visual Studio Code with this set of introductory videos
 <ul class="video-list">
 	<li class="video">
 		<a href="/docs/introvideos/basics">
-			<img src="https://img.youtube.com/vi/Sdg0ef2PpBw/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/S320N3sxinE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Getting started</h2>
 				<p class="description">Set up and learn the basics of Visual Studio Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
