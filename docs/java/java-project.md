@@ -25,7 +25,7 @@ Managing a project in VS Code requires the [Project Manager for Java](https://ma
 
 ### Project view
 
-Project view provides a hierarchy view of your project and its dependencies, and also provides entry points for project management related tasks.
+Project view helps you view your project and its dependencies, and provides entry points for project management related tasks. You can swicth between a hierarchy view and flat view.
 
 ![project view](images/java-project/projectmanager-overview.png)
 
