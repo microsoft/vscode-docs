@@ -3,9 +3,11 @@
 Key|Command
 ---|---
 `kb(workbench.action.showCommands)`, `kbstyle(F1)`|Show Command Palette
-`kb(workbench.action.quickOpen)`|Quick Open
+`kb(workbench.action.quickOpen)`|Quick Open, Go to File
 `kb(workbench.action.newWindow)`|New window/instance
 `kb(workbench.action.closeWindow)`|Close window/instance
+`kb(workbench.action.openSettings)`|User Settings
+`kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts
 
 ## Basic Editing
 
