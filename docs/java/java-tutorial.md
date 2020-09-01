@@ -22,14 +22,14 @@ If you need to install VS Code, [download it here](https://code.visualstudio.com
 
 ## Supported Java versions
 
-VS Code works with all major versions of Java SE from 11 and suports projects with version 1.5 and above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+VS Code works with all major versions of Java SE from 11 and supports projects with version 1.5 and above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 ## Setting up Visual Studio Code for Java Development
 
-To help you set up quickly, recommendations are:
+To help you set up quickly, here are the recommendations based on your experience with VS Code:
 
-* **New to VS Code:** [Installer of Visual Studio Code for Java developers](/docs/java/java-tutorial.md#installer-of-visual-studio-code-for-java-developers)
-* **Exising VS Code user to add Java support:** [Java Extension Pack](/docs/java/java-tutorial.md#installing-extensions)
+* **New to VS Code:** Use the [Installer of Visual Studio Code for Java developers](/docs/java/java-tutorial.md#installer-of-visual-studio-code-for-java-developers).
+* **Existing VS Code user wanting to add Java support:** Install the [Java Extension Pack](/docs/java/java-tutorial.md#installing-extensions).
 
 ### Installer of Visual Studio Code for Java developers
 
@@ -72,9 +72,9 @@ If JDK is not installed, the [Java Extension Pack](https://marketplace.visualstu
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-You can also select which extensions you would like to install separately. **Extension Guide** is provided to help you select. You can launch the guide by command **Java: Extension Guide**.
+You can also select which extensions you would like to install separately. The **Extension Guide** is provided to help you choose. You can launch the guide with the **Java: Extension Guide** command.
 
-For this tutorial, the only required extensions are
+For this tutorial, the only required extensions are:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)

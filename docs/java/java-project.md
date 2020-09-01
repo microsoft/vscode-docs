@@ -19,25 +19,25 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Project management
 
-Managing a project in VS Code requires the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. The extension helps manage class paths and dependencies, and create new projects, packages and classes.
+Managing a project in VS Code requires the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. The extension helps manage class paths and dependencies, and create new projects, packages, and classes.
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Project Manager for Java</a>
 
 ### Project view
 
-Project view helps you view your project and its dependencies, and provides entry points for project management related tasks. You can swicth between a hierarchy view and flat view.
+Project view helps you view your project and its dependencies, and provides entry points for project management tasks. You can switch between a hierarchy view and flat view.
 
 ![project view](images/java-project/projectmanager-overview.png)
 
 ### Create a project
 
-You can create a project or source only workload by clicking the **+** sign on project view, or through command: **Java: Create Java Project...**. During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren’t installed.
+You can create a project or source only workload by clicking the **+** sign on project view, or through the command: **Java: Create Java Project...**. During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't installed.
 
 ![create project](images/java-project/projectmanager-createproject.png)
 
 ### Import a project or module
 
-A project or module is imported to workspace through **File** > **Open Folder** or **File** > **Open Workspace** menu. VS Code for Java will detect your project type automatically. As a tip, you can run command **Java: Import Java projects in workspace** to re-import a project from workspace to language server, if made change to the project, without reloading your window.
+A project or module is imported to a workspace through **File** > **Open Folder** or **File** > **Open Workspace** menu. VS Code for Java will detect your project type automatically. As a tip, you can run the command **Java: Import Java projects in workspace** to reimport a project and alert the language server that there were changes to the project, without reloading your window.
 
 ### Add a dependency
 
@@ -54,15 +54,16 @@ JAR file(s) can be added by clicking the **+** sign next to **Referenced Librari
 For more details on library, refer to [Library Configuration](/docs/java/java-project.md#library-configuration).
 
 ### Export to JAR
+
 You can export your build to JAR by clicking the **↓** sign on project view or run command: **Java: Export Jar...**.
 
 ![export jar](images/java-project/projectmanager-exportjar.gif)
 
 ## Configure JDK
 
-As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you have to know two configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project’s execution environment; the latter specifies your language server's execution environment.
+As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you have to know two configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
 
-> **Note**: although language server requires JDK 11 or above version to run, this is **NOT** a requirement to your project's runtime.
+> **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
 
 ### JDK for projects
 
@@ -98,8 +99,7 @@ Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.
 
 ### JDK for source only
 
-If you work with source only without a build tool, the logic by VS Code to apply an appropriate runtime is ussing the default configuration of `java.configuration.runtimes`, and if the default
-isn't specified, then using the runtime used by language server, which is determined in below order.
+If you only work with source files and don't use a build tool, VS Code will apply an appropriate runtime using the default configuration of `java.configuration.runtimes`. If a default isn't specified, VS Code will use the runtime used by the language server, which is determined by the order shown below:
 
 ![jdk home](images/java-project/projectmanager-javahomeconf.png)
 
@@ -177,7 +177,7 @@ In some rare cases, you may need to clean the Java workspace by executing the **
 
 ## Lightweight Mode
 
-VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by language server; with standard mode, imported dependencies are resolved and project is built by language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
+VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
 
 Lightweight mode doesn't resolve imported dependencies nor build the project, so it does not support running, debugging, refactoring, linting, or detecting semantic errors. For these features to be available, you need to switch your workspace from lightweight mode to standard mode.
 
