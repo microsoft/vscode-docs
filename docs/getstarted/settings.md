@@ -260,11 +260,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the Find Widget should add extra lines on top of the editor. When true, you can scroll beyond the first line when the Find Widget is visible.
     "editor.find.addExtraSpaceOnTop": true,
 
-    // Controls whether the find operation is carried out on selected text or the entire file in the editor.
+	// Controls the condition for turning on find in selection automatically.
     //  - never: Never turn on Find in selection automatically (default)
     //  - always: Always turn on Find in selection automatically
     //  - multiline: Turn on Find in selection automatically when multiple lines of content are selected.
     "editor.find.autoFindInSelection": "never",
+
+	// Controls whether the cursor should jump to find matches while typing.
+	"editor.find.cursorMoveOnType": true,
 
     // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
     "editor.find.globalFindClipboard": false,
@@ -303,6 +306,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
     "editor.formatOnSave": false,
+
+	// Controls if format on save formats the whole file or only modifications. Only applies when `editor.formatOnSave` is `true`.
+	//  - file: Format the whole file.
+	//  - modifications: Format modifications (requires source control).
+	"editor.formatOnSaveMode": "file",
 
     // Controls whether the editor should automatically format the line after typing.
     "editor.formatOnType": false,
@@ -497,6 +505,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - none
     //  - boundary: Render whitespace characters except for single spaces between words.
     //  - selection: Render whitespace characters only on selected text.
+	//  - trailing: Render only trailing whitespace characters
     //  - all
     "editor.renderWhitespace": "selection",
 
@@ -778,6 +787,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - visible: Show Source Control Provider count badges.
     "scm.providerCountBadge": "hidden",
 
+	// Controls how many repositories are visible in the Source Control Repositories section. Set to `0` to be able to manually resize the view.
+	"scm.repositories.visible": 10,
+
     // If set, automatically switch to the preferred color theme based on the OS appearance.
     "window.autoDetectColorScheme": false,
 
@@ -849,7 +861,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the default direction of editors that are opened side by side (e.g. from the explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
     "workbench.editor.openSideBySideDirection": "right",
 
-    // Restores the last view state (e.g. scroll position) when re-opening files after they have been closed.
+	// Restores the last view state (e.g. scroll position) when re-opening textual editors after they have been closed.
     "workbench.editor.restoreViewState": true,
 
     // Controls whether an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
@@ -1001,7 +1013,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Window
 
-    // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
+	// If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme, and to dark theme when switching away from a high contrast theme.
     "window.autoDetectHighContrast": true,
 
     // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
@@ -1181,6 +1193,15 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font size (in pixels) of the screencast mode keyboard.
     "screencastMode.fontSize": 56,
 
+	// Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.
+	"screencastMode.keyboardOverlayTimeout": 800,
+
+	// Controls the color (Hex) of the mouse indicator in screencast mode.
+	"screencastMode.mouseIndicatorColor": "#ff0000",
+
+	// Controls the size (in pixels) of the mouse indicator in screencast mode.
+	"screencastMode.mouseIndicatorSize": 20,
+
     // Only show keyboard shortcuts in Screencast Mode.
     "screencastMode.onlyKeyboardShortcuts": false,
 
@@ -1195,7 +1216,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether turning on Zen Mode also puts the workbench into full screen mode.
     "zenMode.fullScreen": true,
 
-    // Controls whether turning on Zen Mode also hides the activity bar at the left of the workbench.
+	// Controls whether turning on Zen Mode also hides the activity bar either at the left or right of the workbench.
     "zenMode.hideActivityBar": true,
 
     // Controls whether turning on Zen Mode also hides the editor line numbers.
@@ -1595,7 +1616,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // TypeScript
 
-    // Enable/disable automatic closing of JSX tags. Requires using TypeScript 3.0 or newer in the workspace.
+	// Enable/disable automatic closing of JSX tags.
     "javascript.autoClosingTags": true,
 
     // Enable/disable default JavaScript formatter.
@@ -1604,7 +1625,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after a comma delimiter.
     "javascript.format.insertSpaceAfterCommaDelimiter": true,
 
-    // Defines space handling after the constructor keyword. Requires using TypeScript 2.3.0 or newer in the workspace.
+	// Defines space handling after the constructor keyword.
     "javascript.format.insertSpaceAfterConstructor": false,
 
     // Defines space handling after function keyword for anonymous functions.
@@ -1616,7 +1637,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after opening and before closing JSX expression braces.
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-    // Defines space handling after opening and before closing non-empty braces. Requires using TypeScript 2.3.0 or newer in the workspace.
+	// Defines space handling after opening and before closing non-empty braces.
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
     // Defines space handling after opening and before closing non-empty brackets.
@@ -1649,7 +1670,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - remove: Remove unnecessary semicolons.
     "javascript.format.semicolons": "ignore",
 
-    // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires using TypeScript 2.3.1 or newer in the workspace.
+	// Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting.
     "javascript.implicitProjectConfig.checkJs": false,
 
     // Preferred path style for auto imports.
@@ -1665,9 +1686,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - js: Do not shorten path endings; include the `.js` extension.
     "javascript.preferences.importModuleSpecifierEnding": "auto",
 
-    // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
+	// Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
     "javascript.preferences.quoteStyle": "auto",
 
+	// The setting 'typescript.preferences.renameShorthandProperties' has been deprecated in favor of 'typescript.preferences.useAliasesForRenames'
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "javascript.preferences.useAliasesForRenames": true,
 
@@ -1677,7 +1699,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable references CodeLens on all functions in JavaScript files.
     "javascript.referencesCodeLens.showOnAllFunctions": false,
 
-    // Enable/disable auto import suggestions. Requires using TypeScript 2.6.1 or newer in the workspace.
+	// Enable/disable auto import suggestions.
     "javascript.suggest.autoImports": true,
 
     // Complete functions with their parameter signature.
@@ -1698,10 +1720,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable suggestions for paths in import statements and require calls.
     "javascript.suggest.paths": true,
 
-    // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires using TypeScript 2.8 or newer in the workspace.
+	// Enable/disable suggestion diagnostics for JavaScript files in the editor.
     "javascript.suggestionActions.enabled": true,
 
-    // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Requires using TypeScript 2.9 or newer in the workspace.
+	// Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
     //  - prompt: Prompt on each rename.
     //  - always: Always update paths automatically.
     //  - never: Never rename paths and don't prompt.
@@ -1710,7 +1732,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable JavaScript validation.
     "javascript.validate.enable": true,
 
-    // Enable/disable automatic closing of JSX tags. Requires using TypeScript 3.0 or newer in the workspace.
+	// Enable/disable automatic closing of JSX tags.
     "typescript.autoClosingTags": true,
 
     // Check if npm is installed for Automatic Type Acquisition.
@@ -1728,7 +1750,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after a comma delimiter.
     "typescript.format.insertSpaceAfterCommaDelimiter": true,
 
-    // Defines space handling after the constructor keyword. Requires using TypeScript 2.3.0 or newer in the workspace.
+	// Defines space handling after the constructor keyword.
     "typescript.format.insertSpaceAfterConstructor": false,
 
     // Defines space handling after function keyword for anonymous functions.
@@ -1740,7 +1762,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after opening and before closing JSX expression braces.
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-    // Defines space handling after opening and before closing non-empty braces. Requires using TypeScript 2.3.0 or newer in the workspace.
+	// Defines space handling after opening and before closing non-empty braces.
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
     // Defines space handling after opening and before closing non-empty brackets.
@@ -1755,7 +1777,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after a semicolon in a for statement.
     "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
 
-    // Defines space handling after type assertions in TypeScript. Requires using TypeScript 2.4 or newer in the workspace.
+	// Defines space handling after type assertions in TypeScript.
     "typescript.format.insertSpaceAfterTypeAssertion": false,
 
     // Defines space handling after a binary operator.
@@ -1779,10 +1801,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable implementations CodeLens. This CodeLens shows the implementers of an interface.
     "typescript.implementationsCodeLens.enabled": false,
 
-    // Sets the locale used to report JavaScript and TypeScript errors. Requires using TypeScript 2.6.0 or newer in the workspace. Default of `null` uses VS Code's locale.
+	// Sets the locale used to report JavaScript and TypeScript errors. Default of `null` uses VS Code's locale.
     "typescript.locale": null,
 
-    // Specifies the path to the npm executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
+	// Specifies the path to the npm executable used for Automatic Type Acquisition.
     "typescript.npm": null,
 
     // Preferred path style for auto imports.
@@ -1804,7 +1826,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off: Never search dependencies.
     "typescript.preferences.includePackageJsonAutoImports": "auto",
 
-    // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
+	// Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
     "typescript.preferences.quoteStyle": "auto",
 
 
@@ -1820,7 +1842,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Report style checks as warnings.
     "typescript.reportStyleChecksAsWarnings": true,
 
-    // Enable/disable auto import suggestions. Requires using TypeScript 2.6.1 or newer in the workspace.
+	// Enable/disable auto import suggestions.
     "typescript.suggest.autoImports": true,
 
     // Complete functions with their parameter signature.
@@ -1838,7 +1860,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable suggestions for paths in import statements and require calls.
     "typescript.suggest.paths": true,
 
-    // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires using TypeScript 2.8 or newer in the workspace.
+	// Enable/disable suggestion diagnostics for TypeScript files in the editor.
     "typescript.suggestionActions.enabled": true,
 
     // Controls auto detection of tsc tasks.
@@ -1859,7 +1881,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Set the maximum amount of memory (in MB) to allocate to the TypeScript server process
     "typescript.tsserver.maxTsServerMemory": 3072,
 
-    // Additional paths to discover TypeScript Language Service plugins. Requires using TypeScript 2.3.0 or newer in the workspace.
+	// Additional paths to discover TypeScript Language Service plugins.
     "typescript.tsserver.pluginPaths": [],
 
     // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
@@ -1871,7 +1893,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configure which watching strategies should be used to keep track of files and directories. Requires using TypeScript 3.8+ in the workspace.
     "typescript.tsserver.watchOptions": {},
 
-    // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Requires using TypeScript 2.9 or newer in the workspace.
+	// Enable/disable automatic updating of import paths when you rename or move a file in VS Code.
     //  - prompt: Prompt on each rename.
     //  - always: Always update paths automatically.
     //  - never: Never rename paths and don't prompt.
@@ -2596,7 +2618,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     "[git-commit]":  {
         "editor.rulers": [
                 72
-        ]
+		],
+		"workbench.editor.restoreViewState": false
+	},
+
+	// Configure settings to be overridden for [git-rebase] language.
+	"[git-rebase]":  {
+		"workbench.editor.restoreViewState": false
     },
 
     // Configure settings to be overridden for [go] language.
@@ -2685,16 +2713,16 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Node debug
 
+	// Whether to use the preview debugger's version of auto attach.
+	"debug.javascript.usePreviewAutoAttach": true,
+
     // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
     //  - disabled: Auto attach is disabled and not shown in status bar.
     //  - on: Auto attach is active.
     //  - off: Auto attach is inactive.
     "debug.node.autoAttach": "disabled",
 
-    // Controls whether to show a warning when the 'useWSL' attribute is used.
-    "debug.node.showUseWslIsDeprecatedWarning": true,
-
-//Emmet
+// Emmet
 
     // An array of languages where Emmet abbreviations should not be expanded.
     "emmet.excludeLanguages": [
@@ -2807,7 +2835,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the limit of git submodules detected.
     "git.detectSubmodulesLimit": 10,
 
-    // Enables commit signing with GPG.
+	// Enables commit signing with GPG or X.509.
     "git.enableCommitSigning": false,
 
     // Whether git is enabled.
@@ -2945,21 +2973,32 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // JavaScript Debugger
 
+	// Configures which processes to automatically attach and debug when `debug.node.autoAttach` is on. A Node process launched with the `--inspect` flag will always be attached to, regardless of this setting.
+	//  - always: Auto attach to every Node.js process launched in the terminal.
+	//  - smart: Auto attach when running scripts that aren't in a node_modules folder.
+	//  - onlyWithFlag: Only auto attach when the `--inspect` is given.
+	"debug.javascript.autoAttachFilter": "smart",
+
+	// If one of these glob patterns matches the Node.jsentrypoint script in smart `debug.javascript.autoAttachFilter` mode, we will debug that process. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
+	"debug.javascript.autoAttachSmartPattern": [
+		"!**/node_modules/**",
+		"**/$KNOWN_TOOLS$/**"
+	],
+
     // Configures whether property getters will be expanded automatically. If this is false, the getter will appear as `get propertyName` and will only be evaluated when you click on it.
     "debug.javascript.autoExpandGetters": false,
 
     // When debugging a remote web app, configures whether to automatically tunnel the remote server to your local machine.
     "debug.javascript.automaticallyTunnelRemoteServer": true,
 
+	// Whether to stop when conditional breakpoints throw an error. Note: your launch.json `type` must be prefixed with `pwa-` to use this, such as `pwa-node`.
+	"debug.javascript.breakOnConditionalError": false,
+
     // Where a "Run" and "Debug" code lens should be shown in your npm scripts. It may be on "all", scripts, on "top" of the script section, or "never".
     "debug.javascript.codelens.npmScripts": "top",
 
     // Options used when debugging open links clicked from inside the JavaScript Debug Terminal. Can be set to "off" to disable this behavior, or "always" to enable debugging in all terminals.
     "debug.javascript.debugByLinkOptions": "on",
-
-    // If true (default), only processes started with --inspect will be debugged. If this setting is toggled to false, we will debug all processes started while Auto Attach is on.
-    // Note: you may need to toggle Auto Attach to "disabled" and then "on" again for changes in this setting to take effect.
-    "debug.javascript.onlyAutoAttachExplicit": true,
 
     // Default options used when debugging a process through the `Debug: Attach to Node.js Process` command
     "debug.javascript.pickAndAttachOptions": {},
@@ -2991,6 +3030,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable running npm scripts contained in a folder from the Explorer context menu.
     "npm.enableRunFromFolder": false,
 
+	// The NPM Script Explorer is now available in 'Views' menu in the Explorer in all folders.
     // Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
     "npm.enableScriptExplorer": false,
 
