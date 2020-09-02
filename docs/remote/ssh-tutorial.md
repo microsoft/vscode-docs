@@ -103,7 +103,7 @@ Before connecting in Remote - SSH, you can verify you're able to connect to your
 
 > Note: If you run into an error `ssh: connect to host <host ip> port 22: Connection timed out`, you may need to delete NRMS-Rule-106 from the Networking tab of your VM:
 
-![Virtual machine list of NRMS rules](images/ssh-tutorial/vm-nrms-rules.png)
+   ![Virtual machine list of NRMS rules](images/ssh-tutorial/vm-nrms-rules.png)
 
 Set the user and hostname in the connection information text box.
 
