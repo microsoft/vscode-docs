@@ -13,24 +13,6 @@ MetaSocialImage: images/tutorial/social.png
 
 The Coding Pack for Python helps you quickly set up a Python coding environment with Visual Studio Code. The standalone installer helps you install a Python interpreter, Visual Studio Code, extensions that provide support for Python in Visual Studio Code, and a number of common and useful Python packages.
 
-## What's installed by the Coding Pack for Python
-
-The Coding Pack for Python installs the key components you need to use Visual Studio Code for Python development. Specifically, it installs:
-
-- Visual Studio Code
-- The Python, Pylance, and Gather VS Code extensions
-- The Python runtime (CPython 3.8.5)
-- Useful Python packages
-  - jupyter
-  - numpy
-  - sklearn
-  - pandas
-  - Matplotlib
-
-Along with the tools and packages necessary for Python development, the Coding Pack also configures common user settings and PowerShell. This includes Python extension settings, such as the default interpreter and language server, as well as execution policies to allow for virtual environment activation in the terminal.
-
->**Note**: If there was an existing version of Visual Studio Code installed on your machine, your settings.json will not be overwritten and you’ll need to configure Python settings yourself.
-
 ## Getting started
 
 With the Coding Pack for Python it's easy to get started developing with Python and VS Code.
@@ -53,6 +35,23 @@ With the Coding Pack for Python it's easy to get started developing with Python 
 
 >**Note**: If there are any issues installing components, you can use the steps discussed in [Manual installation](#manual-installation)
 
+## What's installed by the Coding Pack for Python
+
+The Coding Pack for Python installs the key components you need to use Visual Studio Code for Python development. Specifically, it installs:
+
+- Visual Studio Code
+- The Python, Pylance, and Gather VS Code extensions
+- The Python runtime (CPython 3.8.5)
+- Useful Python packages
+  - jupyter
+  - numpy
+  - sklearn
+  - pandas
+  - Matplotlib
+
+Along with the tools and packages necessary for Python development, the Coding Pack also configures common user settings and PowerShell. This includes Python extension settings, such as the default interpreter and language server, as well as execution policies to allow for virtual environment activation in the terminal.
+
+>**Note**: If there was an existing version of Visual Studio Code installed on your machine, your settings.json will not be overwritten and you’ll need to configure Python settings yourself.
 ## Manual installation
 
 If you have any problems during installation, the following manual steps can be used to complete your installation.
@@ -66,7 +65,7 @@ If you have any problems during installation, the following manual steps can be 
 
 ### Python interpreter
 
-1. If there was an issue installing the Python interpreter, you can install Python 3.8 from the [Microsoft Store](https://www.microsoft.com/store/apps/9MSSZTT1N39L?cid=vscode-docs). Along with the Python extension, you need to install a Python interpreter for development with Python. There are other options for installing the Python interpreter, such as directly from [Python.org](https://www.python.org/downloads/), and which interpreter you use is dependent on your specific needs. If you use the Python.org version, you can typically use the **Download Python** button that appears first on the page to download the latest version. Just make sure to uncheck the "Install launcher for all users" box if you don't have admin access.
+1. If there was an issue installing the Python interpreter, you can install Python 3.8 from the [Microsoft Store](https://www.microsoft.com/store/apps/9MSSZTT1N39L?cid=vscode-docs). Along with the Python extension, you need to install a Python interpreter for development with Python. There are other options for installing the Python interpreter, such as directly from [Python.org](https://www.python.org/downloads/release/python-385/), and which interpreter you use is dependent on your specific needs. If you use the Python.org version, just make sure to uncheck the "Install launcher for all users" box if you don't have admin access.
 
    >**Note**: If you use the Microsoft Store installation option, be aware that some packages might not work well with this package; however, the packages listed below have been tested and work fine.
 
