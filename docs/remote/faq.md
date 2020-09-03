@@ -11,7 +11,7 @@ DateApproved: 8/13/2020
 
 This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
-For questions about [GitHub Codespaces](https://aka.ms/vso), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
+For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
 
 ## General
 
