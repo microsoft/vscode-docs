@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Coding Pack for Python
 ContentId: 904C9E86-A36A-4FB2-8A4C-E597B02236A5
 PageTitle: Coding Pack for Python Support
-DateApproved: 8/31/2020
+DateApproved: 9/3/2020
 MetaDescription: Installation and support information for the Coding Pack for Python.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -15,7 +15,7 @@ The Coding Pack for Python helps you quickly set up a Python coding environment 
 
 ## Getting started
 
-With the Coding Pack for Python it's easy to get started developing with Python and VS Code.
+With the Coding Pack for Python, it's easy to get started developing with Python and VS Code.
 
 1. [Download](https://aka.ms/coding-pack-for-python-win) and run the Coding Pack for Python installer.
    >**Note**: The installer only supports Windows 10 64-bit. This download is 200MB, and up to 100MB will be downloaded while you are installing.
@@ -51,7 +51,8 @@ The Coding Pack for Python installs the key components you need to use Visual St
 
 Along with the tools and packages necessary for Python development, the Coding Pack also configures common user settings and PowerShell. This includes Python extension settings, such as the default interpreter and language server, as well as execution policies to allow for virtual environment activation in the terminal.
 
->**Note**: If there was an existing version of Visual Studio Code installed on your machine, your settings.json will not be overwritten and you’ll need to configure Python settings yourself.
+>**Note**: If there was an existing version of Visual Studio Code installed on your machine, your settings.json will not be overwritten and you'll need to configure Python settings yourself.
+
 ## Manual installation
 
 If you have any problems during installation, the following manual steps can be used to complete your installation.
@@ -74,6 +75,7 @@ For additional information about using Python on Windows, see the VS Code [Pytho
 1. Verify you Python installation by opening a cmd prompt and running the following code `python --version`. If the installation was successful, the output window shows the version of Python that you just installed.
 
 ### Additional VS Code extensions
+
 #### Pylance language server extension
 
 Pylance is an extension that works alongside Python in Visual Studio Code to provide performant language support. Under the hood, Pylance is powered by Pyright, Microsoft's static type checking tool. Using Pyright, Pylance has the ability to supercharge your Python IntelliSense experience with rich type information, helping you write better code faster.
@@ -84,7 +86,7 @@ Pylance is an extension that works alongside Python in Visual Studio Code to pro
 
 #### Gather extension
 
-The Gather extension adds the experimental Gather feature to the Python extension. With one button you’ll be able to select any notebook or Interactive Window cell and have Gather find and then copy all of the dependent code that was used to generate that cell's result into a new notebook or script.
+The Gather extension adds the experimental Gather feature to the Python extension. With one button, you'll be able to select any notebook or Interactive Window cell and have Gather find and then copy all of the dependent code that was used to generate that cell's result into a new notebook or script.
 
 1. Install the Gather extension from [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.gather).
 
@@ -119,7 +121,7 @@ To help you get started quickly, the Coding Pack for Python sets a few key setti
 
 1. Install the Pylance extension and set it as the default language server as described in the [section above](#pylance-language-server-extension).
 
-#### Enable running scripts in Powershell
+#### Enable running scripts in PowerShell
 
 1. Open VS Code
 1. If a terminal is not already opened, select Terminal > New Terminal from the main toolbar
@@ -129,12 +131,12 @@ To help you get started quickly, the Coding Pack for Python sets a few key setti
 
 If you need to uninstall (or repair) your Coding Pack for Python installation, you can use the following steps.
 
-1. Re-run the standalone installer.
+1. Rerun the standalone installer.
 1. At the UI prompt, select **Uninstall**.
 
    ![Coding Pack for Python uninstall screen](images/coding-pack/coding-pack-python-uninstall.png)
 
-1. Once you click uninstall the following tasks will be performed:
+1. Once you select uninstall, the following tasks will be performed:
    1. The folder with the Python interpreter and associated Python packages will be removed, including any user installed packages.
    1. The folder will be removed from the PATH environment variable.
    1. Any settings modified by the installation process will be reset.
