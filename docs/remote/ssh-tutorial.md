@@ -71,7 +71,7 @@ You will then be prompted to enter a secure passphrase, but you can leave that b
 
 ## Add SSH key to your VM
 
-In the previous step, you generated an SSH key pair. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub`. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH** from the **Select inbound ports** dropdown list.
+In the previous step, you generated an SSH key pair. Select **Use existing public key** in the drop down for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
 
 ![Add SSH public key to VM](images/ssh-tutorial/add-ssh-public-key.png)
 
@@ -98,6 +98,12 @@ Choose the **Remote-SSH: Connect to Host** command and connect to the host by en
 The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure portal](https://portal.azure.com) and in the **Overview** pane of the VM you created, copy the **Public IP address**.
 
 ![Virtual machine public IP address](images/ssh-tutorial/vm-public-ip-address.png)
+
+Before connecting in Remote - SSH, you can verify you're able to connect to your VM via a command prompt using `ssh user@hostname`.
+
+> Note: If you run into an error `ssh: connect to host <host ip> port 22: Connection timed out`, you may need to delete NRMS-Rule-106 from the Networking tab of your VM:
+
+   ![Virtual machine list of NRMS rules](images/ssh-tutorial/vm-nrms-rules.png)
 
 Set the user and hostname in the connection information text box.
 
