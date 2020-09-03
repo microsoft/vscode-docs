@@ -44,11 +44,11 @@ Tutorial | Description
 [Remote via SSH](/docs/remote/ssh-tutorial.md) | Connect to remote and virtual machines with Visual Studio Code via SSH.
 [Work in WSL](/docs/remote/wsl-tutorial.md) | Run Visual Studio Code in Windows Subsystem for Linux.
 [Develop in Containers](/docs/remote/containers-tutorial.md) | Run Visual Studio Code in a Docker Container.
-[Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/codespaces/how-to/vscode) | Connect to a codespace with Visual Studio Code.
+[GitHub Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code) | Connect to a codespace with Visual Studio Code.
 
-## Visual Studio Codespaces
+## GitHub Codespaces
 
-[Visual Studio Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
+[GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
 
 ## Questions or feedback
 
