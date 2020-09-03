@@ -36,7 +36,7 @@ Along with the tools and packages necessary for Python development, the Coding P
 With the Coding Pack for Python it's easy to get started developing with Python and VS Code.
 
 1. [Download](https://aka.ms/coding-pack-for-python-win) and run the Coding Pack for Python installer.
-   >**Note**: The installer only supports installation on 64-bit Windows.
+   >**Note**: The installer only supports Windows 10 64-bit. This download is 200MB, and up to 100MB will be downloaded while you are installing.
 1. Once the installer launches, review and accept the License Agreement. Then select **Install**.
 
    ![Coding Pack for Python start installation screen](images/coding-pack/coding-pack-python-install-01.png)
