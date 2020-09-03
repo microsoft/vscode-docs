@@ -186,7 +186,7 @@ on:
   if: success() && startsWith( github.ref, 'refs/tags/releases/') && matrix.os == 'ubuntu-latest'
   run: npm run deploy
   env:
-    VSCE_PAT: ${{ secrets.VSCE_PAT }}
+    VSCE_PAT: $\{{ secrets.VSCE_PAT }}
 ```
 
 The [if](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) property tells the CI to run the publish step only in certain cases.
