@@ -78,7 +78,7 @@ Example `launch.json` configuration for debugging a Python application:
 
 More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
 
-> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
+> The previous (Preview) .NET Core Docker debugging support (utilizing `"type": "docker-coreclr"` instead of the current preview's `"type": "docker"`) is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
 
 Example `launch.json` configuration for debugging a .NET Core application:
 
