@@ -200,17 +200,17 @@ Let's go through these options in detail:
 
 ### Auto Attach Feature
 
-If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
+If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from VS Code's Integrated Terminal. There are three modes for auto attach, configurable in the **debug.javascript.autoAttachFilter** setting:
+
+- `smart` (default): if you execute a script outside of your `node_modules` folder or use a common 'runner' script like mocha or ts-node, the process will be debugged. You can configure the 'runner' script allowlist using the **debug.javascript.autoAttachSmartPattern**.
+- `always`: all Node.js processes launched in the Integrated Terminal will be debugged.
+- `onlyWithFlag`: only processes launched with the `--inspect` or `--inspect-brk` flag will be debugged.
 
 To enable the feature, either use the **Toggle Auto Attach** action or, if the Node debugger is already activated, use the **Auto Attach** Status Bar item.
 
 After enabling **Auto Attach**, the debugger should attach to your program within a second:
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
-
-Whether or not a process is in "debug mode" is determined by analyzing the program arguments. Currently, we detect the patterns `--inspect`, `--inspect-brk`, `--inspect-port`, `--debug`, `--debug-brk`, `--debug-port` (all optionally followed by a '=' and a port number).
-
->**Note:** this feature does not (yet) work for terminal multiplexers like **tmux** (where launched processes are not children of VS Code's integrated terminal).
 
 ### Attach to Node Process action
 
