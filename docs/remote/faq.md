@@ -35,7 +35,7 @@ Compared to using a network share or synchronizing files, VS Code Remote Develop
 
 [GitHub Codespaces](https://github.com/features/codespaces) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about GitHub Codespaces in [its documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
 
-While the Remote Development and Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from GitHub Codespaces (and therefore do not require a GitHub Codespaces plan).
+While the Remote Development and Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from GitHub Codespaces.
 
 ### How do the Remote Development extensions work?
 

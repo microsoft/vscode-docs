@@ -29,7 +29,7 @@ Example customizations include:
 * Setting environment variables.
 * Configuring editor settings and installing preferred extensions.
 
-See the [Configuring Codespaces](https://docs.github.com/en/github/developing-online-with-codespaces/configuring-codespaces-for-your-project) documentation for Codespace-specific `devcontainer.json` settings.
+See the [Configuring Codespaces](https://docs.github.com/github/developing-online-with-codespaces/configuring-codespaces-for-your-project) documentation for Codespace-specific `devcontainer.json` settings.
 
 ## Dotfile per user configuration
 
@@ -60,4 +60,4 @@ The VS Code extension API hides most of the implementation details of running re
 
 ## Questions or feedback
 
-If you have questions, you can consult the [Troubleshooting guide](https://docs.microsoft.com/visualstudio/codespaces/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/codespaces/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/codespaces/resources/feedback), you can enter issues in the GitHub Codespaces GitHub [repository](https://github.community/c/codespaces-beta/45).
+If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/en/github/developing-online-with-codespaces/troubleshooting-your-codespace). You can enter issues in the GitHub Codespaces GitHub [repository](https://github.community/c/codespaces-beta/45).
