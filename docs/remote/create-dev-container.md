@@ -57,8 +57,8 @@ Let's say you'd like to install the [eslint extension](https://marketplace.visua
 
 Through a `devcontainer.json` file, you can:
 
-* Spin up a [stand-alone "sandbox" container](#set-up-a-folder-to-run-in-a-container) to isolate your toolchain or speed up setup.
-* Work with a container deployed application defined by an [image, Dockerfile](#using-an-image-or-dockerfile), or [Docker Compose](#using-docker-compose).
+* Spin up a stand-alone "sandbox" container to isolate your toolchain or speed up setup.
+* Work with a container deployed application defined by an [image, Dockerfile](#dockerfile), or [Docker Compose](#using-docker-compose).
 * [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 
 If `devcontainer.json`'s supported workflows do not meet your needs, you can also [attach to an already running container instead](/docs/remote/attach-container.md).
@@ -147,7 +147,7 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 
 When you make changes like installing new software, changes made in the Dockerfile will persist even upon a rebuild of the dev container.
 
-In your Dockerfile, use `FROM` to designate the image, and the `RUN` [instruction](#using-an-image-or-dockerfile) to install any software. You can use `&&` to string together multiple commands.
+In your Dockerfile, use `FROM` to designate the image, and the `RUN` [instruction](#dockerfile) to install any software. You can use `&&` to string together multiple commands.
 
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
