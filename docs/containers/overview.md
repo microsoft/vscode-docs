@@ -11,7 +11,7 @@ MetaDescription: Tools for developing and debugging with Docker containers, usin
 
 The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code.
 
-This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, read about [Docker application development](https://docs.docker.com/develop/) first to understand key Docker concepts.
+This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the [Docker tutorial](https://docs.microsoft.com/visualstudio/docker) first to understand key Docker concepts.
 
 ## Installation
 
@@ -101,3 +101,4 @@ Read on to learn more about
 - [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
 - [Build and run a .NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)
 - [Debug apps within Docker containers](/docs/containers/debug-common.md)
+- [Docker application development](https://docs.docker.com/develop)
