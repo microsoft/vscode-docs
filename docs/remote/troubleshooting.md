@@ -11,7 +11,7 @@ DateApproved: 8/13/2020
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
-For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## SSH tips
 
@@ -885,7 +885,7 @@ Finally, you may need to clone the repository again for these settings to take e
 
 ### Sharing Git credentials between Windows and WSL
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
 
 Just follow these steps:
 
@@ -911,7 +911,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ## GitHub Codespaces tips
 
-For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## Extension tips
 

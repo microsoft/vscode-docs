@@ -357,7 +357,7 @@ The extension will automatically copy your local `.gitconfig` file into the cont
 
 ### Using a credential helper
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
 
 ### Using SSH keys
 
@@ -406,7 +406,7 @@ fi
 
 ### Sharing GPG Keys
 
-If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
+If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
 If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
 

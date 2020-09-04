@@ -11,7 +11,7 @@ DateApproved: 8/13/2020
 
 This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
-For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
+For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## General
 
@@ -33,7 +33,7 @@ Compared to using a network share or synchronizing files, VS Code Remote Develop
 
 ### How do the Remote Development extensions relate to GitHub Codespaces?
 
-[GitHub Codespaces](https://github.com/features/codespaces) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about GitHub Codespaces in [its documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
+[GitHub Codespaces](https://github.com/features/codespaces) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more in the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 While the Remote Development and Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from GitHub Codespaces.
 
