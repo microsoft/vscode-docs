@@ -969,7 +969,7 @@ If you are trying to connect to a localhost port from an external application, t
 
 Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
 
-However, the Remote Development and Visual Studio Codespaces extensions for VS Code itself do not have this limitation.
+However, the Remote Development and Codespaces extensions for VS Code itself do not have this limitation.
 
 **Resolution:** Use the Codespaces extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The Codespaces team is investigating solutions to this problem. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
 

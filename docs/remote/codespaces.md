@@ -45,7 +45,7 @@ There are getting started topics for all three GitHub Codespaces clients. These 
 
 * [Codespaces in VS Code](https://docs.github.com/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code) - Use the [Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension to connect and work in your environment.
 * [Codespaces in the browser](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) - Connect to your codespace through a browser-based editor.
-* [Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for Visual Studio Codespaces.
+* [Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for Codespaces.
 
 ## How-to guides
 
