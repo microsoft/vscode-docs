@@ -76,9 +76,9 @@ Key|Command|Command ID
 
 You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
-### Global Column Selection Settings, Toggle, and Menu Item
+### Column Selection mode
 
-The global setting "Editor: Column Selection" controls this feature. Once this mode is entered, as indicated in the Status bar, the mouse gestures and the arrow keys will create a column selection by default. This global toggle is also accessible via the Selection > Column Selection Mode menu item. In addition, one can also disable Column Selection mode from the Status bar.
+The user setting **Editor: Column Selection** controls this feature. Once this mode is entered, as indicated in the Status bar, the mouse gestures and the arrow keys will create a column selection by default. This global toggle is also accessible via the **Selection** > **Column Selection Mode** menu item. In addition, one can also disable Column Selection mode from the Status bar.
 
 ## Save / Auto Save
 
