@@ -177,18 +177,6 @@ However, if your extension relies on current VS Code pathing conventions (for ex
 
 If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
 
-These APIs were added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-{
-    "engines": {
-        "vscode": "^1.31.0"
-    }
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version.
-
 To use the APIs:
 
 ```TypeScript
@@ -266,16 +254,6 @@ const password = await keytar.getPassword('my-service-name','my-account');
 
 Historically, extension authors have used Node.js modules such as `clipboardy` to interact with the clipboard. Unfortunately, if you use these modules in a Workspace Extension, they will use the remote clipboard instead of the user's local one. The VS Code clipboard API solves this problem. It is always run locally, regardless of the type of extension that calls it.
 
-This API was added in VS Code 1.30. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.30.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.30 or newer will get the updated version.
-
 To use the VS Code clipboard API in an extension:
 
 ```typescript
@@ -299,16 +277,6 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or codespace and serve up content even if that port is blocked externally.
 
 > **Note:** Currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for VS Code do not have this limitation. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
-
-This API was added in VS Code 1.31. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.31.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.31 or newer will get the updated version.
 
 To use the `vscode.env.openExternal` API:
 
@@ -335,16 +303,6 @@ export async function activate(context: vscode.ExtensionContext) {
 While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window or application. This is where the `vscode.env.asExternalUri` API comes in.
 
 > **Note:** Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for VS Code do not have this limitation. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
-
-This API was added in VS Code 1.40. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.40.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
 
 To use the `vscode.env.openExternal` API:
 
@@ -419,16 +377,6 @@ While OAuth is outside the scope of this document, note that if you adapted this
 
 In some cases, your Workspace Extension may need to vary the behavior when running remotely. In others, you might want to vary its behavior when running in the Codespaces browser-based editor. VS Code provides three APIs to detect these situations: `vscode.env.uiKind`, `extension.extensionKind`, and `vscode.env.remoteName`.
 
-The `vscode.env.uiKind` API was added to VS Code 1.40 while `extension.extensionKind` and `vscode.env.remoteName` were added in 1.36. To start, update the `engines.vscode` value in `package.json` to one of these versions and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.40.0"
-}
-```
-
-Now when you publish your extension, only users of this version of VS Code or newer will get the updated version.
-
 Next, you can use the three APIs as follows:
 
 ```typescript
@@ -487,19 +435,9 @@ Like the clipboard API, the [Webview API](/api/extension-guides/webview) is alwa
 
 ### Always use asWebviewUri
 
-VS Code 1.39 introduced a new `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the Codespaces browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.
+You should use the `asWebviewUri` API to manage extension resources. Using this API instead of hard coding `vscode-resource://` URIs is required to ensure the Codespaces browser-based editor works with your extension. See the [Webview API](/api/extension-guides/webview) guide for details, but here is a quick example.
 
-To start, update the `engines.vscode` value in `package.json` to at least 1.39 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.39.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.39 or newer will get the updated version.
-
-Next, you can use the API in your content as follows:
+You can use the API in your content as follows:
 
 ```typescript
 // Create the webview
@@ -551,17 +489,7 @@ VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions t
 
 > **Note:** In addition to the issue above, currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
 
-To start, update the `engines.vscode` value in `package.json` to at least 1.40 and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.40.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.40 or newer will get the updated version.
-
-Next, use the API to get a full URI for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
+Use the API to get a full URI for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
 
 ```typescript
 // Use asExternalUri to get the URI for the web server
@@ -598,16 +526,6 @@ Note that any HTML content served up in the `iframe` in the example above **need
 ### Option 2 - Use a port mapping
 
 If you do **not intend to support the Codespaces browser-based editor**, you can use the `portMapping` option available in the webview API. (This approach will also work with Codespaces from the VS Code client, but not in the browser).
-
-The port mapping API was added in VS Code 1.34. To start, update the `engines.vscode` value in `package.json` to at least this version and make sure you have the [correct VS Code API typings](/api/get-started/extension-anatomy#extension-manifest) installed:
-
-```json
-"engines": {
-    "vscode": "^1.34.0"
-}
-```
-
-Now when you publish your extension, only users on VS Code 1.34 or newer will get the updated version.
 
 To use a port mapping, pass in a `portMapping` object when you create your webview:
 
