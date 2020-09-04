@@ -11,13 +11,11 @@ DateApproved: 8/13/2020
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
-Troubleshooting tips for [Visual Studio Codespaces](https://aka.ms/vso) can be found in the [service's documentation](https://aka.ms/vso-docs/troubleshooting).
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
 
 ## SSH tips
 
 SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
-
-If you are still running into trouble, you may want to try the preview of [Visual Studio Codespaces free self-hosted environment option](https://aka.ms/vso-docs/vscode) since it does not require an SSH server or even an open / directly accessible port on the remote host. The service also allows you use its browser-based editor with the host you register.
 
 ### Configuring key based authentication
 
@@ -502,7 +500,7 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
 
-If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [Visual Studio Codespaces managed cloud-based environments](https://aka.ms/vso-docs/vscode). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
+If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [GitHub Codespaces managed cloud-based environments](https://github.com/features/codespaces). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
 
 ### Docker Desktop for Windows tips
 
@@ -911,9 +909,9 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
-## Visual Studio Codespaces tips
+## GitHub Codespaces tips
 
-See the [Visual Studio Codespaces troubleshooting article](https://aka.ms/vso-docs/troubleshooting) for tips and tricks related to the service or extension.
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/en/github/developing-online-with-codespaces).
 
 ## Extension tips
 
@@ -949,7 +947,7 @@ Some extensions use node modules like `clipboardy` to integrate with the clipboa
 
 ### Cannot access local web server from browser or application
 
-When working inside a container, SSH host, or through Visual Studio Codespaces, the port the browser is connecting to may be blocked.
+When working inside a container, SSH host, or through GitHub Codespaces, the port the browser is connecting to may be blocked.
 
 **Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Forward a Port** command to do so manually.
 
@@ -969,7 +967,7 @@ If you are trying to connect to a localhost port from an external application, t
 
 ### Websockets do not work in port forwarded content in the Codespaces browser-based editor
 
-Currently the forwarding mechanism in the Visual Studio Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
+Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
 
 However, the Remote Development and Visual Studio Codespaces extensions for VS Code itself do not have this limitation.
 
