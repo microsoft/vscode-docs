@@ -141,7 +141,7 @@ If a kernel has been directly registered to a `NotebookContentProvider` via the 
 
 Samples:
 
-* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/notebookProvider.ts): Kernel to execute queries for GitHub Issues
+* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/extension/notebookProvider.ts): Kernel to execute queries for GitHub Issues
 
 <!-- - [HTTP Request Notebook](): Kernel to issue HTTP requests (TODO: PR against https://github.com/Huachao/vscode-restclient to add notebooks) -->
 
