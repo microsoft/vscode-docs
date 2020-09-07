@@ -56,11 +56,11 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ## Troubleshooting keybindings
 
-To troubleshoot keybindings problems, you can execute the command `Developer: Toggle Keyboard Shortcuts Troubleshooting`. This will activate logging of dispatching keyboard shortcuts and will open an output panel with the corresponding log file.
+To troubleshoot keybindings problems, you can execute the command **Developer: Toggle Keyboard Shortcuts Troubleshooting**. This will activate logging of dispatched keyboard shortcuts and will open an output panel with the corresponding log file.
 
-Then, if you press your desired keybinding, you can check what VS Code detects and what command is invoked.
+You can then press your desired keybinding and check what keyboard shortcut VS Code detects and what command is invoked.
 
-e.g. Pressing `cmd+/` in a code editor, on a macbook:
+For example, when pressing `cmd+/` in a code editor on macOS, the logging output would be:
 
 ```
 [KeybindingService]: / Received  keydown event - modifiers: [meta], code: MetaLeft, keyCode: 91, key: Meta
@@ -72,7 +72,7 @@ e.g. Pressing `cmd+/` in a code editor, on a macbook:
 [KeybindingService]: \ From 2 keybinding entries, matched editor.action.commentLine, when: editorTextFocus && !editorReadonly, source: built-in.
 ```
 
-The first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keybinding entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, had the `when` condition `editorTextFocus && !editorReadonly` and was a built in keybinding entry.
+The first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keybinding entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, which has the `when` condition `editorTextFocus && !editorReadonly` and is a built-in keybinding entry.
 
 ## Viewing modified keybindings
 
