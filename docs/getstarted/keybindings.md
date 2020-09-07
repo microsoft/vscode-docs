@@ -54,6 +54,26 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
 
+## Troubleshooting keybindings
+
+To troubleshoot keybindings problems, you can execute the command `Developer: Toggle Keyboard Shortcuts Troubleshooting`. This will activate logging of dispatching keyboard shortcuts and will open an output panel with the corresponding log file.
+
+Then, if you press your desired keybinding, you can check what VS Code detects and what command is invoked.
+
+e.g. Pressing `cmd+/` in a code editor, on a macbook:
+
+```
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: MetaLeft, keyCode: 91, key: Meta
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: MetaLeft, keyCode: 57 ('Meta')
+[KeybindingService]: \ Keyboard event cannot be dispatched.
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: Slash, keyCode: 191, key: /
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: Slash, keyCode: 85 ('/')
+[KeybindingService]: | Resolving meta+[Slash]
+[KeybindingService]: \ From 2 keybinding entries, matched editor.action.commentLine, when: editorTextFocus && !editorReadonly, source: built-in.
+```
+
+The first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keybinding entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, had the `when` condition `editorTextFocus && !editorReadonly` and was a built in keybinding entry.
+
 ## Viewing modified keybindings
 
 You can view any user modified keyboard shortcuts in VS Code in the **Keyboard Shortcuts** editor with the **Show User Keybindings** command in the **More Actions** (**...**) menu. This applies the `@source:user` filter to the **Keyboard Shortcuts** editor (**Source** is 'User').
