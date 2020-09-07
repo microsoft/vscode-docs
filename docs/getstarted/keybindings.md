@@ -360,7 +360,8 @@ Context name | True when
 `activeEditorGroupIndex` | Index of the active editor in an group (beginning with `1`).
 `activeEditorGroupLast` | True when the active editor in an group is the last one.
 `multipleEditorGroups` | True when multiple editor groups are present.
-`editorPinned` | True when the active editor in a group is pinned (not in preview mode).
+`editorPinned` | True when the active editor in a group is not in preview mode.
+`editorSticky` | True when the active editor in a group is pinned.
 `activeEditor` | The identifier of the active editor in a group.
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
