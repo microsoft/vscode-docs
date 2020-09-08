@@ -9,7 +9,7 @@ DateApproved: 8/13/2020
 ---
 # Working with MongoDB
 
-Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases. Through the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage and query MongoDB databases from within VS Code.
+Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or in [Azure with MongoDB Atlas](https://www.mongodb.com/cloud/atlas/azure-mongodb?utm_campaign=marketplace&utm_source=&utm_medium=marketplace). With the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage and query MongoDB databases from within VS Code.
 
 ## Install the extension
 
@@ -33,9 +33,15 @@ Once attached, you can work with the MongoDB server, managing MongoDB Databases,
 
 ![attached MongoDB database](images/mongodb/attached-mongodb-database.png)
 
-You can expand databases to view their schema and collections and click on individual MongoDB Documents to view their JSON.
+You can expand databases to view their collections with their schema and indexes and you can click on individual MongoDB Documents to view their JSON.
 
 ![open mongodb document](images/mongodb/open-document.png)
+
+You can also attach a MongoDB shell to the active connection, simply by right-clicking on the connection itself.
+
+![MongoDB Connection](image/mongodb/connection.png)
+
+>**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) [is installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
 
 ## MongoDB Commands
 
@@ -57,7 +63,7 @@ In a playground, you can reference MongoDB entities and commands and you get ric
 
 ## MongoDB on Azure
 
-You can easily create a MongoDB cluster on Azure for **Free** with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_source=vscode&utm_medium=product&utm_campaign=VS%20code%20documentation).
+You can easily create a MongoDB cluster on Azure for **Free** with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/signup?utm_campaign=marketplace&utm_source=signup&utm_medium=marketplace).
 
 Choose **Create a New Cluster** from the dashbaord and choose **Azure** as the Cloud Provider. Once the cluster is created, connect to using the connection string provided by **MongoDB Atlas**.
 
