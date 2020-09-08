@@ -155,8 +155,11 @@ In your Dockerfile, use `FROM` to designate the image, and the `RUN` [instructio
 
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
-RUN apt-get update && apt-get install git
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get install git
 ```
+
+> Note: We've added the `DEBIAN_FRONTEND` export here to avoid warnings when you go on to work with your container.
 
 ### Automating dev container creation
 
