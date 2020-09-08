@@ -129,7 +129,11 @@ The `postCreateCommand` is run once the container is running, so you can also us
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
 ```
 
-Rather than referencing an image directly in `devcontainer.json` or installing software via the `postCreateCommand`, an even more efficient practice is to use a Dockerfile.
+The command needs to exit or the container won't start. For instance, if you add an application start to `postCreateCommand`, the command wouldn't exit.
+
+There is also a `postStartCommand` that executes every time- it runs when the container starts. The parameters behave exactly like `postCreateCommand`, but the commands execute on start rather than create.
+
+Rather than referencing an image directly in `devcontainer.json` or installing software via the `postCreateCommand` or `postStartCommand`, an even more efficient practice is to use a Dockerfile.
 
 ## Dockerfile
 
