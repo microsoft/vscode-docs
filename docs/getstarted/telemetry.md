@@ -25,6 +25,18 @@ If you use the JSON editor for your settings, add the following line:
     "telemetry.enableTelemetry": false
 ```
 
+## Disable crash reporting
+
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services.
+
+If you don't wish to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
+
+* Open the Command Palette (`kb(workbench.action.showCommands)`).
+* Run the **Preferences: Configure Runtime Arguments** command.
+* This command will open a `argv.json` file to configure runtime arguments.
+* Edit `"enable-crash-reporter": false`.
+* Restart VS Code.
+
 ## Extensions and telemetry
 
 VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
