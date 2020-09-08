@@ -141,7 +141,7 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 
 ```json
 {
-    "dockerFile": "Dockerfile",
+    "build": { "dockerFile": "Dockerfile" },
     "extensions": [
         "dbaeumer.vscode-eslint"
     ],
