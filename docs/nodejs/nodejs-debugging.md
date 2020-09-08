@@ -212,6 +212,28 @@ After enabling **Auto Attach**, the debugger should attach to your program withi
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
 
+#### Auto Attach Smart Patterns
+
+In `smart` auto attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options). This list is configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+
+```js
+[
+  "!**/node_modules/**", // exclude scripts in node_modules folders
+  "**/$KNOWN_TOOLS$/**"  // but include some common tools
+]
+```
+
+`$KNOWN_TOOLS$` is replaced list a list of common 'code runners' such as `ts-node`, `mocha`, `ava`, and so on. You can modify this list if these settings don't work. For example, to exclude `mocha` and include `my-cool-test-runner`, you could add two lines:
+
+```js
+[
+  "!**/node_modules/**",
+  "**/$KNOWN_TOOLS$/**",
+  "!**/node_modules/mocha/**", // use "!" to exclude all scripts in "mocha" node modules
+  "**/node_modules/my-cool-test-runner/**" // include scripts in the custom test runner
+]
+```
+
 ### Attach to Node Process action
 
 The **Attach to Node Process** action opens a Quick Pick menu that lists all potential processes that are available to the Node.js debugger:
