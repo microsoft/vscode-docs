@@ -310,6 +310,17 @@ security_opt:
 
 After you create your container for the first time, you will need to run the **Remote-Containers: Rebuild Container** command for updates to `devcontainer.json`, your Docker Compose files, or related Dockerfiles to take effect.
 
+### Using Localhost in Docker Compose
+
+You can add other services to your docker-compose.yml file as described in [Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
+
+```yaml
+# Runs the service on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+network_mode: service:db
+```
+
+You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/master/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L22).
+
 ### Extend your Docker Compose file for development
 
 Referencing an existing deployment / non-development focused `docker-compose.yml` has some potential downsides.
