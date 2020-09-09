@@ -110,18 +110,7 @@ sudo apt-get install git
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
 
-However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use a series of commands in the `postCreateCommand` property in `devcontainer.json`:
-
-```json
-{
-    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
-    "forwardPorts": [ 3000 ],
-    "postCreateCommand": "sudo apt-get update && sudo apt-get install git",
-}
-```
+However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
 
 The `postCreateCommand` is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
@@ -286,17 +275,7 @@ user: your-user-name-here
 
 If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as `curl` inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose.
 
-```json
-"postCreateCommand": "apt-get update && apt-get install -y curl"
-```
-
-Or if running as a non-root user and `sudo` is installed in the container:
-
-```json
-"postCreateCommand": "sudo apt-get update && sudo apt-get install -y curl"
-```
-
-See [installing additional software](#install-additional-software) for more information on using `apt-get` to install software.
+See [installing additional software](#install-additional-software) for more information on installing software and the [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) for more information about the `postCreateCommand` property.
 
 If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
 
