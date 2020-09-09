@@ -9,7 +9,7 @@ DateApproved: 8/13/2020
 ---
 # Working with MongoDB
 
-Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or in [Azure with MongoDB Atlas](https://www.mongodb.com/cloud/atlas/azure-mongodb?utm_campaign=marketplace&utm_source=&utm_medium=marketplace). With the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage and query MongoDB databases from within VS Code.
+Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases, whether your own instance or in [Azure with MongoDB Atlas](https://www.mongodb.com/cloud/atlas/azure-mongodb?utm_campaign=marketplace&utm_source=&utm_medium=marketplace). With the [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode) extension, you can create, manage, and query MongoDB databases from within VS Code.
 
 ## Install the extension
 
@@ -19,27 +19,27 @@ MongoDB support for VS Code is provided by the [MongoDB for VS Code](https://mar
 
 ## Connect to MongoDB
 
-Once you've installed the MongoDB for VS Code extension, you'll notice there is a new **MongoDB** Activity Bar view. Click on the MongoDB view and you'll see the MongoDB Explorer.
+Once you've installed the MongoDB for VS Code extension, you'll notice there is a new **MongoDB** Activity Bar view. Select the MongoDB view and you'll see the MongoDB Explorer.
 
 ![MongoDB explorer](images/mongodb/cosmosdb-explorer.png)
 
-To connect to a MongoDB database, click **Add Connection** and enter the connection details for the database then click **Connect**, the default is a local MongoDB server at `mongodb://127.0.0.1:27017`. You can also enter a connection string, click the "connect with a connection string" link and paste the connection string.
+To connect to a MongoDB database, select **Add Connection** and enter the connection details for the database then **Connect**, the default is a local MongoDB server at `mongodb://127.0.0.1:27017`. You can also enter a connection string, click the "connect with a connection string" link and paste the connection string.
 
 ![Database Connection setup](images/mongodb/attach-database-account.png)
 
 >**Note**: Make sure your MongoDB server (mongod.exe) is running if you are connecting to a local MongoDB server.
 
-Once attached, you can work with the MongoDB server, managing MongoDB Databases, Collections and Documents.
+Once attached, you can work with the MongoDB server, managing MongoDB Databases, Collections, and Documents.
 
 ![attached MongoDB database](images/mongodb/attached-mongodb-database.png)
 
-You can expand databases to view their collections with their schema and indexes and you can click on individual MongoDB Documents to view their JSON.
+You can expand databases to view their collections with their schema and indexes and you can select individual MongoDB Documents to view their JSON.
 
 ![open mongodb document](images/mongodb/open-document.png)
 
 You can also attach a MongoDB shell to the active connection, simply by right-clicking on the connection itself.
 
-![MongoDB Connection](image/mongodb/connection.png)
+![MongoDB Connection](images/mongodb/connection.png)
 
 >**Note**: Make sure the MongoDB shell (`mongo` or `mongosh`) [is installed](https://docs.mongodb.com/mongodb-shell/install#mdb-shell-install) and is on your path. In the extension's settings, you can choose which shell you are using.
 
@@ -55,7 +55,7 @@ One of the most powerful features of the VS Code MongoDB integration is **Mongo 
 
 ![new mongo Playground](images/mongodb/new-mongo-scrapbook.png)
 
-In a playground, you can reference MongoDB entities and commands and you get rich IntelliSense as you type. Playgrounds are extremely useful for prototyping database operations and queries. Execute selected lines in the playground queries with the **MongoDB: Run Selected Lines From Playground** command.
+In a playground, you can reference MongoDB entities and commands and you get rich IntelliSense as you type. Playgrounds are useful for prototyping database operations and queries. Execute selected lines in the playground queries with the **MongoDB: Run Selected Lines From Playground** command.
 
 ![mongodb Playground](images/mongodb/scrapbook.png)
 
@@ -65,10 +65,9 @@ In a playground, you can reference MongoDB entities and commands and you get ric
 
 You can easily create a MongoDB cluster on Azure for **Free** with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/signup?utm_campaign=marketplace&utm_source=signup&utm_medium=marketplace).
 
-Choose **Create a New Cluster** from the dashbaord and choose **Azure** as the Cloud Provider. Once the cluster is created, connect to using the connection string provided by **MongoDB Atlas**.
+Choose **Create a New Cluster** from the dashboard and choose **Azure** as the Cloud Provider. Once the cluster is created, connect to using the connection string provided by **MongoDB Atlas**.
 
 ![Create Azure Cluster](images/mongodb/create-azure-cluster.png)
-
 
 ## Next steps
 
