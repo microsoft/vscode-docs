@@ -22,6 +22,8 @@ In this document, we'll take a look at the steps for creating a development cont
 
 After any of the steps above, you'll have a fully functioning dev container, and you can either continue to the next step of the doc to add more features, or stop there to work in the dev environment you currently have.
 
+> Note: The Remote - Containers extension has a **Remote-Containers: Add Development Container Configuration Files...** command that lets you pick a pre-defined container configuration from a list. If you'd prefer to have a complete dev container immediately rather than building up the `devcontainer.json` and Dockerfile step-by-step, you can skip ahead to [Automating dev container creation](#Automating-dev-container-creation).
+
 ## Create a devcontainer.json file
 
 VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
@@ -73,7 +75,7 @@ With this command, you're now developing within a Node.js and TypeScript dev con
 
 ![VS Code instance connected to dev container](images\containers\connected-to-dev-container.png)
 
-##  Install additional software
+## Install additional software
 
 You may want to install additional software in your dev container. Once VS Code is connected to the container, you can open a VS Code terminal and execute any command against the OS inside the container. This allows you to install new command-line utilities and spin up databases or application services from inside the Linux container.
 
