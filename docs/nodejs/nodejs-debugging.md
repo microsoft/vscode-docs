@@ -198,23 +198,23 @@ Now you have three options for attaching the debugger to your program:
 
 Let's go through these options in detail:
 
-### Auto Attach Feature
+### Auto Attach feature
 
 If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from VS Code's Integrated Terminal. There are three modes for auto attach, configurable in the **debug.javascript.autoAttachFilter** setting:
 
-- `smart` (default): if you execute a script outside of your `node_modules` folder or use a common 'runner' script like mocha or ts-node, the process will be debugged. You can configure the 'runner' script allowlist using the **debug.javascript.autoAttachSmartPattern**.
-- `always`: all Node.js processes launched in the Integrated Terminal will be debugged.
-- `onlyWithFlag`: only processes launched with the `--inspect` or `--inspect-brk` flag will be debugged.
+* `smart` - If you execute a script outside of your `node_modules` folder or use a common 'runner' script like mocha or ts-node, the process will be debugged. You can configure the 'runner' script allowlist using the **Auto Attach Smart Pattern** setting (`debug.javascript.autoAttachSmartPattern`). This is the default.
+* `always` - All Node.js processes launched in the Integrated Terminal will be debugged.
+* `onlyWithFlag` - Only processes launched with the `--inspect` or `--inspect-brk` flag will be debugged.
 
-To enable the feature, either use the **Toggle Auto Attach** action or, if the Node debugger is already activated, use the **Auto Attach** Status Bar item.
+To enable the feature, either use the **Toggle Auto Attach** action or, if the Node debugger is already activated, use the **Auto Attach** Status bar item.
 
 After enabling **Auto Attach**, the debugger should attach to your program within a second:
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
 
-#### Auto Attach Smart Patterns
+**Auto Attach Smart Patterns**
 
-In `smart` auto attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options). This list is configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options). This list is configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
 
 ```js
 [
