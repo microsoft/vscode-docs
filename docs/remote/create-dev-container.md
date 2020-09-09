@@ -151,7 +151,7 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 
 When you make changes like installing new software, changes made in the Dockerfile will persist even upon a rebuild of the dev container.
 
-In your Dockerfile, use `FROM` to designate the image, and the `RUN` [instruction](#dockerfile) to install any software. You can use `&&` to string together multiple commands.
+In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. You can use `&&` to string together multiple commands.
 
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
