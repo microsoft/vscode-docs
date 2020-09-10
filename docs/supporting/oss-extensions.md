@@ -60,7 +60,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [GitHub Issues](https://marketplace.visualstudio.com/items/ms-vscode.github-issues-prs) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.github-issues-prs/license) |
 | [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode) |  | [Microsoft](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) |
 | [Java Debugger](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
-| [Java Dependency Viewer](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency/license) |
+| [Project Manager for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency/license) |
 | [Java for Dev Spaces](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debugger-azds) |  | [Microsoft](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debugger-azds/license) |
 | [Java Test Runner](https://marketplace.visualstudio.com/items/vscjava.vscode-java-test) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-test/license) |
 | [JavaScript Atom Grammar](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar) | ✔ ([Repo](https://github.com/microsoft/vscode-js-atom-grammar)) | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar/license) |
