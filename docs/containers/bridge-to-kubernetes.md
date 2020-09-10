@@ -3,20 +3,20 @@ Order: 11
 Area: containers
 TOCTitle: Develop with Kubernetes
 ContentId: 1b347391-cb5e-46ac-8fa0-e893c13e6a24
-PageTitle: Use Local Process to run and debug locally with Kubernetes
+PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
 DateApproved: 07/22/2020
-MetaDescription: Learn how to use Local Process with Kubernetes to connect your development computer to a Kubernetes cluster
+MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
 ---
 
-# Use Local Process with Kubernetes with Visual Studio Code (preview)
+# Use Bridge to Kubernetes with Visual Studio Code (preview)
 
-Local Process with Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
+Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
 
-Local Process with Kubernetes avoids having to build and deploy your code to your cluster by instead creating a connection directly between your development computer and your cluster. Connecting your development computer to your cluster while debugging allows you to quickly test and develop your service in the context of the full application without creating any Docker or Kubernetes configuration.
+Bridge to Kubernetes avoids having to build and deploy your code to your cluster by instead creating a connection directly between your development computer and your cluster. Connecting your development computer to your cluster while debugging allows you to quickly test and develop your service in the context of the full application without creating any Docker or Kubernetes configuration.
 
-Local Process with Kubernetes redirects traffic between your connected Kubernetes cluster and your development computer. This traffic redirection allows code on your development computer and services running in your Kubernetes cluster to communicate as if they are in the same Kubernetes cluster. Local Process with Kubernetes also provides a way to replicate environment variables and mounted volumes available to pods in your Kubernetes cluster in your development computer. Providing access to environment variables and mounted volumes on your development computer allows you to quickly work on your code without having to replicate those dependencies manually.
+Bridge to Kubernetes redirects traffic between your connected Kubernetes cluster and your development computer. This traffic redirection allows code on your development computer and services running in your Kubernetes cluster to communicate as if they are in the same Kubernetes cluster. Bridge to Kubernetes also provides a way to replicate environment variables and mounted volumes available to pods in your Kubernetes cluster in your development computer. Providing access to environment variables and mounted volumes on your development computer allows you to quickly work on your code without having to replicate those dependencies manually.
 
-In this guide, you will learn how to use Local Process with Kubernetes to redirect traffic between your Kubernetes cluster and code running on your development computer. This guide also provides a script for deploying a large sample application with multiple microservices on a Kubernetes cluster.
+In this guide, you will learn how to use Bridge to Kubernetes to redirect traffic between your Kubernetes cluster and code running on your development computer. This guide also provides a script for deploying a large sample application with multiple microservices on a Kubernetes cluster.
 
 > **Important**: This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][preview-terms]. Some aspects of this feature may change prior to general availability (GA).
 
@@ -29,7 +29,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli].
 * [Visual Studio Code][vs-code] running on macOS or Windows 10.
-* The [Local Process with Kubernetes][lpk-vs-code] extension installed in Visual Studio Code.
+* The [Bridge to Kubernetes][lpk-vs-code] extension installed in Visual Studio Code.
 
 ## Create a Kubernetes cluster
 
@@ -91,17 +91,17 @@ Use the `npm install` command to install the dependencies for the application.
 npm install
 ```
 
-Select the **Debug** icon on the left and select **Local Process with Kubernetes (Preview)** at the top.
+Select the **Debug** icon on the left and select **Bridge to Kubernetes (Preview)** at the top.
 
-![Choose Local Process with Kubernetes](images/local-process-kubernetes-vs-code/choose-local-process.png)
+![Choose Bridge to Kubernetes](images/local-process-kubernetes-vs-code/choose-local-process.png)
 
-Click on the start button next to **Local Process with Kubernetes (Preview)**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
+Click on the start button next to **Bridge to Kubernetes (Preview)**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
 
 Choose the **bikes** service.
 
 ![Choose Service](images/local-process-kubernetes-vs-code/choose-service.png)
 
-All traffic in the Kubernetes cluster is redirected for the bikes service to the version of your application running in your development computer. Local Process with Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
+All traffic in the Kubernetes cluster is redirected for the bikes service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
 > **Important**: You can only redirect services that have a single pod.
 
@@ -123,7 +123,7 @@ Your development computer is connected when the VS Code status bar turns orange 
 
 ![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Local Process with Kubernetes: Configure Local Process with Kubernetes**.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Bridge to Kubernetes: Configure Bridge to Kubernetes**.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
@@ -156,17 +156,17 @@ Save your changes and press `kb(workbench.action.debug.restart)` or click **Run*
 
 Click **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
-> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Local Process With Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the LPK extension on the status bar then choose **Disconnect current session**.
+> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Bridge to Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the Bridge to Kubernetes extension on the status bar then choose **Disconnect current session**.
 >
-> If Visual Studio Code abruptly ends the connection to the cluster or terminates, the service you are redirecting may not be restored to its original state before you connected with Local Process with Kubernetes. To fix this issue, see the [Troubleshooting guide][troubleshooting].
+> If Visual Studio Code abruptly ends the connection to the cluster or terminates, the service you are redirecting may not be restored to its original state before you connected with Bridge to Kubernetes. To fix this issue, see the [Troubleshooting guide][troubleshooting].
 
 ## Additional configuration
 
-Local Process with Kubernetes can handle routing traffic and replicating environment variables without any additional configuration. If you need to download any files that are mounted to the container in your Kubernetes cluster, such as a ConfigMap file, you can create a `KubernetesLocalProcessConfig.yaml` to download those files to your development computer. For more information, see [Configure Local Process with Kubernetes][kubernetesLocalProcessConfig-yaml].
+Bridge to Kubernetes can handle routing traffic and replicating environment variables without any additional configuration. If you need to download any files that are mounted to the container in your Kubernetes cluster, such as a ConfigMap file, you can create a `KubernetesLocalProcessConfig.yaml` to download those files to your development computer. For more information, see [Configure Bridge to Kubernetes][kubernetesLocalProcessConfig-yaml].
 
 ## Using logging and diagnostics
 
-Logging output is written to the **Local Process with Kubernetes** window after your development computer is connected to your Kubernetes cluster.
+Logging output is written to the **Bridge to Kubernetes** window after your development computer is connected to your Kubernetes cluster.
 
 ![Output](images/local-process-kubernetes-vs-code/output.png)
 
@@ -174,7 +174,7 @@ Click on the **Kubernetes** status bar and choose **Show connection diagnostics 
 
 ![Output with diagnostics](images/local-process-kubernetes-vs-code/output-diagnostics.png)
 
-Additionally, you can find the diagnostic logs in the `Local Process with Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
+Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
 
 ## Remove the sample application from your cluster
 
