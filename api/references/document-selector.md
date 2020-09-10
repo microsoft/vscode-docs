@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f328d7e0-8982-4510-b7fb-975188eca502
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions can filter their features based on Document Selectors by language, file type, and location.
