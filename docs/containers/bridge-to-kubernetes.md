@@ -83,7 +83,7 @@ az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 
 Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **bikeapp** namespace in the **MyAKS** cluster. Right-click the **bikeapp** node, and choose **Use Namespace**.
 
-![Select Namespace](images/local-process-kubernetes-vs-code/select-namespace.png)
+![Select Namespace](images/bridge-to-kubernetes-vs-code/select-namespace.png)
 
 Use the `npm install` command to install the dependencies for the application.
 
@@ -93,13 +93,13 @@ npm install
 
 Select the **Debug** icon on the left and select **Bridge to Kubernetes (Preview)** at the top.
 
-![Choose Bridge to Kubernetes](images/local-process-kubernetes-vs-code/choose-local-process.png)
+![Choose Bridge to Kubernetes](images/bridge-to-kubernetes-vs-code/choose-bridge-to-kubernetes.png)
 
 Click on the start button next to **Bridge to Kubernetes (Preview)**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
 
 Choose the **bikes** service.
 
-![Choose Service](images/local-process-kubernetes-vs-code/choose-service.png)
+![Choose Service](images/bridge-to-kubernetes-vs-code/choose-service.png)
 
 All traffic in the Kubernetes cluster is redirected for the bikes service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
@@ -107,21 +107,21 @@ All traffic in the Kubernetes cluster is redirected for the bikes service to the
 
 After you select your service, you are prompted to enter the TCP port for your local application. For this example, enter "3000".
 
-![Connect choose port](images/local-process-kubernetes-vs-code/choose-port.png)
+![Connect choose port](images/bridge-to-kubernetes-vs-code/choose-port.png)
 
 Choose **Launch via NPM** as the launch task.
 
-![Connect choose launch task](images/local-process-kubernetes-vs-code/choose-launch.png)
+![Connect choose launch task](images/bridge-to-kubernetes-vs-code/choose-launch.png)
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes#using-routing-capabilities-for-developing-in-isolation).
 
-![Isolation prompt](images/local-process-kubernetes-vs-code/lpk-isolation-prompt.png)
+![Isolation prompt](images/bridge-to-kubernetes-vs-code/lpk-isolation-prompt.png)
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
-![Development computer connected](images/local-process-kubernetes-vs-code/development-computer-connected.png)
+![Development computer connected](images/bridge-to-kubernetes-vs-code/development-computer-connected.png)
 
 > **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Bridge to Kubernetes: Configure Bridge to Kubernetes**.
 
@@ -168,11 +168,11 @@ Bridge to Kubernetes can handle routing traffic and replicating environment vari
 
 Logging output is written to the **Bridge to Kubernetes** window after your development computer is connected to your Kubernetes cluster.
 
-![Output](images/local-process-kubernetes-vs-code/output.png)
+![Output](images/bridge-to-kubernetes-vs-code/output.png)
 
 Click on the **Kubernetes** status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
 
-![Output with diagnostics](images/local-process-kubernetes-vs-code/output-diagnostics.png)
+![Output with diagnostics](images/bridge-to-kubernetes-vs-code/output-diagnostics.png)
 
 Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
 
