@@ -18,8 +18,6 @@ Bridge to Kubernetes redirects traffic between your connected Kubernetes cluster
 
 In this guide, you will learn how to use Bridge to Kubernetes to redirect traffic between your Kubernetes cluster and code running on your development computer. This guide also provides a script for deploying a large sample application with multiple microservices on a Kubernetes cluster.
 
-> **Important**: This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][preview-terms]. Some aspects of this feature may change prior to general availability (GA).
-
 ## Before you begin
 
 This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster. If you already have your own application running on a Kubernetes cluster, you can still follow the steps below and use the names of your own services.
@@ -91,11 +89,11 @@ Use the `npm install` command to install the dependencies for the application.
 npm install
 ```
 
-Select the **Debug** icon on the left and select **Bridge to Kubernetes (Preview)** at the top.
+Select the **Debug** icon on the left and select **Bridge to Kubernetes** at the top.
 
 ![Choose Bridge to Kubernetes](images/bridge-to-kubernetes-vs-code/choose-bridge-to-kubernetes.png)
 
-Click on the start button next to **Bridge to Kubernetes (Preview)**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
+Click on the start button next to **Bridge to Kubernetes**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
 
 Choose the **bikes** service.
 
