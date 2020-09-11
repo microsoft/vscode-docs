@@ -29,7 +29,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli].
 * [Visual Studio Code][vs-code] running on macOS or Windows 10.
-* The [Bridge to Kubernetes][lpk-vs-code] extension installed in Visual Studio Code.
+* The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
 ## Create a Kubernetes cluster
 
@@ -56,14 +56,14 @@ Install the sample application on your cluster using the provided script. You ca
 ```azurecli-interactive
 git clone https://github.com/Microsoft/mindaro
 cd mindaro/
-chmod +x ./local-process-quickstart.sh
-./local-process-quickstart.sh -g MyResourceGroup -n MyAKS
+chmod +x ./bridge-quickstart.sh
+./bridge-quickstart.sh -g MyResourceGroup -n MyAKS
 ```
 
 Navigate to the sample application running your cluster by opening its public URL, which is displayed in the output of the installation script.
 
 ```console
-$ ./local-process-quickstart.sh -g MyResourceGroup -n MyAKS
+$ ./bridge-quickstart.sh -g MyResourceGroup -n MyAKS
 Checking directory /home/<user>/mindaro for GIT repo Microsoft/Mindaro
 Setting the Kube context
 ...
@@ -115,7 +115,7 @@ Choose **Launch via NPM** as the launch task.
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
-You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-local-process-kubernetes#using-routing-capabilities-for-developing-in-isolation).
+You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes#using-routing-capabilities-for-developing-in-isolation).
 
 ![Isolation prompt](images/local-process-kubernetes-vs-code/lpk-isolation-prompt.png)
 
@@ -181,13 +181,17 @@ Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` dir
 Use the provided script to remove the sample application from your cluster.
 
 ```azurecli-interactive
-./local-process-quickstart.sh -c -g MyResourceGroup -n MyAKS
+./bridge-quickstart.sh -c -g MyResourceGroup -n MyAKS
 ```
+
+## Next steps
+
+Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-how-it-works].
 
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
 [azds-cli]: https://docs.microsoft.com/azure/dev-spaces/how-to/install-dev-spaces#install-the-client-side-tools
 [azds-tmp-dir]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#before-you-begin
-[lpk-vs-code]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro
+[btk-vs-code]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
@@ -198,4 +202,5 @@ Use the provided script to remove the sample application from your cluster.
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [troubleshooting]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#fail-to-restore-original-configuration-of-deployment-on-cluster
 [vs-code]: https://code.visualstudio.com/download
-[kubernetesLocalProcessConfig-yaml]: https://docs.microsoft.com/visualstudio/containers/configure-local-process-with-kubernetes
+[kubernetesLocalProcessConfig-yaml]: https://docs.microsoft.com/visualstudio/containers/configure-bridge-to-kubernetes
+[btk-how-it-works]: https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes
