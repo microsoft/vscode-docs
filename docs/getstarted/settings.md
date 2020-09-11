@@ -298,7 +298,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font size in pixels.
     "editor.fontSize": 14,
 
-    // Controls the font weight.
+    // Controls the font weight. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
     "editor.fontWeight": "normal",
 
     // Controls whether the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
