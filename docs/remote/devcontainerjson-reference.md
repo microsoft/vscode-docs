@@ -9,13 +9,13 @@ DateApproved: 9/11/2020
 ---
 # devcontainer.json reference
 
-A `devcontainer.json` file in your project tells Visual Studio Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase. It can be used with the [VS Code Remote - Containers extension](vscode-remote/download/containers) or [GitHub Codespaces](https://github.com/features/codespaces).
+A `devcontainer.json` file in your project tells Visual Studio Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase. It can be used with the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension or [GitHub Codespaces](https://github.com/features/codespaces).
 
 See [Set up a folder to run in a container](/docs/remote/create-dev-container.md#set-up-a-folder-to-run-in-a-container) for more information on configuring a dev container or the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/master/containers) for a wide variety of base configurations.
 
 ## devcontainer.json properties
 
-Some devcontainer.json properties apply to specific scenarios while others apply generally. The following table will outline the properties that apply in each situation.
+While some devcontainer.json properties apply generally, others are only used in specific scenarios. The following table will outline the properties that apply in each situation.
 
 | Property | Type | Description |
 |----------|------|-------------|
