@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Overview
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 PageTitle: Setting up Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: quicksetup_QuickSetup.png
 ---

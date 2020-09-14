@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -53,6 +53,26 @@ The **Keyboard Shortcuts** editor has a context menu command **Show Same Keybind
 Pick a command with the keybinding you think is overloaded and you can see if multiple commands are defined, the source of the keybindings and when they are active.
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
+
+## Troubleshooting keybindings
+
+To troubleshoot keybindings problems, you can execute the command **Developer: Toggle Keyboard Shortcuts Troubleshooting**. This will activate logging of dispatched keyboard shortcuts and will open an output panel with the corresponding log file.
+
+You can then press your desired keybinding and check what keyboard shortcut VS Code detects and what command is invoked.
+
+For example, when pressing `cmd+/` in a code editor on macOS, the logging output would be:
+
+```
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: MetaLeft, keyCode: 91, key: Meta
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: MetaLeft, keyCode: 57 ('Meta')
+[KeybindingService]: \ Keyboard event cannot be dispatched.
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: Slash, keyCode: 191, key: /
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: Slash, keyCode: 85 ('/')
+[KeybindingService]: | Resolving meta+[Slash]
+[KeybindingService]: \ From 2 keybinding entries, matched editor.action.commentLine, when: editorTextFocus && !editorReadonly, source: built-in.
+```
+
+The first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keybinding entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, which has the `when` condition `editorTextFocus && !editorReadonly` and is a built-in keybinding entry.
 
 ## Viewing modified keybindings
 
@@ -340,7 +360,8 @@ Context name | True when
 `activeEditorGroupIndex` | Index of the active editor in an group (beginning with `1`).
 `activeEditorGroupLast` | True when the active editor in an group is the last one.
 `multipleEditorGroups` | True when multiple editor groups are present.
-`editorPinned` | True when the active editor in a group is pinned (not in preview mode).
+`editorPinned` | True when the active editor in a group is not in preview mode.
+`editorSticky` | True when the active editor in a group is pinned.
 `activeEditor` | The identifier of the active editor in a group.
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.

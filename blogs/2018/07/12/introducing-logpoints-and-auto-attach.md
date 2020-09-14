@@ -141,6 +141,7 @@ Since the first release of Logpoints in VS Code, we have seen a growing adoption
 - [Dart debugger](https://github.com/Dart-Code/Dart-Code)
 - [Lua debugger](https://github.com/actboy168/vscode-lua-debug)
 - [Java Debugger](https://github.com/microsoft/java-debug/pull/184)
+- [Debugger for Mainframe](https://marketplace.visualstudio.com/items?itemName=broadcomMFD.debugger-for-mainframe)
 
 ### Logpoints in the VS Code
 

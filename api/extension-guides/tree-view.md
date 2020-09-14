@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -33,7 +33,7 @@ Here's the `package.json` for the first version of our extension:
 {
     "name": "custom-view-samples",
     "displayName": "Custom view Samples",
-    "description": "Samples for VSCode's view API",
+    "description": "Samples for VS Code's view API",
     "version": "0.0.1",
     "publisher": "alexr00",
     "engines": {
@@ -341,6 +341,10 @@ Once you've created a View Container, you can use the [contributes.views](/api/r
   }
 }
 ```
+
+A view can also have an optional `visibility` property which can be set to `visible`, `collapsed`, or `hidden`. This property is only respected by VS Code the first time a workspace is opened with this view. After that, the visibility is set to whatever the user has chosen. If you have a view container with many views, or if your view will not be useful to every user of your extension, consider setting the view the `collapsed` or `hidden`. A `hidden` view will appear in the the view containers "Views" menu:
+
+![Views Menu](images/tree-view/views-menu.png)
 
 ## View Actions
 

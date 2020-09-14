@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -26,6 +26,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
 - [`views`](/api/references/contribution-points#contributes.views)
+- [`viewsWelcome`](/api/references/contribution-points#contributes.viewsWelcome)
 - [`viewsContainers`](/api/references/contribution-points#contributes.viewsContainers)
 - [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
 - [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
@@ -849,6 +850,28 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 ![views extension point example](images/contribution-points/views.png)
 
 Extension writers should create a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+
+## contributes.viewsWelcome
+
+Contribute welcome content to [Custom views](#contributes.views). Welcome content only applies to empty tree views. A view is considered empty if the tree has no children. By convention, any command links that are on a line by themselves are displayed as a button. You can specify the view that the welcome content should apply to with the `view` property. Visibility of the welcome content can be controlled with the `when` context value. The text to be displayed as the welcome content is set with the `contents` property.
+
+```json
+{
+  "contributes": {
+    "viewsWelcome": [
+      {
+        "view": "scm",
+        "contents": "In order to use git features, you can open a folder containing a git repository or clone from a URL.\n[Open Folder](command:vscode.openFolder)\n[Clone Repository](command:git.clone)\nTo learn more about how to use git and source control in VS Code [read our docs](https://aka.ms/vscode-scm).",
+        "when": "config.git.enabled && git.state == initialized && workbenchState == empty"
+      }
+    ]
+  }
+}
+```
+
+![Welcome content example](images/contribution-points/viewsWelcome.png)
+
+Multiple welcome content items can be contributed to one view. When this happens, the content that come from VS Code core comes first, followed by content from built-in extensions, followed by content from all other extensions.
 
 ## contributes.viewsContainers
 

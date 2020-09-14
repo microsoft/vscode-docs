@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 ---
 # Developing inside a Container
 
@@ -146,7 +146,7 @@ Repository Containers use isolated, local Docker volumes instead binding to the 
 
 For example, follow these steps to open one of the "try" repositories in a Repository Container:
 
-1. Start VS Code and run **Remote-Containers: Open Repository in Container...** from the Command Palette (`kbstyle(F1)`).
+1. Start VS Code and run **Remote-Containers: Clone Repository in Container Volume...** from the Command Palette (`kbstyle(F1)`).
 
 2. Enter `microsoft/vscode-remote-try-node` (or one of the other "try" repositories), a Git URI, a GitHub branch URL, or a GitHub PR URL in the input box that appears and press `kbstyle(Enter)`.
 
@@ -357,7 +357,7 @@ The extension will automatically copy your local `.gitconfig` file into the cont
 
 ### Using a credential helper
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
 
 ### Using SSH keys
 
@@ -406,7 +406,7 @@ fi
 
 ### Sharing GPG Keys
 
-If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
+If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
 If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
 
@@ -525,7 +525,7 @@ Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore genera
 
 ![Docker Path setting](images/containers/docker-path-setting.png)
 
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Open repository in container...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
+However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
 Docker Compose is also not supported by Podman.
 

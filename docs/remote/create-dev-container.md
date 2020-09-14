@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 ---
 # Create a development container
 
@@ -77,9 +77,9 @@ Here is the typical edit loop using these commands:
 
 If you already have a successful build, you can still edit the contents of the `.devcontainer` folder as required when connected to the container and then select **Remote-Containers: Rebuild Container** in the Command Palette (`kbstyle(F1)`) so the changes take effect.
 
-You can also iterate on your container when using the **Remote-Containers: Open Repository in Container** command.
+You can also iterate on your container when using the **Remote-Containers: Clone Repository in Container Volume** command.
 
-1. Start with **Remote-Containers: Open Repository in Container** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
+1. Start with **Remote-Containers: Clone Repository in Container Volume** in the Command Palette (`kbstyle(F1)`). If the repository you enter does not have a `devcontainer.json` in it, you'll be asked to select a starting point.
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with **Remote-Containers: Rebuild Container**.
 4. If you see an error, click on **Open in Recovery Container** in the dialog that appears.

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -232,14 +232,13 @@ An example `extensions.json` could be:
 ```json
 {
     "recommendations": [
-        "ms-vscode.vscode-typescript-tslint-plugin",
         "dbaeumer.vscode-eslint",
         "msjsdiag.debugger-for-chrome"
     ]
 }
 ```
 
-which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
+which recommends a linter extension, ESLint, and the Chrome debugger extension.
 
 An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 

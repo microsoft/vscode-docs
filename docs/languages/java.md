@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 7/6/2020
+DateApproved: 8/26/2020
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -49,7 +49,7 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
@@ -84,13 +84,11 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ![Java Getting Started](images/java/getting-started.png)
 
-## Standalone Java source files
+## Working with Java source files
 
-You can use VS Code to open any Java source file(s). As a lightweight editor, VS Code can run in so-called lightweight mode, where syntax and [semantic](/docs/getstarted/themes.md#semantic-highlighting) highlighting and error detection, code navigation, code completion, outline as well as Javadoc features are available immediately with its [Syntax Server](https://code.visualstudio.com/docs/java/java-project#_syntax-mode) without resolving the project. Lightweight mode makes VS Code an ideal tool for reading and learning any Java code base.
+You can use VS Code to read, write, run and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
 
-At the same time, a more powerful Java language server will be started in backend to resolve and index your whole project to provide you more advanced features such as code completion. You can switch between lightweight mode and full language server as you need.
-
-## Java project support
+## Working with Java project
 
 There are three things you must understand to work with Java in VS Code:
 
@@ -112,7 +110,7 @@ In contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse, the concept of 
 
 For example, Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
-With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
+With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4">

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -286,6 +286,10 @@ If you specify `"dependsOrder": "sequence"` then your task dependencies are exec
     ]
 }
 ```
+
+### User level tasks
+
+You can create user level tasks that are not tied to a specifc workspace or folder using the **Tasks: Open User Tasks** command. Only `shell` and `process` tasks can be used here since other task types require workspace information.
 
 ## Output behavior
 

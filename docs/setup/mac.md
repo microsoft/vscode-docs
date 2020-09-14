@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -42,6 +42,15 @@ EOF
 Start a new terminal to pick up your `.bash_profile` changes.
 
 **Note**: The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. Remove the leading slash if you want to run the export command directly in a terminal.
+
+**Note**: Since `zsh` became the default shell in macOS Catalina, run the following commands to add VS Code to your path:
+
+```zsh
+cat << EOF >> ~/.zshrc
+# Add Visual Studio Code (code)
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+EOF
+```
 
 ## Touch Bar support
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -29,17 +29,13 @@ If you use the JSON editor for your settings, add the following line:
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services.
 
-If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't wish to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `crash`, and uncheck the **Telemetry: Enable Crash Reporter** setting.
-
-If you use the JSON editor for your settings, add the following line:
-
-```json
-    "telemetry.enableCrashReporter": false
-```
-
-> **Note**: This option requires a restart of VS Code to take effect.
+* Open the Command Palette (`kb(workbench.action.showCommands)`).
+* Run the **Preferences: Configure Runtime Arguments** command.
+* This command will open a `argv.json` file to configure runtime arguments.
+* Edit `"enable-crash-reporter": false`.
+* Restart VS Code.
 
 ## Extensions and telemetry
 

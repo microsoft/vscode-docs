@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 ---
 # VS Code Remote Development
 
@@ -44,11 +44,11 @@ Tutorial | Description
 [Remote via SSH](/docs/remote/ssh-tutorial.md) | Connect to remote and virtual machines with Visual Studio Code via SSH.
 [Work in WSL](/docs/remote/wsl-tutorial.md) | Run Visual Studio Code in Windows Subsystem for Linux.
 [Develop in Containers](/docs/remote/containers-tutorial.md) | Run Visual Studio Code in a Docker Container.
-[Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/codespaces/how-to/vscode) | Connect to a codespace with Visual Studio Code.
+[GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code) | Connect to a codespace with Visual Studio Code.
 
-## Visual Studio Codespaces
+## GitHub Codespaces
 
-[Visual Studio Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
+[GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
 
 ## Questions or feedback
 

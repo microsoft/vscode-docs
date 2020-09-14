@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 7/9/2020
+DateApproved: 9/10/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -309,7 +309,7 @@ Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add th
 
 ```json
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vendor\\init.bat"]
+"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
