@@ -142,7 +142,6 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `labels` | Labels added to the Docker image. This is a list of key-value pairs (a JSON object). <br/> In addition to labels specified here, a label `com.microsoft.created-by`, set to `visual-studio-code` is added to the image. This behavior can be turned off by setting `includeDefaults` property of the `labels` object to false. | `--label` |
 | `target` | The target in the Dockerfile to build to. | `--target` |
 | `pull` | Whether or not to pull new base images before building. | `--pull` |
-| `customOptions` | Any extra parameters to add before the context argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
 
 ### node object properties (`docker-build` task)
 
@@ -340,7 +339,6 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `extraHosts` | The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extrahosts-object-properties)). | `--add-host` |
 | `volumes` | The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` |
 | `remove` | Whether or not to remove the container after it stops. | `--rm` |
-| `customOptions` | Any extra parameters to add before the image argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
 
 ### ports object properties
 
