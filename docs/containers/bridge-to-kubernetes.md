@@ -8,7 +8,7 @@ DateApproved: 07/22/2020
 MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
 ---
 
-# Use Bridge to Kubernetes with Visual Studio Code (preview)
+# Use Bridge to Kubernetes with Visual Studio Code
 
 Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
 
@@ -89,7 +89,7 @@ Use the `npm install` command to install the dependencies for the application.
 npm install
 ```
 
-Select the **Debug** icon on the left and select **Bridge to Kubernetes** at the top.
+Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top.
 
 ![Choose Bridge to Kubernetes](images/bridge-to-kubernetes-vs-code/choose-bridge-to-kubernetes.png)
 
@@ -113,7 +113,7 @@ Choose **Launch via NPM** as the launch task.
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
-You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes#using-routing-capabilities-for-developing-in-isolation).
+You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
 ![Isolation prompt](images/bridge-to-kubernetes-vs-code/lpk-isolation-prompt.png)
 
@@ -174,6 +174,12 @@ Click on the **Kubernetes** status bar and choose **Show connection diagnostics 
 
 Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
 
+## Running in isolation mode
+
+With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. More explanation on how this is done can be found at [How Bridge to Kubernetes Works](btk-overview-routing).
+
+
+
 ## Remove the sample application from your cluster
 
 Use the provided script to remove the sample application from your cluster.
@@ -202,3 +208,4 @@ Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-ho
 [vs-code]: https://code.visualstudio.com/download
 [kubernetesLocalProcessConfig-yaml]: https://docs.microsoft.com/visualstudio/containers/configure-bridge-to-kubernetes
 [btk-how-it-works]: https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes
+[btk-overview-routing]: https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes#using-routing-capabilities-for-developing-in-isolation
