@@ -29,7 +29,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * [Visual Studio Code][vs-code] running on macOS, Linux, or Windows 10.
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
-> [!NOTE] Although Bridge to Kubernetes with Azure Kubernetes Service (AKS) is in GA, you can also try Bridge to Kubernetes with other Kubernetes clusters, but this functionality is still in preview.
+> **Note** Although this quickstart works with Azure Kubernetes Service (AKS, you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
 
 ## Create a Kubernetes cluster
 
@@ -174,13 +174,11 @@ Click on the **Kubernetes** status bar and choose **Show connection diagnostics 
 
 ![Output with diagnostics](images/bridge-to-kubernetes-vs-code/output-diagnostics.png)
 
-Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Bridge to Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
+Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Bridge to Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window. On Linux, it is `/tmp/Bridge to Kubernetes`.
 
 ## Running in isolation mode
 
 With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. More explanation on how this is done can be found at [How Bridge to Kubernetes Works](btk-overview-routing).
-
-
 
 ## Remove the sample application from your cluster
 
