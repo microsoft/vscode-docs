@@ -26,8 +26,10 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli].
-* [Visual Studio Code][vs-code] running on macOS or Windows 10.
+* [Visual Studio Code][vs-code] running on macOS, Linux, or Windows 10.
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
+
+> [!NOTE] Although Bridge to Kubernetes with Azure Kubernetes Service (AKS) is in GA, you can also try Bridge to Kubernetes with other Kubernetes clusters, but this functionality is still in preview.
 
 ## Create a Kubernetes cluster
 
@@ -121,7 +123,7 @@ Your development computer is connected when the VS Code status bar turns orange 
 
 ![Development computer connected](images/bridge-to-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Bridge to Kubernetes: Configure Bridge to Kubernetes**.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Bridge to Kubernetes: Configure**.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
@@ -172,7 +174,7 @@ Click on the **Kubernetes** status bar and choose **Show connection diagnostics 
 
 ![Output with diagnostics](images/bridge-to-kubernetes-vs-code/output-diagnostics.png)
 
-Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Local Process Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
+Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Bridge to Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window.
 
 ## Running in isolation mode
 
@@ -202,7 +204,7 @@ Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-ho
 [az-aks-vs-code]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools
 [bike-sharing-github]: https://github.com/Microsoft/mindaro
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[server-js-breakpoint]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L233
+[server-js-breakpoint]: https://github.com/Microsoft/mindaro/blob/master/samples/BikeSharingApp/Bikes/server.js#L233
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [troubleshooting]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#fail-to-restore-original-configuration-of-deployment-on-cluster
 [vs-code]: https://code.visualstudio.com/download
