@@ -80,7 +80,7 @@ The recommended way to enable container development with a remote machine is to 
 
 After Docker is installed and working on the remote machine, you can use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack to connect to your remote machine and work there.
 
-1. Run command **Remote-SSH: Add new SSH host...** and follow the prompts to set up a connection to the target host.
+1. Open VS Code Command Palette (`kb(workbench.action.showCommands)`) and run command **Remote-SSH: Add new SSH host...**. Follow the prompts to set up a connection to the target host.
 
 1. Run command **Remote-SSH: Connect to host...** and connect to the host.
 

@@ -156,7 +156,7 @@ Variables we'd recommend starting off with in a `devcontainer.json` for educatio
 
 Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students' computers, but by specifying path information via the `settings` variable, you'll save your class time and ensure their computers' path variables aren't harmed in the process.
 
-There is a table in the [devcontainers.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) of all available properties you can include in this configuration file.
+There is a table in the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) of all available properties you can include in this configuration file.
 
 #### Dockerfile
 
