@@ -17,7 +17,7 @@ To use Docker Compose in VS Code using the Docker extension, you should already 
 
 ## Adding Docker Compose support to your project
 
-If you already have one or more Dockerfiles, you can add Docker Compose files by opening the **Command Palette** (`kb(workbench.action.showCommands)`), and using the **Docker: Add Docker Compose Files to Workspace** command. At the prompt, choose the Dockerfiles you want to include and hit **Enter**.
+If you already have one or more Dockerfiles, you can add Docker Compose files by opening the **Command Palette** (`kb(workbench.action.showCommands)`), and using the **Docker: Add Docker Compose Files to Workspace** command. Follow the prompts.
 
 You can add Docker Compose files to your workspace at the same time you add a Dockerfile by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and using the **Docker: Add Docker Files to Workspace** command. You'll be asked if you want to add Docker Compose files. If you want to keep your existing Dockerfile, choose **No** when prompted to overwrite the Dockerfile.
 
@@ -30,16 +30,6 @@ The VS Code Docker extension generates files that work out of the box, but you c
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
 > **Tip**: When using Docker Compose, don't specify a host port. Instead, let the Docker pick a random available port to automatically avoid port conflict issues.
-
-## Add new containers to your projects
-
-If you want to add another app or service, you can run **Add Docker Compose Files to Workspace** again, and choose to overwrite the existing docker-compose files, but you'll lose any customization in those files. If you want to preserve changes to the compose files, you can manually modify the `docker-compose.yml` file to add the new service. Typically, you can cut and paste the existing service section and change the names as appropriate for the new service.
-
-You can run the **Add Docker Files to Workspace** command again to generate the `Dockerfile` for a new app. While each app or service has its own Dockerfile, there's one `docker-compose.yml` and one `docker-compose.debug.yml` file per project for .NET Core and Python, or one per package.json for Node.js.
-
-In Node.js packages and Python projects, you have the `Dockerfile`, `.dockerignore`, `docker-compose*.yml` files all in the root folder of the workspace. When you add another app or service, move the Dockerfile into the app's folder.
-
-For .NET, the folder structure is already set up to handle multiple projects when you create the Docker Compose files, `.dockerignore` and `docker-compose*.yml` are placed in the workspace root (for example, if the project is in `src/project1`, then the files are in `src`), so when you add another service, you create another project in a folder, say `project2`, and recreate or modify the docker-compose files as described previously.
 
 ## Debug
 
