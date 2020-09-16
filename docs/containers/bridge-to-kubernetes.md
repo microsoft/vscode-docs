@@ -115,7 +115,7 @@ Choose **Launch via NPM** as the launch task.
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
-![Isolation prompt](images/bridge-to-kubernetes-vs-code/lpk-isolation-prompt.png)
+![Isolation prompt](images/bridge-to-kubernetes-vs-code/btk-isolation-prompt.png)
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
