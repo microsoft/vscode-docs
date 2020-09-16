@@ -26,7 +26,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli].
-* [Visual Studio Code][vs-code] running on macOS, Linux, or Windows 10.
+* [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
 > **Note** Although this quickstart works with Azure Kubernetes Service (AKS, you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
