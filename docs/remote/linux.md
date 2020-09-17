@@ -155,6 +155,14 @@ RUN  wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6
     && rm *.rpm
 ```
 
+## Arch or Manjaro
+
+If extension fails to start on Manjaro make sure to enable proposed API.
+
+For example, on XFCE edit application menu item "Code - OSS".  Update field Command to include `--enable-proposed-api ms-vscode-remote.remote-ssh`.  The full command text should look like the following:
+
+    /usr/bin/code-oss --no-sandbox --enable-proposed-api ms-vscode-remote.remote-ssh --unity-launch %F
+
 ## Questions or feedback
 
 * See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
