@@ -195,7 +195,7 @@ Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-ho
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
 [azds-cli]: https://docs.microsoft.com/azure/dev-spaces/how-to/install-dev-spaces#install-the-client-side-tools
 [azds-tmp-dir]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#before-you-begin
-[btk-vs-code]: https://marketplace.visualstudio.com/items?itemName=mindaro.bridge-to-kubernetes
+[btk-vs-code]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
