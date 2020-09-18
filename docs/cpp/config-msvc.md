@@ -122,7 +122,7 @@ You can press the `kbstyle(Tab)` key to insert the selected member; then, when y
 
 Next, you will create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Microsoft C++ compiler to create an executable file based on the source code.
 
-From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **cl.exe build active file**, which will build the file that is currently displayed (active) in the editor.
+From the main menu, choose **Tasks** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **cl.exe build active file**, which will build the file that is currently displayed (active) in the editor.
 
 ![Tasks C++ build dropdown](images/msvc/build-active-file.png)
 
