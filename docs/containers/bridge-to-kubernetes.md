@@ -29,7 +29,7 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
-> **Note** Although this quickstart works with Azure Kubernetes Service (AKS, you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
+> **Note** Although this quickstart works with Azure Kubernetes Service (AKS), you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
 
 ## Create a Kubernetes cluster
 
@@ -157,8 +157,6 @@ Save your changes and press `kb(workbench.action.debug.restart)` or click **Run*
 Click **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
 > **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Bridge to Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the Bridge to Kubernetes extension on the status bar then choose **Disconnect current session**.
->
-> If Visual Studio Code abruptly ends the connection to the cluster or terminates, the service you are redirecting may not be restored to its original state before you connected with Bridge to Kubernetes. To fix this issue, see the [Troubleshooting guide][troubleshooting].
 
 ## Additional configuration
 
