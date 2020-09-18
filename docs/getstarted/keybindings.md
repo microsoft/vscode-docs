@@ -363,6 +363,7 @@ Context name | True when
 `editorPinned` | True when the active editor in a group is not in preview mode.
 `editorSticky` | True when the active editor in a group is pinned.
 `activeEditor` | The identifier of the active editor in a group.
+`inSearchEditor` | True when focus is inside a search editor.
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
@@ -560,7 +561,7 @@ Move Active Editor Group Right|`kb(workbench.action.moveActiveEditorGroupRight)`
 Move Editor into Next Group|`kb(workbench.action.moveEditorToNextGroup)`|`workbench.action.moveEditorToNextGroup`
 Move Editor into Previous Group|`kb(workbench.action.moveEditorToPreviousGroup)`|`workbench.action.moveEditorToPreviousGroup`
 
-## File Management
+### File Management
 
 Command|Key|Command id
 -------|---|----------
@@ -620,6 +621,12 @@ Focus Next Search Result|`kb(search.action.focusNextSearchResult)`|`search.actio
 Focus Previous Search Result|`kb(search.action.focusPreviousSearchResult)`|`search.action.focusPreviousSearchResult`
 Show Next Search Term|`kb(history.showNext)`|`history.showNext`
 Show Previous Search Term|`kb(history.showPrevious)`|`history.showPrevious`
+
+#### Search Editor
+Open Results In Editor|`kb(search.action.openInEditor)`|`search.action.openInEditor`
+Focus Search Editor Input|`kb(search.action.focusQueryEditorWidget)`|`search.action.focusQueryEditorWidget`
+Search Again|`kb(rerunSearchEditorSearch)`|`rerunSearchEditorSearch`
+Delete File Results|`kb(search.searchEditor.action.deleteFileResults)`|`search.searchEditor.action.deleteFileResults`
 
 ### Preferences
 
