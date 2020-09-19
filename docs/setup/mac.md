@@ -30,7 +30,10 @@ You can also run VS Code from the terminal by typing 'code' after adding it to t
 
 >**Note:** If you still have the old `code` alias in your `.bash_profile` (or equivalent) from an early VS Code version, remove it and replace it by executing the **Shell Command: Install 'code' command in PATH** command.
 
-To manually add VS Code to your path, you can run the following commands:
+### Alternative manual instructions
+
+Instead of running the command above, you can manually add VS Code to your path,
+to do so run the following commands:
 
 ```bash
 cat << EOF >> ~/.bash_profile
