@@ -622,7 +622,10 @@ Focus Previous Search Result|`kb(search.action.focusPreviousSearchResult)`|`sear
 Show Next Search Term|`kb(history.showNext)`|`history.showNext`
 Show Previous Search Term|`kb(history.showPrevious)`|`history.showPrevious`
 
-#### Search Editor
+### Search Editor
+
+Command|Key|Command id
+-------|---|----------
 Open Results In Editor|`kb(search.action.openInEditor)`|`search.action.openInEditor`
 Focus Search Editor Input|`kb(search.action.focusQueryEditorWidget)`|`search.action.focusQueryEditorWidget`
 Search Again|`kb(rerunSearchEditorSearch)`|`rerunSearchEditorSearch`
