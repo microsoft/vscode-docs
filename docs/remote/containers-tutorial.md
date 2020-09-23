@@ -5,7 +5,7 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 ---
 # Remote development in Containers
 
@@ -48,7 +48,7 @@ The Remote - Containers extension lets you run Visual Studio Code inside a Docke
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Remote - Containers extension</a>
 
-<!-- TBD add extension image? -->
+![Remote - Containers extension](images/containers-tutorial/containers-extension.png)
 
 ### Check installation
 

@@ -141,7 +141,7 @@ If a kernel has been directly registered to a `NotebookContentProvider` via the 
 
 Samples:
 
-* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/notebookProvider.ts): Kernel to execute queries for GitHub Issues
+* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/master/src/extension/notebookProvider.ts): Kernel to execute queries for GitHub Issues
 
 <!-- - [HTTP Request Notebook](): Kernel to issue HTTP requests (TODO: PR against https://github.com/Huachao/vscode-restclient to add notebooks) -->
 
@@ -505,9 +505,9 @@ Samples:
 
 ## Supporting debugging
 
-For some kernels, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To add debugging support, a notebook kernel can implement a [debug adapter](https://microsoft.github.io/debug-adapter-protocol/), either by directly implementing the protocol, or providing an interface between an existing notebook debugger and the protocol.
+For some kernels, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To add debugging support, a notebook kernel can implement a [debug adapter](https://code.visualstudio.com/api/extension-guides/debugger-extension), either by directly implementing the [debug adapter protocol](https://microsoft.github.io/debug-adapter-protocol/) (DAP), or by delegating and transforming the protocol to an existing notebook debugger (see 'vscode-simple-jupyter-notebook'). A much simpler approach is to use an existing unmodified debug extension and transform the DAP for notebook needs on the fly (see 'vscode-nodebook').
 
 Samples:
 
-* [vscode-nodebook](https://github.com/microsoft/vscode-nodebook): Node.js notebook debugger, which directly implements the debug adapter protocol
+* [vscode-nodebook](https://github.com/microsoft/vscode-nodebook): Node.js notebook with debugging support provided by VS Code's built-in JavaScript debugger and some simple protocol transformations
 * [vscode-simple-jupyter-notebook](https://github.com/microsoft/vscode-simple-jupyter-notebook): Jupyter notebook with debugging support provided by the existing Xeus debugger

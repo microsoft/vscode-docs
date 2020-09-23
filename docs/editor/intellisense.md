@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -98,7 +98,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggestOnTriggerCharacters": true,
 
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
-    "editor.tabCompletion": "on",
+    "editor.tabCompletion": "off",
 
     // Controls whether sorting favours words that appear close to the cursor
     "editor.suggest.localityBonus": true,

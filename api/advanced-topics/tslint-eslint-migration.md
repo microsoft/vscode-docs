@@ -1,6 +1,6 @@
 ---
 ContentId: f00c4913-58e3-4a61-aa42-e769c3430906
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to migrating extension projects from the TSLint linter to ESLint.

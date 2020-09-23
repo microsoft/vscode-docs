@@ -5,7 +5,7 @@ TOCTitle: Extensions
 PageTitle: Visual Studio Code Azure Extensions
 ContentId: d2e93075-4cfe-48f4-b05e-f985c86d9713
 MetaDescription: Visual Studio Code Azure Extensions
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 ---
 # Azure Extensions
 

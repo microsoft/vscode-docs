@@ -4,20 +4,26 @@ Area: editor
 TOCTitle: Working with GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Working with GitHub in Visual Studio Code
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 MetaDescription: Working with GitHub in Visual Studio Code
 ---
 # Working with GitHub in VS Code
 
-Using [GitHub](https://github.com) with Visual Studio Code lets you share your source code and collaborate with others. GitHub integration is provided through the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. To get started with the GitHub in VS Code, you'll need to [create an account](https://help.github.com/github/getting-started-with-github/signing-up-for-a-new-github-account) and install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.
+Using [GitHub](https://github.com) with Visual Studio Code lets you share your source code and collaborate with others. GitHub integration is provided through the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension.
+
+<a class="tutorial-install-extension-btn" href="vscode:extension/GitHub.vscode-pull-request-github">Install the GitHub Pull Requests and Issues extension</a>
+
+To get started with the GitHub in VS Code, you'll need to [create an account](https://help.github.com/github/getting-started-with-github/signing-up-for-a-new-github-account) and install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.
 
 If you're new to source control and want to start there, you can learn about VS Code's [source control integration](/docs/editor/versioncontrol.md).
 
 ## Getting started with GitHub Pull Requests and Issues
 
-Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you'll need to sign in. Follow the prompts to authenticate with GitHub and return to VS Code.
+Once you've installed the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you'll need to sign in. Follow the prompts to authenticate with GitHub in the browser and return to VS Code.
 
 ![Extension Sign In](images/github/extension-signin.png)
+
+If you are not redirected to VS Code, you can add your authorization token manually. In the browser window, you will receive your authorization token. Copy the token, and switch back to VS Code. Select **Signing in to github.com...** in the Status bar, paste the token, and hit `kbstyle(Enter)`.
 
 ## Setting up a repository
 
@@ -35,7 +41,9 @@ When you do something that requires GitHub authentication, you'll see a prompt t
 
 ![Authentication Prompt](images/github/auth-prompt.png)
 
-Follow the steps to sign into GitHub and return to VS Code.
+Follow the steps to sign into GitHub and return to VS Code. If authenticating with an existing repository doesn’t work automatically, you may need to manually provide a personal access token. See [Personal Access Token authentication](https://github.com/microsoft/vscode-pull-request-github/wiki#personal-access-token-authentication) for more information.
+
+Note that there are several ways to authenticate to GitHub, including using your username and password with two-factor authentication (2FA), a personal access token, or an SSH key. See [About authentication to GitHub](https://docs.github.com/en/github/authenticating-to-github/about-authentication-to-github) for more information and details about each option.
 
 ## Editor integration
 

@@ -72,7 +72,7 @@ When we install any of the Remote extensions, the green Remote indicator is adde
 
 You can click on it to open the Command Palette and verify the Remote-Containers commands are listed:
 
-![List of remote commands in Command Palette](5-commands.png)
+![List of remote commands in Command Palette](5-commands-list.png)
 
 ### Accessing a container for your class
 
@@ -82,9 +82,9 @@ We have an example [vscode-course-sample GitHub repo](https://github.com/microso
 
 You can select the Remote indicator in the bottom left, or use the Command Palette, to bring up the Remote-Containers commands.
 
-Let's call **Open Repository in Container...**
+Let's call **Clone Repository in Container Volume...**
 
-![Open Repository in Container command](6-open-repo-command.png)
+![Clone Repository in Container Volume](6-clone-repo-command.png)
 
 We need to enter the URL to the GitHub repo where our container is stored, which in our case is microsoft/vscode-course-sample:
 
@@ -156,7 +156,7 @@ Variables we'd recommend starting off with in a `devcontainer.json` for educatio
 
 Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students' computers, but by specifying path information via the `settings` variable, you'll save your class time and ensure their computers' path variables aren't harmed in the process.
 
-There is a table in the [devcontainers.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) of all available properties you can include in this configuration file.
+There is a table in the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) of all available properties you can include in this configuration file.
 
 #### Dockerfile
 

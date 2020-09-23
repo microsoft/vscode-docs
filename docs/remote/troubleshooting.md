@@ -5,19 +5,17 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 ---
 # Remote Development Tips and Tricks
 
 This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
-Troubleshooting tips for [Visual Studio Codespaces](https://aka.ms/vso) can be found in the [service's documentation](https://aka.ms/vso-docs/troubleshooting).
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## SSH tips
 
 SSH is powerful and flexible, but this also adds some setup complexity. This section includes some tips and tricks for getting the Remote - SSH extension up and running in different environments.
-
-If you are still running into trouble, you may want to try the preview of [Visual Studio Codespaces free self-hosted environment option](https://aka.ms/vso-docs/vscode) since it does not require an SSH server or even an open / directly accessible port on the remote host. The service also allows you use its browser-based editor with the host you register.
 
 ### Configuring key based authentication
 
@@ -502,7 +500,7 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
 
-If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [Visual Studio Codespaces managed cloud-based environments](https://aka.ms/vso-docs/vscode). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
+If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [GitHub Codespaces managed cloud-based environments](https://github.com/features/codespaces). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
 
 ### Docker Desktop for Windows tips
 
@@ -847,6 +845,37 @@ export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppD
 
 > **Note:** Be sure to quote or escape space characters in the directory names.
 
+### Finding problems with the 'code' command
+
+If typing `code` from a Windows command prompt does not launch VS Code, you can help us diagnose the problem by running `VSCODE_WSL_DEBUG_INFO=true code .`.
+
+Please file an issue and attach the full output.
+
+### Finding problems starting or connected to the server
+
+When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
+
+Open the WSL log by running the command **Remote-WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+
+![WSL Log](images/troubleshooting/wsl-log.png)
+
+To get even more verbose logging, enable the setting `remote.WSL.debug` in the user settings.
+
+### The server fails to start with a segmentation fault
+
+You can help us investigate this problem by sending us the core dump file. To get the core dump file, follow these steps:
+
+In a Windows command prompt:
+
+* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
+* `cd` to the path that is returned.
+* Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
+* On the 3rd last line (before `export VSCODE_AGENT_FOLDER="$HOME/$DATAFOLDER"`), add
+`ulimit -C unlimited`.
+* Start the Remote-WSL window running the remote server and wait for the segmentation fault.
+
+The core file will be in the Remote-WSL extension folder from above.
+
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
 This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
@@ -887,7 +916,7 @@ Finally, you may need to clone the repository again for these settings to take e
 
 ### Sharing Git credentials between Windows and WSL
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/en/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
 
 Just follow these steps:
 
@@ -911,9 +940,9 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 
-## Visual Studio Codespaces tips
+## GitHub Codespaces tips
 
-See the [Visual Studio Codespaces troubleshooting article](https://aka.ms/vso-docs/troubleshooting) for tips and tricks related to the service or extension.
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## Extension tips
 
@@ -949,7 +978,7 @@ Some extensions use node modules like `clipboardy` to integrate with the clipboa
 
 ### Cannot access local web server from browser or application
 
-When working inside a container, SSH host, or through Visual Studio Codespaces, the port the browser is connecting to may be blocked.
+When working inside a container, SSH host, or through GitHub Codespaces, the port the browser is connecting to may be blocked.
 
 **Resolution:** Extensions can use the `vscode.env.openExternal` or `vscode.env.asExternalUri` APIs (which automatically forwards localhost ports) to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#opening-something-in-a-local-browser-or-application) for details. As a workaround, use the **Forward a Port** command to do so manually.
 
@@ -969,9 +998,9 @@ If you are trying to connect to a localhost port from an external application, t
 
 ### Websockets do not work in port forwarded content in the Codespaces browser-based editor
 
-Currently the forwarding mechanism in the Visual Studio Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
+Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
 
-However, the Remote Development and Visual Studio Codespaces extensions for VS Code itself do not have this limitation.
+However, the Remote Development and Codespaces extensions for VS Code itself do not have this limitation.
 
 **Resolution:** Use the Codespaces extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The Codespaces team is investigating solutions to this problem. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
 

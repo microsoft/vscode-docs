@@ -5,13 +5,13 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 ---
 # Remote Development FAQ
 
 This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
-For frequently asked questions about [Visual Studio Codespaces](https://aka.ms/vso), see the [FAQ in the service's documentation](https://aka.ms/vso-docs/faq).
+For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## General
 
@@ -31,11 +31,11 @@ Some benefits of remote development include:
 
 Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
 
-### How do the Remote Development extensions relate to Visual Studio Codespaces?
+### How do the Remote Development extensions relate to GitHub Codespaces?
 
-[Visual Studio Codespaces](https://aka.ms/vso) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more about Visual Studio Codespaces in [its documentation](https://aka.ms/vso-docs).
+[GitHub Codespaces](https://github.com/features/codespaces) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more in the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
-While the Remote Development and Visual Studio Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from Visual Studio Codespaces (and therefore do not require a Visual Studio Codespaces plan).
+While the Remote Development and Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from GitHub Codespaces.
 
 ### How do the Remote Development extensions work?
 
@@ -167,13 +167,13 @@ You can find the licenses for the VS Code Remote Development extensions here:
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [Visual Studio Codespaces](https://aka.ms/vso) and their related extensions. Given that these services also will support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
+The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [GitHub Codespaces](https://github.com/features/codespaces) and their related extensions. Given that these services also will support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
 
 See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) and [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) articles for more information.
 
 ### Will you charge for the Remote Development extensions once they exit "Preview"?
 
-No, they will remain free of charge. In the future, we may provide additional "premium" developer services like [Visual Studio Codespaces](https://aka.ms/vso), which provide additional functionality, but the extensions will be free.
+No, they will remain free of charge. In the future, we may provide additional "premium" developer services like [GitHub Codespaces](https://github.com/features/codespaces), which provide additional functionality, but the extensions will be free.
 
 ### Are there any restrictions on where the Remote Development extensions can connect?
 

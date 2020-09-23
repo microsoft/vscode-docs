@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 8/13/2020
+DateApproved: 9/10/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -40,13 +40,13 @@ Run the `Hello World` command from the Command Palette (`kb(workbench.action.sho
   <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
 </video>
 
-You should see the `Hello World` notification showing up. Success!
+You should see the `Hello World from HelloWorld!` notification showing up. Success!
 
 ## Developing the extension
 
 Let's make a change to the message:
 
-- Change the message from `Hello World` to `Hello VS Code` in `extension.ts`
+- Change the message from `Hello World from HelloWorld!` to `Hello VS Code` in `extension.ts`
 - Run `Reload Window` in the new window
 - Run the command `Hello World` again
 

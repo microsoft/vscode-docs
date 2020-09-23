@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 7/22/2020
+DateApproved: 9/14/2020
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -22,13 +22,18 @@ If you need to install VS Code, [download it here](https://code.visualstudio.com
 
 ## Supported Java versions
 
-VS Code works with all major versions of Java SE from 11.
+Supported versions for running VS Code for Java and supported versions for your projects are two seperate concepts. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 ## Setting up Visual Studio Code for Java Development
 
+To help you set up quickly, here are the recommendations based on your experience with VS Code:
+
+* **New to VS Code:** Use the [Installer of Visual Studio Code for Java developers](/docs/java/java-tutorial.md#installer-of-visual-studio-code-for-java-developers).
+* **Existing VS Code user wanting to add Java support:** Install the [Java Extension Pack](/docs/java/java-tutorial.md#installing-extensions).
+
 ### Installer of Visual Studio Code for Java developers
 
-To help you get started quickly, there are special installers of Visual Studio Code for Java developers, which include all the necessary dependencies and extensions for Java development in Visual Studio Code:
+There are special installers of Visual Studio Code for Java developers, which include all the necessary dependencies and extensions for Java development in Visual Studio Code:
 
 * **Windows:** [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win)
 * **macOS:** [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-mac)
@@ -61,13 +66,15 @@ You can add Java support to VS Code by installing the popular Microsoft [Java Ex
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 * [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-* [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 
 If JDK is not installed, the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides links to download.
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-You can also select which extensions you would like to install separately. For this tutorial, the only required extensions are
+You can also select which extensions you would like to install separately. The **Extension Guide** is provided to help you choose. You can launch the guide with the **Java: Extension Guide** command.
+
+For this tutorial, the only required extensions are:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
