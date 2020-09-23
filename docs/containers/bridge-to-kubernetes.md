@@ -129,7 +129,7 @@ Once your development computer is connected, traffic starts redirecting to your 
 
 ## Set a break point
 
-Open [server.js][server-js-breakpoint] and click somewhere on line 233 to put your cursor there. Set a breakpoint by hitting `kb(editor.debug.action.toggleBreakpoint)` or selecting **Run** then **Toggle Breakpoint**.
+Open [server.js][server-js-breakpoint] and put your cursor somewhere on line 233. Set a breakpoint with `kb(editor.debug.action.toggleBreakpoint)` or selecting **Run** then **Toggle Breakpoint**.
 
 Navigate to the sample application by opening the public URL. Select **Aurelia Briggs (customer)** as the user, then select a bike to rent. Notice the image for the bike does not load. Return to Visual Studio Code and observe line 233 is highlighted. The breakpoint you set has paused the service at line 233. To resume the service, hit `kb(workbench.action.debug.run)` or select **Run** then **Continue**. Return to your browser and verify you see a placeholder image for the bike.
 
@@ -152,11 +152,11 @@ The section should now look like:
     delete theBike._id;
 ```
 
-Save your changes and press `kb(workbench.action.debug.restart)` or click **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and verify that you no longer see a placeholder image for the bike.
+Save your changes and press `kb(workbench.action.debug.restart)` or select **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and verify that you no longer see a placeholder image for the bike.
 
-Click **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
+Select **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
-> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Bridge to Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster click on the Bridge to Kubernetes extension on the status bar then choose **Disconnect current session**.
+> **Note**: By default, stopping the debugging task also disconnects your development computer from your Kubernetes cluster. You can change this behavior by searching for **Bridge to Kubernetes: Disconnect After Debugging** in the Visual Studio Code settings and removing the check next to **Disconnect automatically when Debugging ends**. After updating this setting, your development computer will remain connected when you stop and start debugging. To disconnect your development computer from your cluster, click on the Bridge to Kubernetes extension on the status bar then choose **Disconnect current session**.
 
 ## Additional configuration
 
@@ -168,7 +168,7 @@ Logging output is written to the **Bridge to Kubernetes** window after your deve
 
 ![Output](images/bridge-to-kubernetes-vs-code/output.png)
 
-Click on the **Kubernetes** status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
+Click on the **Kubernetes** Status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
 
 ![Output with diagnostics](images/bridge-to-kubernetes-vs-code/output-diagnostics.png)
 
@@ -189,9 +189,9 @@ Use the provided script to remove the sample application from your cluster.
 ## Troubleshooting
 
  If you get this error when activating the Bridge to Kubernetes extension:
- 
- *Failed to update dependencies: maximum number of retries exceeded*
- 
+
+"Failed to update dependencies: maximum number of retries exceeded"
+
  First, retry the activation using the button. If it repeatedly does not succeed, see [https://github.com/microsoft/mindaro/issues/32](https://github.com/microsoft/mindaro/issues/32).
 
 ## Next steps
