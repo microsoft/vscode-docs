@@ -186,6 +186,14 @@ Use the provided script to remove the sample application from your cluster.
 ./bridge-quickstart.sh -c -g MyResourceGroup -n MyAKS
 ```
 
+## Troubleshooting
+
+ If you get this error when activating the Bridge to Kubernetes extension:
+ 
+ *Failed to update dependencies: maximum number of retries exceeded*
+ 
+ First, retry the activation using the button. If it repeatedly does not succeed, see [https://github.com/microsoft/mindaro/issues/32](https://github.com/microsoft/mindaro/issues/32).
+
 ## Next steps
 
 Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-how-it-works].
