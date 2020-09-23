@@ -98,7 +98,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggestOnTriggerCharacters": true,
 
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
-    "editor.tabCompletion": "on",
+    "editor.tabCompletion": "off",
 
     // Controls whether sorting favours words that appear close to the cursor
     "editor.suggest.localityBonus": true,
