@@ -172,7 +172,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
 5. After the build completes, VS Code will automatically connect to the container. You can now work with the repository source code in this isolated environment as you would if you had cloned the code locally.
 
-Note that if the container fails to come up due to something like a Docker build error, you can select **Open in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. Once done, use **File > Open Recent** to select the repository container and retry.
+Note that if the container fails to come up due to something like a Docker build error, you can select **Reopen in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. Once done, use **Reopen in Container** to retry.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
