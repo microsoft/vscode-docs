@@ -69,11 +69,11 @@ If `devcontainer.json`'s supported workflows do not meet your needs, you can als
 
 With this `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Remote-Containers: Reopen in Container** command:
 
-![Quick pick with list of Remote-Containers commands](images\containers\Remote-Containers-Commands-Reopen.png)
+![Quick pick with list of Remote-Containers commands](images/containers/remote-containers-commands-reopen.png)
 
 With this command, you're now developing within a Node.js and TypeScript dev container with port 3000 forwarded and the eslint extension installed. Once you're inside, notice the green remote indicator updates to show you are connected to your dev container:
 
-![VS Code instance connected to dev container](images\containers\connected-to-dev-container.png)
+![VS Code instance connected to dev container](images/containers/connected-to-dev-container.png)
 
 ## Install additional software
 
