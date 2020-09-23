@@ -41,7 +41,7 @@ Open up **Unity Preferences**, **External Tools**, then browse for the Visual St
 
 ## Unity version 2019.2 or above
 
-![Since 2019.2](https://unity.com/releases/2019-2/programmer-tools?_ga=2.263983429.835985756.1588249450-1690575186.1582327051#ide-support-moving-packages) it is required to use the Visual Studio Code editor package. The built-in support for opening scripts from Unity and getting csproj and sln files generated has been removed.
+[Since 2019.2](https://unity.com/releases/2019-2/) it is required to use the Visual Studio Code editor package. The built-in support for opening scripts from Unity and getting csproj and sln files generated has been removed.
 
 ## Editing Evolved
 
