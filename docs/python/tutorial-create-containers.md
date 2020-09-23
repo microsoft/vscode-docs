@@ -111,10 +111,10 @@ The following steps summarize the configuration used in the [python-sample-vscod
     EXPOSE 5000
 
     # Indicate where uwsgi.ini lives
-    ENV UWSGI_INI uwsgi.ini
+    ENV UWSGI_INI=uwsgi.ini
 
     # Tell nginx where static files live.
-    ENV STATIC_URL /hello_app/static
+    ENV STATIC_URL=/hello_app/static
 
     # Set the folder where uwsgi looks for the app
     WORKDIR /hello_app
@@ -187,11 +187,11 @@ The following steps summarize the configuration used in the [python-sample-vscod
     EXPOSE 8000
 
     # Indicate where uwsgi.ini lives
-    ENV UWSGI_INI uwsgi.ini
+    ENV UWSGI_INI=uwsgi.ini
 
     # Tell nginx where static files live (as typically collected using Django's
     # collectstatic command.
-    ENV STATIC_URL /app/static_collected
+    ENV STATIC_URL=/app/static_collected
 
     # Copy the app files to a folder and run it from there
     WORKDIR /app
