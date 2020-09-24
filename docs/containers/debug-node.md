@@ -211,7 +211,7 @@ The solution is to remove that optimization from the `Dockerfile`:
 
 ```dockerfile
 FROM node:10.13-alpine
-ENV NODE_ENV production
+ENV NODE_ENV=production
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 # Remove the `&& mv node_modules ../` from the RUN command:
