@@ -30,7 +30,7 @@ VS Code provides essential language features such as code completion, refactorin
 
 VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
-To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the JDK, and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
+To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the Java Development Kit (JDK), and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
 <a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
@@ -85,7 +85,7 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ## Working with Java source files
 
-You can use VS Code to read, write, run and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
+You can use VS Code to read, write, run, and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
 
 ## Working with Java project
 

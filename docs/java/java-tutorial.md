@@ -18,11 +18,11 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'getting-started')" href="javascript:void(0)">Report an issue</a>
 
-## Setting up Visual Studio Code for Java Development
+## Setting up VS Code for Java development
 
 ### Coding Pack for Java
 
-To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the JDK, and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
+To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the Java Development Kit (JDK), and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
 <a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
@@ -53,7 +53,7 @@ For this tutorial, the only required extensions are:
 
 ### Supported Java versions
 
-Supported versions for running VS Code for Java and supported versions for your projects are two seperate concepts. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+Supported versions for running VS Code for Java and supported versions for your projects are two separate concepts. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 ### Installing a Java Development Kit (JDK)
 
