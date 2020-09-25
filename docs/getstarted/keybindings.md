@@ -354,15 +354,15 @@ Context name | True when
 `textCompareEditorVisible` | At least one diff (compare) editor is visible.
 `textCompareEditorActive` | A diff (compare) editor is active.
 `editorIsOpen` | True if one editor is open.
-`groupActiveEditorDirty` | True when the active editor in a group is dirty.
 `groupEditorsCount` | Number of editors in a group.
 `activeEditorGroupEmpty` | True if the active editor group has no editors.
 `activeEditorGroupIndex` | Index of the active editor in an group (beginning with `1`).
 `activeEditorGroupLast` | True when the active editor in an group is the last one.
 `multipleEditorGroups` | True when multiple editor groups are present.
-`editorPinned` | True when the active editor in a group is not in preview mode.
-`editorSticky` | True when the active editor in a group is pinned.
 `activeEditor` | The identifier of the active editor in a group.
+`activeEditorIsDirty` | True when the active editor in a group is dirty.
+`activeEditorIsNotPreview` | True when the active editor in a group is not in preview mode.
+`activeEditorIsPinned` | True when the active editor in a group is pinned.
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
