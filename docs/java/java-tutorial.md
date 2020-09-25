@@ -22,13 +22,13 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 ### Coding Pack for Java
 
-To help you set up quickly, recommendation is to use **Coding Pack for Java**, which includes VS Code, JDK and essential extensions for you to get started. Coding pack can be used as a clean installation, or you can also use it to update or repaire an existing development environment.
+To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the JDK, and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
-<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Windows</a>
+<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-mac">macOS</a>
+<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
 
-> **Note**: Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
+> **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
 ### Installing extensions
 
