@@ -29,6 +29,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `raw.githubusercontent.com`
 * `vsmarketplacebadge.apphb.com`
 * `az764295.vo.msecnd.net`
+* `download.visualstudio.microsoft.com`
 
 ## Proxy server support
 
