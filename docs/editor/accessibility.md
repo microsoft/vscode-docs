@@ -24,7 +24,7 @@ You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **
 ### Persisted Zoom Level
 
 When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20%.
-
+  
 ## High Contrast theme
 
 We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** drop-down and select the **High Contrast** theme.
@@ -71,8 +71,6 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 ## Screen readers
 
 VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), VoiceOver on macOS and Orca on Linux.
-
-There is a community developed [NVDA add-on for VS Code](https://github.com/pawelurbanski/nvda-for-vs-code), that improves unintentional switching between forms and browse mode as well as providing better text reading while using IntelliSense. The add-on requires VS Code version 1.33 or higher. See the add-on [README](https://github.com/pawelurbanski/nvda-for-vs-code/blob/master/README.md) file for more details.
 
 > When using NVDA on Windows, we recommend to update to NVDA 2017.3 or higher. NVDA 2017.3 increases NVDA's timeout for receiving a caret move event from 30ms to 100ms. This version is the first one [where the built-in timeout is increased from 30ms to 100ms](https://github.com/nvaccess/nvda/pull/7201).
 
