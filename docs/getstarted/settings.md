@@ -157,9 +157,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the number of lines in the editor that can be read out by a screen reader. Warning: this has a performance implication for numbers larger than the default.
     "editor.accessibilityPageSize": 10,
 
-    // Controls whether the editor should run in a mode where it is optimized for screen readers.
+	// Controls whether the editor should run in a mode where it is optimized for screen readers. Setting to on will disable word wrapping.
     //  - auto: The editor will use platform APIs to detect when a Screen Reader is attached.
-    //  - on: The editor will be permanently optimized for usage with a Screen Reader.
+	//  - on: The editor will be permanently optimized for usage with a Screen Reader. Word wrapping will be disabled.
     //  - off: The editor will never be optimized for usage with a Screen Reader.
     "editor.accessibilitySupport": "auto",
 
@@ -191,7 +191,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - full: The editor will keep the current line's indentation, honor language defined brackets, invoke special onEnterRules defined by languages, and honor indentationRules defined by languages.
     "editor.autoIndent": "full",
 
-    // Controls whether the editor should automatically surround selections.
+	// Controls whether the editor should automatically surround selections when typing quotes or brackets.
     //  - languageDefined: Use language configurations to determine when to automatically surround selections.
     //  - quotes: Surround with quotes but not brackets.
     //  - brackets: Surround with brackets but not quotes.
@@ -228,7 +228,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the cursor style.
     "editor.cursorStyle": "line",
 
-    // Controls the minimal number of visible leading and trailing lines surrounding the cursor. Known as 'scrollOff' or `scrollOffset` in some other editors.
+	// Controls the minimal number of visible leading and trailing lines surrounding the cursor. Known as 'scrollOff' or 'scrollOffset' in some other editors.
     "editor.cursorSurroundingLines": 0,
 
     // Controls when `cursorSurroundingLines` should be enforced.
@@ -704,9 +704,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.unfoldOnClickAfterEndOfLine": false,
 
     // Remove unusual line terminators that might cause problems.
-    //  - off: Unusual line terminators are ignored.
-    //  - prompt: Unusual line terminators prompt to be removed.
-    //  - auto: Unusual line terminators are automatically removed.
+	//  - auto: Unusual line terminators are ignored.
+	//  - off: Unusual line terminators prompt to be removed.
+	//  - prompt: Unusual line terminators are automatically removed.
     "editor.unusualLineTerminators": "prompt",
 
     // Inserting and deleting whitespace follows tab stops.
@@ -790,8 +790,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls how many repositories are visible in the Source Control Repositories section. Set to `0` to be able to manually resize the view.
     "scm.repositories.visible": 10,
 
-    // If set, automatically switch to the preferred color theme based on the OS appearance.
-    "window.autoDetectColorScheme": false,
+	// Defines a default kernel provider which takes precedence over all other kernel providers settings. Must be the identifier of an extension contributing a kernel provider.
+	"notebook.kernelProviderAssociations": [],
 
 // Workbench
 
@@ -833,7 +833,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether tabs are closed in most recently used order or from left to right.
     "workbench.editor.focusRecentEditorAfterClose": true,
 
-    // Controls whether a top border is drawn on modified (dirty) editor tabs or not.
+	// Controls whether a top border is drawn on modified (dirty) editor tabs or not. This value is ignored when `workbench.editor.showTabs` is `false`.
     "workbench.editor.highlightModifiedTabs": false,
 
     // Controls the format of the label for an editor.
@@ -861,13 +861,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the default direction of editors that are opened side by side (e.g. from the explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
     "workbench.editor.openSideBySideDirection": "right",
 
+	// Controls the sizing of pinned editor tabs. Pinned tabs are sorted to the begining of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is `false`.
+	//  - normal: A pinned tab inherits the look of non pinned tabs.
+	//  - compact: A pinned tab will show in a compact form with only icon or first letter of the editor name.
+	//  - shrink: A pinned tab shrinks to a compact fixed size showing parts of the editor name.
+	"workbench.editor.pinnedTabSizing": "normal",
+
     // Restores the last view state (e.g. scroll position) when re-opening textual editors after they have been closed.
     "workbench.editor.restoreViewState": true,
 
     // Controls whether an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
     "workbench.editor.revealIfOpen": false,
 
-    // Controls whether scrolling over tabs will open them or not. By default tabs will only reveal upon scrolling, but not open. You can press and hold the Shift-key while scrolling to change this behaviour for that duration.
+	// Controls whether scrolling over tabs will open them or not. By default tabs will only reveal upon scrolling, but not open. You can press and hold the Shift-key while scrolling to change this behaviour for that duration. This value is ignored when `workbench.editor.showTabs` is `false`.
     "workbench.editor.scrollToSwitchTabs": false,
 
     // Controls whether opened editors should show with an icon or not. This requires a file icon theme to be enabled as well.
@@ -881,10 +887,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - split: Splits the active editor group to equal parts.
     "workbench.editor.splitSizing": "distribute",
 
-    // Controls the position of the editor's tabs close buttons, or disables them when set to 'off'.
+	// Controls the position of the editor's tabs close buttons, or disables them when set to 'off'. This value is ignored when `workbench.editor.showTabs` is `false`.
     "workbench.editor.tabCloseButton": "right",
 
-    // Controls the sizing of editor tabs.
+	// Controls the sizing of editor tabs. This value is ignored when `workbench.editor.showTabs` is `false`.
     //  - fit: Always keep tabs large enough to show the full editor label.
     //  - shrink: Allow tabs to get smaller when the available space is not enough to show all tabs at once.
     "workbench.editor.tabSizing": "fit",
@@ -940,6 +946,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom, right, or left of the workbench.
     "workbench.panel.defaultLocation": "bottom",
+
+	// Controls whether the panel opens maximized. It can either always open maximized, never open maximized, or open to the last state it was in before being closed.
+	//  - always: Always maximize the panel when opening it.
+	//  - never: Never maximize the panel when opening it. The panel will open un-maximized.
+	//  - preserve: Open the panel to the state that it was in, before it was closed.
+	"workbench.panel.opensMaximized": "preserve",
 
     // Specifies the preferred color theme for dark OS appearance when 'window.autoDetectColorScheme' is enabled.
     "workbench.preferredDarkColorTheme": "Default Dark+",
@@ -1012,8 +1024,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.view.alwaysShowHeaderActions": false,
 
 // Window
+	// If set, automatically switch to the preferred color theme based on the OS appearance.
+	"window.autoDetectColorScheme": false,
 
-    // If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme, and to dark theme when switching away from a high contrast theme.
+	// If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme.
     "window.autoDetectHighContrast": true,
 
     // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
@@ -1022,8 +1036,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
     "window.closeWhenEmpty": false,
 
-    // Controls whether the menu bar will be focused by pressing the Alt-key. This setting has no effect on toggling the menu bar with the Alt-key.
-    "window.customMenuBarAltFocus": true,
+	// Adjust the appearance of dialog windows.
+	"window.dialogStyle": "native",
 
     // If enabled, double clicking the application icon in the title bar will close the window and the window cannot be dragged by the icon. This setting only has an effect when `window.titleBarStyle` is set to `custom`.
     "window.doubleClickIconToClose": false,
@@ -1033,17 +1047,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
     "window.nativeTabs": false,
-
-    // Controls whether the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
-    "window.enableMenuBarMnemonics": true,
-
-    // Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. By default, the menu bar will be visible, unless the window is full screen.
-    //  - default: Menu is only hidden in full screen mode.
-    //  - visible: Menu is always visible even in full screen mode.
-    //  - toggle: Menu is hidden but can be displayed via Alt key.
-    //  - hidden: Menu is always hidden.
-    //  - compact: Menu is displayed as a compact button in the sidebar. This value is ignored when 'window.titleBarStyle' is 'native'.
-    "window.menuBarVisibility": "default",
 
     // Controls the dimensions of opening a new window when at least one window is already opened. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
     //  - default: Open new windows in the center of the screen.
@@ -1071,7 +1074,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Note that there can still be cases where this setting is ignored (e.g. when using the `--new-window` or `--reuse-window` command line option).
     //  - on: Open a new empty window.
     //  - off: Focus the last active running instance.
-    "window.openWithoutArgumentsInNewWindow": "on",
+	"window.openWithoutArgumentsInNewWindow": "off",
 
     // Controls whether a window should restore to full screen mode if it was exited in full screen mode.
     "window.restoreFullscreen": false,
@@ -1184,7 +1187,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true,
+		"**/node_modules/**": true,
         "**/.hg/store/**": true
     },
 
@@ -1196,13 +1199,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.
     "screencastMode.keyboardOverlayTimeout": 800,
 
-    // Controls the color (Hex) of the mouse indicator in screencast mode.
-    "screencastMode.mouseIndicatorColor": "#ff0000",
+	// Controls the color in hex (#RGB, #RGBA, #RRGGBB or #RRGGBBAA) of the mouse indicator in screencast mode.
+	"screencastMode.mouseIndicatorColor": "#FF0000",
 
     // Controls the size (in pixels) of the mouse indicator in screencast mode.
     "screencastMode.mouseIndicatorSize": 20,
 
-    // Only show keyboard shortcuts in Screencast Mode.
+	// Only show keyboard shortcuts in screencast mode.
     "screencastMode.onlyKeyboardShortcuts": false,
 
     // Controls the vertical offset of the screencast mode overlay from the bottom as a percentage of the workbench height.
@@ -1690,6 +1693,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "javascript.preferences.quoteStyle": "auto",
 
     // The setting 'typescript.preferences.renameShorthandProperties' has been deprecated in favor of 'typescript.preferences.useAliasesForRenames'
+	// Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
+	"javascript.preferences.renameShorthandProperties": true,
+
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "javascript.preferences.useAliasesForRenames": true,
 
@@ -1828,7 +1834,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
     "typescript.preferences.quoteStyle": "auto",
-
 
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "typescript.preferences.useAliasesForRenames": true,
@@ -2250,6 +2255,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - warnonly: Only show the warning indicator when a terminal's environment is 'stale', not the information indicator that shows a terminal has had its environment modified by an extension.
     "terminal.integrated.environmentChangesIndicator": "warnonly",
 
+	// An experimental setting that aims to improve link detection in the terminal by improving when links are detected and by enabling shared link detection with the editor. Currently this only supports web links.
+	"terminal.integrated.experimentalLinkProvider": true,
+
+	// An experimental setting that will use the terminal title event for the dropdown title. This setting will only apply to new terminals.
+	"terminal.integrated.experimentalUseTitleEvent": false,
+
     // Scrolling speed multiplier when pressing `Alt`.
     "terminal.integrated.fastScrollSensitivity": 5,
 
@@ -2257,12 +2268,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.fontFamily": "",
 
     // Controls the font size in pixels of the terminal.
-    "terminal.integrated.fontSize": 14,
+	"terminal.integrated.fontSize": 12,
 
-    // The font weight to use within the terminal for non-bold text.
+	// The font weight to use within the terminal for non-bold text. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
     "terminal.integrated.fontWeight": "normal",
 
-    // The font weight to use within the terminal for bold text.
+	// The font weight to use within the terminal for bold text. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
     "terminal.integrated.fontWeightBold": "bold",
 
     // Whether new shells should inherit their environment from VS Code. This is not supported on Windows.
@@ -2355,7 +2366,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configures whether to show the problem matcher prompt when running a task. Set to `true` to never prompt, or use a dictionary of task types to turn off prompting only for specific task types.
     "task.problemMatchers.neverPrompt": false,
 
-    // Controls whether to show the task detail for task that have a detail in the Run Task quick pick.
+	// Controls whether to show the task detail for tasks that have a detail in task quick picks, such as Run Task.
     "task.quickOpen.detail": true,
 
     // Controls the number of recent items tracked in task quick open dialog.
@@ -2711,14 +2722,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Restores the ports you forwarded in a workspace.
     "remote.restoreForwardedPorts": false,
 
-// Node debug
-
-    // Automatically attach node debugger when node.js was launched in debug mode from integrated terminal.
-    //  - disabled: Auto attach is disabled and not shown in status bar.
-    //  - on: Auto attach is active.
-    //  - off: Auto attach is inactive.
-    "debug.node.autoAttach": "disabled",
-
 // Emmet
 
     // An array of languages where Emmet abbreviations should not be expanded.
@@ -2763,6 +2766,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether force push (with or without lease) is enabled.
     "git.allowForcePush": false,
+
+	// Controls whether commits without running pre-commit and commit-msg hooks are allowed.
+	"git.allowNoVerifyCommit": false,
 
     // Always show the Staged Changes resource group.
     "git.alwaysShowStagedChangesResourceGroup": false,
@@ -2810,6 +2816,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to ask for confirmation before force-pushing.
     "git.confirmForcePush": true,
+
+	// Controls whether to ask for confirmation before commiting without verification.
+	"git.confirmNoVerifyCommit": true,
 
     // Confirm before synchronizing git repositories.
     "git.confirmSync": true,
@@ -2874,7 +2883,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the diff editor should be opened when clicking a change. Otherwise the regular editor will be opened.
     "git.openDiffOnClick": true,
 
-    // Path and filename of the git executable, e.g. `C:\Program Files\Git\bin\git.exe` (Windows).
+	// Path and filename of the git executable, e.g. `C:\Program Files\Git\bin\git.exe` (Windows). This can also be an array of string values containing multiple paths to look up.
     "git.path": null,
 
     // Runs a git command after a successful commit.
@@ -2974,11 +2983,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - always: Auto attach to every Node.js process launched in the terminal.
     //  - smart: Auto attach when running scripts that aren't in a node_modules folder.
     //  - onlyWithFlag: Only auto attach when the `--inspect` is given.
-    "debug.javascript.autoAttachFilter": "smart",
+	//  - disabled: Auto attach is disabled and not shown in status bar.
+	"debug.javascript.autoAttachFilter": "disabled",
 
-    // If one of these glob patterns matches the Node.jsentrypoint script in smart `debug.javascript.autoAttachFilter` mode, we will debug that process. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
+	// Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
     "debug.javascript.autoAttachSmartPattern": [
-        "!**/node_modules/**",
+		"!**/{node_modules,npm-global,.yarn}/**",
         "**/$KNOWN_TOOLS$/**"
     ],
 
@@ -3006,11 +3016,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Default launch options for the JavaScript debug terminal and npm scripts.
     "debug.javascript.terminalOptions": {},
 
+	// Configures whether sourcemapped file where the original file can't be read will automatically be unmapped. If this is false (default), a prompt is shown.
+	"debug.javascript.unmapMissingSources": false,
+
     // Use the new in-preview JavaScript debugger for Node.js and Chrome.
     "debug.javascript.usePreview": true,
 
-    // Whether a loading prompt should be shown if breakpoint prediction takes a while.
-    "debug.javascript.warnOnLongPrediction": true,
+	// Controls whether to show a warning when the 'useWSL' attribute is used.
+	"debug.node.showUseWslIsDeprecatedWarning": true,
 
 // References Search View
 
