@@ -9,7 +9,7 @@ MetaDescription: Learn from Visual Studio Code extension guides and code samples
 
 # Extension Guides
 
-Once you have learned the basics of Visual Studio Code Extension API in the [Hello World](/api/get-started/your-first-extension) sample, it's time to build some real-world extensions. While the [Extension Capabilities](/api/extension-capabilities/overview) section offers high-level overviews of what extension **can** do, this section contains a list of detailed code guides and samples that explains **how** to use a specific VS Code API.
+Once you have learned the basics of Visual Studio Code Extension API in the [Hello World](/api/get-started/your-first-extension) sample, it's time to build some real-world extensions. While the [Extension Capabilities](/api/extension-capabilities/overview) section offers high-level overviews of what an extension **can** do, this section contains a list of detailed code guides and samples that explains **how** to use a specific VS Code API.
 
 In each guide or sample, you can expect to find:
 

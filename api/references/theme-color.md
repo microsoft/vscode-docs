@@ -356,6 +356,8 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
 
+- `editor.onTypeRenameBackground`: Background color when the editor auto renames on type.
+
 CodeLens:
 
 ![CodeLens](images/theme-color/codelens.png)
@@ -799,7 +801,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
-- `notebook.cellToolbarSeperator`: The color of the separator in the cell bottom toolbar
+- `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
@@ -809,6 +811,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
 
 ## Extension colors
 

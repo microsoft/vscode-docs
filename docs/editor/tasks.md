@@ -432,7 +432,7 @@ Usually you would now add a problem matcher (in this case `$eslint-stylish`) or 
 
 ## Processing task output with problem matchers
 
-VS Code can process the output from a task with a problem matcher and ships with several problem matchers 'in-the-box':
+VS Code can process the output from a task with a problem matcher. Problem matchers scan the task output text for known warning or error strings, and report these inline in the editor and in the Problems panel. VS Code ships with several problem matchers 'in-the-box':
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
 - **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
@@ -444,8 +444,6 @@ VS Code can process the output from a task with a problem matcher and ships with
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
 - **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
 - **Node Sass compiler**: `$node-sass` assumes that file names are reported as an absolute path.
-
-Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
 You can also create your own problem matcher, which we'll discuss [in a later section](/docs/editor/tasks.md#defining-a-problem-matcher).
 

@@ -871,7 +871,7 @@ Contribute welcome content to [Custom views](#contributes.views). Welcome conten
 
 ![Welcome content example](images/contribution-points/viewsWelcome.png)
 
-Multiple welcome content items can be contributed to one view. When this happens, the content that come from VS Code core comes first, followed by content from built-in extension, followed by content from all other extensions.
+Multiple welcome content items can be contributed to one view. When this happens, the content that come from VS Code core comes first, followed by content from built-in extensions, followed by content from all other extensions.
 
 ## contributes.viewsContainers
 

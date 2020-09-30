@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
 PageTitle: Maven and Gradle support for Java in Visual Studio Code
-DateApproved: 7/6/2020
+DateApproved: 9/14/2020
 MetaDescription: Maven and Gradle support for Java in Visual Studio Code
 MetaSocialImage:
 ---
@@ -57,7 +57,7 @@ You can also use the command **Maven: Add a Dependency** (or `maven.project.addD
   <source src="/docs/java/java-build/maven-add-dependency.mp4" type="video/mp4">
 </video>
 
-You can also add dependencies through the Java Dependency Viewer, which calls the same Maven command.
+You can also add dependencies through the project view, which calls the same Maven command.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/maven-add-dependency-2.mp4" type="video/mp4">

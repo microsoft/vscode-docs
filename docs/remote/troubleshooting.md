@@ -845,42 +845,36 @@ export PATH="$PATH:/mnt/c/Windows/System32:/mnt/c/Users/${WINDOWS_USERNAME}/AppD
 
 > **Note:** Be sure to quote or escape space characters in the directory names.
 
-### Finding problems with the Code command
+### Finding problems with the 'code' command
 
-If typing `code` from from a Window command prompt does not work, you can help us finding the problem by running
-
-`VSCODE_WSL_DEBUG_INFO=true code .`.
+If typing `code` from a Windows command prompt does not launch VS Code, you can help us diagnose the problem by running `VSCODE_WSL_DEBUG_INFO=true code .`.
 
 Please file an issue and attach the full output.
 
-
 ### Finding problems starting or connected to the server
 
-When the WSL window fails to connect to the remote server, you can get more information in the WSL log.
-When filing an issue, it is important to always send the full content of the WSL log.
+When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
 
-Open the WSL log by running the command `Remote-WSL: Open Log`. The log will show in the terminal view under the WSL tab.
+Open the WSL log by running the command **Remote-WSL: Open Log**. The log will show in the terminal view under the WSL tab.
 
-![WSL Log](./images/troubleshooting/wsl-log.png)
+![WSL Log](images/troubleshooting/wsl-log.png)
 
 To get even more verbose logging, enable the setting `remote.WSL.debug` in the user settings.
 
-
 ### The server fails to start with a segmentation fault
 
-You can help us by sending us the core dump file. To get the core dump file, follow these steps:
+You can help us investigate this problem by sending us the core dump file. To get the core dump file, follow these steps:
 
-In a Windows command prompt run
+In a Windows command prompt:
 
-- `code --locate-extension ms-vscode-remote.remote-wsl`
-- `cd` to the path that is returned
-`code .\scripts\wslServer.sh`
-- On the 3rd last line (before `export VSCODE_AGENT_FOLDER="$HOME/$DATAFOLDER"`), add
-`ulimit -C unlimited`
-- start the Remote-WSL window running the remote server and wait for the segmentation fault.
+* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
+* `cd` to the path that is returned.
+* Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
+* On the 3rd last line (before `export VSCODE_AGENT_FOLDER="$HOME/$DATAFOLDER"`), add
+`ulimit -C unlimited`.
+* Start the Remote-WSL window running the remote server and wait for the segmentation fault.
 
 The core file will be in the Remote-WSL extension folder from above.
-
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
@@ -891,8 +885,6 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
 
 [WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
-
-
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 

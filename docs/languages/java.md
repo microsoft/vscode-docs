@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 8/26/2020
+DateApproved: 9/25/2020
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -28,16 +28,15 @@ VS Code provides essential language features such as code completion, refactorin
 
 ## Install Visual Studio Code for Java
 
-VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. Visual Studio Code works with all major Java versions from 11.
+VS Code is a fast editor and ships with great editing features. Before you begin, you must have the Java SE Development Kit (JDK) on your local environment. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
-To help you get started quickly, there are special installers of Visual Studio Code for Java developers, which include all the necessary dependencies and extensions for Java development in Visual Studio Code:
+To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the Java Development Kit (JDK), and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
-* **Windows:** [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win)
-* **macOS:** [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-mac)
+<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-> **Note**: The installers are only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
+<a class="tutorial-install-extension-btn" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
 
-The package can be used as a clean install, or you can also use it to update an existing development environment to add Java or VS Code. After you've downloaded and opened it, the installer automatically tries to detect a JDK, VS Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources then installs and configures them.
+> **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
 Alternatively, you can also add Java language support to VS Code by installing the popular Java extensions by yourself.
 
@@ -86,7 +85,7 @@ For developers new to Java or new to VS Code, we provide a Getting Started exper
 
 ## Working with Java source files
 
-You can use VS Code to read, write, run and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
+You can use VS Code to read, write, run, and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
 
 ## Working with Java project
 
