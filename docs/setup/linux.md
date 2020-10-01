@@ -159,6 +159,18 @@ Debian-based distributions allow setting a default **editor** using the [Debian 
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
+If Visual Studio Code doesn't show up as an alternative to `editor`, you need to register it:
+
+```bash
+sudo update-alternatives --install editor /usr/bin/editor </path/to/code> 
+```
+
+To see where Visual Studio Code is installed, run
+
+```bash
+whereis code
+```
+
 ## Windows as a Linux developer machine
 
 Another option for Linux development with VS Code is use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
