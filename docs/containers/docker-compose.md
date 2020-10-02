@@ -31,6 +31,18 @@ With the docker-compose files, you can now specify port mappings in the docker-c
 
 > **Tip**: When using Docker Compose, don't specify a host port. Instead, let the Docker pick a random available port to automatically avoid port conflict issues.
 
+## Add new containers to your projects
+
+If you want to add another app or service, you can run **Add Docker Compose Files to Workspace** again, and choose to overwrite the existing docker-compose files, but you'll lose any customization in those files. If you want to preserve changes to the compose files, you can manually modify the `docker-compose.yml` file to add the new service. Typically, you can cut and paste the existing service section and change the names as appropriate for the new service.
+
+You can run the **Add Docker Files to Workspace** command again to generate the `Dockerfile` for a new app. While each app or service has its own Dockerfile, there's typically one `docker-compose.yml` and one `docker-compose.debug.yml` file per workspace.
+
+In Python projects, you have the `Dockerfile`, `.dockerignore`, `docker-compose*.yml` files all in the root folder of the workspace. When you add another app or service, move the Dockerfile into the app's folder.
+
+In Node.js projects, the `Dockerfile` and `.dockerignore` files will be next to the `package.json` for that service.
+
+For .NET, the folder structure is already set up to handle multiple projects when you create the Docker Compose files, `.dockerignore` and `docker-compose*.yml` are placed in the workspace root (for example, if the project is in `src/project1`, then the files are in `src`), so when you add another service, you create another project in a folder, say `project2`, and recreate or modify the docker-compose files as described previously.
+
 ## Debug
 
 First, refer to the debugging documentation for your target platform, to understand the basics on debugging in containers with VS Code:
