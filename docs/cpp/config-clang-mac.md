@@ -229,6 +229,8 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
+Also make sure the value of `preLaunchTask` matches the `label` of the build task in task.json file.
+
 ### Start a debugging session
 
 1. Go back to `helloworld.cpp` so that it is the active file in the editor. This is important because VS Code uses the active file to determine what you want to debug.
