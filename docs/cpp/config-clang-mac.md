@@ -229,7 +229,7 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
-Also make sure the value of `preLaunchTask` matches the `label` of the build task in task.json file.
+Ensure that the preLaunchTask value matches the label of the build task in the task.json file.
 
 ### Start a debugging session
 
