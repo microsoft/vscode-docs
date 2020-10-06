@@ -165,7 +165,6 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
 - `activityBar.background`: Activity Bar background color.
-- `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
 - `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
 - `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
 - `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
@@ -692,7 +691,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
-- `gitDecoration.submoduleResourceForeground`: Color for submodule resources. 
+- `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
 
 ## Settings Editor colors
 
