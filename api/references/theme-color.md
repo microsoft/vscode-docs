@@ -813,6 +813,8 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
+- `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 
 ## Extension colors
 
