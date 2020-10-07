@@ -48,3 +48,4 @@ If you’re looking for resources for your students to get started with Visual S
 			</div>
 		</a>
 	</li>
+</ul>
