@@ -688,6 +688,8 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.stageModifiedResourceForeground`: Color for modified tracked Git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.stageDeletedResourceForeground`: Color for deleted tracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
 
