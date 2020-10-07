@@ -14,7 +14,7 @@ Learning to code is intimidating. Set yourself up for success with a tool built 
 
 Try the Coding Pack for Java, which will install VS Code and the essential Java extensions, as well as install the Java Development Kit (JDK) for you.
 
-[For Windows](https://aka.ms/vscode-java-installer-win)\
+[For Windows](https://aka.ms/vscode-java-installer-win) \
 [For MacOS](https://aka.ms/vscode-java-installer-mac)
 
 ### Coding in Python?
