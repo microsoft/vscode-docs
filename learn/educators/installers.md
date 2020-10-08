@@ -34,10 +34,10 @@ It will install:
 - Python 3.8.5 and add it to the PATH
 - Python packages including, jupyter, numpy, sklearn, pandas and matplotlib
 
-
 <img src="images/python-installer.png" alt="Python Installer" aria-hidden="true" class="thumb"/>
 
 <br/>
+
 *If any of these components are already installed, the coding packs will not update it and proceed with the other components.*
 
 *In the Coding Pack for Python, we will include a User-level settings.json with a few pre-configured Python settings so you're all ready to start coding in Python!*
