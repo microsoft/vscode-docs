@@ -33,7 +33,7 @@ If you’re looking for resources for your students to get started with Visual S
         <a href="https://docs.microsoft.com/en-us/learn/modules/basic-python-nasa/"><h2 class="title faux-h3">Write basic Python in Notebooks</h2></a>
     </div>
     <p class="description">Learn the basics of Python.</p>
-    <a href="https://docs.microsoft.com/en-us/learn/modules/basic-python-nasa/"><img src="images/learn-python-notebooks.png" alt aria-hidden="true" class="thumb"/></a>
+    <a href="https://docs.microsoft.com/en-us/learn/modules/basic-python-nasa/"><img src="images/learn-python-notebooks.png" alt="Python module" aria-hidden="true" class="thumb"/></a>
     </a>
 </div><br/>
 
@@ -42,7 +42,7 @@ If you’re looking for resources for your students to get started with Visual S
         <a href="https://docs.microsoft.com/en-us/learn/modules/build-node-cosmos-app-vscode/"><h2 class="title faux-h3">Build a Node.js app for Azure Cosmos DB</h2></a>
     </div>
     <p class="description">Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js.</p>
-    <a href="https://docs.microsoft.com/en-us/learn/modules/build-node-cosmos-app-vscode/"><img src="images/learn-node-app.png" alt aria-hidden="true" class="thumb"/></a>
+    <a href="https://docs.microsoft.com/en-us/learn/modules/build-node-cosmos-app-vscode/"><img src="images/learn-node-app.png" alt="Learn Node" aria-hidden="true" class="thumb"/></a>
     </a>
 </div><br/>
 

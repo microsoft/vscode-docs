@@ -17,11 +17,11 @@ This coding pack includes everything you need to start coding in Java. Download 
 
 This will install:
 
-- Java Development Kit (JDK) and add it to the Path
+- Java Development Kit (JDK) and add it to the PATH
 - VS Code
 - Java extension pack in VS Code
 
-![Java Installer set up](images/java-installer.png)
+<img src="images/java-installer.png" alt="Java Installer" aria-hidden="true" class="thumb"/>
 
 ## Coding pack for Python
 
@@ -29,13 +29,15 @@ This coding pack includes everything you need to start coding in Python. [Downlo
 
 It will install:
 
+- VS Code
+- Python and LiveShare extensions in VS Code
 - Python 3.8.5 and add it to the PATH
 - Python packages including, jupyter, numpy, sklearn, pandas and matplotlib
-- VS Code (latest version)
-- Python and LiveShare extensions in VS Code
 
-![Python Installer set up](images/python-installer.png)
 
+<img src="images/python-installer.png" alt="Python Installer" aria-hidden="true" class="thumb"/>
+
+<br/>
 *If any of these components are already installed, the coding packs will not update it and proceed with the other components.*
 
 *In the Coding Pack for Python, we will include a User-level settings.json with a few pre-configured Python settings so you're all ready to start coding in Python!*
