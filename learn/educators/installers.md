@@ -11,37 +11,31 @@ MetaDescription: Visual Studio Code Coding Packs for programming languages such 
 
 As educators, we know it's frustrating to install all the different software to get your students ready to code. There's editors/IDEs, runtimes and compilers, packages or libraries, and different versions of each...it's annoying! We've got you covered.
 
-## Coding Pack for Java
-This coding pack includes everything you need to start coding in Java. Download it today for [ Windows](https://aka.ms/vscode-java-installer-win) or for [ MacOS](https://aka.ms/vscode-java-installer-mac)!
+## Coding pack for Java
 
+This coding pack includes everything you need to start coding in Java. Download it today for [Windows](https://aka.ms/vscode-java-installer-win) or for [MacOS](https://aka.ms/vscode-java-installer-mac)!
 
 This will install:
+
 - Java Development Kit (JDK) and add it to the Path
 - VS Code
 - Java extension pack in VS Code
 
 ![Java Installer set up](images/java-installer.png)
 
-
-## Coding Pack for Python
+## Coding pack for Python
 
 This coding pack includes everything you need to start coding in Python. [Download it on Windows](https://aka.ms/coding-pack-for-python-win) today!
 
 It will install:
 
 - Python 3.8.5 and add it to the PATH
-
 - Python packages including, jupyter, numpy, sklearn, pandas and matplotlib
-
 - VS Code (latest version)
-
 - Python and LiveShare extensions in VS Code
 
 ![Python Installer set up](images/python-installer.png)
 
-
-
 *If any of these components are already installed, the coding packs will not update it and proceed with the other components.*
 
 *In the Coding Pack for Python, we will include a User-level settings.json with a few pre-configured Python settings so you're all ready to start coding in Python!*
-

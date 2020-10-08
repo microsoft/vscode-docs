@@ -11,14 +11,17 @@ MetaDescription: Download and learn the basics of Visual Studio Code.
 
 In this video, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube.com/embed/Sdg0ef2PpBw?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/watch?v=ITxcbrfEcIY?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
-* Download and install VS Code.
-* See an overview of the user interface.
-* Install support for your favorite programming language.
-* Explore VS Code features in the **Interactive Editor Playground**.
+- Download and install VS Code.
+- Create a new file.
+- See an overview of the user interface.
+- Install support for your favorite programming language.
+- Change your keyboard shortcuts and easily migrate from other editors using keybinding extensions.
+- Customize your editor with themes.
+- Explore VS Code features in the **Interactive Editor Playground**.
 
 ## Learn more
 
