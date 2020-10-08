@@ -105,7 +105,7 @@ You can rename symbols using `kb(editor.action.rename)` or by running the **Rena
 
 ## Debugging
 
-The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/derekparker/delve) debugger manually as a prerequisite. Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/blob/master/docs/debugging.md) for setup steps, information on remote debugging and a troubleshooting guide.
+The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/go-delve/delve) debugger manually as a prerequisite. Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/blob/master/docs/debugging.md) for setup steps, information on remote debugging and a troubleshooting guide.
 
 ## Next steps
 

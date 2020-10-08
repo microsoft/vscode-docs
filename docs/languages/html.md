@@ -114,6 +114,9 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force`: Wrap all attributes, except first
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
+  * `aligned-multiple`: Wrap when line length is exceeded, align attributes vertically
+  * `preserve`: Preserve wrapping of attributes
+  * `preserve-aligned`: Preserve wrapping of attributes but align
 
 >**Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 

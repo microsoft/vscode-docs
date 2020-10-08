@@ -1522,7 +1522,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - force-aligned: Wrap each attribute except first and keep aligned.
     //  - force-expand-multiline: Wrap each attribute.
     //  - aligned-multiple: Wrap when line length is exceeded, align attributes vertically.
-    //  - preserve: Preserve wrapping of attributes
+    //  - preserve: Preserve wrapping of attributes.
     //  - preserve-aligned: Preserve wrapping of attributes but align.
     "html.format.wrapAttributes": "auto",
 
