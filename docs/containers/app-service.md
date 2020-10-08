@@ -14,6 +14,7 @@ In this guide you will learn how to:
 - Create a container image for your application.
 - Push the image to a container registry.
 - Deploy the image to Azure App Service.
+- Deploy the image to Azure Container Instances (ACI).
 
 ## Prerequisites
 
@@ -87,6 +88,22 @@ In the previous section, the image is pushed to a remote container registry. Now
 5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. The new App Service also appears in the Azure view in Visual Studio Code under the App Service section, where you can right-click the website and select Browse Website.
 
     ![Web Application](images/app-service/webapp-homepage.png)
+
+## Deploy to ACI
+
+You can easily run your containers in Azure using [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/). First, deploy the container to a container registry, such as Docker Hub or ACR, as described earlier in this article. Then, find the container in the **Registries** section of the Docker view. Use the **Refresh** button if you don't see it there. Right-click the entry for the image you want, and choose **Deploy image to Azure Container Instances**.
+
+![Deploy to ACI menu item](images/app-service/deploy-aci-menu.png)
+
+Choose **Create new ACI Context** to create a new Azure Container Instances context, give it a name, and then choose the resource group. The instance is set up and started in Azure. 
+
+The context you created is added to the **Contexts** pane in the Docker view. When you choose the active context, it affects the images shown in the **Containers** pane as well as the context used in the terminal.
+
+![ACI in contexts pane](images/app-service/deploy-aci-contexts.png)
+
+ When the image finishes the start-up process and becomes available, and you choose the context, an entry for the image appears in the **Containers** pane. You can then manage the container instance by right-clicking on the entry. To monitor the logs, choose **View Logs**. When you're done with the instance, right-click the instance name, and choose **Remove**.
+
+![Manage images in the Containers pane](images/app-service/deploy-aci-containers-pane.png)
 
 ## Next steps
 
