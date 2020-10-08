@@ -30,4 +30,4 @@ In this video, we walk you through setting up Visual Studio Code and give an ove
 
 ## Next video
 
-* [TBD](/learn/get-started/personalize.md) - TBD
+* [Get Started with VS Code Extensions](/learn/get-started/extensions.md) - Learn how to use extensions in VS Code.

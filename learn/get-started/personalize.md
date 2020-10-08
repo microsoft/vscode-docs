@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order:
 Area: getstarted
 TOCTitle: Personalize
 ContentId: 4b5c775d-bd56-40da-b4ab-e5ed362e69a8
