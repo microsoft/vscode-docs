@@ -91,21 +91,21 @@ In the previous section, the image is pushed to a remote container registry. Now
 
 ## Deploy to ACI
 
-You can easily run your containers in Azure using [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/). First, deploy the container to a container registry, such as Docker Hub or ACR, as described earlier in this article. Then, find the container in the **Registries** section of the Docker view. Use the **Refresh** button if you don't see it there. Right-click the entry for the image you want, and choose **Deploy image to Azure Container Instances**.
+In the previous section, the image was deployed to Azure App Service. Another option is to deploy the image to [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/). First, deploy the container to a container registry, such as Docker Hub or ACR, as described earlier in this article. Then, find the container in the **Registries** section of the Docker view. Use the **Refresh** button if you don't see it there. Right-click the entry for the image you want, and choose **Deploy image to Azure Container Instances**.
 
 ![Deploy to ACI menu item](images/app-service/deploy-aci-menu.png)
 
-Choose an existing context, or use **Create new ACI Context**, and then choose the resource group. The instance is set up and started in Azure. 
+Choose an existing context, or use **Create new ACI Context**, and then choose the resource group. The container is started in ACI.
 
-The context you created is added to the **Contexts** pane in the Docker view. When you change the active context, it affects the images shown in the **Containers** pane as well as the context used in the terminal.
+The context you created is displayed in the **Contexts** pane in the Docker view and selected as the active context. Whichever context is the active one affects the images shown in the **Containers** pane.
 
 ![ACI in contexts pane](images/app-service/deploy-aci-contexts.png)
 
- When the image finishes the start-up process and becomes available, an entry for the image appears in the **Containers** pane. You can then manage the container instance by right-clicking on the entry. To monitor the logs, choose **View Logs**.
+ When the image finishes the start-up process and becomes available, an entry for the image appears in the **Containers** pane. You can then manage the container instance by right-clicking on the entry. For example, to monitor the logs, choose **View Logs**.
 
 ![Manage images in the Containers pane](images/app-service/deploy-aci-containers-pane.png)
 
-If it's a web app, you can use **Open in Browser** to navigate to the app's homepage. When you're done with the instance, right-click the instance name, and choose **Remove**.
+If it's a web app, you can use **Open in Browser** to navigate to the app's homepage. When you're done with the instance, right-click the instance name, and choose **Remove**. Because billing in ACI is by the second and only when the container is running, as soon as you remove it, you are no longer accruing charges.
 
 ## Next steps
 
