@@ -22,8 +22,6 @@ This tutorial is not intended to teach you Python itself. Once you are familiar 
 
 If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
-> **Note**: You can use VS Code with Python 2 with this tutorial, but you need to make appropriate changes to the code, which are not covered here.
-
 ## Prerequisites
 
 To successfully complete this tutorial, you need to first setup your Python  development environment. Specifically, this tutorial requires:
