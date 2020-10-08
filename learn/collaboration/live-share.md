@@ -50,4 +50,4 @@ If you select **Join Collaboration session** from the Session Details menu, you'
 
 <img src="images/liveshare-join-session.png" alt="Live Share icon in Activity Bar" aria-hidden="true" class="thumb"/>
 
-You should be able to  see your classmate's code on your screen!
+You should be able to see and interact with your classmate's code on your screen!
