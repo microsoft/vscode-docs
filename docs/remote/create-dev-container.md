@@ -22,7 +22,7 @@ In this document, we'll go through the steps for creating a development (dev) co
 
 After any of the steps above, you'll have a fully functioning dev container, and you can either continue to the next step of this tutorial to add more features, or stop and begin working in the dev environment you currently have.
 
-> Note: The Remote - Containers extension has a **Remote-Containers: Add Development Container Configuration Files...** command that lets you pick a pre-defined container configuration from a list. If you'd prefer to have a complete dev container immediately rather than building up the `devcontainer.json` and Dockerfile step-by-step, you can skip ahead to [Automating dev container creation](#automate-dev-container-creation).
+> Note: The Remote - Containers extension has a **Remote-Containers: Add Development Container Configuration Files...** command that lets you pick a pre-defined container configuration from a list. If you'd prefer to have a complete dev container immediately rather than building up the `devcontainer.json` and Dockerfile step-by-step, you can skip ahead to [Automate dev container creation](#automate-dev-container-creation).
 
 ## Create a devcontainer.json file
 
@@ -43,9 +43,9 @@ You can alter your configuration to do things such as:
 * Forward or publish additional ports.
 * Set runtime arguments.
 * Reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
-* And more [advanced container configurations](/docs/remote/containers-advanced.md).
+* Add more [advanced container configurations](/docs/remote/containers-advanced.md).
 
-Let's say you'd like to install the [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) automatically into your container, and you'd also like to forward port 3000:
+For this example, if you'd like to install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
 
 ```json
 {
@@ -57,23 +57,25 @@ Let's say you'd like to install the [eslint extension](https://marketplace.visua
 }
 ```
 
+With the above `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Remote-Containers: Reopen in Container** command:
+
+![Quick pick with list of Remote-Containers commands](images/containers/remote-containers-reopen.png)
+
+After running this command, when VS Code restarts, you're now within a Node.js and TypeScript dev container with port 3000 forwarded and the ESLint extension installed. Once you're connected, notice the green remote indicator on the left of the Status bar to show you are connected to your dev container:
+
+![VS Code instance connected to dev container](images/containers/connected-to-dev-container.png)
+
+### Additional dev container scenarios
+
 Through a `devcontainer.json` file, you can:
 
 * Spin up a stand-alone "sandbox" container to isolate your toolchain or speed up setup.
-* Work with a container deployed application defined by an [image, Dockerfile](#dockerfile), or [Docker Compose](#use-docker-compose).
+* Work with a container deployed application defined by an image, [Dockerfile](#dockerfile), or [Docker Compose](#use-docker-compose).
 * [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 
 If `devcontainer.json`'s supported workflows do not meet your needs, you can also [attach to an already running container instead](/docs/remote/attach-container.md).
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
-
-With this `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Remote-Containers: Reopen in Container** command:
-
-![Quick pick with list of Remote-Containers commands](images/containers/remote-containers-reopen.png)
-
-With this command, you're now developing within a Node.js and TypeScript dev container with port 3000 forwarded and the eslint extension installed. Once you're inside, notice the green remote indicator updates to show you are connected to your dev container:
-
-![VS Code instance connected to dev container](images/containers/connected-to-dev-container.png)
 
 ## Install additional software
 
@@ -91,7 +93,7 @@ apt-get update
 apt-get install <package>
 ```
 
-If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article can help you set this up for your own containers. Regardless, if you install and configure `sudo` you'll be able to use it when running as any user including root.
+If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article can help you set this up for your own containers. Regardless, if you install and configure `sudo`, you'll be able to use it when running as any user including root.
 
 ```bash
 # If sudo is installed and configured
@@ -126,7 +128,7 @@ You can also use an interactive bash shell so that your `.bashrc` is picked up, 
 "postCreateCommand": "bash -i scripts/install-dev-tools.sh"
 ```
 
-Tools like NVM won't work without using `-i`:
+Tools like NVM won't work without using `-i` to put the shell in interactive mode:
 
 ```json
 "postCreateCommand": "bash -i -c 'nvm install --lts'"
@@ -134,7 +136,7 @@ Tools like NVM won't work without using `-i`:
 
 The command needs to exit or the container won't start. For instance, if you add an application start to `postCreateCommand`, the command wouldn't exit.
 
-There is also a `postStartCommand` that executes every time- it runs when the container starts. The parameters behave exactly like `postCreateCommand`, but the commands execute on start rather than create.
+There is also a `postStartCommand` that executes every time the container starts. The parameters behave exactly like `postCreateCommand`, but the commands execute on start rather than create.
 
 Rather than referencing an image directly in `devcontainer.json` or installing software via the `postCreateCommand` or `postStartCommand`, an even more efficient practice is to use a Dockerfile.
 
@@ -219,13 +221,20 @@ You can either:
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile flows above while still allowing you to use the command line if you prefer.
+VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile workflows above, while still allowing you to use the command line if you prefer.
 
 To get started quickly, **open the folder** you want to work with in VS Code and run the **Remote-Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 
 ![Select Docker Compose File](images/containers/select-docker-compose.png)
 
-You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers) in a filterable list sorted based on your folder's contents. Many of these "dev container definitions" use a Dockerfile, so select one of these definitions for a starting point for Docker Compose: [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose), [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo), [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres), or [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose). After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
+You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers) in a filterable list sorted based on your folder's contents. Many of these "dev container definitions" use a Dockerfile, so select one of the following definitions as a starting point for Docker Compose:
+
+* [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose)
+* [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo)
+* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres)
+* [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose).
+
+After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
 
 You can also create your configuration manually. To reuse a Docker Compose file unmodified, you can use the `dockerComposeFile` and `service` properties in `.devcontainer/devcontainer.json`.
 
@@ -422,7 +431,7 @@ You can easily share a customized dev container definition for your project by a
 
 Beyond the advantages of having your team use a consistent environment and tool-chain, this also makes it easier for new contributors or team members to be productive quickly. First-time contributors will require less guidance and hit fewer issues related to environment setup.
 
-**Alternative: Repository configuration folders**
+### Alternative: Repository configuration folders
 
 In some cases, you may want to create a configuration for a repository that you do not control or that you would prefer didn't have a configuration included in the repository itself. To handle this situation, you can configure a location on your local filesystem to store configuration files that will be picked up automatically based on the repository.
 
