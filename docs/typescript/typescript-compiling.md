@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 9/10/2020
+DateApproved: 10/8/2020
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript

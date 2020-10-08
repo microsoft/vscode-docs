@@ -3,7 +3,7 @@ Order: 52
 TOCTitle: Inspecting Containers
 PageTitle: Inspecting Docker Containers with Visual Studio Code
 MetaDescription: Inspecting Docker Containers with Visual Studio Code
-MetaSocialImage: /assets/blogs/2019/10/31/social-remote-containers.png
+MetaSocialImage: /assets/blogs/20110/8/31/social-remote-containers.png
 Date: 2019-10-31
 ShortDescription: Inspecting Docker Containers with Visual Studio Code
 Author: Bowden Kelly

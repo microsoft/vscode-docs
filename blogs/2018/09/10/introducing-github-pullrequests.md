@@ -3,7 +3,7 @@ Order: 42
 TOCTitle: GitHub Pull Requests
 PageTitle: Introducing GitHub Pull Requests for Visual Studio Code
 MetaDescription: Introducing GitHub Pull Requests for Visual Studio Code
-MetaSocialImage: /assets/blogs/2018/09/10/github_pr_hero.png
+MetaSocialImage: /assets/blogs/2018/010/8/github_pr_hero.png
 Date: 2018-09-10
 ShortDescription: Introducing GitHub Pull Requests for Visual Studio Code
 Author: Kenneth Auchenberg
