@@ -95,15 +95,17 @@ You can easily run your containers in Azure using [Azure Container Instances (AC
 
 ![Deploy to ACI menu item](images/app-service/deploy-aci-menu.png)
 
-Choose **Create new ACI Context** to create a new Azure Container Instances context, give it a name, and then choose the resource group. The instance is set up and started in Azure. 
+Choose an existing context, or use **Create new ACI Context**, and then choose the resource group. The instance is set up and started in Azure. 
 
-The context you created is added to the **Contexts** pane in the Docker view. When you choose the active context, it affects the images shown in the **Containers** pane as well as the context used in the terminal.
+The context you created is added to the **Contexts** pane in the Docker view. When you change the active context, it affects the images shown in the **Containers** pane as well as the context used in the terminal.
 
 ![ACI in contexts pane](images/app-service/deploy-aci-contexts.png)
 
- When the image finishes the start-up process and becomes available, and you choose the context, an entry for the image appears in the **Containers** pane. You can then manage the container instance by right-clicking on the entry. To monitor the logs, choose **View Logs**. When you're done with the instance, right-click the instance name, and choose **Remove**.
+ When the image finishes the start-up process and becomes available, an entry for the image appears in the **Containers** pane. You can then manage the container instance by right-clicking on the entry. To monitor the logs, choose **View Logs**.
 
 ![Manage images in the Containers pane](images/app-service/deploy-aci-containers-pane.png)
+
+If it's a web app, you can use **Open in Browser** to navigate to the app's homepage. When you're done with the instance, right-click the instance name, and choose **Remove**.
 
 ## Next steps
 
