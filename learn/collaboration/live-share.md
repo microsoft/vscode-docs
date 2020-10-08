@@ -23,10 +23,6 @@ Each of you can open files, navigate, edit code, or highlight - and changes are 
 
 You can also debug together using VS Code's debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
 
-
-
-
-
 ## Get started with Live Share
 
 To get started with using Live Share in VS Code, you'll need to download the Live Share Extension Park from the Extension Marketplace.
@@ -38,6 +34,20 @@ Once you log into your GitHub account, you'll see the Live Share icon in the Act
 
 <img src="images/liveshare-icon.png" alt="Live Share icon in Activity Bar" aria-hidden="true" class="thumb"/>
 
+**Starting a Live Share Session**
+
 If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session will automatically be copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have VS Code and the Live Share Extension Pack downloaded.
 
 <img src="images/liveshare-invitation.png" alt="Live Share icon in Activity Bar" aria-hidden="true" class="thumb"/>
+
+When your classmate joins the session, you'll get a notification, and see their name come up under Participants.
+
+<img src="images/liveshare-joined.png" alt="Live Share icon in Activity Bar" aria-hidden="true" class="thumb"/>
+
+**Joining a Live Share session**
+
+If you select **Join Collaboration session** from the Session Details menu, you're able to enter the URL you recieved.
+
+<img src="images/liveshare-join-session.png" alt="Live Share icon in Activity Bar" aria-hidden="true" class="thumb"/>
+
+You should be able to  see your classmate's code on your screen!
