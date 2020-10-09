@@ -26,6 +26,8 @@ Check out Remote - WSL in action:
 
 The typical flow is you'll open a Linux command prompt, navigate to a folder of your choosing, and type `code .` to launch a new instance of VS Code connected to WSL. From there, you get the full experience of using VS Code as if you were developing on Linux, except you're on a Windows machine!
 
+<iframe src="https://youtube.com/embed/mIHprjsSO9o?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 We highly recommend checking out the step-by-step WSL tutorial to learn more.
 
 ### [Remote - WSL Getting Started Tutorial](https://code.visualstudio.com/docs/remote/wsl-tutorial)
