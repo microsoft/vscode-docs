@@ -9,3 +9,6 @@ MetaDescription: Learn to use SSH connections to lab machines with Visual Studio
 ---
 # Working over SSH
 
+## What is SSH?
+
+## Get started with SSH in VS Code
