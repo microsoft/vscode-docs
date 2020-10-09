@@ -18,6 +18,8 @@ WSL especially helps web developers and those working with Bash and Linux-first 
 
 To get started with using WSL in VS Code, you'll need to download the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) from the Extension Marketplace.
 
+<img src="images/remote-wsl.png" alt="Remote WSL extension" aria-hidden="true" class="thumb"/>
+
 You'll also need WSL and a distro installed. We recommend using WSL 2, which is the newest version of WSL, as you will benefit from significant [performance advantages](https://docs.microsoft.com/en-us/windows/wsl/compare-versions) over WSL 1.
 
 Check out Remote - WSL in action:
