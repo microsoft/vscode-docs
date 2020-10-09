@@ -3,7 +3,7 @@ Order: 51
 TOCTitle: SSH Tips and Tricks
 PageTitle: Visual Studio Code Remote SSH Tips and Tricks
 MetaDescription: Visual Studio Code Remote-SSH Tips and Tricks
-MetaSocialImage: /assets/blogs/20110/8/03/social-remote-ssh.png
+MetaSocialImage: /assets/blogs/2019/10/03/social-remote-ssh.png
 Date: 2019-10-03
 ShortDescription: Remote SSH Tips and Tricks with Visual Studio Code
 Author: Sana Ajani
