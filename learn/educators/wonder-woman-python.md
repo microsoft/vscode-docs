@@ -1,7 +1,7 @@
 ---
 Order: 5
 Area: educators
-TOCTitle: Wonder Woman
+TOCTitle: Wonder Woman Lessons
 ContentId: 59288bcc-97b7-411e-86da-c022a00e25ec
 PageTitle: Get Started Tutorial for Wonder Woman project in Visual Studio Code
 DateApproved: 10/8/2020

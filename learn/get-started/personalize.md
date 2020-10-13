@@ -9,21 +9,17 @@ MetaDescription: Learn how to personalize Visual Studio Code color themes and fi
 ---
 # Personalize Visual Studio Code
 
-In this video, we walk you through personalizing Visual Studio Code.
+In this video, we walk you through personalizing Visual Studio Code using themes.
 
-<iframe src="https://www.youtube.com/embed/Sdg0ef2PpBw?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/One-Dev-Minute/Personalize-VS-Code-with-Themes" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Outline
 
-* TBD.
-* TBD.
-* TBD.
+* Change your UI Color Theme.
+* Change your File Icon Theme.
 
 ## Learn more
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
 
-## Next video
-
-* [TBD](/learn/get-started/extensions.md) - TBD

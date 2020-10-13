@@ -9,7 +9,14 @@ MetaDescription: NASA project tutorials using the Python extension in Visual Stu
 ---
 # NASA Inspired Lessons
 
-Explore modules and learning paths inspired by NASA scientists to prepare you for a career in space exploration. Visit [Microsoft Learn](https://docs.microsoft.com/en-us/learn/topics/nasa) for the full list of modules.
+This learning path introduces you to the world of Python. Explore modules and learning paths inspired by NASA scientists to prepare you for a career in space exploration. Visit [Microsoft Learn](https://docs.microsoft.com/en-us/learn/topics/nasa) for the full list of modules.
+
+Through these modules, you will:
+
+* Understand and install the tools needed to learn programming
+* Learn core programming concepts and apply them to real-life NASA problems
+* Gain knowledge about cutting-edge technologies like machine learning and artificial intelligence
+* See actual NASA employees talk about their job and give advice
 
 
 <div class="module">
@@ -37,9 +44,6 @@ Explore modules and learning paths inspired by NASA scientists to prepare you fo
         <a href="https://docs.microsoft.com/en-us/learn/paths/classify-space-rocks-artificial-intelligence-nasa/"><h2 class="title faux-h3">Use Machine Learning to predict rocket launches</h2></a>
     </div>
     <p class="description">This will introduce you to the world of machine learning and help you build a simple ML model. </p>
-    <p class="description">Beginner</p>
-    <p class="description">Python</p>
     <a href="https://docs.microsoft.com/en-us/learn/paths/classify-space-rocks-artificial-intelligence-nasa/"><img src="images/nasa-python3.png" alt="ML Python module" aria-hidden="true" class="thumb"/></a>
     </a>
 </div><br/>
-
