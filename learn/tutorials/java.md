@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order:
 Area: tutorials
 TOCTitle: Java
 ContentId: a6abaeae-afb2-4d58-851f-3ca64f6a041f

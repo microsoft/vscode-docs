@@ -11,13 +11,16 @@ MetaDescription: Install and use Visual Studio Code extension.
 
 In this video, we walk you through installing Visual Studio Code extensions.
 
-<iframe src="https://www.youtube.com/embed/Sdg0ef2PpBw?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/SKcZ3cwX8lA" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Outline
 
-* TBD.
-* TBD.
-* TBD.
+- Find extensions to install using the Extensions View.
+- Install an extension.
+- See what features are added via the Contributions tab or Command Palette.
+- See other recommendations for extensions.
+
 
 ## Learn more
 
@@ -26,4 +29,4 @@ In this video, we walk you through installing Visual Studio Code extensions.
 
 ## Next video
 
-* [TBD](/learn/get-started/configure.md) - TBD
+* [Learn how to personalize VS Code](/learn/get-started/personalize.md) - Make VS Code yours with custom themes and colors
