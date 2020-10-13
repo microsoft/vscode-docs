@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 2
 Area: getstarted
 TOCTitle: Extensions
 ContentId: 67f1421a-8e41-4f19-9275-bf5c33687813

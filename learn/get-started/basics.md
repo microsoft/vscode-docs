@@ -15,8 +15,6 @@ In this video, we walk you through setting up Visual Studio Code and give an ove
 
 
 
-
-
 ## Outline
 
 - Download and install VS Code.
