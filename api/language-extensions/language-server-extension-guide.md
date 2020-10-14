@@ -906,6 +906,14 @@ connection.onDidCloseTextDocument((params) => {
 });
 ```
 
+If you are following along in with the lsp-sample code you should note that the first action of the TextDocuments manager's .listen() call is to switch from Incremental Sync to Full sync. So you should remove that line
+
+```diff
+// Don't use the TextDocuments utility when listening for incremental updates
+// documents.listen(connection);
+```
+
+
 ### Using VS Code API directly to implement Language Features
 
 While Language Servers have many benefits, they are not the only option for extending the editing capabilities of VS Code. In the cases when you want to add some simple language features for a type of document, consider using `vscode.languages.register[LANGUAGE_FEATURE]Provider` as an option.
