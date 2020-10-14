@@ -240,7 +240,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.cursorWidth": 0,
 
     // Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
-    "editor.defaultFormatter": null,
+    "editor.defaultFormatter": activado,
 
     // Controls whether the Go to Definition mouse gesture always opens the peek widget.
     "editor.definitionLinkOpensInPeek": false,
@@ -270,7 +270,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.find.cursorMoveOnType": true,
 
     // Controls whether the Find Widget should read or modify the shared find clipboard on macOS.
-    "editor.find.globalFindClipboard": false,
+    "editor.find.globalFindClipboard": verdadero,
 
     // Controls whether the search automatically restarts from the beginning (or the end) when no further matches can be found.
     "editor.find.loop": true,
@@ -395,7 +395,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - on: Line numbers are rendered as absolute number.
     //  - relative: Line numbers are rendered as distance in lines to cursor position.
     //  - interval: Line numbers are rendered every 10 lines.
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "es",
 
     // Controls whether the editor should detect links and make them clickable.
     "editor.links": true,
