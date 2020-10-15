@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -20,7 +20,7 @@ Note that casing matters for exact identifier matching ('Markdown' != 'markdown'
 
 The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support.
 
-Every language defines its *id* through the `languages` configuration point:
+Every language defines its *id* through the `languages` configuration point in the extension's `package.json` file:
 
 ```json
     "languages": [{
@@ -93,7 +93,8 @@ Objective-C | `objective-c`
 Objective-C++ | `objective-cpp`
 Perl | `perl` and `perl6`
 PHP | `php`
-Powershell | `powershell`
+Plain Text | `plaintext`
+PowerShell | `powershell`
 Pug | `jade`
 Python | `python`
 R | `r`

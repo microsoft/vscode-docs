@@ -43,7 +43,7 @@ Some of my favorite themes are:
 
 Want to create your own theme? See the [documentation](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesthemes) to get started.
 
-VS Code also supports [File Icon](https://code.visualstudio.com/docs/getstarted/themes#_select-an-icon-theme) themes to add images to files and folders in the UI. You can preview your installed File Icon themes in VS Code by **File** > **Preferences** > **File Icon Theme** or by opening the **Command Palette** and typing "file icon".
+VS Code also supports [File Icon](https://code.visualstudio.com/docs/getstarted/themes#_file-icon-themes) themes to add images to files and folders in the UI. You can preview your installed File Icon themes in VS Code by **File** > **Preferences** > **File Icon Theme** or by opening the **Command Palette** and typing "file icon".
 
 Here are two File Icon themes I really like:
 
@@ -71,7 +71,7 @@ Many language extensions come with snippets included.
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Power Shell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) from [Peng Lv](https://marketplace.visualstudio.com/search?term=publisher%3A%22Peng%20Lv%22&target=VSCode&sortBy=Relevance)
-- [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Elm](https://marketplace.visualstudio.com/items?itemName=sbrink.elm) from [Sascha Brink](https://marketplace.visualstudio.com/search?term=publisher%3A%22Sascha%20Brink%22&target=VSCode&sortBy=Relevance)
 
 Want to make your own snippet pack? See the documentation for [how to create a snippet pack extension](https://code.visualstudio.com/docs/extensionAPI/language-support#_source-code-snippets).

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -29,17 +29,13 @@ If you use the JSON editor for your settings, add the following line:
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services.
 
-If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't wish to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `crash`, and uncheck the **Telemetry: Enable Crash Reporter** setting.
-
-If you use the JSON editor for your settings, add the following line:
-
-```json
-    "telemetry.enableCrashReporter": false
-```
-
-> **Note**: This option requires a restart of VS Code to take effect.
+* Open the Command Palette (`kb(workbench.action.showCommands)`).
+* Run the **Preferences: Configure Runtime Arguments** command.
+* This command will open a `argv.json` file to configure runtime arguments.
+* Edit `"enable-crash-reporter": false`.
+* Restart VS Code.
 
 ## Extensions and telemetry
 
@@ -66,7 +62,7 @@ In addition to supporting the General Data Protection Regulation (GDPR), the VS 
 In preparation for GDPR, we made several updates to VS Code, these include:
 
 * Making it easier to opt out of telemetry collection by placing a notification in product for all existing and new users.
-* Reviewing and classifying the telemetry that we send (documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997)).
+* Reviewing and classifying the telemetry that we send (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
 * Ensuring that we have valid data retention policies in place for any data we do collect, for example crash dumps.
 
 In short, we have worked hard to do the right thing, for all users, as these practices apply to all geographies, not just Europe.
@@ -79,7 +75,7 @@ You can find more information about how the Visual Studio family approaches GDPR
 
 ## Managing online services
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
 
 Please note, that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
 
@@ -89,7 +85,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 > **Note**: VS Code extensions may also use online services and may not provide settings to configure the usage of these online services, or they may not register their settings to show up when searching for `@tag:usesOnlineServices`. Consult the specific extension's documentation to learn about its usage of online services.
 
-### non-Microsoft online services used by VS Code
+### Non-Microsoft online services used by VS Code
 
 The built-in **npm support for VS Code** extension sends requests to `https://registry.npmjs.org` and `https://registry.bower.io`.
 
@@ -119,9 +115,9 @@ When you open a file type for which VS Code does not have any precomputed recomm
 
 ## For extension authors
 
-If you have created a VS Code extension, you can use the VS Code telemetry infrastructure for reporting through the [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) npm module. This module provides a consistent way for extensions to report telemetry over [Azure Monitor and Application Insights](https://azure.microsoft.com/en-us/services/monitor/). The module respects the user's decision about whether or not to send telemetry data via the `telemetry.enableTelemetry` setting.
+If you have created a VS Code extension, you can use the VS Code telemetry infrastructure for reporting through the [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) npm module. This module provides a consistent way for extensions to report telemetry over [Azure Monitor and Application Insights](https://azure.microsoft.com/services/monitor/). The module respects the user's decision about whether or not to send telemetry data via the `telemetry.enableTelemetry` setting.
 
-Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
+Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
 
 ## Next steps
 

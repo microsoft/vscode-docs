@@ -1,10 +1,9 @@
 ---
-Order: 8
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 PageTitle: Build and Deploy Java Web Apps to the cloud with Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 7/22/2020
 MetaDescription: Java web app tutorial showing how to build and deploy a Java web app to Azure with Visual Studio Code
 ---
 
@@ -24,7 +23,7 @@ Before running and deploying this sample, you must have the Java SE Development 
 
 Download and install the Java SE Development Kit (JDK), version 8:
 
-<a class="tutorial-next-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+<a class="tutorial-next-btn" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
 
 >**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
@@ -56,7 +55,7 @@ You can learn more about how VS Code launches your application in Debugging [Lau
 
 ![Run Spring Boot](images/java-webapp/run-spring-boot.gif)
 
-Test the web app by browsing to `http://localhost:8080` using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
+Test the web app by browsing to [http://localhost:8080](http://localhost:8080) using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
 
 ![Greeting from Spring](images/java-webapp/greeting-from-spring.png)
 
@@ -97,9 +96,9 @@ The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-a
 
 To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command-line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
-### Create a new Web App
+### Create a new Web App on Azure
 
-Once the extension is installed, you can take the following steps to create a new Web App.
+Once the extension is installed, you can take the following steps to create a new Web App on Azure.
 
 1. Click **Create New Project** button on the **APP SERVICE** Explorer view.
 2. Select a subscription.
@@ -114,7 +113,7 @@ Once the extension is installed, you can take the following steps to create a ne
 
 The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as a dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign in to your account using the **Device Login** flow. Select **Copy & Open** to open your default browser.
 
 ![Azure sign in code](images/java-webapp/devicelogin.png)
 
@@ -122,12 +121,13 @@ Paste in the access code and continue the sign in process.
 
 ![Azure Device Login](images/java-webapp/devicelogin2.png)
 
-Once you have signed in, you can open the command prompt or terminal window and build the project using Maven commands. This will generate a new `name.war` or `name.jar` file in the `target` directory.
+Once you have signed in, you can open the command prompt or terminal window and build the project using Maven commands. This will generate a new `war` or `jar` artifact in the `target` directory.
 
 ```bash
 mvn clean package
 ```
-After building the project, open the `target` directory in VS Code Explorer. Right-click on the `name.war` or `name.jar` file and choose **Deploy to Web App**, and follow the prompts to choose the Web App for your deployment.
+
+After building the project, open the `target` directory in VS Code Explorer. Right-click on the artifact and choose **Deploy to Web App**, and follow the prompts to choose the Web App for your deployment.
 
 ![Deploy to Web App](images/java-webapp/deploy-webapp.png)
 
@@ -136,6 +136,52 @@ Open the **Output** window in VS Code to view the deployment logs. Once the depl
 ![Greeting from Spring Boot](images/java-webapp/greeting.png)
 
 > **Note:** For more advanced features of App Service, you can check out the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
+
+## Connect with data services
+
+[Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
+
+The [Spring Boot Starter](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB with SQL API.
+
+### Create an Azure Cosmos DB entity on Azure
+
+1. Go to [Azure portal](https://portal.azure.com/) and click the '+' to **Create a resource**.
+2. Click **Databases**, and then click **Azure Cosmos DB** to create your database.
+3. Select **SQL (Document DB) API** and type in other information for your database.
+4. Navigate to the database you have created, click **Keys**, and copy your **URI** and **PRIMARY KEY** for your database.
+
+### Config your project
+
+1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-cosmosdb-spring-boot-sample).
+
+2. Navigate to `src/main/resources` and open `application.properties`. Replace below properties in `application.properties` with information of your database.
+
+    ```bash
+    azure.documentdb.uri=your-documentdb-uri
+    azure.documentdb.key=your-documentdb-key
+    azure.documentdb.database=your-documentdb-databasename
+    ```
+
+### Run and debug the application
+
+You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open [Azure portal](https://portal.azure.com/) and access your Cosmos DB. Click **Data Explorer**, and next choose **Documents**. You will see data being shown if it is successfully written into Cosmos DB. You can also browse your data entries in Cosmos DB with [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+
+After setting a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in your source code, refresh your browser to hit the breakpoint. Details about debugging can be found in [Java Debugging](/docs/java/java-debugging.md)
+
+Alternatively, you can also use Maven to package and run your project as steps below:
+
+1. Navigate to the directory `azure-spring-boot` and run the command.
+
+   ```bash
+   mvn install
+   ```
+
+2. Navigate to the directory `azure-documentdb-spring-boot-sample` and run the command.
+
+   ```bash
+   mvn package
+   java -jar target/azure-documentdb-spring-boot-sample-0.0.1-SNAPSHOT.jar
+   ```
 
 ## Next steps
 

@@ -1,15 +1,17 @@
 ---
-Order: 9
+Order: 14
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 ---
 # Remote Development FAQ
 
-This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the step by step [Tutorials](/docs/remote/remote-tutorials.md) to help get you running quickly in a remote environment.
+This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
+
+For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
 ## General
 
@@ -29,6 +31,12 @@ Some benefits of remote development include:
 
 Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
 
+### How do the Remote Development extensions relate to GitHub Codespaces?
+
+[GitHub Codespaces](https://github.com/features/codespaces) is a service that provides managed cloud-hosted development environments accessible from both VS Code and a new browser-based editor. The service also allows VS Code and the browser-based editor to access self-hosted environments (desktop or server) without requiring an SSH server or even a direct network route. You can read more in the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
+
+While the Remote Development and Codespaces extensions share technology and features, the Remote Development extensions are released separately and can operate independently from GitHub Codespaces.
+
 ### How do the Remote Development extensions work?
 
 Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with source code and runtime environments on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server". The **VS Code Server** is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machine, and file system.
@@ -41,19 +49,11 @@ See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) f
 
 Visual Studio Code Remote Development uses existing, well known transports like [secure shell](https://en.wikipedia.org/wiki/Secure_Shell) to authenticate and secure traffic. No ports need to be publicly opened beyond those used by these well-known, secure transports.
 
-The VS Code Server that is injected runs as the same user you used to sign into the machine, ensuring that VS Code and its extensions are not given improper elevated access without permission. The server is started and stopped by VS Code and is not wired into any user or global login or startup scripts. VS Code manages the server's lifecycle so you do not need to worry about whether or not it is running.
+The VS Code Server that is injected runs as the same user you used to sign in to the machine, ensuring that VS Code and its extensions are not given improper elevated access without permission. The server is started and stopped by VS Code and is not wired into any user or global login or startup scripts. VS Code manages the server's lifecycle so you do not need to worry about whether or not it is running.
 
 ### Can VS Code Server be installed or used on its own?
 
 No. The VS Code Server is a component of the Remote Development extensions and is managed by a VS Code client. It is installed and updated automatically by VS Code when it connects to an endpoint and if installed separately could become quickly out of date. It is not intended or [licensed](#license-and-privacy) for use by other clients.
-
-### Are there any plans to introduce a Web UI based on VS Code Server?
-
-Yes, we [announced a new web companion called Visual Studio Online](https://aka.ms/vsfutures) at //build 2019.
-
-### Will there be a service to host managed VS Code development environments in the cloud?
-
-Yes, we [announced a cloud-hosted environments service](https://aka.ms/vsfutures) at //build 2019.
 
 ### What are the connectivity requirements for VS Code Server?
 
@@ -83,6 +83,22 @@ All other communication between the server and the VS Code client is accomplishe
 
 You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 
+### Why can't I see my local containers in the Docker extension when using the Remote - extensions?
+
+By default, the Docker extension will run remotely. While this is a sensible default in some cases, it means the extension may not show local containers when VS Code is connected to a remote SSH host, container, or WSL.
+
+You can use one of the following solutions to resolve this problem:
+
+* Open a new local window (**File > New Window**) and use it to work with local containers.
+
+* Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
+
+* **Remote - WSL only**:  Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
+
+* **Remote - Containers only**: Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-from-docker) (only) in the container.
+
+* Use the [extensionKind property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
 Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.18. Recent x86_64 glibc-based distributions have the best support, but exact requirements can vary by distribution.
@@ -90,16 +106,6 @@ Remote Development requires kernel >= 3.10, glibc >=2.17, and libstdc++ >= 3.4.1
 Support for musl-based [Alpine Linux](https://alpinelinux.org) is available for Remote - Containers and Remote - WSL and ARMv7l (AArch32) / ARMv8l (AArch64) is available in Remote - SSH. However, native dependencies in certain extensions may cause them not to function on non-x86_64 glibc distributions. Note that experimental ARMv8l (AArch64) is available in [VS Code Insiders](https://code.visualstudio.com/insiders/) only.
 
 See [Remote Development with Linux](/docs/remote/linux.md) for additional details.
-
-### Can the Docker extension run as a remote "workspace" extension?
-
-The Docker extension is configured to run as a local "UI" extension by default. This enables the extension to work with your local Docker installation when you are developing inside a container. However, you may want to use the extension with a Docker Machine installed on a remote host instead. Fortunately, you can configure the Docker extension to run on the host by adding the following to `settings.json`:
-
-```json
-"remote.extensionKind": {
-    "ms-azuretools.vscode-docker": "workspace"
-}
-```
 
 ### Can I install individual extensions instead of the extension pack?
 
@@ -129,15 +135,11 @@ With this approach, language features like smart completions just work against w
 
 No. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development.
 
-The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/remote/containers.md#attaching-to-running-containers) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
+The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/remote/attach-container.md) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
 
 ### Do "dev containers definitions" define how an application is built? Like Buildpacks?
 
 No. The [Buildpacks](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment in which you can develop your application before you are ready to build. They are therefore complementary concepts.
-
-### Why do some commands invoked from the Docker extension fail?
-
-Using the Docker extension from a VS Code window opened in a container has some limitations. Most containers do not have the Docker command line installed. Therefore commands invoked from the Docker extension that rely on the Docker command line, for example **Docker: Show Logs**, fail. If you need to execute these commands, open a new local window and use the Docker extension from this VS Code window or [set up Docker inside your container](https://aka.ms/vscode-remote/samples/docker-in-docker).
 
 ## Extensions authors
 
@@ -165,13 +167,13 @@ You can find the licenses for the VS Code Remote Development extensions here:
 
 ### Why aren't the Remote Development extensions or their components open source?
 
-The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [those announced at //build 2019](https://aka.ms/vsfutures). Given that these services also support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
+The Visual Studio Code Remote Development extensions and their related components use an [open planning, issue, and feature request process](https://aka.ms/vscode-remote/feedback), but are not currently open source. The extensions share source code which is also used in fully managed remote development services like [GitHub Codespaces](https://github.com/features/codespaces) and their related extensions. Given that these services also will support other proprietary products (for example Visual Studio IDE), the extensions are available under a Microsoft pre-release license like other service-based, cross-product extensions such as [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) and [Visual Studio Live Share](https://marketplace.visualstudio.com/items/MS-vsliveshare.vsliveshare-pack/license) were during their preview periods.
 
 See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) and [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) articles for more information.
 
-### Will you charge for the extensions once they exit "Preview"?
+### Will you charge for the Remote Development extensions once they exit "Preview"?
 
-No, they will remain free of charge. In the future, we may provide "premium" developer services, which provide additional functionality, but the extensions will be free.
+No, they will remain free of charge. In the future, we may provide additional "premium" developer services like [GitHub Codespaces](https://github.com/features/codespaces), which provide additional functionality, but the extensions will be free.
 
 ### Are there any restrictions on where the Remote Development extensions can connect?
 

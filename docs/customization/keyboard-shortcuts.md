@@ -92,7 +92,7 @@ Key|Command
 `kb(editor.action.peekDefinition)`|Peek Definition
 `kb(editor.action.revealDefinitionAside)`|Open Definition to the side
 `kb(editor.action.quickFix)`|Quick Fix
-`kb(editor.action.referenceSearch.trigger)`|Peek References
+`kb(editor.action.goToReferences)`|Go to References
 `kb(editor.action.rename)`|Rename Symbol
 `kb(editor.action.inPlaceReplace.down)`|Replace with next value
 `kb(editor.action.inPlaceReplace.up)`|Replace with previous value
@@ -126,8 +126,6 @@ Key|Command
 `kb(workbench.action.focusFirstEditorGroup)`|Focus into first editor group
 `kb(workbench.action.focusSecondEditorGroup)`|Focus into second editor group
 `kb(workbench.action.focusThirdEditorGroup)`|Focus into third editor group
-`kb(workbench.action.focuspreviousGroup)`|Focus into previous editor group
-`kb(workbench.action.focusnextGroup)`|Focus into next editor group
 `kb(workbench.action.moveEditorLeftInGroup)`| Move editor left
 `kb(workbench.action.moveEditorRightInGroup)`| Move editor right
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move active editor group left/up
@@ -165,7 +163,7 @@ Key|Command
 `kb(workbench.view.explorer)`|Show Explorer / Toggle focus
 `kb(workbench.view.search)`|Show Search
 `kb(workbench.view.scm)`|Show Source Control
-`kb(workbench.view.debug)`|Show Debug
+`kb(workbench.view.debug)`|Show Run
 `kb(workbench.view.extensions)`|Show Extensions
 `kb(workbench.action.replaceInfiles)`|Replace in files
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search details

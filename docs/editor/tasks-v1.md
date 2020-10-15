@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: 8cdc7d99-6339-49ac-9a31-55f6563fab5c
 PageTitle: Visual Studio Code Tasks (legacy version)
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 # Tasks (legacy version)
@@ -586,7 +586,6 @@ A full handcrafted `tasks.json` for a tsc task running in watch mode looks like 
 
 That was tasks - let's keep going...
 
-* [tasks.json Schema](/docs/editor/tasks-v1-appendix.md) - You can review the full `tasks.json` schema and descriptions.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.

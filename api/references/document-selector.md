@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f328d7e0-8982-4510-b7fb-975188eca502
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions can filter their features based on Document Selectors by language, file type, and location.
@@ -92,7 +92,7 @@ Documents are usually stored on the file system, but not always: there are untit
 
 ## Next steps
 
-To learn more about VS Code extensibility model, try these topic:
+To learn more about VS Code extensibility model, try these topics:
 
 - [Extension Manifest File](/api/references/extension-manifest) - VS Code package.json extension manifest file reference
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference

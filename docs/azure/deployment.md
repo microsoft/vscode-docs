@@ -5,23 +5,29 @@ TOCTitle: Deployment
 PageTitle: Visual Studio Code Azure Tutorials
 ContentId: 90f8dc30-1e71-4ea7-8230-2bf09bfb97d4
 MetaDescription: Visual Studio Code Azure Tutorials
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 ---
 # Deploying Applications to Azure
 
-Visual Studio Code makes it easy to deploy your applications to [Azure](https://azure.microsoft.com) and we've created walkthroughs to help you get started. Whether your workflow is through the [Azure CLI](https://docs.microsoft.com/cli/azure) or [Azure App Service](https://azure.microsoft.com/services/app-service), using a [Docker](https://www.docker.com) container, or creating serverless [Azure Functions](https://azure.microsoft.com/services/functions/), you'll find the deployment steps you need.
+Visual Studio Code makes it easy to deploy your applications to the cloud with [Azure](https://azure.microsoft.com) and we've created walkthroughs to help you get started.
+
+Whether your workflow is through the [Azure CLI](https://docs.microsoft.com/cli/azure) or [Azure App Service](https://azure.microsoft.com/services/app-service), using a Docker container, or creating serverless [Azure Functions](https://azure.microsoft.com/services/functions/), you'll find the deployment steps you need.
 
 ## Deployment tutorials
 
-The tutorials below will walk you through creating a simple website and deploying it to Azure:
+The tutorials below, hosted on the Microsoft Docs platform, walk you through different ways of creating and deploying apps to Azure using Visual Studio Code:
 
 Tutorial | Description
 --- | ---
-[Deploy Azure Functions](/tutorials/functions-extension/getting-started) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
-[Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
-[Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
-[Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
-[Deploy a static website](/tutorials/static-website/getting-started) | Create, deploy, and update a static website on Azure Storage.
+[CI/CD setup with the Deploy to Azure extension](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/deploy-to-azure-vscode) | Set up a Continuous Integration and Delivery (CI/CD) pipeline with GitHub Actions or Azure Pipelines. Supports services including Azure Web Apps, Azure Functions, and Azure Kubernetes Service.
+[Deploy Azure Functions](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
+[Deploy using the App Service extension](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-app-service-node-01) | Manage Azure resources directly in VS Code with the Azure App Service extension.
+[Deploy using Docker](https://docs.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container.
+[Deploy using the Azure CLI](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-cli-node-01) | Create, deploy, and update a website using a terminal and the Azure CLI.
+[Deploy a static website](https://docs.microsoft.com/azure/javascript/tutorial-vscode-static-website-node-01) | Create, deploy, and update a static website on Azure Storage.
+
+You can find additional tutorials and walkthroughs on the
+[Azure Developer Center](https://docs.microsoft.com/azure/developer), including language-specific articles for JavaScript and Node.js, Python, Java, and .NET.
 
 ## Next steps
 

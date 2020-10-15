@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -22,11 +22,14 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `go.microsoft.com`
 * `vscode.blob.core.windows.net`
 * `marketplace.visualstudio.com`
+* `*.gallery.vsassets.io`
 * `*.gallerycdn.vsassets.io`
 * `rink.hockeyapp.net`
 * `vscode.search.windows.net`
 * `raw.githubusercontent.com`
 * `vsmarketplacebadge.apphb.com`
+* `az764295.vo.msecnd.net`
+* `download.visualstudio.microsoft.com`
 
 ## Proxy server support
 
@@ -63,7 +66,7 @@ To learn more about these command-line arguments, see [Chromium Network Settings
 
 ### Authenticated proxies
 
-Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/Microsoft/vscode/pull/22369).
+Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/microsoft/vscode/pull/22369).
 
 The authentication methods supported are:
 
@@ -84,15 +87,15 @@ See [Chromium HTTP authentication](https://www.chromium.org/developers/design-do
 
 Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium was designed to reject responses which are signed by certificates which it doesn't trust. If you hit any SSL trust issues, there are a few options available for you:
 
-* Since Chromium simply uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. See the [Chromium Root Certificate Policy](https://www.chromium.org/Home/chromium-security/root-ca-policy) documentation to learn more.
-* If your proxy runs in `localhost`, you can always try the [`--allow-insecure-localhost`](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command-line flag.
-* If all else fails, you can tell VS Code to ignore all certificate errors using the [`--ignore-certificate-errors`](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
+* Since Chromium uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. See the [Chromium Root Certificate Policy](https://www.chromium.org/Home/chromium-security/root-ca-policy) documentation to learn more.
+* If your proxy runs in `localhost`, you can always try the [--allow-insecure-localhost](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command-line flag.
+* If all else fails, you can tell VS Code to ignore all certificate errors using the [--ignore-certificate-errors](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command-line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
 
 ## Legacy proxy server support
 
-Extensions don't benefit yet from the same proxy support that VS Code supports. You can follow this issue's development in [GitHub](https://github.com/Microsoft/vscode/issues/12588).
+Extensions don't benefit yet from the same proxy support that VS Code supports. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/12588).
 
-Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/Microsoft/vscode/issues/29910).
+Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/29910).
 
 Due to both of these constraints, the `http.proxy`, `http.proxyStrictSSL` and `http.proxyAuthorization` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
 

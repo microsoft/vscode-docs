@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -12,20 +12,21 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ## Installation
 
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
-2. Double-click on the downloaded archive to expand the contents.
-3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
-4. Add VS Code to your Dock by right-clicking on the icon to bring up the context menu and choosing **Options**, **Keep in Dock**.
+2. Open the browser's download list and locate the downloaded archive.
+3. Select the 'magnifying glass' icon to open the archive in Finder.
+4. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the macOS Launchpad.
+5. Add VS Code to your Dock by right-clicking on the icon to bring up the context menu and choosing **Options**, **Keep in Dock**.
 
 ## Launching from the command line
 
 You can also run VS Code from the terminal by typing 'code' after adding it to the path:
 
-- Launch VS Code.
-- Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
+* Launch VS Code.
+* Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
 
 ![macOS shell commands](images/mac/shell-command.png)
 
-- Restart the terminal for the new `$PATH` value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.
+* Restart the terminal for the new `$PATH` value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.
 
 >**Note:** If you still have the old `code` alias in your `.bash_profile` (or equivalent) from an early VS Code version, remove it and replace it by executing the **Shell Command: Install 'code' command in PATH** command.
 
@@ -41,6 +42,15 @@ EOF
 Start a new terminal to pick up your `.bash_profile` changes.
 
 **Note**: The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. Remove the leading slash if you want to run the export command directly in a terminal.
+
+**Note**: Since `zsh` became the default shell in macOS Catalina, run the following commands to add VS Code to your path:
+
+```zsh
+cat << EOF >> ~/.zshrc
+# Add Visual Studio Code (code)
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+EOF
+```
 
 ## Touch Bar support
 
@@ -75,3 +85,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 ### Why do I see "Visual Studio Code would like access to your calendar."
 
 If you are running macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave [discussed above](#mojave-privacy-protections). It is fine to choose **Don't Allow** since VS Code does not need access to those folders.
+
+### VS Code fails to update
+
+If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.

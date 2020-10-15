@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -21,11 +21,11 @@ Understanding these three concepts is crucial to writing extensions in VS Code:
 
 - [**Activation Events**](/api/references/activation-events): events upon which your extension becomes active.
 - [**Contribution Points**](/api/references/contribution-points): static declarations that you make in the `package.json` [Extension Manifest](#extension-manifest) to extend VS Code.
-- [**VS Code API**](/api/references/vscode-api): a set of JavaScript API that you can invoke in your extension code.
+- [**VS Code API**](/api/references/vscode-api): a set of JavaScript APIs that you can invoke in your extension code.
 
 In general, your extension would use a combination of Contribution Points and VS Code API to extend VS Code's functionality. The [Extension Capabilities Overview](/api/extension-capabilities/overview) topic helps you find the right Contribution Point and VS Code API for your extension.
 
-Let's take a closer look of `Hello World` sample's source code and see how these concepts apply to it.
+Let's take a closer look at `Hello World` sample's source code and see how these concepts apply to it.
 
 ## Extension File Structure
 
@@ -48,7 +48,7 @@ You can read more about the configuration files:
 - `tasks.json` for defining VS Code [Tasks](/docs/editor/tasks)
 - `tsconfig.json` consult the TypeScript [Handbook](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 
-However, let's focus on `package.json` and `extensions.ts`, which are essential to understanding the `Hello World` extension.
+However, let's focus on `package.json` and `extension.ts`, which are essential to understanding the `Hello World` extension.
 
 ### Extension Manifest
 
@@ -58,7 +58,6 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 - `main`: The extension entry point.
 - `activationEvents` and `contributes`: [Activation Events](/api/references/activation-events) and [Contribution Points](/api/references/contribution-points).
 - `engines.vscode`: This specifies the minimum version of VS Code API that the extension depends on.
-- The `postinstall` script: This would install the 1.34.0 version of VS Code API as specified in `engines.vscode`. Once the `vscode.d.ts` file is downloaded to `node_modules/vscode/vscode.d.ts`, you will get IntelliSense, jump to definition and error checking for all usage of VS Code API.
 
 ```json
 {
@@ -67,7 +66,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "description": "HelloWorld example for VS Code",
   "version": "0.0.1",
   "publisher": "vscode-samples",
-  "repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
+  "repository": "https://github.com/microsoft/vscode-extension-samples/helloworld-sample",
   "engines": {
     "vscode": "^1.34.0"
   },
@@ -85,8 +84,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/node": "^8.10.25",
@@ -99,7 +97,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 
 ## Extension Entry File
 
-The extension entry file exports two functions, `activate` and `deactivate`. `activate` is executed when your registered **Activation Event** happens. `deactivate` gives you a chance to clean up before your extension becomes deactivated.
+The extension entry file exports two functions, `activate` and `deactivate`. `activate` is executed when your registered **Activation Event** happens. `deactivate` gives you a chance to clean up before your extension becomes deactivated. For many extensions, explicit cleanup may not be required, and the `deactivate` method can be removed. However, if an extension needs to perform an operation when VS Code is shutting down or the extension is disabled or uninstalled, this is the method to do so.
 
 The [`vscode`](https://www.npmjs.com/package/vscode) module contains a script located at `node ./node_modules/vscode/bin/install`. The script pulls the VS Code API definition file depending on the `engines.vscode` field in `package.json`. After running the script, you would get IntelliSense, jump to definition and other TypeScript language features in your code.
 

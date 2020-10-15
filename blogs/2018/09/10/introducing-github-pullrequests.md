@@ -12,7 +12,7 @@ Author: Kenneth Auchenberg
 
 September 10, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenberg)
 
-Like many other open-source projects, the [Visual Studio Code community collaborates](https://github.com/Microsoft/vscode) through [pull requests](https://github.com/Microsoft/vscode/pulls) to land fixes and new features. Starting this past spring, our team has been working to bring you a new integrated pull request experience so that you can collaborate, comment, review, and validate GitHub pull requests directly from within Visual Studio Code.
+Like many other open-source projects, the [Visual Studio Code community collaborates](https://github.com/microsoft/vscode) through [pull requests](https://github.com/microsoft/vscode/pulls) to land fixes and new features. Starting this past spring, our team has been working to bring you a new integrated pull request experience so that you can collaborate, comment, review, and validate GitHub pull requests directly from within Visual Studio Code.
 
 Today, we are announcing the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscodepr-download), closing a gap in the workflow that we and millions of engineers experience every day: The ability to review source code where it was written – inside the editor.
 
@@ -46,13 +46,13 @@ The new pull request extension changes this with a new **Pull Requests** explore
 
 Our new pull requests experience is powered by a set of extension APIs that allow Visual Studio Code extension authors to create extensions that manage pull requests and their related metadata. This open extension model means that pull request providers work just like our existing source control providers and anyone can write an extension for Visual Studio Code that provides in-editor commenting and capabilities to review source code hosted on their platform. You can read more about the new APIs in our [August 2018 release notes](https://code.visualstudio.com/updates/v1_27#_comment-providers).
 
-If you are interested, you can read more about how we are introducing new APIs, and the details for our [extension API process here](https://github.com/Microsoft/vscode/wiki/Extension-API-process).
+If you are interested, you can read more about how we are introducing new APIs, and the details for our [extension API process here](https://github.com/microsoft/vscode/wiki/Extension-API-process).
 
 ## Going forward
 
 We are excited about bringing pull requests into Visual Studio Code, as we believe it will simplify the way you review source code. Our GitHub extension is just the first example of integrating source control platform providers for code reviews in Visual Studio Code.
 
-Please try out the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscodepr-download), and as always, we are eager to hear your feedback, so don’t hesitate in reaching to us on [GitHub](https://github.com/Microsoft/vscode-pull-request-github) or [@code on Twitter](https://twitter.com/code).
+Please try out the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscodepr-download), and as always, we are eager to hear your feedback, so don’t hesitate in reaching to us on [GitHub](https://github.com/microsoft/vscode-pull-request-github) or [@code on Twitter](https://twitter.com/code).
 
 One more thing, today we are also releasing [Azure DevOps](https://azure.microsoft.com/services/devops), and the new [Azure Pipelines](https://github.com/marketplace/azure-pipelines) extension on the GitHub Marketplace. For more information, visit [https://aka.ms/azurecicd](https://aka.ms/azurecicd).
 

@@ -1,17 +1,17 @@
 ---
-Order: 11
+Order:
 Area: cpp
 TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
-PageTitle: Pipe transport for remote communication in C++ projects
+PageTitle: The Natvis framework provides custom views for native C++ objects
 DateApproved: 07/25/2019
-MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
+MetaDescription: Learn how the Natvis framework provides custom views for native C++ objects in Visual Studio Code
 ---
 # Natvis: Custom views for native objects
 
 The [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 
-For gdb/lldb debugging (`type": "cppdbg`), a subset of the Natvis framework has been ported to the C/C++ extension and the code resides in the [MIEngine](https://github.com/Microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/Microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
+For gdb/lldb debugging (`type": "cppdbg`), a subset of the Natvis framework has been ported to the C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
 
 For Microsoft C++ debugging (`type": "cppvsdbg`), the debugger contains the full implementation of the Natvis framework as Visual Studio.
 
@@ -292,7 +292,7 @@ The Natvis schema is provided here for convenience:
 
   <xs:complexType name="DisplayStringType">
     <xs:annotation>
-      <xs:documentation>Specifies the string to be shown as the value of objects of the visualized type. It accepts arbitrary strings mixed with expressions. Everything inside curly braces (i.e. { and }) is interpreted as an expression and gets evaluated. To escape a curly brace, you can type two curly braces (i.e. {{ or }}).</xs:documentation>
+      <xs:documentation>Specifies the string to be shown as the value of objects of the visualized type. It accepts arbitrary strings mixed with expressions. Everything inside curly braces (for example, { and }) is interpreted as an expression and gets evaluated. To escape a curly brace, you can type two curly braces (for example, \{{ or }}).</xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -356,7 +356,7 @@ The Natvis schema is provided here for convenience:
     <xs:annotation>
       <xs:documentation>
         Specifies an optional name, in &lt;DisplayString&gt; syntax, for this node. If omitted, the name
-        of the node will simply be the index of the item in the tree traversal. Expressions in curly braces
+        of the node will be the index of the item in the tree traversal. Expressions in curly braces
         are evaluated in the context of the node.
       </xs:documentation>
     </xs:annotation>

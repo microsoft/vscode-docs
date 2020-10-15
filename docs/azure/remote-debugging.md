@@ -5,7 +5,7 @@ TOCTitle: Remote Debugging for Node.js
 PageTitle: Azure Remote Debugging for Node.js with Visual Studio Code
 ContentId: 09cb23b6-b1e9-4a29-a934-cbc16fe109c7
 MetaDescription: Azure Remote Debugging for Node.js with Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 ---
 # Azure Remote Debugging for Node.js
 
@@ -25,7 +25,7 @@ Once you've installed the Azure App Service extension, you'll notice there is a 
 
 Select **Sign in to Azure** in the App Service Explorer or **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`) to sign in to your Azure Account. If you don't have an account, select **Create a Free Azure Account...** to create a free account and get $200 in Azure Credits to try out any combination of Azure services.
 
-> **Tip:** If you don't have an app deployed to Azure App Service, start by following [this tutorial](https://code.visualstudio.com/tutorials/app-service-extension/getting-started) to get an app deployed.
+> **Tip:** If you don't have an app deployed to Azure App Service, start by following [this tutorial](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-app-service-node-01) to get an app deployed.
 
 ## Start a remote debugging session
 

@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order:
 Area: cpp
 TOCTitle: Pipe transport
 ContentId: 59BE5FF7-563F-4044-A562-294E75A75F96
@@ -9,7 +9,7 @@ MetaDescription: How to set up pipe transport for debugging C++ code in Visual S
 ---
 # Pipe transport
 
-Pipe transport allows communication through a pipe program to a remote shell. An example on Linux would be `ssh`. With the introduction of [Visual Studio Code Remote Development](/docs/remote/remote-overview.md) pipe transport is relevant primarily for IoT scenarios.
+Pipe transport allows communication through a pipe program to a remote shell. For example, `ssh` on Linux. With the introduction of [Visual Studio Code Remote Development](/docs/remote/remote-overview.md) pipe transport is relevant primarily for IoT scenarios.
 
 ## How-To
 
@@ -41,7 +41,7 @@ You may also need to add a `sourceFileMap` to map the path of where the code exi
 
 ## Attach
 
-You can also use the above `pipeTransport` block to attach to a remote process. In the attach case, you need to specify a `processId`. The extension can query processes from the remote machine. To do this, change `processId": "${command.pickProcess}` to `processId": "${command.pickRemoteProcess}`. The `pipeTransport` settings will be used to query the processes on the remote machine. Then select the process from the drop-down list. As with `launch`, you may need to configure `sourceFileMap`.
+You can also use the above `pipeTransport` block to attach to a remote process. In the attach case, you need to specify a `processId`. The extension can query processes from the remote machine. To do this, change `processId": "${command:pickProcess}` to `processId": "${command:pickRemoteProcess}`. The `pipeTransport` settings will be used to query the processes on the remote machine. Then select the process from the drop-down list. As with `launch`, you may need to configure `sourceFileMap`.
 
 ## Docker example
 
@@ -49,7 +49,7 @@ The `pipeTransport` can also be used to debug a process in a Docker container. F
 
 ```json
 "pipeTransport": {
-    "pipeCwd": "${workspaceRoot}",
+    "pipeCwd": "${workspaceFolder}",
     "pipeProgram": "docker",
     "pipeArgs": [
         "exec",

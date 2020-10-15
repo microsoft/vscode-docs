@@ -1,10 +1,10 @@
 ---
-Order: 11
+Order: 13
 Area: java
 TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
 PageTitle: Java on Visual Studio Code FAQ and Wiki
-DateApproved: 1/2/2019
+DateApproved: 8/31/2019
 MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
 # Frequent Asked Questions
@@ -29,39 +29,65 @@ Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in 
 
 ## Where can I find the latest progress of Java support on Visual Studio Code?
 
-You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-studio-code-april-update#signup) to follow the latest of Java on Visual Studio Code.
+You can follow us on the [Java at Microsoft](https://devblogs.microsoft.com/java/) blog, which will keep you updated on our progress.
 
-We're currently publishing our updates at [The Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/tag/java/), which will report all our major features and improvements.
+While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
 
-While you're using Java within VS Code, you might also see a *Release Notes* once you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). That will give you an overview on the notable updates included in the extensions.
+## How can I use Visual Studio Code with new Java versions?
 
-## How can I use Visual Studio Code with Java 12?
+Thanks to the upstream update from JDT, you can now build your project up to Java 14 with VS Code as well. To use the experimental/preview language features, you need to modify your project settings.
 
-Thanks to the upstream update from JDT, you can now build your project with Java 12 features with VS Code as well. To use the experimental language features such as the new `switch` statement, add the following settings to `pom.xml`:
+Maven - modify `pom.xml`:
 
 ```xml
-<build>
-    <plugins>
+  <build>
+    <pluginManagement>
+      <plugins>
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.0</version>
-            <configuration>
-                <source>12</source>
-                <compilerArgs>--enable-preview</compilerArgs>
-            </configuration>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>14</release>
+            <compilerArgs>--enable-preview</compilerArgs>
+          </configuration>
         </plugin>
-    </plugins>
-</build>
+      </plugins>
+    </pluginManagement>
+  </build>
+```
+
+Gradle:
+
+```groovy
+sourceCompatibility = 14
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
+}
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+```
+
+> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean the Java language server workspace**.
+
+## How can I use it behind a corporate proxy?
+
+When using the Java extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
+
+This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
+
+```json
+{
+"java.jdt.ls.vmargs": "-Dhttp.proxyHost=webproxy.corp.net -Dhttp.proxyPort=proxyport -Dhttp.proxyUser=user -Dhttp.proxyPassword=password -Dhttps.proxyHost=webproxy.corp.net -Dhttps.proxyPort=proxyport -Dhttps.proxyUser=user -Dhttps.proxyPassword=password"
+}
 ```
 
 ## Will this be available for Visual Studio?
 
-Currently we don't plan to extend the Java support to Visual Studio. There's already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
+Currently we don't plan to extend the Java support to Visual Studio. There are already great IDEs for Java and we're focusing on VS Code to provide a lightweight experience in a polyglot editor.
 
 ## Does VS Code Java support other display languages?
 
-Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/getstarted/locales.md).
+Currently we support Chinese in addition to English for a few extensions including [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug), [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency). To learn how to switch the VS Code display language, see [Display Languages](/docs/getstarted/locales.md).
 
 You can contribute to the extension repositories if you're interested in additional display language support.
 

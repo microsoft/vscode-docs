@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: Node.js Debugging Recipes for Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: debugging_Debugging.png
 
 Visual Studio Code supports debugging of many languages and platforms via debuggers that are either built-in or contributed by extensions.
 
-To make it easier to get started with debugging, we have made a collection of debugging "recipes" which contain the steps and configuration you need to set up debugging for your favorite platform. The recipes are in GitHub at [https://github.com/Microsoft/vscode-recipes](https://github.com/Microsoft/vscode-recipes).
+To make it easier to get started with debugging, we have made a collection of debugging "recipes" which contain the steps and configuration you need to set up debugging for your favorite platform. The recipes are in GitHub at [https://github.com/microsoft/vscode-recipes](https://github.com/microsoft/vscode-recipes).
 
 ## Debug server-side JavaScript in Node.js
 
@@ -22,7 +22,7 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 
 **Recipes:**
 
-- [Debugging Node.js with Nodemon](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon)
+- [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/master/nodemon)
 
 ## Debug client-side JavaScript in Google Chrome
 
@@ -34,12 +34,12 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 **Recipes:**
 
-- [Debugging Angular apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
-- [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
-- [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
-- [Debugging Vue.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/vuejs-cli)
-- [Debugging Mocha tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-mocha-tests)
-- [Debugging Jest tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests)
+- [Debugging Angular apps with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/master/Angular-CLI)
+- [Debugging Next.js apps](https://github.com/microsoft/vscode-recipes/tree/master/Next-js)
+- [Debugging Meteor apps](https://github.com/microsoft/vscode-recipes/tree/master/meteor)
+- [Debugging Vue.js apps](https://github.com/microsoft/vscode-recipes/tree/master/vuejs-cli)
+- [Debugging Mocha tests](https://github.com/microsoft/vscode-recipes/tree/master/debugging-mocha-tests)
+- [Debugging Jest tests](https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests)
 
 **Blog posts**:
 
@@ -55,7 +55,7 @@ This recipe shows how to run and debug a VS Code Node.js project written in Type
 
 **Recipes:**
 
-- [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
+- [Debugging Node.js with TypeScript in Docker](https://github.com/microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## MERN - Mongo, Express, React and Node.js
 
@@ -65,7 +65,7 @@ This recipe shows how to run and debug a MERN (Mongo, Express, React and Node.js
 
 **Recipes:**
 
-- [Developing the MERN Starter in VS Code](https://github.com/Microsoft/vscode-recipes/tree/master/MERN-Starter)
+- [Developing the MERN Starter in VS Code](https://github.com/microsoft/vscode-recipes/tree/master/MERN-Starter)
 
 ## Electron - Debug Electron applications
 
@@ -75,7 +75,7 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 
 **Recipes:**
 
-- [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
+- [Debugging Electron Main and Renderer processes](https://github.com/microsoft/vscode-recipes/tree/master/Electron)
 
 ## Next steps
 

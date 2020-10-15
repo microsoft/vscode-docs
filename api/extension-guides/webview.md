@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -15,7 +15,7 @@ Think of a webview as an `iframe` within VS Code that your extension controls. A
 
 ## Links
 
-- [Webview Sample](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+- [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
 
 ### VS Code API Usage
 
@@ -40,7 +40,7 @@ Remember: Just because you can do something with webviews, doesn't mean you shou
 
 To explain the webview API, we are going to build a simple extension called **Cat Coding**. This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of source code our cat has written and notifications that inform the user when the cat introduces a bug.
 
-Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
+Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
 
 ```json
 {
@@ -412,11 +412,9 @@ In addition, the **Developer: Reload Webview** command reloads all active webvie
 
 ## Loading local content
 
-Webviews run in isolated contexts that cannot directly access local resources. This is done for security reasons. This means that in order to load images, stylesheets, and other resources from your extension, or to load any content from the user's current workspace, you must use the `vscode-resource:` scheme inside the webview.
+Webviews run in isolated contexts that cannot directly access local resources. This is done for security reasons. This means that in order to load images, stylesheets, and other resources from your extension, or to load any content from the user's current workspace, you must use the `Webview.asWebviewUri` function to convert a local `file:` URI into a special URI that VS Code can use to load a subset of local resources.
 
-The `vscode-resource:` scheme is similar to the `file:` scheme, but it only allows access to select local files. Like with `file:`, `vscode-resource:` loads a resource at a given absolute path from the disk.
-
-Imagine that we want to start bundling the cat gifs into our extension rather pulling them from Giphy. To do this, we first create a URI to the file on disk and then update this URI to use the `vscode-resource` scheme:
+Imagine that we want to start bundling the cat gifs into our extension rather pulling them from Giphy. To do this, we first create a URI to the file on disk and then pass these URIs through the `asWebviewUri` function:
 
 ```ts
 import * as vscode from 'vscode';
@@ -438,7 +436,7 @@ export function activate(context: vscode.ExtensionContext) {
       );
 
       // And get the special URI to use with the webview
-      const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+      const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
 
       panel.webview.html = getWebviewContent(catGifSrc);
     })
@@ -446,22 +444,26 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The value for `catGifSrc` will be something like:
+If we debug this code, we'd see that the actual value for `catGifSrc` is something like:
 
-```bash
+```
 vscode-resource:/Users/toonces/projects/vscode-cat-coding/media/cat.gif
 ```
 
-By default, `vscode-resource:` can only access resources in the following locations:
+VS Code understands this special URI and will use it to load our gif from the disk!
+
+By default, webviews can only access resources in the following locations:
 
 - Within your extension's install directory.
 - Within the user's currently active workspace.
+
+Use the `WebviewOptions.localResourceRoots` to allow access to additional local resources.
 
 You can also always use data URIs to embed resources directly within the webview.
 
 ### Controlling access to local resources
 
-Webviews can control which resources `vscode-resource:` can load using the `localResourceRoots` option. `localResourceRoots` defines a set of root URIs from which local content may be loaded.
+Webviews can control which resources can be loaded from the user's machine with `localResourceRoots` option. `localResourceRoots` defines a set of root URIs from which local content may be loaded.
 
 We can use `localResourceRoots` to restrict **Cat Coding** webviews to only load resources from a `media` directory in our extension:
 
@@ -478,14 +480,16 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {
           // Only allow the webview to access resources in our extension's media directory
-          localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'media'))]
+          localResourceRoots: [
+            vscode.Uri.file(path.join(context.extensionPath, 'media'))
+          ]
         }
       );
 
       const onDiskPath = vscode.Uri.file(
         path.join(context.extensionPath, 'media', 'cat.gif')
       );
-      const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+      const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
 
       panel.webview.html = getWebviewContent(catGifSrc);
     })
@@ -495,7 +499,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 To disallow all local resources, just set `localResourceRoots` to `[]`.
 
-In general, webviews should be as restrictive as possible in loading local resources. However, keep in mind that `vscode-resource` and `localResourceRoots` do not offer complete security protection on their own. Make sure your webview also follows [security best practices](#security), and strongly consider adding a [content security policy](#content-security-policy) to further restrict the content that can be loaded.
+In general, webviews should be as restrictive as possible in loading local resources. However, keep in mind that `localResourceRoots` does not offer complete security protection on its own. Make sure your webview also follows [security best practices](#security), and add a [content security policy](#content-security-policy) to further restrict the content that can be loaded.
 
 ### Theming webview content
 
@@ -537,7 +541,15 @@ The following font related variables are also defined:
 
 - `--vscode-editor-font-family` - Editor font family (from the `editor.fontFamily` setting).
 - `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
-- `--vscode-editor-font-size` - Editor font size (from the `editor.fontWeight` setting).
+- `--vscode-editor-font-size` - Editor font size (from the `editor.fontSize` setting).
+
+Finally, for special cases where you need to write CSS that targets a single theme, the body element of webviews has a new data attribute called `vscode-theme-name` that stores the full name of the currently active theme. This lets you write theme-specific CSS for webviews:
+
+```css
+body[data-vscode-theme-name="One Dark Pro"] {
+    background: hotpink;
+}
+```
 
 ## Scripts and message passing
 
@@ -763,7 +775,7 @@ function getWebviewContent() {
 
 ![Passing messages from the webview to the main extension](images/webview/scripts-webview_to_extension.gif)
 
-For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global state.
+For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global scope.
 
 ## Security
 
@@ -804,9 +816,11 @@ The policy `default-src 'none';` disallows all content. We can then turn back on
 ```html
 <meta
   http-equiv="Content-Security-Policy"
-  content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource:; style-src vscode-resource:;"
+  content="default-src 'none'; img-src ${webview.cspSource} https:; script-src ${webview.cspSource}; style-src ${webview.cspSource};"
 />
 ```
+
+The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample) for a complete example of how to use this value.
 
 This content security policy also implicitly disables inline scripts and styles. It is a best practice to extract all inline styles and scripts to external files so that they can be properly loaded without relaxing the content security policy.
 

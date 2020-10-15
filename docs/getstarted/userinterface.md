@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -52,7 +52,7 @@ When you have more than one editor open you can switch between them quickly by h
 
 ## Minimap
 
-A Minimap (code outline) gives you a high-level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
+A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is shown on the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
 
 ![minimap](images/userinterface/minimap.png)
 
@@ -61,6 +61,14 @@ A Minimap (code outline) gives you a high-level overview of your source code whi
 ### Indent Guides
 
 The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.renderIndentGuides": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+
+## Breadcrumbs
+
+The editor has a navigation bar above its contents called [Breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_(navigation)). It shows the current location and allows you to quickly navigate between folders, files, and symbols.
+
+![Breadcrumbs](images/userinterface/breadcrumbs.png)
+
+Breadcrumbs always show the file path and if the current file type has language support for symbols, the symbol path up to the cursor position. You can disable breadcrumbs with the **View** > **Show Breadcrumbs** toggle command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editor/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editor/editingevolved.md) article.
 
 ## Explorer
 
@@ -78,7 +86,7 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on macOS or Linux).
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the macOS or **Open Containing Folder** on Linux).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on macOS or **Open Containing Folder** on Linux).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
@@ -95,6 +103,14 @@ You can select multiple files in the **File Explorer** and **OPEN EDITORS** view
 ```json
 "workbench.list.multiSelectModifier": "alt"
 ```
+
+### Filtering the document tree
+
+You can type to filter the currently visible files in the **File Explorer**. With the focus on the **File Explorer** start to type part of the file name you want to match. You will see a filter box in the top-right of the **File Explorer** showing what you have typed so far and matching file names will be highlighted. When you press the cursor keys to move up and down the file list, it will jump between matching files or folders.
+
+Hovering over the filter box and selecting **Enable Filter on Type** will show only matching files/folders. Use the 'X' **Clear** button to clear the filter.
+
+![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
 
 ### Outline view
 
@@ -134,9 +150,9 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 
 * **Search** - Provides global search and replace across your open folder.
 * **Source Control** - VS Code includes Git source control by default.
-* **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
+* **Run** - VS Code's Run and Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
-* **Custom views** - Views contributed by extensions under Explorer and Debug views.
+* **Custom views** - Views contributed by extensions.
 
 > **Tip:** You can open any view using the **View: Open View** command.
 
@@ -161,7 +177,7 @@ VS Code is equally accessible from the keyboard. The most important key combinat
 The **Command Palette** provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
 * `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by typing its name
-* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
+* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
 * `kb(workbench.action.showCommands)` will bring you directly to the editor commands
 * `kb(workbench.action.gotoSymbol)` will let you navigate to a specific symbol in a file
 * `kb(workbench.action.gotoLine)` will let you navigate to a specific line in a file
@@ -290,13 +306,10 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 
 * `kb(workbench.action.nextEditor)` go to the right editor.
 * `kb(workbench.action.previousEditor)` go to the left editor.
-* `kb(workbench.action.openNextRecentlyUsedEditorInGroup)` open the next editor in the editor group MRU list.
-* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` open the previous editor in the editor group MRU list.
+* `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)` open the previous editor in the editor group MRU list.
 * `kb(workbench.action.focusFirstEditorGroup)` go to the leftmost editor group.
 * `kb(workbench.action.focusSecondEditorGroup)` go to the center editor group.
 * `kb(workbench.action.focusThirdEditorGroup)` go to the rightmost editor group.
-* `kb(workbench.action.focusPreviousGroup)` go to the previous editor group.
-* `kb(workbench.action.focusNextGroup)` go to the next editor group.
 * `kb(workbench.action.closeActiveEditor)` close the active editor.
 * `kb(workbench.action.closeEditorsInGroup)` close all editors in the editor group.
 * `kb(workbench.action.closeAllEditors)` close all editors.
@@ -346,8 +359,7 @@ If configured to be `default`, we will make the best guess about reusing a windo
 
 Note: There can still be cases where this setting is ignored (for example, when using the `-new-window` or `-reuse-window` command-line option).
 
-The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
-reopen the last opened window you worked on (setting: `one`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `all` to restore all windows you worked on during your previous session or `folders` to only restore windows that had folders opened.
+The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will restore all windows you worked on during your previous session (setting: `all`). Change this setting to `none` to never reopen any windows and always start with an empty VS Code instance. Change it to `one` to reopen the last opened window you worked on or `folders` to only restore windows that had folders opened.
 
 ## Next steps
 

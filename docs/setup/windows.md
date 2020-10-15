@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -17,7 +17,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
 Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
->**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
+>**Note:** .NET Framework 4.5.2 or higher is required for VS Code. If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed. You can check your version of .NET Framework using this command, `reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version` from a command prompt.
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
@@ -53,11 +53,11 @@ With WSL, you can install and run Linux distributions on Windows. This enables y
 
 When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL.
 
-See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/remote-tutorials/wsl/getting-started.md) step-by-step tutorial.
+See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/docs/remote/wsl-tutorial.md) introductory tutorial.
 
 ### New Windows Terminal
 
-Available from the Microsoft Store, the [Windows Terminal (Preview)](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701?SilentAuth=1&wa=wsignin1.0&activetab=pivot%3Aoverviewtab) lets you easily open PowerShell, Command Prompt, and WSL terminals in a multiple tab shell.
+Available from the Microsoft Store, the [Windows Terminal (Preview)](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701?SilentAuth=1&wa=wsignin1.0&activetab=pivot%3Aoverviewtab) lets you easily open PowerShell, Command Prompt, and WSL terminals in a multiple tab shell.
 
 ## Next steps
 
@@ -72,8 +72,8 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ### What command-line arguments are supported by the Windows Setup?
 
-VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
-for Windows. Thus, all the [Inno Setup command-line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+VS Code uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its setup package
+for Windows. Thus, all the [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
 
 Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
 

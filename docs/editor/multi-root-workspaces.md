@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 16
 Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -136,9 +136,9 @@ VS Code UI such as the **OPEN EDITORS** and **Quick Open** (`kb(workbench.action
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
-If you are using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
+If you are using an [File Icon Theme](/docs/getstarted/themes.md#file-icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
-Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** icon theme:
+Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** file icon theme:
 
 ![custom workspace icon](images/multi-root-workspaces/workspace-icon.png)
 
@@ -204,7 +204,7 @@ With multi-root workspaces, VS Code searches across all folders for `launch.json
 
 The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `launch` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
 
-You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template drop-down.
+You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template drop-down.
 
 ![debugging template drop-down](images/multi-root-workspaces/add-launch-config.png)
 
@@ -215,7 +215,6 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the Command Palette):
 
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
-
 
 Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
 
@@ -276,7 +275,11 @@ Similar to how VS Code searches for debugging configurations, VS Code will also 
 
 ![tasks drop-down](images/multi-root-workspaces/tasks-dropdown.png)
 
-From the TSLint extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+From the TSLint extension [Workspace](https://github.com/microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+
+### Workspace task configuration
+
+Workspace scoped tasks live in the `"tasks"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the Command Palette). Only `"shell"` and `"process"` type tasks can be defined in the workspace configuration file.
 
 ## Source Control
 
@@ -288,7 +291,7 @@ You can use `kbstyle(Ctrl+Click)` or `kbstyle(Shift+Click)` to select multiple r
 
 ## Extensions
 
-Multi-root workspaces have been available as a preview on Insiders build since the June 2017 [1.14 release](/updates/v1_14.md#preview-multi-root-workspaces) and we've been working with extension authors to help them get ready for the release to Stable. If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code API changes and how to make your extension work well across multiple folders.
+Multi-root workspaces have been available as a preview on Insiders build since the June 2017 [1.14 release](/updates/v1_14.md#preview-multi-root-workspaces) and we've been working with extension authors to help them get ready for the release to Stable. If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code API changes and how to make your extension work well across multiple folders.
 
 Below are some of the popular extensions which have already adopted the multi-root workspace APIs.
 
@@ -333,4 +336,4 @@ You can either close the Workspace and open the folder directly or remove the fo
 
 ### As an extension author what do I need to do?
 
-See our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide. Most extensions can easily support multi-root workspaces.
+See our [Adopting Multi Root Workspace APIs](https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide. Most extensions can easily support multi-root workspaces.

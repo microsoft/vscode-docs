@@ -5,7 +5,7 @@ TOCTitle: Extensions
 PageTitle: Visual Studio Code Azure Extensions
 ContentId: d2e93075-4cfe-48f4-b05e-f985c86d9713
 MetaDescription: Visual Studio Code Azure Extensions
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 ---
 # Azure Extensions
 
@@ -25,7 +25,7 @@ There is also a [Node Pack for Azure](https://marketplace.visualstudio.com/items
 
 ## Searching for extensions
 
-You can also search for Azure or cloud extensions in the VS Code Extensions view (`kb(workbench.view.extensions)`) and typing 'azure'.
+You can also search for Azure or cloud extensions in the VS Code Extensions view (`kb(workbench.view.extensions)`) and type 'azure'.
 
 ![popular Azure extensions](images/extensions/popular-azure-extensions.png)
 

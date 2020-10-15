@@ -4,13 +4,13 @@ Area: typescript
 TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
 PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
 # TypeScript tutorial in Visual Studio Code
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/Microsoft/TypeScript/tree/master/doc) has full details about the language.
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/microsoft/TypeScript/tree/master/doc) has full details about the language.
 
 ## Install the TypeScript compiler
 
@@ -49,7 +49,7 @@ let message : string = "Hello World";
 console.log(message);
 ```
 
-To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and typing `tsc helloworld.ts`. This will compile and create a new `HelloWorld.js` JavaScript file.
+To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
 
 ![compiled hello world](images/tutorial/compiled-hello-world.png)
 
@@ -93,13 +93,13 @@ When editing `tsconfig.json`, IntelliSense (`kb(editor.action.triggerSuggest)`) 
 
 ![tsconfig.json IntelliSense](images/tutorial/tsconfig-intellisense.png)
 
-By default, TypeScript includes all the `.ts` files in the current folder and subfolders if the `files` attribute isn't included so we don't need to list `helloworld.ts` explicitly.
+By default, TypeScript includes all the `.ts` files in the current folder and subfolders if the `files` attribute isn't included, so we don't need to list `helloworld.ts` explicitly.
 
 Now to build from the terminal, you can just type `tsc` and the TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
 ### Change the build output
 
-Having the generated JavaScript file in the same folder at the TypeScript source will quickly get cluttered on larger projects, so you can specify the output directory for the compiler with the `outDir` attribute.
+Having the generated JavaScript file in the same folder as the TypeScript source will quickly get cluttered on larger projects, so you can specify the output directory for the compiler with the `outDir` attribute.
 
 ```json
 {
@@ -111,13 +111,13 @@ Having the generated JavaScript file in the same folder at the TypeScript source
 }
 ```
 
-Delete `helloworld.js`, run `tsc` again and `helloworld.js` will be placed in an `out` directory.
+Delete `helloworld.js` and rerun the command `tsc`. You will see that `helloworld.js` is now placed in the `out` directory.
 
 See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn about other features of the TypeScript language service and how to use tasks to run your builds directly from VS Code.
 
 ## Error checking
 
-TypeScript helps you avoid common programming mistakes through strong type checking. For example, if you assign a number to `message`, the TypeScript compiler will complain with **'error TS2322: Type '2' is not assignable to type 'string'**.  You can see type checking errors in VS Code both the editor (red squiggles with hover information) and the Problems panel (`kb(workbench.actions.view.problems)`). The `[ts]` prefix lets you know this error is coming from the TypeScript language service.
+TypeScript helps you avoid common programming mistakes through strong type checking. For example, if you assign a number to `message`, the TypeScript compiler will complain with **'error TS2322: Type '2' is not assignable to type 'string'**.  You can see type checking errors in VS Code both in the editor (red squiggles with hover information) and the Problems panel (`kb(workbench.actions.view.problems)`). The `[ts]` prefix lets you know this error is coming from the TypeScript language service.
 
 ![incorrect type error](images/tutorial/incorrect-type-error.png)
 
@@ -152,7 +152,7 @@ The debugger will start a session, run your code, and display the "Hello World" 
 
 ![debug console output](images/tutorial/debug-console.png)
 
-In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Debug view (`kb(workbench.view.debug)`).
+In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Run view (`kb(workbench.view.debug)`).
 
 ![debug breakpoint](images/tutorial/debug-breakpoint.png)
 

@@ -1,19 +1,19 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
 ---
 
-# Testing Extension
+# Testing Extensions
 
 Visual Studio Code supports running and debugging tests for your extension. These tests will run inside a special instance of VS Code named the **Extension Development Host**, and have full access to the VS Code API. We refer to these tests as integration tests, because they go beyond unit tests that can run without a VS Code instance. This documentation focuses on VS Code integration tests.
 
 ## Overview
 
-*If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)*.
+_If you are migrating from `vscode`, see [migrating from `vscode`](#migrating-from-vscode)_.
 
 If you are using the [Yeoman Generator](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold an extension, integration tests are already created for you.
 
@@ -53,7 +53,7 @@ async function main() {
   try {
     // The folder containing the Extension Manifest package.json
     // Passed to `--extensionDevelopmentPath`
-    const extensionDevelopmentPath = path.resolve(__dirname, '../../');
+    const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
 
     // The path to the extension test runner script
     // Passed to --extensionTestsPath
@@ -62,6 +62,7 @@ async function main() {
     // Download VS Code, unzip it and run the integration test
     await runTests({ extensionDevelopmentPath, extensionTestsPath });
   } catch (err) {
+    console.error(err);
     console.error('Failed to run tests');
     process.exit(1);
   }
@@ -235,34 +236,51 @@ await runTests({
 Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
 
 ```ts
-const cp = require('child_process')
-const { downloadAndUnzipVSCode, resolveCliPathFromExecutablePath } = require('vscode-test')
-const vscodeExecutablePath = await downloadAndUnzipVSCode('1.34.0');
-const cliPath = resolveCliPathFromExecutablePath(vscodeExecutablePath);
+import * as cp from 'child_process';
+import * as path from 'path';
+import {
+  downloadAndUnzipVSCode,
+  resolveCliPathFromVSCodeExecutablePath,
+  runTests
+} from 'vscode-test';
 
-// Use cp.spawn / cp.exec for custom setup
-cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
-  encoding: 'utf-8',
-  stdio: 'inherit'
-});
+async function main() {
+  try {
+    const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
+    const extensionTestsPath = path.resolve(__dirname, './suite/index');
+    const vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.1');
+    const cliPath = resolveCliPathFromVSCodeExecutablePath(vscodeExecutablePath);
 
-// Run the extension test
-await runTests({
-  // Use the specified `code` executable
-  vscodeExecutablePath,
-  extensionPath,
-  testRunnerPath
-});
+    // Use cp.spawn / cp.exec for custom setup
+    cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+      encoding: 'utf-8',
+      stdio: 'inherit'
+    });
+
+    // Run the extension test
+    await runTests({
+      // Use the specified `code` executable
+      vscodeExecutablePath,
+      extensionDevelopmentPath,
+      extensionTestsPath
+    });
+  } catch (err) {
+    console.error('Failed to run tests');
+    process.exit(1);
+  }
+}
+
+main();
 ```
 
 ### Migrating from `vscode`
 
-The [`vscode`](https://github.com/Microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
+The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
 
 - Remove `vscode` dependency.
 - Add `vscode-test` dependency.
 - As the old `vscode` module was also used for downloading VS Code type definition, you need to
-  - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `@types/vscode@1.30`.
+  - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
 - Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
 - Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.

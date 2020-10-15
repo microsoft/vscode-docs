@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Ember Tutorial
 ContentId: 4a60ed36-93ff-4ff3-b650-ce74baa405ca
 PageTitle: Ember JavaScript Tutorial in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Ember JavaScript tutorial showing IntelliSense and code navigation support in the Visual Studio Code editor.
 ---
 # Using Ember in Visual Studio Code
@@ -67,7 +67,7 @@ After you select a suggestion and type `.`, you see the types and methods on the
 
 ![Ember intellisense](images/emberjs/intellisense.png)
 
-VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 
@@ -91,4 +91,4 @@ The VS Code Marketplace has many community created extensions for Ember.js devel
 
 ### Can I debug Ember client side code with VS Code?
 
-You can use the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension for client side debugging. Unfortunately it is difficult to get the configuration correct due to the sourcemaps created by the Ember CLI default transpiler. See [issue #193](https://github.com/Microsoft/vscode-chrome-debug/issues/193) for an explanation and partial workaround.
+You can use the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension for client side debugging. Unfortunately it is difficult to get the configuration correct due to the sourcemaps created by the Ember CLI default transpiler. See [issue #193](https://github.com/microsoft/vscode-chrome-debug/issues/193) for an explanation and partial workaround.

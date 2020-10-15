@@ -1,38 +1,61 @@
 ---
-Order: 4
+Order: 5
 Area: cpp
-TOCTitle: Microsoft C++
+TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 07/25/2019
+DateApproved: 2/19/2020
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
 
-In this tutorial, you configure Visual Studio Code to use the Microsoft C++ compiler and debugger on Windows. After configuring VS Code, you will compile and debug a simple program to get familiar with the VS Code user interface. After completing this tutorial, you will be ready to create and configure your own workspace, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you details about Windows or the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
+In this tutorial, you configure Visual Studio Code to use the Microsoft Visual C++ compiler and debugger on Windows.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you details about the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
+
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
 To successfully complete this tutorial, you must do the following:
 
 1. Install [Visual Studio Code](/download).
-1. Install the [C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-1. Install the Microsoft C++ (MSVC) compiler toolset.
-   - If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
-   - Or, download the standalone toolset by clicking the Visual Studio Build Tools link on the [Downloads page](https://visualstudio.microsoft.com/downloads/#other) and follow the prompts. With the default settings, the download size is about 1GB and the size on disk is about 4GB. If you don't require CMake support (and the Windows SDK that it depends on) the size on disk should be about 3GB.
+1. Install the [C/C++ extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). You can install the C/C++ extension by searching for 'c++' in the Extensions view (`kb(workbench.view.extensions)`).
 
-## Start VS Code from the Developer Command Prompt
+    ![C/C++ extension](images/cpp/cpp-extension.png)
 
-To use MSVC in VS Code, you must start VS Code from a **Developer Command Prompt for Visual Studio**. An ordinary Windows command prompt, or a Bash prompt, does not have the necessary environment variables set.
+1. Install the Microsoft Visual C++ (MSVC) compiler toolset.
+   
+   If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
 
-1. To open the Developer Command Prompt for VS, start typing "Developer" in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
+   You can also install just the **C++ Build Tools**, without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio** under the **All downloads** section and select the download for **Build Tools for Visual Studio**.
+
+   ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs.png)
+
+   This will launch the Visual Studio Installer, which will bring up a dialog showing the available Visual Studio Build Tools workloads. Check the **C++ build tools** workload and select **Install**.
+
+   ![Cpp build tools workload](images/msvc/cpp-build-tools.png)
+   
+>**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
+
+### Check your Microsoft Visual C++ installation
+
+To use MSVC from a command line or VS Code, you must run from a **Developer Command Prompt for Visual Studio**. An ordinary shell such as PowerShell, Bash, or the Windows command prompt does not have the necessary path environment variables set.
+
+To open the Developer Command Prompt for VS, start typing 'developer' in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
 
 ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
 
-1. From the developer command prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+You can test that you have the C++ compiler, `cl.exe`, installed correctly by typing 'cl' and you should see a copyright message with the version and basic usage description.
+
+![Checking cl.exe installation](images/msvc/check-cl-exe.png)
+
+If the Developer Command Prompt is using the BuildTools location as the starting directory (you wouldn't want to put projects there), navigate to your user folder (`C:\users\{your username}\`) before you start creating new projects.
+
+## Create Hello World
+
+From the Developer Command Prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```cmd
 mkdir projects
@@ -42,197 +65,179 @@ cd helloworld
 code .
 ```
 
-The **code .** command opens VS Code in the current working folder, which becomes your *workspace*. Before we can get IntelliSense support, or compile and debug our code, we have to configure VS Code for MSVC. After completing the configuration, we will have three files in a `.vscode` subfolder:
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
-- `c_cpp_properties.json` (compiler path and IntelliSense settings)
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
+- `c_cpp_properties.json` (compiler path and IntelliSense settings)
 
-## Configure the compiler path
+### Add a source code file
 
-1. Press `kb(workbench.action.showCommands)` to open the Command Palette. It looks like this:
+In the File Explorer title bar, select the **New File** button and name the file `helloworld.cpp`.
 
-   ![Command Palette](images/cpp/command-palette.png)
+![New File title bar button](images/msvc/new-file-button.png)
 
-1. Start typing "C/C++" and then choose **Edit Configurations (UI)** from the list of suggestions. This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the .vscode folder.
+### Add hello world source code
 
-   ![Command Palette](images/msvc/msvc-intellisense-configurations.png)
+Now paste in this source code:
 
-1. Find the **Compiler path** setting. VS Code will attempt to populate it with a default compiler based on what it finds on your system. It first looks for the MSVC compiler, then for g++ on Windows Subsystem for Linux (WSL), then for g++ on Mingw-w64.  For MSVC, the path should look something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
 
-      The **Compiler path** setting is the most important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide lots of useful information to you as you write code. This information is called *IntelliSense* and you'll see some examples later in this tutorial.
+using namespace std;
 
-1. Set **IntelliSense mode** to `${default}`, which on Windows is `msvc-x64`.
-
-You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
-
-Visual Studio code places these settings in `.vscode/c_cpp_properties.json`. If you open that file directly, it should look something like this (depending on your specific path):
-
-```json
+int main()
 {
-    "configurations": [
-        {
-            "name": "Win32",
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe",
-            "windowsSdkVersion": "10.0.17763.0",
-            "intelliSenseMode": "msvc-x64",
-            "cStandard": "c11",
-            "cppStandard": "c++17"
-        }
-    ],
-    "version": 4
-}
-```
+    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
-## Create a build task
-
-Next, create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Microsoft C++ compiler (cl.exe) to create an executable file based on the source code.
-
-1. From the main menu, choose **View > Command Palette** and then type "task" and choose **Tasks: Configure Default Build Task**. In the dropdown, select **Create tasks.json file from template**, then choose **Others**. VS Code creates a minimal `tasks.json` file and opens it in the editor.
-
-1. Go ahead and replace the entire file contents with the following code snippet:
-
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "msvc build",
-            "type": "shell",
-            "command": "cl.exe",
-            "args": [
-                "/EHsc",
-                "/Zi",
-                "/Fe:",
-                "helloworld.exe",
-                "helloworld.cpp"
-            ],
-            "group":  {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "reveal":"always"
-            },
-            "problemMatcher": "$msCompile"
-        }
-    ]
-}
-
-```
-
-The `label` value will be used in the VS Code Command Palette and can be whatever name you like. The `command` value says that we are using `cl.exe`, the MSVC compiler. The `args` array specifies the command-line arguments that will be passed to the compiler that was specified in the previous step. They must appear in the order expected by the compiler.  In this example, we are specifying the exception handling mode (EHsc) and telling the compiler to produce a debug build with symbols (Zi). The `/Fe:` argument tells the compiler to name the executable "helloworld.exe".
-
-The `group` value specifies that this task will be run when you press `kb(workbench.action.tasks.build)`.
-
-## Configure debug settings
-
-Next, you'll create a `launch.json` file to configure VS Code to launch the debugger when you press `kb(workbench.action.debug.start)` to debug the program.
-
-1. From the main menu, choose **Debug > Add Configuration...** and then choose **C/C++ Windows (Launch)**. This causes the `launch.json` file to be created and opened. Replace the contents of the file with this
-
-```json
-{
-   "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(msvc) Launch",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/helloworld.exe",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false
-        }
-    ]
-}
-```
-
-Note that the program name `helloworld.exe` matches what we specified in `tasks.json`.
-
-By default, the C++ extension adds a breakpoint to the first line of `main`. The `stopAtEntry` value is set to `true` to cause the debugger to stop on that breakpoint. You can set this to `false` if you prefer to ignore it.
-
-VS Code is now configured to use the Microsoft C++ compiler. The configuration applies to the current workspace. To reuse the configuration, just copy the three JSON files to a .vscode folder in a new workspace and change the names of the source file(s) and executable as needed.
-
-The remaining steps are provided as an optional exercise to help you get familiar with the editing and debugging experience.
-
-## Add a source code file
-
-1. In the main VS Code menu, click on **File > New File** and name it `helloworld.cpp`.
-1. Paste in this source code:
-
-    ```cpp
-    #include <iostream>
-    #include <vector>
-    #include <string>
-
-    using namespace std;
-
-    int main()
+    for (const string& word : msg)
     {
-
-        vector<string> msg {"Hello", "C++", "World", "from", "VS Code!"};
-
-        for (const string& word : msg)
-        {
-            cout << word << " ";
-        }
-        cout << endl;
+        cout << word << " ";
     }
-    ```
+    cout << endl;
+}
+```
 
-1. Now press `kb(workbench.action.files.save)` to save the file. Now notice how all the files we have just edited appear in the **File Explorer** view in the left panel of VS Code:
+Now press `kb(workbench.action.files.save)` to save the file. Notice how the file you just added appears in the **File Explorer** view (`kb(workbench.view.explorer)`) in the side bar of VS Code:
 
-![File Explorer](images/msvc/file-explorer-msvc.png)
+![File Explorer](images/msvc/file-explorer.png)
 
-This same panel is also used for source control, debugging, searching and replacing text, and managing extensions. The buttons on the left control those views. We'll look at the **Debug View** later in this tutorial. You can find out more about the other views in the VS Code documentation.
+You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+
+The Activity Bar on the far left lets you open different views such as **Search**, **Source Control**, and **Run**. You'll look at the **Run** view later in this tutorial. You can find out more about the other views in the VS Code [User Interface documentation](/docs/getstarted/userinterface.md).
+
+>**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 
 ## Explore IntelliSense
 
 In your new `helloworld.cpp` file, hover over `vector` or `string` to see type information. After the declaration of the `msg` variable, start typing `msg.` as you would when calling a member function. You should immediately see a completion list that shows all the member functions, and a window that shows the type information for the `msg` object:
 
-![Statement completion IntelliSense](images/cpp/cpp-intellisense-vector.png)
+![Statement completion IntelliSense](images/wsl/msg-intellisense.png)
 
-You can press the TAB key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
+You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
 
-## Build the program
+## Build helloworld.cpp
 
-1. To run the build task that you defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the main menu choose **View > Command Palette** and start typing "Tasks: Run Build Task". The option will appear before you finish typing.
+Next, you will create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Microsoft C++ compiler to create an executable file based on the source code.
 
-   **Note:** If you see an error message that looks like this: **cl.exe: command not found**, it means you have not started VS Code from a Developer Command Prompt for VS. See the first section of this tutorial for more information.
+From the main menu, choose **Terminal** > **Configure Default Build Task**. In the dropdown, which will display a tasks dropdown listing various predefined build tasks for C++ compilers. Choose **cl.exe build active file**, which will build the file that is currently displayed (active) in the editor.
 
-1. When the task starts, you should see the integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful MSVC build, the output looks something like this:
+![Tasks C++ build dropdown](images/msvc/build-active-file.png)
 
-![MSVC build output in terminal](images/msvc/msvc-task-in-terminal.png)
+This will create a `tasks.json` file in a `.vscode` folder and open it in the editor.
 
-1. As the message instructs, press any key to close the build message; the terminal now returns to the shell command prompt.
+Your new `tasks.json` file should look similar to the JSON below:
 
-## Start a debugging session
+```json
+{
+"version": "2.0.0",
+"tasks": [
+    {
+        "type": "shell",
+        "label": "cl.exe build active file",
+        "command": "cl.exe",
+        "args": [
+            "/Zi",
+            "/EHsc",
+            "/Fe:",
+            "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "${file}"
+        ],
+        "problemMatcher": [
+            "$msCompile"
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+    }
+]
+}
+```
 
-1. You are now ready to run the program. Press `kb(workbench.action.debug.start)` or from the main menu choose **Debug > Start Debugging**. Before we start stepping through the code, let's take a moment to notice several changes in the user interface:
+The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler. This task tells the C++ compiler to take the active file (`${file}`), compile it, and create an executable file (`/Fe:` switch) in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`), resulting in `helloworld.exe` for our example.
 
-- The code editor highlights the first line in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
+>**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
-![Initial breakpoint](images/msvc/msvc-breakpoint-entry.png)
+The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
-- The workspace pane on the left now shows debugging information, but there isn't any useful information yet because no program statements have been executed yet, other than some system startup code, which is reflected in the Threads window:
+The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For cl.exe, you'll get the best results if you use the `$msCompile` problem matcher.
 
-![Debugging windows](images/msvc/msvc-debugging-window.png)
+The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
+
+### Running the build
+
+1. Go back to `helloworld.cpp`. Your task builds the active file and you want to build `helloworld.cpp`.
+1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Tasks: Run Build Task**.
+1. When the task starts, you should see the Integrated Terminal panel appear below the source code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful C++ build, the output looks something like this:
+
+   ![C++ build output in terminal](images/msvc/build-output-in-terminal.png)
+
+1. Create a new terminal using the **+** button and you'll have a new terminal (running PowerShell) with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld.exe` along with various intermediate C++ output and debugging files (`helloworld.obj`, `helloworld.pdb`).
+
+    ![Hello World in PowerShell terminal](images/msvc/helloworld-in-terminal.png)
+
+1. You can run `helloworld` in the terminal by typing `.\helloworld.exe`.
+
+>**Note**: You might need to press `kbstyle(Enter)` a couple of times initially to see the PowerShell prompt in the terminal. This issue should be fixed in a future release of Windows.
+
+### Modifying tasks.json
+
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}\\*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}\\${fileBasenameNoExtension}.exe"` with a hard-coded filename (for example `"${workspaceFolder}\\myProgram.exe"`).
+
+## Debug helloworld.cpp
+
+Next, you'll create a `launch.json` file to configure VS Code to launch the Microsoft C++ debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (Windows)**.
+
+You'll then see a dropdown for various predefined debugging configurations. Choose **cl.exe build and debug active file**.
+
+![C++ debug configuration dropdown](images/msvc/build-and-debug-active-file.png)
+
+VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'.
+
+```json
+{
+"version": "0.2.0",
+"configurations": [
+    {
+        "name": "cl.exe build and debug active file",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "preLaunchTask": "cl.exe build active file"
+    }
+]
+}
+```
+
+The `program` setting specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename with the `.exe` extension `${fileBasenameNoExtension}.exe`, which if `helloworld.cpp` is the active file will be `helloworld.exe`.
+
+By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`. Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
+
+### Start a debugging session
+
+1. Go back to `helloworld.cpp` so that it is the active file.
+2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
+
+- The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
+- The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
+
+   ![Initial breakpoint](images/msvc/stopAtEntry.png)
+
+- The Run view on the left shows debugging information. You'll see an example later in the tutorial.
 
 - At the top of the code editor, a debugging control panel appears. You can move this around the screen by grabbing the dots on the left side.
 
-![Debugging controls](images/cpp/debug-controls.png)
-
 ## Step through the code
 
-Now we're ready to start stepping through the code.
+Now you're ready to start stepping through the code.
 
 1. Click or press the **Step over** icon in the debugging control panel until the `for (const string& word : msg)` statement is highlighted.
 
@@ -264,12 +269,78 @@ Sometimes you might want to keep track of the value of a variable as your progra
 
 1. Add another watch by adding this statement before the loop: `int i = 0;`. Then, inside the loop, add this statement: `++i;`. Now add a watch for `i` as you did in the previous step.
 
-1. To quickly view the value of any variable while execution is paused on a breakpoint, you can simply hover over it with the mouse pointer.
+1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
+
+## C/C++ configurations
+
+If you want more control over the C/C++ extension, you can create a `c_cpp_properties.json` file, which will allow you to change settings such as the path to the compiler, include paths, C++ standard (default is C++17), and more.
+
+You can view the C/C++ configuration UI by running the command **C/C++: Edit Configurations (UI)** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+![Command Palette](images/cpp/command-palette.png)
+
+This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
+
+![Command Palette](images/msvc/configurations-ui.png)
+
+Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If you open that file directly, it should look something like this:
+
+```json
+{
+"configurations": [
+    {
+        "name": "Win32",
+        "includePath": [
+            "${workspaceFolder}/**"
+        ],
+        "defines": [
+            "_DEBUG",
+            "UNICODE",
+            "_UNICODE"
+        ],
+        "windowsSdkVersion": "10.0.18362.0",
+        "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.24.28314/bin/Hostx64/x64/cl.exe",
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "msvc-x64"
+    }
+],
+"version": 4
+}
+```
+
+You only need to add to the **Include path** array setting if your program includes header files that are not in your workspace or in the standard library path.
+
+### Compiler path
+
+The `compilerPath` setting is an important setting in your configuration. The extension uses it to infer the path to the C++ standard library header files. When the extension knows where to find those files, it can provide useful features like smart completions and **Go to Definition** navigation.
+
+The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The extension looks in several common compiler locations.
+
+The `compilerPath` search order is:
+
+* First check for the Microsoft Visual C++ compilerOpe
+* Then look for g++ on Windows Subsystem for Linux (WSL)
+* Then g++ for Mingw-w64.
+
+If you have g++ or WSL installed, you might need to change `compilerPath` to match the preferred compiler for your project. For Microsoft C++, the path should look something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
+
+## Reusing your C++ configuration
+
+VS Code is now configured to use the Microsoft C++ compiler. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
+
+## Troubleshooting
+
+### The term 'cl.exe' is not recognized
+
+If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
+
+You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
 
 ## Next steps
 
 - Explore the [VS Code User Guide](/docs/editor/codebasics.md).
 - Review the [Overview of the C++ extension](/docs/languages/cpp.md).
-- Create a new workspace, copy your .json files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!
+- Create a new workspace, copy your `.vscode` JSON files to it, adjust the necessary settings for the new workspace path, program name, and so on, and start coding!

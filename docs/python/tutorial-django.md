@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 10
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
@@ -13,9 +13,9 @@ Django is a high-level Python framework designed for rapid, secure, and scalable
 
 In this Django tutorial, you create a simple Django app with three pages that use a common base template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about Django itself, such as working with data models and creating an administrative interface. For guidance on those aspects, refer to the Django documentation links at the end of this tutorial.
 
-The completed code project from this Django tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial).
+The completed code project from this Django tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial).
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. To verify the Django project, make sure your virtual environment is activated, then start Django's development server using the command `python manage.py runserver`. The server runs on the default port 8000, and you see output like the following output in the terminal window:
 
-    ```output
+    ```
     Performing system checks...
 
     System check identified no issues (0 silenced).
@@ -123,7 +123,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. When you're done, close the browser window and stop the server in VS Code using `kbstyle(Ctrl+C)` as indicated in the terminal output window.
 
-### Create A Django app
+### Create a Django app
 
 1. In the VS Code Terminal with your virtual environment activated, run the administrative utility's `startapp` command in your project folder (where `manage.py` resides):
 
@@ -174,7 +174,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 You're probably already wondering if there's an easier way to run the server and test the app without typing `python manage.py runserver` each time. Fortunately, there is! You can create a customized launch profile in VS Code, which is also used for the inevitable exercise of debugging.
 
-1. Switch to **Debug** view in VS Code (using the left-side activity bar). Along the top of the Debug view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
+1. Switch to **Run** view in VS Code (using the left-side activity bar). Along the top of the Run view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
 
     ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
@@ -191,27 +191,26 @@ You're probably already wondering if there's an easier way to run the server and
         "console": "integratedTerminal",
         "args": [
             "runserver",
-            "--noreload"
         ],
         "django": true
     },
     ```
 
-    This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver --noreload` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
+    This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
 
 1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Django** configuration:
 
     ![Django tutorial: selecting the Django debugging configuration](images/django-tutorial/debug-select-configuration.png)
 
-1. Test the configuration by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
     ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
 1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the terminal output window to open the browser and see that the app is running properly.
 
-1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
-1. You can now use the **Debug** > **Start Debugging** at any time to test the app, which also has the benefit of automatically saving all modified files.
+1. You can now use the **Run** > **Start Debugging** at any time to test the app, which also has the benefit of automatically saving all modified files.
 
 ## Explore the debugger
 
@@ -260,14 +259,14 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
     - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
-    - With the cursor on that line, select the **Debug** > **Toggle Breakpoint** menu command, or,
+    - With the cursor on that line, select the **Run** > **Toggle Breakpoint** menu command, or,
     - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
 
     The breakpoint appears as a red dot in the left margin:
 
     ![Django tutorial: a breakpoint set on the first line of the hello_there function](images/django-tutorial/debug-breakpoint-set.png)
 
-1. Start the debugger by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+1. Start the debugger by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
     ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
@@ -296,7 +295,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Friday, 07 September, 2018 at 07:46:32'
     ```
 
-    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Debug View, switch to the **Debug Console** to see the exception message.
+    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Run view, switch to the **Debug Console** to see the exception message.
 
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
@@ -315,7 +314,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Django tutorial: result of the modified program](images/django-tutorial/debug-run-result.png)
 
-1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
 > **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:8000/hello/VSCode`, output that URL using a `print` statement somewhere in a file like `views.py`. The URL appears in the VS Code Terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
 
@@ -368,7 +367,7 @@ In this section, you start by creating a single page using a template. In subseq
     from django.shortcuts import render
     ```
 
-1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and to provide the *template context*. The context is simply the set of variables for use within the template. The `render` function takes the request object, followed by the path to to the template *relative to the `templates` folder*, then the context object. (Developers typically name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.)
+1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and to provide the *template context*. The context is the set of variables for use within the template. The `render` function takes the request object, followed by the path to to the template *relative to the `templates` folder*, then the context object. (Developers typically name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.)
 
     ```python
     def hello_there(request, name):
@@ -394,7 +393,7 @@ Static files are pieces of content that your web app returns as-is for certain r
 
 Serving static files in Django is something of an art, especially when deploying to production. What's shown here is a simple approach that works with the Django development server and also a production server like gunicorn. A full treatment of static files, however, is beyond the scope of this tutorial, so for more information, see [Managing static files](https://docs.djangoproject.com/en/2.1/howto/static-files/) in the Django documentation.
 
-In production, you also need to set `DEBUG=False` in `settings.py`, which necessitates some additional work when using containers. For details, see [Issue 13](https://github.com/Microsoft/python-sample-vscode-django-tutorial/issues/13).
+In production, you also need to set `DEBUG=False` in `settings.py`, which necessitates some additional work when using containers. For details, see [Issue 13](https://github.com/microsoft/python-sample-vscode-django-tutorial/issues/13).
 
 ### Ready the app for static files
 
@@ -618,7 +617,7 @@ Many web apps work with information stored in a database, and Django makes it ea
 
 With Django, your work with your database almost exclusively through the models you define in code. Django's "migrations" then handle all the details of the underlying database automatically as you evolve the models over time. The general workflow is as follows:
 
-1. Make changes to the models in your *models.py* file.
+1. Make changes to the models in your `models.py` file.
 1. Run `python manage.py makemigrations` to generate scripts in the `migrations` folder that migrate the database from its current state to the new state.
 1. Run `python manage.py migrate` to apply the scripts to the actual database.
 
@@ -626,7 +625,7 @@ The migration scripts effectively record all the incremental changes you make to
 
 In code, too, you work exclusively with your model classes to store and retrieve data; Django handles the underlying details. The one exception is that you can write data into your database using the Django administrative utility [loaddata command](https://docs.djangoproject.com/en/2.1/ref/django-admin/#loaddata). This utility is often used to initialize a data set after the `migrate` command has initialized the schema.
 
-When using the `db.sqlite3` file, you can also work directly with the database using a tool like the [SQLite browser](http://sqlitebrowser.org/). It's fine to add or delete records in tables using such a tool, but avoid making changes to the database schema because the database will then be out of sync with your app's models. Instead, change the models, run `makemigrations`, then run `migrate`.
+When using the `db.sqlite3` file, you can also work directly with the database using a tool like the [SQLite browser](https://sqlitebrowser.org/). It's fine to add or delete records in tables using such a tool, but avoid making changes to the database schema because the database will then be out of sync with your app's models. Instead, change the models, run `makemigrations`, then run `migrate`.
 
 ### Types of databases
 
@@ -908,7 +907,7 @@ Perform the following steps to enable the administrative interface:
      path("admin/", admin.site.urls),
     ```
 
-1. Run the server, the open a browser to the app's /admin page (such as `http://127.0.0.1:8000/admin` when using the development server).
+1. Run the server, then open a browser to the app's /admin page (such as `http://127.0.0.1:8000/admin` when using the development server).
 
 1. A login page appears, courtesy of `django.contrib.auth`. Enter your superuser credentials.
 
@@ -920,15 +919,23 @@ Perform the following steps to enable the administrative interface:
 
 You can customize the administrative interface as much as you like. For example, you could provide capabilities to edit and remove entries in the database. For more information on making customizations, refer to the [Django admin site documentation](https://docs.djangoproject.com/en/2.1/ref/contrib/admin/).
 
+### Create a container for a Django app using the Docker extension
+
+The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Django app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
+
+- Create a `Dockerfile` file describing a simple Python container.
+- Build, run, and verify the functionality of a [Django](https://www.djangoproject.com/) app.
+- Debug the app running in a container.
+
 ## Next steps
 
 Congratulations on completing this walkthrough of working with Django in Visual Studio Code!
 
-The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial).
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial).
 
 In this tutorial, we've only scratched the surface of everything Django can do. Be sure to visit the [Django documentation](https://docs.djangoproject.com/en/2.1/) and the [official Django tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) for many more details on views, templates, data models, URL routing, the administrative interface, using other kinds of databases, deployment to production, and more.
 
-To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](/docs/python/tutorial-deploy-containers.md). Azure also offers a standard container, [App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md), to which you deploy web apps from within VS Code.
+To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01). Azure also offers a standard container, [App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01), to which you deploy web apps from within VS Code.
 
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
@@ -938,4 +945,4 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Debugging Python](/docs/python/debugging.md)
 - [Testing](/docs/python/testing.md)
 
-If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).

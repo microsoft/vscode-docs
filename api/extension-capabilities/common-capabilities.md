@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
@@ -40,8 +40,8 @@ There are four options for storing data:
 
 - [`ExtensionContext.workspaceState`](/api/references/vscode-api#ExtensionContext.workspaceState): A workspace storage where you can write key/value pairs. VS Code manages the storage and will restore it when the same workspace is opened again.
 - [`ExtensionContext.globalState`](/api/references/vscode-api#ExtensionContext.globalState): A global storage where you can write key/value pairs. VS Code manages the storage and will restore it for each extension activation.
-- [`ExtensionContext.storagePath`](/api/references/vscode-api#ExtensionContext.storagePath): A workspace specific storage path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files that is accessible only from current workspace.
-- [`ExtensionContext.globalStoragePath`](/api/references/vscode-api#ExtensionContext.globalStoragePath): A global storage path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files that is accessible from all workspaces.
+- [`ExtensionContext.storagePath`](/api/references/vscode-api#ExtensionContext.storagePath): A workspace specific storage path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files that are accessible only from the current workspace.
+- [`ExtensionContext.globalStoragePath`](/api/references/vscode-api#ExtensionContext.globalStoragePath): A global storage path pointing to a local directory where your extension has write/read access. This is a good option if you need to store large files that are accessible from all workspaces.
 
 The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
 
@@ -55,7 +55,7 @@ Almost all extensions need to present information to the user at some point. VS 
 
 ## Quick Pick
 
-With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/quickinput-sample) illustrates the API.
+With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/quickinput-sample) illustrates the API.
 
 ## File Picker
 
@@ -75,4 +75,4 @@ Progress can be shown in different locations using the [`ProgressLocation`](/api
 - In the Source Control view
 - General progress in the VS Code window
 
-The [Progress Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/progress-sample) illustrates this API.
+The [Progress Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/progress-sample) illustrates this API.

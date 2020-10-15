@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -12,6 +12,8 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 "Tips and Tricks" lets you jump right in and learn how to be productive with Visual Studio Code. You'll become familiar with its powerful editing, code intelligence, and source code control features and learn useful keyboard shortcuts. This topic goes pretty fast and provides a broad overview, so be sure to look at the other in-depth topics in [Getting Started](/docs/getstarted/userinterface.md) and the [User Guide](/docs/editor/codebasics.md) to learn more.
 
 > If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
+
+Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code tips and tricks](https://aka.ms/Build2020AppDev-VSCodeTips), which describes 20 tips and tricks for working productively with VS Code.
 
 ## Basics
 
@@ -53,7 +55,13 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-**Tip:** Type `kbstyle(?)` to view help suggestions.
+**Tip:** Type `kbstyle(?)` to view commands suggestions.
+
+![Quick Open command list](images/tips-and-tricks/quick-open-command-dropdown.png)
+
+Typing commands such as `edt` and `term` followed by a space will bring up dropdown lists.
+
+![term command in Quick Open](images/tips-and-tricks/term-quick-open.png)
 
 ### Navigate between recently opened files
 
@@ -62,6 +70,14 @@ Repeat the **Quick Open** keyboard shortcut to cycle quickly between recently op
 ### Open multiple files from Quick Open
 
 You can open multiple files from **Quick Open** by pressing the Right arrow key. This will open the currently selected file in the background and you can continue selecting files from **Quick Open**.
+
+### Navigate between recently opened folders and workspaces
+
+Open Recent
+
+Keyboard Shortcut: `kb(workbench.action.openRecent)`
+
+Displays a Quick Pick dropdown with the list from **File** > **Open Recent** with recently opened folders and workspaces followed by files.
 
 ## Command line
 
@@ -153,6 +169,7 @@ Are you used to keyboard shortcuts from another editor? You can install a Keymap
 * [Emacs Keymap](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs)
 * [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
 * [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
+* [Visual Studio Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings)
 
 ### Customize your keyboard shortcuts
 
@@ -173,12 +190,6 @@ By default VS Code shows the Settings editor, you can find settings listed below
 Open User Settings `settings.json`
 
 Keyboard Shortcut: `kb(workbench.action.openSettings)`
-
-Format on paste
-
-```json
-"editor.formatOnPaste": true
-```
 
 Change the font size of various UI elements
 
@@ -224,6 +235,12 @@ Format on save
 "editor.formatOnSave": true
 ```
 
+Format on paste
+
+```json
+"editor.formatOnPaste": true
+```
+
 Change the size of Tab characters
 
 ```json
@@ -241,6 +258,8 @@ Render whitespace
 ```json
 "editor.renderWhitespace": "all"
 ```
+
+Whitespace characters are rendered by default in text selection.
 
 Ignore files / folders
 
@@ -266,7 +285,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-For the settings, which you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {
@@ -288,7 +307,7 @@ Enabled by default for many file types. Create your own schema and validation in
         "fileMatch": [
             "/bower.json"
         ],
-        "url": "http://json.schemastore.org/bower"
+        "url": "https://json.schemastore.org/bower"
     }
 ]
 ```
@@ -343,7 +362,7 @@ Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 In the **Extensions** view, you can search via the search bar or click the **More Actions** (...) button to filter and sort by install count.
 
-![install extensions](images/tips-and-tricks/InstallExtensions.gif)
+![install extensions](images/tips-and-tricks/show-popular-extensions.png)
 
 ### Extension recommendations
 
@@ -378,21 +397,15 @@ Further reading:
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) documentation
 * [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
-### Auto Save
-
-Open User Settings `settings.json` with `kb(workbench.action.openSettings)`
-
-```json
-"files.autoSave": "afterDelay"
-```
-
-You can also toggle Auto Save from the top-level menu with the **File** > **Auto Save**.
-
 ### Toggle Sidebar
 
 Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
 
 ![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
+
+### Toggle Panel
+
+Keyboard Shortcut: `kb(workbench.action.togglePanel)`
 
 ### Zen mode
 
@@ -436,7 +449,7 @@ Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
 
 ### Navigation history
 
-Navigate entire history: `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`
+Navigate entire history: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
 
 Navigate back: `kb(workbench.action.navigateBack)`
 
@@ -501,6 +514,20 @@ You can select blocks of text by holding `kbstyle(Shift+Alt)` (`kbstyle(Shift+Op
 
 You can also use [keyboard shortcuts](/docs/editor/codebasics.md#column-box-selection) to trigger column selection.
 
+### Vertical rulers
+
+You can add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+
+```json
+{
+    "editor.rulers": [
+        20, 40, 60
+    ]
+}
+```
+
+![Editor rulers in the editor](images/tips-and-tricks/editor-rulers.png)
+
 ### Fast scrolling
 
 Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explorers. By default, fast scrolling uses a 5X speed multiplier but you can control the multiplier with the **Editor: Fast Scroll Sensitivity** (`editor.fastScrollSensitivity`) setting.
@@ -509,7 +536,7 @@ Pressing the `kbstyle(Alt)` key enables fast scrolling in the editor and Explore
 
 Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
 
-> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/Microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
+> The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesDownAction` to your own preferred keyboard shortcuts.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
 
@@ -543,6 +570,14 @@ Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
 
 ![go to symbol in workspace](images/tips-and-tricks/go_to_symbol_in_workspace.png)
 
+### Outline view
+
+The Outline view in the File Explorer (default collapsed at the bottom) shows you the symbols of the currently open file.
+
+![Outline view](images/tips-and-tricks/outline-view.png)
+
+You can sort by symbol name, category, and position in the file and allows quick navigation to symbol locations.
+
 ### Navigate to a specific line
 
 Keyboard Shortcut: `kb(workbench.action.gotoLine)`
@@ -557,6 +592,12 @@ Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
 
 ![trailing whitespace](images/tips-and-tricks/trim_whitespace.gif)
 
+### Transform text commands
+
+You can change selected text to uppercase, lowercase, and title case with the **Transform** commands from the Command Palette.
+
+![Transform text commands](images/tips-and-tricks/transform-text-commands.png)
+
 ### Code formatting
 
 Currently selected source code: `kb(editor.action.formatSelection)`
@@ -570,6 +611,10 @@ Whole document format: `kb(editor.action.formatDocument)`
 Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
 
 ![code folding](images/tips-and-tricks/code_folding.gif)
+
+You can also fold/unfold all regions in the editor with **Fold All** (`kb(editor.foldAll)`) and **Unfold All** (`kb(editor.unfoldAll)`).
+
+You can fold all block comments with **Fold All Block Comments** (`kb(editor.foldAllBlockComments)`).
 
 ### Select current line
 
@@ -621,9 +666,9 @@ You can go back to your previous location with the **Go** > **Back** command or 
 
 You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
 
-### Peek References
+### Go to References
 
-Select a symbol then type `kb(editor.action.referenceSearch.trigger)`. Alternatively, you can use the context menu.
+Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you can use the context menu.
 
 ![peek references](images/tips-and-tricks/find_all_references.gif)
 
@@ -731,21 +776,19 @@ Git integration comes with VS Code "out-of-the-box". You can install other SCM p
 
 ### Diffs
 
-From the **Source Control** view, select the file to diff.
+From the **Source Control** view, select a file to open the diff.
 
-![git icon](images/tips-and-tricks/source-control-icon.png)
+![git diff from source control](images/tips-and-tricks/msee-changes.gif)
 
-**Side by side**
+Alternatively, click the **Open Changes** button in the top right corner to diff the current open file.
 
-Default is side by side diff.
+**Views**
 
-![git diff side by side](images/tips-and-tricks/git_side_by_side.png)
+The default view for diffs is the **side by side view**.
 
-**Inline view**
+Toggle **inline view** by clicking the **More Actions** (...) button in the top right and selecting **Toggle Inline View**.
 
-Toggle inline view by clicking the **More Actions** (...) button in the top right and selecting **Switch to Inline View**.
-
-![git inline](images/tips-and-tricks/git_inline.png)
+![git switch to inline diff](images/tips-and-tricks/mdiff-switch-to-inline.png)
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
@@ -764,15 +807,17 @@ You can make edits directly in the pending changes of the diff view.
 
 Easily switch between Git branches via the Status Bar.
 
-![switch branches](images/tips-and-tricks/switch_branches.gif)
+![switch branches](images/tips-and-tricks/mswitch-branch.gif)
 
 ### Staging
 
-**Stage all**
+**Stage file changes**
 
 Hover over the number of files and click the plus button.
 
-![git stage all](images/tips-and-tricks/git_stage_all.gif)
+Click the minus button to unstage changes.
+
+![git stage all](images/tips-and-tricks/mstage-unstage.gif)
 
 **Stage selected**
 
@@ -780,7 +825,9 @@ Stage a portion of a file by selecting that file (using the arrows) and then cho
 
 ### Undo last commit
 
-![undo last commit](images/tips-and-tricks/undo_last_commit.gif)
+Click the (...) button and then select **Undo Last Commit** to undo the previous commit. The changes are added to the Staged Changes section.
+
+![undo last commit](images/tips-and-tricks/mundo-last-commit.gif)
 
 ### See Git output
 
@@ -792,16 +839,26 @@ Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) a
 
 View diff decorations in editor. See [documentation](/docs/editor/versioncontrol.md#gutter-indicators) for more details.
 
-![git gutter indicators](images/tips-and-tricks/editingevolved_gutter.png)
+![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 
 ### Resolve merge conflicts
 
 During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
 
+You can resolve merge conflicts with the inline CodeLens which lets you **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, and **Compare Changes**.
+
 ### Set VS Code as default merge tool
 
 ```bash
-git config --global merge.tool code
+git config --global merge.tool vscode
+git config --global mergetool.vscode.cmd 'code --wait $MERGED'
+```
+
+### Set VS Code as default diff tool
+
+```bash
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 ```
 
 ## Debugging
@@ -820,13 +877,21 @@ Place breakpoints next to the line number. Navigate forward with the Debug widge
 
 ### Data inspection
 
-Inspect variables in the **Debug** panels and in the console.
+Inspect variables in the **Run** panels and in the console.
 
 ![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
 
 ### Inline values
 
 You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
+
+### Logpoints
+
+Logpoints act much like breakpoints but instead of halting the debugger when they are hit, they log a message to the console. Logpoints are especially useful for injecting logging while debugging production servers that cannot be modified or paused.
+
+Add a logpoint with the **Add Logpoint** command in the left editor gutter and it will be displayed as a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
+
+![Logpoint set in the editor](images/tips-and-tricks/logpoint.png)
 
 ## Task runner
 
@@ -882,6 +947,8 @@ With the setting `npm.enableScriptExplorer`, you can enable an explorer that sho
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
 From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click, set `npm.scriptExplorerAction` to "run". Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+
+With the setting `npm.enableRunFromFolder`, you can enable to run npm scripts from the File Explorer's context menu for a folder. The setting enables the command **Run NPM Script in Folder...** when a folder is selected. The command shows a Quick Pick list of the npm scripts contained in this folder and you can select the script to be executed as a task.
 
 ## Portable mode
 

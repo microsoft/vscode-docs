@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.
@@ -19,9 +19,9 @@ The [`contributes.languages`](/api/references/contribution-points#contributes.la
 - Word pattern
 - Indentation Rules
 
-Here is a [Language Configuration Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
+Here is a [Language Configuration Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
 
-**Note: If your language configuration file name is or ends with `language-configuration.json`, you will get auto-completion and validation in VS Code.**
+**Note: If your language configuration file name is or ends with `language-configuration.json`, you will get autocompletion and validation in VS Code.**
 
 ```json
 {
@@ -160,7 +160,7 @@ Users can tweak the autosurrounding behavior with the `editor.autoSurround` sett
 
 In VS Code, there are three kinds of folding:
 
-- Indentation based folding: This is VS Code's default folding behavior. When it sees two lines of the same indentation level, it creates a folding marker that allows you to collapse that region.
+- Indentation-based folding: This is VS Code's default folding behavior. When it sees two lines of the same indentation level, it creates a folding marker that allows you to collapse that region.
 - Language configuration folding: When VS Code finds both the `start` and `end` regex defined in `folding.markers`, it creates a folding marker enclosing the content inside the pair. The following JSON creates folding markers for `//#region` and `//#endregion`.
 
 ```json
@@ -178,7 +178,7 @@ In VS Code, there are three kinds of folding:
 
 ## Word Pattern
 
-`wordPattern` defines what's considered as a word in the programming language. So when you use word related commands, like **Move cursor to word start** (`kb(cursorWordStartLeft)`) or **Move cursor to word end** (`kb(cursorWordEndRight)`)，the editor will use this regex to find the word boundaries.
+`wordPattern` defines what's considered as a word in the programming language. Code suggestion features will use this setting to determine word boundaries if `wordPattern` is set. Note this setting won't affect word-related editor commands, which are controlled by the editor setting `editor.wordSeparators`.
 
 ```json
 {
@@ -199,13 +199,13 @@ In VS Code, there are three kinds of folding:
 }
 ```
 
-For example, `if (true) {` matches `increasedIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
+For example, `if (true) {` matches `increaseIndentPattern`, then if you press `kbstyle(Enter)` after the open bracket `{`, the editor will automatically indent once, and your code will end up as:
 
 ```javascript
 if (true) {
-	console.log();
+  console.log();
 ```
 
-If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type an closing bracket. The _bracket_ here is defined by `brackets`.
+If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type a closing bracket. The bracket here is defined by `brackets`.
 
 Notice that `editor.formatOnPaste` setting is controlled by the [`DocumentRangeFormattingEditProvider`](/api/references/vscode-api#DocumentRangeFormattingEditProvider) and not affected by auto indentation.

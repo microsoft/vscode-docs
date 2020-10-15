@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -13,9 +13,9 @@ This topic describes some of the advanced JavaScript features supported by Visua
 
 ## IntelliSense
 
-Visual Studio Code's JavaScript [IntelliSense](/docs/editor/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JSDoc](/docs/languages/javascript#jsdoc-support) or by configuring a `jsconfig.json` project.
+Visual Studio Code's JavaScript [IntelliSense](/docs/editor/intellisense.md) provides intelligent code completion, parameter info,  references search, and many other advanced language features. Our JavaScript IntelliSense is powered by the [JavaScript language service](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) developed by the TypeScript team. While IntelliSense should just work for most JavaScript projects without any configuration, you can make IntelliSense even more useful with [JSDoc](/docs/languages/javascript.md#jsdoc-support) or by configuring a `jsconfig.json` project.
 
-For the details of how JavaScript IntelliSense works, including being based on type inference, JSDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
+For the details of how JavaScript IntelliSense works, including being based on type inference, JSDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
 
 When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html#supported-jsdoc) currently supported.
 
@@ -34,26 +34,30 @@ Automatic type acquisition requires [npmjs](https://www.npmjs.com), the Node.js 
 Type declaration files are automatically downloaded and managed by Visual Studio Code for packages listed in your project's `package.json` or that you import into a JavaScript file.
 
 ```json
+{
     "dependencies": {
         "lodash": "^4.17.0"
     }
+}
 ```
 
-You can alternately explicitly list packages to acquire type declaration files for in a [`jsconfig.json`](#_javascript-projects-jsconfigjson).
+You can alternately explicitly list packages to acquire type declaration files for in a [jsconfig.json](#_javascript-projects-jsconfigjson).
 
 ```json
+{
     "typeAcquisition": {
         "include": [
             "jquery"
         ]
     }
+}
 ```
 
 Most common JavaScript libraries ship with declaration files or have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
 
 ### Fixing npm not installed warning for Automatic Type Acquisition
 
-[Automatic Type Acquisition](#automatic-type-acquisition) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
+[Automatic Type Acquisition](#typings-and-automatic-type-acquisition) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
 Run `npm --version` from a terminal or command prompt to quickly check that npm is installed and available.
 
@@ -64,12 +68,14 @@ If you have npm installed but still see a warning message, you can explicitly te
 For example, on Windows, you would add a path like this to your `settings.json` file:
 
 ```json
+{
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
+}
 ```
 
 ## JavaScript projects (jsconfig.json)
 
-The presence of a [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio). For common setups, a `jsconfig.json` file is not required, however, there are situations when you will want to add a `jsconfig.json`.
+The presence of a [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio). For common setups, a `jsconfig.json` file is not required, however, there are situations when you will want to add a `jsconfig.json`.
 
 - Not all files should be in your JavaScript project (for example, you want to exclude some files from showing IntelliSense). This situation is common with front-end and back-end code.
 - Your workspace contains more than one project context. In this situation, you should add a `jsconfig.json` file at the root folder for each project.
@@ -94,7 +100,8 @@ Below is a simple template for `jsconfig.json` file, which defines the JavaScrip
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "commonjs",
+        "target": "es6"
     },
     "exclude": [
         "node_modules",
@@ -103,7 +110,7 @@ Below is a simple template for `jsconfig.json` file, which defines the JavaScrip
 }
 ```
 
-The `exclude` attribute tells the language service which files are and are not part of your source code. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects slow completions). You will want to `exclude` files generated by a build process (such as a `dist` directory). These files will cause suggestions to show up twice and will slow down IntelliSense.
+The `exclude` attribute tells the language service which files are not part of your source code. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects slow completions). You will want to `exclude` files generated by a build process (such as a `dist` directory). These files will cause suggestions to show up twice and will slow down IntelliSense.
 
 You can explicitly set the files in your project using the `include` attribute. If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included.
 
@@ -112,7 +119,8 @@ Here is an example with an explicit `include` attribute:
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "commonjs",
+        "target": "es6"
     },
     "include": [
         "src/**/*"

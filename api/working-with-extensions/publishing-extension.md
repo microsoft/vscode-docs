@@ -1,15 +1,15 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
 
-# Publishing Extension
+# Publishing Extensions
 
-Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
+Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download, and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
 
 This topics covers:
 
@@ -19,7 +19,7 @@ This topics covers:
 
 ## vsce
 
-[vsce](https://github.com/Microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
+[vsce](https://github.com/microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 
@@ -41,9 +41,22 @@ $ vsce publish
 # <publisherID>.myExtension published to VS Code MarketPlace
 ```
 
-`vsce` can also search, get metadata of and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
+`vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
 
 ## Publishing extensions
+
+---
+
+**Note:** Due to security concerns, `vsce` will not publish extensions which contain user-provided SVG images.
+
+The publishing tool checks the following constraints:
+
+- The icon provided in `package.json` may not be an SVG.
+- The badges provided in the `package.json` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
+- Image URLs in `README.md` and `CHANGELOG.md` need to resolve to `https` URLs.
+- Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/api/references/extension-manifest#approved-badges).
+
+---
 
 Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
@@ -53,23 +66,23 @@ Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services
 
 First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
-In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), go to the **Security** page:
+In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
-![Security page](images/publishing-extension/token1.png)
+![Personal settings menu](images/publishing-extension/token1.png)
 
-Select `Personal access tokens` and click **New Token** to create a new Personal Access Token:
+On the **Personal Access Tokens** page, click **New Token** to create a new Personal Access Token:
 
 ![Create personal access token](images/publishing-extension/token2.png)
 
-Give the Personal Access Token a name, optionally extend its expiration date to 1 year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
+Give the Personal Access Token a name, optionally extend its expiration date to one year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
 
 ![Personal access token details](images/publishing-extension/token3.png)
 
-Finally, scroll down the list of possible scopes until you find **Marketplace** and select both **Acquire** and **Manage**:
+Finally, scroll down the list of possible scopes until you find **Marketplace** and select **Manage**:
 
 ![Personal access token details](images/publishing-extension/token4.png)
 
-Click **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a publisher
 
@@ -83,9 +96,9 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
-**Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and login in `vsce`, as described in the next section.
+**Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and log in through `vsce`, as described in the next section.
 
-### Login to a publisher
+### Log in to a publisher
 
 If you already created a publisher before and want to use it with `vsce`:
 
@@ -119,12 +132,12 @@ You can also specify a complete SemVer compatible version on the command line:
 vsce publish 2.0.1
 ```
 
->  **Note:** If `vsce publish` is run in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description).  The default commit message will be extension's version, but you can supply a custom commit message using the `-m` flag.  (The current version can be referenced from
+> **Note:** If `vsce publish` is run in a git repo, it will also create a version commit and tag via [npm-version](https://docs.npmjs.com/cli/version#description).  The default commit message will be extension's version, but you can supply a custom commit message using the `-m` flag.  (The current version can be referenced from
 the commit message with `%s`.)
 
 ## Unpublishing extensions
 
-You can unpublish an extension with the vsce tool by specifying the extension id `publisher.extension`.
+You can unpublish an extension with the vsce tool by specifying the extension ID `publisher.extension`.
 
 ```bash
 vsce unpublish (publisher name).(extension name)
@@ -166,21 +179,21 @@ When authoring an extension, you will need to describe what is the extension's c
 
 A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engines.vscode` field to make sure the extension only gets installed for clients which contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
+You can use the `engines.vscode` field to make sure the extension only gets installed for clients that contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
 
-For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version which benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
+For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
 
 ## Advanced usage
 
 ### Marketplace integration
 
-You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/ms-vscode.Go) for an example.
+You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/golang.go) for an example.
 
 Here are some tips for making your extension look great on the Marketplace:
 
 - A `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` will modify README links for you in two different ways:
-  - If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
-  - You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
+  - If you add a `repository` field to your `package.json` and it is a public GitHub repository, `vsce` will automatically detect it and adjust relative links accordingly, using the `master` branch by default. You can override the GitHub branch with the `--githubBranch` flag when running `vsce package` or `vsce publish`.
+  - For more fine-grained control, you can set the `--baseContentUrl` and `--baseImagesUrl` flags to set the base URLs for relative links.
 - A `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
 - A `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's change log.
 - You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
@@ -234,7 +247,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is to not select **All accessible organizations** in the **Organizations** field drop-down (instead selecting a specific organization). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
 
 ### I can't unpublish my extension through the `vsce` tool?
 
@@ -243,3 +256,7 @@ You may have changed your extension ID or publisher name. You can also manage yo
 ### Why does vsce not preserve file attributes?
 
 Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
+
+### Can I publish from a continuous integration (CI) build?
+
+Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.

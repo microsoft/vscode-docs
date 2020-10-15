@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -45,7 +45,7 @@ When applicable, a language service will surface the underlying types in the qui
 
 ## Types of completions
 
-The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the document icon).
+The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the Word icon).
 
 ![intellisense icons](images/intellisense/intellisense_icons.png)
 
@@ -54,14 +54,15 @@ VS Code IntelliSense offers different types of completions, including language s
 |       |         |       |
 | ----- | ------- | ----- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`  |
-| ![variable icon](images/intellisense/Field_16x.svg) | Variables and Fields | `variable`, `field` |
+| ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
+| ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
 | ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
 | ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
-| ![color](images/intellisense/Enumerator_16x.svg) | References | `reference` |
-| ![keyword](images/intellisense/IntelliSenseKeyword_16x.svg) | Keywords | `keyword` |
+| ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
+| ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
 | ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
 | ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
 | ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes | `snippet` |
@@ -84,6 +85,9 @@ The settings shown below are the default settings. You can change these settings
         "strings": false
     },
 
+     // Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`;`) can be a commit character that accepts a suggestion and types that character.
+    "editor.acceptSuggestionOnCommitCharacter": true,
+
     // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
     "editor.acceptSuggestionOnEnter": "on",
 
@@ -94,7 +98,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggestOnTriggerCharacters": true,
 
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
-    "editor.tabCompletion": "on",
+    "editor.tabCompletion": "off",
 
     // Controls whether sorting favours words that appear close to the cursor
     "editor.suggest.localityBonus": true,
@@ -148,7 +152,6 @@ When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item
 
 By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
-
 ### Key bindings
 
 The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
@@ -190,6 +193,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+* [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
 
 ## Common questions
 
@@ -204,4 +208,3 @@ This can be caused by a variety of reasons. First, try restarting VS Code. If th
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
 This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch](https://microsoft.github.io/TypeSearch) site. There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
-

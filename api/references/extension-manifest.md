@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -22,13 +22,14 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `license`                                               |          | `string`                                   | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.                                                                                                     |
 | `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.                                                                                                                                                                                                                                                            |
 | `description`                                           |          | `string`                                   | A short description of what your extension is and does.                                                                                                                                                                                                                                                                |
-| `categories`                                            |          | `string[]`                                 | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`                                                                                                          |
+| `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks]`                                                                                                          |
 | `keywords`                                              |          | `array`                                    | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.                                                                                                                                   |
 | `galleryBanner`                                         |          | `object`                                   | Helps format the Marketplace header to match your icon. See details below.                                                                                                                                                                                                                                             |
 | `preview`                                               |          | `boolean`                                  | Sets the extension to be flagged as a Preview in the Marketplace.                                                                                                                                                                                                                                                      |
 | `main`                                                  |          | `string`                                   | The entry point to your extension.                                                                                                                                                                                                                                                                                     |
 | [`contributes`](/api/references/contribution-points)    |          | `object`                                   | An object describing the extension's [contributions](/api/references/contribution-points).                                                                                                                                                                                                                             |
 | [`activationEvents`](/api/references/activation-events) |          | `array`                                    | An array of the [activation events](/api/references/activation-events) for this extension.                                                                                                                                                                                                                             |
+| `badges`                                                |          | `array`                                    | Array of [approved](/api/references/extension-manifest#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.       |
 | `markdown`                                              |          | `string`                                   | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.                                                                                                                                                                                                               |
 | `qna`                                                   |          | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.                                                                                              |
 | `dependencies`                                          |          | `object`                                   | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).                                                                                                                                                            |
@@ -75,14 +76,14 @@ Here is a complete `package.json`
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
   },
-  "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md"
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md"
 }
 ```
 
@@ -106,7 +107,7 @@ Provide a good display name and description. This is important for the Marketpla
     "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
 ```
 
-An Icon and a contrasting banner color looks great on the Marketplace page header. The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
+An icon and a contrasting banner color look great on the Marketplace page header. The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
 
 ```json
 {
@@ -123,14 +124,14 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 ```json
 {
   "license": "SEE LICENSE IN LICENSE.txt",
-  "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md",
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
   }
 }
 ```
@@ -144,13 +145,64 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 
 Set a `category` for your extension. Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
 
-> **Note:** Only use the values that make sense for your extension. Allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Use `Programming Languages` for general language features like syntax highlighting and code completions. The category `Language Packs` is reserved for display language extensions (for example, localized Bulgarian).
+> **Note:** Only use the values that make sense for your extension. Allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks]`. Use `Programming Languages` for general language features like syntax highlighting and code completions. The category `Language Packs` is reserved for display language extensions (for example, localized Bulgarian).
 
 ```json
 {
   "categories": ["Linters", "Programming Languages", "Other"]
 }
 ```
+
+### Approved Badges
+
+Due to security concerns, we only allow badges from trusted services.
+
+We allow badges from the following URL prefixes:
+
+- api.bintray.com
+- api.travis-ci.com
+- api.travis-ci.org
+- app.fossa.io
+- badge.buildkite.com
+- badge.fury.io
+- badge.waffle.io
+- badgen.net
+- badges.frapsoft.com
+- badges.gitter.im
+- badges.greenkeeper.io
+- cdn.travis-ci.com
+- cdn.travis-ci.org
+- ci.appveyor.com
+- circleci.com
+- cla.opensource.microsoft.com
+- codacy.com
+- codeclimate.com
+- codecov.io
+- coveralls.io
+- david-dm.org
+- deepscan.io
+- dev.azure.com
+- docs.rs
+- gemnasium.com
+- githost.io
+- github.com
+- gitlab.com
+- godoc.org
+- goreportcard.com
+- img.shields.io
+- isitmaintained.com
+- marketplace.visualstudio.com
+- nodesecurity.io
+- opencollective.com
+- snyk.io
+- travis-ci.com
+- travis-ci.org
+- visualstudio.com
+- vsmarketplacebadge.apphb.com
+- www.bithound.io
+- www.versioneye.com
+
+If you have other badges you would like to use, please open a GitHub [issue](https://github.com/microsoft/vscode/issues) and we're happy to take a look.
 
 ## Combining Extension Contributions
 
@@ -260,7 +312,7 @@ There are several Node.js modules available on npmjs to help with writing VS Cod
 
 ## Next steps
 
-To learn more about VS Code extensibility model, try these topic:
+To learn more about VS Code extensibility model, try these topics:
 
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
 - [Activation Events](/api/references/activation-events) - VS Code activation events reference

@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 
 Area: cpp
 TOCTitle: Enhanced colorization
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C

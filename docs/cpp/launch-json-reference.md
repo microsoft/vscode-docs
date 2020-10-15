@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order:
 Area: cpp
 TOCTitle: Debug configuration
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
@@ -11,7 +11,7 @@ MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 
 The `launch.json` file is used to configure the debugger in Visual Studio Code.
 
-Visual Studio Code generates a `launch.json` with almost all of the required information. To get started debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
+Visual Studio Code generates a `launch.json` with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
 
 The generated file contains two sections, one that configures debugging for launch and a second that configures debugging for attach.
 
@@ -21,17 +21,23 @@ Set or change the following options to control VS Code's behavior during debuggi
 
 ### program (required)
 
-Specifies the full path to executable the debugger will launch or attach to.
+Specifies the full path to the executable the debugger will launch or attach to. The debugger requires this location in order to load debug symbols.
 
 ### symbolSearchPath
 
 Tells the Visual Studio Windows Debugger what paths to search for symbol (.pdb) files. Separate multiple paths with a semicolon. For example: `"C:\\Symbols;C:\\SymbolDir2"`.
+
+### requireExactSource
+
+An optional flag that tells the Visual Studio Windows Debugger to require current source code to match the pdb.
 
 ### additionalSOLibSearchPath
 
 Tells GDB or LLDB what paths to search for .so files. Separate multiple paths with a semicolon. For example: `"/Users/user/dir1;/Users/user/dir2"`.
 
 ### externalConsole
+
+Used only when launching the debuggee. For `attach`, this parameter does not change the debuggee's behavior.
 
 - **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
 - **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
@@ -74,7 +80,7 @@ When a `visualizerFile` is specified, `showDisplayString` will enable the displa
        "moduleLoad": false,
        "trace": true
     },
-   "visualizerFile": "${workspaceRoot}/my.natvis",
+   "visualizerFile": "${workspaceFolder}/my.natvis",
    "showDisplayString": true
 }
 ```
@@ -85,7 +91,7 @@ The following options enable you to modify the state of the target application w
 
 ### args
 
-JSON array of command-line arguments to pass to the program when it is launched. Example `["arg1", "arg2"]`. If you are escaping characters, you will need to double escape them. For example, `["{\\\"arg1\\\": true}]` will send `{"arg1": true}` to your application.
+JSON array of command-line arguments to pass to the program when it is launched. Example `["arg1", "arg2"]`. If you are escaping characters, you will need to double escape them. For example, `["{\\\"arg1\\\": true}"]` will send `{"arg1": true}` to your application.
 
 ### cwd
 
@@ -102,10 +108,10 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceRoot}/a.out",
+   "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
    "environment": [{"name": "squid", "value": "clam"}],
-   "cwd": "${workspaceRoot}"
+   "cwd": "${workspaceFolder}"
 }
 ```
 
@@ -148,7 +154,7 @@ The command to execute after the debugger is fully set up in order to cause the 
    "name": "C++ Launch",
    "type": "cppdbg",
    "request": "launch",
-   "program": "${workspaceRoot}/a.out",
+   "program": "${workspaceFolder}/a.out",
    "stopAtEntry": false,
    "customLaunchSetupCommands": [
       { "text": "target-run", "description": "run target", "ignoreFailures": false }
@@ -167,6 +173,11 @@ The command to execute after the debugger is fully set up in order to cause the 
    }
 }
 ```
+
+### symbolLoadInfo
+
+- **loadAll**: If true, symbols for all libs will be loaded, otherwise no solib symbols will be loaded. Modified by ExceptionList. Default value is true.
+- **exceptionList**: List of filenames (wildcards allowed) separated by semicolons `;`. Modifies behavior of LoadAll. If LoadAll is true then don't load symbols for libs that match any name in the list. Otherwise only load symbols for libs that match. Example: ```"foo.so;bar.so"```
 
 ## Debugging dump files
 
@@ -203,11 +214,15 @@ Server-started pattern to look for in the debug server output.
 
 Time in milliseconds, for the debugger to wait for the debugServer to start up. Default is 10000.
 
+### pipeTransport
+
+For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](/docs/cpp/pipe-transport.md) settings article.
+
 ## Additional properties
 
 ### processId
 
-Defaults to `${command.pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
+Defaults to `${command:pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
 
 ### request
 

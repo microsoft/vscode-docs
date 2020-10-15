@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -37,11 +37,13 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't wish to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `crash`, and uncheck the **Telemetry: Enable Crash Reporter** setting.
-
-> **Important Notice**: This option requires a restart of VS Code to take effect.
+* Open the Command Palette (`kb(workbench.action.showCommands)`).
+* Run the **Preferences: Configure Runtime Arguments** command.
+* This command will open a `argv.json` file to configure runtime arguments.
+* Edit `"enable-crash-reporter": false`.
+* Restart VS Code.
 
 ## GDPR and VS Code
 
@@ -50,7 +52,7 @@ Now that the General Data Protection Regulation (GDPR) is in effect, we want to 
 To support GDPR:
 
 * The VS Code product notifies all users that they can opt out of telemetry collection.
-* The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/Microsoft/vscode/pull/34997)).
+* The team actively reviews and classifies all telemetry sent (documented in [our OSS codebase](https://github.com/microsoft/vscode/pull/34997)).
 * There are valid data retention policies in place for any data collected, for example crash dumps.
 
 You can learn more about VS Code's GDPR compliance in the [telemetry documentation](/docs/getstarted/telemetry.md).
@@ -77,6 +79,16 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 >**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md).
 
+### Opt out of extension updates
+
+By default, VS Code will also auto-update extensions as new versions become available. If you do not want extensions to automatically update, you can clear the **Extensions: Auto Update** check box in the Settings editor (`kb(workbench.action.openSettings)`).
+
+If you use the JSON editor to modify your settings, add the following line:
+
+```json
+    "extensions.autoUpdate": false
+```
+
 ## Licensing
 
 ### Location
@@ -85,11 +97,11 @@ You can find the VS Code licenses, third party notices and [Chromium](https://ww
 
 ### Why does Visual Studio Code have a different license than the vscode GitHub repository?
 
-To learn why Visual Studio Code, the product, has a different license than the open-source [vscode GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+To learn why Visual Studio Code, the product, has a different license than the open-source [vscode GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
 ### What is the difference between the `vscode` repository and the Microsoft Visual Studio Code distribution?
 
-The [github.com/microsoft/vscode](https://github.com/Microsoft/vscode) repository (`Code - OSS`) is where we develop the Visual Studio Code product. Not only do we write code and work on issues there, we also publish our roadmap and monthly iteration and endgame plans. The source code is available to everyone under a standard [MIT license](https://github.com/microsoft/vscode/blob/master/LICENSE.txt).
+The [github.com/microsoft/vscode](https://github.com/microsoft/vscode) repository (`Code - OSS`) is where we develop the Visual Studio Code product. Not only do we write code and work on issues there, we also publish our roadmap and monthly iteration and endgame plans. The source code is available to everyone under a standard [MIT license](https://github.com/microsoft/vscode/blob/master/LICENSE.txt).
 
 Visual Studio Code is a distribution of the `Code - OSS` repository with Microsoft specific customizations (including source code), released under a traditional [Microsoft product license](https://code.visualstudio.com/License/).
 
@@ -97,7 +109,17 @@ See the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/mic
 
 ### What does "Built on Open Source" mean?
 
-[Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of ['Code - OSS'](https://github.com/Microsoft/vscode) that includes Microsoft proprietary assets (such as icons) and features (Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article.
+[Microsoft Visual Studio Code](https://code.visualstudio.com) is a [Microsoft licensed](https://code.visualstudio.com/License/) distribution of ['Code - OSS'](https://github.com/microsoft/vscode) that includes Microsoft proprietary assets (such as icons) and features (Visual Studio Marketplace integration, small aspects of enabling Remote Development). While these additions make up a very small percentage of the overall distribution code base, it is more accurate to say that Visual Studio Code is "built" on open source, rather than "is" open source, because of these differences. More information on what each distribution includes can be found in the [Visual Studio Code and 'Code - OSS' Differences](https://github.com/microsoft/vscode/wiki/Differences-between-the-repository-and-Visual-Studio-Code) article.
+
+### How do I find the license for an extension?
+
+Most extensions link to their license on their Marketplace page or in the overview section, when you select an extension in the Extensions view.
+
+For example:
+
+![Extensions view details license link](images/faq/extensions-view-license-link.png)
+
+If you don't find a link to the license, you may find a license in the extension's repository if it is public, or you can contact the extension author through the Q & A section of the Marketplace.
 
 ## Are all VS Code extensions open source?
 
@@ -110,6 +132,10 @@ At Microsoft, we open source our extensions whenever possible. However, reliance
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
 
 To install the Insiders build, go to the [Insiders download page](/insiders).
+
+## What is a VS Code "workspace"?
+
+A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/getstarted/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
 
 ## Can I run a portable version of VS Code?
 
@@ -147,26 +173,14 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Blurriness on macOS Mojave
-
-If you have updated to macOS 10.14 (Mojave), you might have noticed that fonts in VS Code look blurry if you are not using a high-DPI monitor.
-
-A workaround for this is to run:
-
-```bash
-defaults write com.microsoft.VSCode.helper CGFontRenderingFontSmoothingDisabled -bool NO
-```
-
-from a terminal followed by restarting your computer.
-
-Note that this change is global for every application and not specific to VS Code. See [issue #51132](https://github.com/Microsoft/vscode/issues/51132) for the related discussion.
-
 ## Installation appears to be corrupt [Unsupported]
 
-VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text '[Unsupported]' in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
+
+You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
 ## Technical Support
 
-You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/Microsoft/vscode/blob/master/CONTRIBUTING.md).
+You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/master/CONTRIBUTING.md).
 
 If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/assistedsupportproducts).

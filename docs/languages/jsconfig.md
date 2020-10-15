@@ -4,18 +4,18 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
 
 ## What is jsconfig.json?
 
-The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript Project. The `jsconfig.json` file specifies the root files and the options for the features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
+The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript Project. The `jsconfig.json` file specifies the root files and the options for the features provided by the [JavaScript language service](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
 
 > **Tip:** If you are not using JavaScript, you do not need to worry about `jsconfig.json`.
 
-> **Tip:** `jsconfig.json` is a descendant of [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html), which is a configuration file for TypeScript. `jsconfig.json` is `tsconfig.json` with `"allowJs"` attribute set to `true`.
+> **Tip:** `jsconfig.json` is a descendant of [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html), which is a configuration file for TypeScript. `jsconfig.json` is `tsconfig.json` with `"allowJs"` attribute set to `true`.
 
 ## Why do I need a jsconfig.json file?
 
@@ -43,11 +43,12 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 ### Using the `"exclude"` property
 
-The `exclude` attribute (a glob pattern) tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
+The `exclude` attribute (a glob pattern) tells the language service what files are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
 
 ```json
 {
     "compilerOptions": {
+        "module": "commonjs",
         "target": "es6"
     },
     "exclude": [
@@ -65,6 +66,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 ```json
 {
     "compilerOptions": {
+        "module": "commonjs",
         "target": "es6"
     },
     "include": [
@@ -84,12 +86,16 @@ Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language su
 Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "esnext".
+`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "esnext".
+`module` | Specifies the module system, when generating module code. The values are "amd", "commonJS", "es2015", "es6", "esnext", "none", "system", "umd".
+`moduleResolution` | Specifies how modules are resolved for imports. The values are "node" and "classic".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
 `baseUrl`|Base directory to resolve non-relative module names.
 `paths`|Specify path mapping to be computed relative to baseUrl option.
+
+You can read more about the available `compilerOptions` in the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
 ## Using webpack aliases
 
@@ -120,16 +126,14 @@ Whenever possible, you should exclude folders with JavaScript files that are not
 
 >**Tip:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder.
 
-Below is a table mapping common project components to their installation folders which are recommended to exclude:
+Below is a table, mapping common project components to their installation folders that are recommended to exclude:
 
 Component | folder to exclude
 ----------|-----------
 `node` | exclude the `node_modules` folder
-`webpack`, `webpack-dev-server` | exclude the content folder, e.g., `dist`.
+`webpack`, `webpack-dev-server` | exclude the content folder, for example `dist`.
 `bower` | exclude the `bower_components` folder
 `ember` | exclude the `tmp` and `temp` folders
 `jspm` | exclude the `jspm_packages` folder
 
 When your JavaScript project is growing too large and performance slows, it is often because of library folders like `node_modules`. If VS Code detects that your project is growing too large, it will prompt you to edit the `exclude` list.
-
->**Tip:** Sometimes changes to configuration, such as adding or editing a `jsconfig.json` file are not picked up correctly. Running the **Reload JavaScript Project** command should reload the project and pick up the changes.

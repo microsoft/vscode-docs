@@ -4,22 +4,22 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Visual Studio Code Introductory Videos
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
 # Introductory Videos
 
-Start your journey with Visual Studio Code with this set of introductory videos. The videos are designed to give you a quick overview of the various features of VS Code. VS Code comes with JavaScript and TypeScript support out of the box so the videos use JavaScript in the examples.
+Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them. VS Code comes out of the box with support for a variety of languages like JavaScript and TypeScript. These videos use JavaScript, but feel free to use any language you are comfortable with!
 
 <ul class="video-list">
 	<li class="video">
 		<a href="/docs/introvideos/basics">
-			<img src="https://img.youtube.com/vi/Sdg0ef2PpBw/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/S320N3sxinE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Getting started</h2>
-				<p class="description">Install and learn the basics of Visual Studio Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<p class="description">Set up and learn the basics of Visual Studio Code.</p>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -28,18 +28,18 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Customize</h2>
-				<p class="description">Personalize VS Code through settings, themes, keybindings.</p>
+				<p class="description">Personalize VS Code to suit your needs through changing settings, themes, keybindings.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/extend">
-			<img src="https://img.youtube.com/vi/Fed01v3yYNE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/SKcZ3cwX8lA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Extensions</h2>
-				<p class="description">Extend VS Code with extensions.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<p class="description">Add features, themes, and more to VS Code with extensions!</p>
+				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -58,7 +58,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<img src="https://img.youtube.com/vi/lSPHucggmLo/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">IntelliSense</h2>
-				<p class="description">Receive intelligent code completions.</p>
+				<p class="description">Learn how to set up IntelliSense and receive intelligent code completions.</p>
 				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
@@ -68,7 +68,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<img src="https://img.youtube.com/vi/2oFKNL7vYV8/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
-				<p class="description">Getting started with Node.js debugging in VS Code.</p>
+				<p class="description">Get started with Node.js debugging in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>8<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>

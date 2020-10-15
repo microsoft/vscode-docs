@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -32,16 +32,17 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for infor
 
 A [jsconfig.json](/docs/languages/jsconfig.md) file defines a JavaScript project in VS Code. While `jsconfig.json` files are not required, you will want to create one in cases such as:
 
-- If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
-- To ensure that a subset of JavaScript files in your workspace are treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
-- If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
-- You are using the TypeScript compiler to down-level compile JavaScript source code.
+* If not all JavaScript files in your workspace should be considered part of a single JavaScript project. `jsconfig.json` files let you exclude some files from showing up in IntelliSense.
+* To ensure that a subset of JavaScript files in your workspace is treated as a single project. This is useful if you are working with legacy code that uses implicit globals dependencies instead of `imports` for dependencies.
+* If your workspace contains more than one project context, such as front-end and back-end JavaScript code. For multi-project workspaces, create a `jsconfig.json` at the root folder of each project.
+* You are using the TypeScript compiler to down-level compile JavaScript source code.
 
 To define a basic JavaScript project, add a `jsconfig.json` at the root of your workspace:
 
 ```json
 {
     "compilerOptions": {
+        "module": "commonjs",
         "target": "es6"
     },
     "exclude": [
@@ -52,7 +53,7 @@ To define a basic JavaScript project, add a `jsconfig.json` at the root of your 
 
 See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more advanced `jsconfig.json` configuration.
 
-> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that the JavaScript file belongs to. A notification is shown if the file is not part of any `jsconfig.json` project.
+> **Tip:** To check if a JavaScript file is part of JavaScript project, just open the file in VS Code  and run the **JavaScript: Go to Project Configuration** command. This command opens the `jsconfig.json` that references the JavaScript file. A notification is shown if the file is not part of any `jsconfig.json` project.
 
 ## Snippets
 
@@ -68,7 +69,7 @@ There are many extensions that provide additional snippets, including snippets f
 
 ## JSDoc support
 
-VS Code understands many standard [JSDoc](http://jsdoc.app) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
+VS Code understands many standard [JSDoc](https://jsdoc.app) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
 
 <video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -114,7 +115,7 @@ In this example, VS Code adds an import for `Button` from [material-ui](https://
 
 To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
-> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
+> **Tip:** VS Code tries to infer the best import style to use. You can explicitly configure the preferred quote style and path style for imports added to your code with the `javascript.preferences.quoteStyle` and `javascript.preferences.importModuleSpecifier` settings.
 
 ## Formatting
 
@@ -122,7 +123,7 @@ VS Code's built-in JavaScript formatter providers basic code formatting with rea
 
 The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
-For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [marketplace](https://marketplace.visualstudio.com/vscode).
+For more specialized code formatting styles, try installing one of the JavaScript formatting extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## JSX and auto closing tags
 
@@ -144,15 +145,15 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate JavaScript projects.
 
-- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
-- **Peek References** `kb(editor.action.referenceSearch.trigger)` - Show all references to a symbol.
-- **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
+* **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
+* **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-- **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
-- **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
+* **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
+* **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
 ## Rename
 
@@ -168,10 +169,10 @@ VS Code includes some handy refactorings for JavaScript such as **Extract functi
 
 Available refactorings include:
 
-- Extract to method or function.
-- Extract to constant.
-- Convert between named imports and namespace imports.
-- Move to new file.
+* Extract to method or function.
+* Extract to constant.
+* Convert between named imports and namespace imports.
+* Move to new file.
 
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
@@ -213,6 +214,29 @@ Organize imports can also be automatically when you save a JavaScript file by se
 }
 ```
 
+## Code Actions on Save
+
+The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+
+```json
+// On save, run both fixAll and organizeImports source actions
+"editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+}
+```
+
+You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
+
+Here are some source actions:
+
+* `"organizeImports"` -  Enables organize imports on save.
+* `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
+* `"fixAll.eslint"` -  Auto Fix only for ESLint.
+* `"addMissingImports"` - Adds all missing imports on save.
+
+See [Node.js/JavaScript](/docs/nodejs/working-with-javascript) for more information.
+
 ## Code suggestions
 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
@@ -229,7 +253,7 @@ The JavaScript references CodeLens displays an inline count of reference for cla
 
 ![JavaScript references CodeLens](images/javascript/references-codelens.png)
 
-To enable the references code lens, set `"javascript.referencesCodeLens.enabled"` to `true`.
+To enable the references CodeLens, set `"javascript.referencesCodeLens.enabled"` to `true`.
 
 Click on the reference count to quickly browse a list of references:
 
@@ -285,7 +309,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-gallery.md).
 
-<div class="marketplace-extensions-javascript"></div>
+<div class="marketplace-extensions-javascript-curated"></div>
 
 > **Tip:** The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
@@ -321,18 +345,18 @@ To enable ES6 import statements for **React Native**, you need to set the `allow
 
 When you want to use ES6 style imports but some type declaration (typings) files do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
 
-```javascript
+```json
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    // This is the line you want to add
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": [
-    "node_modules",
-    "**/node_modules/*"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        // This is the line you want to add
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
 }
 ```
 
@@ -344,7 +368,7 @@ Yes, you can. You can see this working using JavaScript source maps in the [Node
 
 Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
-With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code.
 
 ### Can I use other JavaScript tools like Flow?
 

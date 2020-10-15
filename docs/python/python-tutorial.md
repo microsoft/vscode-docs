@@ -14,44 +14,58 @@ In this tutorial, you use Python 3 to create the simplest Python "Hello World" a
 
 This tutorial introduces you to VS Code as a Python environment, primarily how to edit, run, and debug code through the following tasks:
 
-- Install the Python extension for VS Code
-- Download and Install Python 3 (for Linux/macOS or Windows)
 - Write, run, and debug a Python "Hello World" Application
 - Learn how to install packages by creating Python virtual environments
 - Write a simple Python script to plot figures within VS Code
 
 This tutorial is not intended to teach you Python itself. Once you are familiar with the basics of VS Code, you can then follow any of the [programming tutorials on python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers) within the context of VS Code for an introduction to the language.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
-
-> **Note**: You can use VS Code with Python 2 with this tutorial, but you need to make appropriate changes to the code, which are not covered here.
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
-To successfully complete this tutorial, complete the following requirements:
+To successfully complete this tutorial, you need to first setup your Python  development environment. Specifically, this tutorial requires:
 
-1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and published by Microsoft.
+- VS Code
+- VS Code Python extension
+- Python 3
 
-1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); you can typically use the **Download Python 3.7.4** button that appears first on the page (or whatever is the latest version).
-   - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
-   - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
-   - (Windows) Install Python from the Windows Store.
-   - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
+## Install Visual Studio Code and the Python Extension
 
-   > **Note** You can use the `py -0` command in the integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
+1. If you have not already done so, install [VS Code](https://code.visualstudio.com/).
+2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and it's published by Microsoft.
 
-1. On macOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [the setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
+   [![Python extension on Marketplace](images/tutorial/python-extension-marketplace.png)](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-### Windows Subsystem for Linux
+## Install a Python interpreter
 
-If you are working on Windows and want an isolated environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is a great option. You can enable WSL and install a Linux distribution on your Windows machine, completely isolated from your normal development environment. This Python tutorial can be done inside WSL, using the VS Code [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
+Along with the Python extension, you need to install a Python interpreter. Which interpreter you use is dependent on your specific needs, but some guidance is provided below.
 
-For more information, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/remote-tutorials/wsl/getting-started.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+### Windows
 
-Once you have WSL running, you can return to this tutorial and verify the prerequisites with a WSL terminal or VS Code integrated terminal.
+Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
-### Verify the Python installation
+>**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p) and [Python 3.8](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l). Be aware that you might have compatibility issues with some packages using this method.
+
+For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.7/using/windows.html)
+
+### macOS
+
+The system install of Python on macOS is not supported. Instead, an installation through [Homebrew](https://brew.sh/) is recommended. To install Python using Homebrew on macOS use `brew install python3` at the Terminal prompt.
+
+> **Note** On macOS, make sure the location of your VS Code installation is included in your PATH environment variable.  See [these setup instructions](/docs/setup/mac.md#launching-from-the-command-line) for more information.
+
+### Linux
+
+The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [get-pip.py](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
+
+### Other options
+
+- **Data Science**: If your primary purpose for using Python is Data Science, then you might consider a download from [Anaconda](https://www.anaconda.com/download/). Anaconda provides not just a Python interpreter, but many useful libraries and tools for data science.
+
+- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+
+## Verify the Python installation
 
 To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system):
 
@@ -69,9 +83,11 @@ To verify that you've installed Python successfully on your machine, run one of 
 
 If the installation was successful, the output window should show the version of Python that you installed.
 
+   > **Note** You can use the `py -0` command in the VS Code integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
+
 ## Start VS Code in a project (workspace) folder
 
-At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
+Using a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```bash
 mkdir hello
@@ -79,7 +95,7 @@ cd hello
 code .
 ```
 
-When using an Anaconda distribution, be sure to use an Anaconda command prompt.
+>**Note**: If you're using an Anaconda distribution, be sure to use an Anaconda command prompt.
 
 By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
@@ -113,7 +129,9 @@ Name the file `hello.py`, and it automatically opens in the editor:
 
 By using the `.py` file extension, you tell VS Code to interpret this file as a Python program, so that it evaluates the contents with the Python extension and the selected interpreter.
 
-Next, start entering the following source code if using Python 3:
+>**Note**: The File Explorer toolbar also allows you to create folders within your workspace to better organize your code. You can use the **New folder** button to quickly create a folder.
+
+Now that you have a code file in your Workspace, enter the following source code in `hello.py`:
 
 ```python
 msg = "Hello World"
@@ -134,15 +152,19 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 ## Run Hello World
 
-It's simple to run `hello.py` with Python. Right-click anywhere in the editor window and select **Run Python File in Terminal** (which saves the file automatically):
+It's simple to run `hello.py` with Python. Just click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
+![Using the run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
 
-The command opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
+The button opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
-There are two other ways you can run Python within VS Code:
+There are three other ways you can run Python code within VS Code:
+
+- Right-click anywhere in the editor window and select **Run Python File in Terminal** (which saves the file automatically):
+
+   ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
 - Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is convenient for testing just a part of a file.
 - From the Command Palette (`kb(workbench.action.showCommands)`), select the **Python: Start REPL** command to open a REPL terminal for the currently selected Python interpreter. In the REPL, you can then enter and run lines of code one at a time.
@@ -155,44 +177,17 @@ First, set a breakpoint on line 2 of `hello.py` by placing the cursor on the `pr
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 
-Next, select the Debug View in the sidebar:
-
-![Debug icon](images/tutorial/debug-icon.png)
-
-Then select the settings icon on the debug toolbar (or use the **Debug** > **Open configurations** menu command):
-
-![Debug toolbar settings command](images/tutorial/debug-settings.png)
-
-Selecting the settings icon automatically opens a configuration menu from the Command Palette, allowing you to select the type of debug configuration you would like for the opened file.
+Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Since this is your first time debugging this file, a configuration menu will open from the Command Palette allowing you to select the type of debug configuration you would like for the opened file.
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter. Once selected the Python extension creates and opens a `launch.json` file that contains a pre-defined configuration based on your selection.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
-To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in the generated `launch.json` file, so that the whole configuration appears as follows:
+The debugger will stop at the first line of the file breakpoint. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you will see now defined `msg` variable appears in the **Local** pane.
 
-```json
-{
-    "name": "Python: Current File",
-    "type": "python",
-    "request": "launch",
-    "program": "${file}",
-    "console": "integratedTerminal",
-    "stopOnEntry": true
-},
-```
-
-Save `launch.json` after making changes.
-
-> **Tip:** If you need to specify the exact folder containing the interpreter to use for debugging, include an entry for `pythonPath` in the configuration, such as `"pythonPath": "${workspaceFolder}"` or `"pythonPath": "${workspaceFolder}/.venv"`.
-
-> **Tip:** To specify command-line arguments for the Python program, add a line `"args": []` to the configuration, and place each argument as elements inside the `[]` list. For examples, see [Debugging - args](/docs/python/debugging.md#args).
-
-Switch to `hello.py` in the editor, then run the debugger by selecting the arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. The debugger stops at the first line of the file breakpoint (or the first line if `stopOnEntry` is set to true). The current line is indicated with a yellow arrow in the left margin. If you're stopped on the first line and examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
-
-![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
+![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
 A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
 
@@ -200,10 +195,9 @@ A debug toolbar appears along the top with the following commands from left to r
 
 The Status Bar also changes color (orange in many themes) to indicate that you're in debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run, along with the program output.
 
-To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane.
-> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
+To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the end.
 
-![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
+> **Tip** Debugging information can also be seen by hovering over code, such as variables. In the case of `msg`, hovering over the variable will display the string `Hello world` in a box above the variable.
 
 You can also work with variables in the **Debug Console** (If you don't see it, select **Debug Console** in the lower right area of VS Code, or select it from the **...** menu.) Then try entering the following lines, one by one, at the **>** prompt at the bottom of the console:
 
@@ -217,54 +211,13 @@ msg.split()
 
 Select the blue **Continue** button on the toolbar again (or press F5) to run the program to completion. "Hello World" appears in the **Python Debug Console** if you switch back to it, and VS Code exits debugging mode once the program is complete.
 
-If you restart the debugger, the debugger again stops on the first breakpoint (or the first line is `stopOnEntry` is set to true, in which case the debugger stops before any code is run.)
+If you restart the debugger, the debugger again stops on the first breakpoint.
 
-To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
+To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Run > Stop debugging** menu command.
 
 For full details, see [Debugging configurations](/docs/python/debugging.md), which includes notes on how to use a specific Python interpreter for debugging.
 
 > **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints**. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/editor/debugging.md#logpoints) in the main VS Code debugging article.
-
-### Troubleshooting
-
-If for some reason VS Code doesn't generate `launch.json` for you, create the `.vscode/launch.json` file within the project folder (creating the `.vscode` folder if you need to), then paste the following contents into `launch.json`:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        }
-    ]
-}
-```
-
-If you see "SyntaxError: invalid syntax" as shown below,  you may have attempted to start debugging when `launch.json` was showing in the editor. The error occurs because `launch.json` is not Python code like `hello.py`:
-
-```bash
-    // Use IntelliSense to learn about possible attributes.
-     ^
-SyntaxError: invalid syntax
-```
-
-Select `hello.py` and try again. Alternately, create a debug configuration specifically for the `hello.py` file by adding the following lines in `launch.json` within the `configuration` array. Then select this configuration in the debugger drop-down and start the debugger again.
-
-```json
-        {
-            "name": "Python: hello.py",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/hello.py",
-            "console": "integratedTerminal"
-        },
-```
-
-If you see the message, "Python interpreter is not found because python.exe is not in the workspace directory," or "You need to install a Python interpreter before you start debugging," then you may have `pythonPath: ${workspaceFolder}` in your `launch.json` file, but your Python interpreter actually exists in a different path. Check the value, or remove the `pythonPath` property altogether.
 
 ## Install and use packages
 
@@ -283,17 +236,20 @@ plt.show()                   # Display the plot
 
 > **Tip**: If you enter the above code by hand, you may find that auto-completions change the names after the `as` keywords when you press `kbstyle(Enter)` at the end of a line. To avoid this, type a space, then `kbstyle(Enter)`.
 
-Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section. (If you still have `"stopOnEntry": true` in that configuration, you need to select the run command again to continue.)
+Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
-Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
+Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. Such a message indicates that the required package isn't available in your system.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)). This command opens a command prompt for your selected interpreter.
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
 
-A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a `virtual environment` and install the required packages, enter the following commands as appropriate for your operating system:
+A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#global-virtual-and-conda-environments).
 
 1. Create and activate the virtual environment
+   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+
+   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 
    **For windows**
 
@@ -301,9 +257,11 @@ A best practice among Python developers is to avoid installing packages into a g
    py -3 -m venv .venv
    .venv\scripts\activate
    ```
+
    If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
    current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
    run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
+
    ```cmd
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
@@ -314,6 +272,8 @@ A best practice among Python developers is to avoid installing packages into a g
    python3 -m venv .venv
    source .venv/bin/activate
    ```
+
+1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
 
 1. Install the packages
 
@@ -330,8 +290,6 @@ A best practice among Python developers is to avoid installing packages into a g
    apt-get install python3-tk
    python3 -m pip install matplotlib
    ```
-
-1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
 
 1. Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
@@ -359,5 +317,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](/docs/python/tutorial-deploy-containers.md)
-- [Deploy Python to Azure App Service on Linux (Preview)](/docs/python/tutorial-deploy-app-service-on-linux.md)
+- [Deploy Python to Azure App Service using containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
+- [Deploy Python to Azure App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)

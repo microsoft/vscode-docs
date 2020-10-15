@@ -120,7 +120,7 @@ We realized that we needed to start understanding our bugs in a new way, not as 
 * Type oddities. `undefined` vs `null`. `undefined` vs `false`. `undefined` vs empty string.
 * Feeling that we could not trust the code or safely refactor it.
 
-Identifying the root causes was a good first step, but we wanted to go even deeper. What were [the hazards](http://arlobelshee.com/improving-testing-is-not-safe-a-parable/) in all these cases that allowed a well meaning engineer to introduce the bug in the first place? And we quickly identified a glaring hazard common to all these issues: the lack of strict null checking in the VS Code codebase.
+Identifying the root causes was a good first step, but we wanted to go even deeper. What were [the hazards](https://arlobelshee.com/improving-testing-is-not-safe-a-parable/) in all these cases that allowed a well meaning engineer to introduce the bug in the first place? And we quickly identified a glaring hazard common to all these issues: the lack of strict null checking in the VS Code codebase.
 
 To understand strict null checking, you have to remember that TypeScript's aim is to add typing to JavaScript. A consequence of TypeScript's JavaScript legacy is that, by default, TypeScript allows `undefined` and `null` to be used for any value:
 
@@ -223,7 +223,7 @@ class Value {
 
 The point of this effort was never to eliminate 100% of the strict null errors in VS Code—which would be extremely difficult, if not impossible—but to prevent the vast majority of common strict null related errors. It also was a good chance to clean up our code and make it safer to refactor. Getting 95% of the way there was acceptable for us.
 
-You can find our entire strict null checking plan and its execution [on GitHub](https://github.com/Microsoft/vscode/issues/60565). All members of the VS Code team along with many external contributors were involved in this effort. As the driver of this work, I made the most strict null related fixes, but it only took up around a quarter of my engineering time. There was certainly a bit of pain along the way, including some annoyance that many strict null regressions were only caught by continuous integration after checkin. The strict null work also introduced a few new bugs. However, considering the amount of code changed, things went remarkably smoothly.
+You can find our entire strict null checking plan and its execution [on GitHub](https://github.com/microsoft/vscode/issues/60565). All members of the VS Code team along with many external contributors were involved in this effort. As the driver of this work, I made the most strict null related fixes, but it only took up around a quarter of my engineering time. There was certainly a bit of pain along the way, including some annoyance that many strict null regressions were only caught by continuous integration after checkin. The strict null work also introduced a few new bugs. However, considering the amount of code changed, things went remarkably smoothly.
 
 The [change that finally enabled strict null checking](https://github.com/microsoft/vscode/commit/7d0e64f5ec69c1452bcf227692768db45b8d6334#diff-9f6a7f86a587bb89b022817ce9f353f5) for the whole VS Code codebase was rather anti-climactic: it fixed a few more code errors, deleted `tsconfig.strictNullChecks.json`, and set `"strictNullChecks": true` in our main `tsconfig`. The lack of drama was exactly as planned. And with that, VS Code was strict null checked!
 

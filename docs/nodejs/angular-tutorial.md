@@ -4,13 +4,13 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular JavaScript Tutorial in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
 # Using Angular in Visual Studio Code
 
-[Angular](https://angular.io/) is a popular JavaScript library for building web application user interfaces developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
+[Angular](https://angular.io/) is a popular JavaScript library developed by Google for building web application user interfaces. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
@@ -70,7 +70,7 @@ You can click the information button (`i`) to see a flyout with more documentati
 
 ![angular intellisense](images/angular/intellisense.png)
 
-VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 ### Go to Definition, Peek definition
 
@@ -107,7 +107,7 @@ Once you save the `app.component.ts` file, the running instance of the server wi
 
 To debug the client side Angular code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
 
->Note: This tutorial assumes you have the Chrome browser installed. Microsoft also publishes a version of this extension for their [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browser.
+>Note: This tutorial assumes you have the Chrome browser installed. There are also debugger extensions for the [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browsers.
 
 Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome' in the search box. You'll see several extensions which reference Chrome.
 
@@ -123,7 +123,7 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Run view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** drop-down list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 
@@ -160,11 +160,11 @@ In this tutorial, we used the Angular CLI to create a simple Angular application
 
 ### Recipes
 
-The VS Code team has created [recipes](https://github.com/Microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
+The VS Code team has created [recipes](https://github.com/microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
 
 ### MEAN Starter
 
-If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.IO](http://mean.io/). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.JS](https://meanjs.org). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running. VS Code also has great [MongoDB support](/docs/azure/mongodb.md) through the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
 
 ### React
 

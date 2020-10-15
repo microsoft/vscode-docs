@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion
 ---
 # Python in Visual Studio Code
 
-Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension makes VS Code an excellent IDE, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
+Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension makes VS Code an excellent Python editor, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
@@ -17,11 +17,17 @@ This article provides only an overview of the different capabilities of the Pyth
 
 ## Install Python and the Python extension
 
-The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.7 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.7 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
-You configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
+You can configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
+
+## Insiders program
+
+The Insiders program allows you to try out and automatically install new versions of the Python extension prior to release, including new features and fixes.
+
+If you'd like to opt into the program, you can either open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Switch to Insiders Daily/Weekly Channel** or else you can open settings (`kb(workbench.action.openSettings)`) and look for **Python: Insiders Channel** to set the channel to “daily” or “weekly”.
 
 ## Run Python code
 
@@ -54,7 +60,7 @@ IntelliSense quickly shows methods, class members, and documentation as you type
 
 Linting analyzes your Python code for potential errors, making it easy to navigate to and correct different problems.
 
-The Python extension can apply a number of different linters including Pylint, Pep8, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
+The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
 <video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
 
@@ -98,23 +104,25 @@ Packages are installed using the **Terminal** panel and commands like `pip insta
 
 ## Jupyter notebooks
 
-If you open a [Jupyter notebook](http://jupyter.org/) file (`.ipynb`) in VS Code, the Python extension prompts you to import the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+If you open a [Jupyter notebook](https://jupyter.org/) file (`.ipynb`) in VS Code, you can use the Jupyter Notebook Editor to directly view, modify, and run code cells.
+
+![Jupyter notebook running in VS code in the Notebook Editor](images/python/native-jupyter.png)
+
+You can also convert and open the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-You can also connect to a remote Jupyter server for running the code.
+Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
 
-Furthermore, importing a notebook into VS Code allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in Jupyter or upload to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/python/jupyter-support.md).
 
-For more information, see [Jupyter support](/docs/python/jupyter-support.md).
+## Testing
 
-## Unit testing
+The Python extension supports [testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
 
-The Python extension supports [unit testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
+To run tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 
-To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
-
-Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including ability to run individual test files and individual methods.
+Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including the ability to run individual test files and individual methods.
 
 ## Configuration
 
@@ -122,7 +130,7 @@ The Python extension provides a wide variety of settings for its various feature
 
 ## Other popular Python extensions
 
-The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
+The [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) provides all of the features described previously in this article. Additional Python language support can be added to VS Code by installing other popular Python extensions.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
 1. Filter the extension list by typing 'python'.

@@ -1,13 +1,13 @@
 ---
-Order: 10
+Order: 12
 Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
-PageTitle: Java Extensions for Visual Studio Code
+PageTitle: Java extensions for Visual Studio Code
 DateApproved: 1/2/2019
-MetaDescription: Popular Java Extensions for Visual Studio Code
+MetaDescription: Popular Java extensions for Visual Studio Code
 ---
-# Java Extensions for Visual Studio Code
+# Java extensions for Visual Studio Code
 
 Visual Studio Code provides many features as a Java language editor. You can also install VS Code extensions to add more features for Java development.
 
@@ -28,7 +28,7 @@ To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](htt
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
@@ -50,12 +50,16 @@ Here are a few useful extensions:
 
 1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-3. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-4. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
-5. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
-6. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
-7. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
-8. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+3. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
+4. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
+5. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+7. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+8. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)
+9. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
+10. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
+11. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
+12. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
@@ -64,7 +68,7 @@ We also appreciate contributions to any of our existing extensions and we hope y
 We'd also like to recommend a couple of other extensions we believe are great to make VS Code even better for Java developers.
 
 1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
-2. [LeetCode](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode) helps you sharpen your coding skills by solving LeetCode problems with Visual Studio Code.
+2. The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
 
 ## Extension for container development
 
@@ -76,7 +80,7 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 
 ### Team development
 
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
+* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps Servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 

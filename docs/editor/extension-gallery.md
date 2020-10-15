@@ -4,14 +4,14 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
 
 **Increase the power of Visual Studio Code through Extensions**
 
-The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
+The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions from the [Visual Studio Code MarketPlace](https://marketplace.visualstudio.com/VSCode).
 
 ## Browse for extensions
 
@@ -29,7 +29,7 @@ Each extension in the list includes a brief description, the publisher, the down
 
 ### Install an extension
 
-Click the **Install** button and after a successful install, you'll see a **Reload** button. Clicking on this will restart VS Code to enable the new extension.
+To install an extension, click the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
 
 ### Extension details
 
@@ -197,7 +197,7 @@ Extensions can set **Categories** and **Tags** describing their features.
 
 You can filter on category and tag by using `category:` and `tag:`.
 
-Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. They can be accessed through IntelliSense in the extensions search box:
+Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks]`. They can be accessed through IntelliSense in the extensions search box:
 
 ![categories debuggers](images/extension-gallery/extension-search-categories.png)
 
@@ -232,14 +232,13 @@ An example `extensions.json` could be:
 ```json
 {
     "recommendations": [
-        "ms-vscode.vscode-typescript-tslint-plugin",
         "dbaeumer.vscode-eslint",
         "msjsdiag.debugger-for-chrome"
     ]
 }
 ```
 
-which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
+which recommends a linter extension, ESLint, and the Chrome debugger extension.
 
 An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 
@@ -289,3 +288,22 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 * `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
 
 The **Show Recommended Extensions** command is always available if you wish to see recommendations.
+
+### Can I trust extensions from the Marketplace?
+
+The Marketplace runs a virus scan on each extension package that's published to ensure its safety. The virus scan is run for each new extension and for each extension update. Until the scan is all clear, the extension won't be published in the Marketplace for public usage.
+
+The Marketplace also prevents extension authors from name-squatting on official publishers such as Microsoft and RedHat.
+
+If a malicious extension is reported and verified, or a vulnerability is found in an extension dependency:
+
+1. The extension is removed from the Marketplace.
+2. The extension is added to a kill list so that if it has been installed, it will be automatically uninstalled by VS Code.
+
+The Marketplace also provides you with resources to make an informed decision about the extensions you install:
+
+* **Ratings & Review** - Read what others think about the extension.
+* **Q & A** - Review existing questions and the level of the publisher's responsiveness. You can also engage with the extension's publisher(s) if you have concerns.
+* **Issues, Repository, and License** - Check if the publisher has provided these and if they have the support you expect.
+
+If you do see an extension that looks suspicious, you can report the extension to the Marketplace with the **Report Abuse** link at the bottom of the extension **More Info** section.

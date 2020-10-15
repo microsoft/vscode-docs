@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Visual Studio Code Tasks Appendix
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -248,6 +248,12 @@ interface ProblemMatcher {
      *    the current working directory. This is the default.
      *  - ["relative", "path value"]: the filename is always
      *    treated relative to the given path value.
+     *  - "autodetect": the filename is treated relative to
+     *    the current workspace directory, and if the file
+     *    does not exist, it is treated as absolute.
+     *  - ["autodetect", "path value"]: the filename is treated
+     *    relative to the given path value, and if it does not
+     *    exist, it is treated as absolute.
      */
     fileLocation?: string | string[];
 

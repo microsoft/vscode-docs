@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 54fdcc33-7ad1-40cc-bc87-ded1841d01ad
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Virtual Documents in Visual Studio Code extensions (plug-ins)
@@ -9,7 +9,7 @@ MetaDescription: A guide to using Virtual Documents in Visual Studio Code extens
 
 # Virtual Documents
 
-The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: https://github.com/Microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md
+The text document content provider API allows you to create readonly documents in Visual Studio Code from arbitrary sources. You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md](https://github.com/microsoft/vscode-extension-samples/blob/master/virtual-document-sample/README.md).
 
 ## TextDocumentContentProvider
 
@@ -24,7 +24,7 @@ Calling `registerTextDocumentContentProvider` returns a disposable with which th
 ```ts
 const myProvider = class implements vscode.TextDocumentContentProvider {
   provideTextDocumentContent(uri: vscode.Uri): string {
-    // simply invoke cowsay, use uri-path as text
+    // invoke cowsay, use uri-path as text
     return cowsay.say({ text: uri.path });
   }
 };
@@ -51,7 +51,7 @@ With this we have a fully functional text document content provider. The next se
 
 ### Update Virtual Documents
 
-Depending on the scenario virtual documents might change. To support that, providers can implement a `onDidChange`-event. It must be fired for an uri and the editor will then ask for the new contents - assuming the document is still in use.
+Depending on the scenario virtual documents might change. To support that, providers can implement a `onDidChange`-event.
 
 The `vscode.Event`-type defines the contract for eventing in VS Code. The easiest way to implement an event is `vscode.EventEmitter`, like so:
 
@@ -65,11 +65,13 @@ const myProvider = class implements vscode.TextDocumentContentProvider {
 };
 ```
 
-That's all what's needed to make VS code listen for changes of virtual document. The next section will add an editor action that uses the event emitter.
+The event emitter has a `fire` method which is can be used to notify VS Code when a change has happened in a document. The document which has changed is identified by its uri given as argument to the `fire` method. The provider will then be called again to provide the updated content, assuming the document is still open.
+
+That's all what's needed to make VS Code listen for changes of virtual document. To see a more complex example making use of this feature, look at: [https://github.com/microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md](https://github.com/microsoft/vscode-extension-samples/blob/master/contentprovider-sample/README.md).
 
 ### Add Editor Commands
 
-To illustrate above change-event and to get more cowsay, an editor action is needed that reverses what the cow just said. First we need a command that does that:
+Editor actions can be added which only interact with documents provided by an associated content provider. This is a sample command that reverses what the cow just said:
 
 ```ts
 // register a command that updates the current cowsay

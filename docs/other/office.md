@@ -9,7 +9,7 @@ MetaDescription: See how to use the features of Visual Studio Code and integrate
 ---
 # Office Add-ins with Visual Studio Code
 
-[Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
+[Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins) run inside an Office application and can interact with contents of the Office document using the rich JavaScript API.
 
 ![Office Add-in overview](images/office/officeaddinoverview.png)
 
@@ -17,7 +17,7 @@ Under the hood, an Office Add-in is just a web app that you can host anywhere. U
 
 ## Step 1: Get set up
 
-Follow the instructions to [Create an Office Add-in using any editor](https://dev.office.com/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
+Follow the instructions to [Create an Office Add-in using any editor](https://developer.microsoft.com/office/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
 
 | Option | Value |
 |:------|:------|

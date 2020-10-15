@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 9/4/2019
+DateApproved: 10/8/2020
 ---
 # VS Code Remote Development
 
@@ -32,9 +32,23 @@ The [Remote Development extension pack](https://aka.ms/vscode-remote/download/ex
 - [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
 - [Remote - Containers](/docs/remote/containers.md) - Work with a sandboxed toolchain or container-based application inside (or mounted into) a container.
 - [Remote - WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
-- [Tutorials](/docs/remote/remote-tutorials.md) - Step by step tutorials to help you get running quickly in a remote environment.
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
+
+## Remote tutorials
+
+The tutorials below will walk you through running Visual Studio Code with the Remote Development extensions.
+
+Tutorial | Description
+--- | ---
+[Remote via SSH](/docs/remote/ssh-tutorial.md) | Connect to remote and virtual machines with Visual Studio Code via SSH.
+[Work in WSL](/docs/remote/wsl-tutorial.md) | Run Visual Studio Code in Windows Subsystem for Linux.
+[Develop in Containers](/docs/remote/containers-tutorial.md) | Run Visual Studio Code in a Docker Container.
+[GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code) | Connect to a codespace with Visual Studio Code.
+
+## GitHub Codespaces
+
+[GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
 
 ## Questions or feedback
 

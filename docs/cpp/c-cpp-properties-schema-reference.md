@@ -1,15 +1,17 @@
 ---
-Order: 9
+Order:
 Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
 PageTitle: c_cpp_properties.json reference
-DateApproved: 07/25/2019
+DateApproved: 06/26/2020
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
 # c_cpp_properties.json reference
 
-> See also: [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md)
+This article explains the scheme for the c_cpp_properties.json settings file.
+
+For more information about changing these settings, see [Customizing Default Settings](/docs/cpp/customize-default-settings-cpp.md) and [Configure IntelliSense for cross-compiling](/docs/cpp/configure-intellisense-crosscompilation.md).
 
 ## Example
 
@@ -64,6 +66,8 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 - `compilerPath` (optional)
   The full path to the compiler you use to build your project, for example `/usr/bin/gcc`, to enable more accurate IntelliSense. The extension will query the compiler to determine the system include paths and default defines to use for IntelliSense.
 
+  Putting `"compilerPath": ""` (empty string) will skip querying a compiler. This is useful if a specified compiler doesn't support the arguments that are used for the query, as the extension will default back to any compiler it can find (like Visual C). Leaving out the `compilerPath` property does not skip the query.
+
 - `compilerArgs` (optional)
   Compiler arguments to modify the includes or defines used, for example `-nostdinc++`, `-m32`, etc.
 
@@ -76,7 +80,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   - macOS: `clang-x64`
 
 - `includePath`
-  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. If a path ends with `/**` the IntelliSense engine will do a recursive search for header files starting from that directory. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
+  An include path is a folder that contains header files (such as `#include "myHeaderFile.h"`) that are included in a source file. Specify a list of paths for the IntelliSense engine to use while searching for included header files. Searching on these paths is not recursive. Specify `**` to indicate recursive search. For example, `${workspaceFolder}/**` will search through all subdirectories while `${workspaceFolder}` will not. If on Windows with Visual Studio installed, or if a compiler is specified in the `compilerPath` setting, it is not necessary to list the system include paths in this list.
 
 - `defines`
   A list of preprocessor definitions for the IntelliSense engine to use while parsing files. Optionally, use `=` to set a value, for example `VERSION=1`.
@@ -88,7 +92,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
   The version of the C++ language standard to use for IntelliSense.
 
 - `configurationProvider`
-  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `vector-of-bool.cmake-tools` to provide configuration information from the CMake Tools extension.
+  The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension.
 
 - `windowsSdkVersion`
   The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.
@@ -110,7 +114,7 @@ MetaDescription: Schema reference for C++ project settings in Visual Studio Code
 ### Browse properties
 
 - `path`
-  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate non-recursive search. For example: `/usr/include` will search through all subdirectories while `/usr/include/*` will not.
+  A list of paths for the Tag Parser to search for headers included by your source files. If omitted, `includePath` will be used as the `path`. Searching on these paths is recursive by default. Specify `*` to indicate non-recursive search. For example: `${workspaceFolder}` will search through all subdirectories while `${workspaceFolder}/*` will not.
 
 - `limitSymbolsToIncludedHeaders`
   When true, the Tag Parser will only parse code files that have been directly or indirectly included by a source file in `${workspaceFolder}`. When false, the Tag Parser will parse all code files found in the paths specified in the `browse.path` list.

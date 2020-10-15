@@ -26,7 +26,7 @@ Add T-SQL language support to VS Code by installing the [mssql] extension from t
 
 ## Connect and Execute T-SQL
 
-Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions so you can quickly connect to your databases again.
+Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions, so you can quickly connect to your databases again.
 
 ![execute tsql](images/tsql/execute.gif)
 
@@ -50,7 +50,7 @@ Linting is the analysis of your T-SQL code for potential syntax errors. Use Visu
 
 ## Peek Definition/Go to Definition
 
-Use **Peek Definition** and **Go to Definition** to quickly browse the definition of schema objects in your database such as tables, functions, and procedures while typing T-SQL code.
+Use **Peek Definition** or **Go to Definition** to quickly browse the definition of schema objects in your database such as tables, functions, and procedures while typing T-SQL code.
 
 ![tsql peek definition](images/tsql/peekdefinition.gif)
 
@@ -83,5 +83,5 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 [SQL Server on Linux documentation]: https://docs.microsoft.com/sql/linux/
 [SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
 [SQL Server Videos]: https://channel9.msdn.com/Tags/sql+server
-[GitHub]: https://github.com/Microsoft/vscode-mssql
-[GitHub Issue Tracker]: https://github.com/Microsoft/vscode-mssql/issues
+[GitHub]: https://github.com/microsoft/vscode-mssql
+[GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues

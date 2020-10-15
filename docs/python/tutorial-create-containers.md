@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: python
 TOCTitle: Create containers
 ContentId: 4e45a3f6-b72d-4647-82a5-22f7ee593d47
@@ -10,9 +10,9 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Create Docker containers for Python
 
-This tutorial walks you through the full process of containerizing an existing Python application using [Docker](https://www.docker.com/) and pushing the app image to a Docker registry, all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both [Django](https://www.djangoproject.com/) and [Flask](http://flask.pocoo.org/) web apps, which is helpful to know no matter what your deployment target.
+This tutorial walks you through the full process of containerizing an existing Python application using [Docker](https://www.docker.com/) and pushing the app image to a Docker registry, all within Visual Studio Code. The tutorial also demonstrates how to use base container images that include production-ready web servers (uwsgi and nginx), and how to configure those servers for both [Django](https://www.djangoproject.com/) and [Flask](https://flask.palletsprojects.com) web apps, which is helpful to know no matter what your deployment target.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## An introduction to containers
 
@@ -29,7 +29,7 @@ You experience the basics of containers and images in the course of this tutoria
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Python and the Python extension as described on [Python Tutorial - Prerequisites](/docs/python/python-tutorial.md).
 - [Docker Community Edition](https://www.docker.com/community-edition). To verify your installation, run the command `docker --version`, which should show output like `Docker version 18.06.1-ce, build e68fc7a`.
-- The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), which helps you manage local Docker images, provides Docker commands, and simplifies deployment of app images to Azure. You can find an overview of the extension on the [vscode-docker GitHub repository](https://github.com/Microsoft/vscode-docker)
+- The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), which helps you manage local Docker images, provides Docker commands, and simplifies deployment of app images to Azure. You can find an overview of the extension on the [vscode-docker GitHub repository](https://github.com/microsoft/vscode-docker)
 - Suitable [app code](#app-code)
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-docker">Install the Docker extension</a>
@@ -38,9 +38,9 @@ You experience the basics of containers and images in the course of this tutoria
 
 If you don't already have an app you'd like to work with, use one of the following samples, which already include the Docker-related files described in this tutorial:
 
-- [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
+- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md).
 
-- [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
+- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md).
 
 After verifying that your app runs properly, generate a `requirements.txt` file (using `pip freeze > requirements.txt`, for example) so that those dependencies can be automatically installed in the Docker image. The samples each include a `requirements.txt` file.
 
@@ -62,7 +62,7 @@ To create an Azure Container Registry, as shown later in this tutorial, do the f
 
 1. Make sure that the registry endpoint you created is visible under **Registries** in the **Docker** explorer of VS Code:
 
-    ![Docker explorer in VS Code showing registries](images/deploy-containers/registries.png)
+    ![Docker explorer in VS Code showing registries](images/create-containers/registries.png)
 
 ## Create a container image
 
@@ -90,7 +90,7 @@ A container image is a bundle of your app code and its dependencies. To create a
 
 ## Using production servers
 
-For Python, the Docker extension by default specifies the base image `python:alpine` in the `Dockerfile` and includes commands to run only the Flask development server. These defaults obviously don't accommodate Django, for one, and when deploying to the cloud, as with Azure App Service, you should also use production-ready web servers instead of a development server. (If you're used Flask, you're probably accustomed to seeing the development server's warning in this regard!)
+For Python, the Docker extension by default specifies the base image `python:alpine` in the `Dockerfile` and includes commands to run only the Flask development server. These defaults obviously don't accommodate Django, for one, and when deploying to the cloud, as with Azure App Service, you should also use production-ready web servers instead of a development server. (If you've used Flask, you're probably accustomed to seeing the development server's warning in this regard!)
 
 For this reason, you need to modify the `Dockerfile` to use a base image with production servers, then provide the necessary configuration for your app. The following sections provide details for both Flask and Django.
 
@@ -100,7 +100,7 @@ A good base image for Flask is `tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7`,
 
 By default, the image assumes that (a) your app code is located in an `app` folder, (b) the Flask app object is named `app`, and (c) the app object is located in `main.py`. Because your app may have a different structure, you can indicate the correct folders in the Dockerfile and provide the necessary parameters the uwsgi server in a `uwsgi.ini` file.
 
-The following steps summarize the configuration used in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) app, which you can adapt for your own code.
+The following steps summarize the configuration used in the [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial) app, which you can adapt for your own code.
 
 1. The `Dockerfile` indicates the location and name of the Flask app object, the location of static files for nginx, and the location of the `uwsgi.ini` file. (The `Dockerfile` in the sample contains further explanatory comments that are omitted here.)
 
@@ -111,10 +111,10 @@ The following steps summarize the configuration used in the [python-sample-vscod
     EXPOSE 5000
 
     # Indicate where uwsgi.ini lives
-    ENV UWSGI_INI uwsgi.ini
+    ENV UWSGI_INI=uwsgi.ini
 
     # Tell nginx where static files live.
-    ENV STATIC_URL /hello_app/static
+    ENV STATIC_URL=/hello_app/static
 
     # Set the folder where uwsgi looks for the app
     WORKDIR /hello_app
@@ -148,7 +148,7 @@ A good base image for Django is `tiangolo/uwsgi-nginx:python3.6-alpine3.7`, whic
 
 This base image already contains the production-ready uwsgi and nginx servers, but does not include Django. It's also necessary to provide settings to uwsgi so it can find the app's startup code.
 
-The following steps summarize the configuration used in the [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial) app that you can adapt for your own code.
+The following steps summarize the configuration used in the [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial) app that you can adapt for your own code.
 
 1. Make sure you have a `requirements.txt` file in your project that contains Django and its dependencies. You can generate `requirements.txt` using the command `pip freeze > requirements.txt`.
 
@@ -176,6 +176,8 @@ The following steps summarize the configuration used in the [python-sample-vscod
     processes = 4
     ```
 
+1. To serve static files, copy the *nginx.conf* file from the [django-react-devcontainer repo](https://github.com/qubitron/django-react-devcontainer/blob/master/nginx.conf) into your Django project folder.
+
 1. Modify the `Dockerfile` to indicate the location of `uwsgi.ini`, set the location of static files for nginx, and make sure the SQLite database file is writable. (The `Dockerfile` in the sample contains further explanatory comments that are omitted here.)
 
     ```dockerfile
@@ -185,11 +187,11 @@ The following steps summarize the configuration used in the [python-sample-vscod
     EXPOSE 8000
 
     # Indicate where uwsgi.ini lives
-    ENV UWSGI_INI uwsgi.ini
+    ENV UWSGI_INI=uwsgi.ini
 
     # Tell nginx where static files live (as typically collected using Django's
     # collectstatic command.
-    ENV STATIC_URL /app/static_collected
+    ENV STATIC_URL=/app/static_collected
 
     # Copy the app files to a folder and run it from there
     WORKDIR /app
@@ -205,7 +207,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
 
 > **Note**: When building a Docker image on Windows, you typically see the message below, which is why the Dockerfile shown here includes the two `chmod` commands. If need to make other files writable, add the appropriate `chmod` commands to your Dockerfile.
 >
-> ```output
+> ```
 > SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
 > ```
 
@@ -239,7 +241,7 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 1. When the build is complete, the image appears in the **Docker** explorer under **Images**:
 
-    ![Docker Image](images/deploy-containers/image-list.png)
+    ![Docker Image](images/create-containers/image-list.png)
 
 1. Run and test your container locally by using the following command, replacing `<image_name>` with your specific image, and changing the port numbers as needed. For web apps, you can then open browser to `localhost:<port>` to see the running app.
 
@@ -255,11 +257,11 @@ With the necessary `Dockerfile` in place, you're ready to build the Docker image
 
 The Docker extension provides a simple UI to manage and even run your images rather than using the Docker CLI. Just expand the **Image** node in the Docker explorer, right-click any image, and select any of the menu items:
 
-![Managing images with the Docker extension](images/deploy-containers/manage-images.png)
+![Managing images with the Docker extension](images/create-containers/manage-images.png)
 
 In addition, on the top of the Docker explorer, next to the refresh button, is a button for **System Prune**. This command cleans up any dangling and otherwise unused images on your local computer. It's a good idea to periodically use the command to reclaim space on your file system.
 
-![System Prune command in the Docker explorer](images/deploy-containers/system-prune-command.png)
+![System Prune command in the Docker explorer](images/create-containers/system-prune-command.png)
 
 ## Push the image to a registry
 
@@ -271,14 +273,14 @@ Once you're confident that your image works, the next step is to push it to your
 
 1. Once completed, expand the **Registries** > **Azure** (or **DockerHub**) node in the **Docker** explorer, then expand the registry and image name to see the exact image. (You may need to refresh the **Docker** explorer.)
 
-    ![The built app image in the Azure Container Registry](images/deploy-containers/image-in-acr.png)
+    ![The built app image in the Azure Container Registry](images/create-containers/image-in-acr.png)
 
 > **Tip:** The first time you push an image, you see that VS Code uploads all of the different layers that make up the image. Subsequent push operations, however, upload only those layers that have changed. Because it's typically only your app code that's changes, those uploads happen much more quickly, making for a tight edit-build-deploy-test loop. To see this, make a small change to your code, rebuild the image, and then push again to the registry. The whole process typically completes in a matter of seconds.
 
 ## Next steps
 
-Now that you've created a container with your app, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see, [Deploy a container](tutorial-deploy-containers.md).
+Now that you've created a container with your app, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see [Deploy a container](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).
 
-You can also learn more about the Docker extension for VS Code by visiting the [vscode-docker](https://github.com/Microsoft/vscode-docker) repository on GitHub. Issues and contributions are welcome.
+You can also learn more about the Docker extension for VS Code by visiting the [vscode-docker](https://github.com/microsoft/vscode-docker) repository on GitHub. Issues and contributions are welcome.
 
-And again, if you encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+And again, if you encountered any problems in the course of this tutorial, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
