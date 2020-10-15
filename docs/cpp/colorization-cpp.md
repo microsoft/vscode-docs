@@ -27,7 +27,7 @@ We've created a set of VS Code themes that closely resemble the default Light an
 
 ## IntelliSense Tokens and Scopes
 
-| Token | Semantic Token name | Fallback Textmate Scope |
+| Token | Semantic Token name | Fallback TextMate Scope |
 | ------------- |:-------------:|:-------------:|
 | Class Template | templateType | entity.name.type.class.templated |
 | Enumerator | enumMember | variable.other.enummember |
