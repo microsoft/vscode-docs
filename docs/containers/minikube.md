@@ -1,6 +1,6 @@
 ---
 Area: containers
-ContentId: 1b347391-cb5e-46ac-8fa0-e893c13e6a24
+ContentId: 6206f223-a124-41fa-a9cf-4cc12d851833
 PageTitle: Use MiniKube and Bridge to Kubernetes to run and debug locally with Kubernetes
 DateApproved: 10/20/2020
 MetaDescription: Learn how to use MiniKube and Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally
