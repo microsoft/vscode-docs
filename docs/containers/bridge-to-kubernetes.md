@@ -20,7 +20,9 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster. If you already have your own application running on a Kubernetes cluster, you can still follow the steps below and use the names of your own services.
+This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in Azure Kubernetes Service (AKS). If you already have your own application running on a Kubernetes cluster, you can still follow the steps below and use the names of your own services. 
+
+If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](minikube.md).
 
 ### Prerequisites
 
