@@ -260,9 +260,11 @@ Or | `||` | `"isLinux || isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
 Matches | `=~` | `resourceScheme =~ /^untitled$|^file$/`
 
-### Contexts
+### Available contexts
 
-Below are some of the possible `when` clause contexts which evaluate to Boolean true/false.
+Below are some of the available `when` clause contexts, which evaluate to Boolean true/false.
+
+The list here isn't exhaustive and you can find other `when` clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts** ) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**).
 
 Context name | True when
 ------------ | ------------
@@ -370,8 +372,6 @@ Context name | True when
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
-
-The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
 ### Active/Focused view or panel 'when' clause context
 
