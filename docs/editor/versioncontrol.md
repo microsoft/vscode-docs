@@ -141,7 +141,7 @@ To open the Git output window, run **View** > **Output** and select **Git** from
 
 ## Initialize a repository
 
-If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **No source control providers registered.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **No source control providers registered** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Git initialize repository](images/versioncontrol/git-initialize.png)
 
