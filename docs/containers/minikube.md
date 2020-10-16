@@ -87,11 +87,16 @@ Open the source code for the stats-api in VS Code.
 code .
 ```
 
-Once VS Code has opened, install dependencies by running `npm install` in a terminal window (CTRL + ~).
+Once VS Code has opened, open the Kubernetes pane from the left sidebar of VS Code. Open the Kubernetes pane from the left sidebar of VS Code, and then select the **todo-app** namespace in the your MiniKube cluster. Right-click the **todo-app** node, and choose **Use Namespace**.
+
+![Select Namespace](images/minikube/select-namespace.png)
+
+install dependencies by running `npm install` in a terminal window (CTRL + ~).
 
 ```cmd
 npm install
 ```
+
 
 Next, place a breakpoint on line 17 of server.js.
 
