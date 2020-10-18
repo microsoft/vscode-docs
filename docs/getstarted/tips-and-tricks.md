@@ -674,7 +674,7 @@ Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you
 
 ### Find All References view
 
-Select a symbol then type `kb(references-view.find)` to open the References view showing all your file's symbols in a dedicated view.
+Select a symbol then type `kb(references-view.findReferences)` to open the References view showing all your file's symbols in a dedicated view.
 
 ### Rename Symbol
 
