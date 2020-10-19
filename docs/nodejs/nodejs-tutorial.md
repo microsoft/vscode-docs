@@ -138,8 +138,6 @@ From a terminal in the Express application folder, run:
 npm start
 ```
 
->**Tip:** You can enable an explorer for the npm scripts in your workspace using the `npm.enableScriptExplorer` setting.
-
 The Node.js web server will start and you can browse to [http://localhost:3000](http://localhost:3000) to see the running application.
 
 ![Your first Node Express App](images/nodejs/express.png)

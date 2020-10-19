@@ -940,9 +940,7 @@ For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the followin
 }
 ```
 
-### Run npm scripts as tasks from the explorer
-
-With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
+### Run npm scripts as tasks from the Explorer
 
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
