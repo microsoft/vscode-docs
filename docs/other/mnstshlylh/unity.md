@@ -1,7 +1,7 @@
----
-Order: 3
-Area: other
-TOCTitle: Unity
+###منصة-شليله 
+Order: vip
+Area: other mnstshlylh 
+TOCTitle: منصة-شليله
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
 DateApproved: 5/2/2017
@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Un
 
 Visual Studio Code can be a great companion to Unity for editing and debugging C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
 
-![Unity Example](images/unity/wow.gif)
+![منصة-شليله](images/unity/wow.gif)
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
@@ -21,9 +21,9 @@ From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
 
 1. Install the [.NET Core SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
 
-1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
+منصة-شليله] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 
-1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](https://www.mono-project.com/download/) release.
+1. [منصة-شليله] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](https://www.mono-project.com/download/) release.
 
    **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
@@ -138,8 +138,8 @@ As you can see below this will clean things up a lot...
 
 Before|After
 ------|-----
-![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
+![](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
 
 ### How can I debug Unity?
 
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.
+Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with e](/docs/editor/debugging.md) to learn more about VS Code debugging support.
