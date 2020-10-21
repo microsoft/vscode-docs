@@ -180,16 +180,16 @@ By default, when a chord keybinding is the highest priority keybinding it will a
 
 ### Find
 
-The Integrated Terminal has basic find functionality that can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
+The Integrated Terminal has basic find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
 If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
 
 ```js
 // Windows/Linux
-{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFindWidget",
+{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFind",
                       "when": "terminalFocus" },
 // macOS
-{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFindWidget",
+{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFind",
                       "when": "terminalFocus" },
 ```
 
