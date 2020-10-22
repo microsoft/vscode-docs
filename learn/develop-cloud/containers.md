@@ -15,13 +15,13 @@ Containers are pieces of software that package code and all of the dependencies 
 
 A Python dev container would include your Python app along with all the Python runtimes and dependencies already set up for you, no extra downloads necessary:
 
-<img src="images/python-container.png" alt="Python Container Diagram" aria-hidden="true" class="thumb"/>
+![Python Container Diagram](images/python-container.png)
 
 In your class, you could have a specific container for an assignment. Each student in your class will get the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
 In the diagram below, you'll see an example of three dev containers: one for Python, one for Java, and one for C++. Each of these dev containers would include the app and the dependencies that app needs to run. The dependencies are separate from the rest of your computer (which are represented by the Infrastructure and Host Operating System).
 
-<img src="images/container-architecture.png" alt="Container Architecture Diagram" aria-hidden="true" class="thumb"/>
+![Container Architecture Diagram](images/container-architecture.png)
 
 ## Get started with dev containers in VS Code
 
@@ -29,7 +29,7 @@ In the diagram below, you'll see an example of three dev containers: one for Pyt
 
 To get started with using dev containers in VS Code, you'll need to download the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) from the Extension Marketplace.
 
-<img src="images/remote-containers.png" alt="Remote Containers extension" aria-hidden="true" class="thumb"/>
+![Remote Containers extension](images/remote-containers.png)
 
 You'll also need to download [Docker](https://docs.docker.com/docker-for-windows/install-windows-home/), which is the industry standard for building and sharing containers.
 

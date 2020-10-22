@@ -31,7 +31,7 @@ Since you may be working with teammates using Linux or deploying to a Linux prod
 
 To get started with remote development in VS Code, you can download the [Remote Development extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) from the Extension Marketplace.
 
-<img src="images/remote-dev-pack.png" alt="Remote Development Extension Pack" aria-hidden="true" class="thumb"/>
+![Remote Development Extension Pack](images/remote-dev-pack.png)
 
 This extension pack includes three extensions (which can also be downloaded individually):
 

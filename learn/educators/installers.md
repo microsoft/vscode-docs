@@ -21,7 +21,7 @@ This will install:
 - VS Code
 - Java extension pack in VS Code
 
-<img src="images/java-installer.png" alt="Java Installer" aria-hidden="true" class="thumb"/>
+![Java Installer](images/java-installer.png)
 
 ## Coding pack for Python
 
@@ -34,9 +34,7 @@ It will install:
 - Python 3.8.5 and add it to the PATH
 - Python packages including, jupyter, numpy, sklearn, pandas, and matplotlib
 
-<img src="images/python-installer.png" alt="Python Installer" aria-hidden="true" class="thumb"/>
-
-<br/>
+![Python Installer](images/python-installer.png)
 
 If any of these components are already installed, the coding packs will not update it and proceed with the other components.
 
