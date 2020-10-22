@@ -26,7 +26,7 @@ Try the Coding Pack for Python, which will install VS Code and the essential Pyt
 
 ### Collaborate and code remotely
 
-Work together remotely with your teachers or classmates using the free [LiveShare extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you’re working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using LiveShare](/collaboration/live-share.md).
+Work together remotely with your teachers or classmates using the free [LiveShare extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using LiveShare](/collaboration/live-share.md).
 
 ### Code to learn
 
@@ -42,7 +42,7 @@ You can change the look and feel of VS Code by picking your favorite fonts and i
 
 ### Compare changes in your code
 
-Use the built-in source control to save your work over time so you don’t lose progress. See a graphical side-by-side view to compare versions of your code from different points in time. Check out this quick [video on how to get a side-by-side "diff"](https://youtu.be/aVmGwnCjRto).
+Use the built-in source control to save your work over time so you don't lose progress. See a graphical side-by-side view to compare versions of your code from different points in time. Check out this quick [video on how to get a side-by-side "diff"](https://youtu.be/aVmGwnCjRto).
 
 ### Code inside Notebooks
 

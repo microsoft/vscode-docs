@@ -19,7 +19,7 @@ When it comes to Live Share, seeing is believing. Check out this video to see Li
 
 When you share a collaborative session, the person you're working with sees the context of the workspace in their editor. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the Visual Studio Code environment that's familiar to them.
 
-Each of you can open files, navigate, edit code, or highlight - and changes are instantly reflected. As you edit you can see your classmate’s cursor, jump to the same location, and follow their actions.
+Each of you can open files, navigate, edit code, or highlight - and changes are instantly reflected. As you edit you can see your classmate's cursor, jump to the same location, and follow their actions.
 
 You can also debug together using VS Code's debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
 
@@ -35,7 +35,7 @@ Once you log into your GitHub account, you'll see the Live Share icon in the Act
 
 ![Live Share icon in the Activity Bar](images/liveshare-icon.png)
 
-**Starting a Live Share Session**
+### Starting a Live Share Session
 
 If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session will automatically be copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have VS Code and the Live Share Extension Pack downloaded.
 
@@ -45,7 +45,7 @@ When your classmate joins the session, you'll get a notification, and see their 
 
 ![Live Share joined](images/liveshare-joined.png)
 
-**Joining a Live Share session**
+### Joining a Live Share session
 
 If you select **Join Collaboration session** from the Session Details menu, you're able to enter the URL you received.
 
