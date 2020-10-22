@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Get started
 ContentId: d8ebd3c0-ff4a-4e27-aba2-3acb9e17fff4
 PageTitle:  Get started with Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 10/22/2020
 MetaDescription: Download and learn the basics of Visual Studio Code.
 ---
 # Get started with Visual Studio Code
@@ -13,24 +13,21 @@ In this video, we walk you through setting up Visual Studio Code and give an ove
 
 <iframe src="https://www.youtube-nocookie.com/embed/ITxcbrfEcIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
-
 ## Outline
 
-- Download and install VS Code.
-- Create a new file.
-- See an overview of the user interface.
-- Install support for your favorite programming language.
-- Change your keyboard shortcuts and easily migrate from other editors using keybinding extensions.
-- Customize your editor with themes.
-- Explore VS Code features in the **Interactive Editor Playground**.
+* Download and install VS Code.
+* Create a new file.
+* See an overview of the user interface.
+* Install support for your favorite programming language.
+* Change your keyboard shortcuts and easily migrate from other editors using keymap extensions.
+* Customize your editor with themes.
+* Explore VS Code features in the **Interactive Editor Playground**.
 
 ## Learn more
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
-* [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
+* [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform-specific setup.
 
 ## Next video
 
 * [Extensions in Visual Studio Code](/learn/get-started/extensions.md) - Add features to VS Code through extensions.
-

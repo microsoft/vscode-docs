@@ -4,7 +4,7 @@ Area: collaboration
 TOCTitle: Live Share
 ContentId: 42123170-4394-4932-b5d3-a94c1397733c
 PageTitle: Use Microsoft Live Share to collaborate with Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 10/22/2020
 MetaDescription: Use Microsoft Live Share to collaborate with Visual Studio Code
 ---
 # Collaborate with Live Share
@@ -17,7 +17,7 @@ When it comes to Live Share, seeing is believing. Check out this video to see Li
 
 <iframe src="https://youtube.com/embed/A2ceblXTBBc?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-When you share a collaborative session, the person you're working with sees the context of the workspace in their editor. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the VS Code environment that's familiar to them.
+When you share a collaborative session, the person you're working with sees the context of the workspace in their editor. This means your classmate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can help you with your code in the Visual Studio Code environment that's familiar to them.
 
 Each of you can open files, navigate, edit code, or highlight - and changes are instantly reflected. As you edit you can see your classmate’s cursor, jump to the same location, and follow their actions.
 
@@ -46,7 +46,7 @@ When your classmate joins the session, you'll get a notification, and see their 
 
 **Joining a Live Share session**
 
-If you select **Join Collaboration session** from the Session Details menu, you're able to enter the URL you recieved.
+If you select **Join Collaboration session** from the Session Details menu, you're able to enter the URL you received.
 
 <img src="images/liveshare-join-session.png" alt="Live Share icon in Activity Bar" aria-hidden="true" class="thumb"/>
 

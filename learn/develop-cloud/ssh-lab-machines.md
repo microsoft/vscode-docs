@@ -4,7 +4,7 @@ Area: developcloud
 TOCTitle: Working over SSH
 ContentId: 4e2fe911-7bbc-4f3c-abc1-fb174217ef30
 PageTitle: Working over SSH with Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 10/22/2020
 MetaDescription: Learn to use SSH connections to lab machines with Visual Studio Code
 ---
 # Working over SSH
@@ -13,9 +13,9 @@ MetaDescription: Learn to use SSH connections to lab machines with Visual Studio
 
 SSH, or the secure shell protocol, lets you access a remote computer or virtual machine securely over a network connection.
 
-You can SSH into another machine from VS Code and interact with files and folders anywhere on that remote filesystem. If you have an app located on a different computer, you could use SSH to connect to it and access your app, view its files, and even modify, run, and debug it.
+You can connect over SSH into another machine from VS Code and interact with files and folders anywhere on that remote filesystem. If you have an app located on a different computer, you could use SSH to connect to it and access your app, view its files, and even modify, run, and debug it.
 
-You can also take advantage of any tools or dependencies installed on that remote machine. You could connect to remote machines very different than your local machine- for instance, they could have a completely different operating system, different tools installed, or much stronger computing power.
+You can also take advantage of any tools or dependencies installed on that remote machine. You could connect to remote machines very different than your local machine. For instance, they could have a different operating system, different tools installed, or much stronger computing power.
 
 In the classroom, you might SSH into lab machines to access computers with certain dependencies required for an assignment (like a specific version of Python or a C++ compiler), a different operating system than your own, or source code or automatic tests pre-loaded from your professor.
 
@@ -33,4 +33,4 @@ As demonstrated above, we can SSH into a more powerful virtual machine to greatl
 
 We also highly recommend checking out the step-by-step SSH tutorial.
 
-### [Remote - SSH Getting Started Tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial)
+### [Remote - SSH Getting Started tutorial](/docs/remote/ssh-tutorial.md)
