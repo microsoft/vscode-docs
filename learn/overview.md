@@ -25,6 +25,8 @@ Try the Coding Pack for Python, which will install VS Code and the essential Pyt
 
 ## Why VS Code?
 
+<center><img src="get-started/images/vscode2.png" alt="VS Code" aria-hidden="true" class="thumb"/></center>
+
 ### Collaborate and code remotely
 
 Work together remotely with your teachers or classmates using the free [LiveShare extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using LiveShare](/collaboration/live-share.md).
