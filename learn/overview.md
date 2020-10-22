@@ -7,21 +7,7 @@ MetaDescription: Get Started with Visual Studio Code
 # Learn to code with Visual Studio Code
 
 Learning to code is intimidating, so set yourself up for success with a tool built for you. Visual Studio Code is a free coding editor that helps you start coding quickly.
-Use it to code in any programming language, without switching editors. Visual Studio Code has support for many languages, including Python, Java, C++, JavaScript, and more. Ready to get started? Check out these [introductory videos](https://www.youtube.com/watch?v=Uvf2FVS1F8k&list=PLj6YeMhvp2S4oEV_bT1Uk3oXfpvGW6Xqy).
-
-## Coding Packs
-
-### Coding in Java?
-
-Try the Coding Pack for Java, which will install VS Code and the essential Java extensions, as well as install the Java Development Kit (JDK) for you.
-
-<a href="https://aka.ms/vscode-java-installer-win"><button name="windows-java" aria-label="Windows download" role="link">Download - Windows</button></a>  <a href="https://aka.ms/vscode-java-installer-mac"><button name="mac-java" aria-label="Windows download" role="link">Download - macOS</button></a>
-
-### Coding in Python?
-
-Try the Coding Pack for Python, which will install VS Code and the essential Python extensions, as well as the latest version of Python and commonly used libraries.
-
-<a href="https://aka.ms/coding-pack-for-python-win"><button name="windows-python" aria-label="Windows download" role="link">Download - Windows</button></a>
+Use it to code in any programming language, without switching editors. Visual Studio Code has support for many languages, including Python, Java, C++, JavaScript, and more. Ready to get started? Check out these [introductory videos](https://www.youtube.com/watch?v=Uvf2FVS1F8k&list=PLj6YeMhvp2S4oEV_bT1Uk3oXfpvGW6Xqy) or check out our [coding packs for Java and Python](educators/installers)
 
 ## Why VS Code?
 
@@ -29,7 +15,7 @@ Try the Coding Pack for Python, which will install VS Code and the essential Pyt
 
 ### Collaborate and code remotely
 
-Work together remotely with your teachers or classmates using the free [LiveShare extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using LiveShare](/collaboration/live-share.md).
+Work together remotely with your teachers or classmates using the free [LiveShare extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack). Edit and debug your code in real-time, and use the chat and call features to ask questions or discuss ideas together. Whether you're working on a group assignment or teaching a lesson, you can invite multiple people to join your  session and code together. Check out this [tutorial on how start using LiveShare](/collaboration/live-share).
 
 ### Code to learn
 

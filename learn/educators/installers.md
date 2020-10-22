@@ -13,7 +13,9 @@ As educators, we know it's frustrating to install all the different software to 
 
 ## Coding pack for Java
 
-This coding pack includes everything you need to start coding in Java. Download it today for [Windows](https://aka.ms/vscode-java-installer-win) or for [macOS](https://aka.ms/vscode-java-installer-mac)!
+This coding pack includes everything you need to start coding in Java.
+
+<a href="https://aka.ms/vscode-java-installer-win"><button name="windows-java" aria-label="Windows download" role="link">Download - Windows</button></a>  <a href="https://aka.ms/vscode-java-installer-mac"><button name="mac-java" aria-label="Windows download" role="link">Download - macOS</button></a>
 
 This will install:
 
@@ -25,7 +27,9 @@ This will install:
 
 ## Coding pack for Python
 
-This coding pack includes everything you need to start coding in Python. [Download it on Windows](https://aka.ms/coding-pack-for-python-win) today!
+This coding pack includes everything you need to start coding in Python.
+
+<a href="https://aka.ms/coding-pack-for-python-win"><button name="windows-python" aria-label="Windows download" role="link">Download - Windows</button></a>
 
 It will install:
 
