@@ -31,6 +31,4 @@ Check out the following video to see an example of using Remote - SSH in action:
 
 As demonstrated above, we can SSH into a more powerful virtual machine to greatly speed up the execution time of our programs.
 
-We also highly recommend checking out the step-by-step SSH tutorial.
-
-### [Remote - SSH Getting Started tutorial](/docs/remote/ssh-tutorial.md)
+We also highly recommend checking out the [step-by-step SSH tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial).

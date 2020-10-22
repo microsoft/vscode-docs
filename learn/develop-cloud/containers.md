@@ -56,6 +56,4 @@ To learn how to get started with the Remote - Containers extension, check out th
 
 You can also read more in our [development containers in education blog post](/blogs/2020/07/27/containers-edu.md).
 
-We also highly recommend checking out the step-by-step containers tutorial.
-
-### [Remote - Containers Getting Started tutorial](/docs/remote/containers-tutorial.md)
+We also highly recommend checking out the [step-by-step containers tutorial](https://code.visualstudio.com/docs/remote/containers-tutorial).
