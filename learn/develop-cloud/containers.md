@@ -58,4 +58,4 @@ You can also read more in our [development containers in education blog post](/b
 
 ## Next steps
 
-We also highly recommend checking out the [step-by-step containers tutorial](https://code.visualstudio.com/docs/remote/containers-tutorial).
+We also highly recommend checking out the [step-by-step containers tutorial](/docs/remote/containers-tutorial.md).

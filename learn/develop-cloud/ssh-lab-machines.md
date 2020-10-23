@@ -33,4 +33,4 @@ As demonstrated above, we can SSH into a more powerful virtual machine to greatl
 
 ## Next steps
 
-We also highly recommend checking out the [step-by-step SSH tutorial](https://code.visualstudio.com/docs/remote/ssh-tutorial).
+We also highly recommend checking out the [step-by-step SSH tutorial](/docs/remote/ssh-tutorial.md).

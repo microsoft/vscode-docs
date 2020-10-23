@@ -33,4 +33,4 @@ The typical flow is you'll open a Linux command prompt, navigate to a folder of 
 
 ## Next steps
 
-We highly recommend checking out the [step-by-step WSL tutorial](https://code.visualstudio.com/docs/remote/wsl-tutorial) to learn more.
+We highly recommend checking out the [step-by-step WSL tutorial](/docs/remote/wsl-tutorial.md) to learn more.
