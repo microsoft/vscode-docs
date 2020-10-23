@@ -35,7 +35,7 @@ Once you log into your GitHub account, you'll see the Live Share icon in the Act
 
 ![Live Share icon in the Activity Bar](images/live-share/liveshare-icon.png)
 
-### Starting a Live Share Session
+### Starting a Live Share session
 
 If you select **Start Collaboration session** from the Session Details menu, an invitation link to your session will automatically be copied to your clipboard. You can share this link with anyone you'd like to collaborate with, as long as they also have VS Code and the Live Share Extension Pack downloaded.
 

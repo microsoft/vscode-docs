@@ -54,8 +54,8 @@ To learn how to get started with the Remote - Containers extension, check out th
 
 <iframe src="https://youtube.com/embed/Uvf2FVS1F8k?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-You can also read more in our [development containers in education blog post](/blogs/2020/07/27/containers-edu.md).
+You can also read more in our [Development Containers in Education](/blogs/2020/07/27/containers-edu.md) blog post.
 
 ## Next steps
 
-We also highly recommend checking out the [step-by-step containers tutorial](/docs/remote/containers-tutorial.md).
+We also highly recommend checking out the step-by-step [Containers tutorial](/docs/remote/containers-tutorial.md).

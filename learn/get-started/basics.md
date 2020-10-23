@@ -26,7 +26,7 @@ In this video, we walk you through setting up Visual Studio Code and give an ove
 ## Learn more
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
-* [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform-specific setup.
+* [Setup overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform-specific setup.
 
 ## Next video
 
