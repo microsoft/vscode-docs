@@ -31,4 +31,6 @@ The typical flow is you'll open a Linux command prompt, navigate to a folder of 
 
 <iframe src="https://youtube.com/embed/mIHprjsSO9o?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
+## Next steps
+
 We highly recommend checking out the [step-by-step WSL tutorial](https://code.visualstudio.com/docs/remote/wsl-tutorial) to learn more.

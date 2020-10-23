@@ -48,12 +48,14 @@ Below is a list of sample dev containers we'd recommend starting out with:
 - [Try Out Development Containers: PHP](https://github.com/microsoft/vscode-remote-try-php)
 - [Try Out Development Containers: Rust](https://github.com/microsoft/vscode-remote-try-rust)
 
-### Learning resources
+## Learning resources
 
 To learn how to get started with the Remote - Containers extension, check out this 5-minute introductory video:
 
 <iframe src="https://youtube.com/embed/Uvf2FVS1F8k?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 You can also read more in our [development containers in education blog post](/blogs/2020/07/27/containers-edu.md).
+
+## Next steps
 
 We also highly recommend checking out the [step-by-step containers tutorial](https://code.visualstudio.com/docs/remote/containers-tutorial).
