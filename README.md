@@ -44,7 +44,7 @@ The two suggested workflows are:
 - For small changes, use the "Edit" button on each page to edit the Markdown file directly on GitHub.
 - If you plan to make significant changes or preview the Markdown files in VS Code, [clone](#cloning) the repo to [edit and preview](https://code.visualstudio.com/docs/languages/markdown) the files directly in VS Code.
 
-![Markdown Preview Button](images/MDPreviewButton.png)
+![Markdown Preview Button](images/MDPreviewButton.gif)
 
 ### Cloning
 
