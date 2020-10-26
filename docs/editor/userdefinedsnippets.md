@@ -25,8 +25,6 @@ VS Code has built-in snippets for a number of languages such as: JavaScript, Typ
 
 You can see the available snippets for a language by running the **Insert Snippet** command in the Command Palette to get a list of the snippets for the language of the current file. However, keep in mind that this list also includes user snippets that you have defined, and any snippets provided by extensions you have installed.
 
-To get a complete overview of all built-in snippets, you can install the extension [Snippets Ranger](https://marketplace.visualstudio.com/items?itemName=robole.snippets-ranger).
-
 ## Install snippets from the Marketplace
 
 Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [Extension Marketplace](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
