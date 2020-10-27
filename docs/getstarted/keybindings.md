@@ -36,7 +36,7 @@ Keyboard shortcuts are vital to productivity and changing keyboarding habits can
 
 We also have a printable version of these keyboard shortcuts. **Help** > **Keyboard Shortcut Reference** displays a condensed PDF version suitable for printing as an easy reference.
 
-Below are links to the three platform-specific versions:
+Below are links to the three platform-specific versions (US English keyboard):
 
 * [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
 * [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
