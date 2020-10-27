@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 9/10/2020
+DateApproved: 10/8/2020
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -674,7 +674,7 @@ Select a symbol then type `kb(editor.action.goToReferences)`. Alternatively, you
 
 ### Find All References view
 
-Select a symbol then type `kb(references-view.find)` to open the References view showing all your file's symbols in a dedicated view.
+Select a symbol then type `kb(references-view.findReferences)` to open the References view showing all your file's symbols in a dedicated view.
 
 ### Rename Symbol
 
@@ -940,9 +940,7 @@ For example, to bind `kbstyle(Ctrl+H)` to the `Run tests` task, add the followin
 }
 ```
 
-### Run npm scripts as tasks from the explorer
-
-With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
+### Run npm scripts as tasks from the Explorer
 
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 9/10/2020
+DateApproved: 10/8/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -180,16 +180,16 @@ By default, when a chord keybinding is the highest priority keybinding it will a
 
 ### Find
 
-The Integrated Terminal has basic find functionality that can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
+The Integrated Terminal has basic find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to remove the keybinding like so:
 
 ```js
 // Windows/Linux
-{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFindWidget",
+{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFind",
                       "when": "terminalFocus" },
 // macOS
-{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFindWidget",
+{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFind",
                       "when": "terminalFocus" },
 ```
 

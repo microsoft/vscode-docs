@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 9/10/2020
+DateApproved: 10/8/2020
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -42,6 +42,13 @@ If none of these steps helped solve the issue, you can also try:
 ### The terminal exited with code 1 on Windows 10
 
 This can happen if you run VS Code in compatibility mode, which may be turned on automatically if you have upgraded to Windows 10. You can change the mode by right-clicking the executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
+
+#### The terminal exited with code 1 on Windows 10 (with WSL as the default shell)
+
+This can happen if WSL is not set up with a valid default Linux distribution. __Note:__ docker-desktop-data is not a valid distribution. 
+* Open __PowerShell__ and enter `wslconfig.exe /l` to confirm WSL is installed correctly and the list the currently available linux distributions within your system.
+Confirm a valid distribution has __(default)__ next to it.
+* To change the default value enter `wslconfig.exe /setdefault "distributionNameAsShownInList"`
 
 ### The terminal not working when running the 32-bit Windows client on 64-bit Windows?
 

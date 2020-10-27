@@ -270,7 +270,7 @@ Renderers are declared for a set of mimetypes by contributing to the `contribute
 
 Output renderers are always rendered in a single `iframe`, separate from the rest of VS Code's UI, to ensure they don't accidentally interfere or cause slowdowns in VS Code. The contribution refers to an "entrypoint" script, which is a loaded into the notebook's `iframe` right before any output needs to be renderer. Your entrypoint needs to be a single file, which you can write yourself, or use a bundler like Webpack, Rollup, or Parcel to create.
 
-When it's loaded, your entrypoint script should immediately call `acquireNotebookRendererApi()` with your renderer ID, and start listening to notebook output events. For example, this will put all your Github issue data as JSON into the cell output:
+When it's loaded, your entrypoint script should immediately call `acquireNotebookRendererApi()` with your renderer ID, and start listening to notebook output events. For example, this will put all your GitHub issue data as JSON into the cell output:
 
 ```js
 const notebookApi = acquireNotebookRendererApi("github-issue-static-renderer");
@@ -351,10 +351,9 @@ It's important to bear in mind that all outputs for a notebook are rendered in d
 
 Imagine we want to add the ability to view an issue's comments after clicking a button in the rendered output. Assuming a kernel can provide issue data with comments under the `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype, we might try to retrieve all the comments up front and implement it as follows:
 
-```diff
--const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
-+const Issue: FunctionComponent<{ issue: GithubIssueWithComments }> = ({ issue }) => {
-+ const [showComments, setShowComments] = useState(false);
+```jsx
+const Issue: FunctionComponent<{ issue: GithubIssueWithComments }> = ({ issue }) => {
+  const [showComments, setShowComments] = useState(false);
 
   return (
     <div key={issue.number}>
@@ -364,8 +363,8 @@ Imagine we want to add the ability to view an issue's comments after clicking a 
       </h2>
       <img src={issue.user.avatar_url} style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }} />
       <i>@{issue.user.login}</i> Opened: <div style="margin-top: 10px">{issue.body}</div>
-+     <button onClick={() => setShowComments(true)}>Show Comments</button>
-+     {showComments && issue.comments.map(comment => <div>{comment.text}</div>)}
+      <button onClick={() => setShowComments(true)}>Show Comments</button>
+      {showComments && issue.comments.map(comment => <div>{comment.text}</div>)}
     </div>
   );
 };
@@ -397,13 +396,13 @@ globalThis.githubIssueCommentProvider = {
 
 And then you can consume that in the renderer. You want to make sure that you check whether the global exposed by the kernel's preload is available, since other developers might create github issue output in other notebooks and kernels that don't implement the `githubIssueCommentProvider`. In this case, we'll only show the "Load Comments" button if the global is available:
 
-```diff
-+const canLoadComments = globalThis.githubIssueCommentProvider !== undefined;
+```jsx
+const canLoadComments = globalThis.githubIssueCommentProvider !== undefined;
 
 const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
-+ const [comments, setComments] = useState([]);
-+ const loadComments = () =>
-+   globalThis.githubIssueCommentProvider.loadComments(issue.id, setComments);
+  const [comments, setComments] = useState([]);
+  const loadComments = () =>
+    globalThis.githubIssueCommentProvider.loadComments(issue.id, setComments);
 
   return (
     <div key={issue.number}>
@@ -413,8 +412,8 @@ const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
       </h2>
       <img src={issue.user.avatar_url} style={{ float: 'left', width: 32, borderRadius: '50%', marginRight: 20 }} />
       <i>@{issue.user.login}</i> Opened: <div style="margin-top: 10px">{issue.body}</div>
-+     {canLoadComments && <button onClick={loadComments}>Load Comments</button>}
-+     {comments.map(comment => <div>{comment.text}</div>)}
+      {canLoadComments && <button onClick={loadComments}>Load Comments</button>}
+      {comments.map(comment => <div>{comment.text}</div>)}
     </div>
   );
 };

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 9/10/2020
+DateApproved: 10/8/2020
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -16,6 +16,14 @@ In Visual Studio Code, snippets appear in IntelliSense (`kb(editor.action.trigge
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exceptions of 'interpolated shell code' and the use of `\u`; both are not supported.
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
+
+## Built-in snippets
+
+VS Code has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
+
+![builtin javascript snippet](images/userdefinedsnippets/builtin-javascript-snippets.png)
+
+You can see the available snippets for a language by running the **Insert Snippet** command in the Command Palette to get a list of the snippets for the language of the current file. However, keep in mind that this list also includes user snippets that you have defined, and any snippets provided by extensions you have installed.
 
 ## Install snippets from the Marketplace
 

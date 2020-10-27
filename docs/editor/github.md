@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Working with GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Working with GitHub in Visual Studio Code
-DateApproved: 9/10/2020
+DateApproved: 10/8/2020
 MetaDescription: Working with GitHub in Visual Studio Code
 ---
 # Working with GitHub in VS Code
