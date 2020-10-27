@@ -121,3 +121,7 @@ For more information about changing these settings, see [Customizing Default Set
 
 - `databaseFilename`
   The path to the generated symbol database. This property instructs the extension to save the Tag Parser's symbol database somewhere other than the workspace's default storage location. If a relative path is specified, it will be made relative to the workspace's default storage location, not the workspace folder itself. The `${workspaceFolder}` variable can be used to specify a path relative to the workspace folder (for example `${workspaceFolder}/.vscode/browse.vc.db`)
+
+## Supported variables in tasks.json
+
+You can allow a task in tasks.json to query the current active configuration from c_cpp_properties.json. To do this, use the variable `${command:cpptools.activeConfigName}` in a task property.
