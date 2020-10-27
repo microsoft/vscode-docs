@@ -124,4 +124,4 @@ For more information about changing these settings, see [Customizing Default Set
 
 ## Supported variables
 
-You can allow tasks.json or launch.json to query the current active configuration from c_cpp_properties.json. To do this, use the variable `${command:cpptools.activeConfigName}` as an argument in a tasks.json or launch.json script.
+You can allow `tasks.json` or `launch.json` to query the current active configuration from `c_cpp_properties.json`. To do this, use the variable `${command:cpptools.activeConfigName}` as an argument in a `tasks.json` or `launch.json` script.
