@@ -69,7 +69,7 @@ You can export a Jupyter Notebook as a Python file (.py), a PDF, or an HTML file
 
  ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-convert.png)
 
-> **Note:** For PDF export, you must have TeX installed. If you don't, you will be prompted to install it when you select the PDF option. Also, be aware that if you have SVG-only output in your Notebook, they will not be displayed in the PDF. To have SVG graphics in a PDF, either ensure that your output includes a non-SVG image format or else you can first export to HTML and then save as PDF using your browser.
+> **Note:** For PDF export, you must have TeX installed. If you don't, you will be notified that you need to install it when you select the PDF option. Also, be aware that if you have SVG-only output in your Notebook, they will not be displayed in the PDF. To have SVG graphics in a PDF, either ensure that your output includes a non-SVG image format or else you can first export to HTML and then save as PDF using your browser.
 
 ## Work with code cells in the Notebook Editor
 
