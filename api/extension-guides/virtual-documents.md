@@ -56,7 +56,7 @@ Depending on the scenario virtual documents might change. To support that, provi
 The `vscode.Event`-type defines the contract for eventing in VS Code. The easiest way to implement an event is `vscode.EventEmitter`, like so:
 
 ```ts
-const myProvider = class implements vscode.TextDocumentContentProvider {
+const myProvider = new class implements vscode.TextDocumentContentProvider {
   // emitter and its event
   onDidChangeEmitter = new vscode.EventEmitter<vscode.Uri>();
   onDidChange = this.onDidChangeEmitter.event;
