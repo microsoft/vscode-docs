@@ -3,6 +3,8 @@
   <h1 align="center">Visual Studio Code Documentation</h1>
 </p>
 
+# Visual Studio Code Documentation
+
 You've found the Visual Studio Code documentation GitHub repository, which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
 Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
@@ -11,11 +13,16 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Index
 
-1. [About Visual Studio Code](#visual-studio-code)
-2. [Feedback](#feedback)
-3. [Documentation Issues](#documentation-issues)
-4. [Contributing to the documentation](#contributing)
-5. [Publishing](#publishing)
+- [Visual Studio Code Documentation](#visual-studio-code-documentation)
+  - [Index](#index)
+  - [Visual Studio Code](#visual-studio-code)
+  - [Feedback](#feedback)
+  - [Documentation Issues](#documentation-issues)
+  - [Contributing](#contributing)
+    - [Workflow](#workflow)
+    - [Cloning](#cloning)
+      - [Cloning without binary files](#cloning-without-binary-files)
+  - [Publishing](#publishing)
 
 ## Visual Studio Code
 
