@@ -56,6 +56,25 @@ You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run S
 
 You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](debugging.md) for details).
 
+### Additional commands and keyboard shortcuts
+
+The following table lists additional commands and keyboard shortcuts supported when working with code cells.
+
+|Command  |Keyboard shortcut  |
+|---------|---------|
+|Python: Go to Next Cell                  | `kbstyle(Ctrl+Alt+])`      |
+|Python: Go to Previous Cell              | `kbstlye(Ctrl+Alt+[)`      |
+|Python: Extend Selection by Cell Above   | `kbstlye(Ctrl+Shift+Alt+[` |
+|Python: Extend Selection by Cell Below   | `kbstlye(Ctrl+Shift+Alt+]` |
+|Python: Move Selected Cells Up           | `kbstlye(Ctrl+; U)`        |
+|Python: Move Selected Cells Down         | `kbstlye(Ctrl+; D)`        |
+|RoPython: Insert Cell Above              | `kbstlye(Ctrl+; A)`        |
+|Python: Insert Cell Below                | `kbstlye(Ctrl+; B)`        |
+|Python: Insert Cell Below Position       | `kbstlye(Ctrl+; S)`        |
+|Python: Delete Selected Cells            | `kbstlye(Ctrl+; X)`        |
+|Python: Change Cell to Code              | `kbstlye(Ctrl+; C)`        |
+|Python: Change Cell to Markdown          | `kbstlye(Ctrl+; M)`        |
+
 ## Python Interactive window
 
 The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
