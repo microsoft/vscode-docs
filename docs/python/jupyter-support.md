@@ -136,6 +136,18 @@ Running multiple code cells can be accomplished in a number of ways. You can use
 
 ![Run multiple code cells](images/jupyter/native-code-cells-04.png)
 
+### Run code by line
+
+To help diagnose issues with your Notebook code, run-by-line lets you step through the code of a cell in a line-by-line fashion. While stepping through code you can view the state of variables at each step via the variable explorer or hover your mouse over variables to see data tips.
+
+To start a session, just click the run-by-line icon to the right of the run cell icon on the cell's toolbar.
+
+![Start run code cell by line](images/jupyter/native-code-cells-11a.png)
+
+![Run code cell by line](images/jupyter/native-code-cells-11.png)
+
+Once in a run-by-line session, you can run the currently highlighted line of code by pressing the icon again. To exit, just click the stop button next to the run-by-line icon in the cell.
+
 ### Move a code cell
 
 Moving code cells up or down within a Notebook can be accomplished using the vertical arrows beside each code cell. Hover over the code cell and then click the up arrow to move the cell up and the down arrow to move the cell down.
