@@ -56,6 +56,25 @@ You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run S
 
 You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](debugging.md) for details).
 
+### Additional commands and keyboard shortcuts
+
+The following table lists additional commands and keyboard shortcuts supported when working with code cells.
+
+|Command  |Keyboard shortcut  |
+|---------|---------|
+|Python: Go to Next Cell                  | `kbstyle(Ctrl+Alt+])`      |
+|Python: Go to Previous Cell              | `kbstlye(Ctrl+Alt+[)`      |
+|Python: Extend Selection by Cell Above   | `kbstlye(Ctrl+Shift+Alt+[` |
+|Python: Extend Selection by Cell Below   | `kbstlye(Ctrl+Shift+Alt+]` |
+|Python: Move Selected Cells Up           | `kbstlye(Ctrl+; U)`        |
+|Python: Move Selected Cells Down         | `kbstlye(Ctrl+; D)`        |
+|RoPython: Insert Cell Above              | `kbstlye(Ctrl+; A)`        |
+|Python: Insert Cell Below                | `kbstlye(Ctrl+; B)`        |
+|Python: Insert Cell Below Position       | `kbstlye(Ctrl+; S)`        |
+|Python: Delete Selected Cells            | `kbstlye(Ctrl+; X)`        |
+|Python: Change Cell to Code              | `kbstlye(Ctrl+; C)`        |
+|Python: Change Cell to Markdown          | `kbstlye(Ctrl+; M)`        |
+
 ## Python Interactive window
 
 The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
@@ -113,6 +132,8 @@ To connect to a remote Jupyter server:
 3. The Python Interactive window indicates where code is run by displaying the URI (which is blurred out in the image below):
 
     ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
+
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This ensures that requests sent to the Jupyter server are authenticated and connections to the remoter server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
 
 ## Convert Jupyter notebooks to Python code file
 
