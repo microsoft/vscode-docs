@@ -304,8 +304,6 @@ VS Code supports adding a `"launch"` object inside your User [settings](/docs/ge
 }
 ```
 
->**Tip**: If a workspace contains a `"launch.json"`, the global launch configuration is ignored.
-
 ## Advanced breakpoint topics
 
 ### Conditional breakpoints
