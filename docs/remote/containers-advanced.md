@@ -76,13 +76,13 @@ ANOTHER_ENV_VAR_NAME=your-value-goes-here
 
 Next, depending on what you reference in `devcontainer.json`:
 
-* **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `.env` file relative to the location of `devcontainer.json`:
+* **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `devcontainer.env` file relative to the location of `devcontainer.json`:
 
     ```json
     "runArgs": ["--env-file","devcontainer.env"]
     ```
 
-* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `.env` file relative to the Docker Compose file:
+* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `devcontainer.env` file relative to the Docker Compose file:
 
     ```yaml
     version: '3'
