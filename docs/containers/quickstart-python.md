@@ -146,11 +146,11 @@ The Docker extension will launch your browser to a randomly mapped port:
 
 >**Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
 
-## Use the Docker view
+## Use the Docker Explorer
 
-The Docker view provides an interactive experience to examine and manage Docker assets such as containers, images, and so on. To see an example:
+The Docker Explorer provides an interactive experience to examine and manage Docker assets such as containers, images, and so on. To see an example:
 
-1. Navigate to the Docker view.
+1. Navigate to the Docker Explorer.
 1. In the **Containers** tab, right-click on your container and choose **View Logs**.
 
     ![Viewing the logs of a container](images/quickstarts/python-view-logs.png)

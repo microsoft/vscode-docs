@@ -37,17 +37,17 @@ You can add Docker files to your workspace by opening the Command Palette (`kb(w
 
 The extension recognizes workspaces that use most popular development languages (C#, Node.js, Python, Ruby, Go, and Java) and customizes generated Docker files accordingly.
 
-## Docker view
+## Docker Explorer
 
-The Docker extension contributes a Docker view to VS Code. The Docker view lets you examine and manage Docker assets: containers, images, volumes, networks, and container registries. If the Azure Account extension is installed, you can browse your Azure Container Registries as well.
+The Docker extension contributes a Docker Explorer to VS Code. The Docker Explorer lets you examine and manage Docker assets: containers, images, volumes, networks, and container registries. If the Azure Account extension is installed, you can browse your Azure Container Registries as well.
 
 The right-click menu provides access to commonly used commands for each type of asset.
 
-![Docker view context menu](images/overview/docker-view-context-menu.gif)
+![Docker Explorer context menu](images/overview/docker-view-context-menu.gif)
 
-You can rearrange the Docker view panes by dragging them up or down with a mouse and use the context menu to hide or show them.
+You can rearrange the Docker Explorer panes by dragging them up or down with a mouse and use the context menu to hide or show them.
 
-![Customize Docker view](images/overview/docker-view-rearrange.gif)
+![Customize Docker Explorer](images/overview/docker-view-rearrange.gif)
 
 ## Docker commands
 
