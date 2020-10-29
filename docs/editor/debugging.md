@@ -208,7 +208,7 @@ The following attributes are mandatory for every launch configuration:
 Here are some optional attributes available to all launch configurations:
 
 * `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
-* `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
+* `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
 * `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder).
 * `internalConsoleOptions` - this attribute controls the visibility of the Debug Console panel during a debugging session.
 * `debugServer` - **for debug extension authors only**: this attribute allows you to connect to a specified port instead of launching the debug adapter.
@@ -484,11 +484,18 @@ And here the **serverReadyAction** feature in action:
 To learn about VS Code's Node.js debugging support, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-debugging.md) - Describes the Node.js debugger, which is included in VS Code.
+* [TypeScript](/docs/typescript/typescript-debugging.md) - The Node.js debugger also supports TypeScript debugging.
 
 To see tutorials on the basics of Node.js debugging, check out these videos:
 
 * [Intro Video - Debugging](/docs/introvideos/debugging.md) - Showcases the basics of debugging.
 * [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Shows how to attach a debugger to a running Node.js process.
+
+To learn about debugging support for other programming languages via VS Code extensions:
+
+* [C++](/docs/cpp/cpp-debug.md)
+* [Python](/docs/python/debugging.md)
+* [Java](/docs/java/java-debugging.md)
 
 To learn about VS Code's task running support, go to:
 
