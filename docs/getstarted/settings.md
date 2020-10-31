@@ -292,7 +292,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font family.
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
-    // Configures font ligatures or font features.
+    // Configures font ligatures or font features. Can be of two formats:
+    //   - true/false: enables/disables `calt` and `liga` font features together
+    //   - string: of the same format as the CSS property `font-feature-settings`.
     "editor.fontLigatures": false,
 
     // Controls the font size in pixels.
