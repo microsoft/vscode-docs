@@ -32,16 +32,25 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
 If none of these steps helped solve the issue, you can also try:
 
-- Ask about it on [Stack Overflow](https://stackoverflow.com/), often launch issues are related to environment setup and not a problem with VS Code.
-- If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
-- If you believe it to be a bug with VS Code, report the issue using the issue reporter (Help > Report Issue). The issue reporter will autofill relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
-- If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
+* Ask about it on [Stack Overflow](https://stackoverflow.com/), often launch issues are related to environment setup and not a problem with VS Code.
+* If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
+* If you believe it to be a bug with VS Code, report the issue using the issue reporter (Help > Report Issue). The issue reporter will autofill relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
+* If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
 
 ## Common issues on Windows
 
 ### The terminal exited with code 1 on Windows 10
 
 This can happen if you run VS Code in compatibility mode, which may be turned on automatically if you have upgraded to Windows 10. You can change the mode by right-clicking the executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
+
+### The terminal exited with code 1 on Windows 10 (with WSL as the default shell)
+
+This can happen if Windows Subsystem for Linux (WSL) is not set up with a valid default Linux distribution.
+
+**Note:** 'docker-desktop-data' is not a valid distribution.
+
+* Open PowerShell and enter `wslconfig.exe /l` to confirm WSL is installed correctly and list the currently available Linux distributions within your system. Confirm a valid distribution has **(default)** next to it.
+* To change the default distribution, enter `wslconfig.exe /setdefault "distributionNameAsShownInList"`
 
 ### The terminal not working when running the 32-bit Windows client on 64-bit Windows?
 
@@ -68,4 +77,4 @@ Reporting this issue to the Anti-virus team can also help stamp out the issue al
 
 This can happen when you have legacy console mode enabled in conhost's properties. To change this, open cmd.exe from the start menu, right-click the title bar, go to Properties and under the Options tab, uncheck Use legacy console.
 
-![](images/troubleshoot-terminal-launch/legacy-console-mode.png)
+![Use legacy mode checkbox](images/troubleshoot-terminal-launch/legacy-console-mode.png)

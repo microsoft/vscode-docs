@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code *appears*.
 
-By default, linting for Python is enabled in Visual Studio Code using [Pylint](https://www.pylint.org), and you can enable other linters of your choice. You can easily enable and disable all linting by using the **Python: Enable Linting** command.
+By default, stylistic and syntactical code detection is enabled by the Language Server. If you require third-party linters for additional problem detection, however, you can enable them by using the **Python: Select Linter** command and selecting the appropriate linter. You can easily enable and disable all linting by using the **Python: Enable Linting** command.
 
 ## Enable linters
 

@@ -20,7 +20,9 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster. If you already have your own application running on a Kubernetes cluster, you can still follow the steps below and use the names of your own services.
+This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in Azure Kubernetes Service (AKS). If you already have your own application running on a Kubernetes cluster, you can still follow the steps below and use the names of your own services.
+
+If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
 
 ### Prerequisites
 
@@ -91,11 +93,7 @@ Use the `npm install` command to install the dependencies for the application.
 npm install
 ```
 
-Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top.
-
-![Choose Bridge to Kubernetes](images/bridge-to-kubernetes-vs-code/choose-bridge-to-kubernetes.png)
-
-Click on the start button next to **Bridge to Kubernetes**. The first time you run this launch configuration you are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
+Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
 Choose the **bikes** service.
 
@@ -119,11 +117,15 @@ You have the option of running isolated or not isolated. If you run isolated, on
 
 ![Isolation prompt](images/bridge-to-kubernetes-vs-code/btk-isolation-prompt.png)
 
+Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top.
+
+![Choose Bridge to Kubernetes](images/bridge-to-kubernetes-vs-code/choose-bridge-to-kubernetes.png)
+
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
 ![Development computer connected](images/bridge-to-kubernetes-vs-code/development-computer-connected.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette, and run the command **Bridge to Kubernetes: Configure**.
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure**.
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 

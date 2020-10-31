@@ -127,6 +127,55 @@ Extension authors are free to choose a license that fits their business needs. W
 
 At Microsoft, we open source our extensions whenever possible. However, reliance on existing proprietary source code or libraries, source code that crosses into Microsoft licensed tools or services (for example Visual Studio), and business model differences across the entirety of Microsoft will result in some extensions using a proprietary license. You can find a list of Microsoft contributed Visual Studio Code extensions and their licenses in the [Microsoft Extension Licenses](/docs/supporting/oss-extensions.md) article.
 
+## How do I find the version?
+
+You can find the VS Code version information in the About dialog box.
+
+On macOS, go to **Code** > **About Visual Studio Code**.
+
+On Windows and Linux, go to **Help** > **About**.
+
+The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.27.0'.
+
+## Previous release versions
+
+You can find links to some release downloads at the top of a version's release notes:
+
+![Download links in release notes](images/faq/links-release-notes.png)
+
+If you need a type of installation not listed there, you can manually download via the following URLs:
+
+Download type | URL
+--- | ---
+Windows 64 bit System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
+Windows 64 bit User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
+Windows 64 bit zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
+Windows 64 bit ARM System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
+Windows 64 bit ARM User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
+Windows 64 bit ARM zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
+Windows 32 bit System installer | https://update.code.visualstudio.com/{version}/win32/stable
+Windows 32 bit User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
+Windows 32 bit zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
+macOS | https://update.code.visualstudio.com/{version}/darwin/stable
+Linux 64 bit | https://update.code.visualstudio.com/{version}/linux-x64/stable
+Linux 64 bit debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
+Linux 64 bit rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
+Linux 64 bit snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
+Linux ARM | https://update.code.visualstudio.com/{version}/linux-armhf/stable
+Linux ARM debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
+Linux ARM rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
+Linux 64 bit ARM  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
+Linux 64 bit ARM debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
+Linux 64 bit ARM rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
+
+Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux ARM debian version for 1.50.1, you would use
+
+```bash
+https://update.code.visualstudio.com/1.50.1/linux-deb-armhf/stable
+```
+
+You can use the version string `latest`, if you'd like to always download the latest VS Code stable version.
+
 ## Prerelease versions
 
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
@@ -144,16 +193,6 @@ Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep
 ## Report an issue with a VS Code extension
 
 For bugs, feature requests or to contact an extension author, you should use the links available in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have [an email alias to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
-
-## How do I find the version?
-
-You can find the VS Code version information in the About dialog box.
-
-On macOS, go to **Code** > **About Visual Studio Code**.
-
-On Windows and Linux, go to **Help** > **About**.
-
-The VS Code version is the first **Version** number listed and has the version format 'major.minor.release', for example '1.27.0'.
 
 ## VS Code gets unresponsive right after opening a folder
 

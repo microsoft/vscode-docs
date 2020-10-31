@@ -22,7 +22,7 @@ vscode.workspace.registerTextDocumentContentProvider(myScheme, myProvider);
 Calling `registerTextDocumentContentProvider` returns a disposable with which the registration can be undone. A provider must only implement the `provideTextDocumentContent`-function which is called with an uri and cancellation token.
 
 ```ts
-const myProvider = class implements vscode.TextDocumentContentProvider {
+const myProvider = new class implements vscode.TextDocumentContentProvider {
   provideTextDocumentContent(uri: vscode.Uri): string {
     // invoke cowsay, use uri-path as text
     return cowsay.say({ text: uri.path });
@@ -56,7 +56,7 @@ Depending on the scenario virtual documents might change. To support that, provi
 The `vscode.Event`-type defines the contract for eventing in VS Code. The easiest way to implement an event is `vscode.EventEmitter`, like so:
 
 ```ts
-const myProvider = class implements vscode.TextDocumentContentProvider {
+const myProvider = new class implements vscode.TextDocumentContentProvider {
   // emitter and its event
   onDidChangeEmitter = new vscode.EventEmitter<vscode.Uri>();
   onDidChange = this.onDidChangeEmitter.event;

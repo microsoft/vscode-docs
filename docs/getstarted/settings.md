@@ -3040,10 +3040,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable running npm scripts contained in a folder from the Explorer context menu.
     "npm.enableRunFromFolder": false,
 
-    // The NPM Script Explorer is now available in 'Views' menu in the Explorer in all folders.
-    // Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
-    "npm.enableScriptExplorer": false,
-
     // Configure glob patterns for folders that should be excluded from automatic script detection.
     "npm.exclude": "",
 

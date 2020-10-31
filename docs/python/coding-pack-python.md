@@ -40,7 +40,11 @@ With the Coding Pack for Python, it's easy to get started developing with Python
 The Coding Pack for Python installs the key components you need to use Visual Studio Code for Python development. Specifically, it installs:
 
 - Visual Studio Code
-- The Python, Pylance, and Gather VS Code extensions
+- Visual Studio Code extensions:
+  - Python
+  - Pylance
+  - Live Share
+  - Gather
 - The Python runtime (CPython 3.8.5)
 - Useful Python packages
   - jupyter
@@ -89,6 +93,13 @@ Pylance is an extension that works alongside Python in Visual Studio Code to pro
 The Gather extension adds the experimental Gather feature to the Python extension. With one button, you'll be able to select any notebook or Interactive Window cell and have Gather find and then copy all of the dependent code that was used to generate that cell's result into a new notebook or script.
 
 1. Install the Gather extension from [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.gather).
+
+#### Live Share extension
+
+Visual Studio Live Share enables you to collaboratively edit and debug with others in real time, regardless what programming languages you're using or app types you're building. It allows you to instantly share your current project, and then as needed, share debugging sessions, terminal instances, localhost web apps, voice calls, and more! For additional details, see the [documentation](https://aka.ms/vsls-docs).
+
+1. [Download](https://aka.ms/vsls-dl/vscode) and install the Visual Studio Live Share extension from the Visual Studio marketplace.
+1. Follow the guidance in the documentation about [How-to: Collaborate using Visual Studio Code](https://docs.microsoft.com/visualstudio/liveshare/use/vscode)
 
 ### Common Python packages
 

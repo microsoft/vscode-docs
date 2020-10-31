@@ -114,6 +114,12 @@ You can also enter your Personal Access Token as you publish with an optional pa
 vsce publish -p <token>
 ```
 
+## Review extension installs and ratings
+
+You can see how your extension is doing on the Marketplace by going to the **Manage Publishers & Extensions** page at `https://marketplace.visualstudio.com/manage/publishers/{publisher ID}`, providing your publisher ID in the URL. Here you'll see all extensions published under your publisher ID and can select an extension to see the Acquisition Trend over time, as well as Total Acquisition counts and Ratings & Reviews.
+
+![Marketplace extension report](images/publishing-extension/extension-report.png)
+
 ## Auto-incrementing the extension version
 
 You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.

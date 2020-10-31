@@ -127,7 +127,7 @@ Since `VSCE_PAT` is a secret variable, it is not immediately usable as an enviro
 
 ## GitHub Actions
 
-You can also configure GitHub Actions to run your extension CI using the [gabrielbb xvfb action](https://github.com/marketplace/actions/gabrielbb-xvfb-action). This automatically checks if Linux is the current OS and runs the tests in an Xvfb enabled environment accordingly:
+You can also configure GitHub Actions to run your extension CI. In headless Linux CI machines `xvfb` is required to run VS Code, so if Linux is the current OS run the tests in an Xvfb enabled environment:
 
 ```yaml
 on:
@@ -149,10 +149,10 @@ jobs:
       with:
         node-version: 10.x
     - run: npm install
-    - name: Run tests
-      uses: GabrielBB/xvfb-action@v1.2
-      with:
-        run: npm test
+    - run: xvfb-run -a npm test
+      if: runner.os == 'Linux'
+    - run: npm test
+      if: runner.os != 'Linux'
 ```
 
 ### GitHub Actions automated publishing
