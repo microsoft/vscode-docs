@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -113,6 +113,12 @@ You can also enter your Personal Access Token as you publish with an optional pa
 ```bash
 vsce publish -p <token>
 ```
+
+## Review extension installs and ratings
+
+You can see how your extension is doing on the Marketplace by going to the **Manage Publishers & Extensions** page at `https://marketplace.visualstudio.com/manage/publishers/{publisher ID}`, providing your publisher ID in the URL. Here you'll see all extensions published under your publisher ID and can select an extension to see the Acquisition Trend over time, as well as Total Acquisition counts and Ratings & Reviews.
+
+![Marketplace extension report](images/publishing-extension/extension-report.png)
 
 ## Auto-incrementing the extension version
 

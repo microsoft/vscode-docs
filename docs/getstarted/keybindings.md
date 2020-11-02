@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -36,7 +36,7 @@ Keyboard shortcuts are vital to productivity and changing keyboarding habits can
 
 We also have a printable version of these keyboard shortcuts. **Help** > **Keyboard Shortcut Reference** displays a condensed PDF version suitable for printing as an easy reference.
 
-Below are links to the three platform-specific versions:
+Below are links to the three platform-specific versions (US English keyboard):
 
 * [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
 * [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
@@ -53,6 +53,26 @@ The **Keyboard Shortcuts** editor has a context menu command **Show Same Keybind
 Pick a command with the keybinding you think is overloaded and you can see if multiple commands are defined, the source of the keybindings and when they are active.
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
+
+## Troubleshooting keybindings
+
+To troubleshoot keybindings problems, you can execute the command **Developer: Toggle Keyboard Shortcuts Troubleshooting**. This will activate logging of dispatched keyboard shortcuts and will open an output panel with the corresponding log file.
+
+You can then press your desired keybinding and check what keyboard shortcut VS Code detects and what command is invoked.
+
+For example, when pressing `cmd+/` in a code editor on macOS, the logging output would be:
+
+```
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: MetaLeft, keyCode: 91, key: Meta
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: MetaLeft, keyCode: 57 ('Meta')
+[KeybindingService]: \ Keyboard event cannot be dispatched.
+[KeybindingService]: / Received  keydown event - modifiers: [meta], code: Slash, keyCode: 191, key: /
+[KeybindingService]: | Converted keydown event - modifiers: [meta], code: Slash, keyCode: 85 ('/')
+[KeybindingService]: | Resolving meta+[Slash]
+[KeybindingService]: \ From 2 keybinding entries, matched editor.action.commentLine, when: editorTextFocus && !editorReadonly, source: built-in.
+```
+
+The first keydown event is for the `MetaLeft` key (`cmd`) and cannot be dispatched. The second keydown event is for the `Slash` key (`/`) and is dispatched as `meta+[Slash]`. There were two keybinding entries mapped from `meta+[Slash]` and the one that matched was for the command `editor.action.commentLine`, which has the `when` condition `editorTextFocus && !editorReadonly` and is a built-in keybinding entry.
 
 ## Viewing modified keybindings
 
@@ -240,9 +260,11 @@ Or | `||` | `"isLinux || isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
 Matches | `=~` | `resourceScheme =~ /^untitled$|^file$/`
 
-### Contexts
+### Available contexts
 
-Below are some of the possible `when` clause contexts which evaluate to Boolean true/false.
+Below are some of the available `when` clause contexts, which evaluate to Boolean true/false.
+
+The list here isn't exhaustive and you can find other `when` clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts** ) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**).
 
 Context name | True when
 ------------ | ------------
@@ -277,6 +299,8 @@ Context name | True when
 `resourceScheme` | True when the resource Uri scheme matches. Example: `"resourceScheme == file"`
 `resourceFilename` | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 `resourceExtname` | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
+`resourceDirname` | True when the Explorer or editor's resource absolute folder path matches. Example: `"resourceDirname == /users/alice/project/src"`
+`resourcePath` | True when the Explorer or editor's resource absolute path matches. Example: `"resourcePath == /users/alice/project/gulpfile.js"`
 `resourceLangId` | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
 `isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
 `resourceSet` | True when an Explorer or editor file is set
@@ -334,20 +358,20 @@ Context name | True when
 `textCompareEditorVisible` | At least one diff (compare) editor is visible.
 `textCompareEditorActive` | A diff (compare) editor is active.
 `editorIsOpen` | True if one editor is open.
-`groupActiveEditorDirty` | True when the active editor in a group is dirty.
 `groupEditorsCount` | Number of editors in a group.
 `activeEditorGroupEmpty` | True if the active editor group has no editors.
 `activeEditorGroupIndex` | Index of the active editor in an group (beginning with `1`).
 `activeEditorGroupLast` | True when the active editor in an group is the last one.
 `multipleEditorGroups` | True when multiple editor groups are present.
-`editorPinned` | True when the active editor in a group is pinned (not in preview mode).
 `activeEditor` | The identifier of the active editor in a group.
+`activeEditorIsDirty` | True when the active editor in a group is dirty.
+`activeEditorIsNotPreview` | True when the active editor in a group is not in preview mode.
+`activeEditorIsPinned` | True when the active editor in a group is pinned.
+`inSearchEditor` | True when focus is inside a search editor.
 **Configuration settings contexts** |
 `config.editor.minimap.enabled` | True when the setting `editor.minimap.enabled` is `true`.
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
-
-The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
 ### Active/Focused view or panel 'when' clause context
 
@@ -539,7 +563,7 @@ Move Active Editor Group Right|`kb(workbench.action.moveActiveEditorGroupRight)`
 Move Editor into Next Group|`kb(workbench.action.moveEditorToNextGroup)`|`workbench.action.moveEditorToNextGroup`
 Move Editor into Previous Group|`kb(workbench.action.moveEditorToPreviousGroup)`|`workbench.action.moveEditorToPreviousGroup`
 
-## File Management
+### File Management
 
 Command|Key|Command id
 -------|---|----------
@@ -599,6 +623,15 @@ Focus Next Search Result|`kb(search.action.focusNextSearchResult)`|`search.actio
 Focus Previous Search Result|`kb(search.action.focusPreviousSearchResult)`|`search.action.focusPreviousSearchResult`
 Show Next Search Term|`kb(history.showNext)`|`history.showNext`
 Show Previous Search Term|`kb(history.showPrevious)`|`history.showPrevious`
+
+### Search Editor
+
+Command|Key|Command id
+-------|---|----------
+Open Results In Editor|`kb(search.action.openInEditor)`|`search.action.openInEditor`
+Focus Search Editor Input|`kb(search.action.focusQueryEditorWidget)`|`search.action.focusQueryEditorWidget`
+Search Again|`kb(rerunSearchEditorSearch)`|`rerunSearchEditorSearch`
+Delete File Results|`kb(search.searchEditor.action.deleteFileResults)`|`search.searchEditor.action.deleteFileResults`
 
 ### Preferences
 

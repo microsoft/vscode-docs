@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code
@@ -105,7 +105,7 @@ You can rename symbols using `kb(editor.action.rename)` or by running the **Rena
 
 ## Debugging
 
-The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/derekparker/delve) debugger manually as a prerequisite. Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/blob/master/docs/debugging.md) for setup steps, information on remote debugging and a troubleshooting guide.
+The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/go-delve/delve) debugger manually as a prerequisite. Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/blob/master/docs/debugging.md) for setup steps, information on remote debugging and a troubleshooting guide.
 
 ## Next steps
 

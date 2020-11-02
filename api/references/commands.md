@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -31,25 +31,25 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeDeclarationProvider` - Execute all declaration providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location-instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeTypeDefinitionProvider` - Execute all type definition providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeImplementationProvider` - Execute all implementation providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeHoverProvider` - Execute all hover providers.
 

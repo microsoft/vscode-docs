@@ -135,7 +135,7 @@ When you start debugging, if your breakpoints aren't bound (solid red circle) or
 
 ### Debugging starts but all the lines in my stack trace are grey
 
-If your debugger is showing a grey stacktrace, won't stop at a breakpoint, or the symbols in the call stack are grey, then your executable was compiled without [debug symbols](#how-do-i-enable-debug-symbols).
+If your debugger is showing a grey stack trace, won't stop at a breakpoint, or the symbols in the call stack are grey, then your executable was compiled without [debug symbols](#how-do-i-enable-debug-symbols).
 
 ## What do I do if I suspect a C/C++ extension problem
 

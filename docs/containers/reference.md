@@ -142,6 +142,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 | `labels` | Labels added to the Docker image. This is a list of key-value pairs (a JSON object). <br/> In addition to labels specified here, a label `com.microsoft.created-by`, set to `visual-studio-code` is added to the image. This behavior can be turned off by setting `includeDefaults` property of the `labels` object to false. | `--label` |
 | `target` | The target in the Dockerfile to build to. | `--target` |
 | `pull` | Whether or not to pull new base images before building. | `--pull` |
+| `customOptions` | Any extra parameters to add before the context argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
 
 ### node object properties (`docker-build` task)
 
@@ -316,7 +317,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 | Property | Description |
 | --- | --- |
 | `dockerRun` | Options for controlling the `docker run` command executed ([see below](#dockerrun-object-properties)). <br/> Required unless `platform` is set. |
-| `platform` |  Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
+| `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
 | `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-docker-run-task)). |
 | `python` | For Python projects, this controls various options ([see below](#python-object-properties-docker-run-task)). |
 | `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-docker-run-task)). |
@@ -330,22 +331,24 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `containerName` | The name given to the started container. <br/> Required, unless inferred from the platform. | `--name` |
 | `env` | Environment variables set in the container. This is a list of key-value pairs. | `-e` or `--env` |
 | `envFiles` | This is a list of `.env` files. | `--env-file` |
-| `labels` |  Labels given to the started container. This is a list of key-value pairs. | `--label` |
-| `network` |  The name of the network to which the container will be connected. | `--network` |
-| `networkAlias` |  The network-scoped alias for the started container. | `--network-alias` |
-| `os` |  Default is `Linux`, the other option is `Windows`. The container operating system used. | N/A |
-| `ports` |  The ports to publish (map) from container to host. This is a list of objects ([see below](#ports-object-properties)). | `-p` or `--publish` |
-| `portsPublishAll` |  Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are explicitly published. | `-P` |
-| `extraHosts` |  The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extrahosts-object-properties)). | `--add-host` |
-| `volumes` |  The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` |
+| `labels` | Labels given to the started container. This is a list of key-value pairs. | `--label` |
+| `network` | The name of the network to which the container will be connected. | `--network` |
+| `networkAlias` | The network-scoped alias for the started container. | `--network-alias` |
+| `os` | Default is `Linux`, the other option is `Windows`. The container operating system used. | N/A |
+| `ports` | The ports to publish (map) from container to host. This is a list of objects ([see below](#ports-object-properties)). | `-p` or `--publish` |
+| `portsPublishAll` | Whether to publish all ports exposed by the Docker image.  Defaults to `true` if no ports are explicitly published. | `-P` |
+| `extraHosts` | The hosts to add to the container for DNS resolution. This is a list of objects ([see below](#extrahosts-object-properties)). | `--add-host` |
+| `volumes` | The volumes to map into the started container. This is a list of objects ([see below](#volumes-object-properties)). | `-v` or `--volume` |
+| `remove` | Whether or not to remove the container after it stops. | `--rm` |
+| `customOptions` | Any extra parameters to add before the image argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
 
 ### ports object properties
 
 | Property | Description | Default |
 | --- | --- | --- |
 | `containerPort` | The port number bound on the container. <br/> Required. |
-| `hostPort` |  The port number bound on the host. | (randomly selected by Docker) |
-| `protocol` |  The protocol for the binding (`tcp` or `udp`). | `tcp` |
+| `hostPort` | The port number bound on the host. | (randomly selected by Docker) |
+| `protocol` | The protocol for the binding (`tcp` or `udp`). | `tcp` |
 
 ### extraHosts object properties
 
@@ -360,16 +363,16 @@ Here are all properties available for configuring `docker-run` task. All propert
 | --- | --- | --- |
 | `localPath` | The path on the local machine that will be mapped. <br/> Required. |
 | `containerPath` | The path in the container to which the local path will be mapped. <br/> Required. |
-| `permissions` |  Permissions the container has on the mapped path. Can be `ro` (read-only) or `rw` (read-write). | Container dependent.|
+| `permissions` | Permissions the container has on the mapped path. Can be `ro` (read-only) or `rw` (read-write). | Container dependent.|
 
 ### node object properties (`docker-run` task)
 
 | Property | Description | Default |
 | --- | --- | --- |
 | `package` | The path to the `package.json` file associated with the `docker-run` task. | The file `package.json` in the root workspace folder. |
-| `enableDebugging` |  Whether or not to enable debugging within the container. | `false` |
-| `inspectMode` |  Defines the initial interaction between the application and the debugger (`default` or `break`). <br/> The value `default` allows the application to run until the debugger attaches. <br/> The value `break` prevents the application from running until the debugger attaches. | `default` |
-| `inspectPort` |  The port on which debugging should occur. | `9229` |
+| `enableDebugging` | Whether or not to enable debugging within the container. | `false` |
+| `inspectMode` | Defines the initial interaction between the application and the debugger (`default` or `break`). <br/> The value `default` allows the application to run until the debugger attaches. <br/> The value `break` prevents the application from running until the debugger attaches. | `default` |
+| `inspectPort` | The port on which debugging should occur. | `9229` |
 
 ### python object properties (`docker-run` task)
 
@@ -386,8 +389,8 @@ Here are all properties available for configuring `docker-run` task. All propert
 | Property | Description |
 | --- | --- |
 | `appProject` | The .NET Core project file (`.csproj`, `.fsproj`, etc.) associated with `docker-run` task. <br/> Required. |
-| `configureSsl` |  Whether to configure ASP.NET Core SSL certificates and other settings to enable SSL on the service in the container. |
-| `enableDebugging` |  Whether to enable the started container for debugging. This will infer additional volume mappings and other options necessary for debugging. |
+| `configureSsl` | Whether to configure ASP.NET Core SSL certificates and other settings to enable SSL on the service in the container. |
+| `enableDebugging` | Whether to enable the started container for debugging. This will infer additional volume mappings and other options necessary for debugging. |
 
 ## Command customization
 
@@ -397,7 +400,7 @@ For each of these customizable Docker commands, a configuration setting is avail
 
 ### Settings JSON schema
 
-You have two options for configuring each of the templates (listed below). The first is a single template that overrides the default behavior:
+You have two options for configuring each of the templates (listed below). The first option is a single template that overrides the default behavior:
 
 ```json
 {
@@ -405,9 +408,9 @@ You have two options for configuring each of the templates (listed below). The f
 }
 ```
 
-The second is multiple templates that will be chosen based on the `match` regular expression as well as user input.
+The second option is multiple templates that will be chosen based on the `match` regular expression, the `contextTypes` in which it is applicable, as well as user input. The `contextTypes` property is a list of Docker context types in which a command template applies. If it is undefined or empty, the template is applicable in all Docker contexts.
 
-For example, two templates are shown in the following example:
+For example, three templates are shown in the following example:
 
 ```json
 {
@@ -420,6 +423,11 @@ For example, two templates are shown in the following example:
             "label": "Alpine-specific build command",
             "template": "docker build -p 1234:1234 -f \"${dockerfile}\" -t ${tag} \"${context}\"",
             "match": "alpine"
+        },
+        {
+            "label": "Context-specific build command",
+            "template": "docker build -f \"${dockerfile}\" .",
+            "contextTypes": ["moby"]
         }
     ]
 }
@@ -432,10 +440,10 @@ The command template chosen to execute is selected based on the following rules:
 1. If no setting is configured, the default command template is chosen.
 1. If only a single template is configured (the first example above), that template is chosen.
 1. If multiple templates are configured:
-    1. Templates containing a defined `match` property are examined first. The `match` regular expression is compared against the context--for example, image name, container name, etc. All matching templates are selected. More information on the matching context is available below.
-    1. If no templates match the `match` property, all templates without a defined `match` property are selected.
-    1. If no templates match the `match` property, and there are no templates without a defined `match` property, then the default command template is chosen.
-    1. Any time that multiple templates are selected, the user will be prompted to choose between them on which to execute.
+    1. Constrained templates are checked. A constrained template has either `match` or `contextTypes`, or both. The `match` regular expression is compared against contextual hints--for example, image name, container name, etc. The `contextTypes` property causes the template to apply only in certain context types, for example, `moby` or `aci` (or both).
+    1. If multiple constrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
+    1. If there no applicable constrained templates, unconstrained templates are checked. An unconstrained template has neither `match` nor `contextTypes`, and is therefore always applicable.
+    1. If multiple unconstrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
 
 ### Docker Build
 
@@ -482,7 +490,7 @@ Supported tokens:
 | Token | Description |
 | -- | -- |
 | `${containerId}` | The ID of the container to attach to. |
-| `${shellCommand}` | The value of the `docker.attachShellCommand.linuxContainer` or `docker.attachShellCommand.windowsContainer` configuration setting, as appropriate. |
+| `${shellCommand}` | If `bash` is present in the container, it is substituted here, otherwise `sh`. In Windows containers, `cmd` is always used. |
 
 > **Note**: The `match` regular expression will be compared against the container name and full tag of the container image.
 

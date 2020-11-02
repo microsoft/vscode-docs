@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -165,7 +165,6 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
 - `activityBar.background`: Activity Bar background color.
-- `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
 - `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
 - `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
 - `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
@@ -243,6 +242,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
 - `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
+- `tab.lastPinnedBorder`: Border on the right of the last pinned editor to separate from unpinned editors.
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.unfocusedInactiveBackground`: Inactive Tab background color in an unfocused group
 - `tab.inactiveForeground`: Inactive Tab foreground color in an active group.
@@ -354,6 +354,8 @@ To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
+
+- `editor.onTypeRenameBackground`: Background color when the editor auto renames on type.
 
 CodeLens:
 
@@ -683,7 +685,9 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 - `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.modifiedResourceForeground`: Color for modified Git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.stageModifiedResourceForeground`: Color for staged modifications git decorations.  Used for file labels and the SCM viewlet.
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.stageDeletedResourceForeground`: Color for staged deletions git decorations.  Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
@@ -798,7 +802,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
-- `notebook.cellToolbarSeperator`: The color of the separator in the cell bottom toolbar
+- `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
@@ -808,6 +812,9 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
+- `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 
 ## Extension colors
 

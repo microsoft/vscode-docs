@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -114,6 +114,9 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force`: Wrap all attributes, except first
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
+  * `aligned-multiple`: Wrap when line length is exceeded, align attributes vertically
+  * `preserve`: Preserve wrapping of attributes
+  * `preserve-aligned`: Preserve wrapping of attributes but align
 
 >**Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 

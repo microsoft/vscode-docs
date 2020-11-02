@@ -69,7 +69,7 @@ You can export a Jupyter Notebook as a Python file (.py), a PDF, or an HTML file
 
  ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-convert.png)
 
-> **Note:** For PDF export, you must have TeX installed. If you don't, you will be prompted to install it when you select the PDF option. Also, be aware that if you have SVG-only output in your Notebook, they will not be displayed in the PDF. To have SVG graphics in a PDF, either ensure that your output includes a non-SVG image format or else you can first export to HTML and then save as PDF using your browser.
+> **Note:** For PDF export, you must have TeX installed. If you don't, you will be notified that you need to install it when you select the PDF option. Also, be aware that if you have SVG-only output in your Notebook, they will not be displayed in the PDF. To have SVG graphics in a PDF, either ensure that your output includes a non-SVG image format or else you can first export to HTML and then save as PDF using your browser.
 
 ## Work with code cells in the Notebook Editor
 
@@ -135,6 +135,18 @@ You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` r
 Running multiple code cells can be accomplished in a number of ways. You can use the double arrow in the toolbar of the Notebook Editor to run all cells within the Notebook or the run icons with directional arrows to run all cells above or below the current code cell.
 
 ![Run multiple code cells](images/jupyter/native-code-cells-04.png)
+
+### Run code by line
+
+To help diagnose issues with your Notebook code, run-by-line lets you step through the code of a cell in a line-by-line fashion. While stepping through code you can view the state of variables at each step via the variable explorer or hover your mouse over variables to see data tips.
+
+To start a session, just click the run-by-line icon to the right of the run cell icon on the cell's toolbar.
+
+![Start run code cell by line](images/jupyter/native-code-cells-11a.png)
+
+![Run code cell by line](images/jupyter/native-code-cells-11.png)
+
+Once in a run-by-line session, you can run the currently highlighted line of code by pressing the icon again. To exit, just click the stop button next to the run-by-line icon in the cell.
 
 ### Move a code cell
 
@@ -244,3 +256,5 @@ To connect to a remote Jupyter server:
 3. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
     ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
+
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remoter server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).

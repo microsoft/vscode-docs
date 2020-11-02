@@ -1,25 +1,25 @@
 ---
 Order: 5
 Area: remote
-TOCTitle: Visual Studio Codespaces
-PageTitle: Developing with Visual Studio Codespaces
+TOCTitle: GitHub Codespaces
+PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
-MetaDescription: Using Visual Studio Code Codespaces
-DateApproved: 8/13/2020
+MetaDescription: Using GitHub Codespaces
+DateApproved: 10/8/2020
 ---
-# Visual Studio Codespaces
+# GitHub Codespaces
 
-[Visual Studio Codespaces](https://docs.microsoft.com/visualstudio/codespaces/overview/what-is-vsonline) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from three possible clients: Visual Studio Code, a browser-based editor, or the Visual Studio IDE (currently in Private Preview).
+[GitHub Codespaces](https://github.com/features/codespaces) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from three possible clients: Visual Studio Code, a browser-based editor, or the Visual Studio IDE (currently in Private Preview).
 
-![Visual Studio Codespaces extension](images/codespaces/vscodespaces-extension.png)
+<!-- ![Visual Studio Codespaces extension](images/codespaces/vscodespaces-extension.png) TBD -->
 
 ## Environments
 
-An [environment](https://docs.microsoft.com/visualstudio/codespaces/overview/what-is-vsonline#environments) is the "backend" half of Visual Studio Codespaces. It's where all of the compute associated with software development happens: compiling, debugging, restoring, etc. When you need to work on a new project, pick up a new task, or review a PR, you can simply spin up a Cloud-hosted environment, and Visual Studio Codespaces takes care of configuring it correctly. It automatically configures everything you need to work on your project: the source code, runtime, compiler, debugger, editor, custom dotfile configurations, relevant editor extensions and more.
+An environment is the "backend" half of GitHub Codespaces. It's where all of the compute associated with software development happens: compiling, debugging, restoring, etc. When you need to work on a new project, pick up a new task, or review a PR, you can simply spin up a Cloud-hosted environment, and GitHub Codespaces takes care of configuring it correctly. It automatically configures everything you need to work on your project: the source code, runtime, compiler, debugger, editor, custom dotfile configurations, relevant editor extensions and more.
 
 ## Customization
 
-Visual Studio Codespaces are fully customizable on a per project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to VS Code [Remote Container](/docs/remote/containers.md) development.
+GitHub Codespaces are fully customizable on a per project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to VS Code [Remote Container](/docs/remote/containers.md) development.
 
 Example customizations include:
 
@@ -29,39 +29,35 @@ Example customizations include:
 * Setting environment variables.
 * Configuring editor settings and installing preferred extensions.
 
-See the [Configuring Codespace Environments](https://docs.microsoft.com/visualstudio/codespaces/reference/configuring) documentation for Codespace-specific `devcontainer.json` settings.
+See the [Configuring Codespaces](https://docs.github.com/github/developing-online-with-codespaces/configuring-codespaces-for-your-project) documentation for codespace-specific `devcontainer.json` settings.
 
 ## Dotfile per user configuration
 
 Dotfiles are files whose filename begins with a dot (.). They typically contain configuration information for applications and can control how terminals, editors, source control, and various other tools behave. `.bashrc`, `.gitignore` and `.editorconfig` are examples of dotfiles commonly used by developers.
 
-You can specify a GitHub repo containing your dotfiles, a target location for the files, as well as install commands when creating a Codespace.
+You can specify a GitHub repo containing your dotfiles, a target location for the files, as well as install commands when creating a codespace.
 
-See the [Codespace Personalizing](https://docs.microsoft.com/visualstudio/codespaces/reference/personalizing) documentation to learn how to add your dotfile configurations to a Codespace.
+See the [Personalizing Codespaces](https://docs.github.com/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account) documentation to learn how to add your dotfile configurations to a codespace.
 
 ## Getting started
 
-The Visual Studio Codespaces documentation has Quickstarts for all three clients. The Quickstarts will fast-track you through signing in to Visual Studio Codespaces, creating your first environment, and connecting to it with your preferred client:
+There are getting started topics for all three GitHub Codespaces clients. These will fast-track you through signing in to GitHub Codespaces, creating your first codespace, and connecting to it with your preferred client:
 
-* [Codespaces in VS Code](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/vscode) - Use the [Visual Studio Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension to connect and work in your environment.
-* [Codespaces in the browser](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/browser) - Connect to your Codespace through a browser-based editor.
-* [Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for Visual Studio Codespaces.
+* [Codespaces in VS Code](https://docs.github.com/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code) - Use the [Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension to connect and work in your environment.
+* [Codespaces in the browser](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) - Connect to your codespace through a browser-based editor.
+* [Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for Codespaces.
 
 ## How-to guides
 
-In addition to the Quickstarts, there are How-to guides, which go into more detail about managing and configuring your environments:
+In addition, there are How-to guides, which go into more detail about managing and configuring your environments:
 
-* [How-to guide: Visual Studio Code](https://docs.microsoft.com/visualstudio/codespaces/how-to/vscode) - Create and configure a Codespace from the VS Code client.
-* [How-to guide: Browser](https://docs.microsoft.com/visualstudio/codespaces/how-to/browser) - Create and configure a Codespace with only a browser.
-
-## Self-hosted environments
-
-If you already have a working development environment, you can connect your own [self-hosted environments](https://docs.microsoft.com/visualstudio/codespaces/how-to/self-hosting-vscode) to Visual Studio Codespaces. This lets you and your team have the same consistent development experience, whether you are working on a managed cloud-hosted environment or your own infrastructure.
+* [How-to guide: Visual Studio Code](https://docs.microsoft.com/visualstudio/codespaces/how-to/vscode) - Create and configure a codespace from the VS Code client.
+* [How-to guide: Browser](https://docs.microsoft.com/visualstudio/codespaces/how-to/browser) - Create and configure a codespace with only a browser.
 
 ## Extension authors
 
-The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in Visual Studio Codespaces environments without any modification. However, we recommend that you test your extension in a Codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and Visual Studio Codespaces](/api/advanced-topics/remote-extensions.md) for details.
+The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in GitHub Codespaces environments without any modification. However, we recommend that you test your extension in a codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Questions or feedback
 
-If you have questions, you can consult the Visual Studio Codespaces [Troubleshooting guide](https://docs.microsoft.com/visualstudio/codespaces/resources/troubleshooting) and [FAQ](https://docs.microsoft.com/visualstudio/codespaces/resources/faq). If you want to provide [Feedback](https://docs.microsoft.com/visualstudio/codespaces/resources/feedback), you can enter issues in the Visual Studio Codespaces GitHub [repository](https://github.com/MicrosoftDocs/vscodespaces).
+If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Support Community](https://github.community/c/codespaces-beta/45).

@@ -8,7 +8,7 @@ DateApproved: 2/25/2020
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---
-# C/C++ for Visual Studio Code (Preview)
+# C/C++ for Visual Studio Code
 
 C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development on Windows, Linux, and macOS.
 

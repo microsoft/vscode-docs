@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 ---
 # Advanced Container Configuration
 
@@ -76,13 +76,13 @@ ANOTHER_ENV_VAR_NAME=your-value-goes-here
 
 Next, depending on what you reference in `devcontainer.json`:
 
-* **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `.env` file relative to the location of `devcontainer.json`:
+* **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `devcontainer.env` file relative to the location of `devcontainer.json`:
 
     ```json
     "runArgs": ["--env-file","devcontainer.env"]
     ```
 
-* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `.env` file relative to the Docker Compose file:
+* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `devcontainer.env` file relative to the Docker Compose file:
 
     ```yaml
     version: '3'
@@ -220,11 +220,11 @@ When using **Docker Compose**, update your local bind mount in `docker-compose.y
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Use Open Repository in a Container
+### Use Clone Repository in Container Volume
 
-The **Remote-Containers: Open Repository in a Container...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
+The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
 
-See [Open a Repository in a Container](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
+See [Clone Repository in Container Volume](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
 
 The next two sections will outline how to use a named volume in other scenarios.
 
@@ -760,7 +760,7 @@ Here is a basic `devcontainer.json` example of this setup:
 }
 ```
 
-In fact, the **Remote-Containers: Open Repository in Container...** command in the Command Palette (`kbstyle(F1)`) uses this same technique. If you already have a `devcontainer.json` file in a GitHub repository that references an image or Dockerfile, the command will automatically use a named volume instead of a bind mount - which also works with remote hosts.
+In fact, the **Remote-Containers: Clone Repository in Container Volume...** command in the Command Palette (`kbstyle(F1)`) uses this same technique. If you already have a `devcontainer.json` file in a GitHub repository that references an image or Dockerfile, the command will automatically use a named volume instead of a bind mount - which also works with remote hosts.
 
 The second approach is to **bind mount a folder on the remote machine** into your container. This requires you to have access to the remote filesystem, but also allows you to work with **existing source code** on the remote machine.
 

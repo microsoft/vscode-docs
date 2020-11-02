@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -84,7 +84,7 @@ There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <=
 
 ## Go to Symbol in file
 
-You can quickly navigate to the relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
+You can quickly navigate to the relevant CSS symbol in the current file by pressing `kb(workbench.action.gotoSymbol)`.
 
 ## Hovers
 

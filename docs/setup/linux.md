@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 8/13/2020
+DateApproved: 10/8/2020
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -159,6 +159,12 @@ Debian-based distributions allow setting a default **editor** using the [Debian 
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
+If Visual Studio Code doesn't show up as an alternative to `editor`, you need to register it:
+
+```bash
+sudo update-alternatives --install editor /usr/bin/editor $(which code)
+```
+
 ## Windows as a Linux developer machine
 
 Another option for Linux development with VS Code is use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
@@ -205,15 +211,17 @@ When you see this notification, it indicates that the VS Code file watcher is ru
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file:
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux, read below) and adding this line to the end of the file:
 
 ```bash
 fs.inotify.max_user_watches=524288
 ```
 
-The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, See [Increasing the amount of inotify watchers](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for details.
+The new value can then be loaded in by running `sudo sysctl -p`.
 
 While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 1080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
+
+[Arch](https://www.archlinux.org/)-based distros (including Manjaro) require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
 
 Another option is to exclude specific workspace directories from the VS Code file watcher with the `files.watcherExclude` [setting](/docs/getstarted/settings.md). The default for `files.watcherExclude` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 

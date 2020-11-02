@@ -72,7 +72,7 @@ We assume that the user has already started a debug session, but is currently st
 - The user sets one or more breakpoints in a specific source file by clicking in the breakpoint gutter. The development tool sends a `setBreakpoints` request to the Debug Adapter which registers the breakpoint with the gdb debugger.
 - The user then presses the **Continue** button to resume execution. The tool sends a `continue` request to the Debug Adapter which translates this into the corresponding gdb command.
 - Some time later, the breakpoint is hit and the Debug Adapter receives some notification from gdb and translates this into a DAP `stopped` event which gets sent to the development tool.
-- In response to this `stopped` event, the development tool updates its UI and shows a stacktrace view. This triggers a `stacktrace` request which returns all the information that is displayed for the individual stack frames.
+- In response to this `stopped` event, the development tool updates its UI and shows a stack trace view. This triggers a `stacktrace` request which returns all the information that is displayed for the individual stack frames.
 - If the user selects one stack frame, the development tool requests the variables of that frame with a `variables` request.
 
 For [historical reasons](https://github.com/microsoft/vscode-debugadapter-node/issues/58), DAP uses a JSON-based wire-format inspired by the (now obsolete) [V8 Debugging Protocol](https://github.com/dtretyakov/node-tools/wiki/Debugging-Protocol). Please note that this format is similar to but not compatible with the JSON-RPC used in the LSP.
