@@ -31,7 +31,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of LocationLink instances.
 
 `vscode.executeDeclarationProvider` - Execute all declaration providers.
 
