@@ -64,7 +64,7 @@ const taskProvider = vscode.tasks.registerTaskProvider('rake', {
 		if (task) {
 			// resolveTask requires that the same definition object be used.
 			const definition: RakeTaskDefinition = <any>_task.definition;
-			return new vscode.Task(definition, definition.task, 'rake', new vscode.ShellExecution(`rake ${definition.task}`));
+			return new vscode.Task(definition, _task.scope ?? vscode.TaskScope.Workspace, definition.task, 'rake', new vscode.ShellExecution(`rake ${definition.task}`));
 		}
 		return undefined;  }
 });
@@ -74,7 +74,7 @@ Like `provideTasks`, the `resolveTask` method is called by VS Code to get tasks 
 
 The `getRakeTasks` implementation does the following:
 
-- Lists all rake tasks defined in a `Rakefile` using the `rake -AT -f Rakefile` command.
+- Lists all rake tasks defined in a `Rakefile` using the `rake -AT -f Rakefile` command for each workspace folder.
 - Parses the stdio output.
 - For every listed task, creates a `vscode.Task` implementation.
 
@@ -94,11 +94,12 @@ interface RakeTaskDefinition extends vscode.TaskDefinition {
 }
 ```
 
-Assuming that the output comes from a task called `compile`, the corresponding task creation then looks like this:
+Assuming that the output comes from a task called `compile` in the first workspace folder, the corresponding task creation then looks like this:
 
 ```typescript
 let task = new vscode.Task(
   { type: 'rake', task: 'compile' },
+  vscode.workspace.workspaceFolders[0],
   'compile',
   'rake',
   new vscode.ShellExecution('rake compile')
