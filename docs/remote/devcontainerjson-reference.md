@@ -59,6 +59,12 @@ While some devcontainer.json properties apply generally, others are only used in
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
+> **Note:** The format of certain properties will vary depending on the involvement of a shell.
+
+> `postCreateCommand`, `postStartCommand`, `postAttachCommand`, and `initializeCommand` all have an array and a string type. An array is passed to the OS for execution without going through a shell, whereas a string goes through a shell (it needs to be parsed into command and arguments).
+
+> When using `runArgs` via a typical command line, you'll need single quotes if the shell runs into parameters with spaces. However, these single quotes aren't passed on to the executable. Thus, in your `devcontainer.json`, you'd follow the array format used by the properties mentioned above, i.e.: `"runArgs": ["--device-cgroup-rule=my rule here"]`, rather than `"runArgs": ["--device-cgroup-rule='my rule here'"]`. Its arguments will be passed as an array, and no quoting for any shell is involved.
+
 ## Variables in devcontainer.json
 
 Variables can be referenced in certain string values in `devcontainer.json` in the following format: **${variableName}**. The following is a list of available variables you can use.
