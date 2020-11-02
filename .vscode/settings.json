@@ -5,5 +5,8 @@
     "files.trimTrailingWhitespace": true,
     "files.associations": {
         "**/toc.json": "jsonc"
-    }
+    },
+    "prettier.disableLanguages": [
+		"markdown"
+	],
 }
