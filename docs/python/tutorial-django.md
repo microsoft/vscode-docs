@@ -892,7 +892,7 @@ Anyone (or any build server) that receives a copy of the project needs only to r
 
 ### Create a superuser and enable the administrative interface
 
-By default, Django provides an administrative interface for a web app that's protected by authentication. The interface is implemented through the build-in `django.contrib.admin` app, which is included by default in the project's `INSTALLED_APPS` list (`settings.py`), and authentication is handled with the built-in `django.contrib.auth` app, which is also in `INSTALLED_APPS` by default.
+By default, Django provides an administrative interface for a web app that's protected by authentication. The interface is implemented through the built-in `django.contrib.admin` app, which is included by default in the project's `INSTALLED_APPS` list (`settings.py`), and authentication is handled with the built-in `django.contrib.auth` app, which is also in `INSTALLED_APPS` by default.
 
 Perform the following steps to enable the administrative interface:
 
