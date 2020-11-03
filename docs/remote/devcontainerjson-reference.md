@@ -61,9 +61,11 @@ If you've already built the container and connected to it, be sure to run **Remo
 
 > **Note:** The format of certain properties will vary depending on the involvement of a shell.
 
-> `postCreateCommand`, `postStartCommand`, `postAttachCommand`, and `initializeCommand` all have an array and a string type. An array is passed to the OS for execution without going through a shell, whereas a string goes through a shell (it needs to be parsed into command and arguments).
+> `postCreateCommand`, `postStartCommand`, `postAttachCommand`, and `initializeCommand` all have an array and a string type, while `runArgs` only has the array variant. An array is passed to the OS for execution without going through a shell, whereas a string goes through a shell (it needs to be parsed into command and arguments).
 
-> When using `runArgs` via a typical command line, you'll need single quotes if the shell runs into parameters with spaces. However, these single quotes aren't passed on to the executable. Thus, in your `devcontainer.json`, you'd follow the array format used by the properties mentioned above, i.e.: `"runArgs": ["--device-cgroup-rule=my rule here"]`, rather than `"runArgs": ["--device-cgroup-rule='my rule here'"]`. Its arguments will be passed as an array, and no quoting for any shell is involved.
+> Using `runArgs` via a typical command line, you'll need single quotes if the shell runs into parameters with spaces. However, these single quotes aren't passed on to the executable. Thus, in your `devcontainer.json`, you'd follow the array format: `"runArgs": ["--device-cgroup-rule=my rule here"]`, rather than `"runArgs": ["--device-cgroup-rule='my rule here'"]`. Its arguments will be passed as an array, and no quoting for any shell is involved.
+
+> We can compare the string and the array versions of another property: `"postAttachCommand": "echo foo='bar'"` will remove the single quotes as part of the shell's parsing, whereas `"postAttachCommand": ["echo", "foo='bar'"]` will keep them and write them to standard out (you can see the output in the dev container log).
 
 ## Variables in devcontainer.json
 
