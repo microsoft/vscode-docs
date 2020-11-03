@@ -26,10 +26,14 @@ If you are using another cluster, such as MiniKube running locally, see [Use Bri
 
 ### Prerequisites
 
+* A working knowledge of Kubernetes (deploying Pods, checking status of Pods, etc).
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed][azure-cli].
-* [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
+* [kubectl](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az_aks_install_cli) installed via `az aks install-cli`.
+* [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview). Windows Subsystem for Linux is not currently supported. Remote/Containers for Visual Studio are not currently supported.
+* The [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extention installed in Visual Studio Code.
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
+* [NPM Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 > **Note** Although this quickstart works with Azure Kubernetes Service (AKS), you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
 
@@ -178,7 +182,7 @@ Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` dir
 
 ## Running in isolation mode
 
-With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. More explanation on how this is done can be found at [How Bridge to Kubernetes Works][btk-overview-routing].
+With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. More explanation on how this is done can be found at [How Bridge to Kubernetes Works](https://docs.microsoft.com/en-us/visualstudio/containers/overview-bridge-to-kubernetes?view=vs-2019#using-routing-capabilities-for-developing-in-isolation).
 
 ## Remove the sample application from your cluster
 
