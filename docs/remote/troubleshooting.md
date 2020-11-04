@@ -496,6 +496,10 @@ rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
 
 The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
 
+### SSH into a remote WSL 2 host
+
+You may want to use SSH to connect to a WSL distro running on your remote machine. Check out [this guide](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine) to learn how to SSH into Bash and WSL 2 on Windows 10 from an external machine.
+
 ## Container tips
 
 This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
