@@ -59,13 +59,35 @@ While some devcontainer.json properties apply generally, others are only used in
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
-> **Note:** The format of certain properties will vary depending on the involvement of a shell.
+### Formatting string vs. array properties
 
-> `postCreateCommand`, `postStartCommand`, `postAttachCommand`, and `initializeCommand` all have an array and a string type, while `runArgs` only has the array type. An array is passed to the OS for execution without going through a shell, whereas a string goes through a shell (it needs to be parsed into command and arguments).
+The format of certain properties will vary depending on the involvement of a shell.
 
-> Using `runArgs` via a typical command line, you'll need single quotes if the shell runs into parameters with spaces. However, these single quotes aren't passed on to the executable. Thus, in your `devcontainer.json`, you'd follow the array format: `"runArgs": ["--device-cgroup-rule=my rule here"]`, rather than `"runArgs": ["--device-cgroup-rule='my rule here'"]`. Its arguments will be passed as an array, and no quoting for any shell is involved.
+`postCreateCommand`, `postStartCommand`, `postAttachCommand`, and `initializeCommand` all have an array and a string type, while `runArgs` only has the array type. An array is passed to the OS for execution without going through a shell, whereas a string goes through a shell (it needs to be parsed into command and arguments).
 
-> We can compare the string and the array versions of another property: `"postAttachCommand": "echo foo='bar'"` will remove the single quotes as part of the shell's parsing, whereas `"postAttachCommand": ["echo", "foo='bar'"]` will keep them and write them to standard out (you can see the output in the dev container log).
+Using `runArgs` via a typical command line, you'll need single quotes if the shell runs into parameters with spaces. However, these single quotes aren't passed on to the executable. Thus, in your `devcontainer.json`, you'd follow the array format and leave out the single quotes:
+
+```json
+"runArgs": ["--device-cgroup-rule=my rule here"]
+```
+
+Rather than:
+
+```json
+"runArgs": ["--device-cgroup-rule='my rule here'"]
+```
+
+We can compare the string and the array versions of `postAttachCommand` as well. You can use the following string format, which will remove the single quotes as part of the shell's parsing:
+
+```json
+"postAttachCommand": "echo foo='bar'"
+```
+
+By contrast, the array format will keep the single quotes and write them to standard out (you can see the output in the dev container log):
+
+```json
+"postAttachCommand": ["echo", "foo='bar'"]
+```
 
 ## Variables in devcontainer.json
 
