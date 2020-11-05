@@ -80,9 +80,11 @@ If at any time you want to sync your data to a different account, you can turn o
 
 ## Syncing Stable versus Insiders
 
-By default, the VS Code Stable and [Insiders](/insiders) builds use different Settings Sync services and so do not share settings. You can sync your Insiders with Stable using the **Settings Sync: Select Service...** command to select the Stable sync service. The **Select Service** command is only available in VS Code Insiders.
+By default, the VS Code Stable and [Insiders](/insiders) builds use different Settings Sync services, and therefore do not share settings. You can sync your Insiders with Stable by selecting the Stable sync service while turning on Settings Sync. This option is only available in VS Code Insiders.
 
 ![Settings Sync Switch Service](images/settings-sync/settings-sync-switch.png)
+
+**Note:** Since Insiders builds are newer than Stable builds, syncing them can sometimes lead to data incompatibility. In such cases, Settings sync will be disabled automatically on stable to prevent data inconsistencies. Once newer version of Stable build is released, you can upgrade your stable client and turn on sync to continue syncing.
 
 ## Restoring data
 
@@ -143,3 +145,9 @@ If the keychain throws the error "The user name or passphrase you entered is not
 ### Linux
 
 If the keychain throws the error "No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) to create a new keyring.
+
+## Can I share settings between VS Code Stable and Insiders?
+
+Yes. Please refer to the [Syncing Stable versus Insiders](#syncing-stable-versus-insiders) section for more information.
+
+Please note that this can sometimes lead to data incompatibility because Insiders builds are newer than Stable builds. In such cases, Settings Sync will be disabled automatically on Stable to prevent data inconsistencies. Once a newer version of the Stable build is released, you can upgrade your client and turn on Settings Sync to continue syncing.

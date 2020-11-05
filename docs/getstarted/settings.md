@@ -550,6 +550,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls fading out of unused code.
     "editor.showUnused": true,
 
+	// Whether leading and trailing whitespace should always be selected.
+	"editor.smartSelect.selectLeadingAndTrailingWhitespace": true,
+
     // Controls whether the editor will scroll using an animation.
     "editor.smoothScrolling": false,
 
@@ -573,9 +576,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether sorting favours words that appear close to the cursor.
     "editor.suggest.localityBonus": false,
-
-    // Controls how many suggestions IntelliSense will show before showing a scrollbar (maximum 15).
-    "editor.suggest.maxVisibleSuggestions": 12,
 
     // Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `editor.suggestSelection`).
     "editor.suggest.shareSuggestSelections": false,
@@ -953,13 +953,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - preserve: Open the panel to the state that it was in, before it was closed.
 	"workbench.panel.opensMaximized": "preserve",
 
-    // Specifies the preferred color theme for dark OS appearance when 'window.autoDetectColorScheme' is enabled.
+	// Specifies the preferred color theme for dark OS appearance when `window.autoDetectColorScheme` is enabled.
     "workbench.preferredDarkColorTheme": "Default Dark+",
 
-    // Specifies the preferred color theme used in high contrast mode when 'window.autoDetectHighContrast' is enabled.
+	// Specifies the preferred color theme used in high contrast mode when `window.autoDetectHighContrast` is enabled.
     "workbench.preferredHighContrastColorTheme": "Default High Contrast",
 
-    // Specifies the preferred color theme for light OS appearance when 'window.autoDetectColorScheme' is enabled.
+	// Specifies the preferred color theme for light OS appearance when `window.autoDetectColorScheme` is enabled.
     "workbench.preferredLightColorTheme": "Default Light+",
 
     // Specifies the product icon theme used.
@@ -1268,7 +1268,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - smart: Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number
     "explorer.incrementalNaming": "simple",
 
-    // Number of editors shown in the Open Editors pane.
+	// Number of editors shown in the Open Editors pane. Setting this to 0 hides the Open Editors pane.
     "explorer.openEditors.visible": 9,
 
     // Controls sorting order of files and folders in the explorer.
@@ -1637,6 +1637,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after keywords in a control flow statement.
     "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
+	// Defines space handling after opening and before closing empty braces.
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+
     // Defines space handling after opening and before closing JSX expression braces.
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
@@ -1764,6 +1767,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Defines space handling after keywords in a control flow statement.
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+	// Defines space handling after opening and before closing empty braces.
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
 
     // Defines space handling after opening and before closing JSX expression braces.
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
@@ -2359,6 +2365,18 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.wordSeparators": " ()[]{}',\"`─",
 
 // Tasks
+
+	// Where the cell toolbar should be shown, or whether it should be hidden.
+	"notebook.cellToolbarLocation": "right",
+
+	// Whether to use the enhanced text diff editor for notebook.
+	"notebook.diff.enablePreview": true,
+
+	// Priority list for output mime types
+	"notebook.displayOrder": [],
+
+	// Whether the cell status bar should be shown.
+	"notebook.showCellStatusBar": true,
 
     // Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions may also provide settings that disable auto detection.
     "task.autoDetect": "on",
@@ -2988,7 +3006,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
     "debug.javascript.autoAttachSmartPattern": [
-		"!**/{node_modules,npm-global,.yarn}/**",
+		"!**/{node_modules,npm-global,.yarn,.nvm}/**",
         "**/$KNOWN_TOOLS$/**"
     ],
 

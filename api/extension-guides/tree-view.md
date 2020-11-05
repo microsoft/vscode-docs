@@ -164,14 +164,8 @@ class Dependency extends vscode.TreeItem {
         public readonly collapsibleState: vscode.TreeItemCollapsibleState,
     ) {
         super(label, collapsibleState);
-    }
-
-    get tooltip(): string {
-        return `${this.label}-${this.version}`;
-    }
-
-    get description(): string {
-        return this.version;
+        this.tooltip = `${this.label}-${this.version}`;
+        this.description = this.version;
     }
 
     iconPath = {
