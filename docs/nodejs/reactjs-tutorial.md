@@ -64,7 +64,7 @@ Now expand the `src` folder and select the `index.js` file. You'll notice that V
 
 As you start typing in `index.js`, you'll see smart suggestions or completions.
 
-![React Intellisense suggestions](images/reactjs/suggestions.png)
+![React IntelliSense suggestions](images/reactjs/suggestions.png)
 
 After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/intellisense.md).
 

@@ -19,7 +19,7 @@ These configuration settings are stored in your project's `c_cpp_properties.json
 
 ## Example IntelliSense configuration
 
- The following shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux ARM.  It configures the following Intellisense settings:
+ The following shows configuring the C/C++ extension for a Linux x64 host machine that targets Linux ARM.  It configures the following IntelliSense settings:
 
 - **Compiler path**: the extension queries your compiler at this location to retrieve system libraries and compiler defines.
 - **IntelliSense mode**: emulates the target architecture and compiler so that the extension can provide correct IntelliSense and reflect the right sizes of data types such as `pointer`, `size_t`, `long`, and so on.

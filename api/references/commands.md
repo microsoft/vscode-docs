@@ -31,25 +31,25 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeDeclarationProvider` - Execute all declaration providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location-instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeTypeDefinitionProvider` - Execute all type definition providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeImplementationProvider` - Execute all implementation providers.
 
 - _uri_ - Uri of a text document
 - _position_ - Position of a symbol
-- _(returns)_ - A promise that resolves to an array of Location instances.
+- _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
 `vscode.executeHoverProvider` - Execute all hover providers.
 

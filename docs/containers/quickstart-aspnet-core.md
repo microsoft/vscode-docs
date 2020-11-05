@@ -82,13 +82,13 @@ You can use the Docker extension to author Docker files. The extension provides 
 ## Build the image
 
 1. Open Command Palette (`kb(workbench.action.showCommands)`) and issue **Docker Images: Build Image...** command.
-1. Open Docker view and verify that the new image is visible in the Images tree:
+1. Open Docker Explorer and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/aspnetcore-verify-image.png)
 
 ## Test the service container
 
-1. Right-click on the image built in previous step and choose **Run** or **Run Interactive**. The container should start and you should be able to see it in the "Containers" pane of the Docker view:
+1. Right-click on the image built in previous step and choose **Run** or **Run Interactive**. The container should start and you should be able to see it in the "Containers" pane of the Docker Explorer:
 
    ![Running service container](images/quickstarts/aspnetcore-running-container.png)
 
@@ -106,7 +106,7 @@ You can use the Docker extension to author Docker files. The extension provides 
 
    > By default Docker will assign a randomly chosen **host port** to a port exposed by a container (the **container port**). In our application the exposed (container) port is 5000. When you issue **Run** command for an image, VS Code will try to use the same port number for the host port and container port. This makes it easy to remember which port to use to communicate with the container, but it won't work if the host port is already in use.
    >
-   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Docker view and choosing **Inspect**. This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
+   > If you cannot see the data from the container in your browser, make sure there are no errors reported by the `docker run` command (look at the command output in the terminal window). You can also verify which host port is using by the container by right-clicking the container in the Docker Explorer and choosing **Inspect**. This will open a JSON document that describes the container in detail. Search for `PortBindings` element, for example:
    >
    > ```jsonc
    > "PortBindings": {
@@ -119,7 +119,7 @@ You can use the Docker extension to author Docker files. The extension provides 
    > },
    > ```
 
-1. When done testing, right-click the container in the Docker view and choose **Stop**.
+1. When done testing, right-click the container in the Docker Explorer and choose **Stop**.
 
 ## Debug in container
 

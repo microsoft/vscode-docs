@@ -77,7 +77,7 @@ The Docker extension helps you author Dockerfiles by using [IntelliSense](/docs/
 ## Build the service image
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Docker Images: Build Image...** command.
-1. Open the Docker view and verify that the new image is visible in the Images tree:
+1. Open the Docker Explorer and verify that the new image is visible in the Images tree:
 
    ![Verify Docker image exists](images/quickstarts/node-verify-image-dark.png)
 
@@ -117,7 +117,7 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
 
 You can view the logs in VS Code by using the **View Logs** command on the container:
 
-1. Navigate to the Docker view.
+1. Navigate to the Docker Explorer.
 1. In the **Containers** tab, right-click on your container and choose **View Logs**.
 
     ![Screenshot of logs in the terminal](images/quickstarts/node-view-logs-dark.png)
