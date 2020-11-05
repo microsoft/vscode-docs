@@ -818,6 +818,17 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 
+## Chart colors
+
+- `charts.foreground`: Contrast color for text in charts.
+- `charts.lines`: Color for lines in charts.
+- `charts.red`: Color for red elements in charts.
+- `charts.blue`: Color for blue elements in charts.
+- `charts.yellow`: Color for yellow elements in charts.
+- `charts.orange`: Color for orange elements in charts.
+- `charts.green`: Color for green elements in charts.
+- `charts.purple`: Color for purple elements in charts.
+
 ## Extension colors
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
