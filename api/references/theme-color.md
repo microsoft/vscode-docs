@@ -714,6 +714,9 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.numberInputBackground`: Number input box background.
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
+- `settings.focusedRowBackground`: Background color of a focused setting row.
+- `notebook.focusedRowBorder`: Border of a focused setting row.
+- `notebook.rowHoverBackground`: Border color of a hovered setting row.
 
 ## Breadcrumbs colors
 
