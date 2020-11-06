@@ -66,7 +66,12 @@ Just like on other platforms you can fine tune the exact executable used in your
 // PowerShell
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 // Git Bash
-"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-cmd.exe",
+"terminal.integrated.shellArgs.windows": [
+  "--command=usr/bin/bash.exe",
+  "-l",
+  "-i"
+]
 // Bash on Ubuntu (on Windows)
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
