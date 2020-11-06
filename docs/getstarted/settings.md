@@ -646,6 +646,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled IntelliSense shows `snippet`-suggestions.
     "editor.suggest.showSnippets": true,
 
+	// Controls the visibility of the status bar at the bottom of the suggestions control.
+	"editor.suggest.showStatusBar": false,
+
+	// Controls whether suggestion details show inline with the label or only in the details control.
+	"editor.suggest.showStatusDetailsInline": true,
+
     // When enabled IntelliSense shows `struct`-suggestions.
     "editor.suggest.showStructs": true,
 
@@ -824,11 +830,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether editors showing a file that was opened during the session should close automatically when getting deleted or renamed by some other process. Disabling this will keep the editor open  on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
     "workbench.editor.closeOnFileDelete": false,
 
-    // Controls whether opened editors show as preview. Preview editors are reused until they are explicitly set to be kept open (e.g. via double click or editing) and show up with an italic font style.
+	// Controls whether opened editors show as preview. Preview editors do not keep open and are reused until explicitly set to be kept open (e.g. via double click or editing) and show up with an italic font style.
     "workbench.editor.enablePreview": true,
 
-    // Controls whether editors opened from Quick Open show as preview. Preview editors are reused until they are explicitly set to be kept open (e.g. via double click or editing).
-    "workbench.editor.enablePreviewFromQuickOpen": true,
+	// Controls whether editors opened from Quick Open show as preview. Preview editors do not keep open and are reused until explicitly set to be kept open (e.g. via double click or editing).
+	"workbench.editor.enablePreviewFromQuickOpen": false,
 
     // Controls whether tabs are closed in most recently used order or from left to right.
     "workbench.editor.focusRecentEditorAfterClose": true,
@@ -861,7 +867,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the default direction of editors that are opened side by side (e.g. from the explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
     "workbench.editor.openSideBySideDirection": "right",
 
-	// Controls the sizing of pinned editor tabs. Pinned tabs are sorted to the begining of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is `false`.
+	// Controls the sizing of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is `false`.
 	//  - normal: A pinned tab inherits the look of non pinned tabs.
 	//  - compact: A pinned tab will show in a compact form with only icon or first letter of the editor name.
 	//  - shrink: A pinned tab shrinks to a compact fixed size showing parts of the editor name.
@@ -1013,6 +1019,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // When enabled, will show the watermark tips when no editor is open.
     "workbench.tips.enabled": true,
+
+	// Controls whether tree folders are expanded when clicking the folder names.
+	"workbench.tree.expandOnFolderClick": true,
 
     // Controls tree indentation in pixels.
     "workbench.tree.indent": 8,
@@ -1676,8 +1685,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - remove: Remove unnecessary semicolons.
     "javascript.format.semicolons": "ignore",
 
-    // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting.
-    "javascript.implicitProjectConfig.checkJs": false,
 
     // Preferred path style for auto imports.
     //  - auto: Automatically select import path style. Prefers using a relative import if `baseUrl` is configured and the relative path has fewer segments than the non-relative import.
@@ -1740,6 +1747,15 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable JavaScript validation.
     "javascript.validate.enable": true,
+
+	// Enable/disable semantic checking of JavaScript files. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
+	"js/ts.implicitProjectConfig.checkJs": false,
+
+	// Enable/disable strict function types in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
+	"js/ts.implicitProjectConfig.strictFunctionTypes": true,
+
+	// Enable/disable strict null checks in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
+	"js/ts.implicitProjectConfig.strictNullChecks": true,
 
     // Enable/disable automatic closing of JSX tags.
     "typescript.autoClosingTags": true,
@@ -1840,6 +1856,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
     "typescript.preferences.quoteStyle": "auto",
+
+	// Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
+	"typescript.preferences.renameShorthandProperties": true,
 
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "typescript.preferences.useAliasesForRenames": true,
@@ -2726,6 +2745,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     },
 
 // Remote
+	// When enabled, URLs with ports (ex. `http://127.0.0.1:3000`) that are printed to your terminals are automatically forwarded.
+	"remote.autoForwardPorts": true,
 
     // When enabled extensions are downloaded locally and installed on remote.
     "remote.downloadExtensionsLocally": false,
@@ -2886,6 +2907,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Ignores the warning when Git is missing.
     "git.ignoreMissingGitWarning": false,
 
+	// Ignore modifications to submodules in the file tree.
+	"git.ignoreSubmodules": false,
+
     // Ignores the warning when Git 2.25 - 2.26 is installed on Windows.
     "git.ignoreWindowsGit27Warning": false,
 
@@ -2897,6 +2921,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `config.inputValidationLength`.
     "git.inputValidationSubjectLength": 50,
+
+	// Controls whether to open a repository automatically after cloning.
+	//  - always: Always open in current window.
+	//  - alwaysNewWindow: Always open in a new window.
+	//  - whenNoFolderOpen: Only open in current window when no folder is opened.
+	//  - prompt: Always prompt for action.
+	"git.openAfterClone": "prompt",
 
     // Controls whether the diff editor should be opened when clicking a change. Otherwise the regular editor will be opened.
     "git.openDiffOnClick": true,
@@ -2915,6 +2946,15 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - staged: Check only for unsaved staged files.
     //  - never: Disable this check.
     "git.promptToSaveFilesBeforeCommit": "always",
+
+	// Controls whether Git should check for unsaved files before stashing changes.
+	//  - always: Check for any unsaved files.
+	//  - staged: Check only for unsaved staged files.
+	//  - never: Disable this check.
+	"git.promptToSaveFilesBeforeStash": "always",
+
+	// Prune when fetching.
+	"git.pruneOnFetch": false,
 
     // Fetch all tags when pulling.
     "git.pullTags": true,
@@ -2950,6 +2990,14 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to enable VS Code to be the authentication handler for git processes spawned in the integrated terminal. Note: terminals need to be restarted to pick up a change in this setting.
     "git.terminalAuthentication": true,
+
+	// Controls which date to use for items in the Timeline view
+	//  - committed: Use the committed date
+	//  - authored: Use the authored date
+	"git.timeline.date": "committed",
+
+	// Controls whether to show the commit author in the Timeline view
+	"git.timeline.showAuthor": true,
 
     // Controls how untracked changes behave.
     //  - mixed: All changes, tracked and untracked, appear together and behave equally.
@@ -3058,6 +3106,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable running npm scripts contained in a folder from the Explorer context menu.
     "npm.enableRunFromFolder": false,
 
+	// The NPM Script Explorer is now available in 'Views' menu in the Explorer in all folders.
+	// Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
+	"npm.enableScriptExplorer": false,
+
     // Configure glob patterns for folders that should be excluded from automatic script detection.
     "npm.exclude": "",
 
@@ -3065,13 +3117,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.fetchOnlinePackageInfo": true,
 
     // The package manager used to run scripts.
-    "npm.packageManager": "npm",
+	"npm.packageManager": "auto",
 
     // Run npm commands with the `--silent` option.
     "npm.runSilent": false,
 
     // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
-    "npm.scriptExplorerAction": "open"
+	"npm.scriptExplorerAction": "open",
 }
 ```
 
