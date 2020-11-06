@@ -649,9 +649,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 	// Controls the visibility of the status bar at the bottom of the suggestions control.
 	"editor.suggest.showStatusBar": false,
 
-	// Controls whether suggestion details show inline with the label or only in the details control.
-	"editor.suggest.showStatusDetailsInline": true,
-
     // When enabled IntelliSense shows `struct`-suggestions.
     "editor.suggest.showStructs": true,
 
@@ -1019,9 +1016,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // When enabled, will show the watermark tips when no editor is open.
     "workbench.tips.enabled": true,
-
-	// Controls whether tree folders are expanded when clicking the folder names.
-	"workbench.tree.expandOnFolderClick": true,
 
     // Controls tree indentation in pixels.
     "workbench.tree.indent": 8,
@@ -1747,15 +1741,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable JavaScript validation.
     "javascript.validate.enable": true,
-
-	// Enable/disable semantic checking of JavaScript files. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
-	"js/ts.implicitProjectConfig.checkJs": false,
-
-	// Enable/disable strict function types in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
-	"js/ts.implicitProjectConfig.strictFunctionTypes": true,
-
-	// Enable/disable strict null checks in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
-	"js/ts.implicitProjectConfig.strictNullChecks": true,
 
     // Enable/disable automatic closing of JSX tags.
     "typescript.autoClosingTags": true,
@@ -2907,9 +2892,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Ignores the warning when Git is missing.
     "git.ignoreMissingGitWarning": false,
 
-	// Ignore modifications to submodules in the file tree.
-	"git.ignoreSubmodules": false,
-
     // Ignores the warning when Git 2.25 - 2.26 is installed on Windows.
     "git.ignoreWindowsGit27Warning": false,
 
@@ -2921,13 +2903,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `config.inputValidationLength`.
     "git.inputValidationSubjectLength": 50,
-
-	// Controls whether to open a repository automatically after cloning.
-	//  - always: Always open in current window.
-	//  - alwaysNewWindow: Always open in a new window.
-	//  - whenNoFolderOpen: Only open in current window when no folder is opened.
-	//  - prompt: Always prompt for action.
-	"git.openAfterClone": "prompt",
 
     // Controls whether the diff editor should be opened when clicking a change. Otherwise the regular editor will be opened.
     "git.openDiffOnClick": true,
@@ -2946,15 +2921,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - staged: Check only for unsaved staged files.
     //  - never: Disable this check.
     "git.promptToSaveFilesBeforeCommit": "always",
-
-	// Controls whether Git should check for unsaved files before stashing changes.
-	//  - always: Check for any unsaved files.
-	//  - staged: Check only for unsaved staged files.
-	//  - never: Disable this check.
-	"git.promptToSaveFilesBeforeStash": "always",
-
-	// Prune when fetching.
-	"git.pruneOnFetch": false,
 
     // Fetch all tags when pulling.
     "git.pullTags": true,
@@ -3117,7 +3083,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.fetchOnlinePackageInfo": true,
 
     // The package manager used to run scripts.
-	"npm.packageManager": "auto",
+	"npm.packageManager": "npm",
 
     // Run npm commands with the `--silent` option.
     "npm.runSilent": false,
