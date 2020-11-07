@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.

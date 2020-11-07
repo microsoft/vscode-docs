@@ -5,7 +5,7 @@ TOCTitle: Attach to Container
 PageTitle: Attach to a running container using Visual Studio Code Remote Development
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
 MetaDescription: Attach to a running container using Visual Studio Code Remote Development
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 ---
 # Attach to a running container
 
