@@ -28,9 +28,9 @@ yo code
 # ? What's the description of your extension? LEAVE BLANK
 # ? Initialize a git repository? Yes
 # ? Which package manager to use? npm
-
-code ./helloworld
 ```
+
+Launch VS Code, choose **File > Open** and pick the folder `helloworld` that you generated.
 
 Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
 
