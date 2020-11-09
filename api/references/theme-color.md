@@ -803,7 +803,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `notebook.cellBorderColor`: The border color for notebook cells.
 - `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
-- `notebookStatusSuccessIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
