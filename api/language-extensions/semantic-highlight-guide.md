@@ -160,7 +160,7 @@ The following table shows the predefined mappings.
 | `function`|`entity.name.function`|
 | `function.defaultLibrary`|`support.function`|
 | `member`|`entity.name.function.member`|
-| `macro`|`entity.name.other.preprocessor.macro`|
+| `macro`|`entity.name.function.macro`|
 | `variable`|`variable.other.readwrite` , `entity.name.variable`|
 | `variable.readonly`|`variable.other.constant`|
 | `variable.readonly.defaultLibrary`|`support.constant`|
