@@ -3,7 +3,7 @@ Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 PageTitle: Build and Deploy Java Web Apps to the cloud with Visual Studio Code
-DateApproved: 7/22/2020
+DateApproved: 11/11/2020
 MetaDescription: Java web app tutorial showing how to build and deploy a Java web app to Azure with Visual Studio Code
 ---
 
@@ -37,13 +37,13 @@ Install Apache Maven for your local development environment:
 
 ## Download and test the Spring Boot app
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the cloned repository in VS Code by navigating to the repository folder and typing `code .`.
+Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the `complete` folder within the cloned repository in VS Code by navigating to the folder and typing `code .`.
 
 >**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
 
 ![Clone Spring Repository](images/java-webapp/clone-repository.gif)
 
-From within VS Code, navigate to the `complete` folder that contains the project which is ready to run. Open any of the Java files in the repository (for example `complete\src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
+From within VS Code, open any of the Java files within the `complete` folder (for example `src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
 
 ![Install Java Extensions](images/java-webapp/install-extensions.gif)
 
