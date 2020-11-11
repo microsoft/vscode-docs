@@ -378,6 +378,7 @@ Currently extension writers can contribute to:
 - The editor title context menu - `editor/title/context`
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
+- The debug variables view context menu - `debug/variables/context`
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
