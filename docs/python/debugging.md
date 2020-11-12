@@ -339,15 +339,13 @@ You can also rely on a relative path from the workspace root. For example, if th
 "program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
-### `python`
+### `pythonArgs`
 
-Full path that points to the Python interpreter to be used for debugging.
+You can pass arguments to the Python interpreter with the syntax `"pythonArgs": ["<path>", "<arg>",...]`.  For example, to convert all warnings to errors, do
 
-If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
-
-Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no additional folder paths are needed.
-
-If you need to pass arguments to the Python interpreter, you can use the syntax `"python": ["<path>", "<arg>",...]`.
+```json
+"pythonArgs": ["-W", "error"],
+```
 
 ### `args`
 
