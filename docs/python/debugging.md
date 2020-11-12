@@ -341,7 +341,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 ### `pythonArgs`
 
-You can pass arguments to the Python interpreter with the syntax `"pythonArgs": ["<path>", "<arg>",...]`.  For example, to convert all warnings to errors, do
+You can pass arguments to the Python interpreter with the syntax `"pythonArgs": ["<arg1>", "<arg2>",...]`.  For example, to convert all warnings to errors, do
 
 ```json
 "pythonArgs": ["-W", "error"],
