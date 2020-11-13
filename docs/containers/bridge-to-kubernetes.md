@@ -20,12 +20,11 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your own cluster. If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md), or if you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
+This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md), or if you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
 
 ### Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed][azure-cli].
+* A Kubernetes cluster with an app that you want to debug.
 * [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
