@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -99,7 +99,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
 
 The extension entry file exports two functions, `activate` and `deactivate`. `activate` is executed when your registered **Activation Event** happens. `deactivate` gives you a chance to clean up before your extension becomes deactivated. For many extensions, explicit cleanup may not be required, and the `deactivate` method can be removed. However, if an extension needs to perform an operation when VS Code is shutting down or the extension is disabled or uninstalled, this is the method to do so.
 
-The [`vscode`](https://www.npmjs.com/package/vscode) module contains a script located at `node ./node_modules/vscode/bin/install`. The script pulls the VS Code API definition file depending on the `engines.vscode` field in `package.json`. After running the script, you would get IntelliSense, jump to definition and other TypeScript language features in your code.
+The [`vscode`](https://www.npmjs.com/package/vscode) module contains a script located at `./node_modules/vscode/bin/install`. The script pulls the VS Code API definition file depending on the `engines.vscode` field in `package.json`. After running the script, you would get IntelliSense, jump to definition and other TypeScript language features in your code.
 
 ```ts
 // The module 'vscode' contains the VS Code extensibility API

@@ -63,17 +63,17 @@ The following table lists additional commands and keyboard shortcuts supported w
 |Command  |Keyboard shortcut  |
 |---------|---------|
 |Python: Go to Next Cell                  | `kbstyle(Ctrl+Alt+])`      |
-|Python: Go to Previous Cell              | `kbstlye(Ctrl+Alt+[)`      |
-|Python: Extend Selection by Cell Above   | `kbstlye(Ctrl+Shift+Alt+[` |
-|Python: Extend Selection by Cell Below   | `kbstlye(Ctrl+Shift+Alt+]` |
-|Python: Move Selected Cells Up           | `kbstlye(Ctrl+; U)`        |
-|Python: Move Selected Cells Down         | `kbstlye(Ctrl+; D)`        |
-|RoPython: Insert Cell Above              | `kbstlye(Ctrl+; A)`        |
-|Python: Insert Cell Below                | `kbstlye(Ctrl+; B)`        |
-|Python: Insert Cell Below Position       | `kbstlye(Ctrl+; S)`        |
-|Python: Delete Selected Cells            | `kbstlye(Ctrl+; X)`        |
-|Python: Change Cell to Code              | `kbstlye(Ctrl+; C)`        |
-|Python: Change Cell to Markdown          | `kbstlye(Ctrl+; M)`        |
+|Python: Go to Previous Cell              | `kbstyle(Ctrl+Alt+[)`      |
+|Python: Extend Selection by Cell Above   | `kbstyle(Ctrl+Shift+Alt+[)` |
+|Python: Extend Selection by Cell Below   | `kbstyle(Ctrl+Shift+Alt+])` |
+|Python: Move Selected Cells Up           | `kbstyle(Ctrl+; U)`        |
+|Python: Move Selected Cells Down         | `kbstyle(Ctrl+; D)`        |
+|RoPython: Insert Cell Above              | `kbstyle(Ctrl+; A)`        |
+|Python: Insert Cell Below                | `kbstyle(Ctrl+; B)`        |
+|Python: Insert Cell Below Position       | `kbstyle(Ctrl+; S)`        |
+|Python: Delete Selected Cells            | `kbstyle(Ctrl+; X)`        |
+|Python: Change Cell to Code              | `kbstyle(Ctrl+; C)`        |
+|Python: Change Cell to Markdown          | `kbstyle(Ctrl+; M)`        |
 
 ## Python Interactive window
 

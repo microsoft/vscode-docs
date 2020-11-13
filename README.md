@@ -11,11 +11,15 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Index
 
-1. [About Visual Studio Code](#visual-studio-code)
-2. [Feedback](#feedback)
-3. [Documentation Issues](#documentation-issues)
-4. [Contributing to the documentation](#contributing)
-5. [Publishing](#publishing)
+- [Index](#index)
+- [Visual Studio Code](#visual-studio-code)
+- [Feedback](#feedback)
+- [Documentation Issues](#documentation-issues)
+- [Contributing](#contributing)
+  - [Workflow](#workflow)
+  - [Cloning](#cloning)
+    - [Cloning without binary files](#cloning-without-binary-files)
+- [Publishing](#publishing)
 
 ## Visual Studio Code
 

@@ -3,11 +3,17 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
 # Troubleshoot Terminal launch failures
+
+If you are new to using the Visual Studio Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/editor/integrated-terminal.md) user guide. There you can read how to [configure](/docs/editor/integrated-terminal.md#configuration) the terminal, as well as review answers to [common questions](/docs/editor/integrated-terminal.md#common-questions).
+
+Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure.
+
+## Troubleshooting steps
 
 To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follow these steps to diagnose issues:
 
@@ -34,7 +40,7 @@ If none of these steps helped solve the issue, you can also try:
 
 * Ask about it on [Stack Overflow](https://stackoverflow.com/), often launch issues are related to environment setup and not a problem with VS Code.
 * If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
-* If you believe it to be a bug with VS Code, report the issue using the issue reporter (Help > Report Issue). The issue reporter will autofill relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
+* If you believe it to be a bug with VS Code, report the issue using the issue reporter (**Help** > **Report Issue**). The issue reporter will autofill relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
 * If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
 
 ## Common issues on Windows
@@ -75,6 +81,6 @@ Reporting this issue to the Anti-virus team can also help stamp out the issue al
 
 ### Terminal exits with code 3221225786 (or similar)
 
-This can happen when you have legacy console mode enabled in conhost's properties. To change this, open cmd.exe from the start menu, right-click the title bar, go to Properties and under the Options tab, uncheck Use legacy console.
+This can happen when you have legacy console mode enabled in conhost's properties. To change this, open cmd.exe from the start menu, right-click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.
 
 ![Use legacy mode checkbox](images/troubleshoot-terminal-launch/legacy-console-mode.png)

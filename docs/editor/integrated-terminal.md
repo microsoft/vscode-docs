@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -52,7 +52,7 @@ Key|Command|
 
 The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in user [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` user settings.
 
->**Note:** These settings won't work automatically in the workspace scope, you must whitelist the _workspace_ to allow setting your shell, shell args and it's environment using the `Terminal: Manage Workspace Shell Permissions` command.
+>**Note:** These settings won't work automatically in the workspace scope, you must grant the _workspace_ permissions to configure your shell, shell args, and it's environment using the **Terminal: Manage Workspace Shell Permissions** command.
 
 ### Windows
 
@@ -66,7 +66,12 @@ Just like on other platforms you can fine tune the exact executable used in your
 // PowerShell
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 // Git Bash
-"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-cmd.exe",
+"terminal.integrated.shellArgs.windows": [
+  "--command=usr/bin/bash.exe",
+  "-l",
+  "-i"
+]
 // Bash on Ubuntu (on Windows)
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```

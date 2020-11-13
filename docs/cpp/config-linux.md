@@ -294,7 +294,7 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
-![Intellisense configuration window](images/wsl/intellisense-configurations-wsl.png)
+![IntelliSense configuration window](images/wsl/intellisense-configurations-wsl.png)
 
 You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
 

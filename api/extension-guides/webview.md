@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -535,7 +535,7 @@ code {
 }
 ```
 
-Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables.
+Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables. [An extension](https://marketplace.visualstudio.com/items?itemName=connor4312.css-theme-completions) is available which provides IntelliSense suggestions for the variables.
 
 The following font related variables are also defined:
 

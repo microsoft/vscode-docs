@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -550,6 +550,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls fading out of unused code.
     "editor.showUnused": true,
 
+	// Whether leading and trailing whitespace should always be selected.
+	"editor.smartSelect.selectLeadingAndTrailingWhitespace": true,
+
     // Controls whether the editor will scroll using an animation.
     "editor.smoothScrolling": false,
 
@@ -573,9 +576,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether sorting favours words that appear close to the cursor.
     "editor.suggest.localityBonus": false,
-
-    // Controls how many suggestions IntelliSense will show before showing a scrollbar (maximum 15).
-    "editor.suggest.maxVisibleSuggestions": 12,
 
     // Controls whether remembered suggestion selections are shared between multiple workspaces and windows (needs `editor.suggestSelection`).
     "editor.suggest.shareSuggestSelections": false,
@@ -645,6 +645,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // When enabled IntelliSense shows `snippet`-suggestions.
     "editor.suggest.showSnippets": true,
+
+	// Controls the visibility of the status bar at the bottom of the suggestions control.
+	"editor.suggest.showStatusBar": false,
 
     // When enabled IntelliSense shows `struct`-suggestions.
     "editor.suggest.showStructs": true,
@@ -824,11 +827,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether editors showing a file that was opened during the session should close automatically when getting deleted or renamed by some other process. Disabling this will keep the editor open  on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
     "workbench.editor.closeOnFileDelete": false,
 
-    // Controls whether opened editors show as preview. Preview editors are reused until they are explicitly set to be kept open (e.g. via double click or editing) and show up with an italic font style.
+	// Controls whether opened editors show as preview. Preview editors do not keep open and are reused until explicitly set to be kept open (e.g. via double click or editing) and show up with an italic font style.
     "workbench.editor.enablePreview": true,
 
-    // Controls whether editors opened from Quick Open show as preview. Preview editors are reused until they are explicitly set to be kept open (e.g. via double click or editing).
-    "workbench.editor.enablePreviewFromQuickOpen": true,
+	// Controls whether editors opened from Quick Open show as preview. Preview editors do not keep open and are reused until explicitly set to be kept open (e.g. via double click or editing).
+	"workbench.editor.enablePreviewFromQuickOpen": false,
 
     // Controls whether tabs are closed in most recently used order or from left to right.
     "workbench.editor.focusRecentEditorAfterClose": true,
@@ -861,7 +864,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the default direction of editors that are opened side by side (e.g. from the explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
     "workbench.editor.openSideBySideDirection": "right",
 
-	// Controls the sizing of pinned editor tabs. Pinned tabs are sorted to the begining of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is `false`.
+	// Controls the sizing of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is `false`.
 	//  - normal: A pinned tab inherits the look of non pinned tabs.
 	//  - compact: A pinned tab will show in a compact form with only icon or first letter of the editor name.
 	//  - shrink: A pinned tab shrinks to a compact fixed size showing parts of the editor name.
@@ -953,13 +956,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 	//  - preserve: Open the panel to the state that it was in, before it was closed.
 	"workbench.panel.opensMaximized": "preserve",
 
-    // Specifies the preferred color theme for dark OS appearance when 'window.autoDetectColorScheme' is enabled.
+	// Specifies the preferred color theme for dark OS appearance when `window.autoDetectColorScheme` is enabled.
     "workbench.preferredDarkColorTheme": "Default Dark+",
 
-    // Specifies the preferred color theme used in high contrast mode when 'window.autoDetectHighContrast' is enabled.
+	// Specifies the preferred color theme used in high contrast mode when `window.autoDetectHighContrast` is enabled.
     "workbench.preferredHighContrastColorTheme": "Default High Contrast",
 
-    // Specifies the preferred color theme for light OS appearance when 'window.autoDetectColorScheme' is enabled.
+	// Specifies the preferred color theme for light OS appearance when `window.autoDetectColorScheme` is enabled.
     "workbench.preferredLightColorTheme": "Default Light+",
 
     // Specifies the product icon theme used.
@@ -1268,7 +1271,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - smart: Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number
     "explorer.incrementalNaming": "simple",
 
-    // Number of editors shown in the Open Editors pane.
+	// Number of editors shown in the Open Editors pane. Setting this to 0 hides the Open Editors pane.
     "explorer.openEditors.visible": 9,
 
     // Controls sorting order of files and folders in the explorer.
@@ -1637,6 +1640,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after keywords in a control flow statement.
     "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
+	// Defines space handling after opening and before closing empty braces.
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+
     // Defines space handling after opening and before closing JSX expression braces.
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
@@ -1673,8 +1679,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - remove: Remove unnecessary semicolons.
     "javascript.format.semicolons": "ignore",
 
-    // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting.
-    "javascript.implicitProjectConfig.checkJs": false,
 
     // Preferred path style for auto imports.
     //  - auto: Automatically select import path style. Prefers using a relative import if `baseUrl` is configured and the relative path has fewer segments than the non-relative import.
@@ -1765,6 +1769,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Defines space handling after keywords in a control flow statement.
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
+	// Defines space handling after opening and before closing empty braces.
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": true,
+
     // Defines space handling after opening and before closing JSX expression braces.
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
@@ -1834,6 +1841,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
     "typescript.preferences.quoteStyle": "auto",
+
+	// Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
+	"typescript.preferences.renameShorthandProperties": true,
 
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "typescript.preferences.useAliasesForRenames": true,
@@ -2360,6 +2370,18 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Tasks
 
+	// Where the cell toolbar should be shown, or whether it should be hidden.
+	"notebook.cellToolbarLocation": "right",
+
+	// Whether to use the enhanced text diff editor for notebook.
+	"notebook.diff.enablePreview": true,
+
+	// Priority list for output mime types
+	"notebook.displayOrder": [],
+
+	// Whether the cell status bar should be shown.
+	"notebook.showCellStatusBar": true,
+
     // Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions may also provide settings that disable auto detection.
     "task.autoDetect": "on",
 
@@ -2708,6 +2730,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     },
 
 // Remote
+	// When enabled, URLs with ports (ex. `http://127.0.0.1:3000`) that are printed to your terminals are automatically forwarded.
+	"remote.autoForwardPorts": true,
 
     // When enabled extensions are downloaded locally and installed on remote.
     "remote.downloadExtensionsLocally": false,
@@ -2933,6 +2957,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether to enable VS Code to be the authentication handler for git processes spawned in the integrated terminal. Note: terminals need to be restarted to pick up a change in this setting.
     "git.terminalAuthentication": true,
 
+	// Controls which date to use for items in the Timeline view
+	//  - committed: Use the committed date
+	//  - authored: Use the authored date
+	"git.timeline.date": "committed",
+
+	// Controls whether to show the commit author in the Timeline view
+	"git.timeline.showAuthor": true,
+
     // Controls how untracked changes behave.
     //  - mixed: All changes, tracked and untracked, appear together and behave equally.
     //  - separate: Untracked changes appear separately in the Source Control view. They are also excluded from several actions.
@@ -2988,7 +3020,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 	// Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
     "debug.javascript.autoAttachSmartPattern": [
-		"!**/{node_modules,npm-global,.yarn}/**",
+		"!**/{node_modules,npm-global,.yarn,.nvm}/**",
         "**/$KNOWN_TOOLS$/**"
     ],
 
@@ -3040,6 +3072,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable running npm scripts contained in a folder from the Explorer context menu.
     "npm.enableRunFromFolder": false,
 
+	// The NPM Script Explorer is now available in 'Views' menu in the Explorer in all folders.
+	// Enable an explorer view for npm scripts when there is no top-level 'package.json' file.
+	"npm.enableScriptExplorer": false,
+
     // Configure glob patterns for folders that should be excluded from automatic script detection.
     "npm.exclude": "",
 
@@ -3047,13 +3083,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.fetchOnlinePackageInfo": true,
 
     // The package manager used to run scripts.
-    "npm.packageManager": "npm",
+	"npm.packageManager": "npm",
 
     // Run npm commands with the `--silent` option.
     "npm.runSilent": false,
 
     // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
-    "npm.scriptExplorerAction": "open"
+	"npm.scriptExplorerAction": "open",
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/8/2020
+DateApproved: 11/6/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -20,6 +20,8 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 ```
 
 **Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
+
+Theme colors are available as CSS variables in [webviews](/api/extension-guides/webview), and [an extension](https://marketplace.visualstudio.com/items?itemName=connor4312.css-theme-completions) is available which provides IntelliSense for them.
 
 ## Color formats
 
@@ -712,6 +714,9 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.numberInputBackground`: Number input box background.
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
+- `settings.focusedRowBackground`: Background color of a focused setting row.
+- `notebook.focusedRowBorder`: Border of a focused setting row.
+- `notebook.rowHoverBackground`: Border color of a hovered setting row.
 
 ## Breadcrumbs colors
 
@@ -798,7 +803,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `notebook.cellBorderColor`: The border color for notebook cells.
 - `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
-- `notebookStatusSuccessIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
@@ -815,6 +820,17 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell"
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
+
+## Chart colors
+
+- `charts.foreground`: Contrast color for text in charts.
+- `charts.lines`: Color for lines in charts.
+- `charts.red`: Color for red elements in charts.
+- `charts.blue`: Color for blue elements in charts.
+- `charts.yellow`: Color for yellow elements in charts.
+- `charts.orange`: Color for orange elements in charts.
+- `charts.green`: Color for green elements in charts.
+- `charts.purple`: Color for purple elements in charts.
 
 ## Extension colors
 
