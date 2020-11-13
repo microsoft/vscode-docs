@@ -1,26 +1,18 @@
 ---
-Order: 11
 Area: containers
-TOCTitle: Develop with Kubernetes
-ContentId: 80bd336b-0d2d-4d63-a771-8b3ea22a64d3
-PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
-DateApproved: 07/22/2020
-MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
+ContentId: 1b347391-cb5e-46ac-8fa0-e893c13e6a24
+PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes with AKS in Azure
+DateApproved: 11/12/2020
+MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to an AKS Kubernetes cluster
 ---
 
 # Use Bridge to Kubernetes with Visual Studio Code
 
-Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
-
-Bridge to Kubernetes avoids having to build and deploy your code to your cluster by instead creating a connection directly between your development computer and your cluster. Connecting your development computer to your cluster while debugging allows you to quickly test and develop your service in the context of the full application without creating any Docker or Kubernetes configuration.
-
-Bridge to Kubernetes redirects traffic between your connected Kubernetes cluster and your development computer. This traffic redirection allows code on your development computer and services running in your Kubernetes cluster to communicate as if they are in the same Kubernetes cluster. Bridge to Kubernetes also provides a way to replicate environment variables and mounted volumes available to pods in your Kubernetes cluster in your development computer. Providing access to environment variables and mounted volumes on your development computer allows you to quickly work on your code without having to replicate those dependencies manually.
-
-In this guide, you will learn how to use Bridge to Kubernetes to redirect traffic between your Kubernetes cluster and code running on your development computer. This guide also provides a script for deploying a large sample application with multiple microservices on a Kubernetes cluster.
+In this tutorial, you'll use a specific AKS sample microservices web app to learn how to use Bridge to Kubernetes to debug locally in a single pod that's part of an Azure Kubernetes Service (AKS) cluster.
 
 ## Before you begin
 
-This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your own cluster. If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md), or if you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
+This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in Azure Kubernetes Service (AKS). If you already have your own application running on a Kubernetes cluster, see [Develop with Kubernetes](bridge-to-kubernetes.md). If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
 
 ### Prerequisites
 
@@ -47,6 +39,32 @@ az aks create \
     --generate-ssh-keys
 ```
 
+## Install the sample application
+
+Install the sample application on your cluster using the provided script. You can run this script on your development computer or using the [Azure Cloud Shell][azure-cloud-shell]. Use the name of your cluster and resource group.
+
+> **Important**: You must have **Owner** or **Contributor** access to your cluster in order to run the script.
+
+```azurecli-interactive
+git clone https://github.com/Microsoft/mindaro
+cd mindaro/
+chmod +x ./bridge-quickstart.sh
+./bridge-quickstart.sh -g MyResourceGroup -n MyAKS
+```
+
+Navigate to the sample application running your cluster by opening its public URL, which is displayed in the output of the installation script.
+
+```console
+$ ./bridge-quickstart.sh -g MyResourceGroup -n MyAKS
+Checking directory /home/<user>/mindaro for GIT repo Microsoft/Mindaro
+Setting the Kube context
+...
+To try out the app, open the url:
+bikeapp.bikesharingweb.EXTERNAL_IP.nip.io
+```
+
+In the above sample, the public URL is `bikeapp.bikesharingweb.EXTERNAL_IP.nip.io`.
+
 ## Connect to your cluster and debug a service
 
 On your development computer, download and configure the Kubernetes CLI to connect to your Kubernetes cluster using [az aks get-credentials][az-aks-get-credentials].
@@ -55,25 +73,31 @@ On your development computer, download and configure the Kubernetes CLI to conne
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 ```
 
-Open the workspace for the app you want to debug in Visual Studio Code. Open the Azure Kubernetes Service extension and select the namespace in the your cluster. Right-click its node, and choose **Use Namespace**.
+Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample application][bike-sharing-github] in Visual Studio Code. Open the Azure Kubernetes Service extension and select the **bikeapp** namespace in the **MyAKS** cluster. Right-click the **bikeapp** node, and choose **Use Namespace**.
 
 ![Select Namespace](images/bridge-to-kubernetes-vs-code/select-namespace.png)
 
+Use the `npm install` command to install the dependencies for the application.
+
+```console
+npm install
+```
+
 Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
-Choose your service.
+Choose the **bikes** service.
 
 ![Choose Service](images/bridge-to-kubernetes-vs-code/choose-service.png)
 
-All traffic in the Kubernetes cluster is redirected for your service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
+All traffic in the Kubernetes cluster is redirected for the bikes service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
 > **Important**: You can only redirect services that have a single pod.
 
-After you select your service, you are prompted to enter the TCP port for your local application.
+After you select your service, you are prompted to enter the TCP port for your local application. For this example, enter "3000".
 
 ![Connect choose port](images/bridge-to-kubernetes-vs-code/choose-port.png)
 
-Choose the launch task appropriate for the type of app.
+Choose **Launch via NPM** as the launch task.
 
 ![Connect choose launch task](images/bridge-to-kubernetes-vs-code/choose-launch.png)
 
@@ -97,15 +121,30 @@ Once your development computer is connected, traffic starts redirecting to your 
 
 ## Set a break point
 
-Set a breakpoint with `kb(editor.debug.action.toggleBreakpoint)` or selecting **Run** then **Toggle Breakpoint**.
+Open [server.js][server-js-breakpoint] and put your cursor somewhere on line 233. Set a breakpoint with `kb(editor.debug.action.toggleBreakpoint)` or selecting **Run** then **Toggle Breakpoint**.
 
-Navigate to the sample application by opening the public URL. When your code reaches the breakpoint, it should open in the debugger. To resume the service, hit `kb(workbench.action.debug.run)` or select **Run** then **Continue**. Return to your browser and verify you see a placeholder image for the bike.
+Navigate to the sample application by opening the public URL. Select **Aurelia Briggs (customer)** as the user, then select a bike to rent. Notice the image for the bike does not load. Return to Visual Studio Code and observe line 233 is highlighted. The breakpoint you set has paused the service at line 233. To resume the service, hit `kb(workbench.action.debug.run)` or select **Run** then **Continue**. Return to your browser and verify you see a placeholder image for the bike.
+
+Remove the breakpoint by putting your cursor on line 233 in `server.js` and hitting `kb(editor.debug.action.toggleBreakpoint)`.
 
 ### Update your application
 
-When you make code changes locally, whether or not they are visible to others who are using the cluster depends on whether you are running isolated or not. If you're running isolated, you can make changes that don't affect other users.
+Edit `server.js` to remove lines 234 and 235:
 
-Edit your code, save your changes, and press `kb(workbench.action.debug.restart)` or select **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and verify the change.
+```javascript
+    // Hard code image url *FIX ME*
+    theBike.imageUrl = "/static/logo.svg";
+```
+
+The section should now look like:
+
+```javascript
+    var theBike = result;
+    theBike.id = theBike._id;
+    delete theBike._id;
+```
+
+Save your changes and press `kb(workbench.action.debug.restart)` or select **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and verify that you no longer see a placeholder image for the bike.
 
 Select **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
@@ -131,6 +170,14 @@ Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` dir
 
 With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. More explanation on how this is done can be found at [How Bridge to Kubernetes Works](btk-overview-routing).
 
+## Remove the sample application from your cluster
+
+Use the provided script to remove the sample application from your cluster.
+
+```azurecli-interactive
+./bridge-quickstart.sh -c -g MyResourceGroup -n MyAKS
+```
+
 ## Troubleshooting
 
  If you get this error when activating the Bridge to Kubernetes extension:
@@ -151,7 +198,9 @@ Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-ho
 [azure-cloud-shell]: https://docs.microsoft.com/azure/cloud-shell/overview
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-vs-code]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-aks-tools
+[bike-sharing-github]: https://github.com/Microsoft/mindaro
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[server-js-breakpoint]: https://github.com/Microsoft/mindaro/blob/master/samples/BikeSharingApp/Bikes/server.js#L233
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [troubleshooting]: https://docs.microsoft.com/azure/dev-spaces/troubleshooting#fail-to-restore-original-configuration-of-deployment-on-cluster
 [vs-code]: https://code.visualstudio.com/download
