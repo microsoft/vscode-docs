@@ -34,7 +34,7 @@ code ./helloworld
 
 Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
 
-Run the `Hello World` command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
+Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
 <video autoplay loop muted playsinline controls title="Launch your first VS Code extension video">
   <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
@@ -47,8 +47,8 @@ You should see the `Hello World from HelloWorld!` notification showing up. Succe
 Let's make a change to the message:
 
 - Change the message from `Hello World from HelloWorld!` to `Hello VS Code` in `extension.ts`
-- Run `Reload Window` in the new window
-- Run the command `Hello World` again
+- Run **Developer: Reload Window** in the new window
+- Run the command **Hello World** again
 
 You should see the updated message showing up.
 
@@ -58,7 +58,7 @@ You should see the updated message showing up.
 
 Here are some ideas for you to try:
 
-- Give the `Hello World` command a new name in the Command Palette.
+- Give the **Hello World** command a new name in the Command Palette.
 - [Contribute](/api/references/contribution-points) another command that displays current time in an information message. Contribution points are static declarations you make in the package.json Extension Manifest to extend VS Code, such as adding commands, menus, or keybindings to your extension.
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 
