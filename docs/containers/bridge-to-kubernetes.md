@@ -32,21 +32,11 @@ This article assumes you already have your own cluster with a microservices arch
 
 ## Connect to your cluster and debug a service
 
-On your development computer, download and configure the Kubernetes CLI to connect to your Kubernetes cluster using the cluster-specific command.
+On your development computer, make sure your current context is set to the cluster and namespace in which your application is running.
 
-Install dependencies by running `npm install` in a terminal window (CTRL + ~).
+Open the workspace for the app you want to debug in Visual Studio Code. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
-```cmd
-npm install
-```
-
-Open the workspace for the app you want to debug in Visual Studio Code. Open the Kubernetes extension and select the namespace in the your cluster. Right-click its node, and choose **Use Namespace**.
-
-![Select Namespace](images/minikube/select-namespace.png)
-
-Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
-
-Choose your service.
+Choose the Kubernetes service you wish to redirect to your local version.
 
 ![Select the service to connect to](images/minikube/select_service.png)
 
@@ -54,11 +44,11 @@ All traffic in the Kubernetes cluster is redirected for your service to the vers
 
 > **Important**: You can only redirect services that have a single pod.
 
-After you select your service, you are prompted to enter the TCP port for your local application.
+After you select your service, you are prompted to enter the TCP port that your application uses to run locally.
 
 ![Enter the port number](images/minikube/enter_port.png)
 
-Choose the launch task appropriate for the type of app.
+Choose a debug profile that you normally use when running your application locally.
 
 ![Choose the debugger launch task](images/minikube/launch_task.png)
 
@@ -68,7 +58,7 @@ You have the option of running isolated or not isolated. If you run isolated, on
 
 ![Choose isolation](images/minikube/isolation.png)
 
-Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top.
+Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
 
 ![Choose debug launch profile](images/minikube/debug_profile.png)
 
