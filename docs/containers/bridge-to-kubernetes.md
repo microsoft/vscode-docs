@@ -20,7 +20,7 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md), or if you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
+This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md).
 
 ### Prerequisites
 
@@ -32,21 +32,23 @@ This article assumes you already have your own cluster with a microservices arch
 
 ## Connect to your cluster and debug a service
 
-On your development computer, download and configure the Kubernetes CLI to connect to your Kubernetes cluster using the cluster-specific command. For example, if you're using AKS running in Azure, use [az aks get-credentials][az-aks-get-credentials].
+On your development computer, download and configure the Kubernetes CLI to connect to your Kubernetes cluster using the cluster-specific command.
 
-```azurecli
-az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+Install dependencies by running `npm install` in a terminal window (CTRL + ~).
+
+```cmd
+npm install
 ```
 
 Open the workspace for the app you want to debug in Visual Studio Code. Open the Kubernetes extension and select the namespace in the your cluster. Right-click its node, and choose **Use Namespace**.
 
-![Select Namespace](images/bridge-to-kubernetes-vs-code/select-namespace.png)
+![Select Namespace](images/minikube/select-namespace.png)
 
 Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
 Choose your service.
 
-![Choose Service](images/bridge-to-kubernetes-vs-code/choose-service.png)
+![Select the service to connect to](images/minikube/select_service.png)
 
 All traffic in the Kubernetes cluster is redirected for your service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
@@ -54,25 +56,25 @@ All traffic in the Kubernetes cluster is redirected for your service to the vers
 
 After you select your service, you are prompted to enter the TCP port for your local application.
 
-![Connect choose port](images/bridge-to-kubernetes-vs-code/choose-port.png)
+![Enter the port number](images/minikube/enter_port.png)
 
 Choose the launch task appropriate for the type of app.
 
-![Connect choose launch task](images/bridge-to-kubernetes-vs-code/choose-launch.png)
+![Choose the debugger launch task](images/minikube/launch_task.png)
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
-![Isolation prompt](images/bridge-to-kubernetes-vs-code/btk-isolation-prompt.png)
+![Choose isolation](images/minikube/isolation.png)
 
 Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top.
 
-![Choose Bridge to Kubernetes](images/bridge-to-kubernetes-vs-code/choose-bridge-to-kubernetes.png)
+![Choose debug launch profile](images/minikube/debug_profile.png)
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
-![Development computer connected](images/bridge-to-kubernetes-vs-code/development-computer-connected.png)
+![Debugging with Bridge to Kubernetes](images/minikube/debugging.png)
 
 > **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure**.
 
@@ -102,11 +104,7 @@ Bridge to Kubernetes can handle routing traffic and replicating environment vari
 
 Logging output is written to the **Bridge to Kubernetes** window after your development computer is connected to your Kubernetes cluster.
 
-![Output](images/bridge-to-kubernetes-vs-code/output.png)
-
 Click on the **Kubernetes** Status bar and choose **Show connection diagnostics information**. This command prints the current environment variables and DNS entires in the logging output.
-
-![Output with diagnostics](images/bridge-to-kubernetes-vs-code/output-diagnostics.png)
 
 Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` directory in your development computer's TEMP directory. On Windows 10, that's in `%TEMP%\Bridge to Kubernetes`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window. On Linux, it is `/tmp/Bridge to Kubernetes`.
 

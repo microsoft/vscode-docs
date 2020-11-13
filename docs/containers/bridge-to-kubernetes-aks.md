@@ -6,13 +6,13 @@ DateApproved: 11/12/2020
 MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to an AKS Kubernetes cluster
 ---
 
-# Use Bridge to Kubernetes with Visual Studio Code
+# Use Bridge to Kubernetes with Visual Studio Code and AKS
 
 In this tutorial, you'll use a specific AKS sample microservices web app to learn how to use Bridge to Kubernetes to debug locally in a single pod that's part of an Azure Kubernetes Service (AKS) cluster.
 
 ## Before you begin
 
-This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in Azure Kubernetes Service (AKS). If you already have your own application running on a Kubernetes cluster, see [Develop with Kubernetes](bridge-to-kubernetes.md). If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
+This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in AKS. If you already have your own application running on a Kubernetes cluster, see [Develop with Kubernetes](bridge-to-kubernetes.md). If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
 
 ### Prerequisites
 
