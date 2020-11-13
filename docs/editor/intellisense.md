@@ -53,19 +53,26 @@ VS Code IntelliSense offers different types of completions, including language s
 
 |       |         |       |
 | ----- | ------- | ----- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`  |
+| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
 | ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
 | ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
+| ![type parameter](images/intellisense/symbol-parameter.svg) | Type parameters | `typeParameter` |
+| ![constant](images/intellisense/symbol-constant.svg) | Constants | `constant` |
 | ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
+| ![structure](images/intellisense/symbol-structure.svg) | Structures | `struct` |
+| ![event](images/intellisense/symbol-event.svg) | Events | `event` |
+| ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
 | ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
 | ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
 | ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
+| ![file](images/intellisense/symbol-file.svg) | Files | `file` |
+| ![folder](images/intellisense/folder.svg) | Folders | `folder` |
 | ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
 | ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes | `snippet` |
+| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet prefixes | `snippet` |
 | ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words | `text` |
 
 ## Customizing IntelliSense
