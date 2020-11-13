@@ -75,19 +75,25 @@ The workspace settings file is located under the `.vscode` folder in your root f
 
 >**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
-## Language specific editor settings
+## Language-specific editor settings
 
-To customize your editor by language, run the global command **Preferences: Configure Language Specific Settings** (command id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Selecting the language you want, opens the Settings editor with the language entry where you can add applicable settings.
+To customize your editor by language, run the global command **Preferences: Configure Language Specific Settings** (command id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want, which then opens your user `settings.json` with the language entry where you can add applicable settings.
 
-![Configure language specific settings command](images/settings/pref-config-lang-settings.png)
+![Configure language-specific settings command](images/settings/pref-config-lang-settings.png)
+
+Select the language via the drop-down:
 
 ![Select language drop down](images/settings/lang-selection.png)
 
-![Add language specific setting](images/settings/lang-based-settings.png)
+Add language-specific settings to your user settings:
 
-If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
+![Add language-specific setting](images/settings/lang-based-settings.png)
 
-You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens your user `settings.json` with the language entry where you can add applicable settings.
+
+Language-specific editor settings in your user settings override workspace settings.
+
+You can scope language-specific settings to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
 
 The following examples customize editor settings for language modes `typescript` and `markdown`.
 
@@ -106,7 +112,7 @@ The following examples customize editor settings for language modes `typescript`
 }
 ```
 
-You can use IntelliSense in Settings editor to help you find allowed language based settings. All editor settings and some non-editor settings are supported.
+You can use IntelliSense in `settings.json` to help you find allowed language-based settings. All editor settings and some non-editor settings are supported. Some languages have default language-specific settings already set, which you can review in `defaultSettings.json` opened with the **Preferences: Open Default Settings** command.
 
 ## Settings and security
 
