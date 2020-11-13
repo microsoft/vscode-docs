@@ -31,31 +31,15 @@ This article assumes you already have your own cluster with a microservices arch
 
 > **Note** Although this quickstart works with Azure Kubernetes Service (AKS), you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
 
-## Create a Kubernetes cluster
-
-Create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called `MyResourceGroup` and an AKS cluster called `MyAKS`.
-
-```azurecli-interactive
-az group create \
-    --name MyResourceGroup \
-        --location eastus
-az aks create \
-    --resource-group MyResourceGroup \
-    --name MyAKS \
-    --location eastus \
-    --node-count 3 \
-    --generate-ssh-keys
-```
-
 ## Connect to your cluster and debug a service
 
-On your development computer, download and configure the Kubernetes CLI to connect to your Kubernetes cluster using [az aks get-credentials][az-aks-get-credentials].
+On your development computer, download and configure the Kubernetes CLI to connect to your Kubernetes cluster using the cluster-specific command. For example, if you're using AKS running in Azure, use [az aks get-credentials][az-aks-get-credentials].
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 ```
 
-Open the workspace for the app you want to debug in Visual Studio Code. Open the Azure Kubernetes Service extension and select the namespace in the your cluster. Right-click its node, and choose **Use Namespace**.
+Open the workspace for the app you want to debug in Visual Studio Code. Open the Kubernetes extension and select the namespace in the your cluster. Right-click its node, and choose **Use Namespace**.
 
 ![Select Namespace](images/bridge-to-kubernetes-vs-code/select-namespace.png)
 
@@ -105,7 +89,7 @@ Navigate to the sample application by opening the public URL. When your code rea
 
 When you make code changes locally, whether or not they are visible to others who are using the cluster depends on whether you are running isolated or not. If you're running isolated, you can make changes that don't affect other users.
 
-Edit your code, save your changes, and press `kb(workbench.action.debug.restart)` or select **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and verify the change.
+Edit your code, save your changes, and press `kb(workbench.action.debug.restart)` or select **Run** then **Restart Debugging**. After you are reconnected, refresh your browser and validate your changes.
 
 Select **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)` to stop the debugger.
 
