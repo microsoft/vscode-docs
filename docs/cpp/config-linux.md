@@ -171,7 +171,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
    ![G++ build output in terminal](images/wsl/wsl-task-in-terminal.png)
 
-1. Create a new terminal using the **+** button and you'll have a bash terminal running in the context of WSL with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` (no file extension).
+1. Create a new terminal using the **+** button and you'll have a terminal running your default shell with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` (no file extension).
 
     ![WSL bash terminal](images/wsl/wsl-bash-terminal.png)
 
