@@ -40,7 +40,7 @@ To bring up the Run view, select the Run icon in the **Activity Bar** on the sid
 
 The Run view displays all information related to running and debugging and has a top bar with debugging commands and configuration settings.
 
-If running and debugging is not yet configured (no `launch.json` has been created) we show the Run start view.
+If running and debugging is not yet configured (no `launch.json` has been created), VS Code shows the Run start view.
 
 ![Simplified initial Run and Debug view](images/debugging/debug-start.png)
 
@@ -52,11 +52,11 @@ The top-level **Run** menu has the most common run and debug commands:
 
 ## Launch configurations
 
-To run or debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to run your currently active file.
+To run or debug a simple app in VS Code, select **Run and Debug** on the Debug start view or press `kb(workbench.action.debug.start)` and VS Code will try to run your currently active file.
 
 However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
 
-To create a `launch.json` file, open your project folder in VS Code (**File** > **Open Folder**) and then select the Configure gear icon on the Run view top bar.
+To create a `launch.json` file, click the **create a launch.json file** link in the Run start view.
 
 ![launch configuration](images/debugging/launch-configuration.png)
 
@@ -74,7 +74,10 @@ Here is the launch configuration generated for Node.js debugging:
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${file}"
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\app.js"
         }
     ]
 }
