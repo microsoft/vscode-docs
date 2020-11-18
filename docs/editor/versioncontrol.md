@@ -37,6 +37,8 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
+>**👉** When you commit, be aware if your user and/or email is not set in your Git config, Git will  fallback to using information from your local machine. See the details [here](https://git-scm.com/docs/git-commit#_commit_information).
+
 >**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Azure DevOps Services](https://azure.microsoft.com/services/devops) is a great free option. You can sign up at [Get started with Azure DevOps](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
