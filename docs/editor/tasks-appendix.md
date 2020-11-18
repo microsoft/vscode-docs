@@ -11,7 +11,9 @@ This is additional information for Visual Studio Code [tasks](/docs/editor/tasks
 
 ## Schema for tasks.json
 
-The following interfaces define the schema of the tasks.json file.
+The following interfaces define the basic schema of the tasks.json file. 
+
+>**Note**: Because some options depend on the installed extensions, other options may be available. For a complete list, use the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
 ```typescript
 
