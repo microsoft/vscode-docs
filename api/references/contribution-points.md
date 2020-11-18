@@ -579,7 +579,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 - `label` is the user visible name of this debugger in the UI.
 - `program` the path to the debug adapter that implements the VS Code debug protocol against the real debugger or runtime.
 - `runtime` if the path to the debug adapter is not an executable but needs a runtime.
-- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger. 
+- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger. Please note that the JSON schema constructs `$ref` and `definition` are not supported.
 - `initialConfigurations` lists launch configurations that are used to populate an initial launch.json.
 - `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json.
 - `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
