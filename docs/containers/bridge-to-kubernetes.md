@@ -28,8 +28,6 @@ This article assumes you already have your own cluster with a microservices arch
 * [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
-> **Note** Although this quickstart works with Azure Kubernetes Service (AKS), you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
-
 ## Connect to your cluster and debug a service
 
 On your development computer, make sure your current context is set to the cluster and namespace in which your application is running.
@@ -61,6 +59,8 @@ You have the option of running isolated or not isolated. If you run isolated, on
 Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
 
 ![Choose debug launch profile](images/minikube/debug_profile.png)
+
+> **Note**: You can open *.vscode/launch.json* to see the specific configuration settings that Bridge to Kubernetes adds to your launch profile. If your cluster uses a specific implementation of GRPC that uses c-ares, an environment variable is added to your launch profile, GRPC_DNS_RESOLVER, with the value "native." This variable specifies to use a workaround to avoid a 2-minute time delay when connecting. For more information, see this [issue in the GRPC GitHub repo](https://github.com/grpc/grpc/issues/18691).
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
