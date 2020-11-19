@@ -21,8 +21,6 @@ This guide uses the [Bike Sharing sample application][bike-sharing-github] to de
 * [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
 * The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
-> **Note** Although this quickstart works with Azure Kubernetes Service (AKS), you can also try Bridge to Kubernetes with other Kubernetes clusters. Support for other clusters is in preview.
-
 ## Create a Kubernetes cluster
 
 Create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called `MyResourceGroup` and an AKS cluster called `MyAKS`.
