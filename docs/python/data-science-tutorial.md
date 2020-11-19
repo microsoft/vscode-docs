@@ -40,7 +40,7 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
    ![Selecting a python environment](images/data-science-tutorial/anaconda-environment.png)
 
-1. With the environment and VS Code setup, the final step is to create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Create New Blank Jupyter Notebook**.
+1. With the environment and VS Code setup, the final step is to create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Create New Blank Jupyter Notebook**. (in newer versions, select **Jupyter: Create New Blank Jupyter Notebook**)
 
    ![Creating a new Jupyter Notebook](images/data-science-tutorial/create-notebook.png)
 
