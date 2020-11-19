@@ -127,7 +127,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 | --- | --- |
 | `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerbuild-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
-| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-docker-build-task)). |
+| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerbuild-task)). |
 | `python` | There are no object properties for Python in the `docker-build` task. |
 | `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-docker-build-task)). |
 
