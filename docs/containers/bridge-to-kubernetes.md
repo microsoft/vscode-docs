@@ -60,7 +60,7 @@ Select the **Debug** icon on the left and select **Launch via NPM with Kubernete
 
 ![Choose debug launch profile](images/minikube/debug_profile.png)
 
-> **Note**: You can open *.vscode/launch.json* to see the specific configuration settings that Bridge to Kubernetes adds to your launch profile. If your cluster uses c-core, an implementation of GRPC that uses [c-ares](https://github.com/c-ares/c-ares), an environment variable is added to your launch profile, GRPC_DNS_RESOLVER, with the value "native." This variable specifies to use a workaround to avoid a 2-minute time delay when connecting. For more information, see this [GRPC issue #18691](https://github.com/grpc/grpc/issues/18691).
+> **Note**: You can open *.vscode/launch.json* to see the specific configuration settings that Bridge to Kubernetes adds to your launch profile. If your cluster uses [gRPC C core](https://github.com/grpc/grpc/), an implementation of gRPC that uses [c-ares](https://github.com/c-ares/c-ares), an environment variable is added to your launch profile, GRPC_DNS_RESOLVER, with the value "native." This variable specifies to use a workaround to avoid a 2-minute time delay when connecting. For more information, see this [gRPC issue #18691](https://github.com/grpc/grpc/issues/18691).
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
