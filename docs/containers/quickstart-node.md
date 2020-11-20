@@ -17,7 +17,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Both Docker and the VS Code Docker extension must be installed as described in the [overview](overview.md#installation)
+- Both Docker and the VS Code Docker extension must be installed as described in the [overview](/docs/containers/overview.md#installation)
 - [Node.js](https://nodejs.org/) version 10 or later
 
 ## Create an Express Node.js application

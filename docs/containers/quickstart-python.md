@@ -17,7 +17,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Docker Desktop and the VS Code Docker extension must be installed as described in the [overview](overview.md#installation).
+- Docker Desktop and the VS Code Docker extension must be installed as described in the [overview](/docs/containers/overview.md#installation).
 - For Python development, complete all [Getting started with Python](/docs/python/python-tutorial.md) steps
 - A runnable Python application
 

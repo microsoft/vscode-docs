@@ -17,7 +17,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Docker and the VS Code Docker extension must be installed as described on the [overview](overview.md#installation).
+- Docker and the VS Code Docker extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
 - For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
 - Microsoft [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
