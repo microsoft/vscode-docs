@@ -360,8 +360,8 @@ Context name | True when
 `editorIsOpen` | True if one editor is open.
 `groupEditorsCount` | Number of editors in a group.
 `activeEditorGroupEmpty` | True if the active editor group has no editors.
-`activeEditorGroupIndex` | Index of the active editor in an group (beginning with `1`).
-`activeEditorGroupLast` | True when the active editor in an group is the last one.
+`activeEditorGroupIndex` | A number starting from `1` reflecting the position of an editor group in the editor grid. The group with index `1` will be the first in the top-left corner.
+`activeEditorGroupLast` | Will be `true` for the last editor group in the editor grid.
 `multipleEditorGroups` | True when multiple editor groups are present.
 `activeEditor` | The identifier of the active editor in a group.
 `activeEditorIsDirty` | True when the active editor in a group is dirty.
