@@ -84,7 +84,7 @@ Standard semantic token types:
 - namespace
 - type, class, enum, interface, struct, typeParameter
 - parameter, variable, property, enumMember, event
-- function, member, macro
+- function, method, macro
 - label
 - comment, string, keyword, number, regexp, operator
 
@@ -159,7 +159,7 @@ The following table shows the predefined mappings.
 | `enum`|`entity.name.type.enum`|
 | `function`|`entity.name.function`|
 | `function.defaultLibrary`|`support.function`|
-| `member`|`entity.name.function.member`|
+| `method`|`entity.name.function.member`|
 | `macro`|`entity.name.function.macro`|
 | `variable`|`variable.other.readwrite` , `entity.name.variable`|
 | `variable.readonly`|`variable.other.constant`|
