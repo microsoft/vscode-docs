@@ -231,7 +231,7 @@ You can use any of the validation JSON Schema properties to describe other const
 
 **Unsupported JSON Schema properties**
 
-Note supported in the configuration section are:
+Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and can not make assumptions how the aggregated settings JSON schema document looks like.
 
@@ -580,21 +580,11 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 - `label` is the user visible name of this debugger in the UI.
 - `program` the path to the debug adapter that implements the VS Code debug protocol against the real debugger or runtime.
 - `runtime` if the path to the debug adapter is not an executable but needs a runtime.
-- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger.
+- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger. Please note that the JSON schema constructs `$ref` and `definition` are not supported.
 - `initialConfigurations` lists launch configurations that are used to populate an initial launch.json.
 - `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json.
 - `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 - `languages` those languages for which the debug extension could be considered the "default debugger".
-- `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
-
-```json
-{
-  "command": "<executable>",
-  "args": ["<argument1>", "<argument2>", "<argumentsn...>"]
-}
-```
-
-The attribute `command` must be either an absolute path to an executable or a name of executable looked up via the PATH environment variable. The special value `node` will be mapped to VS Code's built-in node runtime without being looked up on the PATH.
 
 ### debugger example
 

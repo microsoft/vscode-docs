@@ -17,7 +17,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Both Docker and the VS Code Docker extension must be installed as described in the [overview](overview.md#installation)
+- Both Docker and the VS Code Docker extension must be installed as described in the [overview](/docs/containers/overview.md#installation)
 - [Node.js](https://nodejs.org/) version 10 or later
 
 ## Create an Express Node.js application
@@ -111,7 +111,7 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
 
     > Note that, because the debugger attaches *after* the application starts, the breakpoint may missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
     >
-    > You can configure the application to wait for the debugger to attach before starting execution by setting the [inspectMode](/docs/containers/reference.md#node-object-properties-docker-run-task) property to `break` in the `docker-run: debug` task in `tasks.json` under the `node` object.
+    > You can configure the application to wait for the debugger to attach before starting execution by setting the [inspectMode](/docs/containers/reference.md#node-object-properties-dockerrun-task) property to `break` in the `docker-run: debug` task in `tasks.json` under the `node` object.
 
 ## View the application logs
 

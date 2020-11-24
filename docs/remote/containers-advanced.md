@@ -736,7 +736,9 @@ However, note that the **Docker CLI still needs to be installed locally** (along
 
 ### A basic remote example
 
-Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the `docker.host` property in `settings.json` and restarting VS Code (or reloading the window). For example:
+Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` and restarting VS Code (or reloading the window).
+
+For example:
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
@@ -784,7 +786,7 @@ Recent versions of Docker (18.06+) have added support for the SSH protocol to co
 
 First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
-Then, add the following to `settings.json` (replacing values as appropriate):
+Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property to `settings.json` (replacing values as appropriate):
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
@@ -796,7 +798,7 @@ After restarting VS Code (or reloading the window), you will now be able to [att
 
 **Using the TCP protocol**
 
-While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other properties. These are:
+While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties. These are:
 
 ```json
 "docker.host":"tcp://your-remote-machine-fqdn-or-ip-here:port",

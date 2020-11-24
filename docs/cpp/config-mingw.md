@@ -39,7 +39,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 ### Check your MinGW installation
 
-To check that your Mingw-w64 tools are correctly installed and available, open a new Command Prompt and type:
+To check that your Mingw-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
 ```bash
 g++ --version
@@ -184,7 +184,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. 
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
 1. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 1. You'll then see a dropdown for various predefined debugging configurations. Choose **g++.exe build and debug active file**.
@@ -296,7 +296,7 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 ![Command Palette](images/cpp/command-palette.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.  
+This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
 Here, we've changed the **Configuration name** to **GCC**, set the **Compiler  path** dropdown to the g++ compiler, and the **IntelliSense mode** to match the compiler (**gcc-x64**)
 

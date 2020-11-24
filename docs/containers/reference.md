@@ -127,9 +127,9 @@ Here are all properties available for configuring `docker-build` task. All prope
 | --- | --- |
 | `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerbuild-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
-| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-docker-build-task)). |
+| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerbuild-task)). |
 | `python` | There are no object properties for Python in the `docker-build` task. |
-| `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-docker-build-task)). |
+| `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-dockerbuild-task)). |
 
 ### dockerBuild object properties
 
@@ -318,9 +318,9 @@ Here are all properties available for configuring `docker-run` task. All propert
 | --- | --- |
 | `dockerRun` | Options for controlling the `docker run` command executed ([see below](#dockerrun-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
-| `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-docker-run-task)). |
-| `python` | For Python projects, this controls various options ([see below](#python-object-properties-docker-run-task)). |
-| `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-docker-run-task)). |
+| `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-dockerrun-task)). |
+| `python` | For Python projects, this controls various options ([see below](#python-object-properties-dockerrun-task)). |
+| `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-dockerrun-task)). |
 
 ### dockerRun object properties
 

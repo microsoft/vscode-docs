@@ -143,6 +143,28 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
 
+## Outgoing link protection
+
+For your protection, VS Code displays a prompt before opening an outgoing website link from the editor.
+
+![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
+
+You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a drop-down lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
+
+![Configure Trusted Domains dropdown](images/editingevolved/trusted-domain-dropdown.png)
+
+The option to **Manage Trusted Domains**, also available at any time from the Command Palette, brings up the **Trusted Domains** JSON file, where you can add, remove, or modify trusted domains.
+
+```jsonc
+// You can use the "Manage Trusted Domains" command to open this file.
+// Save this file to apply the trusted domains rules.
+[
+  "*.twitter.com"
+]
+```
+
+The **Trusted Domains** JSON file also has comments with examples of the supported domain formats and a list of the domains trusted by default, such as `https://*.visualstudio.com` and `https://*.microsoft.com`.
+
 ## Next steps
 
 Now that you know how the editor works, time to try a few other things...
@@ -160,12 +182,12 @@ With the command `workbench.action.quickOpenPreviousEditor`, you can have the se
 
 ```json
 {
-	"key": "ctrl+p",
-	"command": "workbench.action.quickOpenPreviousEditor"
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpenPreviousEditor"
 },
 {
-	"key": "ctrl+p",
-	"command": "-workbench.action.quickOpen"
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpen"
 }
 ```
 
@@ -190,7 +212,7 @@ By default, `kbstyle(Ctrl+Tab)` navigates between editors of the same editor gro
 
 Here is a list of commands you can use to navigate in editors without opening a picker:
 
-Key|Command|Command id
+Key|Command|Command ID
 ---|-------|----------
 `kb(workbench.action.openNextRecentlyUsedEditor)`|Open Next Recently Used Editor|`workbench.action.openNextRecentlyUsedEditor`
 `kb(workbench.action.openPreviousRecentlyUsedEditor)`|Open Previously Used Editor|`workbench.action.openPreviousRecentlyUsedEditor`

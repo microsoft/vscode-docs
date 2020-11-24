@@ -77,11 +77,12 @@ Git | `git-commit` and `git-rebase`
 Go | `go`
 Groovy | `groovy`
 Handlebars | `handlebars`
+Haml | `haml`
 HTML | `html`
 Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
-JavaScript React | `javascriptreact`
+JavaScript React | `javascriptreact`, `jsx`
 JSON | `json`
 JSON with Comments | `jsonc`
 LaTeX | `latex`
@@ -95,7 +96,7 @@ Perl | `perl` and `perl6`
 PHP | `php`
 Plain Text | `plaintext`
 PowerShell | `powershell`
-Pug | `jade`
+Pug | `jade`, `pug`
 Python | `python`
 R | `r`
 Razor (cshtml) | `razor`
@@ -104,12 +105,16 @@ Rust | `rust`
 SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
 ShaderLab | `shaderlab`
 Shell Script (Bash) | `shellscript`
+Slim | `slim`
 SQL | `sql`
+Stylus | `stylus`
 Swift | `swift`
 TypeScript | `typescript`
 TypeScript React | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
+Vue | `vue`
+Vue HTML | `vue-html`
 XML | `xml`
 XSL | `xsl`
 YAML | `yaml`

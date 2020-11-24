@@ -332,6 +332,8 @@ VS Code is now configured to use Clang on macOS. The configuration applies to th
 
 The most common cause of errors (such as `undefined _main`, or `attempting to link with file built for unknown-unsupported file format`, and so on) occurs when `helloworld.cpp` is not the active file when you start a build or start debugging. This is because the compiler is trying to compile something that isn't source code, like your `launch.json`, `tasks.json`, or `c_cpp_properties.json` file.
 
+If you see build errors mentioning "C++11 extensions", you may not have updated your `task.json` build task to use the clang++ argument `--std=c++17`. By default, clang++ uses the C++98 standard, which doesn't support the initialization used in `helloworld.cpp`. Make sure to replace the entire contents of your `task.json` file with the code block provided in the [Build helloworld.cpp](#build-helloworldcpp) section.
+
 ## Next steps
 
 - Explore the [VS Code User Guide](/docs/editor/codebasics.md).

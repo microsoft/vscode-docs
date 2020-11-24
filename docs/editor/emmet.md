@@ -54,14 +54,13 @@ To ensure Emmet suggestions are always on top in the suggestion list, add the fo
 
 ## Emmet abbreviations in other file types
 
-To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping.
+To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping, with the right side being the language identifier of an Emmet supported language (see the list above).
 
 For example:
 
 ```json
 "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "vue-html": "html",
     "razor": "html",
     "plaintext": "pug"
 }
@@ -233,14 +232,13 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.includeLanguages`
 
-    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter.
-    Make sure to use language ids for both sides of the mapping.
+    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language ids for both sides of the mapping.
 
     For example:
+
     ```json
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
-        "vue-html": "html",
         "plaintext": "pug"
     }
     ```

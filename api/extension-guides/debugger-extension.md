@@ -51,7 +51,7 @@ So in its most minimal form, a debugger extension is just a declarative contribu
 A more realistic debugger extension contributes many or all of the following declarative items to VS Code:
 
 - List of languages supported by the debugger. VS Code enables the UI to set breakpoints for those languages.
-- JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides IntelliSense.
+mention- JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides IntelliSense. Please note that the JSON schema constructs `$ref` and `definition` are not supported.
 - Default debug configurations for the initial launch.json created by VS Code.
 - Debug configuration snippets that a user can add to a launch.json file.
 - Declaration of variables that can be used in debug configurations.
