@@ -1,7 +1,7 @@
 const gulp = require('gulp')
 const $ = require('shelljs')
 
-const GITHUB_TOKEN = process.env['GITHUB_TOKEN']
+const GITHUB_TOKEN = process.env['SECRET_GITHUB_TOKEN']
 const BRANCH = process.env['BUILD_SOURCEBRANCHNAME']
 
 if (!GITHUB_TOKEN) {
