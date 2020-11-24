@@ -65,7 +65,7 @@ This recipe shows how to run and debug a MERN (Mongo, Express, React and Node.js
 
 **Recipes:**
 
-- [Developing the MERN Starter in VS Code](https://github.com/microsoft/vscode-recipes/tree/master/MERN-Starter)
+- TO DO
 
 ## Electron - Debug Electron applications
 
