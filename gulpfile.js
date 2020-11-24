@@ -22,7 +22,6 @@ gulp.task('build-dist', done => {
   if (!$.which('git')) {
     $.echo('This command requires git')
     $.exit(1)
-    done()
   }
 
   // Go to _build
@@ -66,4 +65,6 @@ gulp.task('build-dist', done => {
     console.log('Failed to build')
     done(build.stderr)
   }
+
+  done()
 })
