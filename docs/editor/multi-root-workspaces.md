@@ -65,7 +65,7 @@ When you save your workspace, it will create a `.code-workspace` file and the fi
 
 ### Save Workspace As...
 
-If you want to move your Workspace file to a new location, you can use the **File** > **Save Workspace As** command which will automatically set the correct folder paths relative to the new Workspace file location.
+If you want to move your Workspace file to a new location, you can use the **File** > **Save Workspace As** command, which will automatically set the correct folder paths relative to the new Workspace file location.
 
 ### Opening workspace files
 
