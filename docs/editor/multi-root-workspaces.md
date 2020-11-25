@@ -17,7 +17,7 @@ You can work with multiple project folders in Visual Studio Code with multi-root
 
 It is easy to add another folder to your existing workspace. There are several gestures for adding folders:
 
-### Add Folder to Workspace...
+### Add Folder to Workspace
 
 The **File** > **Add Folder to Workspace** command brings up an Open Folder dialog to select the new folder.
 
