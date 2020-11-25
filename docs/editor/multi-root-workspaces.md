@@ -9,7 +9,7 @@ MetaDescription: You can open and work on multiple project folders in Visual Stu
 ---
 # Multi-root Workspaces
 
-You can work with multiple project folders in Visual Studio Code with multi-root workspaces. This can be very helpful when you are working on several related projects at one time. For example, you might have a repository with a product's documentation that you like to keep current when you update the product source code.
+You can work with multiple project folders in Visual Studio Code with multi-root workspaces. This can be helpful when you are working on several related projects at one time. For example, you might have a repository with a product's documentation that you like to keep current when you update the product source code.
 
 ![multi-root hero](images/multi-root-workspaces/hero.png)
 
