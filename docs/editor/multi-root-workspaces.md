@@ -283,7 +283,7 @@ Workspace scoped tasks live in the `"tasks"` section of the workspace configurat
 
 ## Source Control
 
-With multi-root workspaces there is a **SOURCE CONTROL PROVIDERS** section which gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with TFS workspaces. As you select repositories in this view, you can see the source control details below.
+With multi-root workspaces there is a **SOURCE CONTROL PROVIDERS** section which gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with Azure DevOps Server workspaces. As you select repositories in this view, you can see the source control details below.
 
 ![multiple scm providers](images/multi-root-workspaces/multiple-scm-providers.png)
 
