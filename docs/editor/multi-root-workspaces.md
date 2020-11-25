@@ -9,7 +9,7 @@ MetaDescription: You can open and work on multiple project folders in Visual Stu
 ---
 # Multi-root Workspaces
 
-You can work with multiple project folders in Visual Studio Code with multi-root workspaces. This can be very helpful when you are working on several related projects at one time. For example, you might have a repository with a product's documentation which you like to keep current when you update the product source code.
+You can work with multiple project folders in Visual Studio Code with multi-root workspaces. This can be very helpful when you are working on several related projects at one time. For example, you might have a repository with a product's documentation that you like to keep current when you update the product source code.
 
 ![multi-root hero](images/multi-root-workspaces/hero.png)
 
@@ -23,7 +23,7 @@ The **File** > **Add Folder to Workspace** command brings up an Open Folder dial
 
 ![Add Root Folder](images/multi-root-workspaces/add-root-folder.png)
 
-Once a root folder is added, the Explorer will show the new folder as a root in the File Explorer. You can right click on any of the root folders and use the context menu to add or remove folders.
+Once a root folder is added, the Explorer will show the new folder as a root in the File Explorer. You can right-click on any of the root folders and use the context menu to add or remove folders.
 
 ![Remove Root Folder](images/multi-root-workspaces/explorer-context.png)
 
@@ -71,7 +71,7 @@ If you want to move your Workspace file to a new location, you can use the **Fil
 
 To reopen a Workspace, you can:
 
-* Double click the `.code-workspace` file in your platform's Explorer.
+* Double-click the `.code-workspace` file in your platform's Explorer.
 * Use the **File** > **Open Workspace** command and select the Workspace file.
 * Select the Workspace from the **File** > **Open Recent** (`kb(workbench.action.openRecent)`) list.
   * Workspaces have a **(Workspace)** suffix to differentiate them from folders.
@@ -114,7 +114,7 @@ which will result in the following Explorer display:
 
 As you can see from the example above, you can add comments to your Workspace files.
 
-The Workspace file can also contain Workspace [global settings](#settings) under `settings` and [extension recommendations](#extensions) under `extensions` which we will discuss below.
+The Workspace file can also contain Workspace [global settings](#settings) under `settings` and [extension recommendations](#extensions) under `extensions`, which we will discuss below.
 
 ![workspace file schema](images/multi-root-workspaces/workspace-file-schema.png)
 
@@ -283,7 +283,7 @@ Workspace scoped tasks live in the `"tasks"` section of the workspace configurat
 
 ## Source Control
 
-With multi-root workspaces there is a **SOURCE CONTROL PROVIDERS** section which gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with Azure DevOps Server workspaces. As you select repositories in this view, you can see the source control details below.
+With multi-root workspaces, there is a **SOURCE CONTROL PROVIDERS** section which gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with Azure DevOps Server workspaces. As you select repositories in this view, you can see the source control details below.
 
 ![multiple scm providers](images/multi-root-workspaces/multiple-scm-providers.png)
 
