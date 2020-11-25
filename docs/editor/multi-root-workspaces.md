@@ -152,9 +152,9 @@ When you have a multi-root workspace open, you can choose to search in a single 
 
 ## Settings
 
-With multiple root folders in one workspace, it is possible to have a `.vscode` folder in each root folder defining the settings that should apply for that folder. To avoid setting collisions, only resource (file, folder) settings are applied when using a multi-root workspace. Settings which affect the entire editor (for example, UI layout) are ignored. For example, two projects cannot both set the zoom level.
+With multiple root folders in one workspace, it is possible to have a `.vscode` folder in each root folder defining the settings that should apply for that folder. To avoid setting collisions, only resource (file, folder) settings are applied when using a multi-root workspace. Settings that affect the entire editor (for example, UI layout) are ignored. For example, two projects cannot both set the zoom level.
 
-User settings are supported as with single folder projects and you can also set global Workspace settings which will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
+User settings are supported as with single folder projects and you can also set global Workspace settings that will apply to all folders in your multi-root Workspace. Global Workspace settings will be stored in your `.code-workspace` file.
 
 ```json
 {
@@ -251,7 +251,7 @@ If the individual launch configuration names are not unique, the qualifying fold
   }]
 ```
 
-In addition to `compounds` the `launch` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
+In addition to `compounds`, the `launch` section of the workspace configuration file can contain regular launch configurations too. Make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
 
 Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
 
@@ -283,7 +283,7 @@ Workspace scoped tasks live in the `"tasks"` section of the workspace configurat
 
 ## Source Control
 
-With multi-root workspaces, there is a **SOURCE CONTROL PROVIDERS** section which gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with Azure DevOps Server workspaces. As you select repositories in this view, you can see the source control details below.
+With multi-root workspaces, there is a **SOURCE CONTROL PROVIDERS** section that gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with Azure DevOps Server workspaces. As you select repositories in this view, you can see the source control details below.
 
 ![multiple scm providers](images/multi-root-workspaces/multiple-scm-providers.png)
 
@@ -293,7 +293,7 @@ You can use `kbstyle(Ctrl+Click)` or `kbstyle(Shift+Click)` to select multiple r
 
 Multi-root workspaces have been available as a preview on Insiders build since the June 2017 [1.14 release](/updates/v1_14.md#preview-multi-root-workspaces) and we've been working with extension authors to help them get ready for the release to Stable. If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code API changes and how to make your extension work well across multiple folders.
 
-Below are some of the popular extensions which have already adopted the multi-root workspace APIs.
+Below are some of the popular extensions that have already adopted the multi-root workspace APIs.
 
 <div class="marketplace-extensions-multi-root-ready"></div>
 
