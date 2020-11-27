@@ -165,6 +165,25 @@ If Visual Studio Code doesn't show up as an alternative to `editor`, you need to
 sudo update-alternatives --install editor /usr/bin/editor $(which code)
 ```
 
+## Add contextual menu to nemo
+
+You need to create a file `~/.local/share/nemo/actions/vscode.nemo_action`
+with this content:
+```
+[Nemo Action]
+
+Active=true
+Name=Open in vscode
+Comment=Opens current folder on vscode
+Exec=code %P
+Icon-Name=com.visualstudio.code
+Selection=none
+Extensions=any;
+Quote=double
+Dependencies=code;
+```
+You then will have `Open in vscode` on your contextual menu if selection is none.
+
 ## Windows as a Linux developer machine
 
 Another option for Linux development with VS Code is use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
