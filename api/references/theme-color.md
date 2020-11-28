@@ -515,7 +515,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 
 - `panel.background`: Panel background color.
 - `panel.border`: Panel border color to separate the panel from the editor.
-- `panel.dropBackground`: Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
 - `panel.dropBorder`: Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
