@@ -576,8 +576,6 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 
 ## Notification colors
 
-**Note:** The colors below only apply for VS Code versions 1.21 and higher.
-
 Notification toasts slide up from the bottom-right of the workbench.
 
 ![Notification Toasts](images/theme-color/notification-toast.png)
@@ -597,20 +595,6 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notificationsErrorIcon.foreground`: The color used for the notification error icon.
 - `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
 - `notificationsInfoIcon.foreground`: The color used for the notification info icon.
-
-If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
-
-- `notification.background`
-- `notification.foreground`
-- `notification.buttonBackground`
-- `notification.buttonForeground`
-- `notification.buttonHoverBackground`
-- `notification.errorBackground`
-- `notification.errorForeground`
-- `notification.infoBackground`
-- `notification.infoForeground`
-- `notification.warningBackground`
-- `notification.warningForeground`
 
 ## Extensions colors
 
