@@ -158,10 +158,12 @@ Users can tweak the autosurrounding behavior with the `editor.autoSurround` sett
 
 ## Folding
 
-In VS Code, there are three kinds of folding:
+In VS Code, folding is defined either indentation-based, or defined by contributed folding range providers:
 
-- Indentation-based folding: This is VS Code's default folding behavior. When it sees two lines of the same indentation level, it creates a folding marker that allows you to collapse that region.
-- Language configuration folding: When VS Code finds both the `start` and `end` regex defined in `folding.markers`, it creates a folding marker enclosing the content inside the pair. The following JSON creates folding markers for `//#region` and `//#endregion`.
+- Indentation-based folding with markers: If no folding range provider is available for the given language or if the user has set `editor.foldingStrategy` to `indentation`, indentation-based folding is used. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent. Empty lines are ignored.
+Additionally, the language configuration can define start and end markers. These are defined as `start` and `end` regexes in `folding.markers`. When matching lines are found, a folding range inside the pair is created. Folding markers must be non-empty and typically look like `//#region` and `//#endregion`.
+
+The following JSON creates folding markers for `//#region` and `//#endregion`.
 
 ```json
 {
