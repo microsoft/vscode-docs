@@ -218,6 +218,23 @@ VS Code does a background check to detect if the installation has been changed o
 
 You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
+## Resolving Shell Environment is Slow (Error, Warning)
+
+When launching VS Code from the UI on macOS and Linux, it won't have access to your configured `.bashrc` or `.zshrc` environment settings, by default. In that situation, VSCode will start a small process to resolve your shell environment in order to still get that environment. That way you can still benefit from your shell configuration when launching tasks or debug targets from within VS Code, even if you didn't start VS Code from a shell.
+
+If resolving your shell environment is blocking the window for more than 3 seconds, you will be seeing this warning:
+
+![Shell environment warning](images/faq/shell-env-warning.png)
+
+After blocking the window for 10 seconds, we will give up waiting for the shell environment to resolve and you will be seeing this error:
+
+![Shell environment error](images/faq/shell-env-error.png)
+
+Both notifications indicate that some of the configuration in your `.bashrc` or `.zshrc` configuration file takes a long time to resolve. The easiest way to address this issue is to:
+* open these files (e.g. in VSCode by typing `~/.bashrc` or `~/.zshrc` in quick open)
+* selectively start to comment out lines
+* save and fully restart VSCode until the warning or error disappears
+
 ## Technical Support
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/master/CONTRIBUTING.md).
