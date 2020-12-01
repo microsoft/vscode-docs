@@ -50,8 +50,6 @@ Choose a debug profile that you normally use when running your application local
 
 ![Choose the debugger launch task](images/minikube/launch_task.png)
 
-> **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
-
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
 ![Choose isolation](images/minikube/isolation.png)
@@ -60,15 +58,17 @@ Select the **Debug** icon on the left and select **Launch via NPM with Kubernete
 
 ![Choose debug launch profile](images/minikube/debug_profile.png)
 
-> **Note**: You can open *.vscode/launch.json* to see the specific configuration settings that Bridge to Kubernetes adds to your launch profile. If your cluster uses [gRPC C core](https://github.com/grpc/grpc/), an implementation of gRPC that uses [c-ares](https://github.com/c-ares/c-ares), an environment variable is added to your launch profile, GRPC_DNS_RESOLVER, with the value "native." This variable specifies to use a workaround to avoid a 2-minute time delay when connecting. For more information, see this [gRPC issue #18691](https://github.com/grpc/grpc/issues/18691).
+> **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
 ![Debugging with Bridge to Kubernetes](images/minikube/debugging.png)
 
-> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure**.
-
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
+
+> **Note**: On subsequent launches, you will not be prompted for the service name, port, launch task, or whether to run isolated. These values are saved in `.vscode/tasks.json`. To change these settings later, open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure**. You can open *.vscode/launch.json* and *.vscode/tasks.json* to see the specific configuration settings that Bridge to Kubernetes adds to your launch profile.
+>
+>If your cluster uses [gRPC C core](https://github.com/grpc/grpc/), an implementation of gRPC that uses [c-ares](https://github.com/c-ares/c-ares), an environment variable is added to your launch profile, GRPC_DNS_RESOLVER, with the value `native`. This variable specifies to use a workaround to avoid a 2-minute time delay when connecting. For more information, see this [gRPC issue](https://github.com/grpc/grpc/issues/18691).
 
 ## Set a break point
 
