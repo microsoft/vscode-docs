@@ -125,7 +125,7 @@ Python is another highly popular programming language, and it's especially great
 
 VS Code is an excellent editor for coding Python and learning the language. You can use Python in VS Code both for building apps (of every kind) and for working with notebooks such as those used by data scientists.
 
-> If you're looking at getting started with Python, we have a free video series for you as well:
+> If you're looking at getting started with Python, we have a [free video series](https://aka.ms/LearnPython) for you as well:
 > [![Watch: Intro to Python video series](intro-to-python-cover.jpg)](https://aka.ms/LearnPython)
 
 While Chrome OS already comes with the Python 3 interpreter pre-installed, for us to be effective at coding in Python we need to install a few more packages, including pip (a dependency manager for Python), venv (for managing Python virtual environments), and some build tools for working with native packages. In the terminal, run:
