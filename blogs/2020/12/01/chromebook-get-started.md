@@ -90,7 +90,7 @@ If you're new to VS Code and want to know how to use the editor, we have some r
 JavaScript is a very flexible programming language, that can be used to build apps running inside a web browser and on web servers with Node.js. Nowadays, you can find JavaScript being used also to build native desktop apps (Electron) and mobile apps (Apache Cordoba, React Native, etc), programming Internet-of-Things (IoT) devices, and much more.
 
 > If you're looking to learn JavaScript, you can take a look at this [free video series](https://aka.ms/learnJS) our colleagues made:
-> [![Watch: Beginner's series to JavaScript](intro-to-js-cover.png)](https://aka.ms/learnJS)
+> [![Watch: Beginner's series to JavaScript](intro-to-js-cover.jpg)](https://aka.ms/learnJS)
 
 Visual Studio Code is the most popular editor for coding with JavaScript and Node.js, and supports JavaScript natively.
 
