@@ -392,6 +392,50 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `configureSsl` | Whether to configure ASP.NET Core SSL certificates and other settings to enable SSL on the service in the container. |
 | `enableDebugging` | Whether to enable the started container for debugging. This will infer additional volume mappings and other options necessary for debugging. |
 
+## Docker Compose task
+
+The `docker-compose` task in `tasks.json` creates and starts Docker containers using the Docker Compose command line (CLI). The task can be used by itself, or as part of a chain of tasks to debug an application within a Docker container.
+
+The most important configuration setting for the `docker-compose` task is `dockerCompose`:
+
+- The `dockerCompose` object specifies parameters for the Docker Compose command. Values specified by this object are applied directly to Docker Compose CLI invocation.
+
+See [property reference](#compose-task-reference) for full list of all task properties.
+
+## Compose task reference
+
+Here are all properties available for configuring `docker-compose` task. All properties are optional unless indicated otherwise.
+
+| Property | Description |
+| --- | --- |
+| `dockerCompose` | Options for controlling the `docker-compose` command executed ([see below](#dockercompose-object-properties)). <br/> Required. |
+
+### dockerCompose object properties
+
+| Property | Description | CLI Equivalent |
+| --- | --- | --- |
+| `up` | Run a `docker-compose up` command. <br/> Either this or `down` must be specified, but not both. | `docker-compose up` |
+| `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
+| `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
+
+### up object properties
+
+| Property | Description | CLI Equivalent | Default |
+| --- | --- | --- | --- |
+| `detached` | Whether or not to run detached. | `-d` | `true` |
+| `build` | Whether or not to build before running. | `--build` | `true` |
+| `scale` | Number of instances of each service to run. This is a list of key-value pairs. | `--scale SERVICE=NUM` |
+| `services` | A subset of the services to start. | `[SERVICE...]` | (all) |
+| `customOptions` | Any extra parameters to add after the `up` argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
+
+### down object properties
+
+| Property | Description | CLI Equivalent | Default |
+| --- | --- | --- | --- |
+| `removeImages` | Whether to remove images, and which. `all` will remove all images used by any service, `local` will remove only images without a custom tag. Leaving this unset will remove no images. | `--rmi` |
+| `removeVolumes` | Whether or not to remove named volumes. | `-v` | `false` |
+| `customOptions` | Any extra parameters to add after the `down` argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
+
 ## Command customization
 
 The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
@@ -521,6 +565,7 @@ Supported tokens:
 | `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
 | `${detached}` | Set to `-d` if the configuration setting `docker.dockerComposeDetached` is set to `true`. Otherwise, set to `""`. |
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
+| `${serviceList}` | If specified, prompts for a subset of the services to start when the command is run. |
 
 ### Docker Compose Down
 
@@ -542,3 +587,5 @@ In addition to the command-specific supported tokens, the following tokens are s
 | -- | -- |
 | `${workspaceFolder}` | The selected workspace folder path. |
 | `${config:some.setting.identifier}` | The value of any configuration setting, as long as it is a string, number, or boolean. These setting identifiers can be arbitrarily defined and do not need to belong to Visual Studio Code or to any extension. |
+| `${env:Name}` | The value of an environment variable. |
+| `${command:commandID}` | The string return value of a command. |
