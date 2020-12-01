@@ -402,6 +402,30 @@ The most important configuration setting for the `docker-compose` task is `docke
 
 See [property reference](#compose-task-reference) for full list of all task properties.
 
+**Example configuration**
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run docker-compose up",
+            "type": "docker-compose",
+            "up": {
+                "detached": true,
+                "build": true,
+                "services": [
+                  "myservice"
+                ]
+            },
+            "files": [
+                "${workspaceFolder}/docker-compose.yml",
+                "${workspaceFolder}/docker-compose.debug.yml"
+            ]
+        }
+    ]
+}
+```
+
 ## Compose task reference
 
 Here are all properties available for configuring `docker-compose` task. All properties are optional unless indicated otherwise.
