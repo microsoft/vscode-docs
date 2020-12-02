@@ -1,6 +1,6 @@
 ---
-Order: 5
-Area: educators
+Order: 3
+Area: students
 TOCTitle: Wonder Woman Lessons
 ContentId: 59288bcc-97b7-411e-86da-c022a00e25ec
 PageTitle: Get Started Tutorial for Wonder Woman project in Visual Studio Code
@@ -22,7 +22,6 @@ Get a glimpse into the Python programming language with this introductory learni
     </a>
 </div><br/>
 
-
 For a video walkthrough of the first lesson, you can follow along with this:
 
-<iframe src="https://www.youtube-nocookie.com/embed/O9WXvc1N8Wc" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/VH_mU42lQkQ" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

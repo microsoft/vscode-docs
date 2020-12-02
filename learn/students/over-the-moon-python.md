@@ -1,6 +1,6 @@
 ---
-Order: 6
-Area: educators
+Order: 2
+Area: students
 TOCTitle: Over the Moon Lessons
 ContentId: 59288bcc-97b7-411e-86da-c022a00e25ec
 PageTitle: Get Started Tutorial for Over the Moon project in Visual Studio Code
