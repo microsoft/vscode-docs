@@ -6,7 +6,7 @@ DateApproved: 11/12/2020
 MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to an AKS Kubernetes cluster
 ---
 
-# Use Bridge to Kubernetes with Visual Studio Code and AKS
+# Use Bridge to Kubernetes with AKS
 
 In this tutorial, you'll use a specific AKS sample microservices web app to learn how to use Bridge to Kubernetes to debug locally in a single pod that's part of an Azure Kubernetes Service (AKS) cluster.
 

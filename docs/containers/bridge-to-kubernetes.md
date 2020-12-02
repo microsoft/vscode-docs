@@ -8,7 +8,7 @@ DateApproved: 07/22/2020
 MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
 ---
 
-# Use Bridge to Kubernetes with Visual Studio Code
+# Use Bridge to Kubernetes
 
 Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
 
