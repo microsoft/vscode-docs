@@ -91,7 +91,7 @@ Once VS Code has launched, open the Kubernetes pane from the left sidebar of VS 
 
 ![Select Namespace](images/minikube/select-namespace.png)
 
-install dependencies by running `npm install` in a terminal window (CTRL + ~).
+Install dependencies by running `npm install` in a terminal window (CTRL + ~).
 
 ```cmd
 npm install
