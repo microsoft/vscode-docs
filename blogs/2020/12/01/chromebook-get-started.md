@@ -1,19 +1,19 @@
 ---
 Order: 61
 TOCTitle: VS Code on Chromebook
-PageTitle: Coding–and learning to code–with VS Code on Chromebooks
-MetaDescription: Installing Visual Studio Code on Chromebooks with Crostini and getting started with VS Code
-Date: 2020-12-01
+PageTitle: Coding and learning with VS Code on Chromebooks
+MetaDescription: Installing Visual Studio Code on Chromebooks with Crostini and getting started with coding and learning
+Date: 2020-12-03
 Author: Alessandro Segala
 ---
 
-# Coding–and learning to code–with VS Code on Chromebooks
+# Coding and learning with VS Code on Chromebooks
 
 For the last few years, Chromebooks running Google Chrome OS have been providing an alternative to "traditional" laptops. Thanks to lots of choices, from very affordable models to high-end ones, Chromebooks are especially popular among students, who can use them for learning, completing assignments, and attending classes virtually.
 
-While Chromebooks and Chrome OS are normally centered around the web browser, you can enable a Linux environment that allows installing native desktop applications… And that, of course, includes Visual Studio Code!
+While Chromebooks and Chrome OS are typically centered around the web browser, you can also enable a Linux environment that allows installing native desktop applications, including Visual Studio Code!
 
-With VS Code running on your Chromebook, you get the ability to run one of the world's most-loved code editors, enabling you to code, and learning to code, using the most popular programming languages and technologies. This includes languages such as Python, JavaScript and Node.js, Java, and C#, among many more!
+With VS Code running on your Chromebook, you can start coding easily and quickly in a variety of languages and frameworks. This includes languages such as Python, JavaScript and Node.js, Java, and C#, among many more!
 
 In this article, the first of two, we'll look at how to install Visual Studio Code on a Chromebook and how to set up an environment to start coding in Python or JavaScript/Node.js. In a later post, we'll also look at how to leverage the remote development extensions for VS Code to get access to more powerful environments for coding.
 
@@ -23,7 +23,7 @@ VS Code runs on any recent Chromebook, as long as you are able to enable Linux 
 
 Because VS Code is a lightweight editor, you will be able to run it on low-powered Chromebooks too, with a minimum of just 1GB of RAM. Additionally, we've recently made VS Code available for Linux on ARMv7 and ARM64 too, which means that you can run it on Chromebooks powered by an ARM chip as well!
 
-For this article, I'll be using an entry-level Chromebook, with an ARM64 CPU, 4GB of RAM, and a 32GB-disk. VS Code runs just fine on this machine too!
+For this tutorial, I’ll be using an entry-level Chromebook, with an ARM64 CPU, 4GB of RAM, and a 32GB-disk. Despite the modest specs, VS Code runs just fine on this machine too!
 
 ## Enable Linux on your Chromebook
 
@@ -74,7 +74,7 @@ Your Chromebook will then install VS Code and all other dependencies.
 
 After the installation is complete, in your list of apps you'll find **Visual Studio Code** inside a folder called **Linux apps**. Launch it to get VS Code running.
 
-![Launching the VS Code app](launch-vscode.png)
+![Launching the Visual Studio Code app](launch-vscode.png)
 
 You should see VS Code running, and at this point you're ready to start coding!
 
@@ -92,9 +92,9 @@ JavaScript is a very flexible programming language, that can be used to build ap
 > If you're looking to learn JavaScript, you can take a look at this [free video series](https://aka.ms/learnJS) our colleagues made:
 > [![Watch: Beginner's series to JavaScript](intro-to-js-cover.jpg)](https://aka.ms/learnJS)
 
-Visual Studio Code is the most popular editor for coding with JavaScript and Node.js, and supports JavaScript natively.
+Visual Studio Code is the most popular editor for coding with JavaScript and Node.js ([State of JS survey](https://2019.stateofjs.com/other-tools/text_editors)), and supports JavaScript natively.
 
-However, in order to use Node.js (and JavaScript in general) on your Chromebook, you'll have to install the Node.js interpreter. To do that, we're going to use [nvm](https://github.com/nvm-sh/nvm), a small open source utility that makes it easier to install Node.js and update it.
+However, in order to use Node.js (and JavaScript in general) on your Chromebook, you'll have to install the Node.js interpreter. To do that, we're going to use [nvm](https://github.com/nvm-sh/nvm), a small open-source utility that makes it easier to install Node.js and update it.
 
 To install nvm, inside the terminal run the following commands:
 
@@ -123,12 +123,12 @@ After Node.js is installed, you can use the `node` command in the terminal, as w
 
 Python is another highly popular programming language, and it's especially great for beginners. With Python, you can build apps for the web, desktop, and command line. Python is one of the best-suited languages for working with data science and Artificial Intelligence (AI), and it's also used to program IoT devices, microcontrollers, and more!
 
-VS Code is an excellent editor for coding Python and learning the language. You can use Python in VS Code both for building apps (of every kind) and for working with notebooks such as those used by data scientists.
+VS Code is an excellent editor for coding Python and learning the language. You can use Python in VS Code both for building apps of every kind and for working with notebooks, such as those used by data scientists.
 
 > If you're looking at getting started with Python, we have a [free video series](https://aka.ms/LearnPython) for you as well:
 > [![Watch: Intro to Python video series](intro-to-python-cover.jpg)](https://aka.ms/LearnPython)
 
-While Chrome OS already comes with the Python 3 interpreter pre-installed, for us to be effective at coding in Python we need to install a few more packages, including pip (a dependency manager for Python), venv (for managing Python virtual environments), and some build tools for working with native packages. In the terminal, run:
+Chrome OS already comes with the Python 3 interpreter pre-installed, but we need to install a few more packages to get the best Python coding experience. This includes _pip_ (a dependency manager for Python), _venv_ (for managing Python virtual environments), and some build tools for working with native packages. In the terminal, run:
 
 ```sh
 sudo apt-get install -y python3-pip python3-dev python3-venv build-essential libssl-dev libffi-dev
@@ -144,14 +144,14 @@ At this point, you're ready to start developing with Python in VS Code! To lear
 
 ## Coming next: using remote development
 
-That's all for today! In this article, we looked at how to install VS Code on a Chromebook and how to get started with coding in JavaScript/Node.js and Python.
+That's all for today! In this post, we looked at how to install VS Code on a Chromebook and how to get started with coding in JavaScript/Node.js and Python.
 
-But, there's more. While Chromebooks can run VS Code just fine, even lower-powered ones like the one I'm testing with, sometimes you need to get access to faster machines for your development, with more memory and/or a faster CPU. Maybe you're using an ARM-powered Chromebook but you need to run your code on a Intel/AMD chip. Or maybe you want to work with Artificial Intelligence and need access to machines with powerful GPUs.
+But wait, there’s more. While Chromebooks can run VS Code just fine, even lower-powered ones like the one I’m testing with, sometimes you need to use faster machines for your development, with more memory and/or a faster CPU. Maybe you’re using an ARM-powered Chromebook but you need to run your code on a Intel/AMD chip. Or maybe you want to work with Artificial Intelligence and need access to machines with powerful GPUs.
 
-With VS Code and the Remote extensions (SSH and Container), as well as GitHub Codespaces, we can solve all of the problems above–and some more.
+With VS Code and the Remote extensions (SSH and Container), as well as GitHub Codespaces, we can solve all of the problems above–and some more.
 
-Come back next week to learn how VS Code Remote extensions and GitHub Codespaces can help turning your Chromebook into a development powerhouse in the next part of this article!
+In the next part of this tutorial you’ll learn how VS Code Remote extensions and GitHub Codespaces can turn your Chromebook into a development powerhouse!In the meanwhile, happy coding… and happy learning!
 
-In the meanwhile, happy coding… and happy learning to code!
+In the meanwhile, happy coding… and happy learning!
 
 Alessandro Segala, VS Code Product Manager [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
