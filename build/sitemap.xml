@@ -835,12 +835,12 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-        <url>
+    <url>
         <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-aks</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-        <url>
+    <url>
         <loc>https://code.visualstudio.com/docs/containers/minikube</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
