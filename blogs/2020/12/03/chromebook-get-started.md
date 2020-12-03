@@ -21,7 +21,7 @@ In this article, the first of two, we'll look at how to install Visual Studio Co
 
 ## What you'll need
 
-VS Code runs on any recent Chromebook, as long as you are able to enable Linux applications via _[Crostini](https://chromeos.dev/en/linux)_; we'll look at how to do that in just a moment.
+VS Code runs on any recent Chromebook, as long as you are able to enable Linux applications via [Crostini](https://chromeos.dev/en/linux), which we'll look at how to do in just a moment.
 
 Visual Studio Code is a lightweight editor, so you will be able to run it on low-powered Chromebooks, with a minimum of 1 GB of RAM. In addition, VS Code is now available for Linux on ARMv7 and ARM64, which means that you can run it on Chromebooks powered by an ARM chip as well!
 
@@ -29,7 +29,7 @@ For this tutorial, I'll be using an entry-level Chromebook, with an ARM64 CPU, 4
 
 ## Enable Linux on your Chromebook
 
-Before we can install VS Code on Chrome OS, we need to enable support for native Linux apps, using _Crostini_.
+Before we can install VS Code on Chrome OS, we need to enable support for native Linux apps, using Crostini.
 
 First, open your system's Settings, then look for **Linux (Beta)** on the sidebar. From there, turn on Linux support.
 
@@ -60,13 +60,14 @@ We're now ready to install VS Code!
 
 Go to the Visual Studio Code [Download](https://code.visualstudio.com/download) page. From there, you need to pick the right package for your Chromebook:
 
-- For Chromebooks running an Intel or AMD chip, pick the **.deb** in variant **64 bit**
-- If your Chromebook is running on an ARM64 chip (like the one I'm testing with), pick the **.deb** package in the variant **ARM64** instead
+- For Chromebooks running an Intel or AMD chip, pick the **.deb** in variant **64 bit**.
+- If your Chromebook is running on an ARM64 chip (like the one I'm testing with), pick the **.deb** package in the variant **ARM64** instead.
 
 ![List of downloads](downloads.png)
 
-> If you're unsure what kind of CPU your Chromebook is using, run the command `dpkg --print-architecture` in the Linux terminal to find out. You'll see either `amd64` (for both Intel and AMD chips: pick the **64 bit** variant for VS Code) or `arm64` (pick **ARM64**).
-> ![Output of the command to find the architecture: this laptop is running on arm64](dpkg-arch.png)
+If you're unsure what kind of CPU your Chromebook is using, run the command `dpkg --print-architecture` in the Linux terminal to find out. You'll see either `amd64` (for both Intel and AMD chips: pick the **64 bit** variant for VS Code) or `arm64` (pick **ARM64**).
+
+![Output of the command to find the architecture: this laptop is running on arm64](dpkg-arch.png)
 
 After you've downloaded VS Code, you'll find the package in your **Downloads** folder. Double-click on the package to launch the installer:
 
@@ -74,7 +75,7 @@ After you've downloaded VS Code, you'll find the package in your **Downloads** 
 
 Your Chromebook will then install VS Code and all other dependencies.
 
-After the installation is complete, in your list of apps, you'll find **Visual Studio Code** inside a folder called **Linux apps** (along with the terminal). You can now launch VS Code.
+After the installation is complete, in your list of apps, you'll find **Visual Studio Code** inside a folder called **Linux apps** (along with the Linux terminal). You can now launch VS Code.
 
 ![Launching the Visual Studio Code app](launch-vscode.png)
 
@@ -84,14 +85,14 @@ You should see VS Code running, and at this point you're ready to start coding!
 
 If you're new to VS Code and want to know how to use the editor, here are some resources for you to explore:
 
-- [VS Code intro videos](https://code.visualstudio.com/docs/getstarted/introvideos): These videos will explain how to use VS Code to open files and folders, install themes and extensions, configure the editor, and more.
+- [VS Code Introductory Videos](https://code.visualstudio.com/docs/getstarted/introvideos): These videos will explain how to use VS Code to open files and folders, install themes and extensions, configure the editor, and more.
 - [Learn to code with VS Code](https://code.visualstudio.com/learn/): Our "Learn" section contains articles, tutorials, and videos for people who are new to coding and want to get started.
 
 ## Code with JavaScript and Node.js
 
 JavaScript is a very flexible programming language, that can be used to build apps running inside a web browser and on web servers with Node.js. Nowadays, JavaScript is also being used to build native desktop apps (Electron) and mobile apps (Apache Cordoba, React Native, etc.), programming Internet-of-Things (IoT) devices, and much more.
 
-> If you want to learn JavaScript, there is a [free video series](https://aka.ms/learnJS) our colleagues made:
+> **Tip**: If you want to learn JavaScript, there is a [free video series](https://aka.ms/learnJS) our colleagues made:
 > [![Watch: Beginner's series to JavaScript](intro-to-js-cover.jpg)](https://aka.ms/learnJS)
 
 Visual Studio Code is a very popular editor for coding with JavaScript and Node.js ([State of JS survey](https://2019.stateofjs.com/other-tools/text_editors)), and supports JavaScript natively.
@@ -115,7 +116,7 @@ nvm install node
 
 ![Installing Node.js via nvm](install-node.png)
 
-> Did you know that VS Code contains an integrated terminal? You can launch it from the **Terminal** menu and then **New Terminal**. VS Code is running in the context of the Linux environment, so the integrated terminal is also running in Linux.
+> **Tip**: Did you know that VS Code contains an integrated terminal? You can launch it from the **Terminal** menu and then **New Terminal**. VS Code is running in the context of the Linux environment, so the integrated terminal is also running in Linux.
 
 nvm offers quite a few options to set up, update, and manage Node.js. If you're interested, you can read more in the official [documentation for nvm](https://github.com/nvm-sh/nvm).
 
@@ -127,7 +128,7 @@ Python is another popular programming language, and it's especially great for be
 
 VS Code is an excellent editor for coding Python and learning the language. You can use Python in VS Code both for building apps of every kind and for working with notebooks, such as those used by data scientists.
 
-> If you're looking at getting started with Python, there is a [free video series](https://aka.ms/LearnPython) for you as well:
+> **Tip**: If you're looking at getting started with Python, there is a [free video series](https://aka.ms/LearnPython) for you as well:
 > [![Watch: Intro to Python video series](intro-to-python-cover.jpg)](https://aka.ms/LearnPython)
 
 Chrome OS already comes with the Python 3 interpreter pre-installed, but we need to install a few more packages to get the best Python coding experience. This includes _pip_ (a dependency manager for Python), _venv_ (for managing Python virtual environments), and some build tools for working with native packages. In the terminal, run:
@@ -138,13 +139,13 @@ sudo apt-get install -y python3-pip python3-dev python3-venv build-essential lib
 
 ![Installing Python dependencies](install-python-deps.png)
 
-Python support in VS Code is provided through the [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension. To install the Python extension, from within VS Code, use the left Activity bar to open the Extensions view (`kb(workbench.view.extensions)`), then search for **Python** and install the extension provided by Microsoft:
+Python support in VS Code is provided through the [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension. To install the Python extension, from within VS Code, use the left Activity bar to open the Extensions view (`kb(workbench.view.extensions)`), then search for "python" and install the extension provided by Microsoft:
 
 ![Installing the Python extension for VS Code](install-python-ext.png)
 
 At this point, you're ready to start developing with Python in VS Code! To learn more about using Python with VS Code, including running your code, using the integrated debugger, linting, etc., check out our documentation for [Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
-## Coming next: using remote development
+## Coming next: using Remote Development
 
 That's all for today! In this post, we looked at how to install VS Code on a Chromebook and how to get started with coding in JavaScript/Node.js and Python.
 
@@ -152,6 +153,8 @@ But wait, there's more. While Chromebooks can run VS Code just fine, even on low
 
 With VS Code and the [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extensions (SSH and Container), as well as [GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces), we can solve all of the problems above–and more.
 
-In the next part of this tutorial, you'll learn how VS Code Remote extensions and GitHub Codespaces can turn your Chromebook into a development powerhouse! In the meanwhile, happy coding… and happy learning!
+In the next part of this tutorial, you'll learn how VS Code Remote extensions and GitHub Codespaces can turn your Chromebook into a development powerhouse!
+
+In the meanwhile, happy coding… and happy learning!
 
 Alessandro Segala, VS Code Product Manager [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
