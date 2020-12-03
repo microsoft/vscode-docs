@@ -102,6 +102,59 @@ Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` dir
 
 With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. To access the local endpoint URL for the isolated app, launch the debugger in isolation mode, open the Kubernetes menu on the status bar, and choose the endpoint entry. You can find more about how routing works in isolation mode at [How Bridge to Kubernetes Works][btk-overview-routing].
 
+## Header propagation
+
+To use Bridge to Kubernetes the way it is designed, you need to make sure to propagate the Bridge to Kubernetes header from incoming requests to any requests that your services make to other services in the cluster. All HTTP request APIs, regardless of language, provide some framework-specific way to do this. For example, for .NET code in C#, you can use code similar to the following example:
+
+```csharp
+var request = new HttpRequestMessage();
+request.RequestUri = new Uri("http://mywebapi/api/values/1");
+if (this.Request.Headers.ContainsKey("kubernetes-route-as"))
+{
+    // Propagate the dev space routing header
+    request.Headers.Add("azds-route-as", this.Request.Headers["kubernetes-route-as"] as IEnumerable<string>);
+}
+var response = await client.SendAsync(request);
+```
+
+To avoid affecting code at every request, you can create your own `HttpHandler`-derived class by inheriting from <xref:System.Net.Http.DelegatingHandler> and overriding the `SendAsync` method with code similar to the preceding example.
+
+For Node.js services, you can use code similar to the following, taken from the todo-app sample in the [mindaro repo](https://github.com/Microsoft/mindaro):
+
+```js
+    server.get("/api/stats", function (req, res) {
+        var options = {
+            host: process.env.STATS_API_HOST,
+            path: '/stats',
+            method: 'GET'
+        };
+        const val = req.get('kubernetes-route-as');
+        if (val) {
+            console.log('Forwarding kubernetes-route-as header value - %s', val);
+            options.headers = {
+                'kubernetes-route-as': val
+            }
+        }
+        var req = http.request(options, function(statResponse) {
+            res.setHeader('Content-Type', 'application/json');
+            var responseString = '';
+            //another chunk of data has been received, so append it to `responseString`
+            statResponse.on('data', function (chunk) {
+                responseString += chunk;
+            });
+            statResponse.on('end', function () {
+                res.send(responseString);
+            });
+        });
+
+        req.on('error', function(e) {
+            console.log('problem with request: ' + e.message);
+          });
+          
+          req.end();
+    });
+```
+
 ## Troubleshooting
 
  If you get this error when activating the Bridge to Kubernetes extension:
