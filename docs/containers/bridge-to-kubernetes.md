@@ -100,7 +100,7 @@ Additionally, you can find the diagnostic logs in the `Bridge to Kubernetes` dir
 
 ## Running in isolation mode
 
-With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. More explanation on how this is done can be found at [How Bridge to Kubernetes Works][btk-overview-routing].
+With Bridge to Kubernetes, you can also set up an isolated version the services you're working on, meaning that others who are using the cluster won't be affected by your changes. This isolation mode is accomplished by routing your requests to your copy of each affected service, but routing all other traffic normally. To access the local endpoint URL for the isolated app, launch the debugger in isolation mode, open the Kubernetes menu on the status bar, and choose the endpoint entry. You can find more about how routing works in isolation mode at [How Bridge to Kubernetes Works][btk-overview-routing].
 
 ## Troubleshooting
 
