@@ -18,7 +18,7 @@ Get a glimpse into the Python programming language with this introductory learni
         <a href="https://docs.microsoft.com/en-us/learn/paths/python-partnership/?WT.mc_id=python-0000-cxa"><h2 class="title faux-h3">Learn Python with Wonder Woman</h2></a>
     </div>
     <p class="description">Build a message decoder program and a personality quiz in these lessons inspired by the WONDER WOMAN 1984 film.</p>
-    <a href="https://docs.microsoft.com/en-us/learn/paths/python-partnership/?WT.mc_id=python-0000-cxa"><img src="/assets/learn/educators/wonder-woman-python/ww-lesson.png" alt="Wonder Woman module" aria-hidden="true" class="thumb"/></a>
+    <a href="https://docs.microsoft.com/en-us/learn/paths/python-partnership/?WT.mc_id=python-0000-cxa"><img src="/assets/learn/students/wonder-woman-python/ww-lesson.png" alt="Wonder Woman module" aria-hidden="true" class="thumb"/></a>
     </a>
 </div><br/>
 
