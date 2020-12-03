@@ -50,13 +50,13 @@ The output will be similar to this:
 
 ![Output of the commands in the terminal](install-deps.png)
 
-As soon as the second command ends, you can close the terminal.
+As soon as the second command ends, you can move to the next step.
 
 ## Install VS Code
 
 We're now ready to install VS Code!
 
-From this website, go to the [list of downloads](https://code.visualstudio.com/#alt-downloads). From there, you need to pick the right package for your Chromebook:
+From this website, go to the [list of downloads](https://code.visualstudio.com/download). From there, you need to pick the right package for your Chromebook:
 
 - For Chromebooks running an Intel or AMD chip, pick the **.deb** in variant **64 bit**
 - If your Chromebook is running on an ARM64 chip (like the one I'm testing with) pick the **.deb** package in the variant **ARM64** instead
@@ -72,7 +72,7 @@ After you've downloaded VS Code, you'll find the package in your **Downloads** 
 
 Your Chromebook will then install VS Code and all other dependencies.
 
-After the installation is complete, in your list of apps you'll find **Visual Studio Code** inside a folder called **Linux apps**. Launch it to get VS Code running.
+After the installation is complete, in your list of apps you'll find **Visual Studio Code** inside a folder called **Linux apps** (right next to the Terminal, should you need to re-open it). Launch it to get VS Code running.
 
 ![Launching the Visual Studio Code app](launch-vscode.png)
 
