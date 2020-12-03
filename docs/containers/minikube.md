@@ -133,7 +133,7 @@ Your development computer is connected when the VS Code status bar turns orange 
 
 ![Debugging with Bridge to Kubernetes](images/minikube/debugging.png)
 
-Navigate to the frontend entry point of your todo-app. For minikube, we'll be using `127.0.0.1`.
+Navigate to the frontend entry point of your todo-app. For minikube, we'll be using `127.0.0.1`. To access the local endpoint URL for your app, open the Kubernetes menu on the status bar and choose the endpoint entry.
 
 Make a request to the stats-api by choosing the **stats** link.
 
