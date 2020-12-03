@@ -151,6 +151,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the diff editor shows the diff side by side or inline.
     "diffEditor.renderSideBySide": true,
 
+	//  - off: Lines will never wrap.
+	//  - on: Lines will wrap at the viewport width.
+	//  - inherit: Lines will wrap according to the `editor.wordWrap` setting.
+	"diffEditor.wordWrap": "inherit",
+
     // Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`;`) can be a commit character that accepts a suggestion and types that character.
     "editor.acceptSuggestionOnCommitCharacter": true,
 
@@ -209,6 +214,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the editor shows CodeLens.
     "editor.codeLens": true,
+
+	// Controls the font family for CodeLens.
+	"editor.codeLensFontFamily": "",
+
+	// Controls the font size in pixels for CodeLens. When set to `0`, the 90% of `editor.fontSize` is used.
+	"editor.codeLensFontSize": 0,
 
     // Controls whether the editor should render the inline color decorators and color picker.
     "editor.colorDecorators": true,
@@ -298,7 +309,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font family.
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
-    // Configures font ligatures or font features.
+	// Configures font ligatures or font features. Can be either a boolean to enable/disable ligatures or a string for the value of the CSS 'font-feature-settings' property.
     "editor.fontLigatures": false,
 
     // Controls the font size in pixels.
@@ -403,6 +414,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - interval: Line numbers are rendered every 10 lines.
     "editor.lineNumbers": "on",
 
+	// Controls whether the editor has linked editing enabled. Depending on the language, related symbols, e.g. HTML tags, are updated while editing.
+	"editor.linkedEditing": false,
+
     // Controls whether the editor should detect links and make them clickable.
     "editor.links": true,
 
@@ -484,9 +498,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable the ability to preview changes before renaming
     "editor.rename.enablePreview": true,
-
-    // Controls whether the editor auto renames on type.
-    "editor.renameOnType": false,
 
     // Controls whether the editor should render control characters.
     "editor.renderControlCharacters": false,
@@ -572,6 +583,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Keep peek editors open even when double clicking their content or when hitting `Escape`.
     "editor.stablePeek": false,
 
+	// Emulate selection behaviour of tab characters when using spaces for indentation. Selection will stick to tab stops.
+    "editor.stickyTabStops": false,
+
     // Controls whether filtering and sorting suggestions accounts for small typos.
     "editor.suggest.filterGraceful": true,
 
@@ -624,6 +638,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to show or hide icons in suggestions.
     "editor.suggest.showIcons": true,
+
+	// Controls whether sugget details show inline with the label or only in the details widget.
+	"editor.suggest.showInlineDetails": true,
 
     // When enabled IntelliSense shows `interface`-suggestions.
     "editor.suggest.showInterfaces": true,
@@ -682,7 +699,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Font size for the suggest widget. When set to `0`, the value of `editor.fontSize` is used.
     "editor.suggestFontSize": 0,
 
-    // Line height for the suggest widget. When set to `0`, the value of `editor.lineHeight` is used.
+	// Line height for the suggest widget. When set to `0`, the value of `editor.lineHeight` is used. The minimum value is 8.
     "editor.suggestLineHeight": 0,
 
     // Controls whether suggestions should automatically show up when typing trigger characters.
@@ -713,9 +730,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.unfoldOnClickAfterEndOfLine": false,
 
     // Remove unusual line terminators that might cause problems.
-	//  - auto: Unusual line terminators are ignored.
-	//  - off: Unusual line terminators prompt to be removed.
-	//  - prompt: Unusual line terminators are automatically removed.
+	//  - auto: Unusual line terminators are automatically removed.
+	//  - off: Unusual line terminators are ignored.
+	//  - prompt: Unusual line terminators prompt to be removed.
     "editor.unusualLineTerminators": "prompt",
 
     // Inserting and deleting whitespace follows tab stops.
@@ -723,6 +740,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether completions should be computed based on words in the document.
     "editor.wordBasedSuggestions": true,
+
+	// Controls from which documents word based completions are computed.
+	//  - currentDocument: Only suggest words from the active document.
+	//  - matchingDocuments: Suggest words from all open documents of the same language.
+	//  - allDocuments: Suggest words from all open documents.
+	"editor.wordBasedSuggestionsMode": "matchingDocuments",
 
     // Characters that will be used as word separators when doing word related navigations or operations.
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
@@ -778,6 +801,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - minimap: Show the diff decorations only in the minimap.
     //  - none: Do not show the diff decorations.
     "scm.diffDecorations": "all",
+
+	// Controls the behavior of Source Control diff gutter decorations.
+	//  - diff: Show the inline diff peek view on click.
+	//  - none: Do nothing.
+	"scm.diffDecorationsGutterAction": "diff",
 
     // Controls the visibility of the Source Control diff decorator in the gutter.
     //  - always: Show the diff decorator in the gutter at all times.
@@ -890,6 +918,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
+
+	// Controls if editor groups can be split from drag and drop operations by dropping an editor or file on the edges of the editor area.
+	"workbench.editor.splitOnDragAndDrop": true,
 
     // Controls the sizing of editor groups when splitting them.
     //  - distribute: Splits all the editor groups to equal parts.
@@ -1023,6 +1054,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, will show the watermark tips when no editor is open.
     "workbench.tips.enabled": true,
 
+	// Controls how tree folders are expanded when clicking the folder names.
+	"workbench.tree.expandMode": "singleClick",
+
     // Controls tree indentation in pixels.
     "workbench.tree.indent": 8,
 
@@ -1088,11 +1122,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether a window should restore to full screen mode if it was exited in full screen mode.
     "window.restoreFullscreen": false,
 
-    // Controls how windows are being reopened after a restart.
-    //  - all: Reopen all windows.
-    //  - folders: Reopen all folders. Empty workspaces will not be restored.
-    //  - one: Reopen the last active window.
-    //  - none: Never reopen a window. Always start with an empty one.
+	// Controls how windows are being reopened after starting for the first time. This setting has no effect when the application is already running.
+	//  - preserve: Always reopen all windows. If a folder or workspace is opened (e.g. from the command line) it opens as a new window unless it was opened before. If files are opened they will open in one of the restored windows.
+	//  - all: Reopen all windows unless a folder, workspace or file is opened (e.g. from the command line).
+	//  - folders: Reopen all windows that had folders or workspaces opened unless a folder, workspace or file is opened (e.g. from the command line).
+	//  - one: Reopen the last active window unless a folder, workspace or file is opened (e.g. from the command line).
+	//  - none: Never reopen a window. Unless a folder or workspace is opened (e.g. from the command line), an empty window will appear.
     "window.restoreWindows": "all",
 
     // Controls the window title based on the active editor. Variables are substituted based on the context:
@@ -1176,7 +1211,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "files.maxMemoryForLargeFilesMB": 4096,
 
     // Timeout in milliseconds after which file participants for create, rename, and delete are cancelled. Use `0` to disable participants.
-    "files.participants.timeout": 5000,
+	"files.participants.timeout": 60000,
 
     // Restore the undo stack when a file is reopened.
     "files.restoreUndoStack": true,
@@ -1185,6 +1220,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - askUser: Will refuse to save and ask for resolving the save conflict manually.
     //  - overwriteFileOnDisk: Will resolve the save conflict by overwriting the file on disk with the changes in the editor.
     "files.saveConflictResolution": "askUser",
+
+	// Enables the simple file dialog. The simple file dialog replaces the system file dialog when enabled.
+	"files.simpleDialog.enable": false,
 
     // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
     "files.trimFinalNewlines": false,
@@ -1269,13 +1307,18 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether file decorations should use colors.
     "explorer.decorations.colors": true,
 
-    // Controls whether the explorer should allow to move files and folders via drag and drop.
+	// Controls whether the explorer should allow to move files and folders via drag and drop. This setting only effects drag and drop from inside the explorer.
     "explorer.enableDragAndDrop": true,
 
     // Controls what naming strategy to use when a giving a new name to a duplicated explorer item on paste.
     //  - simple: Appends the word "copy" at the end of the duplicated name potentially followed by a number
     //  - smart: Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number
     "explorer.incrementalNaming": "simple",
+
+	// Controls the sorting order of editors in the Open Editors pane.
+	//  - editorOrder: Editors are ordered in the same order editor tabs are shown.
+	//  - alphabetical: Editors are ordered in alphabetical order inside each editor group.
+	"explorer.openEditors.sortOrder": "editorOrder",
 
 	// Number of editors shown in the Open Editors pane. Setting this to 0 hides the Open Editors pane.
     "explorer.openEditors.visible": 9,
@@ -1293,7 +1336,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the positioning of the actionbar on rows in the search view.
     //  - auto: Position the actionbar to the right when the search view is narrow, and immediately after the content when the search view is wide.
     //  - right: Always position the actionbar to the right.
-    "search.actionsPosition": "auto",
+	"search.actionsPosition": "right",
 
     // Controls whether the search results will be collapsed or expanded.
     //  - auto: Files with less than 10 results are expanded. Others are collapsed.
@@ -1421,6 +1464,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Debug
 
+	// Controls when the comments panel should open.
+	"comments.openPanel": "openOnSessionStartWithComments",
+
     // Allow setting breakpoints in any file.
     "debug.allowBreakpointsEverywhere": false,
 
@@ -1522,8 +1568,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
     "html.format.preserveNewLines": true,
 
+	// Honor django, erb, handlebars and php templating language tags.
+	"html.format.templating": false,
+
     // List of tags, comma separated, that shouldn't be reformatted. `null` defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
     "html.format.unformatted": "wbr",
+
+	// Keep text content together between this string.
+	"html.format.unformattedContentDelimiter": "",
 
     // Wrap attributes.
     //  - auto: Wrap attributes only when line length is exceeded.
@@ -1535,8 +1587,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preserve-aligned: Preserve wrapping of attributes but align.
     "html.format.wrapAttributes": "auto",
 
+	// Alignment size when using 'force aligned' and 'aligned multiple' in `html.format.wrapAttributes` or `null` to use the default indent size.
+	"html.format.wrapAttributesIndentSize": null,
+
     // Maximum amount of characters per line (0 = disable).
     "html.format.wrapLineLength": 120,
+
+	// Show tag and attribute documentation in hover.
+	"html.hover.documentation": true,
+
+	// Show references to MDN in hover.
+	"html.hover.references": true,
 
     // Controls whether the built-in HTML language support suggests HTML5 tags, properties and values.
     "html.suggest.html5": true,
@@ -1687,10 +1748,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 
     // Preferred path style for auto imports.
-    //  - auto: Automatically select import path style. Prefers using a relative import if `baseUrl` is configured and the relative path has fewer segments than the non-relative import.
-    //  - relative: Relative to the file location.
-    //  - non-relative: Based on the `baseUrl` configured in your `jsconfig.json` / `tsconfig.json`.
-    "javascript.preferences.importModuleSpecifier": "auto",
+	//  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
+	//  - relative: Prefers a relative path to the imported file location.
+	//  - non-relative: Prefers a non-relative import based on the `baseUrl` or `paths` configured in your `jsconfig.json` / `tsconfig.json`.
+	//  - project-relative: Prefers a non-relative import only if the relative import path would leave the package or project directory. Requires using TypeScript 4.2+ in the workspace.
+	"javascript.preferences.importModuleSpecifier": "shortest",
 
     // Preferred path ending for auto imports.
     //  - auto: Use project settings to select a default.
@@ -1747,6 +1809,15 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable JavaScript validation.
     "javascript.validate.enable": true,
+
+	// Enable/disable semantic checking of JavaScript files. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
+	"js/ts.implicitProjectConfig.checkJs": false,
+
+	// Enable/disable strict function types in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
+	"js/ts.implicitProjectConfig.strictFunctionTypes": true,
+
+	// Enable/disable strict null checks in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
+	"js/ts.implicitProjectConfig.strictNullChecks": false,
 
     // Enable/disable automatic closing of JSX tags.
     "typescript.autoClosingTags": true,
@@ -1827,10 +1898,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     "typescript.npm": null,
 
     // Preferred path style for auto imports.
-    //  - auto: Automatically select import path style. Prefers using a relative import if `baseUrl` is configured and the relative path has fewer segments than the non-relative import.
-    //  - relative: Relative to the file location.
-    //  - non-relative: Based on the `baseUrl` configured in your `jsconfig.json` / `tsconfig.json`.
-    "typescript.preferences.importModuleSpecifier": "auto",
+	//  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
+	//  - relative: Prefers a relative path to the imported file location.
+	//  - non-relative: Prefers a non-relative import based on the `baseUrl` or `paths` configured in your `jsconfig.json` / `tsconfig.json`.
+	//  - project-relative: Prefers a non-relative import only if the relative import path would leave the package or project directory. Requires using TypeScript 4.2+ in the workspace.
+	"typescript.preferences.importModuleSpecifier": "shortest",
 
     // Preferred path ending for auto imports.
     //  - auto: Use project settings to select a default.
@@ -1847,9 +1919,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
     "typescript.preferences.quoteStyle": "auto",
-
-	// Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
-	"typescript.preferences.renameShorthandProperties": true,
 
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
     "typescript.preferences.useAliasesForRenames": true,
@@ -1895,6 +1964,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // - When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.
     // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
     "typescript.tsdk": null,
+
+	// Enables tracing TS server performance to a directory. These trace files can be used to diagnose TS Server performance issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
+	"typescript.tsserver.enableTracing": false,
 
     // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
     "typescript.tsserver.log": "off",
@@ -2166,9 +2238,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, the notifications for extension recommendations will not be shown.
     "extensions.ignoreRecommendations": false,
 
-    // When enabled, recommendations will not be fetched or shown unless specifically requested by the user. Some recommendations are fetched from a Microsoft online service.
-    "extensions.showRecommendationsOnlyOnDemand": false,
-
 // Output
 
     // Enable/disable the ability of smart scrolling in the output view. Smart scrolling allows you to lock scrolling automatically when you click in the output view and unlocks when you click in the last line.
@@ -2334,13 +2403,16 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the maximum amount of lines the terminal keeps in its buffer.
     "terminal.integrated.scrollback": 1000,
 
+	// Dispatches most keybindings to the terminal instead of the workbench, overriding `terminal.integrated.commandsToSkipShell`, which can be used alternatively for fine tuning.
+	"terminal.integrated.sendKeybindingsToShell": false,
+
     // The path of the shell that the terminal uses on Linux (default: /bin/bash).
     "terminal.integrated.shell.linux": null,
 
     // The path of the shell that the terminal uses on macOS (default: /bin/bash).
     "terminal.integrated.shell.osx": null,
 
-    // The path of the shell that the terminal uses on Windows (default: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe).
+	// The path of the shell that the terminal uses on Windows (default: cmd.exe).
     "terminal.integrated.shell.windows": null,
 
     // The command line arguments to use when on the Linux terminal.
@@ -2736,7 +2808,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     },
 
 // Remote
-	// When enabled, URLs with ports (ex. `http://127.0.0.1:3000`) that are printed to your terminals are automatically forwarded.
+
+	// When enabled, new running processes are detected and ports that they listen on are automatically forwarded.
 	"remote.autoForwardPorts": true,
 
     // When enabled extensions are downloaded locally and installed on remote.
@@ -2834,12 +2907,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The character to replace whitespace in new branch names.
     "git.branchWhitespaceChar": "-",
 
-    // Controls what type of branches are listed when running `Checkout to...`.
-    //  - all: Show all references.
-    //  - local: Show only local branches.
-    //  - tags: Show only tags.
-    //  - remote: Show only remote branches.
-    "git.checkoutType": "all",
+	// Controls what type of git refs are listed when running `Checkout to...`.
+	"git.checkoutType": [
+		"local",
+		"remote",
+		"tags"
+	],
 
     // Always confirm the creation of empty commits for the 'Git: Commit Empty' command.
     "git.confirmEmptyCommits": true,
@@ -2886,6 +2959,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, fetch all branches when pulling. Otherwise, fetch just the current one.
     "git.fetchOnPull": false,
 
+	// Follow push all tags when running the sync command.
+	"git.followTagsWhenSync": false,
+
     // List of git repositories to ignore.
     "git.ignoredRepositories": [],
 
@@ -2898,6 +2974,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Ignores the warning when Git is missing.
     "git.ignoreMissingGitWarning": false,
 
+	// Ignore modifications to submodules in the file tree.
+	"git.ignoreSubmodules": false,
+
     // Ignores the warning when Git 2.25 - 2.26 is installed on Windows.
     "git.ignoreWindowsGit27Warning": false,
 
@@ -2909,6 +2988,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `config.inputValidationLength`.
     "git.inputValidationSubjectLength": 50,
+
+	// Controls whether to open a repository automatically after cloning.
+	//  - always: Always open in current window.
+	//  - alwaysNewWindow: Always open in a new window.
+	//  - whenNoFolderOpen: Only open in current window when no folder is opened.
+	//  - prompt: Always prompt for action.
+	"git.openAfterClone": "prompt",
 
     // Controls whether the diff editor should be opened when clicking a change. Otherwise the regular editor will be opened.
     "git.openDiffOnClick": true,
@@ -2927,6 +3013,15 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - staged: Check only for unsaved staged files.
     //  - never: Disable this check.
     "git.promptToSaveFilesBeforeCommit": "always",
+
+	// Controls whether Git should check for unsaved files before stashing changes.
+	//  - always: Check for any unsaved files.
+	//  - staged: Check only for unsaved staged files.
+	//  - never: Disable this check.
+	"git.promptToSaveFilesBeforeStash": "always",
+
+	// Prune when fetching.
+	"git.pruneOnFetch": false,
 
     // Fetch all tags when pulling.
     "git.pullTags": true,
@@ -2976,6 +3071,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - separate: Untracked changes appear separately in the Source Control view. They are also excluded from several actions.
     //  - hidden: Untracked changes are hidden and excluded from several actions.
     "git.untrackedChanges": "mixed",
+
+	// Controls whether to use the message from the commit input box as the default stash message.
+	"git.useCommitInputAsStashMessage": false,
 
     // Controls whether force pushing uses the safer force-with-lease variant.
     "git.useForcePushWithLease": true,
@@ -3089,7 +3187,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.fetchOnlinePackageInfo": true,
 
     // The package manager used to run scripts.
-	"npm.packageManager": "npm",
+	//  - auto: Auto-detect which package manager to use for running scripts based on lock files and installed package managers.
+	//  - npm: Use npm as the package manager for running scripts.
+	//  - yarn: Use yarn as the package manager for running scripts.
+	//  - pnpm: Use pnpm as the package manager for running scripts.
+	"npm.packageManager": "auto",
 
     // Run npm commands with the `--silent` option.
     "npm.runSilent": false,
