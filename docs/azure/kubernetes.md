@@ -38,7 +38,7 @@ You can create a Kubernetes cluster running on Azure using the Kubernetes extens
 
 ![Create Kubernetes](images/kubernetes/create-k8s.gif)
 
-**Important**: To create a Kubernetes cluster on Azure, you need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) and sign in.
+**Important**: To create a Kubernetes cluster on Azure, you need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) and sign in.
 
 **Tip**: You will encounter an error if you don't have an available RSA key file. Follow [create SSH public-private key](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) to create your key before creating an Azure Kubernetes cluster.
 
