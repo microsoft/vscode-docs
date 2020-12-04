@@ -117,7 +117,7 @@ if (this.Request.Headers.ContainsKey("kubernetes-route-as"))
 var response = await client.SendAsync(request);
 ```
 
-To avoid affecting code at every request, you can create your own `HttpHandler`-derived class by inheriting from [System.Net.Http.DelegatingHandler](/dotnet/api/system.net.http.delegatinghandler) and overriding the `SendAsync` method with code similar to the preceding example.
+To avoid affecting code at every request, you can create a class that inherits from [System.Net.Http.DelegatingHandler](/dotnet/api/system.net.http.delegatinghandler) and override the `SendAsync` method with code similar to the preceding example. You can find code using similar techniques on the web in reference to the now-deprecated Azure Dev Spaces; one example is [Properly Propagating "azds-route-as" in Azure Dev Spaces](https://blogs.u2u.be/lander/post/2019/09/16/properly-propagating-azds-route-as-in-azure-dev-spaces). Be sure to use the `kubernetes-route-as` header, not the `azds-route-as` header.
 
 For Node.js services, you can use code similar to the following, taken from the todo-app sample in the [mindaro repo](https://github.com/Microsoft/mindaro):
 
