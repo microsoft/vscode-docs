@@ -112,7 +112,7 @@ request.RequestUri = new Uri("http://mywebapi/api/values/1");
 if (this.Request.Headers.ContainsKey("kubernetes-route-as"))
 {
     // Propagate the dev space routing header
-    request.Headers.Add("azds-route-as", this.Request.Headers["kubernetes-route-as"] as IEnumerable<string>);
+    request.Headers.Add("kubernetes-route-as", this.Request.Headers["kubernetes-route-as"] as IEnumerable<string>);
 }
 var response = await client.SendAsync(request);
 ```
