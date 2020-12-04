@@ -155,4 +155,4 @@ kubectl delete namespace todo-app
 
 ## Next steps
 
-You can also deploy your app to Azure Kubernetes Service (AKS) with Bridge to Kubernetes. See [Use Bridge to Kubernetes with AKS](/docs/containers/bridge-to-kubernetes.md)
+You can also deploy your app to Azure Kubernetes Service (AKS) with Bridge to Kubernetes. See [Use Bridge to Kubernetes with AKS](/docs/containers/bridge-to-kubernetes-aks.md)
