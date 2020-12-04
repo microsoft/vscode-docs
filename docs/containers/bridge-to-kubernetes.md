@@ -104,7 +104,7 @@ With Bridge to Kubernetes, you can also set up an isolated version the services 
 
 ## Header propagation
 
-To use Bridge to Kubernetes the way it is designed, you need to make sure to propagate the Bridge to Kubernetes header from incoming requests to any requests that your services make to other services in the cluster. All HTTP request APIs, regardless of language, provide some framework-specific way to do this. For example, for .NET code in C#, you can use code similar to the following example:
+To use Bridge to Kubernetes the way it is designed, you need to make sure to propagate the Bridge to Kubernetes header from incoming requests to any requests that your services make to other services in the cluster. All HTTP request APIs, regardless of language, provide some framework-specific way to do this. For example, for .NET code in C#, you can use code similar to the following:
 
 ```csharp
 var request = new HttpRequestMessage();
@@ -117,7 +117,7 @@ if (this.Request.Headers.ContainsKey("kubernetes-route-as"))
 var response = await client.SendAsync(request);
 ```
 
-To avoid affecting code at every request, you can create your own `HttpHandler`-derived class by inheriting from <xref:System.Net.Http.DelegatingHandler> and overriding the `SendAsync` method with code similar to the preceding example.
+To avoid affecting code at every request, you can create your own `HttpHandler`-derived class by inheriting from [System.Net.Http.DelegatingHandler](/dotnet/api/system.net.http.delegatinghandler) and overriding the `SendAsync` method with code similar to the preceding example.
 
 For Node.js services, you can use code similar to the following, taken from the todo-app sample in the [mindaro repo](https://github.com/Microsoft/mindaro):
 
