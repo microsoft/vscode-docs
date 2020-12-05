@@ -27,6 +27,7 @@ yo code
 # ? What's the identifier of your extension? helloworld
 # ? What's the description of your extension? LEAVE BLANK
 # ? Initialize a git repository? Yes
+# ? Bundle the source code with webpack? No
 # ? Which package manager to use? npm
 
 code ./helloworld
