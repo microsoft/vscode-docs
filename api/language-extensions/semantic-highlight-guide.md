@@ -90,7 +90,7 @@ Standard semantic token types:
 
 Standard semantic token modifiers:
 
-- declaration
+- declaration, definition,
 - readonly, static, deprecated, abstract
 - async, modification, documentation, defaultLibrary
 
