@@ -470,6 +470,8 @@ The `uriFormat` property describes how the port number is turned into a URI. The
 
 The resulting URI is then opened outside of VS Code ("externally") with the standard application configured for the URI's scheme.
 
+### Trigger Debugging via Chrome
+
 Alternatively, the `action` can be set to `debugWithChrome`. In this case, VS Code starts a Chrome debug session for the URI (which requires that the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension is installed). In this mode, a `webRoot` property can be added that is passed to the Chrome debug session.
 
 To simplify things a bit, most properties are optional and we use the following fallback values:
@@ -478,7 +480,11 @@ To simplify things a bit, most properties are optional and we use the following 
 * **uriFormat**: `"http://localhost:%s"`
 * **webRoot**: `"${workspaceFolder}"`
 
-And here the **serverReadyAction** feature in action:
+### Triggering an Arbitrary Launch Config
+
+In some cases you may need to configure additional options for the Chrome debug session--or use a different debugger entirely. You can do this by setting `action` to `startDebugging`, with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
+
+Here the **serverReadyAction** feature in action:
 
 ![Server ready feature in action](images/debugging/server-ready.gif)
 
