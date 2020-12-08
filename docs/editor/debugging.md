@@ -186,7 +186,7 @@ Variables can be inspected in the **VARIABLES** section of the Run view or by ho
 
 ![Debug Variables](images/debugging/variables.png)
 
-Variable values can be modified with the **Set Value** action from the variable's context menu.
+Variable values can be modified with the **Set Value** action from the variable's context menu. Additionally, you can use the **Copy Value** action to copy the variable's value, or **Copy as Expression** action to copy an expression to access the variable.
 
 Variables and expressions can also be evaluated and watched in the Run view's **WATCH** section.
 
