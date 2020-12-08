@@ -358,7 +358,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
 
-- `editor.onTypeRenameBackground`: Background color when the editor auto renames on type.
+- `editor.linkedEditingBackground`: Background color when the editor is in linked editing mode.
 
 CodeLens:
 
