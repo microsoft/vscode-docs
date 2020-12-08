@@ -12,7 +12,7 @@ In this tutorial, you'll use a specific AKS sample microservices web app to lear
 
 ## Before you begin
 
-This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in AKS. If you already have your own application running on a Kubernetes cluster, see [Develop with Kubernetes](bridge-to-kubernetes.md). If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
+This guide uses the [Bike Sharing sample application][bike-sharing-github] to demonstrate connecting your development computer to a Kubernetes cluster running in AKS. If you already have your own application running on a Kubernetes cluster, see [Develop with Kubernetes](/docs/containers/bridge-to-kubernetes.md). If you are using another cluster, such as MiniKube running locally, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md).
 
 ### Prerequisites
 
@@ -75,7 +75,7 @@ Open `mindaro/samples/BikeSharingApp/Bikes` from the [Bike Sharing sample applic
 
 ![Select Namespace](images/bridge-to-kubernetes-vs-code/select-namespace.png)
 
-Use the `npm install` command to install the dependencies for the application.
+Open a terminal window (**Terminal > New Terminal**), and in the terminal window in the **Bikes** folder, use the `npm install` command to install the dependencies for the application.
 
 ```console
 npm install

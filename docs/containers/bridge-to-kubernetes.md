@@ -54,7 +54,7 @@ You have the option of running isolated or not isolated. If you run isolated, on
 
 ![Choose isolation](images/minikube/isolation.png)
 
-Select the **Debug** icon on the left and select **Launch via NPM with Kubernetes** at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
+Select the **Debug** icon on the left and select the newly added Kubernetes debug profile, such as **Launch via NPM with Kubernetes**, at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
 
 ![Choose debug launch profile](images/minikube/debug_profile.png)
 
