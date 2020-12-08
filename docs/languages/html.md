@@ -52,6 +52,14 @@ You can turn off autoclosing tags with the following [setting](/docs/getstarted/
 "html.autoClosingTags": false
 ```
 
+## Auto update tags
+
+When modifying a tag, the linked editing feature automatically updates the matching closing tag. The feature is optional and can be enabled by setting:
+
+```json
+"editor.linkedEditing": true
+```
+
 ## Color picker
 
 The VS Code color picker UI is now available in HTML style sections.
@@ -117,6 +125,9 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `aligned-multiple`: Wrap when line length is exceeded, align attributes vertically
   * `preserve`: Preserve wrapping of attributes
   * `preserve-aligned`: Preserve wrapping of attributes but align
+* `html.format.wrapAttributesIndentSize`: Alignment size when using `force aligned` and `aligned multiple` in `html.format.wrapAttributes` or `null` to use the default indent size.
+* `html.format.templating`: Honor django, erb, handlebars and php templating language tags.
+* `html.format.unformattedContentDelimiter`: Keep text content together between this string.
 
 >**Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
