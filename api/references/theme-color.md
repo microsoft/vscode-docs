@@ -405,10 +405,13 @@ Errors and warnings:
 
 - `editorError.foreground`: Foreground color of error squiggles in the editor.
 - `editorError.border`: Border color of error boxes in the editor.
+- `editorError.background`: Background color of error text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorWarning.foreground`: Foreground color of warning squiggles in the editor.
 - `editorWarning.border`: Border color of warning boxes in the editor.
+- `editorWarning.background`: Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorInfo.foreground`: Foreground color of info squiggles in the editor.
 - `editorInfo.border`: Border color of info boxes in the editor.
+- `editorInfo.background`: Background color of info text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hint boxes in the editor.
 - `problemsErrorIcon.foreground`: The color used for the problems error icon.
@@ -816,6 +819,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
 - `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
+- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
 - `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
 - `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
