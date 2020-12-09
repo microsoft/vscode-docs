@@ -484,6 +484,8 @@ To simplify things a bit, most properties are optional and we use the following 
 
 In some cases you may need to configure additional options for the Chrome debug session--or use a different debugger entirely. You can do this by setting `action` to `startDebugging`, with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
 
+The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
+
 Here the **serverReadyAction** feature in action:
 
 ![Server ready feature in action](images/debugging/server-ready.gif)
