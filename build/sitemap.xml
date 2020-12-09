@@ -56,6 +56,11 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/insiders</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/nodejs</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -162,11 +167,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/getstarted/keybindings</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/theme-color-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -282,11 +282,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/azure/deployment</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/azure/docker</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -421,7 +416,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/nodejs/node-debugging</loc>
+        <loc>https://code.visualstudio.com/docs/nodejs/nodejs-debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -492,11 +487,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/python/python-on-azure</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/python/tutorial-create-containers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -854,11 +844,6 @@
         <loc>https://code.visualstudio.com/docs/other/office</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/updates/latest</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
     </url>
 
     <!-- /api -->
