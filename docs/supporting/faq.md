@@ -220,20 +220,25 @@ You may also see the **[Unsupported]** message if VS Code files have been mistak
 
 ## Resolving Shell Environment is Slow (Error, Warning)
 
-When launching VS Code from the UI on macOS and Linux, it won't have access to your configured `.bashrc` or `.zshrc` environment settings, by default. In that situation, VSCode will start a small process to resolve your shell environment in order to still get that environment. That way you can still benefit from your shell configuration when launching tasks or debug targets from within VS Code, even if you didn't start VS Code from a shell.
+*This article applies to macOS and Linux environments only.*
 
-If resolving your shell environment is blocking the window for more than 3 seconds, you will be seeing this warning:
+When VS Code is launched from a terminal (e.g. `$ code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like Tasks or Debug Targets have access to those settings.
+
+However, when launching from the UI (e.g. the Code icon in the macOS dock), you would not normally run in the context of a shell and you would not have access to the environment settings.
+
+To work around this, when launching from the UI VS Code will start a small process to run (or “resolve”) the shell environment defined in your `.bashrc` or `.zshrc` files. If your startup file takes a long time to process (more than 3 seconds) you will see the following warning:
 
 ![Shell environment warning](images/faq/shell-env-warning.png)
 
-After blocking the window for 10 seconds, we will give up waiting for the shell environment to resolve and you will be seeing this error:
+If after 10 seconds the shell has still not been resolved, VS Code will abort the process and you will see the following error:
 
 ![Shell environment error](images/faq/shell-env-error.png)
 
-Both notifications indicate that some of the configuration in your `.bashrc` or `.zshrc` configuration file takes a long time to resolve. The easiest way to address this issue is to:
-* open these files (e.g. in VSCode by typing `~/.bashrc` or `~/.zshrc` in quick open)
-* selectively start to comment out lines
-* save and fully restart VSCode until the warning or error disappears
+The easiest way to address this issue is to:
+
+* Open your shell's startup file (e.g. in VSCode by typing `~/.bashrc` or `~/.zshrc` in quick open)
+* Selectively comment out potentially long running lines
+* Save and fully restart VSCode until the warning or error disappears
 
 ## Technical Support
 
