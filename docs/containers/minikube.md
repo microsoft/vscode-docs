@@ -5,7 +5,7 @@ PageTitle: Use MiniKube and Bridge to Kubernetes to run and debug locally with K
 DateApproved: 10/20/2020
 MetaDescription: Learn how to use MiniKube and Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally in Visual Studio Code
 ---
-# Use MiniKube with Bridge to Kubernetes
+# Use Bridge to Kubernetes with MiniKube
 
 This sample illustrates how Bridge to Kubernetes can be used to develop a microservice version of a simple TODO application on any Kubernetes cluster. This sample, using Visual Studio Code, has been adapted from code provided by [TodoMVC](http://todomvc.com). In this example, we use MiniKube to host the application, but these steps should work with any Kubernetes cluster.
 
@@ -91,7 +91,7 @@ Once VS Code has launched, open the Kubernetes pane from the left sidebar of VS 
 
 ![Select Namespace](images/minikube/select-namespace.png)
 
-install dependencies by running `npm install` in a terminal window (CTRL + ~).
+Install dependencies by running `npm install` in a terminal window (CTRL + ~).
 
 ```cmd
 npm install
@@ -133,7 +133,7 @@ Your development computer is connected when the VS Code status bar turns orange 
 
 ![Debugging with Bridge to Kubernetes](images/minikube/debugging.png)
 
-Navigate to the frontend entry point of your todo-app. For minikube, we'll be using `127.0.0.1`.
+Navigate to the frontend entry point of your todo-app. For minikube, we'll be using `127.0.0.1`. To access the local endpoint URL for your app, open the Kubernetes menu on the status bar and choose the endpoint entry.
 
 Make a request to the stats-api by choosing the **stats** link.
 
@@ -155,4 +155,4 @@ kubectl delete namespace todo-app
 
 ## Next steps
 
-You can also deploy your app to Azure Kubernetes Service (AKS) with Bridge to Kubernetes. See [Use Bridge to Kubernetes with AKS](/docs/containers/bridge-to-kubernetes.md)
+You can also deploy your app to Azure Kubernetes Service (AKS) with Bridge to Kubernetes. See [Use Bridge to Kubernetes with AKS](/docs/containers/bridge-to-kubernetes-aks.md)

@@ -215,18 +215,20 @@ We have also added keyboard commands for column selection.  These are bound on W
 For example:
 
 ```json
-{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
-                                  "when": "editorTextFocus" }
+[
+    { "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
+                                    "when": "editorTextFocus" },
+    { "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
+                                    "when": "editorTextFocus" },
+    { "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
+                                    "when": "editorTextFocus" },
+    { "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
+                                    "when": "editorTextFocus" },
+    { "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
+                                    "when": "editorTextFocus" },
+    { "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
+                                    "when": "editorTextFocus" }
+]
 ```
 
 ### Source Code Folding Shortcuts
@@ -259,14 +261,16 @@ Visual Studio Code stops by default at the beginning of words when using `kbstyl
 For example:
 
 ```json
-{ "key": "ctrl+right",       "command": "cursorWordStartRight",
-                                "when": "editorTextFocus" },
-{ "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
-                                "when": "editorTextFocus" },
-{ "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
-                                "when": "editorTextFocus" },
-{ "key": "ctrl+delete",      "command": "deleteWordStartRight",
-                                "when": "editorTextFocus" }
+[
+    { "key": "ctrl+right",       "command": "cursorWordStartRight",
+                                    "when": "editorTextFocus" },
+    { "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
+                                    "when": "editorTextFocus" },
+    { "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
+                                    "when": "editorTextFocus" },
+    { "key": "ctrl+delete",      "command": "deleteWordStartRight",
+                                    "when": "editorTextFocus" }
+]
 ```
 
 ### Toggle Whitespace

@@ -26,7 +26,7 @@ To complete this tutorial on Ubuntu, install the following:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. [CMake Tools extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools). Install the C/C++ extension by searching for 'CMake tools' in the **Extensions** view (`kb(workbench.view.extensions)`).
+1. [CMake Tools extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools). Install the CMake Tools extension by searching for 'CMake tools' in the **Extensions** view (`kb(workbench.view.extensions)`).
 
     ![CMake tools extension](images/cpp/cmake-extension.png)
 

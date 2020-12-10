@@ -408,16 +408,18 @@ Note that you want to specify the font family, not an individual font like **Mes
 By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can configure the same for zsh by adding these keybindings:
 
 ```json
-{
-  "key": "ctrl+left",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": { "text": "\u001bb" }
-},
-{
-  "key": "ctrl+right",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": { "text": "\u001bf" }
-}
+[
+  {
+    "key": "ctrl+left",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001bb" }
+  },
+  {
+    "key": "ctrl+right",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001bf" }
+  }
+]
 ```
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?

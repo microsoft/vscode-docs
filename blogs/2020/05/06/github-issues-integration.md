@@ -53,7 +53,7 @@ A common workflow is to look at your issues, pick one to work on, create a branc
 
 ![Work on an Issue](work-on-issue.gif)
 
-To fit more workflows, there are several options you can configure. If your flow doesn't involve creating a topic branch, you can disable the branch creation with `githubIssues.useBranchForIssues`. If you have a different naming scheme for your branches, you can use the `githubIssues.workingIssueBranch` setting. The issues listed in the **Issues** view can be configured to use a custom query with `githubIssues.queries`.
+To fit more workflows, there are several options you can configure. If your flow doesn't involve creating a topic branch, you can disable the branch creation with `githubIssues.useBranchForIssues`. If you have a different naming scheme for your branches, you can use the `githubIssues.issueBranchTitle` setting. The issues listed in the **Issues** view can be configured to use a custom query with `githubIssues.queries`.
 
 ## Want to learn more?
 

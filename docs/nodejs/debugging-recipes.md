@@ -57,16 +57,6 @@ This recipe shows how to run and debug a VS Code Node.js project written in Type
 
 - [Debugging Node.js with TypeScript in Docker](https://github.com/microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
-## MERN - Mongo, Express, React and Node.js
-
-This recipe shows how to run and debug a MERN (Mongo, Express, React and Node.js) based project in VS Code.
-
-![MERN logos](images/recipes/mern.png)
-
-**Recipes:**
-
-- [Developing the MERN Starter in VS Code](https://github.com/microsoft/vscode-recipes/tree/master/MERN-Starter)
-
 ## Electron - Debug Electron applications
 
 The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in [Node.js](https://nodejs.org/) debugger and the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).

@@ -519,7 +519,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 
 - `panel.background`: Panel background color.
 - `panel.border`: Panel border color to separate the panel from the editor.
-- `panel.dropBackground`: Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
 - `panel.dropBorder`: Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
@@ -584,8 +583,6 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 
 ## Notification colors
 
-**Note:** The colors below only apply for VS Code versions 1.21 and higher.
-
 Notification toasts slide up from the bottom-right of the workbench.
 
 ![Notification Toasts](images/theme-color/notification-toast.png)
@@ -605,20 +602,6 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notificationsErrorIcon.foreground`: The color used for the notification error icon.
 - `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
 - `notificationsInfoIcon.foreground`: The color used for the notification info icon.
-
-If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
-
-- `notification.background`
-- `notification.foreground`
-- `notification.buttonBackground`
-- `notification.buttonForeground`
-- `notification.buttonHoverBackground`
-- `notification.errorBackground`
-- `notification.errorForeground`
-- `notification.infoBackground`
-- `notification.infoForeground`
-- `notification.warningBackground`
-- `notification.warningForeground`
 
 ## Extensions colors
 
