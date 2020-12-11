@@ -676,4 +676,3 @@ VS Code extensions can use these icons in labels, views and trees.
 |<i class="codicon codicon-zoom-out"></i>|zoom-out|
 </div>
 
-</div>
