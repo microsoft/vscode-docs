@@ -39,21 +39,20 @@ $(sync~spin)
 
 ## Icon Listing
 
-Below is a listings of the product icons by identifier.
+Below is a listing of the product icons by identifier.
 
-The id of the icon identifies the location where the icon is used.
-The default codicon id describes what icon from codicon library is used by default and the preview shows how that icon looks like.
+The ID of the icon identifies the location where the icon is used. The default codicon ID describes what icon from codicon library is used by default and the preview shows how that icon looks like.
 
 [Product Icon Themes](/api/extension-guides/product-icon-theme) can replace each icon individually as well as all icons from the codicon library.
 
 
 <div id="codicon-listing">
 
-| preview     | identifier                        | default codicon id                | description
+| preview     | identifier                        | default codicon ID                | description
 | ----------- | --------------------------------- | --------------------------------- | --------------------------------- |
 |<i class="codicon codicon-account"></i>|accounts-view-bar-icon|account|Accounts icon in the view bar.|
 |<i class="codicon codicon-activate-breakpoints"></i>|breakpoints-activate|activate-breakpoints|Icon for the activate action in the breakpoints view.|
-|<i class="codicon codicon-close-all"></i>|breakpoints-remove-all|close-all|Icon for the remove all action in the breakpoints view.|
+|<i class="codicon codicon-close-all"></i>|breakpoints-remove-all|close-all|Icon for the Remove All action in the breakpoints view.|
 |<i class="codicon codicon-debug-alt"></i>|breakpoints-view-icon|debug-alt|View icon of the breakpoints view.|
 |<i class="codicon codicon-call-incoming"></i>|callhierarchy-incoming|call-incoming|Icon for incoming calls in the call hierarchy view.|
 |<i class="codicon codicon-call-outgoing"></i>|callhierarchy-outgoing|call-outgoing|Icon for outgoing calls in the call hierarchy view.|
@@ -151,21 +150,21 @@ The default codicon id describes what icon from codicon library is used by defau
 |<i class="codicon codicon-chevron-down"></i>|markers-view-multi-line-collapsed|chevron-down|Icon indicating that multiple lines are collapsed in the markers view.|
 |<i class="codicon codicon-chevron-up"></i>|markers-view-multi-line-expanded|chevron-up|Icon indicating that multiple lines are shown in the markers view.|
 |<i class="codicon codicon-clear-all"></i>|notebook-clear|clear-all|Icon to clear cell outputs in notebook editors.|
-|<i class="codicon codicon-chevron-right"></i>|notebook-collapsed|chevron-right|Icon to annotated a collapsed section in notebook editors.|
+|<i class="codicon codicon-chevron-right"></i>|notebook-collapsed|chevron-right|Icon to annotate a collapsed section in notebook editors.|
 |<i class="codicon codicon-trash"></i>|notebook-delete-cell|trash|Icon to delete a cell in notebook editors.|
 |<i class="codicon codicon-pencil"></i>|notebook-edit|pencil|Icon to edit a cell in notebook editors.|
 |<i class="codicon codicon-play"></i>|notebook-execute|play|Icon to execute in notebook editors.|
 |<i class="codicon codicon-run-all"></i>|notebook-execute-all|run-all|Icon to execute all cells in notebook editors.|
-|<i class="codicon codicon-chevron-down"></i>|notebook-expanded|chevron-down|Icon to annotated a expanded section in notebook editors.|
-|<i class="codicon codicon-settings-gear"></i>|notebook-kernel-configure|settings-gear|Configure icon in kernel configuation widget in notebook editors.|
+|<i class="codicon codicon-chevron-down"></i>|notebook-expanded|chevron-down|Icon to annotate an expanded section in notebook editors.|
+|<i class="codicon codicon-settings-gear"></i>|notebook-kernel-configure|settings-gear|Configure icon in kernel configuration widget in notebook editors.|
 |<i class="codicon codicon-server-environment"></i>|notebook-kernel-select|server-environment|Configure icon to select a kernel in notebook editors.|
 |<i class="codicon codicon-code"></i>|notebook-mimetype|code|Icon for a mime type in notebook editors.|
-|<i class="codicon codicon-arrow-down"></i>|notebook-move-down|arrow-down|Icon to move a cell down in notebook editors.|
-|<i class="codicon codicon-arrow-up"></i>|notebook-move-up|arrow-up|Icon to move a cell up in notebook editors.|
+|<i class="codicon codicon-arrow-down"></i>|notebook-move-down|arrow-down|Icon to move down a cell in notebook editors.|
+|<i class="codicon codicon-arrow-up"></i>|notebook-move-up|arrow-up|Icon to move up a cell in notebook editors.|
 |<i class="codicon codicon-file-code"></i>|notebook-open-as-text|file-code|Icon to open the notebook in a text editor.|
 |<i class="codicon codicon-discard"></i>|notebook-revert|discard|Icon to revert in notebook editors.|
 |<i class="codicon codicon-split-vertical"></i>|notebook-split-cell|split-vertical|Icon to split a cell in notebook editors.|
-|<i class="codicon codicon-error"></i>|notebook-state-error|error|Icon to indicate a error state in notebook editors.|
+|<i class="codicon codicon-error"></i>|notebook-state-error|error|Icon to indicate an error state in notebook editors.|
 |<i class="codicon codicon-check"></i>|notebook-state-success|check|Icon to indicate a success state in notebook editors.|
 |<i class="codicon codicon-primitive-square"></i>|notebook-stop|primitive-square|Icon to stop an execution in notebook editors.|
 |<i class="codicon codicon-check"></i>|notebook-stop-edit|check|Icon to stop editing a cell in notebook editors.|
@@ -213,15 +212,15 @@ The default codicon id describes what icon from codicon library is used by defau
 |<i class="codicon codicon-discard"></i>|settings-discard|discard|Icon for the discard action in the settings UI.|
 |<i class="codicon codicon-edit"></i>|settings-edit|edit|Icon for the edit action in the settings UI.|
 |<i class="codicon codicon-triangle-down"></i>|settings-folder-dropdown|triangle-down|Icon for the folder dropdown button in the split JSON settings editor.|
-|<i class="codicon codicon-chevron-right"></i>|settings-group-collapsed|chevron-right|Icon for an collapsed section in the split JSON settings editor.|
-|<i class="codicon codicon-chevron-down"></i>|settings-group-expanded|chevron-down|Icon for an expanded section in the split JSON settings editor.|
-|<i class="codicon codicon-gear"></i>|settings-more-action|gear|Icon for the 'more actions' action in the settings UI.|
-|<i class="codicon codicon-close"></i>|settings-remove|close|Icon for the remove action in the settings UI.|
-|<i class="codicon codicon-sync"></i>|settings-sync-view-icon|sync|View icon of the settings sync view.|
+|<i class="codicon codicon-chevron-right"></i>|settings-group-collapsed|chevron-right|Icon for a collapsed section in the split JSON Settings editor.|
+|<i class="codicon codicon-chevron-down"></i>|settings-group-expanded|chevron-down|Icon for an expanded section in the split JSON Settings editor.|
+|<i class="codicon codicon-gear"></i>|settings-more-action|gear|Icon for the 'more actions' action in the Settings UI.|
+|<i class="codicon codicon-close"></i>|settings-remove|close|Icon for the remove action in the Settings UI.|
+|<i class="codicon codicon-sync"></i>|settings-sync-view-icon|sync|View icon of the Settings Sync view.|
 |<i class="codicon codicon-settings-gear"></i>|settings-view-bar-icon|settings-gear|Settings icon in the view bar.|
-|<i class="codicon codicon-source-control"></i>|source-control-view-icon|source-control|View icon of the source control view.|
+|<i class="codicon codicon-source-control"></i>|source-control-view-icon|source-control|View icon of the Source Control view.|
 |<i class="codicon codicon-chevron-right"></i>|suggest-more-info|chevron-right|Icon for more information in the suggest widget.|
-|<i class="codicon codicon-gear"></i>|tasks-list-configure|gear|Configration icon in the tasks selection list.|
+|<i class="codicon codicon-gear"></i>|tasks-list-configure|gear|Configuration icon in the tasks selection list.|
 |<i class="codicon codicon-close"></i>|tasks-remove|close|Icon for remove in the tasks selection list.|
 |<i class="codicon codicon-trash"></i>|terminal-kill|trash|Icon for killing a terminal instance.|
 |<i class="codicon codicon-add"></i>|terminal-new|add|Icon for creating a new terminal instance.|
@@ -238,14 +237,14 @@ The default codicon id describes what icon from codicon library is used by defau
 |<i class="codicon codicon-chevron-down"></i>|view-pane-container-expanded|chevron-down|Icon for an expanded view pane container.|
 |<i class="codicon codicon-add"></i>|watch-expressions-add|add|Icon for the add action in the watch view.|
 |<i class="codicon codicon-add"></i>|watch-expressions-add-function-breakpoint|add|Icon for the add function breakpoint action in the watch view.|
-|<i class="codicon codicon-close-all"></i>|watch-expressions-remove-all|close-all|Icon for the remove all action in the watch view.|
+|<i class="codicon codicon-close-all"></i>|watch-expressions-remove-all|close-all|Icon for the Remove All action in the watch view.|
 |<i class="codicon codicon-debug-alt"></i>|watch-view-icon|debug-alt|View icon of the watch view.|
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
 
 
 The Codicon library contains all the icons used in VS Code views as well as a set of useful icons.
 
-VS Code extensions can use these icons in labels, views and trees.
+VS Code extensions can use these icons in labels, views, and trees.
 
 
 | preview     | identifier
