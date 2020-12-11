@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
