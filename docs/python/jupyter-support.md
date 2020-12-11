@@ -29,11 +29,11 @@ Once the appropriate environment is activated, you can create and open a Jupyter
 
 ## Create or open a Jupyter Notebook
 
-You can create a Jupyter Notebook by running the **Python: Create Blank New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new .ipynb file in your workspace. When you select the file, the Notebook Editor is launched allowing you to edit and run code cells.
+You can create a Jupyter Notebook by running the **Jupyter: Create Blank New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new .ipynb file in your workspace. When you select the file, the Notebook Editor is launched allowing you to edit and run code cells.
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
-If you have an existing Jupyter Notebook, you can open it in the Notebook Editor by double-clicking on the file and opening with Visual Studio Code, through the Visual Studio Code, or using the Command Palette **Python: Open in Notebook Editor** command.
+If you have an existing Jupyter Notebook, you can open it in the Notebook Editor by double-clicking on the file and opening with Visual Studio Code, through the Visual Studio Code, or using the Command Palette **Jupyter: Open in Notebook Editor** command.
 
 Once you have a Notebook created, you can run a code cell using the green run icon above the cell and the output will appear directly below the code cell.
 
@@ -248,7 +248,7 @@ You can offload intensive computation in a Jupyter Notebook to other computers b
 
 To connect to a remote Jupyter server:
 
-1. Run the **Python: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
 2. When prompted to **Pick how to connect to Jupyter**, select **Existing: Specify the URI of an existing server**.
 
     ![Choose to connect to an existing server](images/jupyter/connect-to-existing.png)
