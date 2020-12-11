@@ -39,16 +39,15 @@ $(sync~spin)
 
 ## Icon Listing
 
-Below are the full listings of the product icons by identifier. The preview shows the default icon as shipped with VS Code, but [Product Icon Themes](/api/extension-guides/product-icon-theme) can replace these.
+Below is a listings of the product icons by identifier.
 
-The id of the icon identifies the location where the icon is used. The default codicon id points to the icon in the codicon icon font that is used by default.
+The id of the icon identifies the location where the icon is used.
+The default codicon id describes what icon from codicon library is used by default and the preview shows how that icon looks like.
 
-You can see from the previews that some glyphs use the same default. For example, the same right arrow is used for `chevron-left`, `folding-collapsed`, and `breadcrumb-separator`.
-
-That's a choice of the default icon theme but a custom product icon theme has the freedom to style each usage differently.
+[Product Icon Themes](/api/extension-guides/product-icon-theme) can replace each icon individually as well as all icons from the codicon library.
 
 
-<div id="product-icon-listing">
+<div id="codicon-listing">
 
 | preview     | identifier                        | default codicon id                | description
 | ----------- | --------------------------------- | --------------------------------- | --------------------------------- |
@@ -244,10 +243,10 @@ That's a choice of the default icon theme but a custom product icon theme has th
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
 
 
-What follows is list of all available codicon ids. Codicon is the icon font that contains all the default icons. Rather than a icon location, the id describes what the icon represents.
-Codicons ids can also be used in icon labels.
+The Codicon library contains all the icons used in VS Code views as well as a set of useful icons.
 
-<div id="codicon-listing">
+VS Code extensions can use these icons in labels, views and trees.
+
 
 | preview     | identifier
 | ----------- | --------------------------------- |
