@@ -178,7 +178,7 @@ You can use the version string `latest`, if you'd like to always download the la
 
 ## Prerelease versions
 
-Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
+Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations, and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
 
 To install the Insiders build, go to the [Insiders download page](/insiders).
 
@@ -188,7 +188,7 @@ A VS Code "workspace" is usually just your project root folder. VS Code uses the
 
 ## Can I run a portable version of VS Code?
 
-Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Report an issue with a VS Code extension
 
@@ -196,7 +196,7 @@ For bugs, feature requests or to contact an extension author, you should use the
 
 ## VS Code gets unresponsive right after opening a folder
 
-When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
+When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
 
 ```json
     "files.exclude": {
@@ -220,25 +220,25 @@ You may also see the **[Unsupported]** message if VS Code files have been mistak
 
 ## Resolving Shell Environment is Slow (Error, Warning)
 
-*This article applies to macOS and Linux environments only.*
+*This section applies to macOS and Linux environments only.*
 
-When VS Code is launched from a terminal (e.g. `$ code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like Tasks or Debug Targets have access to those settings.
+When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
 
-However, when launching from the UI (e.g. the Code icon in the macOS dock), you would not normally run in the context of a shell and you would not have access to the environment settings.
+However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launching from the UI VS Code will start a small process to run (or “resolve”) the shell environment defined in your `.bashrc` or `.zshrc` files. If your startup file takes a long time to process (more than 3 seconds) you will see the following warning:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If your startup file takes a long time to process (more than 3 seconds), you will see the following warning:
 
-![Shell environment warning](images/faq/shell-env-warning.png)
+![Shell environment startup warning](images/faq/shell-env-warning.png)
 
-If after 10 seconds the shell has still not been resolved, VS Code will abort the process and you will see the following error:
+If, after 10 seconds, the shell environment has still not been resolved, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see the following error:
 
-![Shell environment error](images/faq/shell-env-error.png)
+![Shell environment startup error](images/faq/shell-env-error.png)
 
-The easiest way to address this issue is to:
+The easiest way to investigate delays in your startup file is to:
 
-* Open your shell's startup file (e.g. in VSCode by typing `~/.bashrc` or `~/.zshrc` in quick open)
-* Selectively comment out potentially long running lines
-* Save and fully restart VSCode until the warning or error disappears
+* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in quick open).
+* Selectively comment out potentially long running operations.
+* Save and fully restart VS Code until the warning or error disappears.
 
 ## Technical Support
 
