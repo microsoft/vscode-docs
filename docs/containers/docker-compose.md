@@ -103,7 +103,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 ### Python
 
-For debugging Python with Docker Compose, first read [How to debug your app with Gunicorn](/docs/containers/debug-python.md#how-to-debug-your-app-with-gunicorn), then follow these steps.
+For debugging Python with Docker Compose, follow these steps:
 
 1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python**, and select the `Remote Attach` configuration template.
 
@@ -128,25 +128,47 @@ For debugging Python with Docker Compose, first read [How to debug your app with
         }
     ```
 
-1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
+1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab and select **Python: Remote Attach** as the active configuration.
 
-1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
+1. If you already have a valid Dockerfile, we highly recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml` which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
-1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+    > Note: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions [here](/docs/containers/quickstart-python.md#gunicorn-modifications-for-djangoflask-apps
+) to ensure it is configured properly before proceeding.
+
+1. Right-click on the `docker-compose.debug.yml` file (example shown below) and choose **Compose Up**.
+
+    ```yml
+    version: '3.4'
+
+    services:
+      pythonsamplevscodedjangotutorial:
+        image: pythonsamplevscodedjangotutorial
+        build:
+          context: .
+          dockerfile: ./Dockerfile
+        command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000 --nothreading --noreload"]
+        ports:
+          - 8000:8000
+          - 5678:5678
+    ```
+
+1. Once your container is built and running, attach the debugger by hitting `kb(workbench.action.debug.start)` with the **Python: Remote Attach** launch configuration selected.
+
+    ![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
+
+    > **Note:** If you would like to import the Python debugger into a specific file, more information can be found [here](https://github.com/microsoft/debugpy#debugpy-import-usage).
+
+1. When you attach to a service that exposes an HTTP endpoint and returns HTML, the web browser may not open automatically. To open the app in the browser, right-click the container in the Docker Explorer and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
    ![Screenshot - Open in Browser](images/compose/docker-compose-open-in-browser.png)
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
-
-You're now debugging your running app in the container.
-
-![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
+    You're now debugging your running app in the container.
 
 ### .NET
 
 1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration** and select the `Docker Attach` configuration template **.NET Core Docker Attach (Preview)**.
 
-1. VS Code tries to copy `vsdbg` from the host machine to the target container using a default path. You can also provide a path to an existing instance of `vsdbg` in the **Attach** configuration.
+2. VS Code tries to copy `vsdbg` from the host machine to the target container using a default path. You can also provide a path to an existing instance of `vsdbg` in the **Attach** configuration.
 
    ```json
     "netCore": {
@@ -154,17 +176,17 @@ You're now debugging your running app in the container.
     }
    ```
 
-1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
+3. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
 
-1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
+4. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
 
-1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+5. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
+6. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 
-1. If you try to attach to a .NET Core app running in a container, you'll see a prompt ask to select your app's container.
+7. If you try to attach to a .NET Core app running in a container, you'll see a prompt ask to select your app's container.
 
    ![Screenshot of container selection](images/compose/select-container.png)
 
