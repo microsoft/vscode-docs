@@ -68,7 +68,7 @@ The following table lists additional commands and keyboard shortcuts supported w
 |Python: Extend Selection by Cell Below   | `kbstyle(Ctrl+Shift+Alt+])` |
 |Python: Move Selected Cells Up           | `kbstyle(Ctrl+; U)`        |
 |Python: Move Selected Cells Down         | `kbstyle(Ctrl+; D)`        |
-|RoPython: Insert Cell Above              | `kbstyle(Ctrl+; A)`        |
+|Python: Insert Cell Above                | `kbstyle(Ctrl+; A)`        |
 |Python: Insert Cell Below                | `kbstyle(Ctrl+; B)`        |
 |Python: Insert Cell Below Position       | `kbstyle(Ctrl+; S)`        |
 |Python: Delete Selected Cells            | `kbstyle(Ctrl+; X)`        |
@@ -125,7 +125,7 @@ You can offload intensive computation in a Jupyter notebook to other computers b
 To connect to a remote Jupyter server:
 
 1. Run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
-2. Select how you would like to connect to a Jupyter server
+2. Select how you would like to connect to a Jupyter server.
     ![Prompt to supply a Jupyter server URI](images/jupyter/local-remote-connections.png)
 3. If working remotely, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter when prompted. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
