@@ -17,9 +17,9 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 ## Install the extension
 
 1. Open VS Code.
-1. Click the Extensions view icon on the Activity bar or use the keyboard shortcut (`kb(workbench.view.extensions)`).
+1. Select the Extensions view icon on the Activity bar or use the keyboard shortcut (`kb(workbench.view.extensions)`).
 1. Search for `'C++'`.
-1. Click **Install**.
+1. Select **Install**.
 
 ![Search for c++ in the Extensions view](images/cpp/search-cpp-extension.png)
 
@@ -29,7 +29,7 @@ After you install the extension, when you open or create a `*.cpp` file, you wil
 
 ## Install a compiler
 
-C++ is a compiled language meaning your program's source code must be translated (compiled) before it can be run on your computer. VS Code is first and foremost an editor, and relies on command line tools to do much of the development workflow. The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer.
+C++ is a compiled language meaning your program's source code must be translated (compiled) before it can be run on your computer. VS Code is first and foremost an editor, and relies on command-line tools to do much of the development workflow. The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer.
 
 There may already be a C++ compiler and debugger provided by your academic or work development environment. Check with your instructors or colleagues for guidance on installing the recommended C++ toolset (compiler, debugger, project system, linter).
 
@@ -53,11 +53,11 @@ clang --version
 
 > **Note**: If you would prefer a full Integrated Development Environment (IDE), with built-in compilation, debugging, and project templates (File > New Project), there are many options available, such as the [Visual Studio Community](https://visualstudio.microsoft.com/vs/community) edition.
 
-If you don't have a compiler installed, in the example below, we describe how to install the [Minimalist GNU for Windows](http://mingw.org/) (MinGW) C++ tools (compiler and debugger). MinGW is a popular, free toolset for Windows. If you are running VS Code on another platform, you can read the [C++ tutorials](#c++-tutorials), which cover C++ configurations for Linux and macOS.
+If you don't have a compiler installed, in the example below, we describe how to install the [Minimalist GNU for Windows](http://mingw.org/) (MinGW) C++ tools (compiler and debugger). MinGW is a popular, free toolset for Windows. If you are running VS Code on another platform, you can read the [C++ tutorials](#tutorials), which cover C++ configurations for Linux and macOS.
 
 ## Example: Install MinGW-x64
 
-We will install Mingw-w64 via the SourceForge website. You can click this [Mingw-w64 link](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to download the Windows Mingw-w64 installer.
+We will install Mingw-w64 via the SourceForge website. You can use this [Mingw-w64 link](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to download the Windows Mingw-w64 installer.
 
 1. Run the installer, which should be named `mingw-w64-install.exe` in your Download folder.
 
@@ -134,7 +134,7 @@ Now that we have a simple C++ program, let's build it. Select the **Terminal** >
 
 This will display a drop-down with various compiler task options. If you are using a GCC toolset like MinGW, you would choose **C/C++: g++.exe build active file**.
 
-![Select g++.exe task](images/cpp/select-g++-task.png)
+![Select g++.exe task](images/cpp/select-gpp-task.png)
 
 This will compile `helloworld.cpp` and create an executable file called `helloworld.exe`, which will appear in the File Explorer.
 
@@ -150,7 +150,7 @@ If everything is set up correctly, you should see the output "Hello World".
 
 This has been a very simple example to help you get started with C++ development in VS Code. The next step is to try one of the tutorials listed below on your platform (Windows, Linux, or macOS) with your preferred toolset (GCC, Clang, Microsoft C++) and learn more about the Microsoft C/C++ extension's language features such as IntelliSense, code navigation, build configuration, and debugging.
 
-## C++ tutorials
+## Tutorials
 
 Get started with C++ and VS Code with tutorials for your environment:
 
