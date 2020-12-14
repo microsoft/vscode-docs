@@ -91,6 +91,7 @@ Moreover, when you run **Go to Bracket** or **Select to Bracket**, VS Code will 
 
 When you type `'`, VS Code creates a pair of single quotes and puts your cursor in the middle: `'|'`. This section defines such pairs.
 
+
 ```json
 {
   "autoClosingPairs": [
@@ -113,6 +114,14 @@ The `notIn` key disables this feature in certain code ranges. For example, when 
 ```
 
 The single quote will not be autoclosed.
+
+Pairs that do not require a `notIn` property can also use a simpler syntax:
+```json
+{
+  "autoClosingPairs": [ ["{", "}"], ["[", "]"] ]
+}
+```
+
 
 Users can tweak the autoclosing behavior with the `editor.autoClosingQuotes` and `editor.autoClosingBrackets` settings.
 
