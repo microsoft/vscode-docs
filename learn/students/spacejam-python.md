@@ -10,7 +10,7 @@ MetaDescription: A Space Jam project tutorial using the Python extension in Visu
 
 # Learn Python with Space Jam
 
-Inspired by the new film Space Jam: A New Legacy, this learning path shows basketball fans how an understanding of data science and coding can support their passions, create opportunities, and even open doors to possible careers. Develop skills in Visual Studio Code, Azure, GitHub, JavaScript, and Python, to gain insights into how individual moments throughout a player's history can lead to a critical game decision in the finals.
+Inspired by the new film "Space Jam: A New Legacy," this learning path shows basketball fans how an understanding of data science and coding can support their passions, create opportunities, and even open doors to possible careers. Develop skills in Visual Studio Code, Azure, GitHub, JavaScript, and Python, to gain insights into how individual moments throughout a player's history can lead to a critical game decision in the finals.
 
 <iframe src="https://www.youtube-nocookie.com/embed/pXkIIzihEYM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
