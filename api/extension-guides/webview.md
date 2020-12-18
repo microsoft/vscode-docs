@@ -13,7 +13,7 @@ The webview API allows extensions to create fully customizable views within Visu
 
 Think of a webview as an `iframe` within VS Code that your extension controls. A webview can render almost any HTML content in this frame, and it communicates with extensions using message passing. This freedom makes webviews incredibly powerful, and opens up a whole new range of extension possibilities.
 
-Webviews are used in few VS Code API:
+Webviews are used in several VS Code APIs:
 
 - With Webview Panels created using `createWebviewPanel`. In this case, Webview panels are shown in VS Code as distinct editors. This makes them useful for displaying custom UI and custom visualizations.
 - As the view for a [custom editor](/api/extension-guides/custom-editors). Custom editors allow extensions to provide a custom UI for editing any file in the workspace. The custom editor API also lets your extension hook into editor events such as undo and redo, as well as file events such as save.
