@@ -27,6 +27,12 @@ This will install webpack and update your extension's `package.json` file to inc
 npm i --save-dev ts-loader
 ```
 
+It might also be good to install Typescript as a dev dependency if the loader cannot find it.
+
+```bash
+npm i --save-dev typescript
+```
+
 ## Configure webpack
 
 With all tools installed, webpack can now be configured. By convention, a `webpack.config.js` file contains the configuration to instruct webpack to bundle your extension. The sample configuration below is for VS Code extensions and should provide a good starting point:
