@@ -373,4 +373,4 @@ Today VS Code supports three different ways for running a debug adapter and cons
 
 Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150)  and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
 
-For devlopment the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.
+For development, the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.
