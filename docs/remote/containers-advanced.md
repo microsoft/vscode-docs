@@ -623,7 +623,7 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
 }
 ```
 
-Next, you can `container2-src/.devcontainer.json` for Node.js development by changing `workspaceFolder` and installing Node.js extensions:
+Next, you can set up `container2-src/.devcontainer.json` for Node.js development by changing `workspaceFolder` and installing Node.js extensions:
 
 ```json
 {
