@@ -154,23 +154,17 @@ This has been a very simple example to help you get started with C++ development
 
 Get started with C++ and VS Code with tutorials for your environment:
 
-- [GCC on Windows via MinGW](/docs/cpp/config-mingw.md)
-- [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
-- [GCC on Linux](/docs/cpp/config-linux.md)
+- [GCC on Windows](/docs/cpp/config-mingw.md)
 - [GCC on Windows Subsystem For Linux](/docs/cpp/config-wsl.md)
+- [GCC on Linux](/docs/cpp/config-linux.md)
+- [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
 - [Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
 - [CMake Tools on Linux](/docs/cpp/cmake-linux.md)
-
-## Documentation
-
-You can find more documentation on using the Microsoft C/C++ extension under the [C++ section](/docs/cpp) of the VS Code website, where you'll find topics on:
-
 - [Debugging](/docs/cpp/cpp-debug.md)
 - [Editing](/docs/cpp/cpp-ide.md)
+- [IntelliSense](/docs/cpp/configure-intellisense-crosscompilation.md)
 - [Settings](/docs/cpp/customize-default-settings-cpp.md)
 - [FAQ](/docs/cpp/faq-cpp.md)
-
-![C++ TOC on code.visualstudio.com](images/cpp/cpp-toc.png)
 
 ## Remote Development
 
