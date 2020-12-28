@@ -256,7 +256,7 @@ Operator | Symbol | Example
 -------- | ------ | -----
 Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
-Or | `||` | `"isLinux || isWindows"`
+Or | `\|\|` | `"isLinux \|\| isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
 Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
