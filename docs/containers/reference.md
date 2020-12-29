@@ -410,17 +410,19 @@ See [property reference](#compose-task-reference) for full list of all task prop
         {
             "label": "Run docker-compose up",
             "type": "docker-compose",
-            "up": {
-                "detached": true,
-                "build": true,
-                "services": [
-                  "myservice"
+            "dockerCompose": {
+                "up": {
+                    "detached": true,
+                    "build": true,
+                    "services": [
+                      "myservice"
+                    ]
+                },
+                "files": [
+                    "${workspaceFolder}/docker-compose.yml",
+                    "${workspaceFolder}/docker-compose.debug.yml"
                 ]
-            },
-            "files": [
-                "${workspaceFolder}/docker-compose.yml",
-                "${workspaceFolder}/docker-compose.debug.yml"
-            ]
+            }
         }
     ]
 }
