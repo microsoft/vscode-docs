@@ -367,7 +367,7 @@ For this VS Code provides extension API to control how a debug adapter is create
 
 Today VS Code supports three different ways for running a debug adapter and consequently offers three different descriptor types:
 
-- `DebugAdapterExecutable`: this object describes a debug adapter as an external executable with a path and optional arguments and runtime. The executable must implement the Debug Adapter Protocol and communicate via stdin/stdout. This is VS Code's default mode of operation and VS Code uses this descriptor automatically with the corresponding values from the package.json if no `DebugAdapterDescriptorFactory` is explicitely registered.
+- `DebugAdapterExecutable`: this object describes a debug adapter as an external executable with a path and optional arguments and runtime. The executable must implement the Debug Adapter Protocol and communicate via stdin/stdout. This is VS Code's default mode of operation and VS Code uses this descriptor automatically with the corresponding values from the package.json if no `DebugAdapterDescriptorFactory` is explicitly registered.
 - `DebugAdapterServer`: this object describes a debug adapter running as a server that communicates via a specific local or remote port. A debug adapter implementation based on the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module supports this server mode automatically.
 - `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38-pre.4 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
 
