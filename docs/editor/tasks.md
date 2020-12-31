@@ -1009,3 +1009,9 @@ Alternatively, you can override a task's shell with the `options.shell` property
     },
     ...
 ```
+
+### Why does the problem matcher display only one of multiple messages on a line?
+
+Because it is by design. We only allow one problem per location.
+
+>**Note:** If a line of your code generates a trivial notice message and a critical error message, the serious error message may be hidden. You must be careful in such cases.
