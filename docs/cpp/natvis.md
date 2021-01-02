@@ -461,7 +461,7 @@ The Natvis schema is provided here for convenience:
     </xs:choice>
     <xs:attribute name="HideRawView" type="xs:boolean">
       <xs:annotation>
-        <xs:documentation>Specifies whether or not the the "[Raw View]" node for this object should be hidden. By default, this attribute is set to 'false',
+        <xs:documentation>Specifies whether or not the "[Raw View]" node for this object should be hidden. By default, this attribute is set to 'false',
         which will result in the raw view node of the current object visible to the user.
         </xs:documentation>
       </xs:annotation>
