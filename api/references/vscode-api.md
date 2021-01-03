@@ -6414,7 +6414,7 @@ its current state, i.e. with the edits applied. Most commonly this means saving 
 the <code>ExtensionContext.storagePath</code>. When VS Code reloads and your custom editor is opened for a resource,
 your extension should first check to see if any backups exist for the resource. If there is a backup, your
 extension should load the file contents from there instead of from the resource in the workspace.</p>
-<p><code>backup</code> is triggered approximately one second after the the user stops editing the document. If the user
+<p><code>backup</code> is triggered approximately one second after the user stops editing the document. If the user
 rapidly edits the document, <code>backup</code> will not be invoked until the editing stops.</p>
 <p><code>backup</code> is not invoked when <code>auto save</code> is enabled (since auto save already persists the resource).</p>
 </div>
