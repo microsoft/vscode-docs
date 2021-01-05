@@ -387,15 +387,15 @@ To create the named local volume, follow these steps:
 
     **Docker Compose**:
 
-    Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `unique-vol-name-here` with a unique name for the volume.
+    Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replacing `/root` with the home directory in the container if not root (for example `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume.
 
     ```yml
     services:
       your-service-name-here:
         volumes:
-          - unique-vol-name-here:~/.vscode-server/extensions
+          - unique-vol-name-here:/root/.vscode-server/extensions
           # And/or for VS Code Insiders
-          - unique-vol-name-here-insiders:~/.vscode-server-insiders/extensions
+          - unique-vol-name-here-insiders:/root/.vscode-server-insiders/extensions
         # ...
 
     volumes:
