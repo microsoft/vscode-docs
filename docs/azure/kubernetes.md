@@ -17,8 +17,7 @@ You will need to have tools for [Docker](https://docker.com/) and [kubectl](http
 
 You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
 
-In addition, if you want to iteratively run and debug containers directly in Azure Kubernetes Service (AKS), you can install the
-[Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension. There's also an additional [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extension, which helps boost remote debugging performance for Java application running in [Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/).
+In addition, if you want to iteratively run and debug containers directly in MiniKube, Azure Kubernetes Service (AKS), or another Kubernetes provider, you can install the [Bridge to Kubernetes](https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro) extension. To get started, see [Use Bridge to Kubernetes](/docs/containers/bridge-to-kubernetes.md).
 
 ## Install the Kubernetes extension
 
@@ -72,6 +71,6 @@ Congratulations! Now your app is successfully running in Azure Kubernetes Servic
 
 ## Next steps
 
-* [Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces) - Learn more about Azure Dev Spaces, a rapid, iterative Kubernetes development experience for teams.
+* [Overview of Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes) - Learn more about Bridge to Kubernetes, a rapid, iterative Kubernetes development experience for teams.
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
