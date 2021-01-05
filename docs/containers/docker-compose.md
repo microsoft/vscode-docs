@@ -132,7 +132,7 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. If you already have a valid Dockerfile, we highly recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml` which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
-    > Note: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions [here](/docs/containers/quickstart-python.md#gunicorn-modifications-for-djangoflask-apps
+    > **Note**: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions [here](/docs/containers/quickstart-python.md#gunicorn-modifications-for-djangoflask-apps
 ) to ensure it is configured properly before proceeding.
 
 1. Right-click on the `docker-compose.debug.yml` file (example shown below) and choose **Compose Up**.
