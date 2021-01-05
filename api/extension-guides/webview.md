@@ -331,7 +331,7 @@ export function activate(context: vscode.ExtensionContext) {
           columnToShowIn,
           {}
         );
-        currentPanel.webview.html = getWebviewContent(cats['Coding Cat']);
+        currentPanel.webview.html = getWebviewContent('Coding Cat');
 
         // Reset when the current panel is closed
         currentPanel.onDidDispose(
@@ -369,7 +369,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {}
       );
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
       // Update contents based on view state changes
       panel.onDidChangeViewState(
@@ -398,7 +398,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof cats) {
   panel.title = catName;
-  panel.webview.html = getWebviewContent(cats[catName]);
+  panel.webview.html = getWebviewContent(catName);
 }
 ```
 
