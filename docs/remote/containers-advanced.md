@@ -136,11 +136,11 @@ You can also use a mount to persist your bash command history across sessions / 
 
 First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist.
 
-If you are have a root user, update your `Dockerfile` with the following:
+If you have a root user, update your `Dockerfile` with the following:
 
 ```Dockerfile
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
-    && echo $SNIPPET >> "/root/.bashrc" \
+    && echo $SNIPPET >> "/root/.bashrc"
 ```
 
 If you have a non-root user, update your `Dockerfile` with the following. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container.
