@@ -49,7 +49,7 @@ After verifying your app runs properly, you can now Dockerize your application.
 
 1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
 
-1. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. If you select **Yes**, you will need to [verify the path](quickstart-python.md/#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
+1. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. If you select **Yes**, you will need to [verify the path](/docs/containers/quickstart-python.md#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
 
 1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
@@ -126,7 +126,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
       os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworld.settings')
     ```
 
-    >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you can also set a breakpoint in `views.py` or wherever you choose.
+    >**Note**: If you have created an app project as shown in the [Create a Django app](/docs/python/tutorial-django.md#create-a-django-app) section of the Django tutorial, you can also set a breakpoint in `views.py` or wherever you choose.
 
 1. Navigate to **Run and Debug** and select **Docker: Python - Django**.
 
