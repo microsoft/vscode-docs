@@ -79,13 +79,13 @@ The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/
 
 3. Press `kbstyle(Tab)` or `kbstyle(Enter)` to complete the statement, then set the `key` to VAR1 and the `value` to 10.
 
-### Gunicorn modifications for Django/Flask apps
+## Gunicorn modifications for Django/Flask apps
 
 To give Python Web Developers a great starting point, we chose to use [Gunicorn](https://gunicorn.org/#docs) as the default web server. Since it is referenced in the default Dockerfile, it is included as a dependency in the `requirements.txt` file.
 
 > **Note**: To use Gunicorn as your web server, it must be included in the `requirements.txt` file as an app dependency. It does not need to be installed in your virtual environment/host machine. The Gunicorn entry point is overridden locally if your app is run with **Python: Django** or **Python: Flask**.
 
-#### Django Apps
+### Django apps
 
 To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
 
@@ -97,7 +97,7 @@ If your project does not follow Django's default project structure (that is, a w
 
   > **Tip**: If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
 
-#### Flask Apps
+### Flask apps
 
 To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable corresponds with the **file location** and **variable name** of your created Flask instance. According to [official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/api/), users generally create a Flask instance in the main module or in the `__init__.py` file of their package in this manner:
 
