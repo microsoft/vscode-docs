@@ -240,7 +240,13 @@ This is a [sample](https://github.com/microsoft/vscode-react-sample) React appli
 
 ### TypeScript React
 
-If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application. See the details at [TypeScript-React-Starter](https://github.com/microsoft/TypeScript-React-Starter) on the [TypeScript Quick Start](https://www.typescriptlang.org/samples/index.html) site.
+If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application by specifying that you want to use the TypeScript template:
+
+```bash
+npx create-react-app my-app --template typescript
+```
+
+See the details at [Adding TypeScript](https://create-react-app.dev/docs/adding-typescript) on the [Create React App site](https://create-react-app.dev).
 
 ### Angular
 
