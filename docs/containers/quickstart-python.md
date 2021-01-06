@@ -48,15 +48,16 @@ After verifying your app runs properly, you can now Dockerize your application.
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
 1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
-2. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. Compose is typically used when running multiple containers at once.
 
-3. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
+1. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. If you select **Yes**, you will need to [verify the path](quickstart-python.md/#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
+
+1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
     >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
-4. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-user-rights.md).
+1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-user-rights.md).
 
-5. With all of this information, the Docker extension creates the following files:
+1. With all of this information, the Docker extension creates the following files:
 
     - A `Dockerfile`. To learn more about IntelliSense in this file, refer to the [overview](/docs/containers/overview.md).
 
@@ -125,7 +126,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
       os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworld.settings')
     ```
 
-    >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you may set a breakpoint in `views.py` or wherever you choose.
+    >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you can also set a breakpoint in `views.py` or wherever you choose.
 
 1. Navigate to **Run and Debug** and select **Docker: Python - Django**.
 
@@ -161,7 +162,8 @@ The Docker Explorer provides an interactive experience to examine and manage Doc
 
 You're done! Now that your container is ready, you may want to:
 
-- [Learn about debugging Python in a container](/docs/containers/debug-python.md)
+- [Debug with Docker Compose](/docs/containers/docker-compose.md#python)
+- [Customize how you debug Python apps in a container](/docs/containers/debug-python.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
 - [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
