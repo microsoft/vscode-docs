@@ -255,7 +255,7 @@ The Python extension settings support predefined variables. Similar to the gener
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
 
-For additional information about predefined variables and example usages, see the the [Variables reference](/docs/editor/variables-reference.md) in the general VS Code docs.
+For additional information about predefined variables and example usages, see the [Variables reference](/docs/editor/variables-reference.md) in the general VS Code docs.
 
 ## Next steps
 

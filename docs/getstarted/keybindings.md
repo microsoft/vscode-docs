@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -258,7 +258,9 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | `||` | `"isLinux || isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
-Matches | `=~` | `resourceScheme =~ /^untitled$|^file$/`
+Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
+Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
+Less than | `<` `<=` | `"workspaceFolderCount < 2"`
 
 ### Available contexts
 
@@ -360,8 +362,8 @@ Context name | True when
 `editorIsOpen` | True if one editor is open.
 `groupEditorsCount` | Number of editors in a group.
 `activeEditorGroupEmpty` | True if the active editor group has no editors.
-`activeEditorGroupIndex` | Index of the active editor in an group (beginning with `1`).
-`activeEditorGroupLast` | True when the active editor in an group is the last one.
+`activeEditorGroupIndex` | A number starting from `1` reflecting the position of an editor group in the editor grid. The group with index `1` will be the first in the top-left corner.
+`activeEditorGroupLast` | Will be `true` for the last editor group in the editor grid.
 `multipleEditorGroups` | True when multiple editor groups are present.
 `activeEditor` | The identifier of the active editor in a group.
 `activeEditorIsDirty` | True when the active editor in a group is dirty.
@@ -396,7 +398,7 @@ Panel Identifiers:
 * workbench.panel.markers - Problems
 * workbench.panel.output - Output
 * workbench.panel.repl - Debug Console
-* workbench.panel.terminal - Integrated Terminal
+* terminal - Integrated Terminal
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
@@ -21,7 +21,9 @@ Webpack is a development tool that's available from [npm](https://www.npmjs.com)
 npm i --save-dev webpack webpack-cli
 ```
 
-This will install webpack and update your extension's `package.json` file to include webpack in the `devDependencies`. Webpack is a JavaScript bundler but many VS Code extensions are written in TypeScript and only compiled to JavaScript. With the help of a loader `ts-loader`, webpack can understand TypeScript. Use the following to install `ts-loader`:
+This will install webpack and update your extension's `package.json` file to include webpack in the `devDependencies`.
+
+Webpack is a JavaScript bundler but many VS Code extensions are written in TypeScript and only compiled to JavaScript. If your extension is using TypeScript, you can use the loader `ts-loader`, so that webpack can understand TypeScript. Use the following to install `ts-loader`:
 
 ```bash
 npm i --save-dev ts-loader

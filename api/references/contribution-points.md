@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -231,7 +231,7 @@ You can use any of the validation JSON Schema properties to describe other const
 
 **Unsupported JSON Schema properties**
 
-Note supported in the configuration section are:
+Not supported in the configuration section are:
 
 - `$ref` and `definition`: The configuration schemas needs to be self-contained and can not make assumptions how the aggregated settings JSON schema document looks like.
 
@@ -378,6 +378,7 @@ Currently extension writers can contribute to:
 - The editor title context menu - `editor/title/context`
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
+- The debug variables view context menu - `debug/variables/context`
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
@@ -579,21 +580,11 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 - `label` is the user visible name of this debugger in the UI.
 - `program` the path to the debug adapter that implements the VS Code debug protocol against the real debugger or runtime.
 - `runtime` if the path to the debug adapter is not an executable but needs a runtime.
-- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger.
+- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger. Please note that the JSON schema constructs `$ref` and `definition` are not supported.
 - `initialConfigurations` lists launch configurations that are used to populate an initial launch.json.
 - `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json.
 - `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 - `languages` those languages for which the debug extension could be considered the "default debugger".
-- `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
-
-```json
-{
-  "command": "<executable>",
-  "args": ["<argument1>", "<argument2>", "<argumentsn...>"]
-}
-```
-
-The attribute `command` must be either an absolute path to an executable or a name of executable looked up via the PATH environment variable. The special value `node` will be mapped to VS Code's built-in node runtime without being looked up on the PATH.
 
 ### debugger example
 
@@ -849,7 +840,10 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/contribution-points/views.png)
 
-Extension writers should create a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+The content of a view can be populated in two ways:
+
+- With a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. TreeViews are ideal for showing hierarchical data and lists. Refer to the [tree-view-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+- With a [WebviewView](/api/references/vscode-api#WebviewView) by registering a [provider](/api/references/vscode-api#WebviewViewProvider) with `registerWebviewViewProvider`. Webview views allow rendering arbitrary HTML in the view. See the [webview view sample extension](https://github.com/microsoft/vscode-extension-samples/tree/master/webview-view-sample) for more details.
 
 ## contributes.viewsWelcome
 

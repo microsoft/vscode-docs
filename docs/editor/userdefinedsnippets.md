@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -129,6 +129,7 @@ The following variables can be used:
 * `TM_FILEPATH` The full file path of the current document
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
+* `WORKSPACE_FOLDER` The path of the opened workspace or folder
 
 For inserting the current date and time:
 

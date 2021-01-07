@@ -86,6 +86,51 @@ Steps:
 3. Start Unity.
 4. Create and/or open an existing script in VS Code, through Unity, and you should now see code completions.
 
+## Enabling Unity warnings
+
+Unity has [a set of custom C# warnings](https://github.com/microsoft/Microsoft.Unity.Analyzers), called analyzers, that check for common issues with your source code. These analyzers ship out of the box with Visual Studio but need to be set up manually in Visual Studio Code.
+
+Due to how Unity handles its `.csproj` files, it does not seem possible to install packages automatically. You will need to download the analyzers from the [NuGet website](https://www.nuget.org/packages/Microsoft.Unity.Analyzers/) manually. When you're done, open the package file using a tool such as 7zip and extract `Microsoft.Unity.Analyzers.dll` onto your project's root folder. You can place it inside a folder named `NuGet`, for example. Do not place it inside `Assets` or `Packages`, as that will cause Unity to try to process the `.dll`, which will make it output an error in the console.
+
+Next, create an `omnisharp.json` file at the root folder of your project, as explained [here](https://www.strathweb.com/2019/04/roslyn-analyzers-in-code-fixes-in-omnisharp-and-vs-code/). Analyzer support in OmniSharp is experimental at the moment, so we need to enable it explicitly. We also need to point it to the `.dll` file we just extracted.
+
+Your `omnisharp.json` file should end up looking like this:
+
+```json
+{
+    "RoslynExtensionsOptions": {
+        "EnableAnalyzersSupport": true,
+        "LocationPaths": [
+            "./NuGet/microsoft.unity.analyzers.1.9.0"
+        ]
+    }
+}
+```
+
+where `"./NuGet/microsoft.unity.analyzers.1.9.0"` is a relative path pointing to the folder containing the `.dll` file. Depending on where you placed it, your path may look different.
+
+The Unity analyzers should now be working in your project. You can test them by creating an empty `FixedUpdate()` method inside one of your `MonoBehavior` classes, which should trigger a `The Unity message 'FixedUpdate' is empty` warning ([UNT0001](https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0001.md)).
+
+Note that while it is possible to activate these analyzers, the suppressors they ship with the package (that turn off other C# warnings that may conflict with these custom ones) may not be picked up by OmniSharp at the moment, [according to this thread](https://github.com/microsoft/Microsoft.Unity.Analyzers/issues/122#issuecomment-743747554). You can still turn off specific rules manually by following these steps:
+
+1. Create a `.editorconfig` file in your project's root folder (next to Unity's `.csproj` files).
+2. Add the following contents to the file:
+
+```ini
+root=true
+
+[*.cs]
+dotnet_diagnostic.IDE0051.severity = none
+```
+
+`root=true` tells OmniSharp that this is your project root and it should stop looking for parent `.editorconfig` files outside of this folder.
+
+`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you wish to this file.
+
+`[*.cs]` indicates that our custom rules should apply to all C# scripts (files with the `.cs` extension).
+
+You are now ready to code in Visual Studio Code, while getting the same warnings as you would when using Visual Studio!
+
 ## Next steps
 
 Read on to learn more about:

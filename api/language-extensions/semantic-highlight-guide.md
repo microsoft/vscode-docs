@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -81,18 +81,48 @@ The standard types and modifiers cover common concepts used by many languages. W
 
 Standard semantic token types:
 
-- namespace
-- type, class, enum, interface, struct, typeParameter
-- parameter, variable, property, enumMember, event
-- function, member, macro
-- label
-- comment, string, keyword, number, regexp, operator
+
+| Id      | Description                   |
+| ----------------------------- | -------------------------------- |
+| `namespace`| For identifiers that declare or reference a namespace, module or package. |
+| `class`| For identifiers that declare of reference a class type. |
+| `enum`| For identifiers that declare of reference an enumeration type. |
+| `interface`| For identifiers that declare of reference an interface type. |
+| `struct`| For identifiers that declare of reference an struct type. |
+| `interface`| For identifiers that declare of reference an interface type. |
+| `typeParameter`| For identifiers that declare of reference a type parameter. |
+| `type`| For identifiers that declare of reference a type that is not covered above. |
+| `parameter` | For identifiers that declare of reference a function or method parameters. |
+| `variable` | For identifiers that declare of reference a local or global variable. |
+| `property` | For identifiers that declare of reference a member property, member field or member variable. |
+| `enumMember` | For identifiers that declare of enumeration property, constant or member. |
+| `event`| For identifiers that declare of enumeration property. |
+| `function`| For identifiers that declare a function. |
+| `method`| For identifiers that declare a member function or method. |
+| `macro`| For identifiers that declare a macro. |
+| `label`| For identifiers that declare a label. |
+| `comment`| For tokens that represent a comment. |
+| `string`| For tokens that represent a string literal. |
+| `keyword`| For tokens that represent a language keyword. |
+| `number`| For tokens that represent a number literal. |
+| `regexp`| For tokens that represent a regular expression literal. |
+| `operator`| For tokens that represent an operator. |
+
 
 Standard semantic token modifiers:
 
-- declaration
-- readonly, static, deprecated, abstract
-- async, modification, documentation, defaultLibrary
+| Id      | Description                   |
+| ----------------------------- | -------------------------------- |
+| `declaration`| For declarations of symbols.  |
+| `definition`| For definitions of symbols, e.g. in header files.  |
+| `readonly`| For readonly variables and member fields a.k.a. constants.  |
+| `static`| For class members a.k.a static members. |
+| `deprecated`| For symbols that should no longer be used.  |
+| `abstract`| For types and member functions that are abstract.  |
+| `async`| For functions that are marked async.  |
+| `modification`| For variable references where the variable is assigned to.  |
+| `documentation`| For occurrences of symbols in documentation.  |
+| `defaultLibrary`| For symbols that are part of the standard library.  |
 
 If necessary, extensions can define new types and modifiers or create sub types of existing type through the `semanticTokenTypes` and `semanticTokenModifiers` contribution points.
 
@@ -159,8 +189,8 @@ The following table shows the predefined mappings.
 | `enum`|`entity.name.type.enum`|
 | `function`|`entity.name.function`|
 | `function.defaultLibrary`|`support.function`|
-| `member`|`entity.name.function.member`|
-| `macro`|`entity.name.other.preprocessor.macro`|
+| `method`|`entity.name.function.member`|
+| `macro`|`entity.name.function.macro`|
 | `variable`|`variable.other.readwrite` , `entity.name.variable`|
 | `variable.readonly`|`variable.other.constant`|
 | `variable.readonly.defaultLibrary`|`support.constant`|

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -164,14 +164,8 @@ class Dependency extends vscode.TreeItem {
         public readonly collapsibleState: vscode.TreeItemCollapsibleState,
     ) {
         super(label, collapsibleState);
-    }
-
-    get tooltip(): string {
-        return `${this.label}-${this.version}`;
-    }
-
-    get description(): string {
-        return this.version;
+        this.tooltip = `${this.label}-${this.version}`;
+        this.description = this.version;
     }
 
     iconPath = {
@@ -208,13 +202,13 @@ Here's the extension in action:
 
 Our node dependencies view is simple, and once the data is shown, it isn't updated. However, it would be useful to have a refresh button in the view and update the node dependencies view with the current contents of the `package.json`. To do this, we can use the `onDidChangeTreeData` event.
 
-- `onDidChangeTreeData?: Event<T | undefined | null>` - Implement this if your tree data can change and you want to update the treeview.
+- `onDidChangeTreeData?: Event<T | undefined | null | void>` - Implement this if your tree data can change and you want to update the treeview.
 
 Add the following to your `NodeDependenciesProvider`.
 
 ```ts
-  private _onDidChangeTreeData: vscode.EventEmitter<Dependency | undefined> = new vscode.EventEmitter<Dependency | undefined>();
-  readonly onDidChangeTreeData: vscode.Event<Dependency | undefined> = this._onDidChangeTreeData.event;
+  private _onDidChangeTreeData: vscode.EventEmitter<Dependency | undefined | null | void> = new vscode.EventEmitter<Dependency | undefined | null | void>();
+  readonly onDidChangeTreeData: vscode.Event<Dependency | undefined | null | void> = this._onDidChangeTreeData.event;
 
   refresh(): void {
     this._onDidChangeTreeData.fire();
@@ -342,7 +336,7 @@ Once you've created a View Container, you can use the [contributes.views](/api/r
 }
 ```
 
-A view can also have an optional `visibility` property which can be set to `visible`, `collapsed`, or `hidden`. This property is only respected by VS Code the first time a workspace is opened with this view. After that, the visibility is set to whatever the user has chosen. If you have a view container with many views, or if your view will not be useful to every user of your extension, consider setting the view the `collapsed` or `hidden`. A `hidden` view will appear in the the view containers "Views" menu:
+A view can also have an optional `visibility` property which can be set to `visible`, `collapsed`, or `hidden`. This property is only respected by VS Code the first time a workspace is opened with this view. After that, the visibility is set to whatever the user has chosen. If you have a view container with many views, or if your view will not be useful to every user of your extension, consider setting the view the `collapsed` or `hidden`. A `hidden` view will appear in the view containers "Views" menu:
 
 ![Views Menu](images/tree-view/views-menu.png)
 

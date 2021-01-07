@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 ---
 # Remote Development Tips and Tricks
 
@@ -496,6 +496,10 @@ rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
 
 The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
 
+### SSH into a remote WSL 2 host
+
+You may want to use SSH to connect to a WSL distro running on your remote machine. Check out [this guide](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine) to learn how to SSH into Bash and WSL 2 on Windows 10 from an external machine.
+
 ## Container tips
 
 This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
@@ -691,7 +695,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 ### Using an SSH tunnel to connect to a remote Docker host
 
-The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the `docker.host` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
 
 However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
@@ -703,7 +707,7 @@ Follow these steps:
 
 1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
 
-2. Update the `docker.host` property in your user or workspace `settings.json` as follows:
+2. Update the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)  `docker.host` property in your user or workspace `settings.json` as follows:
 
     ```json
     "docker.host":"tcp://localhost:23750"

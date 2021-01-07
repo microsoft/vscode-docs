@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to provide debugger extensions (plug-ins) for Visual Studio Code through a Debug Adapter.
@@ -51,7 +51,7 @@ So in its most minimal form, a debugger extension is just a declarative contribu
 A more realistic debugger extension contributes many or all of the following declarative items to VS Code:
 
 - List of languages supported by the debugger. VS Code enables the UI to set breakpoints for those languages.
-- JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides IntelliSense.
+mention- JSON schema for the debug configuration attributes introduced by the debugger. VS Code uses this schema to verify the configuration in the launch.json editor and provides IntelliSense. Please note that the JSON schema constructs `$ref` and `definition` are not supported.
 - Default debug configurations for the initial launch.json created by VS Code.
 - Debug configuration snippets that a user can add to a launch.json file.
 - Declaration of variables that can be used in debug configurations.
@@ -367,10 +367,10 @@ For this VS Code provides extension API to control how a debug adapter is create
 
 Today VS Code supports three different ways for running a debug adapter and consequently offers three different descriptor types:
 
-- `DebugAdapterExecutable`: this object describes a debug adapter as an external executable with a path and optional arguments and runtime. The executable must implement the Debug Adapter Protocol and communicate via stdin/stdout. This is VS Code's default mode of operation and VS Code uses this descriptor automatically with the corresponding values from the package.json if no `DebugAdapterDescriptorFactory` is explicitely registered.
+- `DebugAdapterExecutable`: this object describes a debug adapter as an external executable with a path and optional arguments and runtime. The executable must implement the Debug Adapter Protocol and communicate via stdin/stdout. This is VS Code's default mode of operation and VS Code uses this descriptor automatically with the corresponding values from the package.json if no `DebugAdapterDescriptorFactory` is explicitly registered.
 - `DebugAdapterServer`: this object describes a debug adapter running as a server that communicates via a specific local or remote port. A debug adapter implementation based on the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module supports this server mode automatically.
 - `DebugAdapterInlineImplementation`: this object describes a debug adapter as a JavaScript or Typescript object that implements the `vscode.DebugAdapter` interface. A debug adapter implementation based on version 1.38-pre.4 or later of the [`vscode-debugadapter`](https://www.npmjs.com/package/vscode-debugadapter) npm module implements the interface automatically.
 
 Mock Debug shows examples for the [three types of DebugAdapterDescriptorFactories](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L91-L150)  and how they are [registered for the 'mock' debug type](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L50). The run mode to use can be selected by [setting the global variable `runMode`](https://github.com/microsoft/vscode-mock-debug/blob/668fa6f5db95dbb76825d4eb670ab0d305050c3b/src/extension.ts#L16) to one of the possible values `external`, `server`, or `inline`.
 
-For devlopment the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.
+For development, the `inline` and `server` modes are particularly useful because they allow for debugging extension and debug adapter within a single process.

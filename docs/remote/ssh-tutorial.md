@@ -5,7 +5,7 @@ TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 ---
 # Remote development over SSH
 
@@ -67,7 +67,7 @@ This will generate the SSH key. Press `kbstyle(Enter)` at the following prompt t
 
 ![ssh-keygen output](images/ssh-tutorial/ssh-keygen.png)
 
-You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_rsa.pub` file which containers your new public SSH key.
+You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_rsa.pub` file which contains your new public SSH key.
 
 ## Add SSH key to your VM
 

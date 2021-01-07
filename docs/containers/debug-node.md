@@ -118,7 +118,7 @@ Also note that the `debug` logger writes logs only when enabled via the `DEBUG` 
 ### Configuring when the application is "ready"
 
 The extension determines the application is "ready" to receive HTTP connections when it writes a message of the form `Listening on port <number>` to the debug console, as Express.js does by default.  If the application logs a different
-message, then you should set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerServerReadyAction-object-properties) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
+message, then you should set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object of the debug launch configuration to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
 
 For example, suppose the application logs the following message:
 
@@ -155,7 +155,7 @@ The corresponding `pattern` in the debug launch configuration (in `launch.json`)
 
 ### Configuring the application entry page
 
-By default, the Docker extension will open the "main" page of the browser (however that is determined by the application).  If the browser should be opened to a specific page, the `uriFormat` property of the [dockerServerReadyAction](debug-common.md#dockerServerReadyAction-object-properties) object of the debug launch configuration should be set to a Node.js format string, with one string token that indicates where the port should be substituted.
+By default, the Docker extension will open the "main" page of the browser (however that is determined by the application).  If the browser should be opened to a specific page, the `uriFormat` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object of the debug launch configuration should be set to a Node.js format string, with one string token that indicates where the port should be substituted.
 
 The corresponding `uriFormat` in the debug launch configuration (in `launch.json`) to open the `about.html` page instead of the main page would be:
 

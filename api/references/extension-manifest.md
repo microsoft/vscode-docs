@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -36,6 +36,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `devDependencies`                                       |          | `object`                                   | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).                                                                                                                                                   |
 | `extensionPack`                                         |          | `array`                                    | An array with the ids of extensions bundled with this extension. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                              |
 | `extensionDependencies`                                 |          | `array`                                    | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                           |
+| `extensionKind`                                 |          | `array`                                    | An array that indicates where the extension should run in remote configurations. Values are `ui` (run locally), `workspace` (run on remote machine) or both, with the order setting the preference. For example: `[ui, workspace]` indicates the extension can run in either location but prefers to run on the local machine.                                                                           |
 | `scripts`                                               |          | `object`                                   | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/api/working-with-extensions/publishing-extension#prepublish-step) or [vscode:uninstall](/api/references/extension-manifest#extension-uninstall-hook).                   |
 | `icon`                                                  |          | `string`                                   | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).                                                                                                                                                                                                                                          |
 

@@ -39,12 +39,12 @@ A content provider is declared in `package.json` under the `contributes.notebook
 ```json
 {
     ...
-    "activationEvents": ["onNotebookEditor:notebook-renderer-demo"],
+    "activationEvents": ["onNotebook:my-notebook-provider"],
     "contributes": {
         ...
         "notebookProvider": [
             {
-                "viewType": "ny-notebook-provider",
+                "viewType": "my-notebook-provider",
                 "displayName": "My Notebook Provider",
                 "selector": [
                     {
@@ -65,7 +65,7 @@ import * as vscode from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.notebook.registerNotebookContentProvider(
-            "ny-notebook-provider", new SampleProvider()
+            "my-notebook-provider", new SampleProvider()
         )
     );
 }

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -20,6 +20,8 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 ```
 
 **Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
+
+Theme colors are available as CSS variables in [webviews](/api/extension-guides/webview), and [an extension](https://marketplace.visualstudio.com/items?itemName=connor4312.css-theme-completions) is available which provides IntelliSense for them.
 
 ## Color formats
 
@@ -45,6 +47,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
 - `icon.foreground`: The default color for icons in the workbench.
+- `sash.hoverBorder`: The hover border color for draggable sashes.
 
 ## Window border
 
@@ -355,7 +358,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
 
-- `editor.onTypeRenameBackground`: Background color when the editor auto renames on type.
+- `editor.linkedEditingBackground`: Background color when the editor is in linked editing mode.
 
 CodeLens:
 
@@ -402,10 +405,13 @@ Errors and warnings:
 
 - `editorError.foreground`: Foreground color of error squiggles in the editor.
 - `editorError.border`: Border color of error boxes in the editor.
+- `editorError.background`: Background color of error text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorWarning.foreground`: Foreground color of warning squiggles in the editor.
 - `editorWarning.border`: Border color of warning boxes in the editor.
+- `editorWarning.background`: Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorInfo.foreground`: Foreground color of info squiggles in the editor.
 - `editorInfo.border`: Border color of info boxes in the editor.
+- `editorInfo.background`: Background color of info text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hint boxes in the editor.
 - `problemsErrorIcon.foreground`: The color used for the problems error icon.
@@ -513,7 +519,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 
 - `panel.background`: Panel background color.
 - `panel.border`: Panel border color to separate the panel from the editor.
-- `panel.dropBackground`: Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
 - `panel.dropBorder`: Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
@@ -549,6 +554,9 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering.
 - `statusBarItem.remoteBackground`: Background color for the remote indicator on the status bar.
 - `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
+- `statusBarItem.errorBackground`: Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions.
+- `statusBarItem.errorForeground`: Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions.
+
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -575,8 +583,6 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 
 ## Notification colors
 
-**Note:** The colors below only apply for VS Code versions 1.21 and higher.
-
 Notification toasts slide up from the bottom-right of the workbench.
 
 ![Notification Toasts](images/theme-color/notification-toast.png)
@@ -596,20 +602,6 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notificationsErrorIcon.foreground`: The color used for the notification error icon.
 - `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
 - `notificationsInfoIcon.foreground`: The color used for the notification info icon.
-
-If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
-
-- `notification.background`
-- `notification.foreground`
-- `notification.buttonBackground`
-- `notification.buttonForeground`
-- `notification.buttonHoverBackground`
-- `notification.errorBackground`
-- `notification.errorForeground`
-- `notification.infoBackground`
-- `notification.infoForeground`
-- `notification.warningBackground`
-- `notification.warningForeground`
 
 ## Extensions colors
 
@@ -712,6 +704,9 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.numberInputBackground`: Number input box background.
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
+- `settings.focusedRowBackground`: Background color of a focused setting row.
+- `notebook.focusedRowBorder`: Border of a focused setting row.
+- `notebook.rowHoverBackground`: Border color of a hovered setting row.
 
 ## Breadcrumbs colors
 
@@ -798,7 +793,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 - `notebook.cellBorderColor`: The border color for notebook cells.
 - `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
-- `notebookStatusSuccessIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
@@ -807,6 +802,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
 - `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
+- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
 - `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
 - `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
@@ -815,6 +811,17 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell"
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
+
+## Chart colors
+
+- `charts.foreground`: Contrast color for text in charts.
+- `charts.lines`: Color for lines in charts.
+- `charts.red`: Color for red elements in charts.
+- `charts.blue`: Color for blue elements in charts.
+- `charts.yellow`: Color for yellow elements in charts.
+- `charts.orange`: Color for orange elements in charts.
+- `charts.green`: Color for green elements in charts.
+- `charts.purple`: Color for purple elements in charts.
 
 ## Extension colors
 

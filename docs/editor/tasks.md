@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -551,22 +551,24 @@ Task properties can also be defined in the global scope. If present, they will b
 When the default shell is PowerShell, or when a task is configured to use PowerShell, you might see unexpected space and quote escaping. The unexpected escaping only occurs with cmdlets because VS Code doesn't know if your command contains cmdlets. Example 1 below shows a case where you'll get escaping that doesn't work with PowerShell. Example 2 shows the best, cross-platform, way to get good escaping. In some cases, you might not be able to follow example 2 and you'll need to do the manual escaping shown in example 3.
 
 ```json
-{
-    "label": "PowerShell example 1 (unexpected escaping)",
-    "type": "shell",
-    "command": "Get-ChildItem \"Folder With Spaces\""
-},
-{
-    "label": "PowerShell example 2 (expected escaping)",
-    "type": "shell",
-    "command": "Get-ChildItem",
-    "args": ["Folder With Spaces"]
-},
-{
-    "label": "PowerShell example 3 (manual escaping)",
-    "type": "shell",
-    "command": "& Get-ChildItem \\\"Folder With Spaces\\\""
-}
+"tasks": [
+    {
+        "label": "PowerShell example 1 (unexpected escaping)",
+        "type": "shell",
+        "command": "Get-ChildItem \"Folder With Spaces\""
+    },
+    {
+        "label": "PowerShell example 2 (expected escaping)",
+        "type": "shell",
+        "command": "Get-ChildItem",
+        "args": ["Folder With Spaces"]
+    },
+    {
+        "label": "PowerShell example 3 (manual escaping)",
+        "type": "shell",
+        "command": "& Get-ChildItem \\\"Folder With Spaces\\\""
+    }
+]
 ```
 
 ## Changing the encoding for a task output

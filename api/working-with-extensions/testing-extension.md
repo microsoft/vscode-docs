@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -91,9 +91,9 @@ import * as glob from 'glob';
 export function run(): Promise<void> {
   // Create the mocha test
   const mocha = new Mocha({
-    ui: 'tdd'
+    ui: 'tdd',
+    color: true
   });
-  mocha.useColors(true);
 
   const testsRoot = path.resolve(__dirname, '..');
 

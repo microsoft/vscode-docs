@@ -127,9 +127,9 @@ Here are all properties available for configuring `docker-build` task. All prope
 | --- | --- |
 | `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerbuild-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
-| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-docker-build-task)). |
+| `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerbuild-task)). |
 | `python` | There are no object properties for Python in the `docker-build` task. |
-| `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-docker-build-task)). |
+| `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-dockerbuild-task)). |
 
 ### dockerBuild object properties
 
@@ -318,9 +318,9 @@ Here are all properties available for configuring `docker-run` task. All propert
 | --- | --- |
 | `dockerRun` | Options for controlling the `docker run` command executed ([see below](#dockerrun-object-properties)). <br/> Required unless `platform` is set. |
 | `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
-| `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-docker-run-task)). |
-| `python` | For Python projects, this controls various options ([see below](#python-object-properties-docker-run-task)). |
-| `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-docker-run-task)). |
+| `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-dockerrun-task)). |
+| `python` | For Python projects, this controls various options ([see below](#python-object-properties-dockerrun-task)). |
+| `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-dockerrun-task)). |
 
 ### dockerRun object properties
 
@@ -392,9 +392,81 @@ Here are all properties available for configuring `docker-run` task. All propert
 | `configureSsl` | Whether to configure ASP.NET Core SSL certificates and other settings to enable SSL on the service in the container. |
 | `enableDebugging` | Whether to enable the started container for debugging. This will infer additional volume mappings and other options necessary for debugging. |
 
+## Docker Compose task
+
+The `docker-compose` task in `tasks.json` creates and starts Docker containers using the Docker Compose command line (CLI). The task can be used by itself, or as part of a chain of tasks to debug an application within a Docker container.
+
+The most important configuration setting for the `docker-compose` task is `dockerCompose`:
+
+- The `dockerCompose` object specifies parameters for the Docker Compose command. Values specified by this object are applied directly to Docker Compose CLI invocation.
+
+See [property reference](#compose-task-reference) for full list of all task properties.
+
+**Example configuration**
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run docker-compose up",
+            "type": "docker-compose",
+            "dockerCompose": {
+                "up": {
+                    "detached": true,
+                    "build": true,
+                    "services": [
+                      "myservice"
+                    ]
+                },
+                "files": [
+                    "${workspaceFolder}/docker-compose.yml",
+                    "${workspaceFolder}/docker-compose.debug.yml"
+                ]
+            }
+        }
+    ]
+}
+```
+
+## Compose task reference
+
+Here are all properties available for configuring `docker-compose` task. All properties are optional unless indicated otherwise.
+
+| Property | Description |
+| --- | --- |
+| `dockerCompose` | Options for controlling the `docker-compose` command executed ([see below](#dockercompose-object-properties)). <br/> Required. |
+
+### dockerCompose object properties
+
+| Property | Description | CLI Equivalent |
+| --- | --- | --- |
+| `up` | Run a `docker-compose up` command. <br/> Either this or `down` must be specified, but not both. | `docker-compose up` |
+| `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
+| `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
+
+### up object properties
+
+| Property | Description | CLI Equivalent | Default |
+| --- | --- | --- | --- |
+| `detached` | Whether or not to run detached. | `-d` | `true` |
+| `build` | Whether or not to build before running. | `--build` | `true` |
+| `scale` | Number of instances of each service to run. This is a list of key-value pairs. | `--scale SERVICE=NUM` |
+| `services` | A subset of the services to start. | `[SERVICE...]` | (all) |
+| `customOptions` | Any extra parameters to add after the `up` argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
+
+### down object properties
+
+| Property | Description | CLI Equivalent | Default |
+| --- | --- | --- | --- |
+| `removeImages` | Whether to remove images, and which. `all` will remove all images used by any service, `local` will remove only images without a custom tag. Leaving this unset will remove no images. | `--rmi` |
+| `removeVolumes` | Whether or not to remove named volumes. | `-v` | `false` |
+| `customOptions` | Any extra parameters to add after the `down` argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
+
 ## Command customization
 
 The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
+
+For example, the token `${serviceList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
 
 For each of these customizable Docker commands, a configuration setting is available to set the template of what to execute. Alternatively, you can define multiple templates, optionally with a regular expression, which when matched, hints the context in which a template should be used. The templates support some tokens similar to `launch.json` and `tasks.json`, for example, `${workspaceFolder}`.
 
@@ -521,6 +593,7 @@ Supported tokens:
 | `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
 | `${detached}` | Set to `-d` if the configuration setting `docker.dockerComposeDetached` is set to `true`. Otherwise, set to `""`. |
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
+| `${serviceList}` | If specified, prompts for a subset of the services to start when the command is run. |
 
 ### Docker Compose Down
 
@@ -542,3 +615,5 @@ In addition to the command-specific supported tokens, the following tokens are s
 | -- | -- |
 | `${workspaceFolder}` | The selected workspace folder path. |
 | `${config:some.setting.identifier}` | The value of any configuration setting, as long as it is a string, number, or boolean. These setting identifiers can be arbitrarily defined and do not need to belong to Visual Studio Code or to any extension. |
+| `${env:Name}` | The value of an environment variable. |
+| `${command:commandID}` | The string return value of a command. |

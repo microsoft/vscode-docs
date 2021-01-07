@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -13,9 +13,19 @@ The webview API allows extensions to create fully customizable views within Visu
 
 Think of a webview as an `iframe` within VS Code that your extension controls. A webview can render almost any HTML content in this frame, and it communicates with extensions using message passing. This freedom makes webviews incredibly powerful, and opens up a whole new range of extension possibilities.
 
+Webviews are used in several VS Code APIs:
+
+- With Webview Panels created using `createWebviewPanel`. In this case, Webview panels are shown in VS Code as distinct editors. This makes them useful for displaying custom UI and custom visualizations.
+- As the view for a [custom editor](/api/extension-guides/custom-editors). Custom editors allow extensions to provide a custom UI for editing any file in the workspace. The custom editor API also lets your extension hook into editor events such as undo and redo, as well as file events such as save.
+- In [Webview views](/api/references/vscode-api#WebviewView) that are rendered in the sidebar or panel areas. See the [webview view sample extension](https://github.com/microsoft/vscode-extension-samples/tree/master/webview-view-sample) for more details.
+
+This page focuses on the basic webview panel API, although almost everything covered here applies to the webviews used in custom editors and webview views as well. Even if you are more interested in those APIs, we recommend reading through this page first to familiarize yourself with the webview basics.
+
 ## Links
 
 - [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+- [Custom Editors Documentation](/api/extension-guides/custom-editors)
+- [Webview View Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/webview-view-sample)
 
 ### VS Code API Usage
 
@@ -321,7 +331,7 @@ export function activate(context: vscode.ExtensionContext) {
           columnToShowIn,
           {}
         );
-        currentPanel.webview.html = getWebviewContent(cats['Coding Cat']);
+        currentPanel.webview.html = getWebviewContent('Coding Cat');
 
         // Reset when the current panel is closed
         currentPanel.onDidDispose(
@@ -359,7 +369,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {}
       );
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
       // Update contents based on view state changes
       panel.onDidChangeViewState(
@@ -388,7 +398,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof cats) {
   panel.title = catName;
-  panel.webview.html = getWebviewContent(cats[catName]);
+  panel.webview.html = getWebviewContent(catName);
 }
 ```
 
@@ -535,7 +545,7 @@ code {
 }
 ```
 
-Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables.
+Review the [Theme Color Reference](/api/references/theme-color) for the available theme variables. [An extension](https://marketplace.visualstudio.com/items?itemName=connor4312.css-theme-completions) is available which provides IntelliSense suggestions for the variables.
 
 The following font related variables are also defined:
 
@@ -850,7 +860,7 @@ The best way to solve this is to make your webview stateless. Use [message passi
 
 ### getState and setState
 
-Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
+Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even after the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
 
 ```js
 // Inside a webview script

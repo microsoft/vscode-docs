@@ -15,7 +15,8 @@ As educators, we know it's frustrating to install all the different software to 
 
 This coding pack includes everything you need to start coding in Java.
 
-<a href="https://aka.ms/vscode-java-installer-win"><button name="windows-java" aria-label="Windows download" role="link">Download - Windows</button></a>  <a href="https://aka.ms/vscode-java-installer-mac"><button name="mac-java" aria-label="Windows download" role="link">Download - macOS</button></a>
+<a onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win"><button name="windows-java" aria-label="Windows download" role="link">Download - Windows</button></a>
+<a onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac"><button name="mac-java" aria-label="Windows download" role="link">Download - macOS</button></a>
 
 This will install:
 
@@ -29,7 +30,7 @@ This will install:
 
 This coding pack includes everything you need to start coding in Python.
 
-<a href="https://aka.ms/coding-pack-for-python-win"><button name="windows-python" aria-label="Windows download" role="link">Download - Windows</button></a>
+<a onclick="pushCodingPackEvent('python', 'win')" href="https://aka.ms/coding-pack-for-python-win"><button name="windows-python" aria-label="Windows download" role="link">Download - Windows</button></a>
 
 It will install:
 

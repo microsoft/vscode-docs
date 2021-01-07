@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 ---
 # Developing inside a Container
 
@@ -121,7 +121,7 @@ If you are using [Windows Subsystem for Linux v2 (WSL 2)](https://docs.microsoft
 Once the WSL 2 engine is enabled, you can either:
 
 * Use the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension.
-* Select **Remote-Containers: Open Folder in Container...** from the Command Palette `(kbstyle(F1))` and choose a WSL folder using the local `\\wsl$` share (from the Windows side).
+* Select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and choose a WSL folder using the local `\\wsl$` share (from the Windows side).
 
 The rest of the quick start applies as-is! You can learn more about the [Remote - WSL extension in is documentation](/docs/remote/wsl.md).
 

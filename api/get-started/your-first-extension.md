@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -27,6 +27,7 @@ yo code
 # ? What's the identifier of your extension? helloworld
 # ? What's the description of your extension? LEAVE BLANK
 # ? Initialize a git repository? Yes
+# ? Bundle the source code with webpack? No
 # ? Which package manager to use? npm
 
 code ./helloworld
@@ -34,7 +35,7 @@ code ./helloworld
 
 Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
 
-Run the `Hello World` command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
+Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
 <video autoplay loop muted playsinline controls title="Launch your first VS Code extension video">
   <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
@@ -47,8 +48,8 @@ You should see the `Hello World from HelloWorld!` notification showing up. Succe
 Let's make a change to the message:
 
 - Change the message from `Hello World from HelloWorld!` to `Hello VS Code` in `extension.ts`
-- Run `Reload Window` in the new window
-- Run the command `Hello World` again
+- Run **Developer: Reload Window** in the new window
+- Run the command **Hello World** again
 
 You should see the updated message showing up.
 
@@ -58,7 +59,7 @@ You should see the updated message showing up.
 
 Here are some ideas for you to try:
 
-- Give the `Hello World` command a new name in the Command Palette.
+- Give the **Hello World** command a new name in the Command Palette.
 - [Contribute](/api/references/contribution-points) another command that displays current time in an information message. Contribution points are static declarations you make in the package.json Extension Manifest to extend VS Code, such as adding commands, menus, or keybindings to your extension.
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 

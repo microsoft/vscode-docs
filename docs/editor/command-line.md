@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line options
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: Visual Studio Code command-line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -93,8 +93,8 @@ There are several CLI options that help with reproducing errors and advanced set
 
 Argument|Description
 ------------------|-----------
-`--extensions-dir <dir>` | Set the root path for extensions.
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.
+`--extensions-dir <dir>` | Set the root path for extensions. Has no effect in [Portable Mode](/docs/editor/portable.md).
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root. Has no effect in [Portable Mode](/docs/editor/portable.md).
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
@@ -136,7 +136,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
->**Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
+> **Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
 
 ## Next steps
 

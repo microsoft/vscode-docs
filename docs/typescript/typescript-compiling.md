@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
@@ -158,7 +158,7 @@ Having the generated JavaScript file in the same folder at the TypeScript source
 
 ## Hiding derived JavaScript files
 
-When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) and you can easily create an expression to hide those derived files:
+When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) and you can easily create an expression to hide those derived files:
 
 `**/*.js: { "when": "$(basename).ts" }`
 
@@ -166,11 +166,15 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/compiling/hidingDerivedBefore.png) ![Hiding derived resources](images/compiling/hidingDerivedAfter.png)
 
+Add the `files.exclude` setting with a filter in the workspace `settings.json` file, located in the `.vscode` folder at the root of the workspace. You can open the workspace `settings.json` via the **Preferences: Open Workspace Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
 To exclude JavaScript files generated from both `.ts` and `.tsx` source files, use this expression:
 
 ```json
-"**/*.js": { "when": "$(basename).ts" },
-"**/**.js": { "when": "$(basename).tsx" }
+"files.exclude": {
+    "**/*.js": { "when": "$(basename).ts" },
+    "**/**.js": { "when": "$(basename).tsx" }
+}
 ```
 
 This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.

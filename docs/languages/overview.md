@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -23,7 +23,7 @@ Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use our 
 
 ## Language specific documentation
 
-On this website, we have a number of topics outlining several of the common languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/azure/docker.md) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
+On this website, we have a number of topics outlining several of the common languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/azure/docker.md) - [F&#35;](/docs/languages/dotnet.md#create-an-f-hello-world-app) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
 [Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [PowerShell](/docs/languages/powershell.md) - [Python](/docs/languages/python.md) - [SCSS](/docs/languages/css.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language. Most language extensions also contain a summary of their core features in their README.

@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 ---
 # Advanced Container Configuration
 
@@ -134,14 +134,21 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 You can also use a mount to persist your bash command history across sessions / container rebuilds.
 
-First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
+First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist.
+
+If you have a root user, update your `Dockerfile` with the following:
+
+```Dockerfile
+RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
+    && echo $SNIPPET >> "/root/.bashrc"
+```
+
+If you have a non-root user, update your `Dockerfile` with the following. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container.
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
 
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
-    && echo $SNIPPET >> "/root/.bashrc" \
-    # [Optional] If you have a non-root user
     && mkdir /commandhistory \
     && touch /commandhistory/.bash_history \
     && chown -R $USERNAME /commandhistory \
@@ -150,7 +157,7 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
 
 Next, add a local volume to store the command history. This step varies depending on whether or not you are using Docker Compose.
 
-* **Dockerfile or image**:  Use the `mounts` property (VS Code 1.41+) in your `devcontainer.json` file. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
+* **Dockerfile or image**:  Use the `mounts` property (VS Code 1.41+) in your `devcontainer.json` file.
 
     ```json
       "mounts": [
@@ -158,7 +165,7 @@ Next, add a local volume to store the command history. This step varies dependin
       ]
     ```
 
-* **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
+* **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service.
 
     ```yaml
     version: '3'
@@ -175,7 +182,7 @@ Finally, if you've already built the container and connected to it, run **Remote
 
 ## Changing the default source code mount
 
-If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container.  If `git` is present on the host's `PATH` and the folder containing `./devcontainer/devcontainer.json` is within a `git` repository, the current workspace mounted will be the root of the repository.  If `git` is not present on the host's `PATH`, the current workspace mounted will be the folder containing `./devcontainer/devcontainer.json`.
+If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container.  If `git` is present on the host's `PATH` and the folder containing `.devcontainer/devcontainer.json` is within a `git` repository, the current workspace mounted will be the root of the repository.  If `git` is not present on the host's `PATH`, the current workspace mounted will be the folder containing `.devcontainer/devcontainer.json`.
 
 While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, location, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
 
@@ -224,7 +231,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
 
-See [Clone Repository in Container Volume](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) for details on using this approach.
+See [Open a Git repository or GitHub PR in an isolated container volume](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) for details on using this approach.
 
 The next two sections will outline how to use a named volume in other scenarios.
 
@@ -380,15 +387,15 @@ To create the named local volume, follow these steps:
 
     **Docker Compose**:
 
-    Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `unique-vol-name-here` with a unique name for the volume.
+    Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replacing `/root` with the home directory in the container if not root (for example `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume.
 
     ```yml
     services:
       your-service-name-here:
         volumes:
-          - unique-vol-name-here:~/.vscode-server/extensions
+          - unique-vol-name-here:/root/.vscode-server/extensions
           # And/or for VS Code Insiders
-          - unique-vol-name-here-insiders:~/.vscode-server-insiders/extensions
+          - unique-vol-name-here-insiders:/root/.vscode-server-insiders/extensions
         # ...
 
     volumes:
@@ -623,7 +630,7 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
 }
 ```
 
-Next, you can `container2-src/.devcontainer.json` for Node.js development by changing `workspaceFolder` and installing Node.js extensions:
+Next, you can set up `container2-src/.devcontainer.json` for Node.js development by changing `workspaceFolder` and installing Node.js extensions:
 
 ```json
 {
@@ -736,7 +743,9 @@ However, note that the **Docker CLI still needs to be installed locally** (along
 
 ### A basic remote example
 
-Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the `docker.host` property in `settings.json` and restarting VS Code (or reloading the window). For example:
+Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` and restarting VS Code (or reloading the window).
+
+For example:
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
@@ -784,7 +793,7 @@ Recent versions of Docker (18.06+) have added support for the SSH protocol to co
 
 First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
-Then, add the following to `settings.json` (replacing values as appropriate):
+Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property to `settings.json` (replacing values as appropriate):
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
@@ -796,7 +805,7 @@ After restarting VS Code (or reloading the window), you will now be able to [att
 
 **Using the TCP protocol**
 
-While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other properties. These are:
+While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties. These are:
 
 ```json
 "docker.host":"tcp://your-remote-machine-fqdn-or-ip-here:port",

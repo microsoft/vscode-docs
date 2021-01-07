@@ -28,18 +28,19 @@ To successfully complete this tutorial, you must do the following steps:
 1. Install Mingw-w64 via the SourceForge website. Click [Mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to download the Windows Mingw-w64 installer.
     1. Run the installer.
     1. For **Architecture** select **x86_64** and then select **Next**.
-    1. **Next** again to use the default installation folder and install MinGW.
+    1. On the Installation Folder page, use the default installation folder. Copy the location as you will need it later.
+    1. Select **Next** to start the installation.
 
-1. Add the path to your Mingw-w64 `bin` folder  to the Windows `PATH` environment variable by using the following steps:
+1. Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. Choose the `Path` variable and then select **Edit**.
-   1. Select **New** and add the Mingw-w64 path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin`.
+   1. Select **New** and add the Mingw-w64 destination folder path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
 ### Check your MinGW installation
 
-To check that your Mingw-w64 tools are correctly installed and available, open a new Command Prompt and type:
+To check that your Mingw-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
 ```bash
 g++ --version
@@ -184,7 +185,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. 
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
 1. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
 1. You'll then see a dropdown for various predefined debugging configurations. Choose **g++.exe build and debug active file**.
@@ -296,7 +297,7 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 ![Command Palette](images/cpp/command-palette.png)
 
-This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.  
+This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
 Here, we've changed the **Configuration name** to **GCC**, set the **Compiler  path** dropdown to the g++ compiler, and the **IntelliSense mode** to match the compiler (**gcc-x64**)
 

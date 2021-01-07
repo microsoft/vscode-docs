@@ -17,7 +17,7 @@ In this guide you will learn how to:
 
 ## Prerequisites
 
-- Docker Desktop and the VS Code Docker extension must be installed as described in the [overview](overview.md#installation).
+- Docker Desktop and the VS Code Docker extension must be installed as described in the [overview](/docs/containers/overview.md#installation).
 - For Python development, complete all [Getting started with Python](/docs/python/python-tutorial.md) steps
 - A runnable Python application
 
@@ -48,15 +48,16 @@ After verifying your app runs properly, you can now Dockerize your application.
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
 1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
-2. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. Compose is typically used when running multiple containers at once.
 
-3. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
+1. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. If you select **Yes**, you will need to [verify the path](/docs/containers/quickstart-python.md#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
+
+1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
     >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
-4. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-user-rights.md).
+1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-user-rights.md).
 
-5. With all of this information, the Docker extension creates the following files:
+1. With all of this information, the Docker extension creates the following files:
 
     - A `Dockerfile`. To learn more about IntelliSense in this file, refer to the [overview](/docs/containers/overview.md).
 
@@ -78,13 +79,13 @@ The Docker Extension helps you author Dockerfiles by using [IntelliSense](/docs/
 
 3. Press `kbstyle(Tab)` or `kbstyle(Enter)` to complete the statement, then set the `key` to VAR1 and the `value` to 10.
 
-### Gunicorn modifications for Django/Flask apps
+## Gunicorn modifications for Django/Flask apps
 
 To give Python Web Developers a great starting point, we chose to use [Gunicorn](https://gunicorn.org/#docs) as the default web server. Since it is referenced in the default Dockerfile, it is included as a dependency in the `requirements.txt` file.
 
 > **Note**: To use Gunicorn as your web server, it must be included in the `requirements.txt` file as an app dependency. It does not need to be installed in your virtual environment/host machine. The Gunicorn entry point is overridden locally if your app is run with **Python: Django** or **Python: Flask**.
 
-#### Django Apps
+### Django apps
 
 To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
 
@@ -96,7 +97,7 @@ If your project does not follow Django's default project structure (that is, a w
 
   > **Tip**: If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
 
-#### Flask Apps
+### Flask apps
 
 To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable corresponds with the **file location** and **variable name** of your created Flask instance. According to [official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/api/), users generally create a Flask instance in the main module or in the `__init__.py` file of their package in this manner:
 
@@ -125,7 +126,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
       os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworld.settings')
     ```
 
-    >**Note**: If you have created an app project as shown in the [Create a Django app](https://code.visualstudio.com/docs/python/tutorial-django#_create-a-django-app) section of the Django tutorial, you may set a breakpoint in `views.py` or wherever you choose.
+    >**Note**: If you have created an app project as shown in the [Create a Django app](/docs/python/tutorial-django.md#create-a-django-app) section of the Django tutorial, you can also set a breakpoint in `views.py` or wherever you choose.
 
 1. Navigate to **Run and Debug** and select **Docker: Python - Django**.
 
@@ -146,11 +147,11 @@ The Docker extension will launch your browser to a randomly mapped port:
 
 >**Tip**: To modify your Docker build settings, such as changing the image tag, navigate to `.vscode -> tasks.json` under the `dockerBuild` attribute in the `docker-build` task. Use IntelliSense within the file (`kb(editor.action.triggerSuggest)`) to display all other valid directives.
 
-## Use the Docker view
+## Use the Docker Explorer
 
-The Docker view provides an interactive experience to examine and manage Docker assets such as containers, images, and so on. To see an example:
+The Docker Explorer provides an interactive experience to examine and manage Docker assets such as containers, images, and so on. To see an example:
 
-1. Navigate to the Docker view.
+1. Navigate to the Docker Explorer.
 1. In the **Containers** tab, right-click on your container and choose **View Logs**.
 
     ![Viewing the logs of a container](images/quickstarts/python-view-logs.png)
@@ -161,7 +162,8 @@ The Docker view provides an interactive experience to examine and manage Docker 
 
 You're done! Now that your container is ready, you may want to:
 
-- [Learn about debugging Python in a container](/docs/containers/debug-python.md)
+- [Debug with Docker Compose](/docs/containers/docker-compose.md#python)
+- [Customize how you debug Python apps in a container](/docs/containers/debug-python.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
 - [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -38,7 +38,7 @@ $ cd myExtension
 $ vsce package
 # myExtension.vsix generated
 $ vsce publish
-# <publisherID>.myExtension published to VS Code MarketPlace
+# <publisherID>.myExtension published to VS Code Marketplace
 ```
 
 `vsce` can also search, retrieve metadata, and unpublish extensions. For a reference on all the available `vsce` commands, run `vsce --help`.
@@ -153,7 +153,7 @@ vsce unpublish (publisher name).(extension name)
 
 ## Packaging extensions
 
-If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code MarketPlace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release.
+If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code Marketplace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release.
 
 For extension authors, they can run `vsce package` in extension root folder to create such VSIX files.
 

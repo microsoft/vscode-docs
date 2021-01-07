@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 10/8/2020
+DateApproved: 12/11/2020
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -383,4 +383,4 @@ For example, to make the indent guides bright blue, add the following to your `s
 
 ### Can I hide the OPEN EDITORS section in the Explorer?
 
-Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view loose files.
+Yes, you can hide the **OPEN EDITORS** list with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md), which declares how many items to display before a scroll bar appears. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The list will still be displayed if you are using VS Code to view individual loose files, since they won't be displayed in the folder pane.
