@@ -186,6 +186,28 @@ Use the property `defaultSnippets` to specify any number of snippets for the giv
 
 Note that `defaultSnippets` is not part of the JSON schema specification but a VS Code-specific schema extension.
 
+### Use rich formatting in hovers
+
+VSCode will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7) in order to provide information about property on hover and during autocomplete.
+
+If you want your descriptions to support formatting like like links, you can opt-in by using [Markdown](https://code.visualstudio.com/docs/languages/markdown) in your formatting with the `markdownDescription` property.
+
+```json
+{
+   "$schema": "http://json-schema.org/schema",
+   "type": "object",
+   "properties": {
+       "name" : {
+           "type": "string",
+           "description": "The name of the entry",
+           "markdownDescription": "The name of the entry. [See the documentation](https://example.com)"
+       }
+   }
+}
+```
+
+Note that `markdownDescription` is not part of the JSON schema specification but a VS Code-specific schema extension.
+
 ### Offline mode
 
 `json.schemaDownload.enable` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
