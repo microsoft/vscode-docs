@@ -45,7 +45,7 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 ## JSON with Comments
 
-In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** (jsonc) mode. This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json`, or `launch.json`. When in the **JSON with Comments** mode, you can use single line (//) as well as block comments (/* */) as used in JavaScript. The current editor mode is indicated in the editor's Status Bar. Click on the mode indicator to change the mode and to configure how file names and extensions are associated to modes.
+In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** (jsonc) mode. This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json`, or `launch.json`. When in the **JSON with Comments** mode, you can use single line (//) as well as block comments (/* */) as used in JavaScript. The current editor mode is indicated in the editor's Status Bar. Select the mode indicator to change the mode and to configure how file names and extensions are associated to modes.
 
 ## JSON schemas and settings
 
@@ -188,9 +188,9 @@ Note that `defaultSnippets` is not part of the JSON schema specification but a V
 
 ### Use rich formatting in hovers
 
-VSCode will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7) in order to provide information about property on hover and during autocomplete.
+VS Code will use the standard `description` field from the [JSON Schema specification](https://json-schema.org/latest/json-schema-core.html#rfc.section.7) in order to provide information about properties on hover and during autocomplete.
 
-If you want your descriptions to support formatting like like links, you can opt-in by using [Markdown](https://code.visualstudio.com/docs/languages/markdown) in your formatting with the `markdownDescription` property.
+If you want your descriptions to support formatting like links, you can opt in by using [Markdown](/docs/languages/markdown.md) in your formatting with the `markdownDescription` property.
 
 ```json
 {
@@ -212,4 +212,4 @@ Note that `markdownDescription` is not part of the JSON schema specification but
 
 `json.schemaDownload.enable` controls whether the JSON extension fetches JSON schemas from `http` and `https`.
 
-A warning triangle will show in the status bar when the current editor would like to use schemas that can not be downloaded.
+A warning triangle will show in the status bar when the current editor would like to use schemas that cannot be downloaded.
