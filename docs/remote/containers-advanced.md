@@ -939,6 +939,7 @@ This error can typically be safely ignored and is tricky to get rid of completel
 # Configure apt
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1
 
 ## YOUR DOCKERFILE CONTENT GOES HERE
