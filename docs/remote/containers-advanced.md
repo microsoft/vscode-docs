@@ -936,14 +936,9 @@ The following are some tips for eliminating warnings that may be appearing in yo
 This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in stdout when installing the needed package by adding the following to your Dockerfile:
 
 ```Dockerfile
-# Configure apt
-ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1
-
-## YOUR DOCKERFILE CONTENT GOES HERE
-
-ENV DEBIAN_FRONTEND=dialog
 ```
 
 ### Warning: apt-key output should not be parsed (stdout is not a terminal)
