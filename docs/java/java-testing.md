@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 PageTitle: Java Unit Tests in Visual Studio Code
-DateApproved: 6/17/2019
+DateApproved: 1/11/2021
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
@@ -37,7 +37,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 Make sure you have the below tools available already
 
-- JDK (version 1.8.0 or later)
+- JDK (version 11 or later)
 - VS Code (version 1.23.0 or later)
 - [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 - [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
