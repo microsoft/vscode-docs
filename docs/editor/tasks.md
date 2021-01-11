@@ -787,7 +787,7 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 }
 ```
 
-**Note**: If you have multiple problems that occur on the same resource with the exact same line and column, then only one problem will be shown.
+**Note**: If you have multiple problems that occur on the same resource with the exact same line and column, then only one problem will be shown. This applies to all problem matchers, not just multiline problem matchers.
 
 ## Modifying an existing problem matcher
 
