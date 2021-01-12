@@ -45,7 +45,7 @@ Start your journey using Visual Studio Code with this set of introductory videos
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/codeediting">
-			<img src="/assets/docs/getstarted/images/introvideos/codeediting-thumbnail.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="/assets/docs/getstarted/introvideos/codeediting-thumbnail.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Code Editing</h2>
 				<p class="description">Learn how to edit and run code in VS Code.</p>
