@@ -16,7 +16,7 @@ This year's [Build 2016 conference](https://build.microsoft.com/) in San Francis
 
 ## Tips and Tricks
 
-Don't miss this well attended session on [Best of VS Code: Tips and Tricks](https://channel9.msdn.com/Events/Build/2016/B887). You'll start by learning the basics of VS Code and quickly become a power user through useful [Tips and Tricks](https://github.com/microsoft/vscode-tips-and-tricks). The talk finishes with a working "To Do" list [sample](https://github.com/microsoft/vscode-react-sample) written in JavaScript, Node.js and React/JSX.
+Don't miss this well attended session on [Best of VS Code: Tips and Tricks](https://channel9.msdn.com/Events/Build/2016/B887). You'll start by learning the basics of VS Code and quickly become a power user through useful [Tips and Tricks](/docs/getstarted/tips-and-tricks.md). The talk finishes with a working "To Do" list [sample](https://github.com/microsoft/vscode-react-sample) written in JavaScript, Node.js and React/JSX.
 
 ## What's New in TypeScript
 

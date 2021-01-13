@@ -50,7 +50,7 @@ You can apply [other properties normally found in launch.json](#_launch-configur
 
 **Auto Attach Smart Patterns**
 
-In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/codebasics.md#advanced-search-options). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
 
 ```js
 [
