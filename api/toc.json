@@ -91,7 +91,8 @@
       ["Built-in Commands", "/api/references/commands"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
-      ["Document Selector", "/api/references/document-selector"]
+      ["Document Selector", "/api/references/document-selector"],
+      ["Extension Guidelines", "/api/references/extension-guidelines"]
     ]
   }
 ]
