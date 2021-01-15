@@ -207,7 +207,7 @@ To **push, pull, and sync** you need to have a Git origin set up.  You can get t
 
 ```bash
 > git remote add origin https://github.com/<repo owner>/<repo name>.git
-> git push -u origin master
+> git push -u origin main
 ```
 
 ### My team is using Team Foundation Version Control (TFVC) instead of Git. What should I do?
