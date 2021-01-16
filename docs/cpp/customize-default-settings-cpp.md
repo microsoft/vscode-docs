@@ -23,8 +23,8 @@ C_Cpp.default.macFrameworkPath                     : string[]
 C_Cpp.default.forcedInclude                        : string[]
 C_Cpp.default.intelliSenseMode                     : string
 C_Cpp.default.compilerPath                         : string
-C_Cpp.default.cStandard                            : c89 | c99 | c11
-C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17
+C_Cpp.default.cStandard                            : c89 | c99 | c11 | c17
+C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17 | c++20
 C_Cpp.default.browse.path                          : string[]
 C_Cpp.default.browse.databaseFilename              : string
 C_Cpp.default.browse.limitSymbolsToIncludedHeaders : boolean
