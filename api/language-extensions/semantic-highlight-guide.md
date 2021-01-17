@@ -89,7 +89,6 @@ Standard semantic token types:
 | `enum`| For identifiers that declare of reference an enumeration type. |
 | `interface`| For identifiers that declare of reference an interface type. |
 | `struct`| For identifiers that declare of reference an struct type. |
-| `interface`| For identifiers that declare of reference an interface type. |
 | `typeParameter`| For identifiers that declare of reference a type parameter. |
 | `type`| For identifiers that declare of reference a type that is not covered above. |
 | `parameter` | For identifiers that declare of reference a function or method parameters. |
