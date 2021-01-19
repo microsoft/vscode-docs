@@ -62,7 +62,7 @@ When needing to display progress for an undetermed timeframe (setting up an evir
 
 ![Progress notification](images/guidelines/notification-progress.png)
 
-This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs.
+*This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs.*
 
 ## Views
 
@@ -216,7 +216,7 @@ If you need to show an item that is highly visible for error purposes, you can u
 
 ![Status Bar Error](images/guidelines/status-bar-error.png)
 
-This example uses the error status bar item for showing a blocking error in the workspace
+*This example uses the error status bar item for showing a blocking error in the workspace*
 
 ## Quick picks
 
@@ -260,7 +260,7 @@ This example shows all of the variations that a quick pick can contain. It can h
 
 ![Editor Actions](images/guidelines/editor-actions.png)
 
-This example only uses a single icon that only appears on HTML pages to launch a preview.
+*This example only uses a single icon that only appears on HTML pages to launch a preview.*
 
 
 ## Context Menus
