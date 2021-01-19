@@ -28,11 +28,11 @@ Sections refers to items  inside of the groups, which include: Sidebar Toolbar, 
 
 *This notification appears after the users runs a "Update version" command. Notice that there are no additional actions and is purely informational.*
 
-![Warning Notification](images/guidelines/Untitled%2019.png)
+![Warning Notification](images/guidelines/notification-warning.png)
 
 *This examples highlights the errors that appear when trying to build and has an action to open the files with errors.*
 
-![Error Notification](images/guidelines/Untitled%2020.png)
+![Error Notification](images/guidelines/notification-error.png)
 
 *This example shows a failure notifiction with no actions.*
 
@@ -182,7 +182,7 @@ You can also place webviews into any view container (sidebar or panel), these ar
 
 ## Status Bar
 
-The status bar sits at the bottom of the workbench and displays information and actions that relate to your workspace. Items are placed into two groups: Primary (left) and Secondary (right). Items that relate to the entire workspace (status, problems/warnings, sync) go on the left and items that are secondary or contextual (language, spacing, feedback) go on the right. Please limit the amount of items added as other extensions contribute to the same area.
+The [status bar](/api/extension-capabilities/extending-workbench#status-bar-item) sits at the bottom of the workbench and displays information and actions that relate to your workspace. Items are placed into two groups: Primary (left) and Secondary (right). Items that relate to the entire workspace (status, problems/warnings, sync) go on the left and items that are secondary or contextual (language, spacing, feedback) go on the right. Please limit the amount of items added as other extensions contribute to the same area.
 
 **✔️ Do**
 
@@ -200,7 +200,7 @@ The status bar sits at the bottom of the workbench and displays information and 
 
 ![Status Bar Item](images/guidelines/statusbar-item.png)
 
-_This example shows an item that relates to the entire workspace, so it is on the left_
+*This example shows an item that relates to the entire workspace, so it is on the left*
 
 ### Progress status bar item
 
@@ -208,7 +208,7 @@ When needing to show discreet progress (progress happening in the background), i
 
 ![Status Bar Progress](images/guidelines/status-bar-progress.png)
 
-This example shows a progress status bar item that is discreet
+*This example shows a progress status bar item that is discreet*
 
 #### Error status bar item
 
@@ -220,7 +220,7 @@ This example uses the error status bar item for showing a blocking error in the 
 
 ## Quick picks
 
-A way to perform actions and to receive input from the user. This is helpful when setting something up, needing to filter content, or pick from a list of items.
+[Quick picks](/api/extension-capabilities/common-capabilities#quick-pick) are an easy way to perform actions and receive input from the user. This is helpful when setting something up, needing to filter content, or pick from a list of items.
 
 ![Quick Pick](images/guidelines/quickpick.png)
 
@@ -243,7 +243,7 @@ This example shows all of the variations that a quick pick can contain. It can h
 
 ## Editor Actions
 
-These appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (...).
+[Editor actions](/api/references/contribution-points#contributes.commands) can appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (...).
 
 **✔️ Do**
 
@@ -258,14 +258,14 @@ These appear in the editor toolbar. You can either add an icon as a quick action
 - Add custom colors
 - Use emojis
 
-![images/guidelines/Untitled%2022.png](images/guidelines/Untitled%2022.png)
+![Editor Actions](images/guidelines/editor-actions.png)
 
 This example only uses a single icon that only appears on HTML pages to launch a preview.
 
 
 ## Context Menus
 
-These items appear in menus on views, actions, and right-click menus. It's important that the grouping of menus remain consistent. If you extension has actions that relate to files, place your actions in the file explorer context menu (when appropriate). If an extension has actions for certain file types, only display it for those items.
+[Menu items](/api/references/contribution-points#contributes.menus) appear in views, actions, and right-click menus. It's important that the grouping of menus remain consistent. If you extension has actions that relate to files, place your actions in the file explorer context menu (when appropriate). If an extension has actions for certain file types, only display it for those items.
 
 **✔️ Do**
 
@@ -277,14 +277,14 @@ These items appear in menus on views, actions, and right-click menus. It's impor
 
 - Show actions for every file without context
 
-![images/guidelines/Untitled%2023.png](images/guidelines/Untitled%2023.png)
+![Context Menu](images/guidelines/context-menu.png)
 
-This example places a "Copy GitHub Link" next to the other copy commands. This action only appears on files that are from a GitHub repository.
+*This example places a "Copy GitHub Link" next to the other copy commands. This action only appears on files that are from a GitHub repository.*
 
 
 ## Settings
 
-This is where you can display settings that a user can configure. Settings can be inputs boxes, booleans, dropdowns, lists, key/value pairs. If your extension requires the user to configure specific settings, you can open the settings ui and query your extension setting via the setting id.
+[Settings](/api/references/contribution-points#contributes.configuration) are where a user can configure your extension. Settings can be inputs boxes, booleans, dropdowns, lists, key/value pairs. If your extension requires the user to configure specific settings, you can open the settings ui and query your extension setting via the setting id.
 
 **✔️ Do**
 
@@ -299,14 +299,14 @@ This is where you can display settings that a user can configure. Settings can b
 - Create your own settings page/webview
 - Create long descriptions
 
-![images/guidelines/Untitled%2024.png](images/guidelines/Untitled%2024.png)
+![Settings](images/guidelines/settings.png)
 
 This example links to a specfic setting using the setting id
 
 
 ## Command Palette
 
-This is where all commands are found. It's important that your command names are labeled appropriately so users can easily find them.
+The [command palette](/api/references/contribution-points#contributes.commands) is where all commands are found. It's important that your command names are labeled appropriately so users can easily find them.
 
 **✔️ Do**
 
@@ -319,6 +319,6 @@ This is where all commands are found. It's important that your command names are
 - Overwrite existing keyboard shortcuts
 - Use emojis in command names
 
-![images/guidelines/Untitled%2025.png](images/guidelines/Untitled%2025.png)
+![Command Palette](images/guidelines/command-palette.png)
 
-This examples has commands that are grouped together in the "Debug" category and have clear labels and only a few commands have shortcuts.
+*This examples has commands that are grouped together in the "Debug" category and have clear labels and only a few commands have shortcuts.*
