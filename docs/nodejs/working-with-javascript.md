@@ -41,7 +41,7 @@ Type declaration files are automatically downloaded and managed by Visual Studio
 }
 ```
 
-You can alternately explicitly list packages to acquire type declaration files for in a [jsconfig.json](#_javascript-projects-jsconfigjson).
+You can alternately explicitly list packages to acquire type declaration files for in a [jsconfig.json](#javascript-projects-jsconfigjson).
 
 ```json
 {
