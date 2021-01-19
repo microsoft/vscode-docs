@@ -436,7 +436,7 @@ If your view can be empty, or if you want to add Welcome content to another exte
   "viewsWelcome": [
     {
       "view": "nodeDependencies",
-      "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:nodeDependencies.addEntry)",
+      "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:nodeDependencies.addEntry)"
     }
   ]
 }
