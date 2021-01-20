@@ -83,7 +83,7 @@ If you would like to learn more about debugging Java with VS Code, you can read 
 
 Congratulations, you have your first Spring Boot web app running locally! Read on to learn how to host it in the cloud.
 
-## Deploy Web Apps to Azure Spring Cloud
+## Deploy to Azure Spring Cloud
 
 We just built a Java web application and ran it locally. Now you will learn how to deploy from Visual Studio Code and run it on [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/).
 
@@ -129,7 +129,7 @@ Once you are signed in to your Azure account and you have your app open in Visua
 
     ![Create App](images/java-spring-cloud/create-app.png)
 
-### Build and deploy the App
+### Build and deploy the app
 
 You can open the command prompt or terminal window and build the project using Maven commands. The build will generate a new `war` or `jar` artifact in the `target` directory.
 
