@@ -2,9 +2,9 @@
 Order: 2
 Area: educators
 TOCTitle: CodeTour
-ContentId: 8dc80adf-5b97-48d0-8c85-1c014c9dc50f
+ContentId: 38c539c1-7e0c-4a1f-aa32-64b6ea07447a
 PageTitle: Visual Studio Code CodeTour Extension
-DateApproved: 10/22/2020
+DateApproved: 01/21/2021
 MetaDescription: Visual Studio Code Tour Extension
 ---
 
