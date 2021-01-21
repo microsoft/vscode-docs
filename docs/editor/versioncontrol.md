@@ -53,13 +53,15 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 ![stage changes button](images/versioncontrol/stage-changes.png)
 
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed, otherwise all changes will be committed.
+You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
+
+![No staged changes prompt](images/versioncontrol/no-staged-changes.png)
 
 We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `gulpfile.js` will be included in the commit. A consecutive commit action could commit later changes to `gulpfile.js`, the deletion of `yarn.lock`,  and changes to `tests.js` in a separate commit.
 
-More specific **Commit** actions can be found in the **More Actions** `...` menu on the top of the Git view.
+More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
 
-![more actions button](images/versioncontrol/scm-more-actions.png)
+![views and more actions button](images/versioncontrol/scm-more-actions.png)
 
 ## Cloning a repository
 
@@ -69,7 +71,7 @@ For a GitHub repository, you would find the URL from the GitHub **Clone or downl
 
 ![clone repository dialog](images/versioncontrol/GitHub-clone-dialog.png)
 
-You would then paste that URL into the **Git: Clone** prompt.
+You would then paste that URL into the **Git: Clone** prompt. If you've authenticated with your GitHub account in VS Code, you'll also see the option to clone a repository from your GitHub account.
 
 ![set repository URL](images/versioncontrol/set-repo-URL.png)
 
@@ -77,7 +79,7 @@ You would then paste that URL into the **Git: Clone** prompt.
 
 You can create and checkout branches directly within VS code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-If you run **Git: Checkout to**, you will see a drop-down list containing all of the branches or tags in the current repository.
+If you run **Git: Checkout to**, you will see a drop-down list containing all of the branches or tags in the current repository. It will also give you the option to create a new branch if you decide that's a better option, or checkout a branch in detached mode.
 
 ![Git checkout](images/versioncontrol/gitbranches.png)
 
@@ -85,7 +87,7 @@ The **Git: Create Branch** command lets you quickly create a new branch.  Just p
 
 ## Remotes
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **More Actions** `...` menu.
+Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
 
 VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. Starting with VS Code 1.19, this feature is disabled by default and you can use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
 
