@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code source code support with integrated Git supp
 ---
 # Using Version Control in VS Code
 
-Visual Studio Code has integrated source control and includes [Git](https://git-scm.com/) support in-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-gallery.md) on the VS Code Marketplace.
+Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support in-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-gallery.md) on the VS Code Marketplace.
 
 <div class="marketplace-extensions-scm-curated"></div>
 
