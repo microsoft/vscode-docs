@@ -1,10 +1,11 @@
-
+---
 ## DO NOT TOUCH — Managed by doc writer
 ContentId:
 DateApproved:
 
 ## Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription:
+---
 
 # Extension Guidelines
 
