@@ -21,7 +21,7 @@ We have a great collection of sample extensions that you can adapt from, and som
 
 ## Extension Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/references/extension-guidelines), where you'll learn the best practices for creating extension UI and conventions for fitting into the preferred VS Code workflows.
+To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/references/extension-guidelines), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Testing and Publishing
 
