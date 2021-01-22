@@ -28,7 +28,7 @@ We've used CodeTour in the Microsoft partnered Space Jam lessons: [Use basketbal
 
 CodeTour helps guide the self-paced learners through [module 2](https://docs.microsoft.com/learn/modules/optimize-basketball-player-rest-breaks), where they are [creating a web app](https://docs.microsoft.com/learn/modules/optimize-basketball-player-rest-breaks/7-codetour) that uses basketball stats to make decisions on the basketball court.
 
-Here is a short clip of a student using CodeTour to start working on their basketball web app:p:
+Here is a short clip of a student using CodeTour to start working on their basketball web app:
 ![CodeTour in a Space Jam lesson](images/codetour/codetour-space-jam.gif)
 
 ## Getting started with CodeTour
