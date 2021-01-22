@@ -15,7 +15,7 @@ Helping students understand a new codebase can be challenging and time consuming
 
 [CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) is a Visual Studio Code extension that allows you to create a step-by-step guide through your codebases. This can be helpful in your classroom to break up your assignments into steps for students to follow or to get them familiar with all parts of the assignment by pointing them to relevant pieces within the assignment.
 
-In the short video below, an instructor is updating her class project to include CodeTour for part 1 of a game development project. They are removing their instructions in code and adding a friendlier CodeTour experience for their students.
+In the short video below, an instructor is removing existing instructions embedded in the source code and replacing them with CodeTour steps so students can jump from step to step in the large game development project:
 ![CodeTour in a sample assignment](images/codetour/codetour-example-lesson.gif)
 
 Essentially, a "code tour" is simply a series of interactive steps, each of which are associated with a specific directory, or file/line, and include a description of the respective code. Tours can either be checked into a repo to share with source control, or exported to a "tour file", which allows anyone to replay the same tour, without having to clone any code!
@@ -28,7 +28,7 @@ We've used CodeTour in the Microsoft partnered Space Jam lessons: [Use basketbal
 
 CodeTour helps guide the self-paced learners through [module 2](https://docs.microsoft.com/learn/modules/optimize-basketball-player-rest-breaks), where they are [creating a web app](https://docs.microsoft.com/learn/modules/optimize-basketball-player-rest-breaks/7-codetour) that uses basketball stats to make decisions on the basketball court.
 
-Here is a short clip of the beginning of a student using CodeTour to build their basketball web app:
+Here is a short clip of a student using CodeTour to start working on their basketball web app:p:
 ![CodeTour in a Space Jam lesson](images/codetour/codetour-space-jam.gif)
 
 ## Getting started with CodeTour
