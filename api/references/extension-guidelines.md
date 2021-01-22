@@ -10,7 +10,7 @@ These guidelines cover the best practices for creating Visual Studio Code extens
 
 ## Architecture
 
-The VS Code UI has two types of elements: containers and items. Containers refer to the outer layers, which include: [Activity Bar](#view-container), Side Bar, Editor, Panel, Status Bar, and [Notifications](#notifications):
+The VS Code UI has two types of elements: containers and items. Containers refer to the outer layers, which include: [Activity Bar](#view-container), Sidebar, Editor, Panel, Status Bar, and [Notifications](#notifications):
 
 ![Overview of Visual Studio Code containers elements](images/guidelines/architecture-groups.png)
 
@@ -151,7 +151,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 * Activate your extension only when contextually appropriate
 * Open webviews only for the active window
 * Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
-* Ensure your views follow [accessibility guidance](/docs/editor/accessibility) (color contrast, ARIA labels, keyboard navigation, etc.)
+* Ensure your views follow [accessibility guidance](/docs/editor/accessibility) (color contrast, ARIA labels, keyboard navigation)
 * Use command actions in the toolbar and in the view
 
 ❌ Don't
@@ -221,7 +221,7 @@ When needing to show discreet progress (progress happening in the background), i
 
 *This example shows a progress Status Bar item that is discreet.*
 
-#### Error Status Bar item
+### Error Status Bar item
 
 If you need to show an item that is highly visible for error purposes, you can use the error Status Bar item. Only use error Status Bar items as a last resort and only for special cases.
 
@@ -253,7 +253,7 @@ If you need to show an item that is highly visible for error purposes, you can u
 
 ## Editor Actions
 
-[Editor actions](/api/references/contribution-points#contributes.commands) can appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (...).
+[Editor actions](/api/references/contribution-points#contributes.commands) can appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (**...**).
 
 **✔️ Do**
 
