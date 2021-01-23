@@ -23,7 +23,7 @@ VS Code has support for handling multiple Source Control providers simultaneousl
 
 ### SCM Provider extensions
 
-If you would like to install an additional SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
+If you would like to install another SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
 
 ![SCM Provider category in the marketplace](images/versioncontrol/scm-provider-category.png)
 
@@ -43,7 +43,7 @@ The Source Control icon in the Activity Bar on the left will always indicate an 
 
 Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
 
-You can also find indicators of the **status of your repository** in the bottom left corner of VS Code: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
+You can also find indicators of the **status of your repository** in the bottom-left corner of VS Code: the **current branch**, **dirty indicators**, and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
 
 > **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
@@ -53,7 +53,7 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 ![stage changes button](images/versioncontrol/stage-changes.png)
 
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
+You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
 
 ![No staged changes prompt](images/versioncontrol/no-staged-changes.png)
 
@@ -62,6 +62,8 @@ We've found this to be a great workflow. For example, in the earlier screenshot,
 More specific **Commit** actions can be found in the **Views and More Actions** `...` menu on the top of the Source Control view.
 
 ![views and more actions button](images/versioncontrol/scm-more-actions.png)
+
+> **Tip:** If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ## Cloning a repository
 
@@ -83,7 +85,7 @@ If you run **Git: Checkout to**, you will see a drop-down list containing all of
 
 ![Git checkout](images/versioncontrol/gitbranches.png)
 
-The **Git: Create Branch** command lets you quickly create a new branch.  Just provide the name of your new branch and VS Code will create the branch and switch to it.
+The **Git: Create Branch** command lets you quickly create a new branch. Just provide the name of your new branch and VS Code will create the branch and switch to it. If you choose to **Create new branch from...**, you'll get an extra prompt that allows you to specify which commit the new branch should be pointing to.
 
 ## Remotes
 
@@ -135,6 +137,18 @@ There is a review pane in the Diff editor that presents changes in a unified pat
 
 **Note:** This experience is especially helpful for screen reader users.
 
+## Timeline view
+
+The Timeline view, accessible at the bottom of the File Explorer by default, is a unified view for visualizing time-series events (for example, Git commits) for a file.
+
+[Add image here]
+
+VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
+
+Visual Studio Code supports more Git history workflows through [extensions](/docs/editor/extension-gallery.md) available on the VS Code Marketplace.
+
+<div class="marketplace-extensions-scm-history-curated"></div>
+
 ## Git output window
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
@@ -175,7 +189,7 @@ Add the following to your Git configurations to use VS Code as the diff tool:
     cmd = code --wait --diff $LOCAL $REMOTE
 ```
 
-This leverages the `--diff` option you can pass to VS Code to compare 2 files side by side.
+This leverages the `--diff` option you can pass to VS Code to compare two files side by side.
 
 To summarize, here are some examples of where you can use VS Code as the editor:
 
@@ -222,7 +236,7 @@ This usually means there is no credential management configured in Git and you'r
 
 You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
-### How can I sign in to Git with my Azure DevOps organization which requires multi-factor authentication?
+### How can I sign in to Git with my Azure DevOps organization that requires multi-factor authentication?
 
 There are now [Git credential helpers](https://devblogs.microsoft.com/devops/git-credential-manager-for-mac-and-linux) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/microsoft/Git-Credential-Manager-for-Windows).
 
