@@ -149,6 +149,8 @@ Visual Studio Code supports more Git history workflows through [extensions](/doc
 
 <div class="marketplace-extensions-scm-history-curated"></div>
 
+> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+
 ## Git output window
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
@@ -200,11 +202,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 ## Working with pull requests
 
-Visual Studio Code also supports pull request workflows through [extensions](/docs/editor/extension-gallery.md) available on the VS Code Marketplace. Pull request extensions let you review, comment, and verify source code contributions directly within VS Code.
-
-<div class="marketplace-extensions-scm-pull-request"></div>
-
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+Visual Studio Code also supports pull request workflows through the [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) available on the VS Code Marketplace. Pull request extensions let you review, comment, and verify source code contributions directly within VS Code.
 
 ## Next steps
 
