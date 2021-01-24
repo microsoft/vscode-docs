@@ -25,7 +25,7 @@ With semantic highlighting:
 
 Notice the color differences based on language service symbol understanding:
 
-- line 10: `languageMode` is colored as a parameter
+- line 10: `languageModes` is colored as a parameter
 - line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 - line 13: `getFoldingRanges` is colored as a function.
 
