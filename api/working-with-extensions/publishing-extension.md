@@ -64,7 +64,9 @@ Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services
 
 ### Get a Personal Access Token
 
-First, make sure you have an Azure DevOps [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
+If you have an existing a Microsoft account, you can sign into [Azure DevOps](https://azure.microsoft.com/services/devops/) with that. Otherwise, you need to [create a microsoft account](https://support.microsoft.com/en-us/account-billing/how-to-create-a-new-microsoft-account-a84675c3-3e9e-17cf-2911-3d56b15c0aaf) first.
+
+You need to have an [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to associate your extensions with. You can create a new organization by clicking on "New Organization" on the navigation bar on the left-hand side.
 
 In the following examples, the organization's name is `vscode`. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
@@ -74,13 +76,9 @@ On the **Personal Access Tokens** page, click **New Token** to create a new Pers
 
 ![Create personal access token](images/publishing-extension/token2.png)
 
-Give the Personal Access Token a name, optionally extend its expiration date to one year, make it accessible to every organization, select a **custom defined** scope ruleset and click **Show all scopes**:
+Give the Personal Access Token a *Name*, optionally extend its *Expiration* to one year, make it accessible to every organization, and select the **Full Access** option for *Scopes*:
 
 ![Personal access token details](images/publishing-extension/token3.png)
-
-Finally, scroll down the list of possible scopes until you find **Marketplace** and select **Manage**:
-
-![Personal access token details](images/publishing-extension/token4.png)
 
 Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
@@ -88,30 +86,26 @@ Select **Create** and you'll be presented with your newly created Personal Acces
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-Once you have a [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token), you can create a new publisher using `vsce`:
+You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). You need to login in with the same microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
 
-```bash
-vsce create-publisher (publisher name)
-```
+### Publish an extension
 
-`vsce` will remember the provided Personal Access Token for future references to this publisher.
+Once you have created a publisher, you can publish an extension.
 
-**Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and log in through `vsce`, as described in the next section.
+You can [package an extension](#packaging-extensions) and upload it to the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
 
-### Log in to a publisher
+![Add an extension through management page](images/publishing-extension/add-extension.png)
 
-If you already created a publisher before and want to use it with `vsce`:
-
-```bash
-vsce login (publisher name)
-```
-
-Similarly to the `create-publisher` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
-
-You can also enter your Personal Access Token as you publish with an optional parameter `-p <token>`.
+You can publish with `vsce` by supplying your PAT as an optional parameter `-p <token>` to the publish command.
 
 ```bash
 vsce publish -p <token>
+```
+
+You can login in with `vsce` and it will remember your credentials for future commands, so you don't need to supply the PAT each time.
+
+```bash
+vsce login (publisher name)
 ```
 
 ## Review extension installs and ratings
