@@ -24,7 +24,7 @@ Items are placed inside of various containers and include: Sidebar Toolbar, [Vie
 
 * [Information](/api/references/vscode-api#window.showInformationMessage)
 * [Warning](/api/references/vscode-api#window.showWarningMessage)
-* [Error](/api/references/vscode-api#window.showErrorMessage).
+* [Error](/api/references/vscode-api#window.showErrorMessage)
 
 It's important to limit the number of notifications sent in order to respect the user's attention.
 
