@@ -227,7 +227,7 @@ If you need to show an item that is highly visible for error purposes, you can u
 
 ![Status Bar Error](images/guidelines/status-bar-error.png)
 
-*This example uses the error Status Bar item for showing a blocking error in the workspace.*
+*This example uses the error Status Bar item for showing a blocking error in the file.*
 
 ## Quick Picks
 
