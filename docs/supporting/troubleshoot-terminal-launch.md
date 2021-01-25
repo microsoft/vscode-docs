@@ -78,9 +78,9 @@ The easy fix for this issue is to use the 64-bit version. If you must use the 32
 "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe"
 ```
 
-### Error "ConnectNamedPipe failed: Windows error 232"
+### A native exception occurred
 
-This error can occur due to anti-virus software intercepting winpty from creating a pty. To work around this error, you can exclude the following file from your anti-virus scanning:
+Typically this error occurs due to anti-virus software intercepting and blocking the winpty/conpty components from creating the terminal process. To work around this error, you can exclude the following file from your anti-virus scanning:
 
 ```
 {install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll
