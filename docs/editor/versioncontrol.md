@@ -67,7 +67,7 @@ More specific **Commit** actions can be found in the **Views and More Actions** 
 
 You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). You will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
 
-For a GitHub repository, you would find the URL from the GitHub **Clone or download** dialog.
+For a GitHub repository, you would find the URL from the GitHub **Code** dialog.
 
 ![clone repository dialog](images/versioncontrol/GitHub-clone-dialog.png)
 
