@@ -57,7 +57,7 @@ Context name | True when
 `editorHasSelection` | Text is selected in the editor.
 `editorHasMultipleSelections` | Multiple regions of text are selected (multiple cursors).
 `editorReadonly` | The editor is read only.
-`editorLangId` | True when the editor's associated [language ID](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
+`editorLangId` | True when the editor's associated [language ID](/docs/languages/identifiers) matches. Example: `"editorLangId == typescript"`.
 `isInDiffEditor` | The active editor is a difference editor.
 `isInEmbeddedEditor` | True when the focus is inside an embedded editor.
 **Operating system contexts** |
@@ -80,7 +80,7 @@ Context name | True when
 `resourceExtname` | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
 `resourceDirname` | True when the Explorer or editor's resource absolute folder path matches. Example: `"resourceDirname == /users/alice/project/src"`
 `resourcePath` | True when the Explorer or editor's resource absolute path matches. Example: `"resourcePath == /users/alice/project/gulpfile.js"`
-`resourceLangId` | True when the Explorer or editor title [language ID](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
+`resourceLangId` | True when the Explorer or editor title [language ID](/docs/languages/identifiers) matches. Example: `"resourceLangId == markdown"`
 `isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
 `resourceSet` | True when an Explorer or editor file is set
 `resource` | The full Uri of the Explorer or editor file
