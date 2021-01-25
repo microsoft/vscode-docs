@@ -31,7 +31,7 @@ And | `&&` | `"textInputFocus && !editorReadonly"`
 Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
-In | `in` | `resourceFilename in supportedFolders` (see [details](#in-conditional-operator) below)
+In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)
 
 ### key-value when clause operator
 
@@ -157,7 +157,7 @@ Context name | True when
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
-## Active/Focused view or panel 'when' clause context
+## Active/focused view or panel when clause context
 
 You can have a when clause that checks if a specific view or panel is visible.
 
@@ -241,7 +241,7 @@ In that example, we are taking the value of `resourceFilename` (which is the nam
 
 ## Inspect Context Keys utility
 
-If you'd like to see all currently active context keys at runtime, you can use the **Developer: Inspect Context Keys** command from the Command Palette (`kb(workbench.actions.showCommands)`). **Inspect Context Keys** will display context keys and their values in the VS Code Developer Tools **Console** tab (**Help** > **Toggle Developer Tools**).
+If you'd like to see all currently active context keys at runtime, you can use the **Developer: Inspect Context Keys** command from the Command Palette (`kb(workbench.action.showCommands)`). **Inspect Context Keys** will display context keys and their values in the VS Code Developer Tools **Console** tab (**Help** > **Toggle Developer Tools**).
 
 When you run **Developer: Inspect Context Keys**, your cursor will highlight elements in the VS Code UI and when you click on an element, the current context keys and their states will be output as an object to the Console.
 
