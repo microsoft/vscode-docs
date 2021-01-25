@@ -128,10 +128,10 @@ The actual Language Client source code and the corresponding `package.json` are 
 
 ```json
 "engines": {
-    "vscode": "^1.43.0"
+    "vscode": "^1.52.0"
 },
 "dependencies": {
-    "vscode-languageclient": "^6.1.3"
+    "vscode-languageclient": "^7.0.0"
 }
 ```
 
@@ -148,7 +148,7 @@ import {
   LanguageClientOptions,
   ServerOptions,
   TransportKind
-} from 'vscode-languageclient';
+} from 'vscode-languageclient/node';
 
 let client: LanguageClient;
 
@@ -210,7 +210,7 @@ The source code for the Language Server is at `/server`. The interesting section
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^6.1.1",
+    "vscode-languageserver": "^7.0.0",
     "vscode-languageserver-textdocument": "^1.0.1"
 }
 ```
@@ -233,7 +233,7 @@ import {
   TextDocumentPositionParams,
   TextDocumentSyncKind,
   InitializeResult
-} from 'vscode-languageserver';
+} from 'vscode-languageserver/node';
 
 import {
   TextDocument
