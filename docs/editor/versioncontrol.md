@@ -33,7 +33,7 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
-![Git overview](images/versioncontrol/overview.png)
+![Overview of Git](images/versioncontrol/overview.png)
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
@@ -51,11 +51,9 @@ You can also find indicators of the **status of your repository** in the bottom-
 
 **Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
 
-![stage changes button](images/versioncontrol/stage-changes.png)
+![Stage all changes button](images/versioncontrol/stage-changes.png)
 
 You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
-
-![No staged changes prompt](images/versioncontrol/no-staged-changes.png)
 
 We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `gulpfile.js` will be included in the commit. A consecutive commit action could commit later changes to `gulpfile.js`, the deletion of `yarn.lock`,  and changes to `tests.js` in a separate commit.
 
