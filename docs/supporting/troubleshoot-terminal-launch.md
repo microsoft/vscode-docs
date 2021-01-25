@@ -57,9 +57,9 @@ If none of these steps helped solve the issue, you can also try:
 
 ## Common issues on Windows
 
-### The terminal exited with code 1 on Windows 10
+### Make sure compatibility mode is disabled
 
-This can happen if you run VS Code in compatibility mode, which may be turned on automatically if you have upgraded to Windows 10. You can change the mode by right-clicking the executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
+When upgrading to Windows 10, some apps may have compatibility mode turned on automatically. When this happens with VS Code the terminal breaks as it does some low level things to enable the emulation it uses. You can check and disable compatibility mode by right-clicking on the VS Code executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
 
 ### The terminal exited with code 1 on Windows 10 (with WSL as the default shell)
 
