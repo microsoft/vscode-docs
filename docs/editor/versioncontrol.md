@@ -71,9 +71,11 @@ For a GitHub repository, you would find the URL from the GitHub **Clone or downl
 
 ![clone repository dialog](images/versioncontrol/GitHub-clone-dialog.png)
 
-You would then paste that URL into the **Git: Clone** prompt. If you've authenticated with your GitHub account in VS Code, you'll also see the option to clone a repository from your GitHub account.
+You would then paste that URL into the **Git: Clone** prompt.
 
 ![set repository URL](images/versioncontrol/set-repo-URL.png)
+
+You'll also see the option to **Clone from GitHub** when using the **Git: Clone** command. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it.
 
 ## Branches and Tags
 
@@ -157,11 +159,11 @@ To open the Git output window, run **View** > **Output** and select **Git** from
 
 ## Initialize a repository
 
-If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **No source control providers registered** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+If your workspace is on your local machine, you can enable Git source control by creating a Git repository with the **Initialize Repository** command. When VS Code doesn't detect an existing Git repository, the Source Control view will give you the options to **Initialize Repository** or **Publish to GitHub**.
 
-![Git initialize repository](images/versioncontrol/git-initialize.png)
+![Git initialize repository](images/versioncontrol/initialize-repository.png)
 
-Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged.
+You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between a private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
 
 ## VS Code as Git editor
 
