@@ -65,9 +65,11 @@ More specific **Commit** actions can be found in the **Views and More Actions** 
 
 ## Cloning a repository
 
-If you haven't opened a folder yet, the Source Control view will give you the options to **Open Folder** or **Clone Repository**.
+If you haven't opened a folder yet, the Source Control view will give you the options to **Open Folder** from your local machine or **Clone Repository**.
 
-You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). You will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
+![First run Source Control experience](images/versioncontrol/firstrun-source-control.png)
+
+If you select **Clone Repository**, you will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
 
 For a GitHub repository, you would find the URL from the GitHub **Code** dialog.
 
@@ -77,7 +79,7 @@ You would then paste that URL into the **Git: Clone** prompt.
 
 ![set repository URL](images/versioncontrol/set-repo-URL.png)
 
-You'll also see the option to **Clone from GitHub** when using the **Git: Clone** command. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it.
+You'll also see the option to **Clone from GitHub**. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it. You can also start the flow to clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). To see a step-by-step walkthrough, check out our [Clone repos from VS Code](https://www.youtube.com/watch?v=bz1KauFlbQI) video.
 
 ## Branches and Tags
 
@@ -143,7 +145,7 @@ There is a review pane in the Diff editor that presents changes in a unified pat
 
 The Timeline view, accessible at the bottom of the File Explorer by default, is a unified view for visualizing time-series events (for example, Git commits) for a file.
 
-[Add image here]
+![Timeline view](images/versioncontrol/timeline-view.png)
 
 VS Code's built-in Git support provides the Git commit history of the specified file. Selecting a commit will open a diff view of the changes introduced by that commit. When you right-click on a commit, you'll get options to **Copy Commit ID** and **Copy Commit Message**.
 
