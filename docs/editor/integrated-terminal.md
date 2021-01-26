@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -408,16 +408,18 @@ Note that you want to specify the font family, not an individual font like **Mes
 By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can configure the same for zsh by adding these keybindings:
 
 ```json
-{
-  "key": "ctrl+left",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": { "text": "\u001bb" }
-},
-{
-  "key": "ctrl+right",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": { "text": "\u001bf" }
-}
+[
+  {
+    "key": "ctrl+left",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001bb" }
+  },
+  {
+    "key": "ctrl+right",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001bf" }
+  }
+]
 ```
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -358,7 +358,7 @@ To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
 
-- `editor.onTypeRenameBackground`: Background color when the editor auto renames on type.
+- `editor.linkedEditingBackground`: Background color when the editor is in linked editing mode.
 
 CodeLens:
 
@@ -405,10 +405,13 @@ Errors and warnings:
 
 - `editorError.foreground`: Foreground color of error squiggles in the editor.
 - `editorError.border`: Border color of error boxes in the editor.
+- `editorError.background`: Background color of error text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorWarning.foreground`: Foreground color of warning squiggles in the editor.
 - `editorWarning.border`: Border color of warning boxes in the editor.
+- `editorWarning.background`: Background color of warning text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorInfo.foreground`: Foreground color of info squiggles in the editor.
 - `editorInfo.border`: Border color of info boxes in the editor.
+- `editorInfo.background`: Background color of info text in the editor. The color must not be opaque so as not to hide underlying decorations.
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hint boxes in the editor.
 - `problemsErrorIcon.foreground`: The color used for the problems error icon.
@@ -516,7 +519,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 
 - `panel.background`: Panel background color.
 - `panel.border`: Panel border color to separate the panel from the editor.
-- `panel.dropBackground`: Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
 - `panel.dropBorder`: Drag and drop feedback color for the panel titles. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
@@ -581,8 +583,6 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 
 ## Notification colors
 
-**Note:** The colors below only apply for VS Code versions 1.21 and higher.
-
 Notification toasts slide up from the bottom-right of the workbench.
 
 ![Notification Toasts](images/theme-color/notification-toast.png)
@@ -602,20 +602,6 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notificationsErrorIcon.foreground`: The color used for the notification error icon.
 - `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
 - `notificationsInfoIcon.foreground`: The color used for the notification info icon.
-
-If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
-
-- `notification.background`
-- `notification.foreground`
-- `notification.buttonBackground`
-- `notification.buttonForeground`
-- `notification.buttonHoverBackground`
-- `notification.errorBackground`
-- `notification.errorForeground`
-- `notification.infoBackground`
-- `notification.infoForeground`
-- `notification.warningBackground`
-- `notification.warningForeground`
 
 ## Extensions colors
 
@@ -816,6 +802,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
 - `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
+- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
 - `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
 - `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.

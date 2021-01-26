@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -128,10 +128,10 @@ The actual Language Client source code and the corresponding `package.json` are 
 
 ```json
 "engines": {
-    "vscode": "^1.43.0"
+    "vscode": "^1.52.0"
 },
 "dependencies": {
-    "vscode-languageclient": "^6.1.3"
+    "vscode-languageclient": "^7.0.0"
 }
 ```
 
@@ -148,7 +148,7 @@ import {
   LanguageClientOptions,
   ServerOptions,
   TransportKind
-} from 'vscode-languageclient';
+} from 'vscode-languageclient/node';
 
 let client: LanguageClient;
 
@@ -210,7 +210,7 @@ The source code for the Language Server is at `/server`. The interesting section
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^6.1.1",
+    "vscode-languageserver": "^7.0.0",
     "vscode-languageserver-textdocument": "^1.0.1"
 }
 ```
@@ -233,7 +233,7 @@ import {
   TextDocumentPositionParams,
   TextDocumentSyncKind,
   InitializeResult
-} from 'vscode-languageserver';
+} from 'vscode-languageserver/node';
 
 import {
   TextDocument

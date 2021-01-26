@@ -45,6 +45,7 @@ Get started with C++ and VS Code with Hello World tutorials for your environment
 - [GCC on Linux](/docs/cpp/config-linux.md)
 - [GCC on Windows Subsystem For Linux](/docs/cpp/config-wsl.md)
 - [Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
+- [CMake Tools on Linux](/docs/cpp/cmake-linux.md)
 
 ## Documentation
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -27,6 +27,7 @@ yo code
 # ? What's the identifier of your extension? helloworld
 # ? What's the description of your extension? LEAVE BLANK
 # ? Initialize a git repository? Yes
+# ? Bundle the source code with webpack? No
 # ? Which package manager to use? npm
 
 code ./helloworld

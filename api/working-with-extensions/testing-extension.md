@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -187,7 +187,12 @@ Because of VS Code's limitation, if you are using VS Code stable release and try
 Running extension tests from the command line is currently only supported if no other instance of Code is running.
 ```
 
-You can either use [VS Code Insiders](https://code.visualstudio.com/insiders/) for development or launch the extension test from the debug launch config that bypasses this limitation.
+In general if you run extension tests from CLI, the version the tests run with cannot be running already. As a workaround, you can run the tests
+in VS Code Stable and use [VS Code Insiders](https://code.visualstudio.com/insiders/) for development. As long as you are not running the tests
+from CLI in VS Code Insiders but in VS Code Stable, this setup will work fine.
+
+An alternative is to run the extension tests from the debug launch configuration from within VS Code itself. This has the additional advantage
+that you can even debug the tests.
 
 ### Disabling other extensions while debugging
 

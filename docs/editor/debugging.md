@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 11/6/2020
+DateApproved: 12/11/2020
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -186,7 +186,7 @@ Variables can be inspected in the **VARIABLES** section of the Run view or by ho
 
 ![Debug Variables](images/debugging/variables.png)
 
-Variable values can be modified with the **Set Value** action from the variable's context menu.
+Variable values can be modified with the **Set Value** action from the variable's context menu. Additionally, you can use the **Copy Value** action to copy the variable's value, or **Copy as Expression** action to copy an expression to access the variable.
 
 Variables and expressions can also be evaluated and watched in the Run view's **WATCH** section.
 
@@ -470,6 +470,8 @@ The `uriFormat` property describes how the port number is turned into a URI. The
 
 The resulting URI is then opened outside of VS Code ("externally") with the standard application configured for the URI's scheme.
 
+### Trigger Debugging via Chrome
+
 Alternatively, the `action` can be set to `debugWithChrome`. In this case, VS Code starts a Chrome debug session for the URI (which requires that the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension is installed). In this mode, a `webRoot` property can be added that is passed to the Chrome debug session.
 
 To simplify things a bit, most properties are optional and we use the following fallback values:
@@ -478,7 +480,13 @@ To simplify things a bit, most properties are optional and we use the following 
 * **uriFormat**: `"http://localhost:%s"`
 * **webRoot**: `"${workspaceFolder}"`
 
-And here the **serverReadyAction** feature in action:
+### Triggering an Arbitrary Launch Config
+
+In some cases you may need to configure additional options for the Chrome debug session--or use a different debugger entirely. You can do this by setting `action` to `startDebugging`, with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
+
+The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
+
+Here the **serverReadyAction** feature in action:
 
 ![Server ready feature in action](images/debugging/server-ready.gif)
 
