@@ -58,6 +58,16 @@ In addition, there are How-to guides, which go into more detail about managing a
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in GitHub Codespaces environments without any modification. However, we recommend that you test your extension in a codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
+## Common questions
+
+### How do I allow VS Code to access my clipboard for reading?
+
+In certain cases, VS Code might ask for you permission to access the clipboard for reading from it. You should be able to grant access to the clipboard from the browser either through settings (search for "site permissions") or by looking for this sign in the address bar on the right:
+
+![Allow clipboard access in browser](images/codespaces/allow-clipboard-access.png)
+
+Once you have granted VS Code access to the clipboard, you can retry the operation.
+
 ## Questions or feedback
 
 If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Support Community](https://github.community/c/codespaces-beta/45).
