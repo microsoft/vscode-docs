@@ -34,7 +34,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ![Warning notification](images/guidelines/notification-warning.png)
 
-*This example highlights the errors that appear when trying to build and has an action to open the files with errors.*
+*This example highlights an blocking error with a feature that requires user input and shows actions to ressolve the issue.*
 
 ![Error notification](images/guidelines/notification-error.png)
 
@@ -55,7 +55,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ### Progress notification
 
-When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification.
+When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification. This should be used as the last resort as progress is best kept within context (within a view or editor).
 
 **✔️ Do**
 
