@@ -80,17 +80,20 @@ The presence of this `.code-workspace` file makes it even possible to include wo
 
 ### Untitled multi-root workspaces
 
-We try to make it very easy for you to add or remove folders in your workspace. Most often you start off with opening a single folder in VS Code, only then to add more folders as you see fit. The very first time you add a folder to a workspace, VS Code will automatically enter an "untitled" workspace. In the background we automatically maintain a `untitled.code-workspace` file for you that already contains all the folders and workspace settings from your current session. The workspace will remain "untitled" until you decide to save it anywhere on disk.
+We try to make it very easy for you to add or remove folders in your workspace. Most often you start off with opening a single folder in VS Code, only then to add more folders as you see fit. The very first time you add a second folder to a workspace with only one folder, VS Code will automatically enter an "untitled" workspace. In the background we automatically maintain a `untitled.code-workspace` file for you that already contains all the folders and workspace settings from your current session. The workspace will remain "untitled" until you decide to save it anywhere on disk.
 
 ![Untitled multi-folder workspace](images/workspaces/untitled-workspace.png)
 
 *An untitled multi-root workspace opened in VS Code*
 
-There is really no difference between an untitled workspace and a saved workspace other than the fact that an untitled workspace is automatically created for you for your convinience. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window where the untitled workspace is opened in.
+There is really no difference between an untitled workspace and a saved workspace other than the fact that an untitled workspace is automatically created for you for your convinience and will always restore until you save it. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window where the untitled workspace is opened in.
+
+**Note:** if you constantly see many windows restoring when you start VS Code, make sure to review the ones with untitled workspaces in them. To stop restoring untitled workspaces, simply close the window and confirm the prompt to not save the untitled workspace.
 
 ## Common questions
 
 ### Is a VS Code workspace the same as an Eclipse workspace? TBD
+**bpasero>** not sure if we want to mention it, but `.code-workspace` was inspired by SublimeText projects which have a similar format.
 
 ### Does VS Code support Visual Studio projects and solutions? TBD
 
