@@ -62,7 +62,7 @@ The VS Code extension API hides most of the implementation details of running re
 
 ### How do I allow VS Code to access my clipboard for reading?
 
-In certain cases, VS Code might ask for you permission to access the clipboard for reading from it. You should be able to grant access to the clipboard from the browser either through settings (search for "site permissions") or by looking for this sign in the address bar on the right:
+In certain cases, VS Code might ask you for permission to access the clipboard when reading from it. You should be able to grant access to the clipboard from your browser either through settings (search for "site permissions") or by looking for this option in the address bar on the right:
 
 ![Allow clipboard access in browser](images/codespaces/allow-clipboard-access.png)
 
