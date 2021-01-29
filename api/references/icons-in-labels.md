@@ -41,9 +41,9 @@ $(sync~spin)
 
 Below is a listing of the product icons by identifier.
 
-The ID of the icon identifies the location where the icon is used. The default codicon ID describes what icon from codicon library is used by default and the preview shows how that icon looks like.
+The ID of the icon identifies the location where the icon is used. The default codicon ID describes which icon from the codicon library is used by default, and the preview shows what that icon looks like.
 
-[Product Icon Themes](/api/extension-guides/product-icon-theme) can replace each icon individually as well as all icons from the codicon library.
+[Product Icon Themes](/api/extension-guides/product-icon-theme) can replace each icon individually, as well as all icons from the codicon library.
 
 
 <div id="codicon-listing">
@@ -242,7 +242,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
 
 
-The Codicon library contains all the icons used in VS Code views as well as a set of useful icons.
+The Codicon library contains all the icons used in VS Code views, as well as a set of useful icons.
 
 VS Code extensions can use these icons in labels, views, and trees.
 
