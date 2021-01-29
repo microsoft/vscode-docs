@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 9/25/2020
+DateApproved: 1/29/2021
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -32,7 +32,7 @@ To help you set up quickly, you can install the **Coding Pack for Java**, which 
 
 ### Installing extensions
 
-Alternatively, if you are an existing VS Code user, you can also add Java support by installing [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
+If you are an existing VS Code user, you can also add Java support by installing [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -40,44 +40,44 @@ Alternatively, if you are an existing VS Code user, you can also add Java suppor
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 * [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 
-If JDK is not installed, the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides links to download.
-
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-You can also select which extensions you would like to install separately. The **Extension Guide** is provided to help you choose. You can launch the guide with the **Java: Extension Guide** command.
+The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`) to launch the guide.
+
+![Java Getting Started](images/java-tutorial/getting-started.png)
+
+You can also install extensions separately. The **Extension Guide** is provided to help you. You can launch the guide with the **Java: Extension Guide** command.
 
 For this tutorial, the only required extensions are:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
+## Settings for the JDK
+
 ### Supported Java versions
 
-Supported versions for running VS Code for Java and supported versions for your projects are two separate concepts. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+Supported version for running VS Code for Java and supported version for your projects are two separate concepts. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+
+### Using Java runtime configuration wizard
+
+To help you configure correctly, we provide a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**.
+
+![JDK Configuration](images/java-tutorial/jdk-configuration.png)
+
+> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
+
+### Using VS Code settings
+
+Alternatively, you can configure JDK settings using VS Code setting page. A common way to do this is [setting the value of the `JAVA_HOME` system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in [VS Code's User or Workspace settings](/docs/getstarted/settings.md).
 
 ### Installing a Java Development Kit (JDK)
 
-Your development environment must have a Java SE Development Kit (JDK) installed. If it doesn't, you can download and install a JDK from one of these sources:
+When you need intsall a JDK, we recommend you to consider installing from one of these sources:
 
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
-
-### Configuring your development environment to use a JDK
-
-Your development environment needs to know where the JDK is located. A common way to do this is [setting the value of the `JAVA_HOME` system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in [VS Code's User or Workspace settings](/docs/getstarted/settings.md).
-
-## Settings for the JDK
-
-To access various settings for using the JDK, bring up the **Command Palette** (`kb(workbench.action.showCommands)`) and use the command **Java: Configure Java Runtime**.
-
-![JDK Configuration](images/java-tutorial/jdk-configuration.png)
-
-The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), also provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`).
-
-![Java Getting Started](images/java-tutorial/getting-started.png)
-
-> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
 
 ## Creating a source code file
 
