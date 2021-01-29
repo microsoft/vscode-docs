@@ -14,7 +14,7 @@ The VS Code UI has two types of elements: containers and items. Containers refer
 
 [![Overview of Visual Studio Code containers elements](images/guidelines/architecture-groups.png)](/assets/api/references/guidelines/architecture-groups.png)
 
-1. [Activity Bar](#view-container)
+1. [Activity Bar](#view-containers)
 2. Sidebar
 3. Editor
 4. Panel
@@ -50,7 +50,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ![Warning notification](images/guidelines/notification-warning.png)
 
-*This example highlights an blocking error with a feature that requires user input and shows actions to ressolve the issue.*
+*This example highlights a blocking error with a feature that requires user input and shows actions to resolve the issue.*
 
 ![Error notification](images/guidelines/notification-error.png)
 
@@ -71,7 +71,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ### Progress notification
 
-When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification. This should be used as the last resort as progress is best kept within context (within a view or editor).
+When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
 
 **✔️ Do**
 
