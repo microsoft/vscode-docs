@@ -92,6 +92,8 @@ Settings configured per folder will override settings defined in the `.code-work
 
 If you have read and understood how [workspace settings](#workspace-settings) work, you can apply that knowledge to tasks and launch configurations. Depending on wether you have a folder opened as workspace or a `.code-workspace`, the location of workspace task and launch configurations will either be inside the `.vscode` folder or inside the `.code-workspace` file. On top of that, task and launch configurations can always be defined on the level of a folder too, even when you have opened a `.code-workspace` file.
 
+Please refer to [tasks](docs/editor/tasks.md) and [debugging](docs/editor/debugging.md) chapters for a more comprehensive overview of how to use tasks and launch configurations in VS Code.
+
 ## Common questions
 
 ### Why is VS Code restoring all untitled workspaces on a restart?
