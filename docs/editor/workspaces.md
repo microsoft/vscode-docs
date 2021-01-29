@@ -87,9 +87,11 @@ We try to make it very easy for you to add or remove folders in your workspace. 
 
 There is really no difference between an untitled workspace and a saved workspace other than the fact that an untitled workspace is automatically created for you for your convinience and will always restore until you save it. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window where the untitled workspace is opened in.
 
-**Note:** if you constantly see many windows restoring when you start VS Code, make sure to review the ones with untitled workspaces in them. To stop restoring untitled workspaces, simply close the window and confirm the prompt to not save the untitled workspace.
-
 ## Common questions
+
+### Whenever I restart VS Code, many windows are restored automatically that I did not intend to open
+
+If you constantly see many windows restoring when you start VS Code, make sure to review the ones with untitled workspaces in them. To stop restoring untitled workspaces, simply close the window and confirm the prompt to not save the untitled workspace.
 
 ### Is a VS Code workspace the same as an Eclipse workspace? TBD
 **bpasero>** not sure if we want to mention it, but `.code-workspace` was inspired by SublimeText projects which have a similar format.
