@@ -23,7 +23,7 @@ In each guide or sample, you can expect to find:
 
 ## Guides & Samples
 
-Here are the guides on the VS Code website, including their usage of the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points).
+Here are the guides on the VS Code website, including their usage of the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points). Don't forget to refer to the [Extension Guidelines](/api/references/extension-guidelines) to learn the best practices for creating extensions.
 
 | Guide on VS Code Website | API & Contribution |
 | --- | --- |
