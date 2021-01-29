@@ -96,6 +96,14 @@ Please refer to [tasks](docs/editor/tasks.md) and [debugging](docs/editor/debugg
 
 ## Common questions
 
+### What is the benefit of multi-root workspace over a folder?
+
+The most obvious advantage is that a multi-root workspace allows you to configure a workspace with multiple projects within that do not necessarely have to be stored inside the same parent folder on disk. You can pick folders from anywhere on your disk to appear in the workspace.
+
+But even when you are mainly working in a single-folder based project, you can benefit from `.code-workspace` files: You can store multiple `.code-workspace` files inside the folder to provide a scoped folder-view on certain aspects of the project depending on the task (e.g. `client.code-workspace`, `server.code-workspace` to filter out unrelated folders from the explorer).
+
+Finally, if for some projects you want to apply the same set of workspace settings or tasks/launch configurations, consider to add these into a `.code-workspace` file and simply add/remove these folders to that workspace.
+
 ### Why is VS Code restoring all untitled workspaces on a restart?
 
 We consider untitled workspaces as something you explicitly decided to setup. The first time an untitled workspace is created, we not only add the correct set of folders into the workspace file, but also all existing workspace settings. We consider this user data that we enforce to restore until the untitled workspace is saved or deleted.
