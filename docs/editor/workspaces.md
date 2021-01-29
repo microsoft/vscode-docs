@@ -72,7 +72,10 @@ I am trying to distill what we need to explain for settings, debugging and tasks
 }
 ```
 
-The presence of this `.code-workspace` file makes it even possible to include workspace specific settings (or launch / task configurations) that should apply to all folders of the workspace.
+The presence of this `.code-workspace` file makes it even possible to include workspace specific settings (or launch / task configurations) that should apply to all folders of the workspace. As such, whenever you have a `.code-workspace` file opened, a third hierarchy of settings configuration comes into play:
+- global settings
+- workspace settings (stored inside `.code-workspace` file)
+- folder settings (stored inside `.vscode` folder of each root folder)
 
 ### Untitled multi-root workspaces
 
