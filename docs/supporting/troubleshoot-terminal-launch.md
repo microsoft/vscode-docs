@@ -57,9 +57,9 @@ If none of these steps helped solve the issue, you can also try:
 
 ## Common issues on Windows
 
-### The terminal exited with code 1 on Windows 10
+### Make sure compatibility mode is disabled
 
-This can happen if you run VS Code in compatibility mode, which may be turned on automatically if you have upgraded to Windows 10. You can change the mode by right-clicking the executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
+When upgrading to Windows 10, some apps may have compatibility mode turned on automatically. When this happens with VS Code, the terminal breaks as it does some low level things to enable the emulation it uses. You can check and disable compatibility mode by right-clicking on the VS Code executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
 
 ### The terminal exited with code 1 on Windows 10 (with WSL as the default shell)
 
@@ -78,9 +78,9 @@ The easy fix for this issue is to use the 64-bit version. If you must use the 32
 "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe"
 ```
 
-### Error "ConnectNamedPipe failed: Windows error 232"
+### A native exception occurred
 
-This error can occur due to anti-virus software intercepting winpty from creating a pty. To work around this error, you can exclude the following file from your anti-virus scanning:
+Typically this error occurs due to anti-virus software intercepting and blocking the winpty/conpty components from creating the terminal process. To work around this error, you can exclude the following file from your anti-virus scanning:
 
 ```
 {install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll

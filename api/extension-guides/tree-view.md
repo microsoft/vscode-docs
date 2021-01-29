@@ -349,7 +349,7 @@ To contribute to these three places, you can use the following menu contribution
 - `view/title` - Location to show actions in the view title. Primary or inline actions use `"group": "navigation"` and rest are secondary actions, which are in `...` menu.
 - `view/item/context` - Location to show actions for the tree item. Inline actions use `"group": "inline"` and rest are secondary actions, which are in `...` menu.
 
-You can control the visibility of these actions using the `when` property.
+You can control the visibility of these actions using a [when clause](/api/references/when-clause-contexts).
 
 ![View Actions](images/tree-view/view-actions.png)
 

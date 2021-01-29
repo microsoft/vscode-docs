@@ -40,7 +40,7 @@ To uniquely identify a task in the system, an extension contributing a task need
 
 This contributes a task definition for `rake` tasks. The task definition has two attributes `task` and `file`. `task` is the name of the Rake task and `file` points to the `Rakefile` that contains the task. The `task` property is required, the `file` property is optional. If the `file` attribute is omitted, the `Rakefile` in the root of the workspace folder is used.
 
-A task definition may optional have a `when` property. The when property specifies the condition under which task of this type will be available. The `when` property functions in the same way [as other places in VS Code](https://code.visualstudio.com/docs/getstarted/keybindings#_when-clause-contexts) where there is a `when` property.
+A task definition may optional have a `when` property. The `when` property specifies the condition under which task of this type will be available. The `when` property functions in the same way [as other places in VS Code](/api/references/when-clause-contexts), where there is a `when` property.
 
 ## Task provider
 
