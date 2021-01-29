@@ -31,10 +31,6 @@ The same is true for multi-root workspaces that you can open easily by selecting
 
 **Note:** The visual difference of having a folder opened vs. opening a `.code-workspace` file can be very subtle. To give you a hint that a `.code-workspace` file has been opened, some pieces of the user interface (e.g. the root of the explorer) show an extra "(Workspace)" suffix next to the name.
 
-## Workspace state
-**bpasero>** I would leave this paragraph out as we already gave some examples of workspace state before
-List some of the metadata and state persisted per folder TBD
-
 ## Workspace settings
 **bpasero>** see my note in [1]
 Workspace files are stored at the project root in a `.vscode` folder. TBD
