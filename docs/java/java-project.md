@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 8/26/2020
+DateApproved: 1/29/2021
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
@@ -64,6 +64,12 @@ You can export your build to JAR by clicking the **↓** sign on project view or
 As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you have to know two configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
 
 > **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
+
+The easiest way for you to configure JDK is to use Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**.
+
+![JDK Configuration](images/java-tutorial/jdk-configuration.png)
+
+If you want to configure without the wizard, please refer below for details.
 
 ### JDK for projects
 
