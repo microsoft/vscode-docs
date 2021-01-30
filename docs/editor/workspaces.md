@@ -11,7 +11,7 @@ MetaDescription: Learn about Visual Studio Code workspaces
 
 A Visual Studio Code "workspace" is the collection of one or more folders that are opened in a VS Code window. In most cases you will have a single folder opened as workspace but depending on your development workflow, you can also have more than one folder opened, using an advanced configuration called [Multi-root workspaces](#multi-root-workspaces).
 
-The notion of a workspace enables VS Code to:
+The concept of a workspace enables to:
 - configure settings that only apply to this workspace but not others
 - persist task and launch configurations that are only valid in the context of that workpsace
 - store and restore UI state associated with that workspace (e.g. the files that are opened)
@@ -100,7 +100,7 @@ Please refer to [tasks](docs/editor/tasks.md) and [debugging](docs/editor/debugg
 
 The most obvious advantage is that a multi-root workspace allows you to configure a workspace with multiple projects within that do not necessarely have to be stored inside the same parent folder on disk. You can pick folders from anywhere on your disk to appear in the workspace.
 
-But even when you are mainly working in a single-folder based project, you can benefit from `.code-workspace` files: You can store multiple `.code-workspace` files inside the folder to provide a scoped folder-view on certain aspects of the project depending on the task (e.g. `client.code-workspace`, `server.code-workspace` to filter out unrelated folders from the explorer).
+But even when you are mainly working in a single-folder based project, you can benefit from `.code-workspace` files: You can store multiple `.code-workspace` files inside the folder to provide a scoped folder-view on certain aspects of the project depending on the task (e.g. `client.code-workspace`, `server.code-workspace` to filter out unrelated folders from the explorer). Since `.code-workspace` files support relative paths for the `folders` section, these workspace files will work for everyone independent of where the folder is stored.
 
 Finally, if for some projects you want to apply the same set of workspace settings or tasks/launch configurations, consider to add these into a `.code-workspace` file and simply add/remove these folders to that workspace.
 
