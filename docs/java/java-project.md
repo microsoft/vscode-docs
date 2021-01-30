@@ -65,7 +65,7 @@ As Java evolves, it's common that developers work with multiple versions of JDK.
 
 > **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
 
-The easiest way for you to configure JDK is to use Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**.
+The easiest way for you to configure the JDK is to use the Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will bring up the configuration user interface shown below.
 
 ![JDK Configuration](images/java-tutorial/jdk-configuration.png)
 
