@@ -60,6 +60,18 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 ![Remote - Containers commands](images/containers-tutorial/remote-containers-commands.png)
 
+### Verify Context
+
+If you are not using a fresh docker install, you will want to switch your docker context to insure that the **Remote-Containers: Try a Sample...** sample you select does not encounter issues with the current context. Fresh installs will have a 'default' context and have it set as the current context.
+
+```bash
+# Displays the list of contexts an '*' denotes the current context
+docker context list
+
+# Switches the list to the 'default' context
+docker context use default
+```
+
 ## Get the sample
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
