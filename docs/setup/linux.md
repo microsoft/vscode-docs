@@ -102,12 +102,12 @@ sudo zypper refresh
 sudo zypper install code
 ```
 
-### AUR package for Arch Linux
+### Arch Linux based
 
-There is a community maintained [Arch User Repository package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
-
-To get more information about the installation from the AUR, please consult the following wiki entry:
-[Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
+Install the [Package](https://archlinux.org/packages/community/x86_64/code/) via:
+```bash
+sudo pacman -S code
+```
 
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 
