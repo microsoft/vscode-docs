@@ -37,11 +37,9 @@ There are several out-of-the-box color themes in VS Code for you to try.
 
 Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, install it and restart VS Code and the new theme will be available.
 
-> **Tip:** To search for themes, type 'theme' in the Extensions view (`kb(workbench.view.extensions)`) search box.
+You can search for themes in the Extensions view (`kb(workbench.view.extensions)`) search box using the `@category:"themes"` filter.
 
-<div class="marketplace-extensions-themes"></div>
-
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
+![Searching for themes in the Extensions view](images/themes/category-themes.png)
 
 ## Customizing a Color Theme
 
