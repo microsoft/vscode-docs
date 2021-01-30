@@ -69,7 +69,7 @@ To help you configure correctly, we provide a runtime configuration wizard. You 
 
 ### Using VS Code settings
 
-Alternatively, you can configure JDK settings using the VS Code Settings editor. A common way to do this is [setting the value of the `JAVA_HOME` system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in [VS Code's User or Workspace settings](/docs/getstarted/settings.md).
+Alternatively, you can configure JDK settings using the VS Code Settings editor. A common way to do this is [setting the value of the JAVA_HOME system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in VS Code's [User or Workspace settings](/docs/getstarted/settings.md).
 
 ### Installing a Java Development Kit (JDK)
 
