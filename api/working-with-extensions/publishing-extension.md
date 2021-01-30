@@ -47,7 +47,7 @@ $ vsce publish
 
 ---
 
-**Note:** Due to security concerns, `vsce` will not publish extensions which contain user-provided SVG images.
+**Note:** Due to security concerns, `vsce` will not publish extensions that contain user-provided SVG images.
 
 The publishing tool checks the following constraints:
 
@@ -58,19 +58,19 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
+Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First off, follow the documentation to [create your own organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops) in Azure DevOps. In the following examples, the organization's name is `vscode`, please use your new organization name as appropriate.
+First off, follow the documentation to [create your own organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate.
 
 From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
 ![Personal settings menu](images/publishing-extension/token1.png)
 
-On the **Personal Access Tokens** page, click **New Token** to create a new Personal Access Token and set the following details:
+On the **Personal Access Tokens** page, select **New Token** to create a new Personal Access Token and set the following details:
 
 - Give it a Name
 - Set Organization to **All accessible organizations**
@@ -101,7 +101,7 @@ You can publish an extension using [`vsce`](#vsce) with the `publish` command:
 vsce publish
 ```
 
-This will ask for the personal access token, in case you haven't provided it yet with the `vsce login` command above.
+This command will ask for the personal access token, if you haven't already provided it with the `vsce login` command above.
 
 Alternatively, you can [package the extension](#packaging-extensions) (`vsce package`) and manually upload it to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
 
@@ -238,9 +238,9 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ## Next steps
 
-* [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
-* [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
-* [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
+- [Extension M* arketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
+- [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
+- [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
 
