@@ -9,7 +9,7 @@ MetaDescription: Next steps to take after studying the Getting Started section
 
 # Wrapping Up
 
-In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to Visual Studio Code extension development. However, we have only seen the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
+In the [Your First Extension](/api/get-started/your-first-extension) topic, you learned how to create, run, and debug an extension. In the [Extension Anatomy](/api/get-started/extension-anatomy) topic, you learned fundamental concepts to Visual Studio Code extension development. However, we have only seen the tip of the iceberg, and here are some suggested routes for furthering your VS Code extension development skills.
 
 ## Extension Capabilities
 
@@ -18,6 +18,10 @@ In this section, we split the [VS Code API](/api/references/vscode-api) and [Con
 ## Guides & Samples
 
 We have a great collection of sample extensions that you can adapt from, and some of them include a detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) repository.
+
+## Extension Guidelines
+
+To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/references/extension-guidelines), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Testing and Publishing
 

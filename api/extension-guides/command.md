@@ -183,7 +183,7 @@ You do not need an `onCommand` activation event for internal commands but you mu
 
 By default, all user facing commands contributed through the `commands` section of the `package.json` show up in the Command Palette. However, many commands are only relevant in certain circumstances, such as when there is an active text editor of a given language or when the user has a certain configuration option set.
 
-The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the Command Palette. It takes the id of the target command and a [when clause](/docs/getstarted/keybindings#_when-clause-contexts) that controls when the command is shown:
+The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the Command Palette. It takes the id of the target command and a [when clause](/api/references/when-clause-contexts) that controls when the command is shown:
 
 ```json
 {
@@ -204,7 +204,7 @@ Now the `myExtension.sayHello` command will only show up in the Command Palette 
 
 ### Enablement of commands
 
-Commands support enablement via an `enablement` property - its value is a [when-clause](/docs/getstarted/keybindings#_when-clause-contexts). Enablement applies to all menus and to registered keybindings.
+Commands support enablement via an `enablement` property - its value is a [when-clause](/api/references/when-clause-contexts). Enablement applies to all menus and to registered keybindings.
 
 > **Note**: There is semantic overlap between `enablement` and the `when` condition of menu items. The latter is used to prevent menus full of disabled items. For example, a command that analyzes a JavaScript regular expression should show **when** the file is JavaScript and be **enabled** only when the cursor is over a regular expression. The `when` clause prevents clutter, by not showing the command for all other language files. Preventing cluttered menus is highly recommended.
 

@@ -25,7 +25,7 @@ With semantic highlighting:
 
 Notice the color differences based on language service symbol understanding:
 
-- line 10: `languageMode` is colored as a parameter
+- line 10: `languageModes` is colored as a parameter
 - line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 - line 13: `getFoldingRanges` is colored as a function.
 
@@ -89,7 +89,6 @@ Standard semantic token types:
 | `enum`| For identifiers that declare of reference an enumeration type. |
 | `interface`| For identifiers that declare of reference an interface type. |
 | `struct`| For identifiers that declare of reference an struct type. |
-| `interface`| For identifiers that declare of reference an interface type. |
 | `typeParameter`| For identifiers that declare of reference a type parameter. |
 | `type`| For identifiers that declare of reference a type that is not covered above. |
 | `parameter` | For identifiers that declare of reference a function or method parameters. |

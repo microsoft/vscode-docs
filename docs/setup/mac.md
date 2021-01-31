@@ -92,3 +92,9 @@ If you are running macOS Mojave version, you may see dialogs saying "Visual Stud
 ### VS Code fails to update
 
 If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.
+
+### Does VS Code run on Mac M1 machines?
+
+Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple M1 chip. Currently, only [Insiders](/insiders) macOS ARM64 builds are available.
+
+![macOS ARM64 Insiders build](images/mac/arm64-insiders.png)

@@ -11,15 +11,15 @@ MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch fail
 
 If you are new to using the Visual Studio Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/editor/integrated-terminal.md) user guide. There you can read how to [configure](/docs/editor/integrated-terminal.md#configuration) the terminal, as well as review answers to [common questions](/docs/editor/integrated-terminal.md#common-questions).
 
-Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure.
+Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure. The troubleshooting steps, such as checking your settings and enabling logging, apply to all platforms that support VS Code; macOS, Linux, and Windows.
+
+> **Note**: If you're on Windows, review the [common issues on Windows](#common-issues-on-windows) section first.
 
 ## Troubleshooting steps
 
 To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follow these steps to diagnose issues:
 
-1. If you're on Windows, review the [common issues on Windows](#common-issues-on-windows) section first.
-
-2. Check your [settings](/docs/getstarted/settings.md) for any of these settings that could affect the launch:
+1. Check your [settings](/docs/getstarted/settings.md) for any of these settings that could affect the launch:
 
     ```json
     terminal.integrated.automationShell
@@ -32,7 +32,19 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
     terminal.integrated.windowsEnableConpty
     ```
 
-3. Enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
+   You can review settings in the Settings editor (**File** > **Preferences** > **Settings**) and search for specific settings by the setting ID.
+
+   ![Search for Integrated terminal settings](images/troubleshoot-terminal-launch/search-for-settings.png)
+
+   A quick way to check if you have changed settings that you might not be aware of, is to use the `@modified` filter in the Settings editor.
+
+   ![Filter for modified settings](images/troubleshoot-terminal-launch/search-for-modified-settings.png)
+
+   Most Integrated Terminal settings will need to be modified directly in your user `settings.json` JSON file. You can open `settings.json` via the **Edit in settings.json** link in the Settings editor or with the **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
+
+   ![A user's setting.json file](images/troubleshoot-terminal-launch/settings-json-file.png)
+
+2. Enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
 
 ## Additional troubleshooting steps
 
@@ -45,9 +57,9 @@ If none of these steps helped solve the issue, you can also try:
 
 ## Common issues on Windows
 
-### The terminal exited with code 1 on Windows 10
+### Make sure compatibility mode is disabled
 
-This can happen if you run VS Code in compatibility mode, which may be turned on automatically if you have upgraded to Windows 10. You can change the mode by right-clicking the executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
+When upgrading to Windows 10, some apps may have compatibility mode turned on automatically. When this happens with VS Code, the terminal breaks as it does some low level things to enable the emulation it uses. You can check and disable compatibility mode by right-clicking on the VS Code executable and selecting properties, then uncheck the **Run this program in compatibility mode** option in the compatibility tab.
 
 ### The terminal exited with code 1 on Windows 10 (with WSL as the default shell)
 
@@ -66,9 +78,9 @@ The easy fix for this issue is to use the 64-bit version. If you must use the 32
 "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe"
 ```
 
-### Error "ConnectNamedPipe failed: Windows error 232"
+### A native exception occurred
 
-This error can occur due to anti-virus software intercepting winpty from creating a pty. To work around this error, you can exclude the following file from your anti-virus scanning:
+Typically this error occurs due to anti-virus software intercepting and blocking the winpty/conpty components from creating the terminal process. To work around this error, you can exclude the following file from your anti-virus scanning:
 
 ```
 {install_path}\resources\app\node_modules.asar.unpacked\node-pty\build\Release\winpty.dll

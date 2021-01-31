@@ -13,7 +13,7 @@ The webview API allows extensions to create fully customizable views within Visu
 
 Think of a webview as an `iframe` within VS Code that your extension controls. A webview can render almost any HTML content in this frame, and it communicates with extensions using message passing. This freedom makes webviews incredibly powerful, and opens up a whole new range of extension possibilities.
 
-Webviews are used in few VS Code API:
+Webviews are used in several VS Code APIs:
 
 - With Webview Panels created using `createWebviewPanel`. In this case, Webview panels are shown in VS Code as distinct editors. This makes them useful for displaying custom UI and custom visualizations.
 - As the view for a [custom editor](/api/extension-guides/custom-editors). Custom editors allow extensions to provide a custom UI for editing any file in the workspace. The custom editor API also lets your extension hook into editor events such as undo and redo, as well as file events such as save.
@@ -331,7 +331,7 @@ export function activate(context: vscode.ExtensionContext) {
           columnToShowIn,
           {}
         );
-        currentPanel.webview.html = getWebviewContent(cats['Coding Cat']);
+        currentPanel.webview.html = getWebviewContent('Coding Cat');
 
         // Reset when the current panel is closed
         currentPanel.onDidDispose(
@@ -369,7 +369,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.ViewColumn.One,
         {}
       );
-      panel.webview.html = getWebviewContent(cats['Coding Cat']);
+      panel.webview.html = getWebviewContent('Coding Cat');
 
       // Update contents based on view state changes
       panel.onDidChangeViewState(
@@ -398,7 +398,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof cats) {
   panel.title = catName;
-  panel.webview.html = getWebviewContent(cats[catName]);
+  panel.webview.html = getWebviewContent(catName);
 }
 ```
 
@@ -860,7 +860,7 @@ The best way to solve this is to make your webview stateless. Use [message passi
 
 ### getState and setState
 
-Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
+Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even after the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
 
 ```js
 // Inside a webview script

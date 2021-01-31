@@ -10,20 +10,18 @@ MetaSocialImage: images/opengraph/introvideos.png
 ---
 # Git version control in VS Code
 
-In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code.
+In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [Learn More](/docs/introvideos/versioncontrol.md#learn-more) section below.
 
-<iframe src="https://www.youtube.com/embed/AKNYgP0yEOY?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## Outline
 
 * Create a branch
 * Change branches
-* View diffs between two files
+* View diffs between two files in side by side and inline views
 * Stage and clean changes
-* Undo a commit
-* Publish to a remote branch
-* Push commits
-* View git commands in Git output
+* Commit to your local branch
+* Merge local branches
 
 ## Learn more
 

@@ -89,9 +89,11 @@
       ["Activation Events", "/api/references/activation-events"],
       ["Extension Manifest", "/api/references/extension-manifest"],
       ["Built-in Commands", "/api/references/commands"],
+      ["When clause contexts", "/api/references/when-clause-contexts"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
-      ["Document Selector", "/api/references/document-selector"]
+      ["Document Selector", "/api/references/document-selector"],
+      ["Extension Guidelines", "/api/references/extension-guidelines"]
     ]
   }
 ]

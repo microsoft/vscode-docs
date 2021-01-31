@@ -45,11 +45,11 @@ Start your journey using Visual Studio Code with this set of introductory videos
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/codeediting">
-			<img src="https://img.youtube.com/vi/rsatrlBEFFA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="/assets/docs/getstarted/introvideos/codeediting-thumbnail.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Code Editing</h2>
-				<p class="description">Take code editing to the next level.</p>
-				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<p class="description">Learn how to edit and run code in VS Code.</p>
+				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>

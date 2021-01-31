@@ -787,6 +787,8 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 }
 ```
 
+**Note**: If you have multiple problems that occur on the same resource with the exact same line and column, then only one problem will be shown. This applies to all problem matchers, not just multiline problem matchers.
+
 ## Modifying an existing problem matcher
 
 If an existing problem matcher is close to what you need, you can modify it in your `tasks.json` task. For example, the `$tsc-watch` problem matcher only applies to closed documents. If you want to have it apply to all documents you can modify it:

@@ -14,9 +14,9 @@ The Visual Studio Code editor has built-in debugging support for the [Node.js](h
 
 There are a few ways you can debug your Node.js programs in VS Code:
 
-- Use [auto attach](#_auto-attach) to debug process you run in VS Code's integrated terminal,
-- Use the [JavaScript debug terminal](#_auto-attach-feature), in a similar way, or
-- Use a [launch config](#_launch-configuration) to start your program, or [attach to a process](#_attaching-to-nodejs) launched outside of VS Code
+- Use [auto attach](#auto-attach) to debug process you run in VS Code's integrated terminal,
+- Use the [JavaScript debug terminal](#javascript-debug-terminal), in a similar way, or
+- Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code
 
 ## Auto Attach
 
@@ -38,7 +38,7 @@ When auto attach is on, the `Auto Attach` item will appear in the status bar acr
 
 **Other Launch Configuration Properties**
 
-You can apply [other properties normally found in launch.json](#_launch-configuration-attributes) to auto attach in the **debug.javascript.terminalOptions** setting. For example, to add node internals to your skipFiles, you could add the following to your user or workspace settings:
+You can apply [other properties normally found in launch.json](#launch-configuration-attributes) to auto attach in the **debug.javascript.terminalOptions** setting. For example, to add node internals to your skipFiles, you could add the following to your user or workspace settings:
 
 ```js
   "debug.javascript.terminalOptions": {
@@ -50,7 +50,7 @@ You can apply [other properties normally found in launch.json](#_launch-configur
 
 **Auto Attach Smart Patterns**
 
-In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
+In `smart` Auto Attach mode, VS Code will try to attach to your code, and not attach to build tools you aren't interested in debugging. It does this by matching the main script against a list of [glob patterns](/docs/editor/codebasics.md#advanced-search-options). The glob patterns are configurable in the **debug.javascript.autoAttachSmartPattern** setting, which defaults to:
 
 ```js
 [
@@ -72,7 +72,7 @@ In `smart` Auto Attach mode, VS Code will try to attach to your code, and not at
 
 ## JavaScript Debug Terminal
 
-In a similar way to [auto attach](#_auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the command palette (`kbstyle(F1)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
+In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the command palette (`kbstyle(F1)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
 
 ![Create Debug Terminal](images/nodejs-debugging/create-debug-terminal.png)
 
@@ -80,7 +80,7 @@ In a similar way to [auto attach](#_auto-attach), the JavaScript Debug Terminal 
 
 **Other Launch Configuration Properties**
 
-You can apply [other properties normally found in launch.json](#_launch-configuration-attributes) to the debug terminal in the **debug.javascript.terminalOptions** setting. For example, to add node internals to your skipFiles, you could add the following to your user or workspace settings:
+You can apply [other properties normally found in launch.json](#launch-configuration-attributes) to the debug terminal in the **debug.javascript.terminalOptions** setting. For example, to add node internals to your skipFiles, you could add the following to your user or workspace settings:
 
 ```js
 "debug.javascript.terminalOptions": {

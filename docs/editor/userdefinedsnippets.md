@@ -27,13 +27,11 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [Extension Marketplace](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
+Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
-Below are some popular extensions that include snippets in their language support:
+![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
-<div class="marketplace-extensions-snippets"></div>
-
-> **Tip**: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+If you find an extension you want to use, install it, then restart VS Code and the new snippets will be available.
 
 ## Create your own snippets
 
@@ -129,6 +127,7 @@ The following variables can be used:
 * `TM_FILEPATH` The full file path of the current document
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
+* `WORKSPACE_FOLDER` The path of the opened workspace or folder
 
 For inserting the current date and time:
 

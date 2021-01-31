@@ -68,7 +68,7 @@ The following table lists additional commands and keyboard shortcuts supported w
 |Python: Extend Selection by Cell Below   | `kbstyle(Ctrl+Shift+Alt+])` |
 |Python: Move Selected Cells Up           | `kbstyle(Ctrl+; U)`        |
 |Python: Move Selected Cells Down         | `kbstyle(Ctrl+; D)`        |
-|RoPython: Insert Cell Above              | `kbstyle(Ctrl+; A)`        |
+|Python: Insert Cell Above                | `kbstyle(Ctrl+; A)`        |
 |Python: Insert Cell Below                | `kbstyle(Ctrl+; B)`        |
 |Python: Insert Cell Below Position       | `kbstyle(Ctrl+; S)`        |
 |Python: Delete Selected Cells            | `kbstyle(Ctrl+; X)`        |
@@ -78,9 +78,9 @@ The following table lists additional commands and keyboard shortcuts supported w
 ## Python Interactive window
 
 The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
-To use the window as a console, open it with the **Python: Show Python Interactive window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
+To use the window as a console, open it with the **Jupyter: Create Interactive Window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
-To use the window with a file, use the **Run Current File in Python Interactive window** command from the Command Palette.
+To use the window with a file, use the **Jupyter: Run Current File in Python Interactive Window** command from the Command Palette.
 
 ### IntelliSense
 
@@ -124,12 +124,14 @@ You can offload intensive computation in a Jupyter notebook to other computers b
 
 To connect to a remote Jupyter server:
 
-1. Run the **Python: Specify Jupyter server URI** command from the Command Palette (`kb(workbench.action.showCommands)`).
-2. When prompted, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+1. Run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
+2. Select how you would like to connect to a Jupyter server.
+    ![Prompt to supply a Jupyter server URI](images/jupyter/local-remote-connections.png)
+3. If working remotely, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter when prompted. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
     ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
 
-3. The Python Interactive window indicates where code is run by displaying the URI (which is blurred out in the image below):
+4. The Python Interactive window indicates where code is run by displaying the URI (which is blurred out in the image below):
 
     ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
 
@@ -143,7 +145,7 @@ When you open a notebook file, Visual Studio Code will open it in the Notebook E
 
 ![Icon to convert a Jupyter notebook file](images/jupyter/native-toolbar-convert.png)
 
-Select the convert icon, wait a few seconds, and then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `# %%` comments; Markdown cells are converted wholly to comments preceded with `# %% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
+Select the convert icon followed by "Python Script", wait a few seconds, and then VS Code opens the converted notebook in an untitled file. The notebook's cells are delimited in the Python file with `# %%` comments; Markdown cells are converted wholly to comments preceded with `# %% [markdown]`, and render as HTML in the interactive window alongside code and output such as graphs:
 
 ![Jupyter notebook running in VS Code and the Python Interactive window](images/jupyter/jupyter-notebook.png)
 
@@ -172,8 +174,8 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 In addition to opening a Jupyter notebook, you can also use one of the following commands from the Command Palette (`kb(workbench.action.showCommands)`) to export content from a Python file in VS Code to a Jupyter notebook (with the `.ipynb` extension).
 
-- **Python: Export Current Python File as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file, using the `# %%` and `# %% [markdown]` delimiters to specify their respective cell types.
-- **Python: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
-- **Python: Export Python Interactive window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python Interactive window.
+- **Jupyter: Export Current Python File as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file, using the `# %%` and `# %% [markdown]` delimiters to specify their respective cell types.
+- **Jupyter: Export Current Python File and Output as Jupyter Notebook**: creates a Jupyter notebook from the contents of the current file and includes output from code cells.
+- **Jupyter: Export Interactive Window as Jupyter Notebook**: creates a Jupyter notebook from the contents of the Python Interactive window.
 
 After exporting the contents, VS Code displays a prompt through which you can open the notebook in a browser.

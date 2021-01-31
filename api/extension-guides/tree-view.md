@@ -336,7 +336,7 @@ Once you've created a View Container, you can use the [contributes.views](/api/r
 }
 ```
 
-A view can also have an optional `visibility` property which can be set to `visible`, `collapsed`, or `hidden`. This property is only respected by VS Code the first time a workspace is opened with this view. After that, the visibility is set to whatever the user has chosen. If you have a view container with many views, or if your view will not be useful to every user of your extension, consider setting the view the `collapsed` or `hidden`. A `hidden` view will appear in the the view containers "Views" menu:
+A view can also have an optional `visibility` property which can be set to `visible`, `collapsed`, or `hidden`. This property is only respected by VS Code the first time a workspace is opened with this view. After that, the visibility is set to whatever the user has chosen. If you have a view container with many views, or if your view will not be useful to every user of your extension, consider setting the view the `collapsed` or `hidden`. A `hidden` view will appear in the view containers "Views" menu:
 
 ![Views Menu](images/tree-view/views-menu.png)
 
@@ -349,7 +349,7 @@ To contribute to these three places, you can use the following menu contribution
 - `view/title` - Location to show actions in the view title. Primary or inline actions use `"group": "navigation"` and rest are secondary actions, which are in `...` menu.
 - `view/item/context` - Location to show actions for the tree item. Inline actions use `"group": "inline"` and rest are secondary actions, which are in `...` menu.
 
-You can control the visibility of these actions using the `when` property.
+You can control the visibility of these actions using a [when clause](/api/references/when-clause-contexts).
 
 ![View Actions](images/tree-view/view-actions.png)
 
@@ -436,7 +436,7 @@ If your view can be empty, or if you want to add Welcome content to another exte
   "viewsWelcome": [
     {
       "view": "nodeDependencies",
-      "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:nodeDependencies.addEntry)",
+      "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:nodeDependencies.addEntry)"
     }
   ]
 }

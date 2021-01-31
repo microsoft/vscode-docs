@@ -25,7 +25,7 @@ The Docker extension adds the `docker-compose.yml` file to your workspace. This 
 
 ![Screenshot of project with docker-compose files](images/compose/docker-compose-files.png)
 
-The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/up) about how to configure the Docker Compose behavior and what command-line options are available.
+The VS Code Docker extension generates files that work out of the box, but you can also customize them to optimize for your scenario. You can then use the **Docker Compose Up** command (right-click on the `docker-compose.yml` file, or find the command in the **Command Palette**) to get everything started at once. You can also use the `docker-compose up` command from the command prompt or terminal window in VS Code to start the containers. Refer to the [Docker Compose documentation](https://docs.docker.com/compose/reference/up) about how to configure the Docker Compose behavior and what command-line options are available.
 
 With the docker-compose files, you can now specify port mappings in the docker-compose files, rather than in the .json configuration files. For examples, see the [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#ports).
 
@@ -105,7 +105,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 ### Python
 
-For debugging Python with Docker Compose, first read [How to debug your app with Gunicorn](/docs/containers/debug-python.md#how-to-debug-your-app-with-gunicorn), then follow these steps.
+For debugging Python with Docker Compose, follow these steps:
 
 1. On the **Debug** tab, choose the **Configuration** dropdown, choose **New Configuration**, choose **Python**, and select the `Remote Attach` configuration template.
 
@@ -130,19 +130,40 @@ For debugging Python with Docker Compose, first read [How to debug your app with
         }
     ```
 
-1. When done editing the **Attach** configuration, save `launch.json`, and select your new launch configuration as the active configuration. In the **Debug** tab, find the new configuration in the **Configuration** dropdown.
+1. When done editing the **Attach** configuration, save the `launch.json`. Navigate to the **Debug** tab and select **Python: Remote Attach** as the active configuration.
 
-1. Right-click on the `docker-compose.debug.yml` file and choose **Compose Up**.
+1. If you already have a valid Dockerfile, we recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml`, which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
-1. When you attach to a service that exposes an HTTP endpoint that returns HTML, the web browser doesn't open automatically. To open the app in the browser, choose the container in the sidebar, right-click and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
+    > **Note**: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions in the [Python in a container quickstart](/docs/containers/quickstart-python.md#gunicorn-modifications-for-djangoflask-apps) to ensure it is configured properly before proceeding.
+
+1. Right-click on the `docker-compose.debug.yml` file (example shown below) and choose **Compose Up**.
+
+    ```yml
+    version: '3.4'
+
+    services:
+      pythonsamplevscodedjangotutorial:
+        image: pythonsamplevscodedjangotutorial
+        build:
+          context: .
+          dockerfile: ./Dockerfile
+        command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000 --nothreading --noreload"]
+        ports:
+          - 8000:8000
+          - 5678:5678
+    ```
+
+1. Once your container is built and running, attach the debugger by hitting `kb(workbench.action.debug.start)` with the **Python: Remote Attach** launch configuration selected.
+
+    ![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
+
+    > **Note:** If you would like to import the Python debugger into a specific file, more information can be found in the [debugpy README](https://github.com/microsoft/debugpy#debugpy-import-usage).
+
+1. When you attach to a service that exposes an HTTP endpoint and returns HTML, the web browser may not open automatically. To open the app in the browser, right-click the container in the Docker Explorer and choose **Open in Browser**. If multiple ports are configured, you'll be asked to choose the port.
 
    ![Screenshot - Open in Browser](images/compose/docker-compose-open-in-browser.png)
 
-1. Launch the debugger in the usual way. From the **Debug** tab, choose the green arrow (**Start** button) or use `kb(workbench.action.debug.start)`.
-
-You're now debugging your running app in the container.
-
-![Screenshot of debugging in Python](images/compose/docker-compose-python-debug.png)
+    You're now debugging your running app in the container.
 
 ### .NET
 
@@ -194,13 +215,19 @@ volumes:
 ```
 
 ## Docker Compose with multiple Compose files
-Workspaces can have multiple docker-compose files to handle different environments like development, test and production. The content of the configuration can be split into multiple files. For example, a base compose file that defines the common information for all environments and override files that defines environment-specific information. When these files are passed as input to the `docker-compose` command, it combines these files into a single configuration. By default, the **Docker: Compose Up** command passes a single file as input to the compose command, but you can customize the `compose up` command to pass in multiple files using [command customization](https://code.visualstudio.com/docs/containers/reference#_command-customization). Or, you can use a [custom task](https://code.visualstudio.com/docs/editor/tasks#_custom-tasks) to invoke the `docker-compose` command with the desired parameters.
+
+Workspaces can have multiple docker-compose files to handle different environments like development, test, and production. The content of the configuration can be split into multiple files. For example, a base compose file that defines the common information for all environments and separate override files that define environment-specific information. When these files are passed as input to the `docker-compose` command, it combines these files into a single configuration. By default, the **Docker: Compose Up** command passes a single file as input to the compose command, but you can customize the `compose up` command to pass in multiple files using [command customization](/docs/containers/reference.md#command-customization). Or, you can use a [custom task](/docs/editor/tasks.md#custom-tasks) to invoke the `docker-compose` command with the desired parameters.
 
 > **Note**: If your workspace has `docker-compose.yml` and `docker-compose.override.yml` and no other compose files, then the `docker-compose` command is invoked with no input files and it implicitly uses these files. In this case, no customization is needed.
-### Command Customization
-[Command customization](https://code.visualstudio.com/docs/containers/reference#_command-customization) provides various ways to customize the `compose up` command based on your requirements. The following are few sample command customization for the `compose up` command.
-#### Base file and an override file
-Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always compose up with the base file and an override file. In this case the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
+
+## Command customization
+
+[Command customization](/docs/containers/reference.md#command-customization) provides various ways to customize the `compose up` command based on your requirements. The following are few sample command customization for the `compose up` command.
+
+### Base file and an override file
+
+Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always compose up with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
+
 ```json
 "docker.commands.composeUp": [
     {
@@ -209,8 +236,11 @@ Let's assume your workspace has a base compose file (`docker-compose.yml`) and a
     }
 ]
 ```
-#### Template matching
+
+### Template matching
+
 Let's assume you have  different set of input files for each environment. You could define multiple templates with regular expression match, and the selected file name will be matched against this `match` property and the corresponding template will be used.
+
 ```json
 "docker.commands.composeUp": [
     {
@@ -231,8 +261,10 @@ Let's assume you have  different set of input files for each environment. You co
 ]
 ```
 
-#### Pick a template when the command is invoked
+### Pick a template when the command is invoked
+
 If you omit the `match` property from command templates, you will be asked which template to use each time `compose up` command is invoked. For example:
+
 ```json
 "docker.commands.composeUp": [
     {
@@ -250,8 +282,10 @@ If you omit the `match` property from command templates, you will be asked which
 ],
 ```
 
-### Custom Tasks
-Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](https://code.visualstudio.com/docs/editor/tasks#_custom-tasks) for more detail on this.
+## Custom tasks
+
+Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](/docs/editor/tasks.md#custom-tasks) for more detail on this.
+
 ```json
 {
     "type": "shell",
@@ -263,6 +297,7 @@ Rather than use command customization, you can also define a task like the follo
     }
 }
 ```
+
 ## Next steps
 
 - [Overview of Docker Compose in the Docker documentation](https://docs.docker.com/compose/)

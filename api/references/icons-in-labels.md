@@ -13,7 +13,7 @@ Visual Studio Code contains a set of built-in icons that are used in views and t
 
 The product icons that ship with VS Code are contained in the [Codicon icon font](https://github.com/microsoft/vscode-codicons) and form the **default** product icon theme. Extensions can provide new [Product Icon Themes](/api/extension-guides/product-icon-theme) to redefine these icons and give VS Code a new appearance.
 
-In order to allow this, all product icons are identified an ID. The icon identifier is what's used in UI components. The association of icon identifier to an actual icon font glyph is then done in the product icon theme.
+In order to allow this, all product icons are identified by an ID. The icon identifier is what's used in UI components. The association of icon identifier to an actual icon font glyph is then done in the product icon theme.
 
 ## Icons in labels
 
