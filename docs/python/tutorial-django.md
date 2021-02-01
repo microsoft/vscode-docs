@@ -43,7 +43,7 @@ In this section, you create a virtual environment in which Django is installed. 
     # Linux
     sudo apt-get install python3-venv    # If needed
     python3 -m venv env
-    
+
     # macOS
     python3 -m venv env
 
@@ -63,7 +63,7 @@ In this section, you create a virtual environment in which Django is installed. 
 
     ![Django tutorial: Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run [**Terminal: Create New Integrated Terminal**](/docs/editor/integrated-terminal.md)  (`kb(workbench.action.terminal.new)`) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -83,7 +83,7 @@ In this section, you create a virtual environment in which Django is installed. 
     python -m pip install django
     ```
 
-You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have a self-contained environment ready for writing Django code. VS Code activates the environment automatically when you use [**Terminal: Create New Integrated Terminal**](/docs/editor/integrated-terminal.md)  (`kb(workbench.action.terminal.new)`). If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Django app
 
@@ -105,9 +105,18 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     - A subfolder named `web_project`, which contains the following files:
         - `__init__.py`: an empty file that tells Python that this folder is a Python package.
-        - `wsgi.py`: an entry point for WSGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
+        - `asgi.py`: an entry point for [ASGI-compatible](https://asgi.readthedocs.io/en/latest/) web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
         - `settings.py`: contains settings for Django project, which you modify in the course of developing a web app.
         - `urls.py`: contains a table of contents for the Django project, which you also modify in the course of development.
+        - `wsgi.py`: an entry point for WSGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
+
+1. Create an empty development database by running the following command:
+
+    ```bash
+    python manage.py migrate
+    ```
+
+    When you run the server the first time, it creates a default SQLite database in the file `db.sqlite3`, which is intended for development purposes but can be used in production for low-volume web apps.
 
 1. To verify the Django project, make sure your virtual environment is activated, then start Django's development server using the command `python manage.py runserver`. The server runs on the default port 8000, and you see output like the following output in the terminal window:
 
@@ -122,7 +131,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     Quit the server with CTRL-BREAK.
     ```
 
-    When you run the server the first time, it creates a default SQLite database in the file `db.sqlite3`, which is intended for development purposes but can be used in production for low-volume web apps. Also, Django's built-in web server is intended *only* for local development purposes. When you deploy to a web host, however, Django uses the host's web server instead. The `wsgi.py` module in the Django project takes care of hooking into the production servers.
+    Django's built-in web server is intended *only* for local development purposes. When you deploy to a web host, however, Django uses the host's web server instead. The `wsgi.py` and `asgi.py` modules in the Django project take care of hooking into the production servers.
 
     If you want to use a different port than the default 8000, specify the port number on the command line, such as `python manage.py runserver 5000`.
 
@@ -140,7 +149,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     python manage.py startapp hello
     ```
 
-    The command creates a folder called `hello` that contains a number of code files and one subfolder. Of these, you frequently work with `views.py` (that contains the functions that define pages in your web app) and `models.py` (that contains classes defining your data objects). The `migrations` folder is used by Django's administrative utility to manage database versions as discussed later in this tutorial. There are also the files `apps.py` (app configuration), `admin.py` (for creating an administrative interface), and `tests.py` (for tests), which are not covered here.
+    The command creates a folder called `hello` that contains a number of code files and one subfolder. Of these, you frequently work with `views.py` (that contains the functions that define pages in your web app) and `models.py` (that contains classes defining your data objects). The `migrations` folder is used by Django's administrative utility to manage database versions as discussed later in this tutorial. There are also the files `apps.py` (app configuration), `admin.py` (for creating an [administrative interface](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/)), and `tests.py` (for [creating tests](https://docs.djangoproject.com/en/3.1/topics/testing/)), which are not covered here.
 
 1. Modify `hello/views.py` to match the following code, which creates a single view for the app's home page:
 
@@ -170,6 +179,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     urlpatterns = [
         path("", include("hello.urls")),
+        path('admin/', admin.site.urls)
     ]
     ```
 
@@ -183,11 +193,11 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 You're probably already wondering if there's an easier way to run the server and test the app without typing `python manage.py runserver` each time. Fortunately, there is! You can create a customized launch profile in VS Code, which is also used for the inevitable exercise of debugging.
 
-1. Switch to **Run** view in VS Code (using the left-side activity bar). Along the top of the Run view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
+1. Switch to **Run** view in VS Code (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the messaghe "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
 
     ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. Select the gear icon and wait for a few seconds for VS Code to create and open a `launch.json` file. (If you're using an older version of VS Code, you may be prompted with a list of debugger targets, in which case select **Python** from the list.) The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the drop-down and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration with the name "Python: Django":
 
@@ -197,7 +207,6 @@ You're probably already wondering if there's an easier way to run the server and
         "type": "python",
         "request": "launch",
         "program": "${workspaceFolder}/manage.py",
-        "console": "integratedTerminal",
         "args": [
             "runserver",
         ],
@@ -206,10 +215,6 @@ You're probably already wondering if there's an easier way to run the server and
     ```
 
     This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
-
-1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Django** configuration:
-
-    ![Django tutorial: selecting the Django debugging configuration](images/django-tutorial/debug-select-configuration.png)
 
 1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
@@ -241,7 +246,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```python
     import re
-    from datetime import datetime
+    from django.utils.timezone import datetime
     from django.http import HttpResponse
 
     def home(request):
