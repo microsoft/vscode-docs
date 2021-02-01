@@ -57,7 +57,7 @@ Multi-root workspaces are very useful to implement the loose definition of "proj
 
 *A multi-root workspace opened in VS Code*
 
-> **Note:** The visual difference of having a folder opened versus opening a `.code-workspace` file can be subtle. To give you a hint that a `.code-workspace` file has been opened, some areas of the user interface (for example, the root of the File Explorer) show an extra **(WORKSPACE)** suffix next to the name.
+> **Note:** The visual difference of having a folder opened versus opening a `.code-workspace` file can be subtle. To give you a hint that a `.code-workspace` file has been opened, some areas of the user interface (for example, the root of the File Explorer) show an extra **(Workspace)** suffix next to the name.
 
 ### Untitled multi-root workspaces
 
