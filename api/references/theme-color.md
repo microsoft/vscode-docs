@@ -662,11 +662,35 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `debugTokenExpression.number`: Foreground color for numbers in debug views
 - `debugTokenExpression.error`: Foreground color for expression errors in debug views
 
+
+## Testing view colors
+
+-  "`testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+-  "`testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+-  "`testing.iconPassed`: Color for the 'passed' icon in the test explorer.
+-  "`testing.runAction`: Color for 'run' icons in the editor.
+-  "`testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
+-  "`testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
+-  "`testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+-  "`testing.peekBorder`: Color of the peek view borders and arrow.
+-  "`testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
+-  "`testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
+-  "`testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
+-  "`testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
+-  "`testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
+-  "`testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+-  "`testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
+-  "`testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
+
+
 ## Welcome page colors
 
 - `welcomePage.background`: Background color for the Welcome page.
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
+- `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
+-  "`welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
+
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
 ## Source Control colors
@@ -811,6 +835,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell"
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
+- `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
 
 ## Chart colors
 
