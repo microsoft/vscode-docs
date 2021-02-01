@@ -10,11 +10,11 @@ MetaDescription: Jupyter Notebooks in Visual Studio Code
 
 # Jupyter Notebooks
 
-## What are Jupyter Notebooks?
-
 [Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html) are documents that contain a mix of live code (Python, R, Julia, JavaScript, and more), visualizations, and narrative text (Markdown). They're useful for breaking down concepts in a story telling form where you can give some context and show the code below along with interactive visualizations.
 
-In the short clip below, an instructor is using extra visualizations and pseudo code to help students code their merge sort implementation:
+## What do they look like in a classroom?
+
+One instructor is using extra visualizations and pseudo code to help students code their merge sort implementation. See the short clip below:
 
 ![Teaching Merge Sort in a Notebook](images/notebooks/notebook_lesson_visual_md.gif)
 
