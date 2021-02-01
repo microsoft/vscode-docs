@@ -12,27 +12,37 @@ MetaDescription: Jupyter Notebooks in Visual Studio Code
 
 ## What are Jupyter Notebooks?
 
-Jupyter Notebooks are documents that contain a mix of live code, visualizations, and narrative text (Markdown). They're useful for breaking down concepts in a story telling form where you can give some context and show the code below along with interactive visualizations.
+[Jupyter Notebooks](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html) are documents that contain a mix of live code (Python, R, Julia, JavaScript, and more), visualizations, and narrative text (Markdown). They're useful for breaking down concepts in a story telling form where you can give some context and show the code below along with interactive visualizations.
 
-Insert gif here.
+In the short clip below, an instructor is using extra visualizations and pseudo code to help students code their merge sort implementation:
 
-In the classroom they can be useful for explaining large topics piece by piece with rich imagery and videos embedded. It's also a great way to see and compare the exact runtimes of code blocks, which can be super helpful for learning data structures and algorithm fundamentals.
+![Teaching Merge Sort in a Notebook](images/notebooks/notebook_lesson_visual_md.gif)
 
-Insert gif here.
+In the classroom they can be useful for explaining large topics piece by piece with rich imagery and videos embedded.
 
-Jupyter Notebooks can also have rich interactive outputs. _______
+This instructor is explaining how time complexities work piece by piece with tables of data, graphs, explanations, and code:
 
-Insert gif here.
+![Lecture explaining Time Complexities](images/notebooks/notebook_runtime_lecture.gif)
 
-They are also a great form to hand out assignments with. ____
+It's also a great way to see and compare the exact runtimes of code blocks, which can be super helpful for learning data structures and algorithm fundamentals.
 
-Insert gif here
 
-## Case Studies
+Jupyter Notebooks can also have rich interactive outputs.
 
-Here are some colleges and universities using Notebooks in their classrooms today:
+TODO: Insert gif here.
 
+They are also a great form to hand out assignments with. Here an instructor created an assignment to teach Binary Search Trees that includes a mix of students needing to implement code and write long form written responses to theoretical questions.
+
+![Binary Search Tree assignment in notebook format](images/notebooks/notebook_assignment.gif)
 
 ## Getting Started
 
-To use Jupyter Notebooks, you need to follow the [step by step Jupyter Notebook setup guide](https://code.visualstudio.com/docs/python/jupyter-support).
+You will need to have Python 3 installed on your machine along with the Python extension installed. [See the full tutorial here.](https://code.visualstudio.com/docs/python/python-tutorial)
+
+Afterwards, you will need to install the Jupyter Notebooks extension from the Extension Marketplace.
+
+![Jupyter Extension in Extension Marketplace](images/notebooks/jupyter_market_place.png)
+
+Then you need to activate the Python environment you have installed by using the command: `Python: Select Interpreter` from the Command Palette (⇧⌘P).
+
+For full instructions and how to use Jupyter Notebooks, follow the [step by step Jupyter Notebook guide](https://code.visualstudio.com/docs/python/jupyter-support).
