@@ -334,6 +334,25 @@ The most common cause of errors (such as `undefined _main`, or `attempting to li
 
 If you see build errors mentioning "C++11 extensions", you may not have updated your `task.json` build task to use the clang++ argument `--std=c++17`. By default, clang++ uses the C++98 standard, which doesn't support the initialization used in `helloworld.cpp`. Make sure to replace the entire contents of your `task.json` file with the code block provided in the [Build helloworld.cpp](#build-helloworldcpp) section.
 
+### Terminal Won't Launch For Input
+
+On Mac OS Catalina and onwards, you might have a issue where you are unable to enter input, even after setting, "externalConsole": true. You might get a terminal window open, but it does not actually allow any input entry. 
+
+The issue is currently tracked [#5079](https://github.com/microsoft/vscode-cpptools/issues/5079). 
+
+The work around is to have VS Code launch the terminal once. You can do this by adding and running this tasks in your `tasks.json`:
+
+    {
+      "label": "Open Terminal",
+      "type": "shell",
+      "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo hello\"\nend tell'",
+      "problemMatcher": []
+    }
+    
+You can run this specific task using Command + Shift + p. Type Tasks and look for Tasks: Run Tasks then select Open Terminal.
+
+Once you allow this permission, then the external console should appear when you debug.
+
 ## Next steps
 
 - Explore the [VS Code User Guide](/docs/editor/codebasics.md).
