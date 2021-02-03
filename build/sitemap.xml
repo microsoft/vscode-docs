@@ -1120,6 +1120,11 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/learn/educators/notebooks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/learn/educators/webinars</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
