@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 4
 Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB

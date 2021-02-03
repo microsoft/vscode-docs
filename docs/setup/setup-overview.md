@@ -21,6 +21,7 @@ Follow the platform-specific guides below:
 * [macOS](/docs/setup/mac.md)
 * [Linux](/docs/setup/linux.md)
 * [Windows](/docs/setup/windows.md)
+* [Raspberry Pi](/docs/setup/raspberry-pi-os.md)
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
 

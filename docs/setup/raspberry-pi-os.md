@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: setup
 TOCTitle: Raspberry Pi OS
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
@@ -9,9 +9,13 @@ MetaDescription: Get Visual Studio Code up and running on Raspberry Pi OS.
 ---
 # Visual Studio Code on Raspberry Pi OS
 
+You can run Visual Studio Code on [Raspberry Pi](https://www.raspberrypi.org) devices.
+
+[![Raspberry Pi Logo](images/raspberry-pi-os/RPi-Logo-Landscape-SCREEN.png)](https://www.raspberrypi.org)
+
 ## Installation
 
-Visual Studio Code is officially distributed via the Raspberry Pi OS apt repository.
+Visual Studio Code is officially distributed via the [Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems) apt repository.
 
 You can install it by running:
 
