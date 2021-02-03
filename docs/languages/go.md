@@ -57,7 +57,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 You can also navigate back and forth between a Go file and its test implementation using the **Go: Toggle Test File** command.
 
-## Build, Test, and Diagnose
+## Build, test, and diagnose
 
 The Go language server (`gopls`) detects build and vet errors found on the workspace. The errors and warnings from running any/all of the above will be shown red/green squiggly lines in the editor. These diagnostics also show up in the **Problems** panel  (**View** > **Problems**).
 
