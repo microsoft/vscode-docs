@@ -16,7 +16,7 @@ MetaDescription: Jupyter Notebooks in Visual Studio Code
 
 Below are several real life examples of how Jupyter Notebooks can be used in classrooms.
 
-### Storytelling
+## Storytelling
 
 Notebooks can be useful for explaining large topics, piece by piece, with rich imagery and videos embedded.
 
@@ -30,19 +30,19 @@ This instructor is explaining how time complexities work broken down with tables
 
 It's also a great way to see and compare the exact runtimes of code blocks, which can be very helpful for learning data structures and algorithm fundamentals.
 
-### Interactive output
+## Interactive output
 
 Jupyter Notebooks can also have rich interactive outputs. The instructor below is creating a Notebook for a lecture about the [maximum flow problem](https://en.wikipedia.org/wiki/Maximum_flow_problem) and utilizing the [pyviz library](https://pyvis.readthedocs.io/en/latest/tutorial.html#getting-started) to make an interactive network graph to visualize the problem description. They are also utilizing the built-in [LaTeX](https://www.latex-project.org/) support to show mathematical symbols for the problem constraints.
 
 ![Lecture notes for maximum flow problem](images/notebooks/notebook_interactive_output.gif)
 
-### Rich Assignments
+## Rich assignments
 
 They are also a great format for handing out assignments. Here an instructor created an assignment to teach Binary Search Trees that includes a mix of students needing to implement code and write long form written responses to theoretical questions.
 
 ![Binary Search Tree assignment in Notebook format](images/notebooks/notebook_assignment.gif)
 
-## Getting Started
+## Getting started
 
 You will need to have Python 3 installed on your machine along with the Microsoft [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed from the VS Code Marketplace. You can review the [introductory Python tutorial](/docs/python/python-tutorial.md) for help with setup.
 
@@ -50,6 +50,6 @@ In addition, you need to install the [Jupyter Notebooks extension](https://marke
 
 ![Jupyter extension in VS Code Marketplace](images/notebooks/jupyter_market_place.png)
 
-Once you have Python and the extensions installed, you will need to activate the Python environment by using the command **Python: Select Interpreter** from the Command Palette (`kb(workbench.actions.showCommands`).
+Once you have Python and the extensions installed, you will need to activate the Python environment by using the command **Python: Select Interpreter** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 For full instructions on how to use Jupyter Notebooks, follow the [step by step Jupyter Notebook guide](/docs/python/jupyter-support.md).
