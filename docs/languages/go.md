@@ -4,27 +4,26 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 12/11/2020
+DateApproved: 2/2/2021
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go in Visual Studio Code
 
-Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging and many more that will help you in [Go](https://golang.org/) development.
+Using the Go extension for Visual Studio Code, you get features like IntelliSense, code navigation, symbol search, testing, debugging, and many more that will help you in [Go](https://golang.org/) development.
 
-![go extension banner](images/go/go-extension.png)
+![Go extension banner](images/go/go-extension.png)
 
 You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=golang.go).
 
-Watch ["Getting
-started with VS Code Go"](https://youtu.be/1MXIGYrMk80) for an explanation of how to build your first Go
-application using VS Code Go.
+Watch ["Getting started with VS Code Go"](https://youtu.be/1MXIGYrMk80) for an explanation of how to build your first Go application using VS Code Go.
 
-This article provides only a subset of features the Go extension provides. See the extension's  [documentation](https://github.com/golang/vscode-go/blob/master/docs/features.md) for the full, up-to-date list of supported features.
+This article describes only a subset of the features the Go extension provides. See the extension's [documentation](https://github.com/golang/vscode-go/blob/master/docs/features.md) for the full, up-to-date list of supported features.
+
 ## IntelliSense
 
 ![IntelliSense](images/go/completion-signature-help.gif)
 
-IntelliSense features are provided by the Go language server,[`gopls`](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/blob/master/docs/settings.md#settings-for-gopls).
+IntelliSense features are provided by the Go language server, [gopls](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/blob/master/docs/settings.md#settings-for-gopls).
 
 ### Auto completions
 
@@ -46,15 +45,15 @@ When you open the `(` while calling a function, a pop-up provides signature help
 
 Code navigation features are available in the context menu in the editor.
 
-- **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
-- **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
-- **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
-- **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
+* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
+* **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
+* **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
+* **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-- Go to Symbol in File - `kb(workbench.action.gotoSymbol)`
-- Go to Symbol in Workspace - `kb(workbench.action.showAllSymbols)`
+* Go to Symbol in File - `kb(workbench.action.gotoSymbol)`
+* Go to Symbol in Workspace - `kb(workbench.action.showAllSymbols)`
 
 You can also navigate back and forth between a Go file and its test implementation using the **Go: Toggle Test File** command.
 
@@ -64,16 +63,17 @@ The Go language server (`gopls`) detects build and vet errors found on the works
 
 You can add additional lint checks using the `go.lintOnSave` setting and configuring your choice of linting tool (`staticcheck`, `golangci-lint`, or `revive`) using the `go.listTool` setting.
 
-You can configure the extension to run tests and compute test coverage using
-- `go.testOnSave`
-- `go.coverOnSave`
-- `go.testFlags`
+You can configure the extension to run tests and compute test coverage using:
+
+* `go.testOnSave`
+* `go.coverOnSave`
+* `go.testFlags`
 
 ## Formatting
 
 You can format your Go file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
 
-By default, formatting is run when you save your Go file. You can disable this behavior by setting `editor.formatOnSave` to `false` for the [Go] language. You can change this using your json setting files
+By default, formatting is run when you save your Go file. You can disable this behavior by setting `editor.formatOnSave` to `false` for the `[go]` language identifier. You can change this using your JSON setting files.
 
 ```json
 "[go]": {
@@ -81,7 +81,7 @@ By default, formatting is run when you save your Go file. You can disable this b
 }
 ```
 
-When you have multiple formatters activated for go files, you can select the Go extension as the default formatter.
+When you have multiple formatters activated for Go files, you can select the Go extension as the default formatter.
 
 ```json
 "[go]": {
@@ -99,11 +99,11 @@ Formatting is provided by `gopls`. If you want `gofumpt`-style formatting, you c
 
 ## Test
 
-There are many test-related commands that you can explore by typing "Go: test" in the **Command Palette**.
+There are many test-related commands that you can explore by typing **Go: test** in the **Command Palette**.
 
 ![Test Commands](images/go/testcommands.png)
 
-The first three above can be used to generate test skeletons for the functions in the current package, file or at cursor using `gotests`. The last few can be used to run tests in the current package, file or at cursor using `go test`. There is also a command for getting test coverage.
+The first three above can be used to generate test skeletons for the functions in the current package, file, or at the cursor using `gotests`. The last few can be used to run tests in the current package, file, or at the cursor using `go test`. There is also a command for getting test coverage.
 
 ## Import packages
 
@@ -121,9 +121,9 @@ The Go extension lets you debug Go code as well. You will need to install the [D
 
 This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://github.com/golang/vscode-go/blob/master/README.md).
 
-To stay up-to-date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/golang/vscode-go/blob/master/CHANGELOG.md).
+To stay up to date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/golang/vscode-go/blob/master/CHANGELOG.md).
 
-If you have any issues or feature requests, feel free to log them in the Go extension [repo](https://github.com/golang/vscode-go/issues).
+If you have any issues or feature requests, feel free to log them in the Go extension [vscode-go repo](https://github.com/golang/vscode-go/issues).
 
 If you'd like to learn more about VS Code, try these topics:
 
