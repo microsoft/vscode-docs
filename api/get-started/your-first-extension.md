@@ -47,9 +47,9 @@ You should see the `Hello World from HelloWorld!` notification showing up. Succe
 
 Let's make a change to the message:
 
-- Change the message from `Hello World from HelloWorld!` to `Hello VS Code` in `extension.ts`
-- Run **Developer: Reload Window** in the new window
-- Run the command **Hello World** again
+1. Change the message from "Hello World from HelloWorld!" to "Hello VS Code" in `extension.ts`.
+1. Run **Developer: Reload Window** in the new window.
+1. Run the command **Hello World** again.
 
 You should see the updated message showing up.
 
@@ -57,10 +57,10 @@ You should see the updated message showing up.
   <source src="/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
 </video>
 
-Here are some ideas for you to try:
+Here are some ideas for things for you to try:
 
 - Give the **Hello World** command a new name in the Command Palette.
-- [Contribute](/api/references/contribution-points) another command that displays current time in an information message. Contribution points are static declarations you make in the package.json Extension Manifest to extend VS Code, such as adding commands, menus, or keybindings to your extension.
+- [Contribute](/api/references/contribution-points) another command that displays current time in an information message. Contribution points are static declarations you make in the `package.json` Extension Manifest to extend VS Code, such as adding commands, menus, or keybindings to your extension.
 - Replace the `vscode.window.showInformationMessage` with another [VS Code API](/api/references/vscode-api) call to show a warning message.
 
 ## Debugging the extension
