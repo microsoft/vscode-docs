@@ -316,11 +316,18 @@ A powerful VS Code debugging feature is the ability to set conditions based on e
 - **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
 - **Hit count**: The 'hit count' controls how many times a breakpoint needs to be hit before it will 'break' execution. Whether a 'hit count' is respected and the exact syntax of the expression vary among debugger extensions.
 
-You can add a condition and/or hit count when creating the breakpoint (with the **Add Conditional Breakpoint** action) or when modifying an existing one (with the **Edit Breakpoint** action). In both cases, an inline text box with a drop-down menu opens where you can enter expressions:
+You can add a condition and/or hit count when creating a source breakpoint (with the **Add Conditional Breakpoint** action) or when modifying an existing one (with the **Edit Condition** action). In both cases, an inline text box with a drop-down menu opens where you can enter expressions:
 
 ![HitCount](images/debugging/hitCount.gif)
 
-If a debugger does not support conditional breakpoints, the **Add Conditional Breakpoint** action will be missing.
+Condition and hit count editing support is also supported for **function** and **exception** breakpoints. 
+You can initiate condition editing from the context menu, or the new inline **Edit Condition** action.
+
+An example of condition editing in the **BREAKPOINTS** view:
+![condition editing in breakpoint view](images/debugging/breakpoints.gif)
+
+If a debugger does not support conditional breakpoints, the **Add Conditional Breakpoint** and **Edit Condition** actions will be missing.
+
 
 ### Inline breakpoints
 
