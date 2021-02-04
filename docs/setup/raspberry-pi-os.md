@@ -29,6 +29,7 @@ sudo apt install code # or code-insiders
 Your Raspberry Pi should handle updating VS Code in the same way as other packages on the system:
 
 ```bash
+sudo apt update
 sudo apt upgrade code # or code-insiders
 ```
 
