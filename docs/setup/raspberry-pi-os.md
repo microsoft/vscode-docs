@@ -24,11 +24,15 @@ sudo apt update
 sudo apt install code # or code-insiders
 ```
 
->**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the terminal you can type 'code .' to open VS Code on that folder. You will need to restart your terminal after the installation for the change to the `%PATH%` environmental variable to take effect.
-
 ## Updates
 
-VS Code ships monthly and you can see when a new release is available by checking the [release notes](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
+Your Raspberry Pi should handle updating VS Code in the same way as other packages on the system:
+
+```bash
+sudo apt upgrade code # or code-insiders
+```
+
+You can always check when a new release is available in our [Updates](/updates) page. 
 
 ## Next steps
 
