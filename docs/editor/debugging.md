@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 12/11/2020
+DateApproved: 2/4/2020
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -320,7 +320,7 @@ You can add a condition and/or hit count when creating a source breakpoint (with
 
 ![HitCount](images/debugging/hitCount.gif)
 
-Condition and hit count editing support is also supported for **function** and **exception** breakpoints. 
+Condition and hit count editing support is also supported for **function** and **exception** breakpoints.
 You can initiate condition editing from the context menu, or the new inline **Edit Condition** action.
 
 An example of condition editing in the **BREAKPOINTS** view:

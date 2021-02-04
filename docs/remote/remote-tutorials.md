@@ -5,7 +5,7 @@ TOCTitle: Tutorials
 PageTitle: Remote Development with Visual Studio Code Tutorials
 ContentId: 45d57c4d-a66f-4b58-88b2-dd2a6fd31b5a
 MetaDescription: Remote Development with Visual Studio Code Tutorials
-DateApproved: 12/11/2020
+DateApproved: 2/4/2020
 ---
 # Remote Development tutorials
 

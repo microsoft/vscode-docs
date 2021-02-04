@@ -4,7 +4,7 @@ Area: tutorials
 TOCTitle: Java
 ContentId: a6abaeae-afb2-4d58-851f-3ca64f6a041f
 PageTitle: Get Started Tutorial for Java in Visual Studio Code
-DateApproved: 12/11/2020
+DateApproved: 2/4/2020
 MetaDescription: A Java hello world tutorial using the Java extensions in Visual Studio Code
 ---
 # Getting Started with Java in VS Code
