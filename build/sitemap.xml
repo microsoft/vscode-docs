@@ -130,11 +130,11 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <url>
+    <!-- <url>
         <loc>https://code.visualstudio.com/docs/setup/raspberry-pi-os</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>
+    </url> -->
     <url>
         <loc>https://code.visualstudio.com/docs/setup/network</loc>
         <changefreq>weekly</changefreq>
