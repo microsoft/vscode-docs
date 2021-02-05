@@ -1011,3 +1011,39 @@ Alternatively, you can override a task's shell with the `options.shell` property
     },
     ...
 ```
+
+### Can a background task be used as a `prelaunchTask` in launch.json?
+
+Yes. Since a background task will run until killed, a background task on its own has no signal that it has "completed". To use a background task as a `prelaunchTask` you must add an appropriate background `problemMatcher` to the background task so that there is a way for the task system and debug system to know that the task "finished".
+
+Your task could be:
+```json
+{
+    "type": "npm",
+    "script": "watch",
+    "problemMatcher": "$tsc-watch",
+    "isBackground": true,
+}
+```
+**Note:** the `$tsc-watch` is a _background_ problem matcher, as is required for a background task.
+
+Then, you could use it as a `prelaunchTask` in your `launch.json` file:
+```json
+{
+    "name": "Launch Extension",
+    "type": "extensionHost",
+    "request": "launch",
+    "runtimeExecutable": "${execPath}",
+    "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}"
+    ],
+    "stopOnEntry": false,
+    "sourceMaps": true,
+    "outFiles": [
+        "${workspaceRoot}/out/src/**/*.js"
+    ],
+    "preLaunchTask": "npm: watch"
+}
+```
+
+For more on background tasks see [Background / watching tasks](/docs/editor/tasks.md#background-watching-tasks)
