@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Getting started
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 PageTitle:  Getting started with Visual Studio Code
-DateApproved: 7/30/2018
+DateApproved: 8/24/2020
 MetaDescription: Download and learn the basics of Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
