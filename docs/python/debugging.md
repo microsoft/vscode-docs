@@ -468,14 +468,13 @@ To debug an app that requires administrator privileges, use `"console": "externa
     },
     "args": [
         "run",
-        "--no-debugger",
-        "--no-reload"
+        "--no-debugger"
     ],
     "jinja": true
 },
 ```
 
-As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise you may see "Cannot import module C" errors where C is a drive letter.)
+As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise you may see "Cannot import module C" errors where C is a drive letter.)
 
 The `"jinja": true` setting also enables debugging for Flask's default Jinja templating engine.
 
