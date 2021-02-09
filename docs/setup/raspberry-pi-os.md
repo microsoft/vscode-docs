@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order:
 Area: setup
 TOCTitle: Raspberry Pi
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
@@ -33,7 +33,7 @@ sudo apt update
 sudo apt upgrade code # or code-insiders
 ```
 
-You can always check when a new release is available in our [Updates](/updates) page. 
+You can always check when a new release is available in our [Updates](/updates) page.
 
 ## Next steps
 
