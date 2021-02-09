@@ -62,13 +62,15 @@ We will install Mingw-w64 via the SourceForge website. You can use this [Mingw-w
 1. Run the installer, which should be named `mingw-w64-install.exe` in your Download folder.
 
    ![MinGW installation dialog welcome page](images/cpp/welcome-mingw-w64.png)
-
-2. For **Architecture** select **x86_64** and then select **Next**.
+   
+2. For **Architecture** select **x86_64**.
 
    ![Choose x86_64 on the MinGW settings page](images/cpp/choose-x86-64.png)
+   
+3. For **Threads** select **win_32** and then click on **next**. 
 
-3. On the **Installation Folder** page, use the default location for the **Destination folder**. Copy the location as you will need it later.
-4. Select **Next** to start the installation.
+4. On the **Installation Folder** page, use the default location for the **Destination folder**. Copy the location as you will need it later.
+5. Select **Next** to start the installation.
 
 ### Add the MinGW compiler to your path
 
