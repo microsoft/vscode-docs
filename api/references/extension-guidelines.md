@@ -276,7 +276,6 @@ If you need to show an item that is highly visible for error purposes, you can u
 * Show only when contextually appropriate
 * Use icons from the icon library
 * Use the overflow menu for secondary actions
-* Allow users to hide via settings
 
 ❌ Don't
 
