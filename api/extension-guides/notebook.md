@@ -243,7 +243,7 @@ To render an alternative mimetype, a `NotebookOutputRenderer` must be registered
 
 ## Output Renderer
 
-An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
+An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. All the output cells share the same output renderer allowing for global state across cell outputs. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
 
 ### A Simple, Non-Interactive Renderer
 
