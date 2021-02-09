@@ -35,11 +35,6 @@ To enable your services to run in Bridge to Kubernetes without elevated privileg
     var port = Environment.GetEnvironmentVariable("WEBAPI_SERVICE_PORT");
     var request = new HttpRequestMessage();
     request.RequestUri = new Uri($"http://{host}:{port}/api/data");
-    if (this.Request.Headers.ContainsKey("kubernetes-route-as"))
-    {
-        // Propagate the dev space routing header
-        request.Headers.Add("kubernetes-route-as", this.Request.Headers["kubernetes-route-as"] as IEnumerable<string>);
-    }
     var response = await client.SendAsync(request);
 ```
 
@@ -53,13 +48,6 @@ An example in Node.js looks like this:
             path: '/api/data',
             method: 'GET'
         };
-        const val = req.get('kubernetes-route-as');
-        if (val) {
-            console.log('Forwarding kubernetes-route-as header value - %s', val);
-            options.headers = {
-                'kubernetes-route-as': val
-            }
-        }
         var req = http.request(options, function(response) {
             res.setHeader('Content-Type', 'application/json');
             var responseString = '';
@@ -105,4 +93,4 @@ The setting is only needed if you are running VS Code as a normal user, or if yo
 
 ## Next steps
 
-Read more about Bridge to Kubernetes configuration at [How to configure Bridge to Kubernetes]().
+Read more about Bridge to Kubernetes configuration at [How to configure Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/containers/configure-bridge-to-kubernetes.md).
