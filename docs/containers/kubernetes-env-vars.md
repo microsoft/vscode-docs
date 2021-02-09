@@ -27,12 +27,12 @@ So if the service is named webapp-2, the variables are WEBAPP_2_SERVICE_HOST and
 
 ## Using the environment variables in code
 
-To enable your services to run in Bridge to Kubernetes without elevated privileges, replace any hardcoded references to the hostname with the environment variable. The following example shows this in a .NET service written in C#:
+To enable your services to run in Bridge to Kubernetes without elevated privileges, replace any hardcoded references to the hostname with the environment variable. The following example shows this in a .NET service named mywebapi written in C#:
 
 ```csharp
     using var client = new HttpClient();
-    var host = Environment.GetEnvironmentVariable("WEBAPI_SERVICE_HOST");
-    var port = Environment.GetEnvironmentVariable("WEBAPI_SERVICE_PORT");
+    var host = Environment.GetEnvironmentVariable("MYWEBAPI_SERVICE_HOST");
+    var port = Environment.GetEnvironmentVariable("MYWEBAPI_SERVICE_PORT");
     var request = new HttpRequestMessage();
     request.RequestUri = new Uri($"http://{host}:{port}/api/data");
     var response = await client.SendAsync(request);
@@ -43,8 +43,8 @@ An example in Node.js looks like this:
 ```js
     server.get("/api/data", function (req, res) {
         var options = {
-            host: process.env.WEBAPI_SERVICE_HOST,
-            port: process.env.WEBAPI_SERVICE_PORT,
+            host: process.env.MYWEBAPI_SERVICE_HOST,
+            port: process.env.MYWEBAPI_SERVICE_PORT,
             path: '/api/data',
             method: 'GET'
         };
