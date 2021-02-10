@@ -24,11 +24,11 @@ You may see the terms "folder" and "workspace" used interchangeably in VS Code d
 
 ## How do I open a VS Code "workspace"?
 
-The easiest way to open a workspace is using the **File** menu and selecting one of the available entries for opening. Alternatively you might also operate VS Code from a terminal and are able to just pass the path to a workspace to the `code` command for opening.
+The easiest way to open a workspace is using the **File** menu and selecting one of the available folder entries for opening. Alternatively if you launch VS Code from a terminal and you can pass the path to a folder as the first argument to the `code` command for opening.
 
 ## Single-folder workspaces
 
-You don't have to do anything for a folder to become a VS Code workspace other than open the folder with VS Code. Once a folder has been opened, VS Code will automatically keep track of things such as your open files and editor layout so the editor will be as you left it when you reopen that folder. You can also add other folder-specific configurations such as workspace-specific [settings](/docs/getstarted/settings.md) (versus global user settings) and [task definition](/docs/editor/tasks.md) and [debugging launch](/docs/editor/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
+You don't have to do anything for a folder to become a VS Code workspace other than open the folder with VS Code. Once a folder has been opened, VS Code will automatically keep track of things such as your open files and editor layout so the editor will be as you left it when you reopen that folder. You can also add other folder-specific configurations such as workspace-specific [settings](/docs/getstarted/settings.md) (versus global user settings), [task definitions](/docs/editor/tasks.md), and [debugging launch](/docs/editor/debugging.md) files (see below in the [workspace settings](#workspace-settings) section).
 
 ![Single-folder workspace](images/workspaces/single-folder-workspace.png)
 
@@ -36,7 +36,7 @@ You don't have to do anything for a folder to become a VS Code workspace other t
 
 ## Multi-root workspaces
 
-[Multi-root workspaces](/docs/editor/multi-root-workspaces.md) are an advanced capability of VS Code that allow you to configure multiple distinct folders to be part of the workspace. Instead of opening a folder as workspace, you will open a `<name>.code-workspace` JSON file that lists the folders of the workspace. For example:
+[Multi-root workspaces](/docs/editor/multi-root-workspaces.md) are an advanced capability of VS Code that allows you to configure multiple distinct folders to be part of the workspace. Instead of opening a folder as workspace, you will open a `<name>.code-workspace` JSON file that lists the folders of the workspace. For example:
 
 ```json
 {
@@ -65,11 +65,11 @@ It is easy to add or remove folders in your workspace. You can start off by open
 
 *An untitled multi-root workspace opened in VS Code*
 
-> **Note:** There is really no difference between an untitled workspace and a saved workspace other than the fact that an untitled workspace is automatically created for you for your convenience and will always restore until you save it. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window where the untitled workspace is opened in.
+> **Note:** There is really no difference between an untitled workspace and a saved workspace other than the fact that an untitled workspace is automatically created for you for your convenience and will always restore until you save it. We automatically delete untitled workspaces (after asking you for confirmation) when you close a window in which an untitled workspace is opened.
 
 ## Workspace settings
 
-Workspace settings enable you to configure settings in the context of the workspace you have opened and always override global user settings. They are physically stored in JSON file and their location depends on whether you opened a folder as a workspace or you opened a `.code-workspace` file.
+Workspace settings enable you to configure settings in the context of the workspace you have opened and always override global user settings. They are physically stored in a JSON file and their location depends on whether you opened a folder as a workspace or you opened a `.code-workspace` file.
 
 Refer to the [settings](/docs/getstarted/settings.md) documentation for a comprehensive explanation of setting scopes and their file locations.
 
@@ -120,3 +120,7 @@ You can delete an untitled workspace by closing its window and dismissing the pr
 ### Can I use a multi-root workspace without folders
 
 It is possible to leave the `folders` section of a `.code-workspace` file empty so that you end up with an instance of VS Code that does not show any root folders. You can still store workspace settings and even tasks or launch configurations in this case.
+
+### Does VS Code support projects or solutions?
+
+VS Code doesn't have the concept of a "project" or "solution" as they are sometimes defined in other development tools, for example Visual Studio IDE. You may see the term "project" used in VS Code documentation but it usually means "the thing you're working on". Depending on your programming language or framework, the toolset itself may support something called a "project" to help define build configurations or enumerate included files.
