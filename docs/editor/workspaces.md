@@ -24,7 +24,7 @@ You may see the terms "folder" and "workspace" used interchangeably in VS Code d
 
 ## How do I open a VS Code "workspace"?
 
-The easiest way to open a workspace is using the **File** menu and selecting one of the available folder entries for opening. Alternatively if you launch VS Code from a terminal and you can pass the path to a folder as the first argument to the `code` command for opening.
+The easiest way to open a workspace is using the **File** menu and selecting one of the available folder entries for opening. Alternatively if you launch VS Code from a terminal, you can pass the path to a folder as the first argument to the `code` command for opening.
 
 ## Single-folder workspaces
 
