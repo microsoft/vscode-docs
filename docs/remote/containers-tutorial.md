@@ -146,14 +146,14 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 
 The above example is taken from the `vscode-remote-try-node` repo we used in the tutorial.
 
-| Option              | Description                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `dockerfile`        | Relative path to a `Dockerfile` that you wish to use as your image.                                                     |
-| `settings`          | Adds default `settings.json` values into a container/machine specific settings file.                                    |
-| `extensions`        | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
-| `forwardPorts`      | Make a list of ports inside the container available locally.                                                            |
-| `postCreateCommand` | A command string or list of command arguments to run after the container is created.                                    |
-| `remoteUser`        | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.   |
+| Option | Description |
+|---|---|
+| `dockerfile` | Relative path to a `Dockerfile` that you wish to use as your image. |
+| `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
+| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
+| `forwardPorts`  | Make a list of ports inside the container available locally. |
+| `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
+| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
 
 [Full list](/docs/remote/devcontainerjson-reference.md) of `devcontainer.json` options.
 
