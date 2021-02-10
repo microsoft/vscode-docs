@@ -60,18 +60,6 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 ![Remote - Containers commands](images/containers-tutorial/remote-containers-commands.png)
 
-### Verify Context
-
-If you are not using a fresh docker install, you will want to switch your docker context to insure that the **Remote-Containers: Try a Sample...** sample you select does not encounter issues with the current context. Fresh installs will have a 'default' context and have it set as the current context.
-
-```bash
-# Displays the list of contexts an '*' denotes the current context
-docker context list
-
-# Switches the list to the 'default' context
-docker context use default
-```
-
 ## Get the sample
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
@@ -158,14 +146,14 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 
 The above example is taken from the `vscode-remote-try-node` repo we used in the tutorial.
 
-| Option | Description |
-|---|---|
-| `dockerfile` | Relative path to a `Dockerfile` that you wish to use as your image. |
-| `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
-| `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
-| `forwardPorts`  | Make a list of ports inside the container available locally. |
-| `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
-| `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
+| Option              | Description                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `dockerfile`        | Relative path to a `Dockerfile` that you wish to use as your image.                                                     |
+| `settings`          | Adds default `settings.json` values into a container/machine specific settings file.                                    |
+| `extensions`        | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |
+| `forwardPorts`      | Make a list of ports inside the container available locally.                                                            |
+| `postCreateCommand` | A command string or list of command arguments to run after the container is created.                                    |
+| `remoteUser`        | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.   |
 
 [Full list](/docs/remote/devcontainerjson-reference.md) of `devcontainer.json` options.
 
@@ -182,3 +170,17 @@ Check out the other Remote Development extensions.
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.
+
+### Troubleshooting
+
+#### Verify Context
+
+If you are not using a fresh docker install, you will want to switch your docker context to insure that the **Remote-Containers: Try a Sample...** sample you select does not encounter issues with the current context. Fresh installs will have a 'default' context and have it set as the current context.
+
+```bash
+# Displays the list of contexts an '*' denotes the current context
+docker context list
+
+# Switches the list to the 'default' context
+docker context use default
+```
