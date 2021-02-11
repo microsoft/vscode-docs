@@ -170,3 +170,17 @@ Check out the other Remote Development extensions.
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.
+
+## Troubleshooting
+
+### Verify Docker context
+
+If you are not using a fresh Docker install and the **Remote-Containers: Try a Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
+
+```bash
+# Displays the list of contexts, '*' denotes the current context
+docker context list
+
+# Switches the list to the 'default' context
+docker context use default
+```

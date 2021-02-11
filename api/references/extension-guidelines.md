@@ -121,7 +121,7 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 ### View Containers
 
-[View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style. A View Container can display a badge count when needing to surface information to the user.
+[View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style.
 
 ![View Container](images/guidelines/view-container.png)
 
@@ -276,7 +276,6 @@ If you need to show an item that is highly visible for error purposes, you can u
 * Show only when contextually appropriate
 * Use icons from the icon library
 * Use the overflow menu for secondary actions
-* Allow users to hide via settings
 
 ❌ Don't
 

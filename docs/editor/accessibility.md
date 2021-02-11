@@ -41,7 +41,7 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
-For a quick navigation across the workbench we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
+For a quick navigation across the workbench, we recommend using **Focus Next Part** (`kb(workbench.action.focusNextPart)`) and **Focus Previous Part** (`kb(workbench.action.focusPreviousPart)`) commands.
 
 ### Anchor selection
 
@@ -80,7 +80,7 @@ The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.n
 
 When the suggestions pop up, they will get announced to screen readers. It is possible to navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)`, you can dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
-The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`), when in a diff editor pane, will bring up the Diff Review pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted or deleted lines. Pressing `kbstyle(Enter)` will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use `kbstyle(Escape)` or `kb(Shift+Escape)` to dismiss the Diff Review pane.
+The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`), when in a diff editor pane, will bring up the Diff Review pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted, or deleted lines. Pressing `kbstyle(Enter)` will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use `kbstyle(Escape)` or `kb(Shift+Escape)` to dismiss the Diff Review pane.
 
 ## Accessibility help
 
@@ -106,7 +106,7 @@ The setting `terminal.integrated.minimumContrastRatio` can be set to a number be
 
 ## Status Bar accessibility
 
-Once a focus is in the status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between status bar entries.
+Once a focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
 
 ## Debugger accessibility
 
@@ -132,7 +132,7 @@ Screen reader support for the editor is still work in progress because the acces
 Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
 
 * Make sure to use the latest version of Orca out of master. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
-* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19 we have encountered issues.
+* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19, we have encountered issues.
 * Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
 
