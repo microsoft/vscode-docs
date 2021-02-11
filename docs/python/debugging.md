@@ -444,7 +444,7 @@ The configuration drop-down provides a variety of different options for general 
 | Configuration | Description |
 | --- | --- |
 | Attach | See [Remote debugging](#remote-debugging) in the previous section. |
-| Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver", "--noreload"]`, and `"console": "integratedTerminal"`. Also adds `"django": true` to enable debugging of Django HTML templates. Note that automatic reloading of Django apps is not possible while debugging. |
+| Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
