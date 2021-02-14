@@ -78,12 +78,4 @@ Prefer to debug using a different browser? You can find extensions for [Edge](ht
 
 ![debugger for chrome image](images/extensions/chrome_debugger.png)
 
-### Document This
 
-Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
-
-Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joel%20Day%22&target=VSCode)
-
-This extension will automatically generate detailed JSDoc comments for your code.
-
-![document this](images/extensions/document_this.gif)
