@@ -47,16 +47,6 @@ To use this extension, first install it and then add the following configuration
 
 ![git project manager showcase](git_project_manager.gif)
 
-## Document This
-
-Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
-
-Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joel%20Day%22&target=VSCode)
-
-Joel Day has built an exceptionally useful extension for writing JavaScript and TypeScript docs. This extension will automatically generates detailed JSDoc comments for your code.
-
-![document this](document_this.gif)
-
 ## Beautify
 
 Marketplace - [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
