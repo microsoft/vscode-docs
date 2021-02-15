@@ -269,7 +269,7 @@ Below is an example that passes `"args"` to the program differently on Windows:
 
 Valid operating properties are `"windows"` for Windows, `"linux"` for Linux and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
-Please note that the `type` property can not be placed inside a platform-specific section, because `type` indirectly determines the platform in remote debugging scenarios, and that would result in a cyclic dependency.
+Please note that the `type` property cannot be placed inside a platform-specific section, because `type` indirectly determines the platform in remote debugging scenarios, and that would result in a cyclic dependency.
 
 In the example below debugging the program always **stops on entry** except on macOS:
 
