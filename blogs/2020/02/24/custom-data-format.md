@@ -88,7 +88,7 @@ getLanguageService({
 })
 ```
 
-Our built-in [HTML language server](https://github.com/microsoft/vscode/tree/master/extensions/html-language-features) utilizes this API to load a curated set of Custom Data that we have collected from various sources:
+Our built-in [HTML language server](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) utilizes this API to load a curated set of Custom Data that we have collected from various sources:
 
 - W3C specifications of HTML, CSS, and WAI-ARIA
 - Mozilla Developer Network
