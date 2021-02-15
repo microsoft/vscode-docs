@@ -17,7 +17,7 @@ VS Code includes a large set of [built-in commands](/api/references/commands) th
 
 ### Programmatically executing a command
 
-The [`vscode.commands.executeCommand`](/api/references/vscode-api#commands.executeCommand) API programmatically executes a command. This lets you leverage VS Code's built-in functionality, and build on extensions such as VS Code's built-in Git and Markdown extensions.
+The [`vscode.commands.executeCommand`](/api/references/vscode-api#commands.executeCommand) API programmatically executes a command. This lets you use VS Code's built-in functionality, and build on extensions such as VS Code's built-in Git and Markdown extensions.
 
 The `editor.action.addCommentLine` command, for example, comments the currently selected lines in the active text editor:
 
@@ -123,7 +123,7 @@ You can enable command URIs in [webviews](/api/extension-guides/webview) by sett
 
 ### Registering a command
 
-[`vscode.commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) binds a command id to a handler function in your extension:
+[`vscode.commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) binds a command ID to a handler function in your extension:
 
 ```ts
 import * as vscode from 'vscode';
@@ -143,7 +143,7 @@ The handler function will be invoked whenever the `myExtension.sayHello` command
 
 ### Creating a user facing command
 
-`vscode.commands.registerCommand` only binds a command id to a handler function. To expose this command in the Command Palette so it is discoverable by users, you also need a corresponding command `contribution` in your extension's `package.json`:
+`vscode.commands.registerCommand` only binds a command ID to a handler function. To expose this command in the Command Palette so it is discoverable by users, you also need a corresponding command `contribution` in your extension's `package.json`:
 
 ```json
 {
@@ -162,7 +162,7 @@ The `commands` contribution tells VS Code that your extension provides a given c
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
-We still need to call `registerCommand` to actually tie the command id to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activationEvent` for all user facing commands:
+We still need to call `registerCommand` to actually tie the command ID to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activationEvent` for all user facing commands:
 
 ```json
 {
@@ -183,7 +183,7 @@ You do not need an `onCommand` activation event for internal commands but you mu
 
 By default, all user facing commands contributed through the `commands` section of the `package.json` show up in the Command Palette. However, many commands are only relevant in certain circumstances, such as when there is an active text editor of a given language or when the user has a certain configuration option set.
 
-The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the Command Palette. It takes the id of the target command and a [when clause](/api/references/when-clause-contexts) that controls when the command is shown:
+The [`menus.commandPalette`](/api/references/contribution-points#contributes.menus) contribution point lets you restrict when a command should show in the Command Palette. It takes the ID of the target command and a [when clause](/api/references/when-clause-contexts) that controls when the command is shown:
 
 ```json
 {
@@ -214,7 +214,7 @@ Last, menus showing commands, like the Command Palette or context menus, impleme
 
 If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views by using a `when` clause context and none of the existing keys suit your needs, then you can add your own context.
 
-The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value which you could use with a `when` clause to check if the number of cool open things is greater than 2.
+The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
 vscode.commands.executeCommand('setContext', 'myExtension:showMyCommand', true);
