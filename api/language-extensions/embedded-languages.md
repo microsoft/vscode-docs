@@ -44,8 +44,8 @@ A **language service** is a library that implements [programmatic language featu
 
 Here's an outline of VS Code's HTML support:
 
-- The built-in [html extension](https://github.com/microsoft/vscode/tree/master/extensions/html) only provides syntax highlighting and language configuration for HTML.
-- The built-in [html-language-features extension](https://github.com/microsoft/vscode/tree/master/extensions/html-language-features) includes an HTML Language Server to offer programmatic language features for HTML.
+- The built-in [html extension](https://github.com/microsoft/vscode/tree/main/extensions/html) only provides syntax highlighting and language configuration for HTML.
+- The built-in [html-language-features extension](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) includes an HTML Language Server to offer programmatic language features for HTML.
 - The HTML Language Server uses [vscode-html-languageservice](https://github.com/microsoft/vscode-html-languageservice) to support HTML.
 - The CSS Language Server uses [vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice) to support CSS in HTML.
 
