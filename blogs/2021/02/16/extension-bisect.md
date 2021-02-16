@@ -17,7 +17,7 @@ The true power of Visual Studio Code is its extensions: theme extensions add col
 
 ## "Bad" extensions
 
-We love extensions and don't really think there are any "bad" extensions. However, like all software, extensions have bugs and feature gaps. So, for reading ease and artificial drama, let's use the term "bad extensions", which is an extension that might crash or simply show unwanted behavior. Fortunately, we designed VS Code with "bad" extensions in mind and therefore run them in a separate [process](https://code.visualstudio.com/api/advanced-topics/extension-host). This isolation guarantees that the cursor always blinks and that you can always save your work.
+We love extensions and don't really think there are any "bad" extensions. However, like all software, extensions have bugs and feature gaps. So, for reading ease and artificial drama, let's use the term "bad extensions", which is an extension that might crash or simply show unwanted behavior. Fortunately, we designed VS Code with "bad" extensions in mind and therefore run them in a separate [process](https://code.visualstudio.com/api/advanced-topics/extension-host). This isolation guarantees that VS Code keeps running, the cursor always blinks, and that you can always save your work.
 
 For fun, and to make it easier to demonstrate extension bisect, we have created and published the [Extension Bisect Demo](https://marketplace.visualstudio.com/items?itemName=jrieken.bisectdemo) extension. When installed, it will annoyingly reset your cursor whenever you reach the word "bisect". You can use this extension to follow along in this blog post.
 
@@ -27,7 +27,7 @@ Today, finding a "bad" extension can be easy or hard.  Open the Extensions view 
 
 ![Disabling an extension step by step](./disable_manually.png)
 
-If you are lucky the first extension is the "bad" one; if you are unlucky, it's the last extension. Using computer science language, this means with `N` extensions, you have a worst-case of repeating the process `O(N)` (order N), and an average-case of `O(N/2)`. Because this algorithm is operated by a human (you), even small values of `N` are laborious. This is where the **extension bisect** utility comes in handy. It is much better in the worst and average cases because it disables extensions by halves.
+If you are lucky, the first extension is the "bad" one; if you are unlucky, it's the last extension. Using computer science language, this means with `N` extensions, you have a worst-case of repeating the process `O(N)` (order N), and an average-case of `O(N/2)`. Because this algorithm is operated by a human (you), even small values of `N` are laborious. This is where the **extension bisect** utility comes in handy. It is much better in the worst and average cases because it disables extensions by halves.
 
 ## Welcome extension bisect
 
@@ -50,7 +50,7 @@ Here's step by step how the "bad" extension was found:
 
 ## Troubleshoot faster
 
-We see that in each step bisect reduces the search space by half. That means it runs in logarithmic time, resulting in average  and worst case performance of `O(log N)`. That's pretty good because it scales well. With 24 extensions, you have 4 to 5 steps to find a "bad" extension, with 38 extensions, it only takes 1 more step. However, best-case is worse because with the iterative approach, you can get lucky and find the "bad" in the first round.
+We see that in each step, bisect reduces the search space by half. The steps now it runs in logarithmic time, resulting in average and worst case performance of `O(log N)`. That's pretty good because it scales well. With 24 extensions, you have 4 to 5 steps to find a "bad" extension, with 38 extensions, it only takes 1 more step. However, best-case is worse because with the iterative approach, you can get lucky and find the "bad" in the first round.
 
 Keep in mind that extension bisect relies on you giving correct feedback. You can easily fool it, and yourself, by always answering **Good now** (blames the last extension) or **This is bad** (won't find an extension).
 
