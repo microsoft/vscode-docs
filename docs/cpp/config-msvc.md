@@ -26,7 +26,7 @@ To successfully complete this tutorial, you must do the following:
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
 1. Install the Microsoft Visual C++ (MSVC) compiler toolset.
-   
+
    If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
 
    You can also install just the **C++ Build Tools**, without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio** under the **All downloads** section and select the download for **Build Tools for Visual Studio**.
@@ -36,7 +36,7 @@ To successfully complete this tutorial, you must do the following:
    This will launch the Visual Studio Installer, which will bring up a dialog showing the available Visual Studio Build Tools workloads. Check the **C++ build tools** workload and select **Install**.
 
    ![Cpp build tools workload](images/msvc/cpp-build-tools.png)
-   
+
 >**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
 ### Check your Microsoft Visual C++ installation
@@ -159,7 +159,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 
 The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler. This task tells the C++ compiler to take the active file (`${file}`), compile it, and create an executable file (`/Fe:` switch) in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`), resulting in `helloworld.exe` for our example.
 
->**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 

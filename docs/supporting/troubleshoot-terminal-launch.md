@@ -42,7 +42,7 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
    Most Integrated Terminal settings will need to be modified directly in your user `settings.json` JSON file. You can open `settings.json` via the **Edit in settings.json** link in the Settings editor or with the **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-   ![A user's setting.json file](images/troubleshoot-terminal-launch/settings-json-file.png)
+   ![A user's settings.json file](images/troubleshoot-terminal-launch/settings-json-file.png)
 
 2. Enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
 
