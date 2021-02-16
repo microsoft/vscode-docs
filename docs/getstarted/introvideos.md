@@ -38,8 +38,8 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Customize</h2>
-				<p class="description">Personalize VS Code to suit your needs through changing settings, themes, keybindings.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<p class="description">Personalize VS Code to make it yours with themes.</p>
+				<span class="duration"><span class="sr-only">Duration </span>2<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
