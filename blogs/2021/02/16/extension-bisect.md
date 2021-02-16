@@ -13,7 +13,7 @@ February 16, 2021 by Johannes Rieken, [@johannesrieken](https://twitter.com/joha
 
 > "Just like git-bisect, but for VS Code extensions."
 
-The true power of Visual Studio Code is its extensions: theme extensions add colors and icons, language extensions enable smart code completion (IntelliSense) and navigation, debugger extensions enable you to run your code and easily find bugs. There are extensions that play music, some that show stock tickers, and there are extensions that enable collaborative work across locations and time zones. The VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) hosts more than 28,000 extensions and it is not uncommon that users have 50 or more extensions installed. With so many extensions out there, bugs are inevitable. Instead of denial, we want to make trouble shooting easy.
+The true power of Visual Studio Code is its extensions: theme extensions add colors and icons, language extensions enable smart code completion (IntelliSense) and navigation, debugger extensions enable you to run your code and easily find bugs. There are extensions that play music, some that show stock tickers, and there are extensions that enable collaborative work across locations and time zones. The VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) hosts more than 28,000 extensions and it is not uncommon that users have 50 or more extensions installed. With so many extensions out there, bugs are inevitable. Instead of denial, we want to make troubleshooting easy.
 
 ## "Bad" extensions
 
@@ -29,9 +29,9 @@ Today, finding a "bad" extension can be easy or hard.  Open the Extensions view 
 
 If you are lucky the first extension is the "bad" one; if you are unlucky, it's the last extension. Using computer science language, this means with `N` extensions, you have a worst-case of repeating the process `O(N)` (order N), and an average-case of `O(N/2)`. Because this algorithm is operated by a human (you), even small values of `N` are laborious. This is where the **extension bisect** utility comes in handy. It is much better in the worst and average cases because it disables extensions by halves.
 
-## Extension bisect
+## Welcome extension bisect
 
-The Extension bisect utility in VS Code was inspired by the [`git bisect`](https://git-scm.com/docs/git-bisect) command. For those familiar with Git, this command is helpful for finding out which commit in the repository introduced an issue.
+The Extension bisect utility in VS Code was inspired by the [git bisect](https://git-scm.com/docs/git-bisect) command. For those familiar with Git, this command is helpful for finding out which commit in the repository introduced an issue.
 
 Let's use a sample: I have 24 extensions installed and the 8th extension is "bad". We know that the iterative approach requires 8 steps. What about bisect?
 
