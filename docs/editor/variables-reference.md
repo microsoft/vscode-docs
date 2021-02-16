@@ -110,7 +110,7 @@ Command variables are already powerful but they lack a mechanism to configure th
 
 This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
 
-The following example shows the overall structure of a `task.json` that makes use of input variables:
+The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
 ```json
 {
