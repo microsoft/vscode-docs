@@ -4,11 +4,11 @@ Area: containers
 TOCTitle: Develop with Kubernetes
 ContentId: 80bd336b-0d2d-4d63-a771-8b3ea22a64d3
 PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
-DateApproved: 07/22/2020
+DateApproved: 02/18/2021
 MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
 ---
 
-# Use Bridge to Kubernetes
+# How to use Bridge to Kubernetes
 
 Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
 
@@ -20,7 +20,7 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md).
+This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you're using Docker Desktop Kubernetes and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes](/docs/containers/quickstart-bridge-to-kubernetes.md). If you're using MiniKube, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md).
 
 ### Prerequisites
 
