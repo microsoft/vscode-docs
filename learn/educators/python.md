@@ -26,13 +26,13 @@ Professor Dodds has been recommending and using Visual Studio Code in his classe
 
 > "Visual Studio Code is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, Visual Studio Code works on every OS!"
 
-VS Code runs Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
+VS Code runs on Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
 
 ### Classroom settings
 
 Since Visual Studio Code is super customizable, Professor Dodds is able to tailor the editor for his students, preferring to hide [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), or suggestive code completions, so that students can learn from what they type and reinforce conceptual models being built.
 
-Here are the [settings](https://vscode-docs-master.azurewebsites.net/docs/getstarted/settings) his students use:
+Here are the [settings](/docs/getstarted/settings.md) his students use:
 
 ```json
 "editor.quickSuggestions": false,
