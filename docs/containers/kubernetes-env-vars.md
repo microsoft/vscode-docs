@@ -22,12 +22,12 @@ The following table shows the Kubernetes service environment variables that are 
 | *servicename*_SERVICE_HOST | 10.0.0.11 | The name of the service host |
 | *servicename*_SERVICE_PORT | 6379 | The port for the service |
 | *servicename*_PORT | tcp://10.0.0.11:6379 | The URL with protocol, IP address, and port. |
-| *servicename*\_PORT_*portnumber*_TCP | tcp://10.0.0.11:6379 | The TCP URL with IP address and port. |
-| *servicename*\_PORT_*portnumber*_TCP_PROTO| tcp | The protocol identifier. |
-| *servicename*\_PORT_*portnumber*_TCP_PORT | 6379 | The port number for TCP. |
-| *servicename*\_PORT_*portnumber*_TCP_ADDR | 10.0.0.11 | The IP address for TCP. |
+| *servicename*\_PORT_*portnumber*_*protocol* | tcp://10.0.0.11:6379 | The URL with protocol, IP address and port. |
+| *servicename*\_PORT_*portnumber*_*protocol*_PROTO| tcp | The protocol identifier. |
+| *servicename*\_PORT_*portnumber*_*protocol*_PORT | 6379 | The port number for TCP. |
+| *servicename*\_PORT_*portnumber*_*protocol*_ADDR | 10.0.0.11 | The IP address for TCP. |
 
-So if the service is named web-api, the variables are WEB_API_SERVICE_HOST and WEB_API_SERVICE_PORT, and so on. The default environment variables created by Kubernetes are described in the Kubernetes documentation [here](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables).
+So if the service is named web-api, the variables are WEB_API_SERVICE_HOST and WEB_API_SERVICE_PORT, and so on. The default environment variables created by Kubernetes are described in the Kubernetes documentation [here](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables). For information about the supported protocols, see [Supported protocols](https://kubernetes.io/docs/concepts/services-networking/service/#protocol-support).
 
 ## Environment variables in source code
 
