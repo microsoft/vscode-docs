@@ -12,25 +12,27 @@ MetaDescription: Python in Visual Studio Code
 
 Visual Studio Code is a free source code editor that fully supports Python and useful features such as real-time collaboration. It's highly customizable to support your classroom the way you like to teach.
 
-> "[Visual Studio Code] is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, [Visual Studio Code] works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
+> "Visual Studio Code is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, Visual Studio Code works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
 
 Read below for recommendations for extensions, settings, and links to free lessons that you can use in your classes.
 
 ## Intro to CS at Harvey Mudd College
 
-Professor [Zachary Dodds](https://www.hmc.edu/about-hmc/hmc-experts/dodds-zachary/) is a Computer Science professor at [Harvey Mudd College](https://www.hmc.edu/) who teaches several introductory classes both for students new to Computer Science and students from a non-Computer Science background. He co-created the popular introduction to Computer Science class [CS5](https://www.cs.hmc.edu/twiki/bin/view/CS5), which attracts students from all backgrounds to develop programming and problem-solving skills and to build "a coherent, intellectually compelling picture of Computer Science". The class is taught with Python and uses Visual Studio Code as the recommended editor.
+Professor [Zachary Dodds](https://www.hmc.edu/about-hmc/hmc-experts/dodds-zachary/) is a Computer Science professor at [Harvey Mudd College](https://www.hmc.edu/) who teaches several introductory classes both for students new to Computer Science and students from a non-Computer Science background. He co-created the popular introduction to Computer Science class [CS5](https://www.cs.hmc.edu/twiki/bin/view/CS5), which attracts students from all backgrounds to develop programming and problem-solving skills and to build "a coherent, intellectually compelling picture of Computer Science". The class is taught with Python and uses VS Code as the recommended editor.
 
 ### Why Visual Studio Code?
 
 Professor Dodds has been recommending and using Visual Studio Code in his classes since it debuted in 2015.
 
-> "[Visual Studio Code] is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, [Visual Studio Code] works on every OS!"
+> "Visual Studio Code is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, Visual Studio Code works on every OS!"
 
-Visual Studio Code runs Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
+VS Code runs Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
 
 ### Classroom settings
 
-Since Visual Studio Code is super customizable, Professor Dodds is able to tailor the editor for his students, preferring to hide [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), or suggestive code completions, so that students can learn from what they type and reinforce conceptual models being built.  Here are the settings his students use to achieve this but you can find the most up-to-date settings on his course website: [CS5 - Python Tips)](https://www.cs.hmc.edu/twiki/bin/view/CS5/PythonTips).
+Since Visual Studio Code is super customizable, Professor Dodds is able to tailor the editor for his students, preferring to hide [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), or suggestive code completions, so that students can learn from what they type and reinforce conceptual models being built.
+
+Here are the [settings](https://vscode-docs-master.azurewebsites.net/docs/getstarted/settings) his students use:
 
 ```json
 "editor.quickSuggestions": false,
