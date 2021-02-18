@@ -12,27 +12,25 @@ MetaDescription: Python in Visual Studio Code
 
 Visual Studio Code is a free source code editor that fully supports Python and useful features such as real-time collaboration. It's highly customizable to support your classroom the way you like to teach.
 
-> "Visual Studio Code is the best balance of authenticity and accessibility. Plus, Visual Studio Code works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
+> "[Visual Studio Code] is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, [Visual Studio Code] works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
 
 Read below for recommendations for extensions, settings, and links to free lessons that you can use in your classes.
 
-## Harvey Mudd College case study
+## Intro to CS at Harvey Mudd College
 
-Professor [Zachary Dodds](https://www.hmc.edu/about-hmc/hmc-experts/dodds-zachary/) is a Computer Science professor at [Harvey Mudd College](https://www.hmc.edu/) who teaches several introductory classes both for students new to Computer Science and students from a non-Computer Science background. He co-created the popular introduction to Computer Science class [CS5](https://www.cs.hmc.edu/twiki/bin/view/CS5), which attracts students from all backgrounds to develop programming and problem-solving skills useful in other engineering and mathematical disciplines and to build "a coherent, intellectually compelling picture of Computer Science". The class is taught with Python and uses VS Code as the recommended editor.
+Professor [Zachary Dodds](https://www.hmc.edu/about-hmc/hmc-experts/dodds-zachary/) is a Computer Science professor at [Harvey Mudd College](https://www.hmc.edu/) who teaches several introductory classes both for students new to Computer Science and students from a non-Computer Science background. He co-created the popular introduction to Computer Science class [CS5](https://www.cs.hmc.edu/twiki/bin/view/CS5), which attracts students from all backgrounds to develop programming and problem-solving skills and to build "a coherent, intellectually compelling picture of Computer Science". The class is taught with Python and uses Visual Studio Code as the recommended editor.
 
 ### Why Visual Studio Code?
 
 Professor Dodds has been recommending and using Visual Studio Code in his classes since it debuted in 2015.
 
-> "Visual Studio Code is the best balance of authenticity and accessibility; it is a free professional-grade editor used by professional software engineers and students alike. Plus, Visual Studio Code works on every OS."
+> "[Visual Studio Code] is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, [Visual Studio Code] works on every OS!"
 
-VS Code runs on Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
+Visual Studio Code runs Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
 
 ### Classroom settings
 
-Since VS Code is easy to customize, Professor Dodds has his students running a tailored experience that hides the default code completions (IntelliSense) so that they learn from what they type and reinforce the conceptual models being built.
-
-Here are the [settings](/docs/getstarted/settings.md) his students use:
+Since Visual Studio Code is super customizable, Professor Dodds is able to tailor the editor for his students, preferring to hide [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), or suggestive code completions, so that students can learn from what they type and reinforce conceptual models being built.  Here are the settings his students use to achieve this but you can find the most up-to-date settings on his course website: [CS5 - Python Tips)](https://www.cs.hmc.edu/twiki/bin/view/CS5/PythonTips).
 
 ```json
 "editor.quickSuggestions": false,
@@ -56,7 +54,7 @@ You can find the most up-to-date settings on his course website: [CS5 - Python T
 
 ### Integrated Terminal
 
-Professor Dodds also utilizes the built-in terminal heavily in his class as an introduction to running programs from the command line and navigating around their machine. He appreciates how "the built-in terminal panel does not try to automate too much (which, if it did, would deprive newcomers of the experience of the information-flow that's going on)."
+Professor Dodds also utilizes the built-in terminal heavily in his class as an introduction to running programs from the command line and navigating around their machine all within Visual Studio Code. He appreciates how "the built-in terminal panel does not try to automate too much (which, if it did, would deprive newcomers of the experience of the information-flow that's going on)."
 
 In the video below, the student does all of their command line and coding work in one place, such as installing Python libraries, while working on Lab 3 from the CS5 class:
 
@@ -76,6 +74,8 @@ The extension pack contains:
 * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to enable real-time collaboration and [Live Share Audio](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio) to enable audio calls as well.
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (for example, to access lab machines) through SSH with full VS Code functionality.
 * [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) for full LaTeX support in Markdown.
+* [Python Test Explorer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=LittleFoxTeam.vscode-python-test-adapter) to visualize and run Python tests in the side bar
+* [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) to run snippets (selected code) and single files of any code with a single click.
 
 ## Free Python and Data Science lessons
 
