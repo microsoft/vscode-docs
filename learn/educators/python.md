@@ -66,7 +66,6 @@ The pack contains:
 * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to enable real-time collaboration and [Live Share Audio](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio) to enable audio calls as well.
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (like ones that live on lab machines) through SSH with full Visual Studio Code functionality.
 * [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) for full Latex support in Markdown
-* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) to enhance Git capabilities on Visual Studio Code like inline Git blame.
 
 ## Free Python and Data Science lessons
 
