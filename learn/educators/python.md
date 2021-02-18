@@ -81,7 +81,7 @@ The extension pack contains:
 
 ### NASA-inspired lessons
 
-This learning path enables students to use Python to explore doing analyses and projects inspired from real-world problems faced by National Aeronautics and Space Administration (NASA) scientists. View full details of the lessons under [NASA-inspired Lessons](https://code.visualstudio.com/learn/students/nasa-python)
+This learning path enables students to use Python to explore doing analyses and projects inspired from real-world problems faced by National Aeronautics and Space Administration (NASA) scientists. View full details of the lessons under [NASA-inspired Lessons](https://code.visualstudio.com/learn/students/nasa-python).
 
 ![NASA-inspired Python lessons](images/python/nasa-learning-path.png)
 
@@ -93,7 +93,7 @@ These space-themed lessons were inspired by the Netflix film, [Over the Moon](ht
 
 ### Wonder Woman-inspired lessons
 
-Give an introduction to Python with "Wonder Woman 1984"-inspired lessons that help students learn about the basics like conditionals and variables. Get full lesson details under [Learn Python with Wonder Woman](https://code.visualstudio.com/learn/students/wonder-woman-python)
+Give an introduction to Python with "Wonder Woman 1984"-inspired lessons that help students learn about the basics like conditionals and variables. Get full lesson details under [Learn Python with Wonder Woman](https://code.visualstudio.com/learn/students/wonder-woman-python).
 
 ![Wonder Woman-inspired Python lessons](images/python/wonder-woman-learning-path.png)
 
