@@ -10,23 +10,29 @@ MetaDescription: Python in Visual Studio Code
 
 # Python in Visual Studio Code
 
-Visual Studio Code is a free, professional-grade, source code editor that fully supports Python and useful features such as real-time collaboration. It's highly customizable to support your classroom the way you like to teach.
+Visual Studio Code is a free source code editor that fully supports Python and useful features such as real-time collaboration. It's highly customizable to support your classroom the way you like to teach.
 
-> "[Visual Studio Code] is the best balance of authenticity and accessibility. Plus, [Visual Studio Code] works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
+> "Visual Studio Code is the best balance of authenticity and accessibility. Plus, Visual Studio Code works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
 
 Read below for recommendations for extensions, settings, and links to free lessons that you can use in your classes.
 
 ## Harvey Mudd College case study
 
-Professor [Zachary Dodds](https://www.hmc.edu/about-hmc/hmc-experts/dodds-zachary/) is a Computer Science professor at [Harvey Mudd College](https://www.hmc.edu/) who teaches several introductory classes both for students new to Computer Science and students from a non-Computer Science background. He co-created the popular introduction to Computer Science class [CS5](https://www.cs.hmc.edu/twiki/bin/view/CS5), which attracts students from all backgrounds to develop programming and problem-solving skills useful in other engineering and mathematical disciplines and to build a "a coherent, intellectually compelling picture of Computer Science". The class is taught with Python and uses Visual Studio Code as the recommended editor.
+Professor [Zachary Dodds](https://www.hmc.edu/about-hmc/hmc-experts/dodds-zachary/) is a Computer Science professor at [Harvey Mudd College](https://www.hmc.edu/) who teaches several introductory classes both for students new to Computer Science and students from a non-Computer Science background. He co-created the popular introduction to Computer Science class [CS5](https://www.cs.hmc.edu/twiki/bin/view/CS5), which attracts students from all backgrounds to develop programming and problem-solving skills useful in other engineering and mathematical disciplines and to build "a coherent, intellectually compelling picture of Computer Science". The class is taught with Python and uses VS Code as the recommended editor.
 
 ### Why Visual Studio Code?
 
-Professor Dodds has been recommending and using Visual Studio Code in his classes since Visual Studio Code debuted. "[Visual Studio Code] is the best balance of authenticity and accessibility"; it is a free professional-grade editor used by professional software engineers and students alike. "Plus, [Visual Studio Code] works on every OS": Windows, MacOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
+Professor Dodds has been recommending and using Visual Studio Code in his classes since it debuted in 2015.
+
+> "Visual Studio Code is the best balance of authenticity and accessibility; it is a free professional-grade editor used by professional software engineers and students alike. Plus, Visual Studio Code works on every OS."
+
+VS Code runs on Windows, macOS, Linux, and even [Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started).
 
 ### Classroom settings
 
-Since Visual Studio Code is super customizable, Professor Dodds gets his students running a tailored experience for his class that hides suggestive code completions so that they learn from what they type and reinforce the conceptual models being built. Here are the settings his students use to achieve this but you can find the most up-to-date settings on his course website: [CS5 - Python Tips)](https://www.cs.hmc.edu/twiki/bin/view/CS5/PythonTips).
+Since VS Code is easy to customize, Professor Dodds has his students running a tailored experience that hides the default code completions (IntelliSense) so that they learn from what they type and reinforce the conceptual models being built.
+
+Here are the [settings](/docs/getstarted/settings.md) his students use:
 
 ```json
 "editor.quickSuggestions": false,
@@ -46,55 +52,59 @@ Since Visual Studio Code is super customizable, Professor Dodds gets his student
 "files.autoSave": "afterDelay",
 ```
 
+You can find the most up-to-date settings on his course website: [CS5 - Python Tips](https://www.cs.hmc.edu/twiki/bin/view/CS5/PythonTips).
+
 ### Integrated Terminal
 
-Finally, he also utilizes the built-in terminal heavily in his class as an introduction to running programs from the command line and navigating around their machine. He appreciates how "the built-in terminal panel does not try to automate too much (which, if it did, would deprive newcomers of the experience of the information-flow that's going on)."
+Professor Dodds also utilizes the built-in terminal heavily in his class as an introduction to running programs from the command line and navigating around their machine. He appreciates how "the built-in terminal panel does not try to automate too much (which, if it did, would deprive newcomers of the experience of the information-flow that's going on)."
 
-This student can do all of his CLI needs and code in one place, such as installing Python libraries, as he works on Lab 3 from the CS5 class:
+In the video below, the student does all of their command line and coding work in one place, such as installing Python libraries, while working on Lab 3 from the CS5 class:
+
 ![Integrated Terminal](images/python/integrated-terminal.gif)
 
-Thank you, Professor Dodds, for sharing your story! If you’re interested in using Visual Studio Code to teach Python in your classes, you can get started with the Python Education Extension Pack below!
+Thank you, Professor Dodds, for sharing your story! If you’re interested in using VS Code to teach Python in your classes, you can get started with the Python Education Extension Pack below!
 
 ## Python Extension Pack
 
-Unsure of which extensions to recommend to your students for your class? You can point your students to the [Python Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack) that contains all of the essential and helpful extensions for the classroom. You can download the pack from the Extension Marketplace:
+Unsure which extensions to recommend to your students? You can point your students to the [Python Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack) that contains essential and helpful extensions for the classroom. You can download the extension pack from the VS Code Marketplace:
 
 ![Python Education Extension Pack](images/python/python-extension-pack.png)
 
-The pack contains:
+The extension pack contains:
+
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for basic Python functionality like compiling, debugging support, linting, Jupyter Notebooks, unit tests, and more.
 * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to enable real-time collaboration and [Live Share Audio](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio) to enable audio calls as well.
-* [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (like ones that live on lab machines) through SSH with full Visual Studio Code functionality.
-* [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) for full Latex support in Markdown
+* [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (for example, to access lab machines) through SSH with full VS Code functionality.
+* [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) for full LaTeX support in Markdown.
 
 ## Free Python and Data Science lessons
 
-### NASA-Inspired Lessons
-This learning path enables students to use Python to explore doing analyses and projects inspired from real-world problems faced by National Aeronautics and Space Administration (NASA) scientists. View full details of the lessons under [NASA-Inspired Lessons](https://code.visualstudio.com/learn/students/nasa-python)
+### NASA-inspired lessons
 
-<br />
-<img src="images/python/nasa-learning-path.png" alt="NASA Inspired Python lessons" style="border: 3px solid lightgray">
+This learning path enables students to use Python to explore doing analyses and projects inspired from real-world problems faced by National Aeronautics and Space Administration (NASA) scientists. View full details of the lessons under [NASA-inspired Lessons](https://code.visualstudio.com/learn/students/nasa-python)
+
+![NASA-inspired Python lessons](images/python/nasa-learning-path.png)
 
 ### Learn Python with Over The Moon
+
 These space-themed lessons were inspired by the Netflix film, [Over the Moon](https://www.youtube.com/watch?v=26DIABx44Tw), and will introduce students to data science, machine learning, and artificial intelligence using Python and Azure. View full details on [Learn Python with Over The Moon](https://code.visualstudio.com/learn/students/over-the-moon-python).
 
-<br />
-<img src="images/python/over-the-moon-learning-path.png" alt="Learn Python with Over The Moon" style="border: 3px solid lightgray">
+![Learn Python with Over The Moon](images/python/over-the-moon-learning-path.png)
 
-### Wonder Woman Inspired Lessons
-Give an introduction to Python with WONDER WOMAN 1984 inspired lessons that help students learn about the basics like conditionals and variables. Get full lesson details under [Learn Python with Wonder Woman](https://code.visualstudio.com/learn/students/wonder-woman-python)
+### Wonder Woman-inspired lessons
 
-<br />
-<img src="images/python/wonder-woman-learning-path.png" alt="Wonder Woman Inspired Python Lessons" style="border: 3px solid lightgray">
+Give an introduction to Python with "Wonder Woman 1984"-inspired lessons that help students learn about the basics like conditionals and variables. Get full lesson details under [Learn Python with Wonder Woman](https://code.visualstudio.com/learn/students/wonder-woman-python)
 
-### Write basic Python in Notebooks
+![Wonder Woman-inspired Python lessons](images/python/wonder-woman-learning-path.png)
+
+### Python in Notebooks
+
 Learn the basics of Python. View the full lesson on [Microsoft Learn: Write basic Python in Notebooks in Visual Studio Code](https://docs.microsoft.com/learn/modules/basic-python-nasa/).
 
-<br />
-<img src="images/python/basic-python-lesson.png" alt="Basics of Python Lesson" style="border: 3px solid lightgray">
+![Basics of Python lesson](images/python/basic-python-lesson.png)
 
 ### Set up your Python beginner development environment
-A step by step guide to installing and setting up your Python and Visual Studio Code environment. View the full lesson on [Microsoft Learn: Set up your Python beginner development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode/).
 
-<br />
-<img src="images/python/setup-python-lesson.png" alt="Set up Python Lesson" style="border: 3px solid lightgray">
+A step-by-step guide to installing and setting up your Python and VS Code environment. View the full lesson on [Microsoft Learn: Set up your Python beginner development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode/).
+
+![Set up Python lesson](images/python/setup-python-lesson.png)
