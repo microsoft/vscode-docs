@@ -7,7 +7,7 @@ MetaDescription: Learn how to use Kubernetes service environment variables with 
 ---
 # Kubernetes service environment variables
 
-When you communicate with another service in the same Kubernetes cluster, for example with an HTTP request, you typically use the hardcoded service name in the URL for the request, but that won't work in some scenarios with Bridge to Kubernetes. This article describes how to use the Kubernetes service environment variables to specify the connection Uri.
+When you communicate with another service in the same Kubernetes cluster, for example with an HTTP request, you typically use the hardcoded service name in the URL for the request, but that won't work in some scenarios with Bridge to Kubernetes. This article describes how to use the Kubernetes service environment variables to specify the connection URL.
 
 ## Avoid redirection failures
 
@@ -21,8 +21,8 @@ The following table shows the Kubernetes service environment variables that are 
 | - | - | - |
 | *servicename*_SERVICE_HOST | 10.0.0.11 | The name of the service host |
 | *servicename*_SERVICE_PORT | 6379 | The port for the service |
-| *servicename*_PORT | tcp://10.0.0.11:6379 | The Uri with protocol, IP address, and port. |
-| *servicename*\_PORT_*portnumber*_TCP | tcp://10.0.0.11:6379 | The TCP Uri with IP address and port. |
+| *servicename*_PORT | tcp://10.0.0.11:6379 | The URL with protocol, IP address, and port. |
+| *servicename*\_PORT_*portnumber*_TCP | tcp://10.0.0.11:6379 | The TCP URL with IP address and port. |
 | *servicename*\_PORT_*portnumber*_TCP_PROTO| tcp | The protocol identifier. |
 | *servicename*\_PORT_*portnumber*_TCP_PORT | 6379 | The port number for TCP. |
 | *servicename*\_PORT_*portnumber*_TCP_ADDR | 10.0.0.11 | The IP address for TCP. |
