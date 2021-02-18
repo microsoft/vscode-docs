@@ -70,7 +70,7 @@ This coding pack includes everything you need to start coding in Python:
 
 Full details and a link to install is available under [Coding Packs](/installers#_coding-pack-for-python).
 
-## Free Python programming and data science lessons
+## Microsoft Learn free Python programming and data science lessons
 
 ### NASA-Inspired Lessons
 This learning path enables students to use Python to explore doing analyses and projects inspired from real-world problems faced by National Aeronautics and Space Administration (NASA) scientists. View full details of the lessons under [NASA-Inspired Lessons](https://code.visualstudio.com/learn/students/nasa-python)
