@@ -23,7 +23,7 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
     ```json
     terminal.integrated.automationShell
-    terminal.integrated.cwd
+    terminal.integrated.cwd - TBD add brief description Current working directory
     terminal.integrated.env.{platform}
     terminal.integrated.inheritEnv
     terminal.integrated.shell.{platform}
@@ -43,6 +43,14 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
    Most Integrated Terminal settings will need to be modified directly in your user `settings.json` JSON file. You can open `settings.json` via the **Edit in settings.json** link in the Settings editor or with the **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
    ![A user's settings.json file](images/troubleshoot-terminal-launch/settings-json-file.png)
+
+For example, TBD show notification with path to shell. May indicate terminal.integrated.shell.{platform} is incorrect
+
+2. Error code coming from your shell process TBD
+For example XXX may indicate a problem with WSL installation
+Search on internet or more specifically on StackOverflow
+
+Try running the terminal shell manually.
 
 2. Enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
 
