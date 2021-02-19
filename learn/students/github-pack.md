@@ -53,4 +53,6 @@ The GitLens extension enhances the built-in Git features in VS Code, like showin
 
 <iframe src="https://www.youtube-nocookie.com/embed/bRdQw4-sGIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Connect with us
+
 For questions or feedback, please reach out to us at [vscodesocial@microsoft.com](mailto:vscodesocial@microsoft.com). You can also browse the other [benefits](https://education.github.com/benefits) provided in the GitHub Student Developer Pack.
