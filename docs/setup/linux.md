@@ -13,6 +13,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
 
+By downloading and using Visual Studio Code, you agree to the [license terms](https://code.visualstudio.com/license) and [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409).
+
 ### Snap
 
 Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
