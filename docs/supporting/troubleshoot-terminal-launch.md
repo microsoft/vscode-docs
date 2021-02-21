@@ -19,18 +19,16 @@ Below are specific troubleshooting steps, if the user guide hasn't helped you di
 
 To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follow these steps to diagnose issues:
 
-1. Check your [settings](/docs/getstarted/settings.md) for any of these settings that could affect the launch:
+1. Check your [settings](/docs/getstarted/settings.md) for any of these `terminal.integrated` settings that could affect the launch:
 
-    ```json
-    terminal.integrated.automationShell
-    terminal.integrated.cwd
-    terminal.integrated.env.{platform}
-    terminal.integrated.inheritEnv
-    terminal.integrated.shell.{platform}
-    terminal.integrated.shellArgs.{platform}
-    terminal.integrated.splitCwd
-    terminal.integrated.windowsEnableConpty
-    ```
+   * `terminal.integrated.shell.{platform}` - The path of the shell that the terminal uses.
+   * `terminal.integrated.shellArgs.{platform}` - The command line arguments when launching the shell process.
+   * `terminal.integrated.cwd` - The current working directory (cwd) for the shell process.
+   * `terminal.integrated.env.{platform}` - Environment variables that will be added to the shell process.
+   * `terminal.integrated.inheritEnv` - Whether new shells should inherit their environment from VS Code.
+   * `terminal.integrated.automationShell.{platform}` - Shell path for automation-related terminal usage like tasks and debug.
+   * `terminal.integrated.splitCwd` - Controls the current working directory a split terminal starts with.
+   * `terminal.integrated.windowsEnableConpty` - Whether to use ConPTY for Windows terminal process communication.
 
    You can review settings in the Settings editor (**File** > **Preferences** > **Settings**) and search for specific settings by the setting ID.
 
