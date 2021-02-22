@@ -166,7 +166,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 * Only use webviews when absolutely necessary
 * Activate your extension only when contextually appropriate
 * Open webviews only for the active window
-* Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
+* Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
 * Ensure your views follow [accessibility guidance](/docs/editor/accessibility) (color contrast, ARIA labels, keyboard navigation)
 * Use command actions in the toolbar and in the view
 

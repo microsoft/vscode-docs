@@ -30,7 +30,7 @@ Please set "enableProposedApi": true in package.json.
 Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
 ```
 
-Here is a pre-configured sample using proposed API: [proposed-api-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/proposed-api-sample).
+Here is a pre-configured sample using proposed API: [proposed-api-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/proposed-api-sample).
 
 ## Proposed API incompatibility
 
