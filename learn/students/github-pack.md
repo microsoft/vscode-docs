@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order:
 Area: students
 TOCTitle: GitHub in VS Code
 ContentId: 683595d8-cf1f-4b24-a206-317b0855f284
