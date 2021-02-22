@@ -17,15 +17,15 @@ Webviews are used in several VS Code APIs:
 
 - With Webview Panels created using `createWebviewPanel`. In this case, Webview panels are shown in VS Code as distinct editors. This makes them useful for displaying custom UI and custom visualizations.
 - As the view for a [custom editor](/api/extension-guides/custom-editors). Custom editors allow extensions to provide a custom UI for editing any file in the workspace. The custom editor API also lets your extension hook into editor events such as undo and redo, as well as file events such as save.
-- In [Webview views](/api/references/vscode-api#WebviewView) that are rendered in the sidebar or panel areas. See the [webview view sample extension](https://github.com/microsoft/vscode-extension-samples/tree/master/webview-view-sample) for more details.
+- In [Webview views](/api/references/vscode-api#WebviewView) that are rendered in the sidebar or panel areas. See the [webview view sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample) for more details.
 
 This page focuses on the basic webview panel API, although almost everything covered here applies to the webviews used in custom editors and webview views as well. Even if you are more interested in those APIs, we recommend reading through this page first to familiarize yourself with the webview basics.
 
 ## Links
 
-- [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md)
+- [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md)
 - [Custom Editors Documentation](/api/extension-guides/custom-editors)
-- [Webview View Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/webview-view-sample)
+- [Webview View Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
 
 ### VS Code API Usage
 
@@ -50,7 +50,7 @@ Remember: Just because you can do something with webviews, doesn't mean you shou
 
 To explain the webview API, we are going to build a simple extension called **Cat Coding**. This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of source code our cat has written and notifications that inform the user when the cat introduces a bug.
 
-Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
+Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md). The first version of our extension [contributes a command](/api/references/contribution-points#contributes.commands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** as **Cat Coding: Start new cat coding session** or even create a keybinding for it if they are so inclined.
 
 ```json
 {
@@ -830,7 +830,7 @@ The policy `default-src 'none';` disallows all content. We can then turn back on
 />
 ```
 
-The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-sample) for a complete example of how to use this value.
+The `${webview.cspSource}` value is a placeholder for a value that comes from the webview object itself. See the [webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample) for a complete example of how to use this value.
 
 This content security policy also implicitly disables inline scripts and styles. It is a best practice to extract all inline styles and scripts to external files so that they can be properly loaded without relaxing the content security policy.
 

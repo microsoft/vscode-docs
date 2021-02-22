@@ -21,7 +21,7 @@ This guide teaches you how to write an extension that contributes Tree Views and
 
 ## Tree View API Basics
 
-To explain the Tree View API, we are going to build a sample extension called **Node Dependencies**. This extension will use a treeview to display all Node.js dependencies in the current folder. The steps for adding a treeview are to contribute the treeview in your `package.json`, create a `TreeDataProvider`, and register the `TreeDataProvider`. You can find the complete source code of this sample extension in the `tree-view-sample` in the [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample/README.md) GitHub repository.
+To explain the Tree View API, we are going to build a sample extension called **Node Dependencies**. This extension will use a treeview to display all Node.js dependencies in the current folder. The steps for adding a treeview are to contribute the treeview in your `package.json`, create a `TreeDataProvider`, and register the `TreeDataProvider`. You can find the complete source code of this sample extension in the `tree-view-sample` in the [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample/README.md) GitHub repository.
 
 ### package.json Contribution
 
@@ -454,7 +454,7 @@ Extension writers should register a [TreeDataProvider](/api/references/vscode-ap
 vscode.window.registerTreeDataProvider('nodeDependencies', new DepNodeProvider());
 ```
 
-See [nodeDependencies.ts](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample/src/nodeDependencies.ts) in the `tree-view-sample` for the implementation.
+See [nodeDependencies.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample/src/nodeDependencies.ts) in the `tree-view-sample` for the implementation.
 
 ## TreeView
 
@@ -466,4 +466,4 @@ vscode.window.createTreeView('ftpExplorer', {
 });
 ```
 
-See [ftpExplorer.ts](https://github.com/microsoft/vscode-extension-samples/tree/master/tree-view-sample/src/ftpExplorer.ts) in the `tree-view-sample` for the implementation.
+See [ftpExplorer.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample/src/ftpExplorer.ts) in the `tree-view-sample` for the implementation.

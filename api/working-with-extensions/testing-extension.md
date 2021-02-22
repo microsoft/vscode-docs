@@ -22,10 +22,10 @@ In the generated extension, you can use `npm run test` or `yarn test` to run the
 - Downloads and unzips latest version of VS Code.
 - Runs the [Mocha](https://mochajs.org) tests specified by the extension test runner script.
 
-Alternatively, you can find the configuration for this guide in the [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
+Alternatively, you can find the configuration for this guide in the [helloworld-test-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-test-sample). The rest of this document explains these files in the context of the sample:
 
-- The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts))
-- The **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts))
+- The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts))
+- The **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts))
 
 ## The test script
 
@@ -42,7 +42,7 @@ code \
 --extensionTestsPath=<TEST-RUNNER-SCRIPT-PATH>
 ```
 
-The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
+The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
 
 ```ts
 import * as path from 'path';
@@ -81,7 +81,7 @@ You can find more API usage examples at [microsoft/vscode-test](https://github.c
 
 ## The test runner script
 
-When running the extension integration test, `--extensionTestsPath` points to the **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite. Below is the [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) of `helloworld-test-sample` that uses Mocha to run the test suite. You can use this as a starting point and customize your setup with [Mocha's API](https://mochajs.org/api/mocha). You can also replace Mocha with any other test framework that can be run programmatically.
+When running the extension integration test, `--extensionTestsPath` points to the **test runner script** ([`src/test/suite/index.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts)) that programmatically runs the test suite. Below is the [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts) of `helloworld-test-sample` that uses Mocha to run the test suite. You can use this as a starting point and customize your setup with [Mocha's API](https://mochajs.org/api/mocha). You can also replace Mocha with any other test framework that can be run programmatically.
 
 ```ts
 import * as path from 'path';
@@ -125,7 +125,7 @@ export function run(): Promise<void> {
 
 Both the test runner script and the `*.test.js` files have access to the VS Code API.
 
-Here is a sample test ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/extension.test.ts)):
+Here is a sample test ([src/test/suite/extension.test.ts](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/extension.test.ts)):
 
 ```ts
 import * as assert from 'assert';
@@ -287,9 +287,9 @@ The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had 
 - As the old `vscode` module was also used for downloading VS Code type definition, you need to
   - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
-- Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
+- Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
 - Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.
-- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/master/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependencies`.
+- Add a [test runner script](#the-test-runner-script). You can use the [sample test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/suite/index.ts) as a starting point. Notice that `vscode` used to depend on `mocha@4` and `glob`, and now you need to install them as part of your `devDependencies`.
 
 ## Next steps
 

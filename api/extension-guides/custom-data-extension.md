@@ -33,4 +33,4 @@ For example, by including this section in an extension's `package.json`:
 
 VS Code will load the HTML/CSS entities defined in both files and provide language support such as auto-completion and hover information for those entities.
 
-You can find the [custom-data-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/custom-data-sample) at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples).
+You can find the [custom-data-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/custom-data-sample) at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples).
