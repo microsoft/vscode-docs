@@ -13,6 +13,8 @@ In this video, we walk you through installing Visual Studio Code extensions.
 
 <iframe src="https://www.youtube-nocookie.com/embed/SKcZ3cwX8lA" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Next video: [Personalize Visual Studio Code](/learn/get-started/personalize.md)
+
 ## Outline
 
 * Find extensions to install using the Extensions View.
@@ -20,11 +22,11 @@ In this video, we walk you through installing Visual Studio Code extensions.
 * See what features are added via the Contributions tab or Command Palette.
 * See other recommendations for extensions.
 
+## Next video
+
+* [Personalize Visual Studio Code](/learn/get-started/personalize.md) - Make VS Code yours with custom themes and colors
+
 ## Learn more
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform-specific setup.
-
-## Next video
-
-* [Learn how to personalize VS Code](/learn/get-started/personalize.md) - Make VS Code yours with custom themes and colors

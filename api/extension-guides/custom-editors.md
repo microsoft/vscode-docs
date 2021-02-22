@@ -307,4 +307,4 @@ If you'd like to learn more about VS Code extensibility, try these topics:
 - [Extension API](/api) - Learn about the full VS Code Extension API.
 - [Extension Capabilities](/api/extension-capabilities/overview) - Take a look at other ways to extend VS Code.
 
-[sample]: https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-sample
+[sample]: https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample

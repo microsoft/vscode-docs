@@ -19,7 +19,7 @@ The [`contributes.languages`](/api/references/contribution-points#contributes.la
 - Word pattern
 - Indentation Rules
 
-Here is a [Language Configuration Sample](https://github.com/microsoft/vscode-extension-samples/tree/master/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
+Here is a [Language Configuration Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/language-configuration-sample) that configures the editing experience for JavaScript files. This guide explains the content of `language-configuration.json`:
 
 **Note: If your language configuration file name is or ends with `language-configuration.json`, you will get autocompletion and validation in VS Code.**
 

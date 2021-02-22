@@ -8,10 +8,10 @@ MetaDescription: Using GitHub Codespaces
 DateApproved: 2/4/2021
 ---
 # GitHub Codespaces
+[GitHub Codespaces](https://github.com/features/codespaces) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from Visual Studio Code or in a browser-based editor.
 
-[GitHub Codespaces](https://github.com/features/codespaces) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from three possible clients: Visual Studio Code, a browser-based editor, or the Visual Studio IDE (currently in Private Preview).
 
-<!-- ![Visual Studio Codespaces extension](images/codespaces/vscodespaces-extension.png) TBD -->
+![GitHub Codespaces extension](images/codespaces/github-codespaces-extension.png)
 
 ## Environments
 
@@ -41,18 +41,10 @@ See the [Personalizing Codespaces](https://docs.github.com/github/developing-onl
 
 ## Getting started
 
-There are getting started topics for all three GitHub Codespaces clients. These will fast-track you through signing in to GitHub Codespaces, creating your first codespace, and connecting to it with your preferred client:
+There are getting started topics for both GitHub Codespaces clients. These will fast-track you through signing in to GitHub Codespaces, creating your first codespace, and connecting to it with your preferred client:
 
-* [Codespaces in VS Code](https://docs.github.com/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code) - Use the [Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension to connect and work in your environment.
+* [Codespaces in VS Code](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) - Use the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension to connect and work in your environment.
 * [Codespaces in the browser](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) - Connect to your codespace through a browser-based editor.
-* [Codespaces in Visual Studio IDE](https://docs.microsoft.com/visualstudio/codespaces/quickstarts/vs) - Try out the Visual Studio IDE Private Preview for Codespaces.
-
-## How-to guides
-
-In addition, there are How-to guides, which go into more detail about managing and configuring your environments:
-
-* [How-to guide: Visual Studio Code](https://docs.microsoft.com/visualstudio/codespaces/how-to/vscode) - Create and configure a codespace from the VS Code client.
-* [How-to guide: Browser](https://docs.microsoft.com/visualstudio/codespaces/how-to/browser) - Create and configure a codespace with only a browser.
 
 ## Extension authors
 

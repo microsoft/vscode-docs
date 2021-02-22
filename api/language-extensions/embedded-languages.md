@@ -25,8 +25,8 @@ This guide includes two samples that illustrate two approaches to build such a l
 
 Source code for both samples can be found at:
 
-- [Language Server for Embedded Language with Language Services](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-embedded-language-service)
-- [Language Server for Embedded Language with Request Forwarding](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-embedded-request-forwarding)
+- [Language Server for Embedded Language with Language Services](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-language-service)
+- [Language Server for Embedded Language with Request Forwarding](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-request-forwarding)
 
 Here's the embedded language server we'll be building:
 
@@ -56,15 +56,15 @@ For example:
 - For auto-completion request at `<|`, the HTML language server uses the HTML language service to provide HTML completions.
 - For auto-completion request at `<style>.foo { | }</style>`, the HTML language server uses the CSS language service to provide CSS completions.
 
-Let's examine the [lsp-embedded-language-service](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-embedded-language-service) sample, a simplified version of the HTML language server that implements auto-completion for HTML and CSS, and diagnostic errors for CSS.
+Let's examine the [lsp-embedded-language-service](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-language-service) sample, a simplified version of the HTML language server that implements auto-completion for HTML and CSS, and diagnostic errors for CSS.
 
 ### Language Services sample
 
->**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-sample).
+>**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
-The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-embedded-language-service).
+The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-language-service).
 
-Compared to the [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-sample), the client-side code is the same.
+Compared to the [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample), the client-side code is the same.
 
 As mentioned above, the server breaks down the document into different language regions to handle the embedded content.
 
@@ -179,9 +179,9 @@ Let's now review the sample code.
 
 ### Request Forwarding sample
 
->**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-sample).
+>**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
-The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-embedded-request-forwarding).
+The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-request-forwarding).
 
 Keeping a map between document's URI and their virtual documents, and provide them for corresponding requests:
 

@@ -39,7 +39,7 @@ Debugging your extension in [GitHub Codespaces](https://docs.github.com/github/d
 
 Follow these steps:
 
-1. Install the [Codespaces](https://marketplace.visualstudio.com/items?itemName=ms-vsonline.vsonline) extension.
+1. Install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=github.codespaces) extension.
 
 2. Create a new [codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace).
 

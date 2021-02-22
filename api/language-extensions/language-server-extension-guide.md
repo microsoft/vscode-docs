@@ -14,7 +14,7 @@ As you have seen in the [Programmatic Language Features](/api/language-extension
 This topic:
 
 - Explains the benefits of Language Server Extension.
-- Walks you through building a Language Server using the [`Microsoft/vscode-languageserver-node`](https://github.com/microsoft/vscode-languageserver-node) library. You can also jump directly to the code in [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-sample).
+- Walks you through building a Language Server using the [`Microsoft/vscode-languageserver-node`](https://github.com/microsoft/vscode-languageserver-node) library. You can also jump directly to the code in [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
 ## Why Language Server?
 
@@ -64,8 +64,8 @@ Let's build a simple Language Server extension that implements autocomplete and 
 
 If you prefer to jump right into the code:
 
-- **[lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Heavily documented source code for this guide.
-- **[lsp-multi-server-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](/docs/editor/multi-root-workspaces) feature in VS Code.
+- **[lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample)**: Heavily documented source code for this guide.
+- **[lsp-multi-server-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](/docs/editor/multi-root-workspaces) feature in VS Code.
 
 Clone the repository [Microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) and open the sample:
 
@@ -910,7 +910,7 @@ connection.onDidCloseTextDocument((params) => {
 
 While Language Servers have many benefits, they are not the only option for extending the editing capabilities of VS Code. In the cases when you want to add some simple language features for a type of document, consider using `vscode.languages.register[LANGUAGE_FEATURE]Provider` as an option.
 
-Here is a [`completions-sample`](https://github.com/microsoft/vscode-extension-samples/tree/master/completions-sample) using `vscode.languages.registerCompletionItemProvider` to add a few snippets as completions for plain text files.
+Here is a [`completions-sample`](https://github.com/microsoft/vscode-extension-samples/tree/main/completions-sample) using `vscode.languages.registerCompletionItemProvider` to add a few snippets as completions for plain text files.
 
 More samples illustrating the usage of VS Code API can be found at [https://github.com/microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples).
 
