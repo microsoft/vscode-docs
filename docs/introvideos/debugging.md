@@ -16,7 +16,9 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 
 <iframe src="https://www.youtube.com/embed/2oFKNL7vYV8?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-## Outline
+Next video: [Version Control](/docs/introvideos/versioncontrol.md)
+
+## Video outline
 
 * Debugging that "just works".
 * Single file debugging.
@@ -24,11 +26,11 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 * The difference between launch and attach debug configurations.
 * Use Watches to inspect your program's state and variables.
 
-## Learn more
+## Next video
+
+* [Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
+
+## Related resources
 
 * [Debugging](/docs/editor/debugging.md) - Official documentation for VS Code debugging.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Use the integrated terminal inside VS Code.
-
-## Next video
-
-* [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.

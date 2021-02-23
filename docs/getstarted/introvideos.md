@@ -14,32 +14,12 @@ Start your journey using Visual Studio Code with this set of introductory videos
 
 <ul class="video-list">
 	<li class="video">
-		<a href="/docs/introvideos/basics">
+            <a href="/docs/introvideos/basics">
 			<img src="https://img.youtube.com/vi/S320N3sxinE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">Getting started</h2>
+                <h2 class="title faux-h3">Getting Started</h2>
 				<p class="description">Set up and learn the basics of Visual Studio Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/configure">
-			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Customize</h2>
-				<p class="description">Personalize VS Code to suit your needs through changing settings, themes, keybindings.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/extend">
-			<img src="https://img.youtube.com/vi/SKcZ3cwX8lA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Extensions</h2>
-				<p class="description">Add features, themes, and more to VS Code with extensions!</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -54,12 +34,22 @@ Start your journey using Visual Studio Code with this set of introductory videos
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/intellisense">
-			<img src="https://img.youtube.com/vi/lSPHucggmLo/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+		<a href="/docs/introvideos/configure">
+			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">IntelliSense</h2>
-				<p class="description">Learn how to set up IntelliSense and receive intelligent code completions.</p>
-				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<h2 class="title faux-h3">Customize</h2>
+				<p class="description">Personalize VS Code to make it yours with themes.</p>
+				<span class="duration"><span class="sr-only">Duration </span>2<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+	</li>
+	<li class="video">
+		<a href="/docs/introvideos/extend">
+			<img src="https://img.youtube.com/vi/SKcZ3cwX8lA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Extensions</h2>
+				<p class="description">Add features, themes, and more to VS Code with extensions!</p>
+				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -83,6 +73,16 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			</div>
 		</a>
 	</li>
+	<li class="video">
+		<a href="/docs/introvideos/intellisense">
+			<img src="https://img.youtube.com/vi/lSPHucggmLo/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">IntelliSense</h2>
+				<p class="description">Learn how to set up IntelliSense and receive intelligent code completions.</p>
+				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+    </li>
 </ul>
 
 > Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J).

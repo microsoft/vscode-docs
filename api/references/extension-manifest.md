@@ -84,7 +84,7 @@ Here is a complete `package.json`
     "type": "git",
     "url": "https://github.com/microsoft/vscode-wordcount.git"
   },
-  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md"
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md"
 }
 ```
 
@@ -125,7 +125,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 ```json
 {
   "license": "SEE LICENSE IN LICENSE.txt",
-  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md",
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"

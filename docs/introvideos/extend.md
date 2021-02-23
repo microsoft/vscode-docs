@@ -14,18 +14,20 @@ Use Visual Studio Code extensions to add new features, themes and more. In this 
 
 <iframe src="https://www.youtube.com/embed/SKcZ3cwX8lA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-## Outline
+Next video: [Debugging](/docs/introvideos/debugging.md)
 
-- Find extensions to install using the Extensions View.
-- Install an extension.
-- See what features are added via the Contributions tab or Command Palette.
-- See recommendations for other extensions.
+## Video outline
 
-## Learn more
-
-* [Extension Marketplace Documentation](/docs/editor/extension-gallery.md) - Official documentation for the VS Code Extension Marketplace.
-* [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.
+* Find extensions to install using the Extensions View.
+* Install an extension.
+* See what features are added via the Contributions tab or Command Palette.
+* See recommendations for other extensions.
 
 ## Next video
 
-* [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.
+* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.
+
+## Related resources
+
+* [Extension Marketplace Documentation](/docs/editor/extension-gallery.md) - Official documentation for the VS Code Extension Marketplace.
+* [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.
