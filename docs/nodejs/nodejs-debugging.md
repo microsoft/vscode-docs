@@ -440,7 +440,7 @@ Here are some things to try when your breakpoints turn gray:
 
 ## Remote debugging
 
-> **Note:** VS Code now has universal [remote development capabilities](docs/remote/remote-overview). With this, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. *This is the recommended way to remote debug Node.js programs*. Check out the [Getting Started](docs/remote/remote-overview#_getting-started) section and the [Remote tutorials](docs/remote/remote-overview#_remote-tutorials) section to get started.
+> **Note:** VS Code now has universal [remote development capabilities](/docs/remote/remote-overview.md). Using the [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. **This is the recommended way to remote debug Node.js programs**. Check out the [Getting started](/docs/remote/remote-overview.md#getting-started) section and [Remote tutorials](/docs/remote/remote-overview.md#remote-tutorials) to learn more.
 
 If you are unable to use any of the Remote Development extensions to debug your Node.js program, below is a guide on how to debug a remote Node.js program from your local instance of VS Code.
 
