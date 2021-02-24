@@ -440,6 +440,10 @@ Here are some things to try when your breakpoints turn gray:
 
 ## Remote debugging
 
+> **Note:** VS Code now has universal [remote development capabilities](docs/remote/remote-overview). With this, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. *This is the recommended way to remote debug Node.js programs*. Check out the [Getting Started](docs/remote/remote-overview#_getting-started) section and the [Remote tutorials](docs/remote/remote-overview#_remote-tutorials) section to get started.
+
+If you are unable to use any of the Remote Development extensions to debug your Node.js program, below is a guide on how to debug a remote Node.js program from your local instance of VS Code.
+
 The Node.js debugger supports remote debugging where you attach to a process running on a different machine, or in a container. Specify a remote host via the `address` attribute. For example:
 
 ```json
@@ -465,12 +469,6 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
     "remoteRoot": "C:\\Users\\username\\project\\server"
 }
 ```
-
-Two frequently used applications of remote debugging are:
-
-* **debugging Node.js in a Docker container:**
-
-  If you are running Node.js inside a [Docker](https://www.docker.com) container, you can use the approach from above to debug Node.js inside the Docker container and map back the remote source to files in your workspace. We have created a "recipe" on [GitHub](https://github.com/microsoft/vscode-recipes) that walks you through on how to set this up [Node.js in Docker with TypeScript](https://github.com/microsoft/vscode-recipes/tree/master/Docker-TypeScript).
 
 ## Access Loaded Scripts
 

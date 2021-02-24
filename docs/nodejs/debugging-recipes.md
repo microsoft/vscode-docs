@@ -47,16 +47,6 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 * [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
 
-## Debug Node.js in Docker containers
-
-This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
-
-![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
-
-**Recipes:**
-
-- [Debugging Node.js with TypeScript in Docker](https://github.com/microsoft/vscode-recipes/tree/master/Docker-TypeScript)
-
 ## Electron - Debug Electron applications
 
 The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in [Node.js](https://nodejs.org/) debugger and the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
