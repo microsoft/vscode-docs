@@ -85,17 +85,17 @@ Standard semantic token types:
 | Id      | Description                   |
 | ----------------------------- | -------------------------------- |
 | `namespace`| For identifiers that declare or reference a namespace, module or package. |
-| `class`| For identifiers that declare of reference a class type. |
-| `enum`| For identifiers that declare of reference an enumeration type. |
-| `interface`| For identifiers that declare of reference an interface type. |
-| `struct`| For identifiers that declare of reference an struct type. |
-| `typeParameter`| For identifiers that declare of reference a type parameter. |
-| `type`| For identifiers that declare of reference a type that is not covered above. |
-| `parameter` | For identifiers that declare of reference a function or method parameters. |
-| `variable` | For identifiers that declare of reference a local or global variable. |
-| `property` | For identifiers that declare of reference a member property, member field or member variable. |
-| `enumMember` | For identifiers that declare of enumeration property, constant or member. |
-| `event`| For identifiers that declare of enumeration property. |
+| `class`| For identifiers that declare or reference a class type. |
+| `enum`| For identifiers that declare or reference an enumeration type. |
+| `interface`| For identifiers that declare or reference an interface type. |
+| `struct`| For identifiers that declare or reference an struct type. |
+| `typeParameter`| For identifiers that declare or reference a type parameter. |
+| `type`| For identifiers that declare or reference a type that is not covered above. |
+| `parameter` | For identifiers that declare or reference a function or method parameters. |
+| `variable` | For identifiers that declare or reference a local or global variable. |
+| `property` | For identifiers that declare or reference a member property, member field or member variable. |
+| `enumMember` | For identifiers that declare an enumeration property, constant or member. |
+| `event`| For identifiers that declare an enumeration property. |
 | `function`| For identifiers that declare a function. |
 | `method`| For identifiers that declare a member function or method. |
 | `macro`| For identifiers that declare a macro. |
