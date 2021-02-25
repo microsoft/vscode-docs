@@ -838,6 +838,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Workbench
 
+	// Defines a default kernel provider which takes precedence over all other kernel providers settings. Must be the identifier of an extension contributing a kernel provider.
+	"notebook.kernelProviderAssociations": [],
+
     // Controls the behavior of clicking an activity bar icon in the workbench.
     //  - toggle: Hide the side bar if the clicked item is already visible.
     //  - focus: Focus side bar if the clicked item is already visible.
@@ -955,6 +958,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - large: Increases the size, so it can be grabbed more easily with the mouse
     "workbench.editor.titleScrollbarSizing": "default",
 
+	// Controls if the untitled hint should be inline text in the editor or a floating button or hidden.
+	"workbench.editor.untitled.hint": "hidden",
+
     // Controls the format of the label for an untitled editor.
     //  - content: The name of the untitled file is derived from the contents of its first line unless it has an associated file path. It will fallback to the name in case the line is empty or contains no word characters.
     //  - name: The name of the untitled file is not derived from the contents of the file.
@@ -999,7 +1005,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
     "workbench.list.multiSelectModifier": "ctrlCmd",
 
-    // Controls how to open items in trees and lists using the mouse (if supported). For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
+	// Controls how to open items in trees and lists using the mouse (if supported). Note that some trees and lists might choose to ignore this setting if it is not applicable.
     "workbench.list.openMode": "singleClick",
 
     // Controls whether lists and trees have smooth scrolling.
@@ -1063,11 +1069,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls which editor is shown at startup, if none are restored from the previous session.
     //  - none: Start without an editor.
-    //  - welcomePage: Open the Welcome page (default).
+	//  - welcomePage: Open the Welcome page.
     //  - readme: Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise.
 	//  - newUntitledFile: Open a new untitled file (only applies when opening an empty window).
     //  - welcomePageInEmptyWorkbench: Open the Welcome page when opening an empty workbench.
-    "workbench.startupEditor": "welcomePage",
+	//  - gettingStarted: Open the Getting Started page.
+	"workbench.startupEditor": "gettingStarted",
 
     // Controls the visibility of the status bar at the bottom of the workbench.
     "workbench.statusBar.visible": true,
@@ -1075,7 +1082,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, will show the watermark tips when no editor is open.
     "workbench.tips.enabled": true,
 
-    // Controls how tree folders are expanded when clicking the folder names.
+	// Controls how tree folders are expanded when clicking the folder names. Note that some trees and lists might choose to ignore this setting if it is not applicable.
     "workbench.tree.expandMode": "singleClick",
 
     // Controls tree indentation in pixels.
@@ -1491,11 +1498,17 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Debug
 
+	// Controls when the comments panel should open.
+	"comments.openPanel": "openOnSessionStartWithComments",
+
     // Allow setting breakpoints in any file.
     "debug.allowBreakpointsEverywhere": false,
 
     // Controls if the debug console should be automatically closed when the debug session ends.
     "debug.console.closeOnEnd": false,
+
+	// Controls if the debug console should collapse identical lines and show a number of occurrences with a badge.
+	"debug.console.collapseIdenticalLines": true,
 
     // Controls the font family in the debug console.
     "debug.console.fontFamily": "default",
@@ -1533,6 +1546,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Automatically open the explorer view at the end of a debug session.
     "debug.openExplorerOnEnd": false,
+
+	// Controls what editors to save before starting a debug session.
+	//  - allEditorsInActiveGroup: Save all editors in the active group before starting a debug session.
+	//  - nonUntitledEditorsInActiveGroup: Save all editors in the active group except untitled ones before starting a debug session.
+	//  - none: Don't save any editors before starting a debug session.
+	"debug.saveBeforeStart": "allEditorsInActiveGroup",
 
     // Controls whether breakpoints should be shown in the overview ruler.
     "debug.showBreakpointsInOverviewRuler": false,
@@ -1816,6 +1835,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires TS 3.7+ and strict null checks to be enabled.
     "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
 
+	// Enable/disable generating `@return` annotations for JSDoc templates. Requires using TypeScript 4.2+ in the workspace.
+	"javascript.suggest.jsdoc.generateReturns": true,
+
     // Enable/disable including unique names from the file in JavaScript suggestions. Note that name suggestions are always disabled in JavaScript code that is semantically checked using `@ts-check` or `checkJs`.
     "javascript.suggest.names": true,
 
@@ -1971,6 +1993,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires TS 3.7+ and strict null checks to be enabled.
     "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
 
+	// Enable/disable generating `@return` annotations for JSDoc templates. Requires using TypeScript 4.2+ in the workspace.
+	"typescript.suggest.jsdoc.generateReturns": true,
+
     // Enable/disable suggestions for paths in import statements and require calls.
     "typescript.suggest.paths": true,
 
@@ -2024,6 +2049,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - currentProject: Only search for symbols in the current JavaScript or TypeScript project.
     "typescript.workspaceSymbols.scope": "allOpenProjects",
 
+// Testing
+
+	// Configures when the error peek view is automatically opened.
+	//  - failureAnywhere: Open automatically no matter where the failure is.
+	//  - failureInVisibleDocument: Open automatically when a test fails in a visible document.
+	"testing.automaticallyOpenPeekView": "failureInVisibleDocument",
+
+	// Controls whether to automatically open the peek view during auto-run mode.
+	"testing.automaticallyOpenPeekViewDuringAutoRun": false,
+
+	// How long to wait, in milliseconds, after a test is marked as outdated and starting a new run.
+	"testing.autoRun.delay": 1000,
+
 // CSS
 
     // Insert semicolon at end of line when completing CSS properties
@@ -2036,6 +2074,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // VS Code loads custom data on startup to enhance its CSS support for the custom CSS properties, at directives, pseudo classes and pseudo elements you specify in the JSON files.
     // The file paths are relative to workspace and only workspace folder settings are considered.
     "css.customData": [],
+
+	// Show tag and attribute documentation in CSS hovers.
+	"css.hover.documentation": true,
+
+	// Show references to MDN in CSS hovers.
+	"css.hover.references": true,
 
     // Invalid number of parameters.
     "css.lint.argumentsInColorFunction": "error",
@@ -2111,6 +2155,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
     "less.completion.triggerPropertyValueCompletion": true,
 
+	// Show tag and attribute documentation in LESS hovers.
+	"less.hover.documentation": true,
+
+	// Show references to MDN in LESS hovers.
+	"less.hover.references": true,
+
     // Invalid number of parameters.
     "less.lint.argumentsInColorFunction": "error",
 
@@ -2181,6 +2231,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // By default, VS Code triggers property value completion after selecting a CSS property. Use this setting to disable this behavior.
     "scss.completion.triggerPropertyValueCompletion": true,
+
+	// Show tag and attribute documentation in SCSS hovers.
+	"scss.hover.documentation": true,
+
+	// Show references to MDN in SCSS hovers.
+	"scss.hover.references": true,
 
     // Invalid number of parameters.
     "scss.lint.argumentsInColorFunction": "error",
@@ -2278,6 +2334,26 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Synchronize keybindings for each platform.
     "settingsSync.keybindingsPerPlatform": true,
 
+// Notebooks
+
+	// When enabled notebook breadcrumbs contain code cells.
+	"notebook.breadcrumbs.showCodeCells": true,
+
+	// Where the cell toolbar should be shown, or whether it should be hidden.
+	"notebook.cellToolbarLocation": "right",
+
+	// Whether to use the enhanced text diff editor for notebook.
+	"notebook.diff.enablePreview": true,
+
+	// Priority list for output mime types
+	"notebook.displayOrder": [],
+
+	// When enabled notebook outline shows code cells.
+	"notebook.outline.showCodeCells": false,
+
+	// Whether the cell status bar should be shown.
+	"notebook.showCellStatusBar": true,
+
 // Terminal
 
     // Customizes what kind of terminal to launch.
@@ -2352,6 +2428,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether to enable file links in the terminal. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
     "terminal.integrated.enableFileLinks": true,
 
+	// Persist terminal sessions for the workspace across window reloads.
+	"terminal.integrated.enablePersistentSessions": true,
+
     // Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux. Set to `null` to delete the environment variable.
     "terminal.integrated.env.linux": {},
 
@@ -2369,7 +2448,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Scrolling speed multiplier when pressing `Alt`.
     "terminal.integrated.fastScrollSensitivity": 5,
-
+    
     // Controls the font family of the terminal, this defaults to `editor.fontFamily`'s value.
     "terminal.integrated.fontFamily": "",
 
@@ -2821,6 +2900,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, new running processes are detected and ports that they listen on are automatically forwarded.
     "remote.autoForwardPorts": true,
 
+	// Sets the source from which ports are automatically forwarded when `remote.autoForwardPorts` is true. On Windows and Mac remotes, the `process` option has no effect and `output` will be used. Requires a reload to take effect.
+	//  - process: Ports will be automatically forwarded when discovered by watching for processes that are started and include a port.
+	//  - output: Ports will be automatically forwarded when discovered by reading terminal and debug output. Not all processes that use ports will print to the integrated terminal or debug console, so some ports will be missed. Ports forwarded based on output will not be "un-forwarded" until reload or until the port is closed by the user in the Ports view.
+	"remote.autoForwardPortsSource": "process",
+
     // When enabled extensions are downloaded locally and installed on remote.
     "remote.downloadExtensionsLocally": false,
 
@@ -2831,11 +2915,20 @@ Below are the Visual Studio Code default settings and their values. You can also
         ]
     },
 
+	// Set default properties that are applied when a specific port number is forwarded. For example:
+	//
+	// ```
+	// "3000": {
+	//   "label": "Labeled Port"
+	// },
+	// "40000-55000": {
+	//   "onAutoForward": "ignore"
+	// }
+	// ```
+	"remote.portsAttributes": {},
+
     // Restores the ports you forwarded in a workspace.
     "remote.restoreForwardedPorts": true,
-
-    // Allows setting of default properties that are set when a specific port number is forwarded.
-	"remote.portsAttributes": {},
 
 // Emmet
 
@@ -2891,7 +2984,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the signoff flag for all commits.
     "git.alwaysSignOff": false,
 
-	// When set to true, commits will automatically be fetched from the default remote of the current Git repository.Setting to `all` will fetch from all remotes.
+	// When set to true, commits will automatically be fetched from the default remote of the current Git repository. Setting to `all` will fetch from all remotes.
     "git.autofetch": false,
 
     // Duration in seconds between each automatic git fetch, when `git.autofetch` is enabled.
@@ -3140,9 +3233,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - disabled: Auto attach is disabled and not shown in status bar.
     "debug.javascript.autoAttachFilter": "disabled",
 
-    // Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
+	// Configures glob patterns for determining when to attach in "smart" `debug.javascript.autoAttachFilter` mode. `$KNOWN_TOOLS$` is replaced with a list of names of common test and code runners.
     "debug.javascript.autoAttachSmartPattern": [
-        "!**/{node_modules,npm-global,.yarn,.nvm}/**",
+		"${workspaceFolder}/**",
+		"!**/node_modules/**",
         "**/$KNOWN_TOOLS$/**"
     ],
 

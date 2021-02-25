@@ -10,7 +10,7 @@ MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
 # Introductory Videos
 
-Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them. VS Code comes out of the box with support for a variety of languages like JavaScript and TypeScript. These videos use JavaScript, but feel free to use any language you are comfortable with!
+Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them.
 
 <ul class="video-list">
 	<li class="video">
