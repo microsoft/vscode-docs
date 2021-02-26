@@ -50,13 +50,7 @@ To make it easier to start and end selection using the keyboard we have four com
 ## Tab navigation
 
 You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbstyle(Shift+Tab)` to tab in reverse order.  As you tab through the UI controls, you can see an indicator around the UI element once the element gains focus.
-
-Some areas that support Tab navigation are:
-
-* The View switcher (File Explorer, Search, Source Control, Run, Extensions)
-* The header of collapsible sections in a view to expand/collapse
-* Actions in views and sections
-* Actions for items in the tree
+All elements in the workbench support tab navigation, but to not have too many tab stops in the workbench toolbars and tab lists occupy only one tab stop. Once the focus is on a toolbar or a tab list you can use the arrow keys to navigate inside them.
 
 ## Tab trapping
 
