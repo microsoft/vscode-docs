@@ -65,9 +65,9 @@ There are two extensions in this section, one for [Atom](https://marketplace.vis
 
 These extensions are in preview because we want your feedback. There are still many shortcuts to include and it is easy for you to add any we may have missed.
 
-1. Go to the extension's GitHub repository ([Atom](https://github.com/waderyan/vscode-atom-keybindings) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings)).
-2. Open the `package.json` file ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json)).
-3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
+1. Go to the extension's GitHub repository ([Atom](https://github.com/microsoft/vscode-atom-keybindings) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings)).
+2. Open the `package.json` file ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/master/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json)).
+3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
 4. Open a pull request.
 
 ```json

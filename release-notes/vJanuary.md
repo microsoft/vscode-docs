@@ -362,7 +362,7 @@ More examples can be found in these debug adapter projects on GitHub:
 * [Microsoft/vscode-mock-debug](https://github.com/microsoft/vscode-mock-debug)
 * [Microsoft/vscode-mono-debug](https://github.com/microsoft/vscode-mono-debug)
 
-You can see the Promise-based API in [DebugClient.ts](https://github.com/microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
+You can see an initial set of tests in [adapter.test.ts](https://github.com/microsoft/vscode-node-debug/blob/main/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
 
 ### JSON mode is now an extension
 
