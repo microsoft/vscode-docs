@@ -114,6 +114,51 @@ The following examples customize editor settings for language modes `typescript`
 
 You can use IntelliSense in `settings.json` to help you find allowed language-based settings. All editor settings and some non-editor settings are supported. Some languages have default language-specific settings already set, which you can review in `defaultSettings.json` opened with the **Preferences: Open Default Settings** command.
 
+## Settings precedence
+
+Configurations can be overridden at multiple levels by the different setting scopes:
+
+* User settings - Apply globally to all VS Code instances.
+* Workspace setting - Apply to the open folder or workspace and override User settings.
+* Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editor/multi-root-workspaces.md). Override User and Workspace settings.
+
+Setting values can be of various types:
+
+* String - `"files.autoSave": "afterDelay"`
+* Boolean - `"editor.minimap.enabled": true`
+* Number - `"files.autoSaveDelay": 1000"`
+* Array - `"editor.rulers": []`
+* Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`,
+
+Values with primitive types and Array type are overridden but those with Object type are merged. For example, `workbench.colorCustomizations` takes an Object that specifies a group of UI elements and their desired colors.
+
+If your user settings set the editor backgrounds to blue and green:
+
+```json
+  "workbench.colorCustomizations": {
+    "editor.background": "#000088",
+    "editor.selectionBackground": "#008800"
+  }
+```
+
+And your open workspace settings set the editor foreground to red:
+
+```json
+  "workbench.colorCustomizations": {
+    "editor.foreground": "#880000"
+  }
+```
+
+The result, when that workspace is open, is the combination of those two color customizations, as if you had specified:
+
+```json
+  "workbench.colorCustomizations": {
+    "editor.background": "#000088",
+    "editor.selectionBackground": "#008800",
+    "editor.foreground": "#880000"
+  }
+```
+
 ## Settings and security
 
 Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
