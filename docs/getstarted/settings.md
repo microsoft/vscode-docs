@@ -145,7 +145,8 @@ And your open workspace settings set the editor foreground to red:
 
 ```json
   "workbench.colorCustomizations": {
-    "editor.foreground": "#880000"
+    "editor.foreground": "#880000",
+    "editor.selectionBackground": "#00FF00"
   }
 ```
 
@@ -154,10 +155,12 @@ The result, when that workspace is open, is the combination of those two color c
 ```json
   "workbench.colorCustomizations": {
     "editor.background": "#000088",
-    "editor.selectionBackground": "#008800",
+    "editor.selectionBackground": "#00FF00",
     "editor.foreground": "#880000"
   }
 ```
+
+If there are conflicting values, such as `editor.selectionBackground` in the example above, the usual override behavior occurs with workspace values taking precedence over user values.
 
 ## Settings and security
 
