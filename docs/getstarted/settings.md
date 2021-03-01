@@ -126,9 +126,9 @@ Setting values can be of various types:
 
 * String - `"files.autoSave": "afterDelay"`
 * Boolean - `"editor.minimap.enabled": true`
-* Number - `"files.autoSaveDelay": 1000"`
+* Number - `"files.autoSaveDelay": 1000`
 * Array - `"editor.rulers": []`
-* Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`,
+* Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
 
 Values with primitive types and Array type are overridden but those with Object type are merged. For example, `workbench.colorCustomizations` takes an Object that specifies a group of UI elements and their desired colors.
 
