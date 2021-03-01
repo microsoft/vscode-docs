@@ -848,6 +848,26 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `charts.green`: Color for green elements in charts.
 - `charts.purple`: Color for purple elements in charts.
 
+## Testing Colors
+
+
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
+- `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.peekBorder`: Color of the peek view borders and arrow.
+- `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
+- `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
+- `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
+- `testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
+- `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
+- `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+- `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
+- `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
+
 ## Extension colors
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
