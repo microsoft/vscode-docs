@@ -75,7 +75,7 @@ Start your journey using Visual Studio Code with this set of introductory videos
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/intellisense">
-			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
+			<img src="/assets/docs/getstarted/introvideos/productivity-features.png" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">IntelliSense</h2>
 				<p class="description">Learn how to set up IntelliSense and receive intelligent code completions.</p>
