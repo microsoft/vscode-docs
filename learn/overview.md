@@ -41,4 +41,4 @@ If you want to try a project in data science or data visualization, you can use 
 
 Want to join a global community of fellow educators and VS Code team members to learn more about best practices, cool extensions, tips and tricks?
 
-<a class="tutorial-install-extension-btn join-edu-community-btn" href="https://forms.office.com/r/22c2hL60uW">Join the community!</a>
+<a class="join-edu-community-btn" href="https://forms.office.com/r/22c2hL60uW">Join the community!</a>
