@@ -101,9 +101,5 @@ Additionally, there are many extensions in the Marketplace which add useful keyb
 
 Not finding an extension that meets your needs. You can make your own with JavaScript or TypeScript! Check out the [documentation](/docs/extensions/overview.md) to learn more.
 
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
-
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
