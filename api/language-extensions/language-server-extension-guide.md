@@ -543,10 +543,6 @@ For **lsp-sample**, you can set this setting: `"languageServerExample.trace.serv
 
 ![LSP Log](images/language-server-extension-guide/lsp-log.png)
 
-As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the [Language Server Protocol Inspector](https://github.com/microsoft/language-server-protocol-inspector) at [https://microsoft.github.io/language-server-protocol/inspector](https://microsoft.github.io/language-server-protocol/inspector).
-
-![LSP Inspector](images/language-server-extension-guide/lsp-inspector.png)
-
 ### Using Configuration Settings in the Server
 
 When writing the client part of the extension, we already defined a setting to control the maximum numbers of problems reported. We also wrote code on the server side to read these settings from the client:
