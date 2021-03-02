@@ -38,7 +38,7 @@ The extensions he likes to have installed:
 * [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - share API designs as .http files and simplify manual API testing within VS Code
 * [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Vue.js framework support for syntax highlighting, code completion, and more
 
-These extensions are also part of the [Node.js and JavaScript Education Extension Pack](#) below!
+These extensions are also part of the Node.js and JavaScript Education Extension Pack below!
 
 
 And here are his settings, which you can use by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
