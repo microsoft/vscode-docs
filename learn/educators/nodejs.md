@@ -9,16 +9,14 @@ MetaDescription: Node.js and JavaScript in Visual Studio Code
 ---
 
 # Node.js and JavaScript in Visual Studio Code
-TODO
-Visual Studio Code is a free code editor that fully supports Python and useful features such as real-time collaboration. It's highly customizable to support your classroom the way you like to teach.
 
-> "Visual Studio Code is the best balance of authenticity and accessibility... Visual Studio Code doesn't feel 'fake', it's what real software developers use. Plus, Visual Studio Code works on every OS!" - Professor Zachary Dodds from Harvey Mudd College
+Visual Studio Code the most popular free code editor amongst JavaScript developers around the world according to the [State of JS 2020 survey](https://2020.stateofjs.com/en-US/other-tools/#text_editors). It is super customizable and has a rich ecosystem of extensions to help your students learn node.js and JavaScript.
 
-Read below for recommendations for extensions, settings, and links to free lessons that you can use in your classes.
+Read below for recommendations for extensions, settings, and a link to a free lesson that you can use in your classes.
 
 ## Intro to Web Development at Naresuan University
 
-[Charles Allen](https://th.linkedin.com/in/ajahncharles) is a lecturer at [Naresuan University](https://www.nu.ac.th/) in Thailand and teaches several Computer Science and Business courses. He teaches a project-based Web Development course where students build a TypeScript app using the Vue.js framework and Firebase.
+[Charles Allen](https://th.linkedin.com/in/ajahncharles) is a lecturer at [Naresuan University](https://www.nu.ac.th/) in Thailand, where he teaches several Computer Science and Business courses. He teaches a project-based Web Development course where students build a TypeScript app using the Vue.js framework and Firebase.
 
 ### Why Visual Studio Code?
 
@@ -30,24 +28,24 @@ In 2019, [StackOverFlow found VS Code to be the most popular editor](https://ins
 
 ### Portable setup
 
-VS Code is great for Charles because the lab machines on which students work get wiped everyday per school policy. But since VS Code has a [portable mode](/docs/editor/portable), which stores all its app data in one spot to run from a single directory, he can quickly add his configured VS Code to every lab machine. To do this, he gives their IT technician an image (a template for setting up an environment) which has a portable version of VS Code with extensions and settings configured, and an install script for npm and some node libraries.
+VS Code is great for Charles because it has a [portable mode](/docs/editor/portable), which stores all of its app data in one spot. He prepares a single “image”, [available on GitHub](https://github.com/AjahnCharles/lab-image-win), containing his favorite extensions, settings, and cached versions of some libraries. This can be quickly copied to every lab machine without needing to run installers, download additional files, or manually configure each machine.
 
 ### Classroom settings
 
 The extensions he likes to have installed:
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - his favorite! for auto-formatting and linting to help his students find and fix errors in their JavaScript code before running their code
-* [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) - smarter auto-completions that are AI driven to help his students get full code snippet suggestions
-* [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - for quick manual testing of server calls all within VS Code
-* [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Vue.js framework support for syntax highlighting, code completion suggestions and more
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - his favorite! auto-formatting keeps students focused on program logic and linting helps them quickly find, understand, and fix errors in their JavaScript code
+* [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) - longer AI-driven code-snippets helps non-native English speakers avoid code-breaking typos and reduces the impact of slow typing
+* [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - share API designs as .http files and simplify manual API testing within VS Code
+* [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Vue.js framework support for syntax highlighting, code completion, and more
 
-These extensions are also part of the Node.js and JS Education Pack below. TODO
+These extensions are also part of the [Node.js and JavaScript Education Extension Pack](#) below!
 
 
 And here are his settings, which you can use by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
 
 ```json
 {
-    // Environment
+    // Formatting & Linting
     "workbench.startupEditor": "newUntitledFile",
 
     // Formatting & Linting
@@ -58,16 +56,16 @@ And here are his settings, which you can use by editing the [settings file](/doc
     "eslint.format.enable": true,
     "eslint.workingDirectories": [{ "mode": "auto" }], // important for mono-repo projects
     "files.autoSave": "onFocusChange", // hero
-    "prettier.endOfLine": "auto",
-    "prettier.semi": false, << alignment with ESLint Standard
-    "prettier.singleQuote": true, << alignment with ESLint Standard
-    "prettier.trailingComma": "none", << alignment with ESLint Standard
+    "prettier.endOfLine": "auto", // cross-platform
+    "prettier.semi": false, // align with ESLint Standard
+    "prettier.singleQuote": true, // align with ESLint Standard
+    "prettier.trailingComma": "none", // align with ESLint Standard
     "tabnine.experimentalAutoImports": true,
 
     // Language-Specific
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": false, // alignment with ESLint Standard
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": false, // align with ESLint Standard
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.format.insertSpaceBeforeFunctionParenthesis": false, // alignment with ESLint Standard
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": false, // align with ESLint Standard
     "typescript.updateImportsOnFileMove.enabled": "always",
     "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint" // preconfig ESLint
@@ -90,33 +88,37 @@ And here are his settings, which you can use by editing the [settings file](/doc
     "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
     },
     "vetur.format.options.tabSize": 2,
     "vetur.format.options.useTabs": false,
     "vetur.format.defaultFormatter.html": "prettier",
-    "vetur.format.defaultFormatter.js": "prettier", // for consistency with TS option
-    "vetur.format.defaultFormatter.ts": "prettier"
+    "vetur.format.defaultFormatter.js": "vscode-typescript", // for consistency with TS option
+    "vetur.format.defaultFormatter.ts": "vscode-typescript"
 }
 ```
 
-Thank you Charles for sharing your experiences and favorite VS Code settings! If you're interested in using VS Code for your Node.js web development classes, you can get started with the Node.js JS Education Pack which contains Charles' favorite extensions, extensions for real-time collaboration, and more!
+Thank you Charles for sharing your experiences and favorite VS Code settings! If you're interested in using VS Code for your Node.js web development classes, you can get started with the Node.js and JavaScript Education Pack which contains Charles' favorite extensions, extensions for real-time collaboration, and more!
 
-## Python Extension Pack
-TODO
-Unsure which extensions to recommend to your students? You can point your students to the [Python Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack) that contains essential and helpful extensions for the classroom. You can download the extension pack from the VS Code Marketplace:
+## Node.js and JavaScript Extension Pack
 
-![Python Education Extension Pack](images/python/python-extension-pack.png)
+Unsure which extensions to recommend to your students? You can point your students to the [Node.js and JavaScript Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack) that contains essential and helpful extensions for the classroom. You can download the extension pack from the VS Code Marketplace:
+
+![Node.js and JavaScript Education Extension Pack](images/nodejs/node-js-extension-pack.png)
 
 The extension pack contains:
 
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for basic Python functionality like compiling, debugging support, linting, Jupyter Notebooks, unit tests, and more.
+* [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) and [npm IntelliSense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) for verifying status of npm packages(installed or not) and auto-completions
+* [ES Lint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) for basic JavaScript, TypeScript, and Vue.js functionality like auto-completions, linting, error highlighting before compiling.
 * [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to enable real-time collaboration and [Live Share Audio](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio) to enable audio calls as well.
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (for example, to access lab machines) through SSH with full VS Code functionality.
-* [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) for full LaTeX support in Markdown.
-* [Python Test Explorer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=LittleFoxTeam.vscode-python-test-adapter) to visualize and run Python tests in the side bar.
+* [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to run REST Calls within VS Code for quick manual testing
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) to run snippets (selected code) and single files of any code with a single click.
+* and more!
 
 ## Free lesson: Build a Node.js app for Azure Cosmos DB
 
