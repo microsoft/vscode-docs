@@ -36,3 +36,9 @@ Use the built-in source control to save your work over time so you don't lose pr
 ### Code inside Notebooks
 
 If you want to try a project in data science or data visualization, you can use Jupyter notebooks inside VS Code. Run your code step-by-step, and visualize and interact with your data, variables, graphs, and plots. Check out this [tutorial on how to work with Jupyter Notebooks inside VS Code](/docs/python/jupyter-support.md).
+
+## Educator Community
+
+Want to join a global community of fellow educators and VS Code team members to learn more about best practices, cool extensions, tips and tricks?
+
+<a class="tutorial-install-extension-btn join-edu-community-btn" href="https://forms.office.com/r/22c2hL60uW">Join the community!</a>
