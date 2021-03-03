@@ -78,12 +78,5 @@ Want to make your own snippet pack? See the documentation for [how to create a s
 
 > **Tip:** You can search for extensions by category or tag in the Extensions view search box, using "category:{category name}" or "tag:{tag name}".
 
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter!](https://twitter.com/waderyan_).
-
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)
-
-
-

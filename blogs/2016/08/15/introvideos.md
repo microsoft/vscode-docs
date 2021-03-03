@@ -28,7 +28,5 @@ Below is the first video covering downloading, installing, and the basics of usi
 
 You can see the video outline [here](/docs/introvideos/basics.md) as well as additional introductory learning resources.
 
-We want your feedback. What other videos would you like to see? Leave feedback in [this survey](https://www.surveymonkey.com/r/H9W7K8J) or ping me on [Twitter](https://twitter.com/waderyan_).
-
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
