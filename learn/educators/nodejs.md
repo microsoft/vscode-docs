@@ -43,9 +43,7 @@ And here are his settings, which help his students have a consistent formatting 
 
 ```json
 {
-    "workbench.startupEditor": "newUntitledFile",
-
-    // Formatting
+    // Formatting and linting
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true, // hero!
     "editor.tabCompletion": "on",
