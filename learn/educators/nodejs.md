@@ -20,11 +20,9 @@ Read below for recommendations for extensions, settings, and a link to a free le
 
 ### Why Visual Studio Code?
 
-Charles has been using Visual Studio Code to teach for the past 4 years since he inherited the class. In his own words:
+Charles has been using Visual Studio Code to teach for the past 4 years. In his own words:
 
 > "The more realistic the learning environment, the more comprehensive the education. I am not just teaching code; I'm also teaching the tools, tactics, and teamwork my students will need to start building for themselves. VS Code is the first choice of web professionals, so it’s the first choice for my class!"
-
-In 2019, [StackOverFlow found VS Code to be the most popular editor](https://insights.stackoverflow.com/survey/2019#development-environments-and-tools) amongst their community.
 
 ### Portable setup
 
@@ -33,22 +31,21 @@ VS Code is great for Charles because it has a [portable mode](/docs/editor/porta
 ### Classroom settings
 
 The extensions he likes to have installed:
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - his favorite! auto-formatting keeps students focused on program logic and linting helps them quickly find, understand, and fix errors in their JavaScript code
-* [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) - longer AI-driven code-snippets helps non-native English speakers avoid code-breaking typos and reduces the impact of slow typing
-* [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - share API designs as .http files and simplify manual API testing within VS Code
-* [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Vue.js framework support for syntax highlighting, code completion, and more
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - his favorite! Auto-formatting keeps students focused on program logic and linting helps them quickly find, understand, and fix errors in their JavaScript code.
+* [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) - longer AI-driven code-snippets helps non-native English speakers avoid code-breaking typos and reduces the impact of slow typing.
+* [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - share API designs as .http files and simplify manual API testing within VS Code.
+* [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Vue.js framework support for syntax highlighting, code completion, and more! This helps students focus on their Vue.js code rather than getting stuck solving syntactical errors.
 
 These extensions are also part of the Node.js and JavaScript Education Extension Pack below!
 
 
-And here are his settings, which you can use by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
+And here are his settings, which help his students have a consistent formatting of their code. You can use his settings by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
 
 ```json
 {
-    // Formatting & Linting
     "workbench.startupEditor": "newUntitledFile",
 
-    // Formatting & Linting
+    // Formatting
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true, // hero!
     "editor.tabCompletion": "on",
@@ -124,4 +121,4 @@ The extension pack contains:
 
 Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js. View full details of the lessons on [Microsoft Learn: Build a Node.js app for Azure Cosmos DB](https://docs.microsoft.com/learn/modules/build-node-cosmos-app-vscode/).
 
-![NASA-inspired Python lessons](images/nodejs/learn-build-node-app.png)
+![Build a Node.js app for Azure Cosmos DB](images/nodejs/learn-build-node-app.png)
