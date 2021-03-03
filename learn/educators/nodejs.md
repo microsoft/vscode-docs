@@ -39,7 +39,7 @@ The extensions he likes to have installed:
 These extensions are also part of the Node.js and JavaScript Education Extension Pack below!
 
 
-And here are his settings, which help his students have a consistent formatting of their code. You can use his settings by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
+And here are his settings, which help his students have a consistent formatting of their code to make his life reviewing and grading their work much easier. You can use his settings by editing the [settings file](/docs/getstarted/settings.md) and pasting these in:
 
 ```json
 {
