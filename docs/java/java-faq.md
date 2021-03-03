@@ -19,7 +19,7 @@ Yes. All the [Java Extensions](/docs/java/extensions.md) provided by Red Hat, Mi
 
 Definitely. We use GitHub issues to track incoming requests and planned work for each of our extensions. Currently we're working on adding more refactoring and linting features to enhance the editing productivity, as well as some performance improvements to make it even faster.
 
-Most of our work is collected from and prioritized by customer feedback. If you're interested in providing your thoughts, you can either go directly to our project repositories to submit a new issue or use this [Survey Link](https://www.research.net/r/vscodejava) to share your thoughts.
+Most of our work is collected from and prioritized by customer feedback. If you're interested in providing your thoughts, you can go directly to our project repositories to submit a new issue to share your thoughts.
 
 We do have limited capacity within the team and we'd really like to encourage more contributions from the great Java community. If you're passionate about your idea and would like to help fellow Java developers, you're welcome to join us! Some areas worth considering including Gradle support, code analysis and test coverage tools, profiler, and additional framework support including DropWizard, JavaFX, JPA, Play, Akka, OSGi.
 
