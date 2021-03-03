@@ -2,7 +2,7 @@
 Area: containers
 ContentId: 1ebbceb6-ae61-4b98-953d-0b18323becc4
 PageTitle: Configure your Python containers
-DateApproved: 04/20/2020
+DateApproved: 03/03/2021
 MetaDescription: How to setup a non-root user for VS Code Docker Extension
 ---
 
