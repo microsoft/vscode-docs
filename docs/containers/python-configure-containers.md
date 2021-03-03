@@ -43,7 +43,7 @@ EXPOSE 1024
 WORKDIR /app
 ADD . /app
 
-# Switches to a non-root user and changes the ownership of the /app folder"
+# Creates a non-root user and adds permission to access the /app folder
 RUN useradd appuser && chown -R appuser /app
 USER appuser
 
@@ -136,10 +136,10 @@ Exception has occurred: PermissionError
 To solve this issue, we need to correctly add permissions to the non-root user to gain access to this specific file or directory in the container. Within your Dockerfile, add:
 
 ```dockerfile
-# Creates and switches to a non-root user appuser. Then adds permission to access /app folder
+# Creates a non-root user and adds permission to access the /app folder
 RUN useradd appuser && chown -R appuser /app
 
-# Adds permission to appuser (non-root) for access to the /extra folder
+# Adds permission for appuser (non-root) to access the /extra folder
 RUN chown -R appuser /extra
 ```
 
