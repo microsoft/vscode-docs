@@ -193,7 +193,7 @@ If you hit `kb(workbench.action.debug.start)` to start your container and it imm
       "request": "launch",
       "preLaunchTask": "docker-run: debug",
       "removeContainerAfterDebug": false, //<- add this line
-      //...
+      // ... the rest of the launch configuration
     }
     ```
 
