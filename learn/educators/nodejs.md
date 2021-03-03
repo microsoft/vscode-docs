@@ -99,13 +99,13 @@ And here are his recommended settings, which help his students have consistent f
 }
 ```
 
-Thank you Charles for sharing your experiences and favorite VS Code settings! If you're interested in using VS Code for your Node.js web development classes, you can get started with the [Node.js and JavaScript Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack) that contains Charles' favorite extensions, extensions for real-time collaboration, and more!
+Thank you Charles for sharing your experiences and favorite VS Code settings! If you're interested in using VS Code for your Node.js web development classes, you can get started with the [Node.js and JavaScript Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.node-js-education-extension-pack) that contains Charles' favorite extensions, extensions for real-time collaboration, and more!
 
 ## Node.js and JavaScript Extension Pack
 
-Unsure which extensions to recommend to your students? You can point your students to the [Node.js and JavaScript Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack) that contains essential and helpful extensions for the classroom. You can download the extension pack from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode):
+Unsure which extensions to recommend to your students? You can point your students to the [Node.js and JavaScript Education Extension Pack](https://marketplace.visualstudio.com/items?itemName=tanhakabir.node-js-education-extension-pack) that contains essential and helpful extensions for the classroom. You can download the extension pack from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode):
 
-[![Node.js and JavaScript Education Extension Pack](images/nodejs/node-js-extension-pack.png)](https://marketplace.visualstudio.com/items?itemName=tanhakabir.python-education-extension-pack)
+[![Node.js and JavaScript Education Extension Pack](images/nodejs/node-js-extension-pack.png)](https://marketplace.visualstudio.com/items?itemName=tanhakabir.node-js-education-extension-pack)
 
 The extension pack contains:
 
