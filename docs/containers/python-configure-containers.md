@@ -147,7 +147,7 @@ RUN chown -R appuser /extra
 
 ### Invalid file permission on the host (Linux)
 
-In the previous example, we showed you how to add permissions to a file or folder on the container as a non-root user. However, if you are trying to access a folder **on the host machine** from within the container as a non-root user, the user ID or group ID in the container must have access to the files on the host. To solve this issue in Linux, you may need to set file access control lists (setfacl).
+In the previous example, we showed you how to add permissions to a file or folder on the container as a non-root user. However, if you are trying to access a folder **on the host machine** from within the container as a non-root user, the user ID or group ID in the container must have access to the files on the host. To solve this issue in Linux, you might need to set file access control lists (setfacl).
 
 If you have a folder named `/share` on your host machine and try to access this folder before the access control list are properly set, you will likely receive this error:
 
