@@ -55,7 +55,7 @@ After verifying your app runs properly, you can now Dockerize your application.
 
     >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
-1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000 while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-configure-containers.md).
+1. If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000, while Flask defaults to port 5000; however, any unused port will work. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/python-configure-containers.md).
 
 1. With all of this information, the Docker extension creates the following files:
 
