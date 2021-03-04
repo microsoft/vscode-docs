@@ -143,7 +143,7 @@ RUN useradd appuser && chown -R appuser /app
 RUN chown -R appuser /extra
 ```
 
-> **Note**: This is just one example of how to add permissions in a container. There are many ways to do so and it is your responsibility give the least permission possible to specific files and folders.
+> **Note**: This is just one example of how to add permissions in a container. There are many ways to do so, and it is your responsibility give the least permission possible to specific files and folders.
 
 ### Invalid file permission on the host (Linux)
 
