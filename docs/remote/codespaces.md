@@ -5,7 +5,7 @@ TOCTitle: GitHub Codespaces
 PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 ---
 # GitHub Codespaces
 [GitHub Codespaces](https://github.com/features/codespaces) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from Visual Studio Code or in a browser-based editor.
