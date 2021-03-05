@@ -3,12 +3,12 @@ Area: containers
 ContentId: 1ebbceb6-ae61-4b98-953d-0b18323becc4
 PageTitle: Configure your Python containers
 DateApproved: 03/03/2021
-MetaDescription: How to setup a non-root user for VS Code Docker Extension
+MetaDescription: How to setup a non-root user for VS Code Docker extension
 ---
 
 # Configure your Python containers
 
-When containerizing an application for production, your goal should be to port existing code into a separate runtime environment without introducing unforeseen security concerns. For this reason, we recommend selecting the default port for **Python: Django** (8000) or **Python: Flask** (5000) when executing the **Add Dockerfiles to Workspace** command, or opting for a port **greater than** 1023. This will allow VS Code to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container, ultimately [obtaining host machine root access](https://nvd.nist.gov/vuln/detail/CVE-2019-5736). When you choose **Python: General**, there is no port selection, so the Docker extension configures non-root access by default. In all cases, you must ensure each resource (such as ports and files) modified or used by your application [can be accessed](#invalid-file-permissions) by a non-root user in your container.
+When containerizing an application for production, your goal should be to port existing code into a separate runtime environment without introducing unforeseen security concerns. For this reason, we recommend selecting the default port for **Python: Django** (8000) or **Python: Flask** (5000) when executing the **Add Dockerfiles to Workspace** command, or opting for a port **greater than** 1023. This will allow VS Code to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container, ultimately [obtaining host machine root access](https://nvd.nist.gov/vuln/detail/CVE-2019-5736). When you choose **Python: General**, there is no port selection, so the Docker extension configures non-root access by default. In all cases, you must ensure each resource (such as ports and files) modified or used by your application [can be accessed](#invalid-file-permissions-in-the-container) by a non-root user in your container.
 
 If a user selects ports less than 1024 when adding Dockerfiles to workspace, by default, **we cannot** scaffold a Dockerfile that will run the container as a non-root user. This is because ports in this range are called **well-known** or **system** ports and must execute with root privileges in order to bind a network socket to an IP address.
 
@@ -50,11 +50,11 @@ USER appuser
 CMD ["gunicorn", "--bind", "0.0.0.0:1024", "pythonPath.to.wsgi"]
 ```
 
-### Modifications to `tasks.json` for Django\Flask apps
+### Modifications to tasks.json for Django\Flask apps
 
 After choosing a non-system port and setting up the container to run as a non-root user, we must ensure the `docker run` task within `tasks.json` also expects the same port.
 
-#### Django apps
+**Django apps**
 
 ``` json
 {
@@ -75,7 +75,7 @@ After choosing a non-system port and setting up the container to run as a non-ro
 }
 ```
 
-#### Flask apps
+**Flask apps**
 
 ``` json
 {
@@ -106,7 +106,7 @@ After choosing a non-system port and setting up the container to run as a non-ro
 
 Following the guide up to this point should eliminate most configuration issues caused by running as a non-root user. However, we have compiled a non-exhaustive list of common errors you may run into.
 
-If you encounter any other problems due to running as a non-root user, **please** report the issue in the [Docker Extension repository](https://github.com/microsoft/vscode-docker/issues/new). We love your feedback!
+If you encounter any other problems due to running as a non-root user, **please** report the issue in the [Docker extension](https://github.com/microsoft/vscode-docker/issues/new) repository. We love your feedback!
 
 ### Invalid file permissions in the container
 
@@ -145,11 +145,11 @@ RUN chown -R appuser /extra
 
 > **Note**: This is just one example of how to add permissions in a container. There are many ways to do so, and it is your responsibility give the least permission possible to specific files and folders.
 
-### Invalid file permission on the host (Linux)
+### Invalid file permissions on the host (Linux)
 
 In the previous example, we showed you how to add permissions to a file or folder on the container as a non-root user. However, if you are trying to access a folder **on the host machine** from within the container as a non-root user, the user ID or group ID in the container must have access to the files on the host. To solve this issue in Linux, you might need to set file access control lists (setfacl).
 
-If you have a folder named `/share` on your host machine and try to access this folder before the access control list are properly set, you will likely receive this error:
+If you have a folder named `/share` on your host machine and try to access this folder before the access control list is properly set, you will likely receive this error:
 
 ```python
 PermissionError: [Errno 13] Permission denied: '/share/logs/log.txt'
@@ -198,19 +198,23 @@ If you hit `kb(workbench.action.debug.start)` to start your container and it imm
     ```
 
 2. Hit `kb(workbench.action.debug.start)` to run your container again.
-3. After the container exits once more, navigate to the Docker Extension, right-click the container, and select **View Logs**.
+3. After the container exits once more, navigate to the Docker extension, right-click the container, and select **View Logs**.
 
   ![User clicking view logs on their container](images/quickstarts/python-user-rights-view-logs.png)
 
 In a Django app, you may see the error:
 
-  > Error: You don't have permission to access that port.
+```bash
+Error: You don't have permission to access that port.
+```
 
 In a Flask app, you may see the error:
 
-  > self.socket.bind(self.server_address)
-  > PermissionError: [Errno 13] Permission denied
+```bash
+self.socket.bind(self.server_address)
+PermissionError: [Errno 13] Permission denied
+```
 
 The image above is a problematic configuration because a port **less than** 1024 was selected.
 
-To solve this issue, modify your Dockerfile and `tasks.json` file in the manner shown [here](#running-your-containerized-app-as-a-nonroot-user).
+To solve this issue, modify your Dockerfile and `tasks.json` file in the manner shown in the [Running your containerized app as a non-root user](#running-your-containerized-app-as-a-nonroot-user) section.
