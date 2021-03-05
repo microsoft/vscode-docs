@@ -9,6 +9,14 @@ MetaDescription: Get Started with Visual Studio Code
 Learning to code is intimidating, so set yourself up for success with a tool built for you. Visual Studio Code is a free coding editor that helps you start coding quickly.
 Use it to code in any programming language, without switching editors. Visual Studio Code has support for many languages, including Python, Java, C++, JavaScript, and more. Ready to get started? Check out these [introductory videos](https://www.youtube.com/watch?v=Uvf2FVS1F8k&list=PLj6YeMhvp2S4oEV_bT1Uk3oXfpvGW6Xqy) or check out our [coding packs for Java and Python](/learn/educators/installers.md).
 
+### Are you an educator? Join the community!
+
+Want to join a global community of fellow educators and VS Code team members to learn more about best practices, cool extensions, tips and tricks?
+
+<a class="join-edu-community-btn" href="https://forms.office.com/r/22c2hL60uW">Join the community!</a>
+
+For other resources check out the Educator Resources section to the left! You can see some best practices and free lessons for [Python](/educators/python) and [Node.js Web Development](/educators/nodejs); as well as cool extensions for the classroom like [CodeTour](/educators/codetour).
+
 ## Why VS Code?
 
 <center><img src="/assets/learn/get-started/overview/vscode2.png" alt="VS Code" aria-hidden="true" class="thumb"/></center>
@@ -37,8 +45,4 @@ Use the built-in source control to save your work over time so you don't lose pr
 
 If you want to try a project in data science or data visualization, you can use Jupyter notebooks inside VS Code. Run your code step-by-step, and visualize and interact with your data, variables, graphs, and plots. Check out this [tutorial on how to work with Jupyter Notebooks inside VS Code](/docs/python/jupyter-support.md).
 
-## Educator Community
 
-Want to join a global community of fellow educators and VS Code team members to learn more about best practices, cool extensions, tips and tricks?
-
-<a class="join-edu-community-btn" href="https://forms.office.com/r/22c2hL60uW">Join the community!</a>
