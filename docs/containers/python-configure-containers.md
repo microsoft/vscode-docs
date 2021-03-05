@@ -204,13 +204,13 @@ If you hit `kb(workbench.action.debug.start)` to start your container and it imm
 
 In a Django app, you may see the error:
 
-```bash
+```text
 Error: You don't have permission to access that port.
 ```
 
 In a Flask app, you may see the error:
 
-```bash
+```text
 self.socket.bind(self.server_address)
 PermissionError: [Errno 13] Permission denied
 ```
