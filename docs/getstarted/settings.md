@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -2496,7 +2496,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Scrolling speed multiplier when pressing `Alt`.
     "terminal.integrated.fastScrollSensitivity": 5,
-    
+
     // Controls the font family of the terminal, this defaults to `editor.fontFamily`'s value.
     "terminal.integrated.fontFamily": "",
 
