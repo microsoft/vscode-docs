@@ -71,7 +71,7 @@ When you open a workspace for the first time, the extension adds `${workspaceFol
 
 ## How do I recreate the IntelliSense database?
 
-Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C/Cpp: Reset IntelliSense Database** command.
+Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C/C++: Reset IntelliSense Database** command.
 
 ## What is the ipch folder?
 
