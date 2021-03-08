@@ -17,8 +17,6 @@ npm install -g yo generator-code
 
 The generator scaffolds a TypeScript or JavaScript project ready for development. Run the generator and fill out a few fields for a TypeScript project:
 
-small change for testing
-
 ```bash
 yo code
 
