@@ -17,13 +17,13 @@ By downloading and using Visual Studio Code, you agree to the [license terms](ht
 
 ## Installation
 
-Visual Studio Code is officially distributed via the [Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems) (previously called Raspbian) APT repository.
+Visual Studio Code is officially distributed via the [Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems) (previously called Raspbian) APT repository, in both 32-bit and 64-bit variants.
 
 You can install it by running:
 
 ```bash
 sudo apt update
-sudo apt install code # or code-insiders
+sudo apt install code
 ```
 
 ## Updates
@@ -32,7 +32,7 @@ Your Raspberry Pi should handle updating VS Code in the same way as other packag
 
 ```bash
 sudo apt update
-sudo apt upgrade code # or code-insiders
+sudo apt upgrade code
 ```
 
 You can always check when a new release is available in our [Updates](/updates) page.
