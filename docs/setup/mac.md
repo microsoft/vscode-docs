@@ -98,5 +98,3 @@ If VS Code doesn't update once it restarts, it might be set under quarantine by 
 ### Does VS Code run on Mac M1 machines?
 
 Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple M1 chip. You can install the Universal build, which includes both Intel and Apple Silicon builds, or one of the platform specific builds.
-
-![macOS ARM64 Insiders build](images/mac/arm64-insiders.png)
