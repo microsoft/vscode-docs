@@ -36,7 +36,7 @@ Open the workspace for the app you want to debug in Visual Studio Code. Open the
 
 Choose the Kubernetes service you wish to redirect to your local version.
 
-![Select the service to connect to](images/minikube/select_service.png)
+![Select the service to connect to](images/bridge-to-kubernetes-sample/select_service.png)
 
 All traffic in the Kubernetes cluster is redirected for your service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
@@ -44,25 +44,25 @@ All traffic in the Kubernetes cluster is redirected for your service to the vers
 
 After you select your service, you are prompted to enter the TCP port that your application uses to run locally.
 
-![Enter the port number](images/minikube/enter_port.png)
+![Enter the port number](images/bridge-to-kubernetes-sample/enter_port.png)
 
 Choose a debug profile that you normally use when running your application locally.
 
-![Choose the debugger launch task](images/minikube/launch_task.png)
+![Choose the debugger launch task](images/bridge-to-kubernetes-sample/launch_task.png)
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
-![Choose isolation](images/minikube/isolation.png)
+![Choose isolation](images/bridge-to-kubernetes-sample/isolation.png)
 
 Select the **Debug** icon on the left and select the newly added Kubernetes debug profile, such as **Launch via NPM with Kubernetes**, at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
 
-![Choose debug launch profile](images/minikube/debug_profile.png)
+![Choose debug launch profile](images/bridge-to-kubernetes-sample/debug_profile.png)
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
 
-![Debugging with Bridge to Kubernetes](images/minikube/debugging.png)
+![Debugging with Bridge to Kubernetes](images/bridge-to-kubernetes-sample/debugging.png)
 
 Once your development computer is connected, traffic starts redirecting to your development computer for the service you are replacing.
 
