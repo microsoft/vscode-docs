@@ -13,7 +13,7 @@ Once you have made a high-quality extension, you can publish it to the [VS Code 
 
 This topics covers:
 
-- Using [`vsce`](#vsce), the CLI tool for managing VS Code extensions
+- Using [vsce](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
 - [Registering a `publisherId`](#create-a-publisher) necessary for publishing extensions
 
@@ -254,7 +254,7 @@ You may have changed your extension ID or publisher name. You can also manage yo
 
 ### Why does vsce not preserve file attributes?
 
-Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
+Note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
 
 ### Can I publish from a continuous integration (CI) build?
 
