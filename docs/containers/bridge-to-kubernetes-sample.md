@@ -5,7 +5,7 @@ PageTitle: Use MiniKube and Bridge to Kubernetes to run and debug locally with K
 DateApproved: 10/20/2020
 MetaDescription: Learn how to use MiniKube and Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally in Visual Studio Code
 ---
-# Use Bridge to Kubernetes with MiniKube
+# Use Bridge to Kubernetes with a sample
 
 This sample illustrates how Bridge to Kubernetes can be used to develop a microservice version of a simple TODO application on any Kubernetes cluster. This sample, using Visual Studio Code, has been adapted from code provided by [TodoMVC](http://todomvc.com). In this example, we use MiniKube to host the application, but these steps should work with any Kubernetes cluster.
 
