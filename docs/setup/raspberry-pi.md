@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 5
 Area: setup
 TOCTitle: Raspberry Pi
 ContentId: E059E35A-8AD0-4D4A-9BE1-E23D45D75C1C
