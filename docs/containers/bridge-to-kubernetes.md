@@ -20,7 +20,7 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you're using MiniKube running locally and want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with MiniKube](/docs/containers/minikube.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md).
+This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with a sample](/docs/containers/bridge-to-kubernetes-sample.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md).
 
 ### Prerequisites
 

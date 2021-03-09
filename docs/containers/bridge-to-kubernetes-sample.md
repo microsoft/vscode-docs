@@ -1,9 +1,9 @@
 ---
 Area: containers
 ContentId: 6206f223-a124-41fa-a9cf-4cc12d851833
-PageTitle: Use MiniKube and Bridge to Kubernetes to run and debug locally with Kubernetes
+PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
 DateApproved: 10/20/2020
-MetaDescription: Learn how to use MiniKube and Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally in Visual Studio Code
+MetaDescription: Use a todo sample app to learn how to use Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally in Visual Studio Code
 ---
 # Use Bridge to Kubernetes with a sample
 
