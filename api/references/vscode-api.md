@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 VSCodeCommitHash: 96d03d1ecc393a047d549dc8bd13c74dc174f20a
 VSCodeVersion: 1.51.0
@@ -16,7 +16,7 @@ MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
 
 ## API namespaces and classes
 
-This listing is compiled from the [`vscode.d.ts`](https://github.com/microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
+This listing is compiled from the [`vscode.d.ts`](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts) file from the VS Code repository.
 
 ## authentication
 

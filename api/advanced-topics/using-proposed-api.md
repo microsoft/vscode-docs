@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Visual Studio Code's Proposed API
@@ -19,7 +19,7 @@ These are the steps for testing Proposed API in local extension development:
 
 - Use [Insiders](/insiders) release of VS Code.
 - Add `"enableProposedApi": true` to your `package.json`.
-- Copy the latest version of the [vscode.proposed.d.ts](https://github.com/microsoft/vscode/blob/master/src/vs/vscode.proposed.d.ts) into your project's source location.
+- Copy the latest version of the [vscode.proposed.d.ts](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.proposed.d.ts) into your project's source location.
 
 The [vscode-dts](https://github.com/microsoft/vscode-dts) CLI utility allows you to quickly download latest `vscode.proposed.d.ts` for extension development.
 
@@ -30,7 +30,7 @@ Please set "enableProposedApi": true in package.json.
 Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
 ```
 
-Here is a pre-configured sample using proposed API: [proposed-api-sample](https://github.com/microsoft/vscode-extension-samples/tree/master/proposed-api-sample).
+Here is a pre-configured sample using proposed API: [proposed-api-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/proposed-api-sample).
 
 ## Proposed API incompatibility
 

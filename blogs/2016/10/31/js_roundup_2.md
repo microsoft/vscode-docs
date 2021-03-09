@@ -47,16 +47,6 @@ To use this extension, first install it and then add the following configuration
 
 ![git project manager showcase](git_project_manager.gif)
 
-## Document This
-
-Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
-
-Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joel%20Day%22&target=VSCode)
-
-Joel Day has built an exceptionally useful extension for writing JavaScript and TypeScript docs. This extension will automatically generates detailed JSDoc comments for your code.
-
-![document this](document_this.gif)
-
 ## Beautify
 
 Marketplace - [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -75,9 +65,9 @@ There are two extensions in this section, one for [Atom](https://marketplace.vis
 
 These extensions are in preview because we want your feedback. There are still many shortcuts to include and it is easy for you to add any we may have missed.
 
-1. Go to the extension's GitHub repository ([Atom](https://github.com/waderyan/vscode-atom-keybindings) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings)).
-2. Open the `package.json` file ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json)).
-3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
+1. Go to the extension's GitHub repository ([Atom](https://github.com/microsoft/vscode-atom-keybindings) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings)).
+2. Open the `package.json` file ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/master/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json)).
+3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
 4. Open a pull request.
 
 ```json
@@ -110,10 +100,6 @@ Additionally, there are many extensions in the Marketplace which add useful keyb
 ## Creating your own JavaScript extension
 
 Not finding an extension that meets your needs. You can make your own with JavaScript or TypeScript! Check out the [documentation](/docs/extensions/overview.md) to learn more.
-
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

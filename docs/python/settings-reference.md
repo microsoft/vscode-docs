@@ -16,22 +16,22 @@ For general information about working with settings in VS Code, refer to [User a
 
 ## General settings
 
-| Setting | Default | Description |
+| Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
-| python.condaPath | `"conda"` | Path to the `conda` executable. |
-| python.pythonPath | `"python"` | Path to the Python interpreter, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. The `settings.json` file can then be included in a source code repository. |
-| python.pipenvPath | `"pipenv"` | Path to the pipenv executable to use for activation. |
-| python.disableInstallationCheck | `false` | If set to `true`, disables a warning from the extension if no Python interpreter is installed. On macOS, also disables a warning that appears if you're using the OS-installed Python interpreter. It's generally recommended to install a separate interpreter on macOS. |
-| python.venvFolders | `[]` | Paths to folders where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
-| python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file). |
-| python.globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
-| python.poetryPath | `"poetry"` | Specifies the location of the [Poetry dependency manager](https://poetry.eustace.io/) executable, if installed. The default value `"poetry"` assumes the executable is in the current path. The Python extension uses this setting to install packages when Poetry is available and there's a `poetry.lock` file in the workspace folder. |
-| python.terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
-| python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
-| python.terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
-| python.terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
-| python.logging.level| `error` | Specifies the level of logging to be performed by the extension. The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`. When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension. At the `error` level, basic information and errors will be shown. At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
-| python.insidersChannel | `off` | Specifies whether to participate in the Insiders program and the channel to use. Set to `weekly` or `daily` to automatically download and install the latest Insiders builds of the Python extension, which include upcoming features and bug fixes. |
+| condaPath | `"conda"` | Path to the `conda` executable. |
+| pythonPath | `"python"` | Path to the Python interpreter, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. The `settings.json` file can then be included in a source code repository. |
+| pipenvPath | `"pipenv"` | Path to the pipenv executable to use for activation. |
+| disableInstallationCheck | `false` | If set to `true`, disables a warning from the extension if no Python interpreter is installed. On macOS, also disables a warning that appears if you're using the OS-installed Python interpreter. It's generally recommended to install a separate interpreter on macOS. |
+| venvFolders | `[]` | Paths to folders where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
+| envFile | `"${workspaceFolder}/`<br/>`.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file). |
+| globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
+| poetryPath | `"poetry"` | Specifies the location of the [Poetry dependency manager](https://poetry.eustace.io/) executable, if installed. The default value `"poetry"` assumes the executable is in the current path. The Python extension uses this setting to install packages when Poetry is available and there's a `poetry.lock` file in the workspace folder. |
+| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**. In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
+| terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
+| terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
+| terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
+| logging.level| `error` | Specifies the level of logging to be performed by the extension. The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`. When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension. At the `error` level, basic information and errors will be shown. At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
+| insidersChannel | `off` | Specifies whether to participate in the Insiders program and the channel to use. Set to `weekly` or `daily` to automatically download and install the latest Insiders builds of the Python extension, which include upcoming features and bug fixes. |
 
 ## Workspace symbol (tags) settings
 
@@ -39,7 +39,7 @@ Workspace symbols are symbols in C source code generated by the ctags tool (desc
 
 | Setting<br/>(python.workspaceSymbols.) | Default | Description |
 | --- | --- | --- |
-| tagFilePath | `"${workspaceFolder}/.vscode/tags"` | Fully qualified path to tag file (an exuberant ctag file), used to provide workspace symbols. |
+| tagFilePath | `"${workspaceFolder}/`<br/>`.vscode/tags"` | Fully qualified path to tag file (an exuberant ctag file), used to provide workspace symbols. |
 | enabled | `true` | Specifies whether to enable the Workspace Symbol provider. |
 | rebuildOnStart | `true` | Specifies whether to rebuild the tags file on start. |
 | rebuildOnFileSave | `true` | Specifies whether to rebuild the tags file on when saving a Python file. |
@@ -50,11 +50,11 @@ Workspace symbols are symbols in C source code generated by the ctags tool (desc
 
 ### IntelliSense engine settings
 
-| Setting | Default | Description |
+| Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
-| python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
-| python.jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024 MB. -1 disables the memory limit check. |
-| python.languageServer | Jedi | Defines type of the language server ([Microsoft]((https://devblogs.microsoft.com/python/introducing-the-python-language-server)), Jedi, None). Note that the language server requires a platform that [supports .NET Core 2.1 or newer](https://docs.microsoft.com/dotnet/core/rid-catalog). |
+| jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
+| jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024 MB. -1 disables the memory limit check. |
+| languageServer | Jedi | Defines type of the language server ([Microsoft](https://devblogs.microsoft.com/python/introducing-the-python-language-server), Jedi, None). Note that the language server requires a platform that [supports .NET Core 2.1 or newer](https://docs.microsoft.com/dotnet/core/rid-catalog). |
 
 ### Python Language Server settings
 
@@ -138,7 +138,7 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | --- | --- | --- | --- |
 | pylintEnabled | `true` | Specifies whether to enable Pylint. | [Linting](/docs/python/linting.md) |
 | pylintArgs | `[]` | Additional arguments for Pylint, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| python.linting.pylintUseMinimalCheckers | `true` | Specifies whether to use the default value for pylintArgs. | [Linting](/docs/python/linting.md) |
+| pylintUseMinimalCheckers | `true` | Specifies whether to use the default value for pylintArgs. | [Linting](/docs/python/linting.md) |
 | pylintPath | `"pylint"` | The path to Pylint. | [Linting](/docs/python/linting.md) |
 | pylintCategorySeverity.convention | `"Information"` | Mapping for Pylint convention message to VS Code type. | [Linting](/docs/python/linting.md) |
 | pylintCategorySeverity.refactor | `"Hint"` | Mapping for Pylint refactor message to VS Code type. | [Linting](/docs/python/linting.md) |

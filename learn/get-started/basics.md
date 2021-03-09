@@ -13,6 +13,8 @@ In this video, we walk you through setting up Visual Studio Code and give an ove
 
 <iframe src="https://www.youtube-nocookie.com/embed/ITxcbrfEcIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Next video: [Extensions for Visual Studio Code](/learn/get-started/extensions.md)
+
 ## Outline
 
 * Download and install VS Code.
@@ -23,11 +25,11 @@ In this video, we walk you through setting up Visual Studio Code and give an ove
 * Customize your editor with themes.
 * Explore VS Code features in the **Interactive Editor Playground**.
 
+## Next video
+
+* [Extensions for Visual Studio Code](/learn/get-started/extensions.md) - Add features to VS Code through extensions.
+
 ## Learn more
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform-specific setup.
-
-## Next video
-
-* [Extensions in Visual Studio Code](/learn/get-started/extensions.md) - Add features to VS Code through extensions.

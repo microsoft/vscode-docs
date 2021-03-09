@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
 PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
@@ -111,7 +111,7 @@ Having the generated JavaScript file in the same folder as the TypeScript source
 }
 ```
 
-Delete `helloworld.js` and rerun the command `tsc`. You will see that `helloworld.js` is now placed in the `out` directory.
+Delete `helloworld.js` and run the command `tsc` with no options. You will see that `helloworld.js` is now placed in the `out` directory.
 
 See [Compiling TypeScript](/docs/typescript/typescript-compiling.md) to learn about other features of the TypeScript language service and how to use tasks to run your builds directly from VS Code.
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -847,6 +847,26 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `charts.orange`: Color for orange elements in charts.
 - `charts.green`: Color for green elements in charts.
 - `charts.purple`: Color for purple elements in charts.
+
+## Testing Colors
+
+
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
+- `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.peekBorder`: Color of the peek view borders and arrow.
+- `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
+- `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
+- `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
+- `testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
+- `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
+- `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+- `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
+- `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
 ## Extension colors
 

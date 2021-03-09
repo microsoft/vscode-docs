@@ -163,7 +163,7 @@ For Node.js services, you can use code similar to the following, taken from the 
 
  First, retry the activation using the button. If it repeatedly does not succeed, see [https://github.com/microsoft/mindaro/issues/32](https://github.com/microsoft/mindaro/issues/32).
 
-When you are using Bridge to Kubernetes in a remote SSH session, if EndpointManager fails, the issue might be that Bridge to Kubernetes cannot modify the hosts file due to a permissions issue. To enable remote SSH or running as non-elevated user, you should update your code to use Kubernetes service environment variables, and configure VS Code to use them, as described [here](kubernetes-env-vars.md).
+When you are using Bridge to Kubernetes in a remote SSH session, if EndpointManager fails, the issue might be that Bridge to Kubernetes cannot modify the hosts file due to a permissions issue. To enable remote SSH or running as non-elevated user, you should update your code to use Kubernetes service environment variables, and configure VS Code to use them, as described in the [Service environment variables](/docs/containers/kubernetes-env-vars.md) topic.
 
 ## Next steps
 

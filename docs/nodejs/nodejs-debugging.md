@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -104,7 +104,7 @@ If you'd like to watch an introductory video, see [Getting started with Node.js 
 
 Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) article.
 
-Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/master/OPTIONS.md) documentation.
+Below is a reference of common `launch.json` attributes specific to the Node.js debugger. You can view the complete set of options in the [vscode-js-debug options](https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md) documentation.
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
@@ -440,6 +440,10 @@ Here are some things to try when your breakpoints turn gray:
 
 ## Remote debugging
 
+> **Note:** VS Code now has universal [remote development capabilities](/docs/remote/remote-overview.md). Using the [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions, Node.js development in remote scenarios and containers is no different than Node.js development in a local setup. **This is the recommended way to remote debug Node.js programs**. Check out the [Getting started](/docs/remote/remote-overview.md#getting-started) section and [Remote tutorials](/docs/remote/remote-overview.md#remote-tutorials) to learn more.
+
+If you are unable to use any of the Remote Development extensions to debug your Node.js program, below is a guide on how to debug a remote Node.js program from your local instance of VS Code.
+
 The Node.js debugger supports remote debugging where you attach to a process running on a different machine, or in a container. Specify a remote host via the `address` attribute. For example:
 
 ```json
@@ -465,12 +469,6 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
     "remoteRoot": "C:\\Users\\username\\project\\server"
 }
 ```
-
-Two frequently used applications of remote debugging are:
-
-* **debugging Node.js in a Docker container:**
-
-  If you are running Node.js inside a [Docker](https://www.docker.com) container, you can use the approach from above to debug Node.js inside the Docker container and map back the remote source to files in your workspace. We have created a "recipe" on [GitHub](https://github.com/microsoft/vscode-recipes) that walks you through on how to set this up [Node.js in Docker with TypeScript](https://github.com/microsoft/vscode-recipes/tree/master/Docker-TypeScript).
 
 ## Access Loaded Scripts
 

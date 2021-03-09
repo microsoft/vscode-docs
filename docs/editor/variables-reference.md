@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -110,7 +110,7 @@ Command variables are already powerful but they lack a mechanism to configure th
 
 This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
 
-The following example shows the overall structure of a `task.json` that makes use of input variables:
+The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
 ```json
 {

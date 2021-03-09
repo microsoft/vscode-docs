@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -307,4 +307,4 @@ If you'd like to learn more about VS Code extensibility, try these topics:
 - [Extension API](/api) - Learn about the full VS Code Extension API.
 - [Extension Capabilities](/api/extension-capabilities/overview) - Take a look at other ways to extend VS Code.
 
-[sample]: https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-sample
+[sample]: https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample

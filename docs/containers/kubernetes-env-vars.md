@@ -27,7 +27,7 @@ The following table shows the Kubernetes service environment variables that are 
 | *servicename*\_PORT_*portnumber*_*protocol*_PORT | 6379 | The port number for TCP. |
 | *servicename*\_PORT_*portnumber*_*protocol*_ADDR | 10.0.0.11 | The IP address for TCP. |
 
-So if the service is named web-api, the variables are WEB_API_SERVICE_HOST and WEB_API_SERVICE_PORT, and so on. The default environment variables created by Kubernetes are described in the Kubernetes documentation [here](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables). For information about the supported protocols, see [Supported protocols](https://kubernetes.io/docs/concepts/services-networking/service/#protocol-support).
+So if the service is named web-api, the variables are WEB_API_SERVICE_HOST and WEB_API_SERVICE_PORT, and so on. The default environment variables created by Kubernetes are described in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables). For information about the supported protocols, see [Supported protocols](https://kubernetes.io/docs/concepts/services-networking/service/#protocol-support).
 
 ## Environment variables in source code
 
@@ -72,7 +72,7 @@ An example in Node.js looks like this:
     });
 ```
 
-To update your code to use the environment variables, look for any occurrences of the hostname and update to use the value obtained from the environment variable *servicename*_SERVICE_HOST. 
+To update your code to use the environment variables, look for any occurrences of the hostname and update to use the value obtained from the environment variable *servicename*_SERVICE_HOST.
 
 Even if you usually don't specify the port used by the target service when calling it, you will need to use the *servicename*_SERVICE_PORT environment variable. Specifying the port allows Bridge to Kubernetes to avoid the conflicts happening when a specific port isn't available on the development machine. You don't need to change the port on which your service listens for this to work: you just need to make sure that when your service calls other services, it calls them using both the *servicename*_SERVICE_HOST and *servicename*_SERVICE_PORT environment variables.
 
@@ -100,4 +100,4 @@ The setting is only needed if you are running VS Code as a normal user, or if yo
 
 ## Next steps
 
-Read more about Bridge to Kubernetes configuration at [How to configure Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/containers/configure-bridge-to-kubernetes.md).
+Read more about Bridge to Kubernetes configuration at [How to configure Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/containers/configure-bridge-to-kubernetes).

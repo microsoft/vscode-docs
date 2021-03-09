@@ -144,7 +144,7 @@ When previewing HTML files with the `vscode.previewHtml` command, links are now 
 
 If you have your own JSON files and want to improve the editing experience, you can associate JSON schemas to your files. The schemas associations will be picked up by the JSON language support that ships with VS Code and you will get validations, completions and hovers for free. The schema association can be done either [by a user configuration](https://code.visualstudio.com/docs/languages/json#_json-schemas-settings) or [by an extension point](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesjsonvalidation).
 
-In some cases, you want more control, for example, you may want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression. To implement your own completion, validation, and hover support, you can use the regular VS Code APIs. To make this easier, we moved our JSON scanner and parsers to a node-module, [jsonc-parser](https://www.npmjs.com/package/jsonc-parser), that you can reuse. You can see this module in action with the dependency completion support for `package.json` and `bower.json` that is now part of the [JavaScript extension]( https://github.com/microsoft/vscode/tree/master/extensions/javascript) and for `project.json` soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
+In some cases, you want more control, for example, you may want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression. To implement your own completion, validation, and hover support, you can use the regular VS Code APIs. To make this easier, we moved our JSON scanner and parsers to a node-module, [jsonc-parser](https://www.npmjs.com/package/jsonc-parser), that you can reuse. You can see this module in action with the dependency completion support for `package.json` and `bower.json` that is now part of the [JavaScript extension]( https://github.com/microsoft/vscode/tree/main/extensions/javascript) and for `project.json` soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
 
 ### 'onDebug' Activation Event
 
@@ -158,9 +158,9 @@ The source for this module lives in the GitHub repository [vscode-debugadapter-n
 
 You can find examples of how to use the module here:
 
-* [Node Debug](https://github.com/microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
+* [Node Debug](https://github.com/microsoft/vscode-node-debug/blob/main/src/tests/adapter.test.ts)
 * [Mono Debug](https://github.com/microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
-* [Mock Debug](https://github.com/microsoft/vscode-mock-debug/blob/master/src/tests/adapter.test.ts)
+* [Mock Debug](https://github.com/microsoft/vscode-mock-debug/blob/main/src/tests/adapter.test.ts)
 
 ## Electron Shell
 

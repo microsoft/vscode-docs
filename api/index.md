@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code has a rich extension API. Learn how to creat
 
 # Extension API
 
-Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/microsoft/vscode/tree/master/extensions) and use the same Extension API.
+Visual Studio Code is built with extensibility in mind. From the UI to the editing experience, almost every part of VS Code can be customized and enhanced through the Extension API. In fact, many core features of VS Code are built as [extensions](https://github.com/microsoft/vscode/tree/main/extensions) and use the same Extension API.
 
 This documentation describes:
 
@@ -38,13 +38,13 @@ If you'd like to have a more comprehensive overview of the Extension API, refer 
 
 Building a good extension can take a lot of effort. Here is what each section of the API doc can help you with:
 
-* ***Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/microsoft/vscode-extension-samples/tree/master/helloworld-sample) sample.
-* ***Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
-* ***Extension Guides** includes guides and code samples that explain specific usages of VS Code Extension API.
-* ***Language Extensions** illustrates how to add support for a programming language with guides and code samples.
-* ***Testing and Publishing** includes in-depth guides on various extension development topics, such as [testing](/api/working-with-extensions/testing-extension) and [publishing](/api/working-with-extensions/publishing-extension) extensions.
-* ***Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
-* ***References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
+* **Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample) sample.
+* **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
+* **Extension Guides** includes guides and code samples that explain specific usages of VS Code Extension API.
+* **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
+* **Testing and Publishing** includes in-depth guides on various extension development topics, such as [testing](/api/working-with-extensions/testing-extension) and [publishing](/api/working-with-extensions/publishing-extension) extensions.
+* **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).
+* **References** contains exhaustive references for the [VS Code API](/api/references/vscode-api), [Contribution Points](/api/references/contribution-points), and many other topics.
 
 ## What's new?
 

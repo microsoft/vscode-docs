@@ -1,20 +1,22 @@
 ---
 Order:
 Area: introvideos
-TOCTitle: Git Version Control
+TOCTitle: Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-PageTitle: Git version control in Visual Studio Code
-DateApproved: 8/5/2016
+PageTitle: Version control in Visual Studio Code
+DateApproved: 1/20/2021
 MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Git version control in VS Code
+# Version control in VS Code
 
-In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [Learn More](/docs/introvideos/versioncontrol.md#learn-more) section below.
+In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
 
 <iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-## Outline
+Next video: [IntelliSense](/docs/introvideos/intellisense.md)
+
+## Video outline
 
 * Create a branch
 * Change branches
@@ -23,7 +25,11 @@ In this tutorial, we will learn how to use the basics of Git version control in 
 * Commit to your local branch
 * Merge local branches
 
-## Learn more
+## Next video
+
+* [IntelliSense](/docs/introvideos/intellisense.md) - Learn how to set up IntelliSense and receive intelligent code completions.
+
+## Related resources
 
 * [Version Control](/docs/editor/versioncontrol.md) - Read more about integrated Git support.
 * [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.

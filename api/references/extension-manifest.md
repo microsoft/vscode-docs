@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -84,7 +84,7 @@ Here is a complete `package.json`
     "type": "git",
     "url": "https://github.com/microsoft/vscode-wordcount.git"
   },
-  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md"
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md"
 }
 ```
 
@@ -125,7 +125,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 ```json
 {
   "license": "SEE LICENSE IN LICENSE.txt",
-  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/master/README.md",
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"

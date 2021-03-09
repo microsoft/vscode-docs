@@ -167,7 +167,7 @@ The `problemMatcher` value selects the output parser to use for finding errors a
 
 The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to `false`, you can still build from the Terminal menu with **Terminal > Run Build Task**.
 
->**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 ### Running the build
 
@@ -229,7 +229,7 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
-Ensure that the `preLaunchTask` value matches the `label` of the build task in the `task.json` file.
+Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.
 
 ### Start a debugging session
 
@@ -332,7 +332,7 @@ VS Code is now configured to use Clang on macOS. The configuration applies to th
 
 The most common cause of errors (such as `undefined _main`, or `attempting to link with file built for unknown-unsupported file format`, and so on) occurs when `helloworld.cpp` is not the active file when you start a build or start debugging. This is because the compiler is trying to compile something that isn't source code, like your `launch.json`, `tasks.json`, or `c_cpp_properties.json` file.
 
-If you see build errors mentioning "C++11 extensions", you may not have updated your `task.json` build task to use the clang++ argument `--std=c++17`. By default, clang++ uses the C++98 standard, which doesn't support the initialization used in `helloworld.cpp`. Make sure to replace the entire contents of your `task.json` file with the code block provided in the [Build helloworld.cpp](#build-helloworldcpp) section.
+If you see build errors mentioning "C++11 extensions", you may not have updated your `tasks.json` build task to use the clang++ argument `--std=c++17`. By default, clang++ uses the C++98 standard, which doesn't support the initialization used in `helloworld.cpp`. Make sure to replace the entire contents of your `tasks.json` file with the code block provided in the [Build helloworld.cpp](#build-helloworldcpp) section.
 
 ### Terminal won't launch For input
 

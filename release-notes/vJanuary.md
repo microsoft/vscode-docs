@@ -252,7 +252,7 @@ For VS Code Mono debugging support, we've added an `externalConsole` attribute, 
 
 ### API Consumption
 
-When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language service to provide you with rich validation and IntelliSense while you develop your extension.
+When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language service to provide you with rich validation and IntelliSense while you develop your extension.
 
 As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts` file within the `vscode` npm module that all extensions automatically depend on. So to update to our latest API, you would just install a newer version of the `vscode` npm module in your extension by typing `npm update vscode`.
 
@@ -362,7 +362,7 @@ More examples can be found in these debug adapter projects on GitHub:
 * [Microsoft/vscode-mock-debug](https://github.com/microsoft/vscode-mock-debug)
 * [Microsoft/vscode-mono-debug](https://github.com/microsoft/vscode-mono-debug)
 
-You can see the Promise-based API in [DebugClient.ts](https://github.com/microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
+You can see an initial set of tests in [adapter.test.ts](https://github.com/microsoft/vscode-node-debug/blob/main/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
 
 ### JSON mode is now an extension
 

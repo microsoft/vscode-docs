@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -12,6 +12,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 ## Installation
 
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
+
+By downloading and using Visual Studio Code, you agree to the [license terms](https://code.visualstudio.com/license) and [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409).
 
 ### Snap
 
@@ -104,7 +106,7 @@ sudo zypper install code
 
 ### AUR package for Arch Linux
 
-There is a community maintained [Arch User Repository package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
+There is a community-maintained [Arch User Repository package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
 
 To get more information about the installation from the AUR, please consult the following wiki entry:
 [Install AUR Packages](https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package).
@@ -119,7 +121,7 @@ nix-env -i vscode
 
 ### Installing .rpm package manually
 
-The [VS Code .rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
+The [VS Code .rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however, auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
 
 ```bash
 sudo dnf install <file>.rpm
@@ -137,7 +139,7 @@ VS Code ships monthly and you can see when a new release is available by checkin
 
 Node.js is a popular platform and runtime for easily building and running JavaScript applications. It also includes [npm](https://www.npmjs.com/), a Package Manager for Node.js modules. You'll see Node.js and npm mentioned frequently in our documentation and some optional VS Code tooling requires Node.js (for example, the VS Code [extension generator](/api/get-started/your-first-extension.md)).
 
-If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution. You can also install and support multi version of Node.js by using the [Node Version Manager](https://github.com/creationix/nvm).
+If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution. You can also install and support multiple versions of Node.js by using the [Node Version Manager](https://github.com/creationix/nvm).
 
 To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md), where you'll learn about running and debugging Node.js applications with VS Code.
 
@@ -167,7 +169,7 @@ sudo update-alternatives --install editor /usr/bin/editor $(which code)
 
 ## Windows as a Linux developer machine
 
-Another option for Linux development with VS Code is use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
+Another option for Linux development with VS Code is to use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
 
 ### Windows Subsystem for Linux
 

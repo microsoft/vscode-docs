@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 26f0c0d6-1ea8-4cc1-bd10-9fa744056e7c
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
@@ -71,7 +71,7 @@ const config = {
 module.exports = config;
 ```
 
-The file is [available](https://github.com/microsoft/vscode-extension-samples/blob/master/webpack-sample/webpack.config.js) as part of the [webpack-extension](https://github.com/microsoft/vscode-extension-samples/blob/master/webpack-sample) sample. Webpack configuration files are normal JavaScript modules that must export a configuration object.
+The file is [available](https://github.com/microsoft/vscode-extension-samples/blob/main/webpack-sample/webpack.config.js) as part of the [webpack-extension](https://github.com/microsoft/vscode-extension-samples/blob/main/webpack-sample) sample. Webpack configuration files are normal JavaScript modules that must export a configuration object.
 
 In the sample above, the following are defined:
 

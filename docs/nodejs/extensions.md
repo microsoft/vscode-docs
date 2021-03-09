@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/4/2021
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -78,12 +78,4 @@ Prefer to debug using a different browser? You can find extensions for [Edge](ht
 
 ![debugger for chrome image](images/extensions/chrome_debugger.png)
 
-### Document This
 
-Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
-
-Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joel%20Day%22&target=VSCode)
-
-This extension will automatically generate detailed JSDoc comments for your code.
-
-![document this](images/extensions/document_this.gif)

@@ -113,7 +113,7 @@ Build resubmissions saw a drastic improvement, since the shared agent tasks can 
 |--------------|--------|-------|--------------|
 | macOS        | 68s     | 34s    | 50%          |
 
-In total, we were thrilled to see a combined ~50% reduction in VS Code’s CI build times! The best news is that you can draw inspiration from [our build definitions](https://github.com/microsoft/vscode/tree/master/build/azure-pipelines) to realize build time improvements of your own.
+In total, we were thrilled to see a combined ~50% reduction in VS Code’s CI build times! The best news is that you can draw inspiration from [our build definitions](https://github.com/microsoft/vscode/tree/main/build/azure-pipelines) to realize build time improvements of your own.
 
 Happy Caching,
 

@@ -121,7 +121,7 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 ### View Containers
 
-[View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style. A View Container can display a badge count when needing to surface information to the user.
+[View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style.
 
 ![View Container](images/guidelines/view-container.png)
 
@@ -166,7 +166,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 * Only use webviews when absolutely necessary
 * Activate your extension only when contextually appropriate
 * Open webviews only for the active window
-* Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/master/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
+* Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
 * Ensure your views follow [accessibility guidance](/docs/editor/accessibility) (color contrast, ARIA labels, keyboard navigation)
 * Use command actions in the toolbar and in the view
 
@@ -276,7 +276,6 @@ If you need to show an item that is highly visible for error purposes, you can u
 * Show only when contextually appropriate
 * Use icons from the icon library
 * Use the overflow menu for secondary actions
-* Allow users to hide via settings
 
 ❌ Don't
 

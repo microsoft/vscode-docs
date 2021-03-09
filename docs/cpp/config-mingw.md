@@ -157,7 +157,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 
 The `command` setting specifies the program to run; in this case that is g++. The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler. This task tells g++ to take the active file (`${file}`), compile it, and create an executable file in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`), resulting in `helloworld.exe` for our example.
 
->**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
@@ -229,7 +229,7 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
 
->**Note**: The `preLaunchTask` setting is used to specify task to be executed before launch. Make sure it is consistent with the `task.json` file `label` setting.
+>**Note**: The `preLaunchTask` setting is used to specify task to be executed before launch. Make sure it is consistent with the `tasks.json` file `label` setting.
 
 ### Start a debugging session
 
