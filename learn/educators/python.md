@@ -1,5 +1,9 @@
 ---
+<<<<<<< Updated upstream
 Order: 5
+=======
+Order: 4
+>>>>>>> Stashed changes
 Area: educators
 TOCTitle: Python
 ContentId: e58523d5-e243-45c2-8306-7114077d81ae

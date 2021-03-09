@@ -1,5 +1,9 @@
 ---
+<<<<<<< Updated upstream
 Order: 6
+=======
+Order: 5
+>>>>>>> Stashed changes
 Area: educators
 TOCTitle: Jupyter Notebooks
 ContentId: 93f791e7-5723-4fc7-8061-7fa355d48a4d
