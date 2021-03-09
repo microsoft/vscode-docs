@@ -465,6 +465,8 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
 
+>**Note:** Not all properties will accept variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
+
 Below is an example of a custom task configuration that passes the current opened file to the TypeScript compiler.
 
 ```json
