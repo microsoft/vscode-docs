@@ -384,6 +384,7 @@ Currently extension writers can contribute to:
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
 - [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
+- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
