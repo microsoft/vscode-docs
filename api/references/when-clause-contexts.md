@@ -165,7 +165,7 @@ Context name | True when
 ------------ | ------------
 activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
 activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
-focusedView | True when view is focused. Example: `"focusedView == myViewsExplorerID`
+focusedView | True when view is focused. Example: `"focusedView == myViewsExplorerID"`
 
 View Identifiers:
 
