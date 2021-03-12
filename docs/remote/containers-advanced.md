@@ -537,25 +537,30 @@ Once the needed CLIs are in place, you can also work with the appropriate contai
 
 See the following example dev containers definitions for additional information on a specific scenario:
 
-* [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+* [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Illustrates how to run Docker (or Moby) entirely inside a container. Provides support for bind mounting all folders inside the development container, but cannot reuse your local machine's cache.
+
+* [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker) - Also known as "Docker-outside-of-Docker", this illustrates how you can use the Docker (or Moby) CLI in your dev container to connect to your host's Docker daemon by bind mounting the Docker Unix socket. Lower overhead and can reuse your machine's cache, but has [bind mounting limitations](#mounting-host-volumes-with-docker-from-inside-a-container).
 
 * [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose) - Variation of Docker-from-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
 
-* [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
-
-Note that it is possible to actually run the Docker daemon inside a container. While using the [`docker` image](https://hub.docker.com/_/docker) as a base for your container is an easy way to do this, given [the downsides](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and performance implications, using the Docker CLI to access your local Docker host from inside a container is typically a better option.
+* [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Takes the Docker-from-Docker model and adds kubectl and Helm to illustrate how you can access a local Minikube or Docker provided Kubernetes cluster.
 
 ### Mounting host volumes with Docker from inside a container
 
-When using the Docker CLI from inside a container, the host's Docker daemon is used. This effects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
+When following the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) model, using the Docker CLI from inside a dev container will cause it to interact with a Docker daemon running in the same place. This means that you can "bind" mount anything inside the dev container into the "inner" containers you create.
 
-For example:
+For example, this will "just work":
 
 ```bash
-docker run -v /workspace/examplefile.txt:/incontainer/path busybox
+docker run -v /workspace/examplefile.txt:/incontainer/path debian
 ```
+However, if you wish to make a host folder available to this inner container, you need to [mount it](#adding-another-local-file-mount) into your dev container first.
 
-This will fail as the path on the host, outside the container isn't `/workspace/...`. To work around this issue, you can pass the host directory into the container as an environment variable as follows in `devcontainer.json`:
+With [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), the situation is reversed. Here, the Docker CLI inside the container interacts with the host's Docker daemon instead. This effects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
+
+The same example above will fail as the path on the host, outside the container isn't `/workspace/...`. In addition, some folders simply cannot be mounted because they only exist in the container. If you need to do this, you may find the Docker-in-Docker model fits your needs better.
+
+If you are opening a folder in a container, you can pass the host directory into the container as an environment variable to allow you to mount the workspace folder. (This does not, however, work if you used a volume - Docker-in-Docker is the best choice there.) To do so, add the following to `devcontainer.json`:
 
 ```json
   "remoteEnv": {
