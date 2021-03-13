@@ -554,9 +554,10 @@ For example, this will "just work":
 ```bash
 docker run -v /workspace/examplefile.txt:/incontainer/path debian
 ```
-However, if you wish to make a host folder available to this inner container, you need to [mount it](#adding-another-local-file-mount) into your dev container first.
 
-With [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), the situation is reversed. Here, the Docker CLI inside the container interacts with the host's Docker daemon instead. This <span class="x x-first x-last">affects</span> mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
+However, if you wish bind mount a host folder available into this inner container, you need to [mount it](#adding-another-local-file-mount) into your dev container first.
+
+With [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), the type of bind mounting that works by default is reversed. Here, the Docker CLI inside the container interacts with the host's Docker daemon instead. This affects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
 
 The same example above will fail since the path on the host, outside the container isn't `/workspace/...`. In addition, some folders simply cannot be mounted because they only exist in the container. If you need to do this, you may find the Docker-in-Docker model fits your needs better.
 
