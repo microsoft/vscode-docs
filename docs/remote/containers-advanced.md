@@ -558,7 +558,7 @@ However, if you wish to make a host folder available to this inner container, yo
 
 With [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), the situation is reversed. Here, the Docker CLI inside the container interacts with the host's Docker daemon instead. This <span class="x x-first x-last">affects</span> mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
 
-The same example above will fail as the path on the host, outside the container isn't `/workspace/...`. In addition, some folders simply cannot be mounted because they only exist in the container. If you need to do this, you may find the Docker-in-Docker model fits your needs better.
+The same example above will fail since the path on the host, outside the container isn't `/workspace/...`. In addition, some folders simply cannot be mounted because they only exist in the container. If you need to do this, you may find the Docker-in-Docker model fits your needs better.
 
 If you are opening a folder in a container, you can pass the host directory into the container as an environment variable to allow you to mount the workspace folder. (This does not, however, work if you used a volume - Docker-in-Docker is the best choice there.) To do so, add the following to `devcontainer.json`:
 
