@@ -158,7 +158,7 @@ PermissionError: [Errno 13] Permission denied: '/share/logs/log.txt'
 In order to give access to a non-root user `appuser` from within the container, follow these steps:
 
 1. Copy the explicit UID from your Dockerfile (`5678` in the example above).
-2. From the **host machine's** command line, run one of these commands:
+1. From the **host machine's** command line, run one of these commands:
 
     ```bash
     # Example of giving a User ID with the value of 5678 access to the /share folder on the host machine
