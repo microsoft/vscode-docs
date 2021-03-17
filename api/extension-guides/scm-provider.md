@@ -28,9 +28,9 @@ You can create a new SourceControl with `vscode.scm.createSourceControl`.
 In order to better understand how these three entities correlate with each other, let's take [Git](https://github.com/microsoft/vscode/tree/main/extensions/git) as an example. Consider the following output of `git status`:
 
 ```bash
-vsce master* → git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
+vsce main* → git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
