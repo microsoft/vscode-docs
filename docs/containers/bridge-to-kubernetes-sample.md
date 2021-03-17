@@ -65,10 +65,10 @@ NAME          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)        AGE
 frontend      LoadBalancer   10.0.49.177    127.0.0.1   80:30145/TCP   18h
 ```
 
-Browse to the application using the external IP and port (the second number in the PORT(S) column).
+Browse to the application using the external IP and local port (the first number in the PORT(S) column).
 
 ```
-http://<external-ip>:<port>
+http://{external-ip}:{local-port}
 ```
 
 Test the running app in the browser. As you add, complete and delete todo items, notice that the stats page updates with the expected metrics.
