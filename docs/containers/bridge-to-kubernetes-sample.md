@@ -11,7 +11,8 @@ This sample illustrates how Bridge to Kubernetes can be used to develop a micros
 
 The TODO application sample is composed of a frontend and a backend that provides persistent storage. This extended sample adds a statistics component and breaks the application into a number of microservices, specifically:
 
-- The frontend uses a Mongo database to persist TODO items;
+- The frontend calls the database-api to persist and update TODO items;
+- The database-api service relies on a Mongo database to persist TODO items;
 - The frontend writes add, complete, and delete events to a RabbitMQ queue;
 - A statistics worker receives events from the RabbitMQ queue and updates a Redis cache;
 - A statistics API exposes the cached statistics for the frontend to show.
@@ -65,10 +66,10 @@ NAME          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)        AGE
 frontend      LoadBalancer   10.0.49.177    127.0.0.1   80:30145/TCP   18h
 ```
 
-Browse to the application using the external IP and port (the second number in the PORT(S) column).
+Browse to the application using the external IP and local port (the first number in the PORT(S) column).
 
 ```
-http://<external-ip>:<port>
+http://{external-ip}:{local-port}
 ```
 
 Test the running app in the browser. As you add, complete and delete todo items, notice that the stats page updates with the expected metrics.
