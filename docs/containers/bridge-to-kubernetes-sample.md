@@ -33,7 +33,7 @@ You can use any Kubernetes provider with Bridge to Kubernetes. In this article, 
 
 For best results on Windows 10, you should use the Hyper-V VM manager and create a [virtual switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
 
-Once installed, start MiniKube, specify to use Hyper-V, and provide the name of the primary virtual switch.
+Once installed, start MiniKube, specify to use Hyper-V, and provide the name of the primary virtual switch. This command must be run from an command prompt with Administrator privileges.
 
 ```cmd
 minikube start --vm-driver hyperv --hyperv-virtual-switch "Primary Virtual Switch"
