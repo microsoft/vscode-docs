@@ -50,19 +50,33 @@ There are getting started topics for both GitHub Codespaces clients. These will 
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in GitHub Codespaces environments without any modification. However, we recommend that you test your extension in a codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
-## Known limitations
+## Known limitations and adaptations
 
-While working with VS Code in the web, there are certain limitations to keep in mind and that you may be able to workaround.
+While working in Codespaces and VS Code in the web, there are certain limitations to keep in mind. Some of these limitations have workarounds or adaptations in place to provide a consistent remote development experience.
 
 | Issue | Reason | Workaround |
 |-|-|-|
-| Issue here | Why issue? | Any way to work around it? |
+| Certain default keybindings (i.e. `F10` and `F11` for debugging) are different in the web. | Since the browser may already have an action registered for those keybindings, or may not allow services to register certain keybindings, we adjust the default keybinding for VS Code in the web. Different browsers also reserve different keybindings. | Utilize the adjusted defaults. They appear on tooltip hovers over the debug actions. The default keybinding for step over in the web is `Alt/Option` + `F10` (instead of `F10` in desktop). Step into becomes `Alt/Option` + `F11` in the web (instead of `F11`). |
+| `F11` for debugging does not work on macOS in web or desktop.  | This is a known, non-browser specific limitation, and more information can be found in [this issue](https://github.com/microsoft/vscode/issues/5102). | Disable `F11` to show desktop on macOS. You can do this by: <ul><li> Go to System Preferences -> Keyboard -> Shortcuts </li><li> Uncheck the "Show Desktop F11" option </li></ul> |
+| `Ctrl` + `n` for new file doesn't work in web. | It opens a new window rather than creating a new file. | You can use a desktop-based Codespace to leverage `Ctrl` + `n` for new file. |
+| Dragging and dropping files from VS Code to a Codespace (and vice versa) does not work. | You can see more context in [this issue](https://github.com/microsoft/vscode/issues/115535). | You can right-click the file in your Codespace to download it to your local machine. You can drag files to your Codespace from the Windows explorer. |
+| Angular app debugging isn't supported in Codespaces. | Code running in a browser cannot launch another browser instance in debug mode for security reasons. | You can still debug your app locally. |
+| Downloading a file with no extension from the browser automatically adds ".txt" | This is how Chrome (and Edge) behave. | Context and potential future solutions in [this issue](https://github.com/microsoft/vscode/issues/118436 ). |
+| When you download a file from a remote (including Codespaces), attributes such as the executable bit are removed. | Context and potential future solutions can be found in [this issue](https://github.com/microsoft/vscode/issues/112099). | No current workarounds. |
+| You may see the prompt, "`Your_codespace_name` can't open this folder because it contains system files" when trying to download certain folders from a Codespace. | A user agent is free to impose the level of restrictions on sensitive directories. More information in [this spec](https://wicg.github.io/file-system-access/#privacy-wide-access) and [Chromium's block list](https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/file_system_access/chrome_file_system_access_permission_context.cc;l=140-208). | Review the spec and block list to see how your use case is affected. |
+| Using http://localhost:`your_forwarded_port` won't work to access a forwarded port from a browser-based Codespace. | This is based on how Codespaces handles port forwarding and generates the correct URL. | Click the link from the port forwarding notification to open your app, or the globe icon in the Ports view. |
 
-Extensions may also work differently in the web.
+Extensions may also behave differently in Codespaces (and in the browser specifically).
 
-| Extension | Issue | Reason | Workaround |
-|-|-|-|-|
-| Extension | Issue here | Why issue? | Any way to work around it? |
+| Extension | Issue / Reason | Workaround |
+|-|-|-|
+| Extensions with keyboard shortcuts that overlap with browser shortcuts, i.e. [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph), which uses `CTRL/CMD` + `R` to refresh. | The keyboard shortcut may overlap with an existing browser shortcut, i.e. `CMD` + `R` refreshes the window in Safari. | You can use a desktop-based, rather than web-based, Codespace to fully leverage your keyboard shortcuts. Different browsers may also behave differently (i.e. you can refresh Git Graph in Chrome). |
+| Language packs, i.e. [Japanese Language Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja) | Language pack extensions are currently not supported in web-based Codespaces. | You can use a desktop-based Codespace to leverage language packs and configure display language. |
+| [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) | It will not work in the browser as it introduces an install location dependency that is not easily fixable. | Use [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer). |
+| Browser Debuggers, i.e. [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge). | Extensions which require a UI/Desktop extension host do not load in the browser. | You can use these extensions locally, or while your app is running from a Codespace, you can use something non-specific to VS Code, like Chrome DevTools to inspect elements and set breakpoints. |
+| Extensions to open a browser, i.e. [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser) | Extensions which require a UI/Desktop extension host do not load in the browser. | Use a substitute extension if possible, like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). |
+| Extensions that rely on Chrome, such as [Protractor Test Runner](https://marketplace.visualstudio.com/items?itemName=luciannaie.protractor-test-runner#:~:text=Protractor%20Test%20Runner%20is%20a,that%20has%20protractor%20test%20files.) and [Browser Preview](https://marketplace.visualstudio.com/items?itemName=auchenberg.vscode-browser-preview). | Chrome is not included in a Codespace. | You can use these extensions on your repo locally. |
+| Other [Remote Development extensions](https://code.visualstudio.com/docs/remote/remote-overview) (Remote - WSL, Remote - Containers, Remote - SSH) cannot be installed in a Codespace. | The Codespace is already a remote context. | If you'd like to run in another remote context (i.e. WSL or a remote SSH box), open VS Code desktop (not connected to a Codespace) and launch one of the other remote extensions. If you'd like to use a [custom dev container](https://code.visualstudio.com/docs/remote/create-dev-container), you can use the same .devcontainer in both Codespaces and Remote - Containers. |
 
 ## Common questions
 
