@@ -50,6 +50,20 @@ There are getting started topics for both GitHub Codespaces clients. These will 
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in GitHub Codespaces environments without any modification. However, we recommend that you test your extension in a codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
+## Known limitations
+
+While working with VS Code in the web, there are certain limitations to keep in mind and that you may be able to workaround.
+
+| Issue | Reason | Workaround |
+|-|-|-|
+| Issue here | Why issue? | Any way to work around it? |
+
+Extensions may also work differently in the web.
+
+| Extension | Issue | Reason | Workaround |
+|-|-|-|-|
+| Extension | Issue here | Why issue? | Any way to work around it? |
+
 ## Common questions
 
 ### How do I allow VS Code to access my clipboard for reading?
