@@ -7,7 +7,7 @@ ContentId: 79bb60fd-5248-43d2-8801-34b9fc2ec543
 MetaDescription: Visual Studio Code Docker Development troubleshooting tips and tricks
 DateApproved: 04/01/2021
 ---
-# Docker Development Tips and Tricks
+# Docker Tools Tips and Tricks
 
 This article covers troubleshooting tips and tricks for the Visual Studio Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension. See the [Overview](/docs/containers/overview.md) and quickstart articles for [Node](/docs/containers/quickstart-node.md), [Python](/docs/containers/python.md), or [ASP.NET](/docs/containers/quickstart-aspnet-core.md) for details on setting up and working with Docker.
 
@@ -26,7 +26,7 @@ This is most likely caused by a conflict with another extension called `Docker E
 
 ## Invalid URL Errors
 
-If you have a need to connect to a remote Docker daemon, we highly recommend using Docker contexts instead of a `docker.host` attribute in the settings. Check out this guide to learn how to [create and use a context](https://docs.docker.com/engine/context/working-with-contexts/) to communicate with a remote Docker daemon. 
+If you have a need to connect to a remote Docker daemon, we highly recommend using Docker contexts instead of a `docker.host` attribute in the settings. Check out this guide to learn how to [create and use a context](https://docs.docker.com/engine/context/working-with-contexts/) to communicate with a remote Docker daemon.
 
 If you still need to override the Docker context you are currently using, make sure your `DOCKER_HOST` environment variable or `docker.host` attribute includes a protocol in the URL (e.g ssh://myuser@mymachine or tcp://1.2.3.4).
 
