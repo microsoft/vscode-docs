@@ -93,13 +93,13 @@ The extension also loads an [environment variable definitions file](#environment
 
 ### Global, virtual, and conda environments
 
-By default, any Python interpreter that you've installed run in its own **global environment**, which is not specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
+By default, any Python interpreter that you've installed runs in its own **global environment**, which is not specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
 
 > **Note**: The Python Extension version 2018.8.1 and later automatically updates environments.
 
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
 
-For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages.
+For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
