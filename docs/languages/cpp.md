@@ -14,6 +14,18 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 
 ![cpp extension](images/cpp/cpp-extension.png)
 
+## Tutorials
+
+Get started with C++ and VS Code with tutorials for your environment:
+
+- [GCC on Windows via MinGW](/docs/cpp/config-mingw.md)
+- [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
+- [GCC on Linux](/docs/cpp/config-linux.md)
+- [GCC on Windows Subsystem For Linux](/docs/cpp/config-wsl.md)
+- [Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
+- [CMake Tools on Linux](/docs/cpp/cmake-linux.md)
+
+
 ## Install the extension
 
 1. Open VS Code.
@@ -149,17 +161,6 @@ From a command prompt or a new VS Code Integrated Terminal, you can now run your
 If everything is set up correctly, you should see the output "Hello World".
 
 This has been a very simple example to help you get started with C++ development in VS Code. The next step is to try one of the tutorials listed below on your platform (Windows, Linux, or macOS) with your preferred toolset (GCC, Clang, Microsoft C++) and learn more about the Microsoft C/C++ extension's language features such as IntelliSense, code navigation, build configuration, and debugging.
-
-## Tutorials
-
-Get started with C++ and VS Code with tutorials for your environment:
-
-- [GCC on Windows via MinGW](/docs/cpp/config-mingw.md)
-- [Microsoft C++ on Windows](/docs/cpp/config-msvc.md)
-- [GCC on Linux](/docs/cpp/config-linux.md)
-- [GCC on Windows Subsystem For Linux](/docs/cpp/config-wsl.md)
-- [Clang/LLVM on macOS](/docs/cpp/config-clang-mac.md)
-- [CMake Tools on Linux](/docs/cpp/cmake-linux.md)
 
 ## Documentation
 
