@@ -52,6 +52,10 @@ The VS Code extension API hides most of the implementation details of running re
 
 ## Common questions
 
+### Why is an extension not installable in the browser
+
+There is a small number of extensions that have built-in assumptions or needs to run on the desktop. For example, when an extension accesses files from the VS Code installation on the desktop or when an extension depends on a executable that must run in a desktop environement. Such extensions are tagged as 'UI' extensions by the extension author and when you install such an extension in the browser then you are informed that the extension is not available.
+
 ### How do I allow VS Code to access my clipboard for reading?
 
 In certain cases, VS Code might ask you for permission to access the clipboard when reading from it. You should be able to grant access to the clipboard from your browser either through settings (search for "site permissions") or by looking for this option in the address bar on the right:
