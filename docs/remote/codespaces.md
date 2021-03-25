@@ -54,7 +54,7 @@ The VS Code extension API hides most of the implementation details of running re
 
 ### Why is an extension not installable in the browser
 
-There is a small number of extensions that have built-in assumptions or needs to run on the desktop. For example, when an extension accesses files from the VS Code installation on the desktop or when an extension depends on a executable that must run in a desktop environement. Such extensions are tagged as 'UI' extensions by the extension author and when you install such an extension in the browser then you are informed that the extension is not available.
+There are a small number of extensions that have built-in assumptions or need to run on the desktop. For example, when an extension accesses files from the VS Code installation on the desktop or when an extension depends on a executable that must run in a desktop environment. When you try to install such an extension in the browser then you are informed that the extension is not available.
 
 **Notice** such an extension can still be used when connecting to a Codespace from VS Code running on the desktop.
 
