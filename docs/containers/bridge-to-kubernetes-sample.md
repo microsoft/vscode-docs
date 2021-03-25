@@ -1,17 +1,18 @@
 ---
 Area: containers
 ContentId: 6206f223-a124-41fa-a9cf-4cc12d851833
-PageTitle: Use MiniKube and Bridge to Kubernetes to run and debug locally with Kubernetes
+PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
 DateApproved: 10/20/2020
-MetaDescription: Learn how to use MiniKube and Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally in Visual Studio Code
+MetaDescription: Use a todo sample app to learn how to use Bridge to Kubernetes to develop, debug, and test a Kubernetes application locally in Visual Studio Code
 ---
-# Use Bridge to Kubernetes with MiniKube
+# Use Bridge to Kubernetes with a sample
 
 This sample illustrates how Bridge to Kubernetes can be used to develop a microservice version of a simple TODO application on any Kubernetes cluster. This sample, using Visual Studio Code, has been adapted from code provided by [TodoMVC](http://todomvc.com). In this example, we use MiniKube to host the application, but these steps should work with any Kubernetes cluster.
 
 The TODO application sample is composed of a frontend and a backend that provides persistent storage. This extended sample adds a statistics component and breaks the application into a number of microservices, specifically:
 
-- The frontend uses a Mongo database to persist TODO items;
+- The frontend calls the database-api to persist and update TODO items;
+- The database-api service relies on a Mongo database to persist TODO items;
 - The frontend writes add, complete, and delete events to a RabbitMQ queue;
 - A statistics worker receives events from the RabbitMQ queue and updates a Redis cache;
 - A statistics API exposes the cached statistics for the frontend to show.
@@ -32,7 +33,7 @@ You can use any Kubernetes provider with Bridge to Kubernetes. In this article, 
 
 For best results on Windows 10, you should use the Hyper-V VM manager and create a [virtual switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
 
-Once installed, start MiniKube, specify to use Hyper-V, and provide the name of the primary virtual switch.
+Once installed, start MiniKube, specify to use Hyper-V, and provide the name of the primary virtual switch. This command must be run from a command prompt with Administrator privileges.
 
 ```cmd
 minikube start --vm-driver hyperv --hyperv-virtual-switch "Primary Virtual Switch"
@@ -65,10 +66,10 @@ NAME          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)        AGE
 frontend      LoadBalancer   10.0.49.177    127.0.0.1   80:30145/TCP   18h
 ```
 
-Browse to the application using the external IP and port (the second number in the PORT(S) column).
+Browse to the application using the external IP and local port (the first number in the PORT(S) column).
 
 ```
-http://<external-ip>:<port>
+http://{external-ip}:{local-port}
 ```
 
 Test the running app in the browser. As you add, complete and delete todo items, notice that the stats page updates with the expected metrics.
@@ -89,7 +90,7 @@ code .
 
 Once VS Code has launched, open the Kubernetes pane from the left sidebar of VS Code, and then select the **todo-app** namespace in your MiniKube cluster. Right-click the **todo-app** node, and choose **Use Namespace**.
 
-![Select Namespace](images/minikube/select-namespace.png)
+![Select Namespace](images/bridge-to-kubernetes-sample/select-namespace.png)
 
 Install dependencies by running `npm install` in a terminal window (CTRL + ~).
 
@@ -101,25 +102,25 @@ Next, place a breakpoint on line 17 of `server.js`.
 
 Open the Command Palette (`kb(workbench.action.showCommands)`) and type Bridge to Kubernetes. Select the **Bridge to Kubernetes: Configure** option.
 
-![Bridge to Kubernetes: Configure command](images/minikube/bridge_configure.png)
+![Bridge to Kubernetes: Configure command](images/bridge-to-kubernetes-sample/bridge_configure.png)
 
 You are prompted to configure the service you want to replace, the port to forward from your development computer, and the launch task to use.
 
 Choose the `stats-api` service.
 
-![Select the service to connect to](images/minikube/select_service.png)
+![Select the service to connect to](images/bridge-to-kubernetes-sample/select_service.png)
 
 After you select your service, you are prompted to enter the TCP port for your local application. For this example, enter 3001.
 
-![Enter the port number](images/minikube/enter_port.png)
+![Enter the port number](images/bridge-to-kubernetes-sample/enter_port.png)
 
 Choose **Run Script: dev** as the launch task.
 
-![Choose the debugger launch task](images/minikube/launch_task.png)
+![Choose the debugger launch task](images/bridge-to-kubernetes-sample/launch_task.png)
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation](https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes?view=vs-2019#using-routing-capabilities-for-developing-in-isolation). For this example, we will proceed with non-isolated.
 
-![Choose isolation](images/minikube/isolation.png)
+![Choose isolation](images/bridge-to-kubernetes-sample/isolation.png)
 
 > **Note**: You will be prompted to allow the EndpointManager to run elevated and modify your hosts file.
 
@@ -127,17 +128,17 @@ The Bridge to Kubernetes debugging profile has been successfully configured.
 
 Select the Debug icon on the left and select **Run Script: dev with Bridge to Kubernetes**. Click the start button next to **Run Script: dev with Kubernetes**.
 
-![Choose debug launch profile](images/minikube/debug_profile.png)
+![Choose debug launch profile](images/bridge-to-kubernetes-sample/debug_profile.png)
 
 Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected. Once your development computer is connected, traffic starts redirecting to your development computer for the stats-api you are replacing.
 
-![Debugging with Bridge to Kubernetes](images/minikube/debugging.png)
+![Debugging with Bridge to Kubernetes](images/bridge-to-kubernetes-sample/debugging.png)
 
 Navigate to the frontend entry point of your todo-app. For minikube, we'll be using `127.0.0.1`. To access the local endpoint URL for your app, open the Kubernetes menu on the status bar and choose the endpoint entry.
 
 Make a request to the stats-api by choosing the **stats** link.
 
-![Running web site - choose the status link](images/minikube/stats.png)
+![Running web site - choose the status link](images/bridge-to-kubernetes-sample/stats.png)
 
 Notice the traffic that initially started in your cluster was redirected to your locally running version (outside of the cluster) where the breakpoint was triggered.
 

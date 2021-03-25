@@ -238,7 +238,7 @@ The **Organize Imports** source code action sorts the imports in a TypeScript fi
 
 You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
-Organize imports can also be automatically when you save a TypeScript file by setting:
+Organize imports can also be done automatically when you save a TypeScript file by setting:
 
 ```json
 "editor.codeActionsOnSave": {

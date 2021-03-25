@@ -277,3 +277,21 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
 You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
+
+### How do I have a snippet place a variable in the pasted script?
+
+To have a variable in the pasted script, you need to escape the '$' of the `$variable` name so that it isn't parsed by the snippet expansion phase.
+
+```json
+"VariableSnippet":{
+    "prefix": "_Var",
+    "body": "\\$MyVar = 2",
+    "description": "A basic snippet that places a variable into script with the $ prefix"
+  }
+```
+
+This results in the pasted snippet as:
+
+```text
+$MyVar = 2
+```

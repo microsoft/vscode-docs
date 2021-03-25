@@ -206,7 +206,7 @@ The **Organize Imports** Source Action sorts the imports in a JavaScript file an
 
 You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
-Organize imports can also be automatically when you save a JavaScript file by setting:
+Organize imports can also be done automatically when you save a JavaScript file by setting:
 
 ```json
 "editor.codeActionsOnSave": {
