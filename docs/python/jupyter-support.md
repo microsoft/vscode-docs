@@ -128,7 +128,7 @@ Once your code is added, you can run a cell using the green run arrow and the ou
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
-You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard combos can be used in both command and edit modes.
+You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below if no cell is present below OR select the below cell in command mode (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below and select newly added cell in edit mode (focus moves to new cell). These keyboard combos can be used in both command and edit modes.
 
 ### Run multiple code cells
 
