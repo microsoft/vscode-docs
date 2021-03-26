@@ -66,7 +66,7 @@ console.log(message);
 
 ## IntelliSense
 
-In the VS Code, you can see that you get language features such as syntax highlighting and bracket matching. When you were typing in the editor, you may have noticed IntelliSense, the smart code completions and suggestion provided by VS Code and the TypeScript language server. Below you can see the methods of `console`
+In VS Code, you can see that you get language features such as syntax highlighting and bracket matching. When you were typing in the editor, you may have noticed IntelliSense, the smart code completions and suggestions provided by VS Code and the TypeScript language server. Below you can see the methods of `console`
 
 ![IntelliSense](images/tutorial/intellisense.png)
 
@@ -76,7 +76,7 @@ When you select a method, you then get parameter help and can always get hover i
 
 ## tsconfig.json
 
-So far in this tutorial, you have been relying on the TypeScript compiler's default behavior to compile your TypeScript source code. You can modify the TypeScript compiler options by adding a `tsconfig.json` file which defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) and the files that should be included.
+So far in this tutorial, you have been relying on the TypeScript compiler's default behavior to compile your TypeScript source code. You can modify the TypeScript compiler options by adding a `tsconfig.json` file that defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) and the files that should be included.
 
 Add a simple `tsconfig.json` which set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
 
@@ -123,7 +123,7 @@ TypeScript helps you avoid common programming mistakes through strong type check
 
 ## Quick Fixes
 
-The TypeScript language service has a powerful set of diagnostics to find common coding issues. For example it can analyze your source code and detect unreachable code which are displayed as dimmed in the editor. If you hover over the line of source code, you'll see a hover explaining and if you place your cursor on the line, you'll get a Quick Fix lightbulb.
+The TypeScript language service has a powerful set of diagnostics to find common coding issues. For example, it can analyze your source code and detect unreachable code which is displayed as dimmed in the editor. If you hover over the line of source code, you'll see a hover explaining and if you place your cursor on the line, you'll get a Quick Fix lightbulb.
 
 ![unreachable code detected](images/tutorial/unreachable-code-detected.png)
 
