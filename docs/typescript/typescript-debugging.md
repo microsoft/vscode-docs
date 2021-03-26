@@ -31,7 +31,7 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 }
 ```
 
-For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Run view (`kb(workbench.view.debug)`) and press the gear icon to **Configure or Fix 'launch.json'**. If you have other debugger extensions installed (such as the Debugger for Chrome), you should select **Node.js** from the drop down.
+For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Run view (`kb(workbench.view.debug)`) and press the gear icon to **Configure or Fix 'launch.json'**. If you have other debugger extensions installed (such as the Debugger for Chrome), you should select **Node.js** from the drop-down.
 
 ![configure launch.json](images/debugging/configure-debugging.png)
 
@@ -110,7 +110,7 @@ tsconfig.json
 }
 ```
 
-Run `tsc` to build the app and then test by opening `helloweb.html` in your browser (you can right click `helloweb.html` in the File Explorer and select **Copy Path** to paste into your browser).
+Run `tsc` to build the app and then test by opening `helloweb.html` in your browser (you can right-click `helloweb.html` in the File Explorer and select **Copy Path** to paste into your browser).
 
 To debug the client-side code, install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) [extension](/docs/editor/extension-gallery.md). Open the Extensions view (`kb(workbench.view.extensions)`) and search for "Chrome". Install the extension and reload VS Code.
 
