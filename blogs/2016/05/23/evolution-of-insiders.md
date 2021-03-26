@@ -23,7 +23,7 @@ Initially, we released an Insiders build once per month, a few days before the S
 
 Even with weekly Insiders builds, [many users asked](https://github.com/microsoft/vscode/issues/5453) for access to our nightly builds.
 
-We initially looked at releasing our internal "Alpha" builds. Alpha builds are what we use to develop VS Code. They are produced from our master branch each night or on demand, if the nightly build has a blocking issue.
+We initially looked at releasing our internal "Alpha" builds. Alpha builds are what we use to develop VS Code. They are produced from our main branch each night or on demand, if the nightly build has a blocking issue.
 
 We decided that the overhead of releasing three different builds outweighed the benefits and the difference between weekly and nightly builds was actually low. We then considered retiring the Insiders builds and moving everyone to Alpha but decided that would leave dead ended installations of Insiders builds on everyone's desktops.
 

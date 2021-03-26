@@ -268,7 +268,7 @@ Renderers are declared for a set of mimetypes by contributing to the `contribute
 }
 ```
 
-Output renderers are always rendered in a single `iframe`, separate from the rest of VS Code's UI, to ensure they don't accidentally interfere or cause slowdowns in VS Code. The contribution refers to an "entrypoint" script, which is a loaded into the notebook's `iframe` right before any output needs to be renderer. Your entrypoint needs to be a single file, which you can write yourself, or use a bundler like Webpack, Rollup, or Parcel to create.
+Output renderers are always rendered in a single `iframe`, separate from the rest of VS Code's UI, to ensure they don't accidentally interfere or cause slowdowns in VS Code. The contribution refers to an "entrypoint" script, which is loaded into the notebook's `iframe` right before any output needs to be rendered. Your entrypoint needs to be a single file, which you can write yourself, or use a bundler like Webpack, Rollup, or Parcel to create.
 
 When it's loaded, your entrypoint script should immediately call `acquireNotebookRendererApi()` with your renderer ID, and start listening to notebook output events. For example, this will put all your GitHub issue data as JSON into the cell output:
 

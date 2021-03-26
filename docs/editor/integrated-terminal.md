@@ -422,6 +422,21 @@ By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can co
 ]
 ```
 
+### Why does macOS make a ding sound when I resize terminal split panes?
+
+The keybindings ⌃⌘← and ⌃⌘→ are the defaults for resizing individual split panes in the terminal, while they work they also cause a system "invalid key" sound to play due to an issue in Chromium. The [recommended workaround](https://github.com/microsoft/vscode/issues/44070#issuecomment-799716362) is to tell macOS to no-op for these keybindings by running this in your terminal:
+
+```bash
+mkdir -p ~/Library/KeyBindings
+cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
+{
+  "^@\UF701" = "noop";
+  "^@\UF702" = "noop";
+  "^@\UF703" = "noop";
+}
+EOF
+```
+
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
 The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.
