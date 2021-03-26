@@ -124,8 +124,10 @@ The associated configuration file would then look as follows.
     "name": "Attach",
     "type": "python",
     "request": "attach",
-    "host": "remote-machine-name", // replace this with remote machine name
-    "port": 5678,
+    "connect": {
+       "host": "remote-machine-name", // replace this with remote machine name
+       "port": 5678
+    }
 }
 ```
 
