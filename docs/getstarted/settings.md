@@ -2513,6 +2513,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
     "terminal.integrated.drawBoldTextInBrightColors": true,
 
+    // Controls whether or not WSL distros are shown in the terminal dropdown
+    "terminal.integrated.useWslProfiles": true,
+
     // Controls whether the terminal bell is enabled.
     "terminal.integrated.enableBell": false,
 
