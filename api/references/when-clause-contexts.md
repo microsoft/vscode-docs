@@ -28,6 +28,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
+Not | `!` | `!editorReadonly`
 Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
@@ -215,12 +216,12 @@ The `in` operator for `when` clauses allows for a dynamic lookup of a context ke
 First, determine which folders should support the command, and the folder name to an array. Then, use the `setContext` command to turn the array into a context key:
 
 ```ts
-vscode.executeCommand('setContext', 'ext:supportedFolders', [ 'test', 'foo', 'bar' ]);
+vscode.commands.executeCommand('setContext', 'ext:supportedFolders', [ 'test', 'foo', 'bar' ]);
 
 // or
 
 // Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
-vscode.executeCommand('setContext', 'ext:supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
+vscode.commands.executeCommand('setContext', 'ext:supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
 ```
 
 Then, in the `package.json` you could add a menu contribution for the `explorer/context` menu:
