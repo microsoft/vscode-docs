@@ -125,6 +125,7 @@ The following variables can be used:
 * `TM_FILENAME_BASE` The filename of the current document without its extensions
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
+* `RELATIVE_FILEPATH` The relative (to the opened workspace or folder) file path of the current document
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
 * `WORKSPACE_FOLDER` The path of the opened workspace or folder
@@ -143,6 +144,12 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+
+For inserting random values:
+
+* `RANDOM` 6 random Base-10 digits
+* `RANDOM_HEX` 6 random Base-16 digits
+* `UUID` A Version 4 UUID
 
 For inserting line or block comments, honoring the current language:
 
@@ -220,7 +227,7 @@ variable    ::= '$' var | '${' var '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
-                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
+                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/pascalcase' '}'
                 | '${' int ':+' if '}'
                 | '${' int ':?' if ':' else '}'
                 | '${' int ':-' else '}' | '${' int ':' else '}'
