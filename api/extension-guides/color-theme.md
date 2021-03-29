@@ -115,7 +115,7 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 To try out the new theme, press F5 to launch an Extension Development Host window.
 
-There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
+There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown list. Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/color-theme/mytheme.png)
 
