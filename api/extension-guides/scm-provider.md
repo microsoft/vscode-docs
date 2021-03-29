@@ -105,9 +105,10 @@ export interface SourceControlResourceState {
 
 There are six Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
 
-The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` drop-down menu.
+The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown menu.
 
 These three are similar:
+
 - `scm/resourceGroup/context` adds commands to [`SourceControlResourceGroup`](/api/references/contribution-points#SourceControlResourceGroup) items.
 - `scm/resourceState/context` adds commands to [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState) items.
 - `scm/resourceFolder/context` add commands to the intermediate folders that appear when a [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState)'s resourceUri path includes folders and the user has opted for tree-view rather than list-view mode.

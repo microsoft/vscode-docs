@@ -74,7 +74,7 @@ Context name | True when
 `listMultiSelection` | A list has a selection of multiple elements.
 **Mode contexts** |
 `inSnippetMode` | The editor is in snippet mode.
-`inQuickOpen` | The Quick Open drop-down has focus.
+`inQuickOpen` | The Quick Open dropdown has focus.
 **Resource contexts** |
 `resourceScheme` | True when the resource Uri scheme matches. Example: `"resourceScheme == file"`
 `resourceFilename` | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
