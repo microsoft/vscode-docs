@@ -204,9 +204,9 @@ If you are authoring your own VS Code extension and need to enable/disable comma
 The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
-vscode.commands.executeCommand('setContext', 'myExtension:showMyCommand', true);
+vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 
-vscode.commands.executeCommand('setContext', 'myExtension:numberOfCoolOpenThings', 4);
+vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```
 
 ## 'in' conditional operator
@@ -216,12 +216,12 @@ The `in` operator for `when` clauses allows for a dynamic lookup of a context ke
 First, determine which folders should support the command, and the folder name to an array. Then, use the `setContext` command to turn the array into a context key:
 
 ```ts
-vscode.commands.executeCommand('setContext', 'ext:supportedFolders', [ 'test', 'foo', 'bar' ]);
+vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
 
 // or
 
 // Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
-vscode.commands.executeCommand('setContext', 'ext:supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
+vscode.commands.executeCommand('setContext', 'ext.supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
 ```
 
 Then, in the `package.json` you could add a menu contribution for the `explorer/context` menu:
