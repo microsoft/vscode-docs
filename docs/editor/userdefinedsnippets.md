@@ -302,3 +302,11 @@ This results in the pasted snippet as:
 ```text
 $MyVar = 2
 ```
+
+### Can I remove snippets from IntelliSense?
+
+Yes, you can hide specific snippets from showing in IntelliSense (completion list) by selecting the **Hide from IntelliSense** button to the right of snippet items in the **Insert Snippet** command dropdown.
+
+ ![Hide from IntelliSense button in Insert Snippet dropdown](images/userdefinedsnippets/hide-from-intellisense.png)
+
+ You can still select the snippet with the **Insert Snippet** command but the hidden snippet won't be displayed in IntelliSense.
