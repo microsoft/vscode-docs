@@ -690,7 +690,10 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
--  "`welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
+- `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
+- `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
+- `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
+- `welcomePage.tileShadow.`: Shadow color for the Welcome page walkthrough category buttons.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
