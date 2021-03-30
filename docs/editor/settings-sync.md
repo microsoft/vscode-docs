@@ -11,7 +11,7 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 
 Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
->**Note**: Settings Sync is still in preview.
+>**Note**: Settings Sync is still in a 'preview'(alpha) stage-of-development.
 
 ## Turning on Settings Sync
 
@@ -124,30 +124,31 @@ If you want to remove all your data from our servers, just turn off sync via **S
 
 ### Is VS Code Settings Sync the same as the Settings Sync extension?
 
-No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a private Gist on GitHub to share your VS Code settings across different machines and is unrelated to the VS Code Settings Sync.
+No, the [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) extension by [Shan Khan](https://marketplace.visualstudio.com/publishers/Shan) uses a secret GitHub Gist to coordinate your private VS Code configuration settings among connected machines, which is unrelated to the VS Code 'Settings Sync' extension.
 
-### What types of accounts can I use for Settings Sync sign in?
+### Which account providers may be used for Settings Sync sign in?
 
-VS Code Settings Sync supports signing in with either a Microsoft account (for example Outlook or Azure accounts) or a GitHub account. Sign in with GitHub Enterprise accounts is not supported. Other authentication providers may be supported in the future and you can review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
+VS Code Settings Sync currently supports only sign-ins with either Microsoft's (ie, Outlook or Azure accounts) or a non-Enterprise type of GitHub account. Other authentication providers may be supported in the future; please review the proposed Authentication Provider API in [issue #88309](https://github.com/microsoft/vscode/issues/88309).
 
-### Can I use a different backend or service for Settings Sync?
+### Can I use an alternate backend or service for Settings Sync?
 
-Settings Sync uses a dedicated service to store settings and coordinate updates. A service provider API may be exposed in the future to allow for custom Settings Sync backends.
+Settings Sync uses its own dedicated backend to store settings and to coordinate updates. A service provider API may be exposed in the future to allow for use of custom Settings Sync backends.
 
-## Troubleshooting keychain issues
+## Troubleshooting keychain/keyring issues
 
-Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
+Settings Sync persists authentication information to the system keychain. Writing to the keychain could fail in cases where the OS's keychain/keyring is misconfigured.
 
 ### macOS
 
-If the keychain throws the error "The user name or passphrase you entered is not correct.", open the Keychain Access app, right-click on the `login` keychain, and lock and unlock it again. This error was first reported in [issue #76](https://github.com/atom/node-keytar/issues/76) as a problem after upgrading to macOS High Sierra, but it has also been reported on more recent macOS versions.
+If the macOS keychain interface throws the error: "The user name or passphrase you entered is not correct.", open the Keychain Access app, right-click on the keychain `login`, then lock and unlock it again. This bug was first reported in [issue #76](https://github.com/atom/node-keytar/issues/76) as occurring after having upgraded to macOS High Sierra, and has also been reported on more recent macOS versions.
 
 ### Linux
 
-If the keychain throws the error "No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) to create a new keyring.
+If a Linux keyring throws the error: 'No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login', refer to [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) for steps to create a new keyring.
 
-## Can I share settings between VS Code Stable and Insiders?
+## Can I share settings between VS Code -Stable and -Insiders?
 
-Yes. Please refer to the [Syncing Stable versus Insiders](#syncing-stable-versus-insiders) section for more information.
+Yes. Please refer to the [Syncing -Stable versus -Insiders](#syncing-stable-versus-insiders) section for details.
 
-Please note that this can sometimes lead to data incompatibility because Insiders builds are newer than Stable builds. In such cases, Settings Sync will be disabled automatically on Stable to prevent data inconsistencies. Once a newer version of the Stable build is released, you can upgrade your client and turn on Settings Sync to continue syncing.
+Please note that to enforce shared settings beween radically-different clients is a known cause of configuration incompatibility; eg, -Insiders builds are ordained to always be of a newer version than concurrent -Stable builds; thus when client installs present an inverted software-versioning scenario, Settings Sync on the -Stable client automatically disables its Settings Sync(the built-in function not the extension) in order to shield itself from potential negative impacts.
+Whenever a newer installation of the -Stable build has been detected, in order to continue synchronization: allow the upgrade for both varients of each client to finish, and manually restore Settings Sync function in -Stable client by returning its setting to *on.
