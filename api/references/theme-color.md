@@ -617,6 +617,7 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+- `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Integrated Terminal colors
