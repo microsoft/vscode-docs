@@ -146,12 +146,14 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
 - `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.focusOutline`: List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
 - `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
 - `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive.
 - `list.inactiveSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.inactiveFocusBackground`: List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
+- `list.inactiveFocusOutline`: List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
 - `list.errorForeground`: Foreground color of list items containing errors.
 - `list.warningForeground`: Foreground color of list items containing warnings.
@@ -160,8 +162,9 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
-- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
+- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `tree.tableColumnsBorder`: Tree stroke color for the indentation guides.
 
 ## Activity Bar
 
@@ -610,6 +613,7 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `extensionButton.prominentHoverBackground`: Extension view button background hover color.
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
+- `extensionIcon.starForeground`: The icon color for extension ratings.
 
 ## Quick picker colors
 
