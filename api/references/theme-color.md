@@ -825,26 +825,28 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 ## Notebook colors
 
 - `notebook.cellBorderColor`: The border color for notebook cells.
-- `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
-- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
-- `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
-- `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
-- `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
+- `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
+- `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
 - `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
-- `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
 - `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
-- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
-- `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
-- `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
-- `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
-- `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
-- `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
-- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
-- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
+- `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
 - `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
+- `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
+- `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
+- `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
+- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
+- `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
+- `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
+- `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
+- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
 
 ## Chart colors
 
