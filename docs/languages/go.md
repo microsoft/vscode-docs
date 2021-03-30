@@ -85,7 +85,7 @@ When you have multiple formatters activated for Go files, you can select the Go 
 
 ```json
 "[go]": {
-    "editor.defaultFormatter": "golang.go”
+    "editor.defaultFormatter": "golang.go"
 }
 ```
 
