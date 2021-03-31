@@ -27,7 +27,7 @@ A `NotebookContentProvider` is responsible for taking a serialized description o
 
 Samples:
 
-* [.ipynb Content Provider](https://github.com/microsoft/notebook-extension-samples/tree/master/notebook-provider): Work with notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
+* [.ipynb Content Provider](https://github.com/microsoft/notebook-extension-samples/tree/main/notebook-provider): Work with notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
 * [Markdown Content Provider](https://github.com/microsoft/vscode-markdown-notebook): Open and edit Markdown files as a notebook.
 
 ### Example
