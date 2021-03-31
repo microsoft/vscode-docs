@@ -19,7 +19,7 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can still open an external shell with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
+> **Note:** You can still open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
 ## Managing multiple terminals
 
@@ -48,56 +48,62 @@ Key|Command|
 `kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up |
 `kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down |
 
-## Configuration
+## Terminal profiles
 
-The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in user [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` user settings.
+The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. Terminal profiles can be used to configure either the default or secondary shells by running the `kb(workbench.action.terminal.selectDefaultShell)` command which is also accessible via the terminal's dropdown.
 
->**Note:** These settings won't work automatically in the workspace scope, you must grant the _workspace_ permissions to configure your shell, shell args, and it's environment using the **Terminal: Manage Workspace Shell Permissions** command.
+VS Code will automatically present a set of common profiles for the dropdown and also detect less common ones which will only show up when selecting a default profile.
 
-### Windows
+>**Note:** Profiles won't work automatically when set in the workspace scope, you must grant the _workspace_ permissions to configure your profile or environment changes using the **Terminal: Manage Workspace Shell Permissions** command.
 
-For Windows, there is a convenient shell selector located inside the terminal dropdown that lets you choose between several detected shells including Command Prompt, PowerShell, PowerShell Core, Git Bash and WSL Bash. The **Terminal: Select Default Shell** command is also available through the Command Palette if you prefer to access it there.
+### Configuring profiles
 
-Just like on other platforms you can fine tune the exact executable used in your settings file, for example:
+The recommended way to create a new profile is to run the `kb(workbench.action.terminal.selectDefaultShell)` command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your settings.json file.
+
+Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
 ```json
-// Command Prompt
-"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
-// PowerShell
-"terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-// Git Bash
-"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-cmd.exe",
-"terminal.integrated.shellArgs.windows": [
-  "--command=usr/bin/bash.exe",
-  "-l",
-  "-i"
-]
-// Bash on Ubuntu (on Windows)
-"terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
+"terminal.integrated.profiles.windows": {
+  "PowerShell -NoProfile": {
+    "source": "PowerShell",
+    "args": ["-NoProfile"]
+  }
+},
+"terminal.integrated.profiles.linux": {
+  "zsh (login)": {
+    "path": "zsh",
+    "args": ["-l"]
+  }
+}
 ```
 
->**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr` can be redirected.
+Other arguments supports in profiles include:
+
+- `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title which detects what program is running with the static profile name.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
-### Shell arguments
+### Removing built-in profiles
 
-You can pass arguments to the shell when it is launched.
-
-For example, to enable running bash as a login shell (which runs `.bash_profile`), pass in the `-l` argument (with double quotes):
+To remove profile entries from the dropdown set the name of the profile to null. For example to remove the `Git Bash` profile on Windows, use this setting:
 
 ```json
-// Linux
-"terminal.integrated.shellArgs.linux": ["-l"]
+"terminal.integrated.profiles.windows": {
+  "Git Bash": null
+}
 ```
 
-### Using variables
+### Configuring working directory or environment
 
-The `shell`, `shellArgs`, `env`, and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
+The `env` and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
 
 ```json
 // Open the terminal in the currently opened file's directory
-"terminal.integrated.cwd": "${fileDirname}"
+"terminal.integrated.cwd": "${fileDirname}",
+// Set environment variable CUSTOM_VAR=test on all Linux terminals
+"terminal.integrated.env.linux": {
+  "CUSTOM_VAR": "test"
+}
 ```
 
 ## Terminal display settings
