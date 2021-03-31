@@ -54,7 +54,7 @@ You can configure your default integrated terminal shell via terminal profiles a
 
 ### Terminal profiles
 
-The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. Terminal profiles can be used to configure either the default or secondary shells by running the `kb(workbench.action.terminal.selectDefaultShell)` command which is also accessible via the terminal's dropdown.
+The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. Terminal profiles can be used to configure either the default or secondary shells by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal's dropdown.
 
 VS Code will automatically present a set of common profiles for the dropdown and also detect less common ones which will only show up when selecting a default profile.
 
@@ -62,7 +62,7 @@ VS Code will automatically present a set of common profiles for the dropdown and
 
 ### Configuring profiles
 
-The recommended way to create a new profile is to run the `kb(workbench.action.terminal.selectDefaultShell)` command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
+The recommended way to create a new profile is to run the **Terminal: Select Default Profile** command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
 
 Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
