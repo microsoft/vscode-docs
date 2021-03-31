@@ -57,7 +57,7 @@ Below is an example session debugging a simple Hello World Ruby script. You can 
 
 ## yo by Sam Verschueren
 
-This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. Your installed Yeoman generators are displayed in a drop down and you answer the Yeoman terminal prompts right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
+This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. Your installed Yeoman generators are displayed in a dropdown and you answer the Yeoman terminal prompts right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
 
 ![Yo Demo](yo_demo.gif)
 

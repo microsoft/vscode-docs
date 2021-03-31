@@ -83,7 +83,7 @@ To customize your editor by language, run the global command **Preferences: Conf
 
 Select the language via the drop-down:
 
-![Select language drop down](images/settings/lang-selection.png)
+![Select language dropdown](images/settings/lang-selection.png)
 
 Add language-specific settings to your user settings:
 
