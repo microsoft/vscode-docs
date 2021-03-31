@@ -159,7 +159,7 @@ The source for this module lives in the GitHub repository [vscode-debugadapter-n
 You can find examples of how to use the module here:
 
 * [Node Debug](https://github.com/microsoft/vscode-node-debug/blob/main/src/tests/adapter.test.ts)
-* [Mono Debug](https://github.com/microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
+* [Mono Debug](https://github.com/microsoft/vscode-mono-debug/blob/main/src/typescript/tests/adapter.test.ts)
 * [Mock Debug](https://github.com/microsoft/vscode-mock-debug/blob/main/src/tests/adapter.test.ts)
 
 ## Electron Shell

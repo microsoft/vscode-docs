@@ -33,7 +33,7 @@ To define your own product icon theme, start by creating a VS Code extension and
 }
 ```
 
-The `id` is the identifier for the product icon theme. It is used in the settings, so make it unique but also readable. `label` is shown in the product icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your file name follows the `*product-icon-theme.json` name scheme, you will get completion support and hovers when editing the product icon theme file in VS Code.
+The `id` is the identifier for the product icon theme. It is used in the settings, so make it unique but also readable. `label` is shown in the product icon theme picker dropdown. The `path` points to a file in the extension that defines the icon set. If your file name follows the `*product-icon-theme.json` name scheme, you will get completion support and hovers when editing the product icon theme file in VS Code.
 
 ## Product icon definition file
 
