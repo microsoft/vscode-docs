@@ -181,11 +181,11 @@ You are free to use the extensions for both personal or corporate use to connect
 
 ### Can I use the VS Code Remote Development extensions to build my own product or service?
 
-You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (for example VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use”, you can document how to use the extensions in conjunction with your service.
+You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (for example VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use", you can document how to use the extensions in conjunction with your service.
 
 ### Can I repackage or reuse VS Code Server in my own public service offering?
 
-No. The license states that you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use” which means you may not build public products or services on top of the VS Code Server.
+No. The license states that you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use" which means you may not build public products or services on top of the VS Code Server.
 
 ### I have a question about whether I can use the extensions for X, who can I ask?
 

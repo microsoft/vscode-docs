@@ -27,7 +27,7 @@ You can configure the Python extension through settings. See the [Settings refer
 
 The Insiders program allows you to try out and automatically install new versions of the Python extension prior to release, including new features and fixes.
 
-If you'd like to opt into the program, you can either open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Switch to Insiders Daily/Weekly Channel** or else you can open settings (`kb(workbench.action.openSettings)`) and look for **Python: Insiders Channel** to set the channel to “daily” or “weekly”.
+If you'd like to opt into the program, you can either open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Switch to Insiders Daily/Weekly Channel** or else you can open settings (`kb(workbench.action.openSettings)`) and look for **Python: Insiders Channel** to set the channel to "daily" or "weekly".
 
 ## Run Python code
 

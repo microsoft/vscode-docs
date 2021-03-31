@@ -14,7 +14,7 @@ We've heard from many educators that the first days or weeks of the semester can
 
 ***"Set up for my students normally takes five class periods. There are version of Python to deal with. There's a lot of complexity. Sadly that complexity takes a lot of time and money to sort out."*** -[Community College US Professor CS 101]
 
-***“I would prefer a version of VS Code, specifically set up for a Python installation...”*** -[Assistant Professor, Liberal Arts College]
+***"I would prefer a version of VS Code, specifically set up for a Python installation..."*** -[Assistant Professor, Liberal Arts College]
 
 Development containers with Visual Studio Code can serve as a fantastic tool in education to ensure students have a consistent coding environment. They take care of setup so that students and instructors can quickly move past configuration, and instead focus on what's truly important: learning and coding something great!
 
@@ -22,7 +22,7 @@ Development containers with Visual Studio Code can serve as a fantastic tool in 
 
 So, what are development containers? [Containers](https://www.docker.com/resources/what-container) are pieces of software that package code and all of the dependencies that code needs to run, including the runtime, tools, libraries, and settings. Containers were initially created as a way to deploy and manage apps in a consistent environment and make more efficient use of hardware. They later evolved to help in providing a consistent build environment, and more recently, development environment. That's where the name dev container comes from.
 
-When you create a container, its initial contents come from what's known as an “image.” An image can be thought of as a mini-disk drive with things like the operating system and other tools pre-installed. You describe what goes into the image using a Dockerfile, and once you run the image, it becomes a container.
+When you create a container, its initial contents come from what's known as an "image." An image can be thought of as a mini-disk drive with things like the operating system and other tools pre-installed. You describe what goes into the image using a Dockerfile, and once you run the image, it becomes a container.
 
 Dev containers provide a separate coding environment from your computer. For example, if you download a specific version of a dependency, that version will be unique to the container. In the diagram below, notice how the container includes the app and its necessary dependencies, keeping the computer (Host OS and Infrastructure) free and clean of any dependencies:
 
@@ -116,7 +116,7 @@ We can run our program with **F5**. Notice that the program stops once it hits t
 
 ### Creating a container for your class
 
-Now that we've seen a fantastic example of a container, let's set up our first container ourselves using the Remote – Containers extension. Let's start off in a “Hello World” Python application:
+Now that we've seen a fantastic example of a container, let's set up our first container ourselves using the Remote – Containers extension. Let's start off in a "Hello World" Python application:
 
 ![Hello world Python app](14-helloworld-cropped.png)
 
@@ -176,7 +176,7 @@ A new instance of VS Code launches, where our image is being built and our app i
 
 ![Relaunch VS Code to start dev container](22-reload-starting.png)
 
-Once our container is built, we have all the same files, but now the bottom-left indicator reads, "Dev Container: Python 3,” signifying we're inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
+Once our container is built, we have all the same files, but now the bottom-left indicator reads, "Dev Container: Python 3," signifying we're inside our container. We can run our code with ease, regardless of which version of Python (if any) we have installed on our local machine!
 
 ![Run Python code in dev container](24-run-code-cropped.png)
 
