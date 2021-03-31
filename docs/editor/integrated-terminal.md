@@ -115,6 +115,7 @@ You can customize the integrated terminal font and line height with the followin
 * `terminal.integrated.fontWeight`
 * `terminal.integrated.fontWeightBold`
 * `terminal.integrated.lineHeight`
+* `terminal.integrated.letterSpacing`
 
 ## Terminal keybindings
 
