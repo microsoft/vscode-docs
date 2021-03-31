@@ -164,7 +164,7 @@ Using `// @ts-check` is a good approach if you just want to try type checking in
 
 **Using a setting**
 
-To enable type checking for all JavaScript files without changing any code, just add `"javascript.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
+To enable type checking for all JavaScript files without changing any code, just add `"js/ts.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
 
 You can opt individual files out of type checking with a `// @ts-nocheck` comment at the top of the file:
 
