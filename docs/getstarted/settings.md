@@ -49,7 +49,7 @@ When you open the settings editor, you can search and discover settings you are 
 
 ### Edit settings
 
-Each setting can be edited by either a **checkbox**, an **input** or by a **drop-down**. Edit the text or select the option you want to change to the desired settings.
+Each setting can be edited by either a **checkbox**, an **input** or by a **dropdown**. Edit the text or select the option you want to change to the desired settings.
 
 ![Edit a Setting](images/settings/settings-edit.png)
 
@@ -81,7 +81,7 @@ To customize your editor by language, run the global command **Preferences: Conf
 
 ![Configure language-specific settings command](images/settings/pref-config-lang-settings.png)
 
-Select the language via the drop-down:
+Select the language via the dropdown:
 
 ![Select language dropdown](images/settings/lang-selection.png)
 

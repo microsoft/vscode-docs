@@ -47,11 +47,11 @@ For example, the [GitHub Pull Requests extension](https://marketplace.visualstud
 
 ## Output channel for telemetry events
 
-If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Set the log level to **Trace** using the **Developer: Set Log Level...** command and then in the Output panel (`kb(workbench.action.output.toggleOutput)`), pick **Log (Telemetry)** from the drop-down.
+If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Set the log level to **Trace** using the **Developer: Set Log Level...** command and then in the Output panel (`kb(workbench.action.output.toggleOutput)`), pick **Log (Telemetry)** from the dropdown.
 
 ![output panel log telemetry](images/telemetry/output-log-telemetry.png)
 
-When tracing telemetry events, the events are also logged to a local file `telemetry.log` which you can view using the **Developer: Open Log File...** command and choosing **Telemetry** from the drop-down.
+When tracing telemetry events, the events are also logged to a local file `telemetry.log` which you can view using the **Developer: Open Log File...** command and choosing **Telemetry** from the dropdown.
 
 ![open telemetry log file](images/telemetry/open-telemetry-log.png)
 
