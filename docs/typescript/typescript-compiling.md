@@ -126,7 +126,7 @@ As an example, if there was a simple error (extra 'g' in `console.log`) in our T
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the **Tasks - build tsconfig.json** in the terminal view drop-down.
+This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the **Tasks - build tsconfig.json** in the terminal view dropdown.
 
 You can see the error and warning counts in the Status Bar. Click on the error and warnings icon to get a list of the problems and navigate to them.
 

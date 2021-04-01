@@ -834,7 +834,7 @@ Click the (...) button and then select **Undo Last Commit** to undo the previous
 
 VS Code makes it easy to see what Git commands are actually running. This is helpful when learning Git or debugging a difficult source control issue.
 
-Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **Git** in the drop-down.
+Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **Git** in the dropdown.
 
 ### Gutter indicators
 

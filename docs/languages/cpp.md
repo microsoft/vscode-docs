@@ -132,7 +132,7 @@ Now that we have a simple C++ program, let's build it. Select the **Terminal** >
 
 ![Run Build Task menu option](images/cpp/run-build-task.png)
 
-This will display a drop-down with various compiler task options. If you are using a GCC toolset like MinGW, you would choose **C/C++: g++.exe build active file**.
+This will display a dropdown with various compiler task options. If you are using a GCC toolset like MinGW, you would choose **C/C++: g++.exe build active file**.
 
 ![Select g++.exe task](images/cpp/select-gpp-task.png)
 

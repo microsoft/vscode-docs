@@ -79,11 +79,11 @@ VS Code makes it easy to manage your extensions. You can install, disable, updat
 
 ### List installed extensions
 
-By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More Actions** (`...`) drop-down menu, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
+By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More Actions** (`...`) dropdown menu, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
 
 ### Uninstall an extension
 
-To uninstall an extension, click the gear button at the right of an extension entry and then choose **Uninstall** from the drop-down menu. This will uninstall the extension and prompt you to reload VS Code.
+To uninstall an extension, click the gear button at the right of an extension entry and then choose **Uninstall** from the dropdown menu. This will uninstall the extension and prompt you to reload VS Code.
 
 ![uninstall an extension](images/extension-gallery/uninstall-extension.png)
 
@@ -91,17 +91,17 @@ To uninstall an extension, click the gear button at the right of an extension en
 
 If you don't want to permanently remove an extension, you can instead temporarily disable the extension by clicking the gear button at the right of an extension entry. You can disable an extension globally or just for your current Workspace. You will be prompted to reload VS Code after you disable an extension.
 
-If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More Actions** (`...`) drop-down menu.
+If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More Actions** (`...`) dropdown menu.
 
 Extensions remain disabled for all VS Code sessions until you re-enable them.
 
 ### Enable an extension
 
-Similarly if you have disabled an extension (it will be in the **Disabled** section of the list and marked ***Disabled***), you can re-enable it with the **Enable** or **Enable (Workspace)** commands in the drop-down menu.
+Similarly if you have disabled an extension (it will be in the **Disabled** section of the list and marked ***Disabled***), you can re-enable it with the **Enable** or **Enable (Workspace)** commands in the dropdown menu.
 
 ![enable extension](images/extension-gallery/enable-extension.png)
 
-There is also an **Enable All Extensions** command in the **More Actions** (`...`) drop-down menu.
+There is also an **Enable All Extensions** command in the **More Actions** (`...`) dropdown menu.
 
 ### Extension auto-update
 
@@ -207,7 +207,7 @@ Tags may contain any string and are not provided by IntelliSense, so review the 
 
 ## Install from a VSIX
 
-You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX** command in the Extensions view command drop-down, or the **Extensions: Install from VSIX** command in the **Command Palette**, point to the `.vsix` file.
+You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX** command in the Extensions view command dropdown, or the **Extensions: Install from VSIX** command in the **Command Palette**, point to the `.vsix` file.
 
 You can also install using the VS Code `--install-extension` command-line switch providing the path to the `.vsix` file.
 
@@ -278,7 +278,7 @@ Some users prefer to download an extension once from the Marketplace and then in
 
 To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section, which is located on the right-hand side of the page.
 
-Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command drop-down.
+Once downloaded, you can then install the extension via the **Install from VSIX** command in the Extensions view command dropdown.
 
 ### Can I stop VS Code from providing extension recommendations?
 
