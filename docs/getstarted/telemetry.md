@@ -125,7 +125,7 @@ If you have created a VS Code extension, you can use the VS Code telemetry infra
 
 Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
 
-If you would prefer to not utilize the npm module it is still recommended that extension authors respect the user's decision about whether or not to send telemetry data via the `telemetry.enableTelemetry` setting by utilizing the `isTelemetryEnabled` and `onDidChangeTelemetryEnabled` API.
+If you would prefer to not utilize the npm module it is still recommended that extension authors respect the user's choice by utilizing the `isTelemetryEnabled` and `onDidChangeTelemetryEnabled` API.
 
 Additionally, telemetry authors can add a `telemetry.json` file to their root build directory for their telemetry to show up in the `--telemetry` dump that VS Code produces.
 
