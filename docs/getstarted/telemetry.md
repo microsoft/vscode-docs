@@ -59,7 +59,7 @@ When tracing telemetry events, the events are also logged to a local file `telem
 
 If you'd like to view all the possible telemetry events that VS Code could send you can use the `--telemetry` flag in the CLI. This will generate a JSON report that you can then view within VS Code. These reports are generated per build and do not contain extension telemetry unless the extension author adds a `telemetry.json` file to their root build directory.
 
-For example, running `code --telemetry > telemtry.json && code telemetry.json` will create a `telemetry.json` file in your current working directory and then open it in VS Code. You cannot pipe the output like this, `code --telemetry | code -` due to the length of the telemetry report.
+For example, running `code --telemetry > telemetry.json && code telemetry.json` will create a `telemetry.json` file in your current working directory and then open it in VS Code. You cannot pipe the output like this, `code --telemetry | code -` due to the length of the telemetry report.
 
 ## GDPR and VS Code
 
