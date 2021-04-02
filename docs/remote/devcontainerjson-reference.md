@@ -100,7 +100,7 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 | `${localWorkspaceFolder}`  | Any | Path of the local folder that was opened in VS Code (that contains `.devcontainer/devcontainer.json`).<br /><br />⚠️ Not yet supported when using Clone Repository in Container Volume. |
 | `${containerWorkspaceFolder}` | Any | The path that the workspaces files can be found in the container. |
 | `${localWorkspaceFolderBasename}` | Any | Name of the local folder that was opened in VS Code (that contains `.devcontainer/devcontainer.json`).<br /><br />⚠️ Not yet supported when using Clone Repository in Container Volume. |
-| `${containerWorkspaceFolderBasename}` | Any | Name of the folder where the workspace files can be found in the container |
+| `${containerWorkspaceFolderBasename}` | Any | Name of the folder where the workspace files can be found in the container. |
 
 ## Attached container configuration reference
 
