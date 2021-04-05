@@ -26,6 +26,12 @@ sudo apt update
 sudo apt install code
 ```
 
+### Running VS Code
+
+After installing the VS Code package, you can run VS Code by typing `code` in a terminal or launching it via the **Programming** menu.
+
+![Visual Studio Code under the Programming menu on Raspberry Pi](images/raspberry-pi-os/vscode-under-programming.jpg)
+
 ## Updates
 
 Your Raspberry Pi should handle updating VS Code in the same way as other packages on the system:
