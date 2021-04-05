@@ -58,8 +58,8 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			<img src="/assets/docs/getstarted/introvideos/debugging.png" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
-				<p class="description">Get started with Node.js debugging in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>8<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<p class="description">Get started with debugging in VS Code.</p>
+				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
