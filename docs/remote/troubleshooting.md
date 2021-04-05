@@ -1068,6 +1068,26 @@ Extensions that access locally attached devices will be unable to connect to the
 
 ## Questions and feedback
 
+### Reporting quality issues
+
+If you run into an issue with one of the remote development extensions, it's important to collect the correct logs so that we'll be able to help [diagnose your issue](https://aka.ms/vscode-remote/issues/new).
+
+We recommend turning on trace level telemetry to get the most detailed logs: `F1` -> `Developer: Set Log Level...` -> `Trace`. From here, the type of logs depends on the context of your issue.
+
+You can get the Remote - SSH logs from the SSH Output channel: `F1` -> `Output: Focus on Output View`, and select "Remote - SSH" from the dropdown.
+
+You can get the Remote - Containers logs with `F1` -> `Remote-Containers: Show Log`.
+
+Similarly, you can get the Remote - WSL logs with `F1` -> `Remote WSL: Show Log`.
+
+If you're experiencing issues using other extensions remotely (i.e. other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the "Remote Extension Host" output channel: `F1` -> `Output: Focus on Output View`, and select "Log (Remote Extension Host)" from the dropdown.
+
+> **Note**: If you only see "Log (Extension Host)," this is the local extension host, and the remote extension host didn't launch. This is because the log channel is created only after the log file is created, so if the remote extension host does not launch, the remote extension host log file was not created, and this is not shown in the output view. This is helpful information to include in your issue.
+
+### Remote question and feedback resources
+
+We have a variety of other remote resources:
+
 - See [Remote Development FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
