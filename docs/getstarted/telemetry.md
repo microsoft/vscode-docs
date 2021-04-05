@@ -51,15 +51,15 @@ If you'd like to review the telemetry events in VS Code as they are sent, you ca
 
 ![output panel log telemetry](images/telemetry/output-log-telemetry.png)
 
-When tracing telemetry events, the events are also logged to a local file `telemetry.log` which you can view using the **Developer: Open Log File...** command and choosing **Telemetry** from the dropdown.
+When tracing telemetry events, the events are also logged to a local file `telemetry.log`, which you can view using the **Developer: Open Log File...** command and choosing **Telemetry** from the dropdown.
 
 ![open telemetry log file](images/telemetry/open-telemetry-log.png)
 
 ## Viewing all telemetry events
 
-If you'd like to view all the possible telemetry events that VS Code could send you can use the `--telemetry` flag in the CLI. This will generate a JSON report that you can then view within VS Code. These reports are generated per build and do not contain extension telemetry unless the extension author adds a `telemetry.json` file to their root build directory.
+If you'd like to view all the possible telemetry events that VS Code could send, you can use the `--telemetry` flag in the CLI. This will generate a JSON report that you can then view within VS Code. These reports are generated per build and do not contain extension telemetry unless the extension author adds a `telemetry.json` file to their root build directory.
 
-For example, running `code --telemetry > telemetry.json && code telemetry.json` will create a `telemetry.json` file in your current working directory and then open it in VS Code. You cannot pipe the output like this, `code --telemetry | code -` due to the length of the telemetry report.
+For example, running `code --telemetry > telemetry.json && code telemetry.json` will create a `telemetry.json` file in your current working directory and then open it in VS Code. You cannot pipe the output like this, `code --telemetry | code -`, due to the length of the telemetry report.
 
 ## GDPR and VS Code
 
@@ -81,7 +81,7 @@ You can find more information about how the Visual Studio family approaches GDPR
 
 ## Managing online services
 
-Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
+Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
 
 Please note, that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
 
@@ -125,7 +125,7 @@ If you have created a VS Code extension, you can use the VS Code telemetry infra
 
 Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
 
-If you would prefer to not utilize the npm module it is still recommended that extension authors respect the user's choice by utilizing the `isTelemetryEnabled` and `onDidChangeTelemetryEnabled` API.
+If you would prefer to not utilize the npm module, it is still recommended that extension authors respect the user's choice by utilizing the `isTelemetryEnabled` and `onDidChangeTelemetryEnabled` API.
 
 Additionally, telemetry authors can add a `telemetry.json` file to their root build directory for their telemetry to show up in the `--telemetry` dump that VS Code produces.
 
