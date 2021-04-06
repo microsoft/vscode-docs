@@ -23,7 +23,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight source code editor and powerful development environment for building and debugging modern web, mobile and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight source code editor and is the most powerful development environment for building and debugging modern web, mobile and cloud applications. It is free and available on your favorite platform - Linux, macOS, and Windows.
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
@@ -39,7 +39,7 @@ If you think the issue is with the VS Code product itself, please enter issues i
 
 ## Contributing
 
-To contribute new topics/information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md#contributing).
+To contribute new topics/information or make changes to the existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md#contributing).
 
 ### Workflow
 
