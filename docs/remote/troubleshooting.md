@@ -1078,7 +1078,7 @@ If you run into an issue with one of the remote development extensions, it's imp
 
 Each remote extension has a command to view its logs.
 
-You can get the Remote - SSH logs with `F1` -> `Remote-SSH: Show Log`. This is the same as the output from the SSH Output channel: `F1` -> `Output: Focus on Output View`, and select "Remote - SSH" from the dropdown. When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
+You can get the Remote - SSH logs with `F1` -> `Remote-SSH: Show Log`. When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
 
 Similarly, you can get the Remote - Containers logs with `F1` -> `Remote-Containers: Show Log`.
 
