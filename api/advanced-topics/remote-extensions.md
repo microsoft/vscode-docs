@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 4/1/2021
+DateApproved: 3/31/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
@@ -29,7 +29,7 @@ The VS Code APIs are designed to automatically run on the correct machine (eithe
 
 ## Debugging Extensions
 
-While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [GitHub Codespaces](#debugging-with-visual-studio-codespaces), a [local container](#debugging-in-a-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
+While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [GitHub Codespaces](#debugging-with-visual-studio-codespaces), a [local container](#debugging-in-a-custom-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
 
 Typically, your best starting point for testing is to use a remote environment that restricts port access (for example Codespaces, a container, or remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
 
@@ -41,7 +41,7 @@ Follow these steps:
 
 1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/en/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
-2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
+2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example, using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
 3. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside in the codespace.
 
@@ -475,7 +475,7 @@ Each option allows webview content to route through the same channel VS Code use
 
 ### Option 1 - Use asExternalUri
 
-VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code.
+VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local `http` and `https` requests remotely in a programmatic way. You can use this same API to forward requests to `localhost` web servers from the webview when your extension is running in VS Code.
 
 Use the API to get a full URI for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
 

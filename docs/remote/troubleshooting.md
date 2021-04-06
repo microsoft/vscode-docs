@@ -1050,7 +1050,7 @@ Extensions that rely on Electron or VS Code base modules (not exposed by the ext
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
 
-**Resolution:** If you create a "UI" extension designed to run locally you can use the `vscode.workspace.fs` API to interact with the remote workspace filesystem. You can then make this a dependency of your "Workspace" extension and invoke it using a command as needed. See the [extension author's guide](/api/advanced-topics/remote-extensions) for details on different types of extensions and how to use commands to communicate between them.
+**Resolution:** If you create a "UI" extension designed to run locally, you can use the `vscode.workspace.fs` API to interact with the remote workspace filesystem. You can then make this a dependency of your "Workspace" extension and invoke it using a command as needed. See the [extension author's guide](/api/advanced-topics/remote-extensions) for details on different types of extensions and how to use commands to communicate between them.
 
 ### Cannot access attached device from extension
 
