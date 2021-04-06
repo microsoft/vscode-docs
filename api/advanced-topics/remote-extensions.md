@@ -1,13 +1,13 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 3/31/2021
+DateApproved: 4/1/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
 ---
 # Supporting Remote Development and GitHub Codespaces
 
-**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[GitHub Codespaces](https://github.com/features/codespaces)** is a preview service that expands these capabilities with managed cloud-hosted environments that are accessible from both VS Code and a browser-based editor.
+**[Visual Studio Code Remote Development](/docs/remote/remote-overview)** allows you to transparently interact with source code and runtime environments sitting on other machines (whether virtual or physical). **[GitHub Codespaces](https://github.com/features/codespaces)** is a service that expands these capabilities with managed cloud-hosted environments that are accessible from both VS Code and a browser-based editor.
 
 To ensure performance, Remote Development and GitHub Codespaces both transparently run certain VS Code extensions remotely. However, this can have subtle impacts on how extensions need to work.  While many extensions will work without any modifications, you may need to make changes so that your extension works properly in all environments, although these changes are often fairly minor.
 
@@ -35,41 +35,31 @@ Typically, your best starting point for testing is to use a remote environment t
 
 ### Debugging with GitHub Codespaces
 
-Debugging your extension in [GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces) preview can be a great starting point since you can use both VS Code and the Codespaces browser-based editor for testing and troubleshooting.
+Debugging your extension in [GitHub Codespaces](https://docs.github.com/github/developing-online-with-codespaces) preview can be a great starting point since you can use both VS Code and the Codespaces browser-based editor for testing and troubleshooting. You can also use a [custom development container](#debugging-in-a-custom-development-container) if preferred.
 
 Follow these steps:
 
-1. Install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=github.codespaces) extension.
+1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/en/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
-2. Create a new [codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace).
+2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
-3. If you have not already connected to your codespace, select  **Codespaces: Connect to Codespace** from the Command Palette (`kbstyle(F1)`) in VS Code to connect.
-
-4. Once connected, either use **File > Open... / Open Folder...** to select the codespace folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it into the codespace and open it.
-
-5. While GitHub Codespaces cloud-based environments should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example using `yarn install` or `apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
-
-6. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside in the codespace.
+3. Finally, press `kb(workbench.action.debug.start)` or use the **Run view** to launch the extension inside in the codespace.
 
     > **Note:** You will not be able to open the extension source code folder in the window that appears, but you can open a sub-folder or somewhere else in the codespace.
 
 The extension development host window that appears will include your extension running in a codespace with the debugger attached to it.
 
-**Using the Codespaces browser-based editor**
-
-Once you have a codespace with your extension source code, you can also use the Codespaces browser-based editor by [going to the GitHub portal](https://docs.github.com/github/developing-online-with-codespaces/developing-in-a-codespace) to connect or selecting **Codespaces: Open in Browser** from VS Code's Command Palette (`kbstyle(F1)`) locally. Once connected to the codespace, you can **edit and debug your extension in the browser** exactly like you can from VS Code.
-
-### Debugging in a development container
+### Debugging in a custom development container
 
 Follow these steps:
 
-1. After [installing and configuring the Remote - Containers extension](/docs/remote/containers#_getting-started), use **File > Open... / Open Folder...** to open your source code locally in VS Code.
+1. To use a development container locally, [install and configure the Remote - Containers extension](/docs/remote/containers#_getting-started), and use **File > Open... / Open Folder...** to open your source code locally in VS Code. To use Codespaces instead, navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/en/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
-2. Select **Remote-Containers: Add Development Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js 8 & TypeScript** (or Node.js 8 if you are not using TypeScript) to add the needed container configuration files.
+2. Select **Remote-Containers: Add Development Container Configuration Files...** or **Codespaces: Add Development Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js & TypeScript** (or Node.js if you are not using TypeScript) to add the needed container configuration files.
 
 3. **[Optional]** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Remote - Containers](/docs/remote/create-dev-container#_set-up-a-folder-to-run-in-a-container) documentation for details.
 
-4. Run **Remote-Containers: Reopen Folder in Container** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
+4. Run **Remote-Containers: Reopen Folder in Container** or **Codespaces: Add Development Container Configuration Files..** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
 
 5. Run `yarn install` or `npm install` in a new VS Code terminal window (`kb(workbench.action.terminal.new)`) to ensure the Linux versions Node.js native dependencies are installed. You can also install other OS or runtime dependencies, but you may want to add these to `.devcontainer/Dockerfile` as well so they are available if you rebuild the container.
 
@@ -276,7 +266,7 @@ Spawning a process or using a module like `opn` to launch a browser or other app
 
 Instead of relying on a third-party node module, we recommend extensions take advantage of the `vscode.env.openExternal` method to launch the default registered application on your local operating system for given URI. Even better, `vscode.env.openExternal` **does automatic localhost port forwarding!** You can use it to point to a local web server on a remote machine or codespace and serve up content even if that port is blocked externally.
 
-> **Note:** Currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for VS Code do not have this limitation. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
+> **Note:** Currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. However, you can interact with any TCP connection when connecting to a codespace from VS Code.
 
 To use the `vscode.env.openExternal` API:
 
@@ -302,9 +292,9 @@ export async function activate(context: vscode.ExtensionContext) {
 
 While the [localhost forwarding mechanism in `vscode.env.openExternal` is useful](#opening-something-in-a-local-browser-or-application), there may also be situations where you want to forward something without actually launching a new browser window or application. This is where the `vscode.env.asExternalUri` API comes in.
 
-> **Note:** Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for VS Code do not have this limitation. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
+> **Note:** Currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. However, you can interact with any TCP connection when connecting to a codespace from VS Code.
 
-To use the `vscode.env.openExternal` API:
+To use the `vscode.env.asExternalUri` API:
 
 ```typescript
 import * as vscode from 'vscode';
@@ -477,7 +467,7 @@ If at all possible, **you should avoid doing this** since it complicates your ex
 
 ### Workarounds for using localhost from a webview
 
-If you can't use the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for some reason, there are two options that will work with the Remote Development and GitHub Codespaces extensions in VS Code. Unfortunately, neither of these options currently work with the Codespaces browser-based editor due to [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11).
+If you can't use the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for some reason, there are two options that will work with the Remote Development and GitHub Codespaces extensions in VS Code.
 
 Each option allows webview content to route through the same channel VS Code uses to talk to VS Code Server. For example, if we update the illustration in the previous section for Remote - SSH, you would have this:
 
@@ -485,9 +475,7 @@ Each option allows webview content to route through the same channel VS Code use
 
 ### Option 1 - Use asExternalUri
 
-VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code. In the future, if you intend to **only serve up content in an iframe**, you will be able to use this API to support the Codespaces browser-based editor but this is **currently blocked** by [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11).
-
-> **Note:** In addition to the issue above, currently the forwarding mechanism in the Codespaces browser-based editor only supports **http and https requests**. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. However, the Remote Development and Codespaces extensions for the VS Code client do not have this limitation. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
+VS Code 1.40 introduced the `vscode.env.asExternalUri` API to allow extensions to forward local http and https requests remotely in a programmatic way. You can be use this same API to forward requests to localhost web servers from the webview when your extension is running in VS Code.
 
 Use the API to get a full URI for the iframe and add it to your HTML. You will also need to enable scripts in your webview and add a CSP to your HTML content.
 
@@ -613,9 +601,6 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description |
 |---------|-------------|
-| **Webview HTML content cannot directly access port forwarded servers in Codespaces browser-based editor** | Currently this is blocked by [MicrosoftDocs/vscodespaces#11](https://github.com/MicrosoftDocs/vscodespaces/issues/11). (Note that this does not affect the Remote Development or Codespaces extensions for the VS Code client.) We generally suggest moving to the [message passing](/api/extension-guides/webview#scripts-and-message-passing) API for webview content and interacting with any servers your extension spins up since this avoids the problem. In the future, we hope to allow local web server content [housed in an iframe](#webview-localhost-option-2---use-asexternaluri) to work from a webview. |
-| **Websockets do not work in port forwarded content in Codespaces browser-based editor** | Currently, only the http and https protocols are supported by Codespaces browser-based forwarding mechanism. Web sockets and other protocols will not work even if served up in web content. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details. (Note that this does not affect the Remote Development or Codespaces extensions for the VS Code client.) |
-| **Cannot access / transfer remote workspace files to local machine** | Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem. |
 | **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
 
 ## Questions and feedback
