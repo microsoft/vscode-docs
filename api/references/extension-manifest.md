@@ -187,7 +187,7 @@ We allow badges from the following URL prefixes:
 - flat.badgen.net
 - gemnasium.com
 - githost.io
-- github.com
+- github.com (from Workflows only)
 - gitlab.com
 - godoc.org
 - goreportcard.com
