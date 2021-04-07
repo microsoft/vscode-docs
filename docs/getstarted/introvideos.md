@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Visual Studio Code Introductory Videos
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
@@ -75,7 +75,7 @@ Start your journey using Visual Studio Code with this set of introductory videos
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/intellisense">
-			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
+			<img src="/assets/docs/getstarted/introvideos/productivity-features.png" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">IntelliSense</h2>
 				<p class="description">Learn how to set up IntelliSense and receive intelligent code completions.</p>
@@ -84,5 +84,3 @@ Start your journey using Visual Studio Code with this set of introductory videos
 		</a>
     </li>
 </ul>
-
-> Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J).

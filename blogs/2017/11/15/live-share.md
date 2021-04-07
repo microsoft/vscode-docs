@@ -14,7 +14,7 @@ November 15, 2017 Amanda Silver, [@amandaksilver](https://twitter.com/amandaksil
 
 >**Update (May 7, 2018):** Visual Studio Live Share is now publicly available. You can [get started using Live Share](https://visualstudio.microsoft.com/services/live-share) today!
 
-We are excited to announce that we’re working on “Visual Studio Live Share”, which enables developers using Visual Studio 2017 or Visual Studio Code to collaborate in real-time! Learn more about Live Share and the upcoming limited private preview [here](/visual-studio-live-share).
+We are excited to announce that we’re working on "Visual Studio Live Share", which enables developers using Visual Studio 2017 or Visual Studio Code to collaborate in real-time! Learn more about Live Share and the upcoming limited private preview [here](/visual-studio-live-share).
 
 ## What is Live Share?
 Live Share enables your team to quickly collaborate on the same codebase without the need to synchronize code or to configure the same development tools, settings, or environment.

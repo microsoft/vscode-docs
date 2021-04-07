@@ -66,9 +66,5 @@ A second incredibly useful extension from Christian Kohler. This extension provi
 
 ![npm intellisense](npm_intellisense.gif)
 
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
-
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

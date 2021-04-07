@@ -124,8 +124,10 @@ The associated configuration file would then look as follows.
     "name": "Attach",
     "type": "python",
     "request": "attach",
-    "host": "remote-machine-name", // replace this with remote machine name
-    "port": 5678,
+    "connect": {
+       "host": "remote-machine-name", // replace this with remote machine name
+       "port": 5678
+    }
 }
 ```
 
@@ -351,7 +353,11 @@ If not specified, this setting defaults to the interpreter identified in the `py
 
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no additional folder paths are needed.
 
-If you need to pass arguments to the Python interpreter, you can use the syntax `"python": ["<path>", "<arg>",...]`.
+If you need to pass arguments to the Python interpreter, you can use the `pythonArgs` property.
+
+### `pythonArgs`
+
+Specifies arguments to pass to the Python interpreter using the syntax `"pythonArgs": ["<arg 1>", "<arg 2>",...]`.
 
 ### `args`
 

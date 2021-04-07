@@ -154,4 +154,4 @@ If you need to uninstall (or repair) your Coding Pack for Python installation, y
 
    ![Coding Pack for Python uninstall complete screen](images/coding-pack/coding-pack-python-uninstall-complete.png)
 
->**Note**: The uninstall process will not remove Visual Studio Code. At the end of the uninstall process, you can click the provided link to open “Apps & features” to uninstall Visual Studio Code. If you decide to repair your installation, be aware that any other Python packages you might have installed will be removed as part of the repair process.
+>**Note**: The uninstall process will not remove Visual Studio Code. At the end of the uninstall process, you can click the provided link to open "Apps & features" to uninstall Visual Studio Code. If you decide to repair your installation, be aware that any other Python packages you might have installed will be removed as part of the repair process.

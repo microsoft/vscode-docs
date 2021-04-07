@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -238,7 +238,7 @@ The **Organize Imports** source code action sorts the imports in a TypeScript fi
 
 You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
-Organize imports can also be automatically when you save a TypeScript file by setting:
+Organize imports can also be done automatically when you save a TypeScript file by setting:
 
 ```json
 "editor.codeActionsOnSave": {

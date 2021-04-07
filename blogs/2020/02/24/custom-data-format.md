@@ -58,7 +58,7 @@ You then get language features for the defined entities:
 
 ![Custom Data helloworld](custom-data-helloworld.png)
 
-You can try this feature by opening the preconfigured [Custom Data hello world sample](https://github.com/microsoft/vscode-custom-data/tree/master/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
+You can try this feature by opening the preconfigured [Custom Data hello world sample](https://github.com/microsoft/vscode-custom-data/tree/main/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
 
 The `html.customData` and `css.customData` settings serve as a good starting point for using Custom Data. However, there are other ways to take advantage of Custom Data as well. In the following sections, we describe how extension authors can share curated sets of Custom Data or leverage Custom Data to build language support.
 
@@ -95,7 +95,7 @@ Our built-in [HTML language server](https://github.com/microsoft/vscode/tree/mai
 - Mozilla's [mdn-data](https://github.com/mdn/data) and [mdn-browser-compat-data](https://github.com/mdn/browser-compat-data) packages
 - Chrome's ranking of CSS properties usage
 
-We have published this set of data to [NPM](https://www.npmjs.com/package/vscode-web-custom-data). You can find the data [on GitHub](https://github.com/microsoft/vscode-custom-data/tree/master/web-data) as well. Language server authors might use this dataset in combination with our HTML/CSS language services to implement support for their languages that extend or embed HTML/CSS, or they could use this data to implement support for languages that transpile to HTML/CSS, such as Pug or Stylus. Finally, we will continue to curate this dataset to provide up-to-date language support for HTML/CSS in VS Code.
+We have published this set of data to [NPM](https://www.npmjs.com/package/vscode-web-custom-data). You can find the data [on GitHub](https://github.com/microsoft/vscode-custom-data/tree/main/web-data) as well. Language server authors might use this dataset in combination with our HTML/CSS language services to implement support for their languages that extend or embed HTML/CSS, or they could use this data to implement support for languages that transpile to HTML/CSS, such as Pug or Stylus. Finally, we will continue to curate this dataset to provide up-to-date language support for HTML/CSS in VS Code.
 
 ## Summary
 

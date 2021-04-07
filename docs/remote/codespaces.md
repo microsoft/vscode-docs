@@ -5,11 +5,11 @@ TOCTitle: GitHub Codespaces
 PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 ---
 # GitHub Codespaces
-[GitHub Codespaces](https://github.com/features/codespaces) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from Visual Studio Code or in a browser-based editor.
 
+[GitHub Codespaces](https://github.com/features/codespaces) provides cloud-powered development environments for any activity - whether it's a long-term project, or a short-term task like reviewing a pull request. You can work with these environments from Visual Studio Code or in a browser-based editor.
 
 ![GitHub Codespaces extension](images/codespaces/github-codespaces-extension.png)
 
@@ -51,6 +51,12 @@ There are getting started topics for both GitHub Codespaces clients. These will 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in GitHub Codespaces environments without any modification. However, we recommend that you test your extension in a codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
 ## Common questions
+
+### Why is an extension not installable in the browser
+
+There are a small number of extensions that have built-in assumptions or need to run on the desktop. Examples are when an extension accesses files from the VS Code installation on the desktop or when an extension depends on a executable that must run in a desktop environment. When you try to install such an extension in the browser, you will be informed that the extension is not available.
+
+**Notice** such an extension can still be used when connecting to a Codespace from VS Code running on the desktop.
 
 ### How do I allow VS Code to access my clipboard for reading?
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 106AA11C-DB26-493A-9E3C-16F513B2AEC8
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: The Visual Studio Code Extension Host is responsible for managing extensions and ensuring the stability and performance of Visual Studio Code.
@@ -9,7 +9,7 @@ MetaDescription: The Visual Studio Code Extension Host is responsible for managi
 
 # Extension Host
 
-As you learned in the [Extension Anatomy](/api/get-started/extension-anatomy) topic, an extension exposes the `activate` and `deactivate` methods and VS Code will manage its lifecycle. This topic provides more details on the **Extension Host** that manages all running extensions.
+As you learned in the [Extension Anatomy](/api/get-started/extension-anatomy) topic, an extension exposes the `activate` and `deactivate` methods and Visual Studio Code will manage its lifecycle. This topic provides more details on the **Extension Host** that manages all running extensions.
 
 **Extension host** is a Node.js process in VS Code responsible for loading and running extensions. Although you don't need to worry about the Extension Host when you are writing extensions, it is still useful to know what the Extension Host does to your extension.
 

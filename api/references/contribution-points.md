@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -382,8 +382,10 @@ Currently extension writers can contribute to:
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
+- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
 - [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
+- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
@@ -1145,4 +1147,4 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
 };
 ```
 
-This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/microsoft/vscode-typescript-tslint-plugin/blob/main/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.

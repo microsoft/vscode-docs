@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -125,6 +125,7 @@ The following variables can be used:
 * `TM_FILENAME_BASE` The filename of the current document without its extensions
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
+* `RELATIVE_FILEPATH` The relative (to the opened workspace or folder) file path of the current document
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
 * `WORKSPACE_FOLDER` The path of the opened workspace or folder
@@ -143,6 +144,12 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+
+For inserting random values:
+
+* `RANDOM` 6 random Base-10 digits
+* `RANDOM_HEX` 6 random Base-16 digits
+* `UUID` A Version 4 UUID
 
 For inserting line or block comments, honoring the current language:
 
@@ -220,7 +227,7 @@ variable    ::= '$' var | '${' var '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
-                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
+                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/pascalcase' '}'
                 | '${' int ':+' if '}'
                 | '${' int ':?' if ':' else '}'
                 | '${' int ':-' else '}' | '${' int ':' else '}'
@@ -277,3 +284,29 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
 You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
+
+### How do I have a snippet place a variable in the pasted script?
+
+To have a variable in the pasted script, you need to escape the '$' of the `$variable` name so that it isn't parsed by the snippet expansion phase.
+
+```json
+"VariableSnippet":{
+    "prefix": "_Var",
+    "body": "\\$MyVar = 2",
+    "description": "A basic snippet that places a variable into script with the $ prefix"
+  }
+```
+
+This results in the pasted snippet as:
+
+```text
+$MyVar = 2
+```
+
+### Can I remove snippets from IntelliSense?
+
+Yes, you can hide specific snippets from showing in IntelliSense (completion list) by selecting the **Hide from IntelliSense** button to the right of snippet items in the **Insert Snippet** command dropdown.
+
+ ![Hide from IntelliSense button in Insert Snippet dropdown](images/userdefinedsnippets/hide-from-intellisense.png)
+
+ You can still select the snippet with the **Insert Snippet** command but the hidden snippet won't be displayed in IntelliSense.

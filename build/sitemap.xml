@@ -36,6 +36,11 @@
         <priority>0.70</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/migrate-from-brackets</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/supporting/FAQ</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -130,11 +135,11 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <!-- <url>
-        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi-os</loc>
+    <url>
+        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url> -->
+    </url>
     <url>
         <loc>https://code.visualstudio.com/docs/setup/network</loc>
         <changefreq>weekly</changefreq>
@@ -816,7 +821,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/python-user-rights</loc>
+        <loc>https://code.visualstudio.com/docs/containers/python-configure-containers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -851,7 +856,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/minikube</loc>
+        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-sample</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1131,6 +1136,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/learn/educators/learn-modules</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/nodejs</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>

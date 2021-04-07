@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -89,7 +89,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
 Dropdown control is not used on macOS currently.
 
-![drop down control](images/theme-color/Dropdown.png)
+![dropdown control](images/theme-color/Dropdown.png)
 
 - `dropdown.background`: Dropdown background.
 - `dropdown.listBackground`: Dropdown list background.
@@ -146,12 +146,14 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
 - `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.focusOutline`: List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
 - `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
 - `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive.
 - `list.inactiveSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.inactiveFocusBackground`: List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
+- `list.inactiveFocusOutline`: List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
 - `list.errorForeground`: Foreground color of list items containing errors.
 - `list.warningForeground`: Foreground color of list items containing warnings.
@@ -160,8 +162,9 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
-- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
+- `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `tree.tableColumnsBorder`: Tree stroke color for the indentation guides.
 
 ## Activity Bar
 
@@ -610,6 +613,7 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `extensionButton.prominentHoverBackground`: Extension view button background hover color.
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
+- `extensionIcon.starForeground`: The icon color for extension ratings.
 
 ## Quick picker colors
 
@@ -617,6 +621,7 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
+- `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Integrated Terminal colors
@@ -689,7 +694,10 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
--  "`welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
+- `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
+- `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
+- `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
+- `welcomePage.tileShadow.`: Shadow color for the Welcome page walkthrough category buttons.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
@@ -701,8 +709,9 @@ Once opened in the Notification Center, they are displayed in a list with a head
 
 - `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.modifiedResourceForeground`: Color for modified Git resources. Used for file labels and the SCM viewlet.
-- `gitDecoration.stageModifiedResourceForeground`: Color for staged modifications git decorations.  Used for file labels and the SCM viewlet.
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.renamedResourceForeground`: Color for renamed or copied Git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.stageModifiedResourceForeground`: Color for staged modifications git decorations.  Used for file labels and the SCM viewlet.
 - `gitDecoration.stageDeletedResourceForeground`: Color for staged deletions git decorations.  Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
@@ -816,26 +825,28 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 ## Notebook colors
 
 - `notebook.cellBorderColor`: The border color for notebook cells.
-- `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
-- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
-- `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
-- `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
-- `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
+- `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
+- `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
 - `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
-- `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
 - `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
-- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
-- `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
-- `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
-- `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
-- `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
-- `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
-- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
-- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
+- `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
 - `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
+- `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
+- `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
+- `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
+- `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
+- `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
+- `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
+- `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
+- `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
+- `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
 
 ## Chart colors
 
@@ -847,6 +858,26 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `charts.orange`: Color for orange elements in charts.
 - `charts.green`: Color for green elements in charts.
 - `charts.purple`: Color for purple elements in charts.
+
+## Testing Colors
+
+
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
+- `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.peekBorder`: Color of the peek view borders and arrow.
+- `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
+- `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
+- `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
+- `testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
+- `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
+- `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+- `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
+- `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
 ## Extension colors
 

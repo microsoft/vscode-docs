@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 995c7085-5fc0-44e0-a171-30a759c0b7da
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
@@ -217,7 +217,7 @@ If you are authoring your own VS Code extension and need to enable/disable comma
 The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
-vscode.commands.executeCommand('setContext', 'myExtension:showMyCommand', true);
+vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 
-vscode.commands.executeCommand('setContext', 'myExtension:numberOfCoolOpenThings', 4);
+vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -206,7 +206,7 @@ The **Organize Imports** Source Action sorts the imports in a JavaScript file an
 
 You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
-Organize imports can also be automatically when you save a JavaScript file by setting:
+Organize imports can also be done automatically when you save a JavaScript file by setting:
 
 ```json
 "editor.codeActionsOnSave": {

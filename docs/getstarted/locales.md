@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -364,6 +364,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-debug-disconnect"></i>|debug-disconnect|
 |<i class="codicon codicon-debug-hint"></i>|debug-hint|
 |<i class="codicon codicon-debug-pause"></i>|debug-pause|
+|<i class="codicon codicon-debug-rerun"></i>|debug-rerun|
 |<i class="codicon codicon-debug-restart"></i>|debug-restart|
 |<i class="codicon codicon-debug-restart-frame"></i>|debug-restart-frame|
 |<i class="codicon codicon-debug-reverse-continue"></i>|debug-reverse-continue|
@@ -443,6 +444,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-git-merge"></i>|git-merge|
 |<i class="codicon codicon-git-pull-request"></i>|git-pull-request|
 |<i class="codicon codicon-git-pull-request-abandoned"></i>|git-pull-request-abandoned|
+|<i class="codicon codicon-git-pull-request-create"></i>|git-pull-request-create|
 |<i class="codicon codicon-github"></i>|github|
 |<i class="codicon codicon-github-action"></i>|github-action|
 |<i class="codicon codicon-github-alt"></i>|github-alt|
@@ -517,6 +519,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-no-newline"></i>|no-newline|
 |<i class="codicon codicon-note"></i>|note|
 |<i class="codicon codicon-notebook"></i>|notebook|
+|<i class="codicon codicon-notebook-template"></i>|notebook-template|
 |<i class="codicon codicon-octoface"></i>|octoface|
 |<i class="codicon codicon-open-preview"></i>|open-preview|
 |<i class="codicon codicon-organization"></i>|organization|
@@ -582,6 +585,8 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-ruby"></i>|ruby|
 |<i class="codicon codicon-run"></i>|run|
 |<i class="codicon codicon-run-all"></i>|run-all|
+|<i class="codicon codicon-run-above"></i>|run-above|
+|<i class="codicon codicon-run-below"></i>|run-below|
 |<i class="codicon codicon-save"></i>|save|
 |<i class="codicon codicon-save-all"></i>|save-all|
 |<i class="codicon codicon-save-as"></i>|save-as|
@@ -672,6 +677,9 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-triangle-right"></i>|triangle-right|
 |<i class="codicon codicon-triangle-up"></i>|triangle-up|
 |<i class="codicon codicon-twitter"></i>|twitter|
+|<i class="codicon codicon-type-hierarchy-sub"></i>|type-hierarchy|
+|<i class="codicon codicon-type-hierarchy-sub"></i>|type-hierarchy-sub|
+|<i class="codicon codicon-type-hierarchy-super"></i>|type-hierarchy-super|
 |<i class="codicon codicon-unfold"></i>|unfold|
 |<i class="codicon codicon-ungroup-by-ref-type"></i>|ungroup-by-ref-type|
 |<i class="codicon codicon-unlock"></i>|unlock|

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: Node.js Debugging Recipes for Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -46,16 +46,6 @@ You can read more about how our Debugger for Chrome works in this introduction [
 * [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
 
 * [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
-
-## Debug Node.js in Docker containers
-
-This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
-
-![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
-
-**Recipes:**
-
-- [Debugging Node.js with TypeScript in Docker](https://github.com/microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## Electron - Debug Electron applications
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 2/4/2021
+DateApproved: 3/31/2021
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -28,6 +28,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
+Not | `!` | `!editorReadonly`
 Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
@@ -73,7 +74,7 @@ Context name | True when
 `listMultiSelection` | A list has a selection of multiple elements.
 **Mode contexts** |
 `inSnippetMode` | The editor is in snippet mode.
-`inQuickOpen` | The Quick Open drop-down has focus.
+`inQuickOpen` | The Quick Open dropdown has focus.
 **Resource contexts** |
 `resourceScheme` | True when the resource Uri scheme matches. Example: `"resourceScheme == file"`
 `resourceFilename` | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
@@ -165,7 +166,7 @@ Context name | True when
 ------------ | ------------
 activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
 activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
-focusedView | True when view is focused. Example: `"focusedView == myViewsExplorerID`
+focusedView | True when view is focused. Example: `"focusedView == myViewsExplorerID"`
 
 View Identifiers:
 
@@ -203,9 +204,9 @@ If you are authoring your own VS Code extension and need to enable/disable comma
 The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
-vscode.commands.executeCommand('setContext', 'myExtension:showMyCommand', true);
+vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 
-vscode.commands.executeCommand('setContext', 'myExtension:numberOfCoolOpenThings', 4);
+vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```
 
 ## 'in' conditional operator
@@ -215,12 +216,12 @@ The `in` operator for `when` clauses allows for a dynamic lookup of a context ke
 First, determine which folders should support the command, and the folder name to an array. Then, use the `setContext` command to turn the array into a context key:
 
 ```ts
-vscode.executeCommand('setContext', 'ext:supportedFolders', [ 'test', 'foo', 'bar' ]);
+vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', 'foo', 'bar' ]);
 
 // or
 
 // Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
-vscode.executeCommand('setContext', 'ext:supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
+vscode.commands.executeCommand('setContext', 'ext.supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
 ```
 
 Then, in the `package.json` you could add a menu contribution for the `explorer/context` menu:
