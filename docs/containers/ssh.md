@@ -15,7 +15,7 @@ We recommend using the Visual Studio Code [Remote-SSH extension](/docs/container
 
 1. Configure `ssh-agent` on the **local** system with the **private** key file produced above.
 
-    * **Windows (OpenSSH):** The latest version(s) of Windows 10 include OpenSSH by default. There is a Windows service, `ssh-agent` that is disabled by default, and needs to be re-enabled and set to automatic start. From an admin command prompt, run `sc config ssh-agent start=auto` and `net start ssh-agent`. Then, do `ssh-add <keyfile>`.
+    * **Windows (OpenSSH):** The latest version(s) of Windows 10 include OpenSSH by default. There is a Windows service, `ssh-agent` that is disabled by default, and needs to be re-enabled and set to automatic. Press the Windows button, type `services` and start the app. Then right click on the `OpenSSH Authentication Agent` service and set the startup to `Automatic`. Afterwards, from an admin command prompt run `net start ssh-agent`. Then, do `ssh-add <keyfile>`.
 
     * **Windows (Pageant):** You can use Pageant instead of OpenSSH, in which case it is necessary to set the environment variable `SSH_AUTH_SOCK=pageant`. Making that a user or system environment variable will be easiest.
 
