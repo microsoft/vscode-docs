@@ -82,7 +82,7 @@ There are two necessary methods in this API that you need to implement:
 - `getChildren(element?: T): ProviderResult<T[]>` - Implement this to return the children for the given `element` or root (if no element is passed).
 - `getTreeItem(element: T): TreeItem | Thenable<TreeItem>` - Implement this to return the UI representation ([TreeItem](/api/references/vscode-api#TreeItem)) of the element that gets displayed in the view.
 
-When the user opens the Tree View, the `getChildren` method will be called without an `element`. From there, your `TreeDataProvider` should return your top-level tree items. `getChildren` is then called for each of your top-level tree items, so that you can provide the children of those items.
+When the user opens the Tree View, the `getChildren` method will be called without an `element`. From there, your `TreeDataProvider` should return your top-level tree items. In our example, the `collapsibleState` of the top-level tree items is `TreeItemCollapsibleState.Collapsed`, meaning that the top-level tree items will show as collapsed. Setting the `collapsibleState` to `TreeItemCollapsibleState.Expanded` will cause tree items to show as expanded. Leaving the `collapsibleState` as its default of `TreeItemCollapsibleState.None` indicates that the tree item has no children. `getChildren` will not be called for tree items with a `collapsibleState` of `TreeItemCollapsibleState.None`.
 
 Here is an example of a `TreeDataProvider` implementation that provides node dependencies data:
 

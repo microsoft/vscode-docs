@@ -245,6 +245,14 @@ To render an alternative mimetype, a `NotebookOutputRenderer` must be registered
 
 An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. An output renderer shared by output cells can maintain global state between these cells. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
 
+You can get started quickly using boilerplate from our Yeoman generators. To do so, first install Yeoman and the VS Code Generators using:
+
+```
+npm install -g yo generator-code
+```
+
+Then, run `yo code --insiders`.
+
 ### A Simple, Non-Interactive Renderer
 
 Renderers are declared for a set of mimetypes by contributing to the `contributes.notebookOutputRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed kernel is able to provide:
@@ -276,8 +284,7 @@ When it's loaded, your entrypoint script should immediately call `acquireNoteboo
 const notebookApi = acquireNotebookRendererApi("github-issue-static-renderer");
 
 notebookApi.onDidCreateOutput((evt) => {
-  const output = evt.output.data[evt.mimeType];
-  evt.element.innerText = JSON.stringify(output);
+  evt.element.innerText = JSON.stringify(evt.value);
 });
 ```
 
@@ -306,8 +313,7 @@ const GithubIssues: FunctionComponent<{ issues: GithubIssue[]; }> = ({ issues })
 );
 
 notebookApi.onDidCreateOutput((evt) => {
-  const output = evt.output.data[evt.mimeType];
-  render(<GithubIssues issues={output} />, evt.element);
+  render(<GithubIssues issues={evt.value} />, evt.element);
 });
 ```
 
@@ -321,8 +327,7 @@ If you have elements outside of the container or other asynchronous processes, y
 const intervals = new Map();
 
 notebookApi.onDidCreateOutput((evt) => {
-  const output = evt.output.data[evt.mimeType];
-  render(<GithubIssues issues={output} />, evt.element);
+  render(<GithubIssues issues={evt.value} />, evt.element);
 
   // create an interval that changes the color of the title <h2> every second:
   intervals.set(evt.outputId, setInterval(() => {
