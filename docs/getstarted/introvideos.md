@@ -35,9 +35,9 @@ Start your journey using Visual Studio Code with this set of introductory videos
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/configure">
-			<img src="/assets/docs/getstarted/introvideos/customize-themes.png" alt aria-hidden="true" class="thumb"/>
+			<img src="/assets/docs/getstarted/introvideos/personalize-themes.png" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">Customize</h2>
+				<h2 class="title faux-h3">Personalize</h2>
 				<p class="description">Personalize VS Code to make it yours with themes.</p>
 				<span class="duration"><span class="sr-only">Duration </span>2<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -74,11 +74,11 @@ Start your journey using Visual Studio Code with this set of introductory videos
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/intellisense">
-			<img src="/assets/docs/getstarted/introvideos/productivity-features.png" alt aria-hidden="true" class="thumb"/>
+		<a href="/docs/introvideos/customize">
+			<img src="/assets/docs/getstarted/introvideos/customize-settings.png" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">IntelliSense</h2>
-				<p class="description">Learn how to set up IntelliSense and receive intelligent code completions.</p>
+				<h2 class="title faux-h3">Customize</h2>
+				<p class="description">Learn how to customize your settings and keyboard shortcuts in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
