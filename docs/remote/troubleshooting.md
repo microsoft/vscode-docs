@@ -163,6 +163,10 @@ If you encounter an error when connecting, you may need to enable socket forward
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
 
+**General troubleshooting: Remove the server**
+
+One command helpful to troubleshoot a variety of Remote-SSH issues is: `Remote-SSH: Kill VS Code Server on Host`. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The VS Code Server failed to start."
+
 **See if VS Code is waiting on a prompt**
 
 Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
@@ -1059,6 +1063,26 @@ Extensions that access locally attached devices will be unable to connect to the
 **Resolution:** None currently. We are investigating the best approach to solve this problem.
 
 ## Questions and feedback
+
+### Reporting quality issues
+
+If you run into an issue with one of the remote development extensions, it's important to collect the correct logs so that we'll be able to help [diagnose your issue](https://aka.ms/vscode-remote/issues/new).
+
+Each remote extension has a command to view its logs.
+
+You can get the Remote - SSH logs with `F1` -> `Remote-SSH: Show Log`. When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
+
+Similarly, you can get the Remote - Containers logs with `F1` -> `Remote-Containers: Show Log`.
+
+Like the two above, you can get the Remote - WSL logs with `F1` -> `Remote WSL: Show Log`. Please also check if your issue may be tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (rather than part of the Remote - WSL extension).
+
+If you're experiencing issues using other extensions remotely (i.e. other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the "Remote Extension Host" output channel: `F1` -> `Output: Focus on Output View`, and select "Log (Remote Extension Host)" from the dropdown.
+
+> **Note**: If you only see "Log (Extension Host)," this is the local extension host, and the remote extension host didn't launch. This is because the log channel is created only after the log file is created, so if the remote extension host does not launch, the remote extension host log file was not created, and this is not shown in the output view. This is helpful information to include in your issue.
+
+### Remote question and feedback resources
+
+We have a variety of other remote resources:
 
 - See [Remote Development FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
