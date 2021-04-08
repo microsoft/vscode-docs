@@ -72,7 +72,7 @@ Here is a complete `package.json`
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
   },
   "devDependencies": {
-    "vscode": "0.10.x",
+    "@types/vscode": "^0.10.x",
     "typescript": "^1.6.2"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
