@@ -1000,14 +1000,6 @@ If you are trying to connect to a localhost port from an external application, t
 
 **Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
 
-### Websockets do not work in port forwarded content in the Codespaces browser-based editor
-
-Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
-
-However, the Remote Development and Codespaces extensions for VS Code itself do not have this limitation.
-
-**Resolution:** Use the Codespaces extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The Codespaces team is investigating solutions to this problem. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
-
 ### Errors storing extension data
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
@@ -1058,7 +1050,7 @@ Extensions that rely on Electron or VS Code base modules (not exposed by the ext
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
 
-**Resolution:** None currently. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
+**Resolution:** If you create a "UI" extension designed to run locally, you can use the `vscode.workspace.fs` API to interact with the remote workspace filesystem. You can then make this a dependency of your "Workspace" extension and invoke it using a command as needed. See the [extension author's guide](/api/advanced-topics/remote-extensions) for details on different types of extensions and how to use commands to communicate between them.
 
 ### Cannot access attached device from extension
 

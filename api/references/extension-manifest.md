@@ -184,9 +184,10 @@ We allow badges from the following URL prefixes:
 - deepscan.io
 - dev.azure.com
 - docs.rs
+- flat.badgen.net
 - gemnasium.com
 - githost.io
-- github.com
+- github.com (from Workflows only)
 - gitlab.com
 - godoc.org
 - goreportcard.com

@@ -149,7 +149,7 @@ For your protection, VS Code displays a prompt before opening an outgoing websit
 
 ![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
 
-You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a drop-down lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
+You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a dropdown lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
 
 ![Configure Trusted Domains dropdown](images/editingevolved/trusted-domain-dropdown.png)
 

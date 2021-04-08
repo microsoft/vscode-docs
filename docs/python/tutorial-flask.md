@@ -198,7 +198,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. 1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the drop-down and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. 1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the dropdown and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration, which is named "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
 
@@ -226,7 +226,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Run** > **Add Configuration** menu command does the same action.).
 
-1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list select the **Python: Flask** configuration.
+1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration dropdown list select the **Python: Flask** configuration.
 
     ![Flask tutorial: selecting the Flask debugging configuration](images/flask-tutorial/debug-select-configuration.png)
 

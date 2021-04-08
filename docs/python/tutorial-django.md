@@ -197,7 +197,7 @@ You're probably already wondering if there's an easier way to run the server and
 
     ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the drop-down and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the dropdown and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration with the name "Python: Django":
 

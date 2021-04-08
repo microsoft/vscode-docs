@@ -301,7 +301,7 @@ VS Code analyzes your open file and determines the indentation used in the docum
 
 ![auto detect indentation](images/codebasics/indentation-detection.png)
 
-You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+You can click on the Status Bar indentation display to bring up a dropdown with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 

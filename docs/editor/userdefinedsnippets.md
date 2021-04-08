@@ -37,7 +37,7 @@ If you find an extension you want to use, install it, then restart VS Code and t
 
 You can easily define your own snippets without any extension. To create or edit your own snippets, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
 
-![snippet drop-down](images/userdefinedsnippets/snippet-dropdown.png)
+![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
 Snippets files are written in JSON, support C-style comments, and can define an unlimited number of snippets. Snippets support most TextMate syntax for dynamic behavior, intelligently format whitespace based on the insertion context, and allow easy multiline editing.
 
