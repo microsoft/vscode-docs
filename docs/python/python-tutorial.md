@@ -251,7 +251,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 
-   **For windows**
+   **For Windows**
 
    ```cmd
    py -3 -m venv .venv
