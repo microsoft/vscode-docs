@@ -32,7 +32,7 @@ This article assumes you already have your own cluster with a microservices arch
 
 On your development computer, make sure your current context is set to the cluster and namespace in which your application is running.
 
-Open the workspace for the app you want to debug in Visual Studio Code. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
+Open the workspace for the app you want to debug in Visual Studio Code. In the Kubernetes extension view under **Clusters**, make sure your cluster and namespace are selected. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
 Choose the Kubernetes service you wish to redirect to your local version.
 
@@ -46,15 +46,15 @@ After you select your service, you are prompted to enter the TCP port that your 
 
 ![Enter the port number](images/bridge-to-kubernetes-sample/enter_port.png)
 
-Choose a debug profile that you normally use when running your application locally.
+Choose a debug launch configuration that you normally use when running your application locally. If you don't use a launch configuration, you can either let Bridge to Kubernetes create one, or choose not to create one, in which case you have to start your application or service manually. See [Launch configurations](/docs/editor/debugging#_launch-configurations).
 
-![Choose the debugger launch task](images/bridge-to-kubernetes-sample/launch_task.png)
+![Choose the debugger launch configuration](images/bridge-to-kubernetes-sample/choose-launch.png)
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
 ![Choose isolation](images/bridge-to-kubernetes-sample/isolation.png)
 
-Select the **Debug** icon on the left and select the newly added Kubernetes debug profile, such as **Launch via NPM with Kubernetes**, at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
+Select the **Debug** icon on the left and select the newly added Kubernetes launch configuration, such as **Launch via NPM with Kubernetes**, at the top. This launch configuration is created by Bridge to Kubernetes, if you chose that option.
 
 ![Choose debug launch profile](images/bridge-to-kubernetes-sample/debug_profile.png)
 
@@ -154,6 +154,10 @@ For Node.js services, you can use code similar to the following, taken from the 
           req.end();
     });
 ```
+
+## Communicating with other services
+
+When you communicate with another service in the same Kubernetes cluster, for example with an HTTP request, you typically use the hardcoded service name in the URL for the request, but that won't work in some scenarios with Bridge to Kubernetes. [This article](kubernetes-env-vars.md) describes how to use the Kubernetes service environment variables to specify the connection URL.
 
 ## Troubleshooting
 
