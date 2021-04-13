@@ -56,14 +56,6 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/p
 rm -f packages.microsoft.gpg
 ```
 
-Some distributions, for example [Pop!\_OS](https://pop.system76.com) provide their own `code` package. To ensure the official VS Code PPA is used, create a file named `/etc/apt/preferences.d/code` with the following content:
-
-```
-Package: code
-Pin: origin "packages.microsoft.com"
-Pin-Priority: 9999
-```
-
 Then update the package cache and install the package using:
 
 ```bash
@@ -212,6 +204,16 @@ Run these commands to solve this issue:
 
 ```bash
 sudo apt-get install gvfs-bin
+```
+
+### Conflicts with VS Code packages from other repositories
+
+Some distributions, for example [Pop!\_OS](https://pop.system76.com) provide their own `code` package. To ensure the official VS Code repository is used, create a file named `/etc/apt/preferences.d/code` with the following content:
+
+```
+Package: code
+Pin: origin "packages.microsoft.com"
+Pin-Priority: 9999
 ```
 
 ### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
