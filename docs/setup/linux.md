@@ -206,6 +206,16 @@ Run these commands to solve this issue:
 sudo apt-get install gvfs-bin
 ```
 
+### Conflicts with VS Code packages from other repositories
+
+Some distributions, for example [Pop!\_OS](https://pop.system76.com) provide their own `code` package. To ensure the official VS Code repository is used, create a file named `/etc/apt/preferences.d/code` with the following content:
+
+```
+Package: code
+Pin: origin "packages.microsoft.com"
+Pin-Priority: 9999
+```
+
 ### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
 When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. Before adjusting platform limits, make sure that potentially large folders, such as Python `.venv`, are added to the `files.watcherExclude` setting (more details below). The current limit can be viewed by running:
