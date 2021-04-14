@@ -48,7 +48,7 @@ After you select your service, you are prompted to enter the TCP port that your 
 
 Choose a debug launch configuration that you normally use when running your application locally. If you don't have a launch configuration, you can either let Bridge to Kubernetes create one, or choose not to create one, in which case you have to start your application or service manually. See [Launch configurations](/docs/editor/debugging#_launch-configurations).
 
-![Choose the debugger launch configuration](images/bridge-to-kubernetes-sample/choose-launch.png)
+![Choose the debugger launch configuration](images/bridge-to-kubernetes-vs-code/choose-launch.png)
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
