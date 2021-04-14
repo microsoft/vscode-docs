@@ -1,0 +1,300 @@
+%-------------------------------------------------------------------------------
+%                             ADD PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{fontawesome}
+\usepackage{lipsum}
+\usepackage{placeins}
+\usepackage{marvosym} % For cool symbols.
+\usepackage{hyperref}
+\usepackage{etoolbox,lipsum}
+
+% uncomment in case you don't want any hyphenation 
+
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+%	\newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+%	\usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{RONALD K. SANG}
+% job title/career
+\cvjobtitle{Supply Chain \& Logistics\\
+Management}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/CaptureG.png}
+
+\cvaddress{P.O Box 5, 20217 - Chesinende, Kericho County}
+% phone number
+\cvphone{+254 715 079 366}
+% personal website
+\cvsite{https://www.linkedin.com/in/ronald-sang-37b98970/}
+% email address
+\cvmail{kiprono1988@gmail.com}
+\cvcustomdata{\faFlag}{{English}}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	\profilesection{About Me}
+	\aboutme{\textcolor{black}{
+		A highly focused logistics, procurement and the supply chain professional having a consistent \& proven track record of successfully employing best business practices that improve efficiency, reduce operating costs whilst increasing performance, all to tight time scales and within budget.
+		Ronald, is committed to identifying and implementing continuous improvements in the supply chain and now looking for a new and challenging position, one which will make best use of existing skills and experience and also further my personal and professional development.}
+	}
+	\graphicspath{{pics/flags/}}
+	\profilesection{Languages}
+	%	\pointskill{\flag{CN.png}}{Chinese}{5}
+	%	\pointskill{\flag{DE.png}}{German}{3}
+	\pointskill{\flag{GB.png}}{English}{5}
+	\pointskill{\flag{KE.png}}{Kiswahili}{4}
+	\pointskill{\flag{KER.png}}{Kalenjin}{4}
+
+	\profilesection{Hard Skills}
+		\skill{\faBalanceScale}{\textcolor{black}{Data Analysis and Presentation}}
+		\skill{\faSitemap}{\textcolor{black}{Warehousing \& storage}}
+		\skill{\faGraduationCap}{\textcolor{black}{Reading non - fiction books}}
+		\skill{\faHome}{\textcolor{black}{International trade}}
+		\skill{\faGavel}{\textcolor{black}{Marketing}}
+    	%\skill[1.8em]{\faCompress}{In the grass} \faBarChart
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+	\profilesection{Soft Skills}
+		\pointskill{\faHome}{Problem Solving}{4}[4]
+		%\skill[1.8em]{\faCompress}{No need to specify further}
+		\pointskill{\faChild}{Collaboration}{4}[4]
+		\pointskill{\faCogs}{Teamwork}{4}[4]
+		\pointskill{\faGroup}{Leadership}{4}[4]
+		\pointskill{\faFlag}{Dependability}{4}[4]
+
+	\profilesection{Tools}
+
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{Office}} \\
+			\textcolor{white}{\textbf{tools}}, % center bubble
+			\textcolor{black!90}{{\color{cvred}\faFileExcelO} \enskip Ms Excel},
+			\textcolor{black!90}{{\color{cvred}\faFilePowerpointO} \enskip Ms PPT},
+			\textcolor{black!90}{{\color{cvred}\faFileWordO} \enskip Ms Word},
+			\textcolor{black!90}{{\color{cvred}\Email} \enskip Outlook},
+			\textcolor{black!90}{{\color{cvred}\faGroup} \enskip  Teams}
+		}
+	\end{figure}
+
+	\chartlabel{\color{cvblue} Hobbies}
+
+	\wheelchart{3.7em}{2em}{%
+	20/3em/maincolor!50/Travelling,
+	15/3em/maincolor!15/Dairy farming,
+	30/4em/maincolor!40/Being involved with charities,
+	20/3em/maincolor!20/Volunteering at the community
+	}
+	\profilesection{Memberships}
+	\begin{memberships}
+		%\membership[4em]{pics/logo.png}{PandaScience.net}
+		\membership[4em]{pics/logo_sq.png}{\RaggedRight Certified Procurement and Supply Professional of Kenya \par}
+	\end{memberships}
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+\cvsection{Working Experience}
+\begin{cvtable}[6]
+	\cvitem{2019 -- 2020\\ \faPlug}{Operation \& Logistics Manager}{Cherry Distributors (K) Ltd}{{\color{cvsubsectioncolor}\faHandORight} Cherry Distributors Kenya Ltd is a dynamic company dealing in the importation and distribution of beverages in Kenya, Uganda, Rwanda and the rest of the East African region. The beverages include, energy drinks, beers, spirits, wines, and champagnes. It was established in 2005 and officially represent some of the largest and most globally known beverage brands. Cherry Distributors Kenya Ltd currently has an effective distribution network in these 3 countries including both off-trade and on-trade clients backed by an effective marketing and business development strategy}
+	\cvitem{2016 -- 2018\\ \faPlug}{Warehouse \& Logistics Manager}{Horeca (K) Ltd}{{\color{cvsubsectioncolor}\faHandORight} Horeca Kenya Ltd is an FMCG trading and distribution company dedicated to servicing the Middle East and Africa (MEA). "Horeca focuses on markets with a rising middle-class, stable economies, strong development in business and leisure tourism and a growing Foodservice Industry As the name signify: Hotels, Restaurants and Cafeteria} 
+	\cvitem{2014 -- 2016\\ \faPlug}{Stores clerk}{Saosa Tea Extract-Finlays (K) Ltd}{{\color{cvsubsectioncolor}\faHandORight} Finlays is a leading independent Business to Business manufacturer and supplier of tea, coffee and botanical solutions to beverage brand owners worldwide. With deep roots across the globe and extensive experience and expertise, no-one is better placed to unleash the potential of natural beverages by helping brand owners to bring the best from bush to cup. Finlays is part of the Swire Group, a highly-diversified global business group}
+	\cvitem{2012  -- 2014\\ \faPlug}{General worker }{Finlays Saw-mill}{
+	\begin{itemize}
+        \item  [\textcolor{cvred}{\textbullet}] Warehouse/Stores Re-Structuring
+        \item [\textcolor{cvred}{\textbullet}] Responsible for Health and safety Training
+        \item [\textcolor{cvred}{\textbullet}] Procurement – International and local
+        \item [\textcolor{cvred}{\textbullet}] Developing stock taking Policies
+        \item [\textcolor{cvred}{\textbullet}] Coordinating comprehensive logistical or reverse logistical functions for product life cycles, including acquisition, distribution, internal allocation, delivery, recycling, reuse, or final disposal of resources
+    \end{itemize}
+	}
+	\cvitem{2011  -- 2012\\ \faPlug}{Procurement intern}{Kipkelion Sub-county procurement office}{}
+	\cvitem{Aug 2010  -- Sept 2010\\ \faPlug}{Intern }{Unilever Kenya ltd}{}
+\end{cvtable}
+
+
+\cvsection{Education}
+\cvsubsection{Postgraduate Training}
+\begin{cvtable}[1.0]
+	\cvitem{Ongoing}{Masters in logistics}{Kenyatta University}
+		{A course aimed at educating professionals  to be able to take decisions in logistics and supply chain management considering its operational, tactical and strategic aspects from an integrated perspective by covering subjects from technology, engineering and business.}
+	\cvitem{}{}{}
+		{Ability to address Logistics and Supply Chain Management (LSCM) problems in a holistic approach by taking into account general management concepts, human resources, environmental concerns, and quality, technological and economic aspects.}
+\end{cvtable}
+
+\cvsubsection{Study}
+\begin{cvtable}[1.5]
+	\cvitem{2009 -- 2012}{Bachelor of supply and procurement}{Kampala International University}
+		{A course designed to provide professionals working within the logistics and operations management area with the skills to manage the flow of materials and information within and between organizations and their business environment.}
+
+	\cvitem{}{}{}
+		{ }
+	\cvitem{}{}{}
+		{ }
+\end{cvtable}
+
+\cvsubsection{Certification}
+\begin{cvtable}[1.5]
+	\cvitem{Nov -- 2019}{Certified Procurement and Supply Professional of Kenya (CPSP)}{Licensed Practitioner}
+		{ }
+
+	\cvitem{}{MKISM-79010}{}
+		{ }
+
+\end{cvtable}
+
+\cvsection{Extra-Curricular Activities}
+\begin{cvtable}
+	\cvitemshort{Weekends}{Relaxing \& meditation}
+	\cvitemshort{Weekends}{Listening to gospel music}
+	\cvitemshort{Holidays}{Education and mentoring students}
+\end{cvtable}
+
+
+%\newpage
+\makebacksidebar
+\cvsection{Key Achievements}
+\cvsubsection{Operation \& Logistics Manager-Cherry Distributors (K) Ltd }
+\begin{cvtable}
+	\cvitem{{\color{cvsubsectioncolor}\faPlayCircle}}{Reduced the stock value to an optimum value hence avoid both overstocking and stock outs}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faPlayCircle}}{Developed Standard Operating Procedures (\textbf{SOPs}) and service level agreement (\textbf{SLAs})}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faPlayCircle}}{Developed Inventory/Warehouse well defined and measurable KPIs}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faPlayCircle}} {Maintained Zero variance on stock take reconciled reports with 100\% verification of external auditors (KPMG)}{}{}
+\end{cvtable}
+\cvsubsection{Warehouse Logistics supervisor/ Procurement Assistant- Finlays Kenya ltd}
+\begin{cvtable}
+	\cvitem{{\color{cvsubsectioncolor}\faExternalLinkSquare}}{Procurement of Services-Adherence to the prequalified list of contractors}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faExternalLinkSquare}}{E-procurement-Took part in the introduction and implementation of an ERP system – procurement Module known as Harvest IT}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faExternalLinkSquare}} {Developed procurement policies}{}{}
+\end{cvtable}
+\cvsubsection{Warehouse and Logistics Manager- Horeca Kenya ltd  }
+\begin{cvtable}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Strategy Formulation and implementations}\\ Took part in implementing the best practices strategies in procurement, policies and procedures to improve operational performance. }{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Policies Management}\\  Aided in Development and review the two Policies of Procurement and Inventory Management in line with industry, best practices and other Organizations guidelines.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Policy Compliance and Implementations}\\Ensured compliance with the Firm Procurement and supply chain Policies and procedures and champion for continuous improvement to enhance controls and improve process efficiency.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}} {\textbf{Cost Management}\\ Contributed to Cost Management; Design and oversight of cost reduction initiatives, cost control mechanisms and their sustainability (such as TCO models, Cost Benefit Analysis, Contract negotiations, competitive sourcing, buy vs Make decisions etc.)}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}} {\textbf{Budgeting}\\ Conducted Budgeting for all the Firm common services }{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Spend Monitoring}\\ Monitor spend and consumptions especially of key Functions against approved budgets and Annual Procurement Plan.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Risk Management}\\ Lead in Risk Management in the function; review of strategic and operational risks within the Organizations supply chain and discussing the same with the Management.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}} {\textbf{Project Management}\\ Lead in the project sourcing and management of key assignments such as New Product Developments.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}} {\textbf{Market Intelligence}\\ Scan, review and consider for adoption new supply approaches, price indices, commodity trends, benchmarking in order to ensure Organizations sourcing practices are resilient, sustainable and fit for the future. This also ensures process improvement}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Inventory Management}\\ Provide leadership in managing Inventory, Premises and Administration Support services.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{People Management}\\ Conduct performance management and development of the department’s team, including coaching, influencing, employee reviews, KPI management to build a high performing team that delivers best practice results, added value and continuous improvement.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Procurement Operations}\\ Oversees management of demand and supply, Quality, Procurement efficiency.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Tender \& Supplier Management}\\ Lead the management of projects around Prequalification, Tendering, Negotiation and Supplier Performance to ensure process integrity and value generation.}{}{}
+	\cvitem{{\color{cvsubsectioncolor}\faFeather*}}{\textbf{Logistics Cost Analysis and Management}\\ coordinated comprehensive logistics or reverse logistical functions for product life cycles, including acquisition, distribution, internal allocation, delivery, recycling, reuse, or final disposal of resources.}{}{}
+\end{cvtable}
+
+\newpage
+\cvsection{Referees}
+\begin{tabular}{lr}
+\begin{minipage}[t]{2.5in}
+\end{minipage}
+\textbf{Mr.\ Bernard Rono} \\
+Ministry of Labour - Kericho\\
+%Lagos Nigeria\\
+%Country and Postcode\\
+{\color{cvblue}\Telefon}\ +254 722771946\\
+%\Letter\ \href{mailto:X@A.ac.jp}{lkchumo\textrm{@}gmail.com}
+\end{tabular}
+
+\vspace{0.1in}
+% Referee 2
+\begin{minipage}[t]{2.5in}
+\textbf{Mr. \ Julius Biegon}\\
+Finance Manager \\
+Cherry distributors (K) Ltd\\
+P.O. Box 40140\\
+Kenya and 00200\\
+{\color{cvblue}\Telefon}\ +254 726590057 \\
+%\Letter\ \href{mailto:X@A.ac.jp}{Nicasio.Karani@\textrm{@}equitybank.co.ke}
+\end{minipage}
+\\
+\\
+\begin{minipage}[t]{2.5in}
+\textbf{Miss Bridgette Kariuki}\\
+Human Resource Assistant- Nairobi Hospital \\
+%Country and Postcode\\
+{\color{cvblue}\Telefon}\ +254 715 285 492\\
+%\Letter\ \href{mailto:X@A.ac.jp}{kibejosephine\textrm{@}gmail.com}
+\end{minipage}
+
+
+\cvsignature
+
+\end{document}
