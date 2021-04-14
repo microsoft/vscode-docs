@@ -46,7 +46,7 @@ After you select your service, you are prompted to enter the TCP port that your 
 
 ![Enter the port number](images/bridge-to-kubernetes-sample/enter_port.png)
 
-Choose a debug launch configuration that you normally use when running your application locally. If you don't use a launch configuration, you can either let Bridge to Kubernetes create one, or choose not to create one, in which case you have to start your application or service manually. See [Launch configurations](/docs/editor/debugging#_launch-configurations).
+Choose a debug launch configuration that you normally use when running your application locally. If you don't have a launch configuration, you can either let Bridge to Kubernetes create one, or choose not to create one, in which case you have to start your application or service manually. See [Launch configurations](/docs/editor/debugging#_launch-configurations).
 
 ![Choose the debugger launch configuration](images/bridge-to-kubernetes-sample/choose-launch.png)
 
@@ -157,7 +157,7 @@ For Node.js services, you can use code similar to the following, taken from the 
 
 ## Communicating with other services
 
-When you communicate with another service in the same Kubernetes cluster, for example with an HTTP request, you typically use the hardcoded service name in the URL for the request, but that won't work in some scenarios with Bridge to Kubernetes. [This article](kubernetes-env-vars.md) describes how to use the Kubernetes service environment variables to specify the connection URL.
+When you communicate with another service in the same Kubernetes cluster, for example with an HTTP request, you typically use the hardcoded service name in the URL for the request, but that won't work in some scenarios, such as Remote SSH, WSL, and Codespaces. [This article](kubernetes-env-vars.md) describes how to use the Kubernetes service environment variables to specify the connection URL for these scenarios.
 
 ## Troubleshooting
 
