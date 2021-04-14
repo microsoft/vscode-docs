@@ -217,6 +217,11 @@ if (true) {
   console.log();
 ```
 
+In addition to `increaseIndentPattern` and `decreaseIndentPatter`, there are two other indentation rules:
+
+- `indentNextLinePattern` - If a line matches this pattern, then **only the next line** after it should be indented once.
+- `unIndentedLinePattern` - If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.
+
 If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type a closing bracket. The bracket here is defined by `brackets`.
 
 Notice that `editor.formatOnPaste` setting is controlled by the [`DocumentRangeFormattingEditProvider`](/api/references/vscode-api#DocumentRangeFormattingEditProvider) and not affected by auto indentation.
