@@ -119,6 +119,20 @@ Follow these steps:
 
 > **Tip:** Once installed, you can use the **Developer: Show Running Extensions** command to see whether VS Code is running the extension locally or remotely.
 
+## Handling dependencies with remote extensions
+
+Extensions can take dependencies on other extensions for APIs. For example:
+
+- An extensions can export an API from their `activate` function.
+- This API will become available to all extensions running in the same extension host.
+- Consumer extensions declare in their `package.json` that they depend on the providing extension using the `extensionDependencies` property.
+
+Extension dependencies work fine when all the extensions are running locally and share the same extension host.
+
+When dealing with remote scenarios, it is possible that an extension running remotely has an extension dependency on an extension running locally. For example, the local extension exposes a command that is critical to the functioning of the remote extension. In this case, we recommend that the remote extension declares the local extension as an `extensionDependency`, but the problem is that the extensions run on two different extension hosts, which means that the API from the provider is not available to the consumer. It is therefore required that the providing extension give up entirely the ability to export any APIs by using `"api": "none"` in their extension's `package.json`. The extensions can still communicate using VS Code commands (which are asynchronous).
+
+This may seem an unnecessarily strict constraint on the providing extension, but an extension that uses `"api": "none"` only gives up the ability to return APIs from its `activate` method. Consumer extensions that execute on other extension hosts can still take a dependency on them and will be activated.
+
 ## Common problems
 
 VS Code's APIs are designed to automatically run in the right location regardless of where your extension happens to be located. With this in mind, there are a few APIs that will help you avoid unexpected behaviors.
