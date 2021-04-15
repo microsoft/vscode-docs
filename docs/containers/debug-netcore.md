@@ -33,7 +33,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 ## Running and debugging with SSL support
 
-If you are using SSL (using the HTTPS protocol), you will need to make a few changes to your configuration.
+To enable SSL (using the HTTPS protocol), you will need to make a few changes to your configuration.
 
 1. In the Dockerfile, add an EXPOSE line to the base section to define a separate port for HTTPS / SSL. Keep a separate EXPOSE line with a different port for HTTP requests.
 
