@@ -21,7 +21,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 1. If needed, create a .NET Core project with `dotnet new`.
 1. Open the project folder in VS Code.
-1. Wait until a notification appears asking if you want to add required assets for debugging. Click **Yes**:
+1. Wait until a notification appears asking if you want to add required assets for debugging. Select **Yes**:
 
    ![csharpPrompt](images/debug/csharp-prompt.png)
 
@@ -35,7 +35,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 To enable SSL (using the HTTPS protocol), you will need to make a few changes to your configuration.
 
-1. In the Dockerfile, add an EXPOSE line to the base section to define a separate port for HTTPS / SSL. Keep a separate EXPOSE line with a different port for HTTP requests.
+1. In the Dockerfile, add an `EXPOSE` line to the base section to define a separate port for HTTPS / SSL. Keep a separate `EXPOSE` line with a different port for HTTP requests.
 
    ```Dockerfile
    FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
@@ -44,7 +44,7 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
    EXPOSE 5001
    ```
 
-1. In the *.vscode/tasks.json* file, add `configureSsl: true` to the `netCore` section. Also, add an environment variable `ASPNETCORE_URLS` in the `dockerRun` section of the `docker-run: debug` task, with the same port numbers you defined in the Dockerfile:
+1. In the `.vscode/tasks.json` file, add `configureSsl: true` to the `netCore` section. Also, add an environment variable `ASPNETCORE_URLS` in the `dockerRun` section of the `docker-run: debug` task, with the same port numbers you defined in the Dockerfile:
 
    ```json
    dockerRun: {
