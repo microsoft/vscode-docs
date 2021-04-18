@@ -26,6 +26,11 @@
         <priority>0.70</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/events</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -597,6 +602,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/java/extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/introvideos-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

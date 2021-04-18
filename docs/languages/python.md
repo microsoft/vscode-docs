@@ -5,7 +5,7 @@ TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
 DateApproved: 03/07/2019
-MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
+MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
 # Python in Visual Studio Code
 
@@ -71,12 +71,6 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md). The [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials also demonstrate debugging in the context of those web apps, including debugging Django page templates.
 
 <video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
-
-## Snippets
-
-Snippets take productivity to the next level. You can configure [your own snippets](/docs/editor/userdefinedsnippets.md) and use snippets provided by an extension. Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`. For specific examples with Python, see the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials.
-
-<video id="python-snippets-video" src="https://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
 
 ## Environments
 

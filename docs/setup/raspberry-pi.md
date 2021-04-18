@@ -43,6 +43,18 @@ sudo apt upgrade code
 
 You can always check when a new release is available in our [Updates](/updates) page.
 
+## System requirements
+
+VS Code is supported on these Raspberry Pi models running a 32-bit or 64-bit version of Raspberry Pi OS:
+
+* Raspberry Pi 3 Model B/B+
+* Raspberry Pi 4 Model B
+* Raspberry Pi 400
+
+While 1 GB of memory (RAM) meets the minimum system requirements, users will benefit from installing VS Code on a Raspberry Pi 4 with more memory.
+
+First-generation Raspberry Pi modules and Raspberry Pi Zero are not supported as they only include an ARMv6 CPU.
+
 ## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about it:

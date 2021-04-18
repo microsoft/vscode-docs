@@ -70,6 +70,7 @@ You can also open the examples from the Command Palette (`kb(workbench.action.sh
 * Run selected section of PowerShell code using `kbstyle(F8)`
 * Launch online help for the symbol under the cursor using `kbstyle(Ctrl + F1)`
 * Local script debugging and basic interactive console support
+* Enable ISE mode using `kbstyle(Ctrl + Shift + P)` then search for "Enable ISE Mode"
 
 ## Debugging
 

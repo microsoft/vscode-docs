@@ -560,7 +560,6 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.errorBackground`: Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions.
 - `statusBarItem.errorForeground`: Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions.
 
-
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
 ## Title Bar colors
@@ -667,26 +666,24 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `debugTokenExpression.number`: Foreground color for numbers in debug views
 - `debugTokenExpression.error`: Foreground color for expression errors in debug views
 
-
 ## Testing view colors
 
--  "`testing.iconFailed`: Color for the 'failed' icon in the test explorer.
--  "`testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
--  "`testing.iconPassed`: Color for the 'passed' icon in the test explorer.
--  "`testing.runAction`: Color for 'run' icons in the editor.
--  "`testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
--  "`testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
--  "`testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
--  "`testing.peekBorder`: Color of the peek view borders and arrow.
--  "`testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
--  "`testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
--  "`testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
--  "`testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
--  "`testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
--  "`testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
--  "`testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
--  "`testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
-
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
+- `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.peekBorder`: Color of the peek view borders and arrow.
+- `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
+- `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
+- `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
+- `testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
+- `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
+- `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+- `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
+- `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
 ## Welcome page colors
 
@@ -860,7 +857,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `charts.purple`: Color for purple elements in charts.
 
 ## Testing Colors
-
 
 - `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
 - `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.

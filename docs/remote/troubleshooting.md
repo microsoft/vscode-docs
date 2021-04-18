@@ -163,6 +163,10 @@ If you encounter an error when connecting, you may need to enable socket forward
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
 
+**General troubleshooting: Remove the server**
+
+One command helpful to troubleshoot a variety of Remote-SSH issues is **Remote-SSH: Kill VS Code Server on Host**. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The VS Code Server failed to start."
+
 **See if VS Code is waiting on a prompt**
 
 Enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code and retry. If you are prompted to input a password or token, see [Enabling alternate SSH authentication methods](#enabling-alternate-ssh-authentication-methods) for details on reducing the frequency of prompts.
@@ -246,7 +250,7 @@ One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/L
 
 **Contact your system administrator for configuration help**
 
-SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the `Remote-SSH` output window, they could be due to a missing setting.
+SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the **Remote-SSH** output window, they could be due to a missing setting.
 
 Contact your system administrator for information about the required settings for your SSH host and client. Specific command-line arguments for connecting to your SSH host can be added to an [SSH config file](https://linux.die.net/man/5/ssh_config).
 
@@ -1060,6 +1064,26 @@ Extensions that access locally attached devices will be unable to connect to the
 
 ## Questions and feedback
 
-- See [Remote Development FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+### Reporting issues
+
+If you run into an issue with one of the remote development extensions, it's important to collect the correct logs so that we'll be able to help [diagnose your issue](https://aka.ms/vscode-remote/issues/new).
+
+Each remote extension has a command to view its logs.
+
+You can get the Remote - SSH extension logs with **Remote-SSH: Show Log** from the Command Palette (`kbstyle(F1)`). When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
+
+Similarly, you can get the Remote - Containers extension logs with **Remote-Containers: Show Log**.
+
+Like the two above, you can get the Remote - WSL logs with **Remote WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the Remote - WSL extension).
+
+If you're experiencing issues using other extensions remotely (for example, other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the **Remote Extension Host** output channel (**Output: Focus on Output View**), and select **Log (Remote Extension Host)** from the dropdown.
+
+> **Note**: If you only see **Log (Extension Host)**, this is the local extension host, and the remote extension host didn't launch. This is because the log channel is created only after the log file is created, so if the remote extension host does not launch, the remote extension host log file was not created and is not shown in the Output view. This is still helpful information to include in your issue.
+
+### Remote question and feedback resources
+
+We have a variety of other remote resources:
+
+* See [Remote Development FAQ](/docs/remote/faq.md).
+* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
+* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).

@@ -232,7 +232,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 1. Open the integrated terminal and install the `pytest-xdist` package. For more details refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
 
-   **For windows**
+   **For Windows**
 
    ```cmd
    py -3 -m pip install pytest-xdist
