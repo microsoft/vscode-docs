@@ -11,7 +11,7 @@ MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
 
 Visual Studio Code extensions often grow quickly in size. They are authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are development best practices but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading one large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
 
-For JavaScript, different bundlers are available. Popular ones are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), and [webpack](https://webpack.js.org/).
+For JavaScript, different bundlers are available. Popular ones are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), [esbuild](https://esbuild.github.io/), and [webpack](https://webpack.js.org/).
 
 ## Using esbuild
 
@@ -39,7 +39,7 @@ Merge these entries into the `scripts` section in `package.json`:
 },
 ```
 
-The `esbuild`, `esbuild-dev`, and `esbuild-watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. Passing the `--minify` flag and no `--sourcemap` compresses the code and creates a small bundle, but also makes debugging hard, so other flags are used during develoipment. To run above scripts, open a terminal and type `npm run esbuild` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
+The `esbuild` and `esbuild-watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. Passing the `--minify` flag and no `--sourcemap` compresses the code and creates a small bundle, but also makes debugging hard, so other flags are used during development. To run above scripts, open a terminal and type `npm run esbuild` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 Jump down to the [Tests](#tests) section to continue reading.
 
