@@ -11,7 +11,37 @@ MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
 
 Visual Studio Code extensions often grow quickly in size. They are authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are development best practices but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading one large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
 
-For JavaScript, different bundlers are available. Popular ones are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), and [webpack](https://webpack.js.org/). This tutorial will focus on **webpack**, however, concepts and benefits of all bundlers are similar.
+For JavaScript, different bundlers are available. Popular ones are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), [esbuild](https://esbuild.github.io/), and [webpack](https://webpack.js.org/).
+
+## Using esbuild
+
+`esbuild` is a fast bundler that's simple to configure. To acquire esbuild, open the terminal and type:
+
+```bash
+npm i --save-dev esbuild
+```
+
+For an example of a complete extension using esbuild, check out the [test-adapter-converter](https://github.com/microsoft/vscode-test-adapter-converter).
+
+### Run esbuild
+
+You can run esbuild from the command line but to reduce repetition, using npm scripts is helpful.
+
+Merge these entries into the `scripts` section in `package.json`:
+
+```json
+"scripts": {
+    "vscode:prepublish": "npm run -S esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs",
+    "esbuild": "npm run -S esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run -S esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
+},
+```
+
+The `esbuild` and `esbuild-watch` scripts are for development and they produce the bundle file. The `vscode:prepublish` is used by `vsce`, the VS Code packaging and publishing tool, and run before publishing an extension. Passing the `--minify` flag and no `--sourcemap` compresses the code and creates a small bundle, but also makes debugging hard, so other flags are used during development. To run above scripts, open a terminal and type `npm run esbuild` or select **Tasks: Run Task** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+Jump down to the [Tests](#tests) section to continue reading.
 
 ## Using webpack
 
@@ -29,7 +59,7 @@ Webpack is a JavaScript bundler but many VS Code extensions are written in TypeS
 npm i --save-dev ts-loader
 ```
 
-## Configure webpack
+### Configure webpack
 
 With all tools installed, webpack can now be configured. By convention, a `webpack.config.js` file contains the configuration to instruct webpack to bundle your extension. The sample configuration below is for VS Code extensions and should provide a good starting point:
 
@@ -81,7 +111,7 @@ In the sample above, the following are defined:
 * The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
 * The `externals` configuration is used to declare exclusions, for example files and modules that should not be included in the bundle. The `vscode` module should not be bundled because it doesn't exist on disk but is created by VS Code on-the-fly when required. Depending on the node modules that an extension uses, more exclusion may be necessary.
 
-## Run webpack
+### Run webpack
 
 With the `webpack.config.js` file created, webpack can be invoked. You can run webpack from the command line but to reduce repetition, using npm scripts is helpful.
 
@@ -100,7 +130,7 @@ The `webpack` and `webpack-dev` scripts are for development and they produce the
 
 ## Run the extension
 
-Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested. For debugging configuration, make sure to update the `outFiles` property in the `launch.json` file.
+Before you can run the extension, the `main` property in `package.json` must point to the bundle, which for the configuration above is [`"./dist/extension"`](https://github.com/microsoft/vscode-references-view/blob/d649d01d369e338bbe70c86e03f28269cbf87027/package.json#L26). With that change, the extension can now be executed and tested.
 
 ## Tests
 
