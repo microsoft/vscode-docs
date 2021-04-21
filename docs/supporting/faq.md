@@ -248,6 +248,14 @@ The easiest way to investigate delays in your startup file is to:
 * Selectively comment out potentially long running operations.
 * Save and fully restart VS Code until the warning or error disappears.
 
+You can ignore the long running operations by testing for the presence of the `VSCODE_PID` variable :
+
+```bash
+if [[ ! -z "${VSCODE_PID}" ]]; then
+    # Long running operations
+fi
+```
+
 ## Technical Support
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md).
