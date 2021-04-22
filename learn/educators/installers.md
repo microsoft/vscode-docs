@@ -58,5 +58,5 @@ This will install:
 - .NET SDK and add it to the PATH
 - .NET Extension pack in VSCode
 
-![Java Installer](images/installers/dotnet-installer.png)
+![.NET Installer](images/installers/dotnet-installer.png)
 
