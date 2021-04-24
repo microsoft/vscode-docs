@@ -25,7 +25,7 @@ You'll find the components above mentioned often in our documentation and walkth
 
 ## VS Code extensions
 
-You can extend the VS Code editor itself through [extensions](/docs/editor/extension-gallery.md). The VS Code community has built hundreds of useful extensions available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
+You can extend the VS Code editor itself through [extensions](/docs/editor/extension-marketplace.md). The VS Code community has built hundreds of useful extensions available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 <div class="marketplace-extensions-top"></div>
 

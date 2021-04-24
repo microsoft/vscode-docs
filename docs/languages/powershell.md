@@ -16,7 +16,7 @@ The Microsoft [PowerShell](https://marketplace.visualstudio.com/items?itemName=m
 ## Install the PowerShell extension
 
 The official PowerShell extension can be installed by following the steps described in the
-[Visual Studio Code User Guide](/docs/editor/extension-gallery.md) or by going directly to the Visual Studio Code Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
+[Visual Studio Code User Guide](/docs/editor/extension-marketplace.md) or by going directly to the Visual Studio Code Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
 
 You can also install the PowerShell extension from within Visual Studio Code by opening the Extensions view with keyboard shortcut `kb(workbench.view.extensions)` and typing "PowerShell" and select the PowerShell extension:
 

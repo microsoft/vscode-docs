@@ -773,7 +773,7 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
+Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the Extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
 ### Diffs
 

@@ -29,5 +29,5 @@ Next video: [Debugging](/docs/introvideos/debugging.md)
 
 ## Related resources
 
-* [Extension Marketplace Documentation](/docs/editor/extension-gallery.md) - Official documentation for the VS Code Extension Marketplace.
+* [Extension Marketplace Documentation](/docs/editor/extension-marketplace.md) - Official documentation for the VS Code Extension Marketplace.
 * [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.
