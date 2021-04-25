@@ -16,9 +16,11 @@ Visual Studio Code has support for the JavaScript and TypeScript languages out-o
 
 To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for the `node` and `npm` command-line tools to be on your PATH.
 
+To test that you have Node.js installed correctly on your computer, open a new terminal and type `node --version` and you should see the current Node.js version installed.
+
 >**Linux**: There are specific Node.js packages available for the various flavors of Linux. See [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your version of Linux.
 
->**Tip:** To test that you've got Node.js correctly installed on your computer, open a new terminal and type `node --help` and you should see the usage documentation.
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Node.js development. You can run Linux distributions on Windows and install Node.js into the Linux environment. When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Hello World
 

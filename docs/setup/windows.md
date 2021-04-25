@@ -39,7 +39,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 >Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
-## Windows as a developer machine
+## Windows Subsystem for Linux
 
 Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) and the new Windows Terminal.
 
@@ -47,7 +47,7 @@ Windows is a popular operating system and it can be a great cross-platform devel
 
 Make sure you are on a recent Windows 10 build. Check **Settings** > **Windows Update** to see if you are up-to-date.
 
-### Windows Subsystem for Linux
+### Windows as a developer machine
 
 With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on your Windows machine.
 
