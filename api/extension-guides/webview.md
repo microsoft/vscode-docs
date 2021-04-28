@@ -712,7 +712,7 @@ function getWebviewContent() {
 
 ### Passing messages from a webview to an extension
 
-Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code API object inside the webview. To access the VS Code API object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code API returned by this method, and hand it out to any other functions that wish to use it.
+Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code API object inside the webview. To access the VS Code API object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code API returned by this method, and hand it out to any other functions that need to use it.
 
 We can use the VS Code API and `postMessage` in our **Cat Coding** webview to alert the extension when our cat introduces a bug in their code:
 

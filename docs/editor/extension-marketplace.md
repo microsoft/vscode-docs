@@ -287,7 +287,7 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 * `extensions.showRecommendationsOnlyOnDemand` - Set to true to remove the **RECOMMENDED** section.
 * `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
 
-The **Show Recommended Extensions** command is always available if you wish to see recommendations.
+The **Show Recommended Extensions** command is always available if you want to see recommendations.
 
 ### Can I trust extensions from the Marketplace?
 

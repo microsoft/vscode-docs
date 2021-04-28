@@ -511,7 +511,7 @@ There are many reasons why the debugger may not work. Oftentimes the debug conso
 
 - The path to the python executable is incorrect: check the value of `python.pythonPath` in your user settings.
 - There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
-- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you wish to debug:
+- If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you want to debug:
 
     ```python
     import debugpy

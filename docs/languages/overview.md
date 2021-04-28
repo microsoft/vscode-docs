@@ -41,7 +41,7 @@ The richness of support varies across the different languages and their extensio
 
 ## Changing the language for the selected file
 
-In VS Code, we default the language support for a file based on its filename extension. However, at times you may wish to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
+In VS Code, we default the language support for a file based on its filename extension. However, at times you may want to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
 
 ![Language Selector](images/overview/languageselect.png)
 
