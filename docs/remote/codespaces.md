@@ -54,6 +54,10 @@ The VS Code extension API hides most of the implementation details of running re
 
 While working with Codespaces and specifically VS Code in the web, there are certain limitations to keep in mind. Some of these limitations have workarounds or adaptations in place to provide a consistent development experience.
 
+For several issues (especially keybindings or those listed with a workaround to move to the desktop), you can install and use a Codespace as [progressive web application](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/#pwas-on-microsoft-edge-chromium) (PWA).
+
+![Installing Codespaces as PWA in Microsoft Edge](images/codespaces/PWA-edge-install.png)
+
 | Issue | Reason | Workaround |
 |-|-|-|
 | `Ctrl+Shift+P` won't launch the Command Palette in Firefox. | `Ctrl+Shift+P` is reserved in Firefox. | Use `F1` to launch the Command Palette. |
