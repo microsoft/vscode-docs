@@ -623,6 +623,25 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
+## Keybinding label colors
+
+Keybinding labels are shown when there is a keybinding associated with a command. An example of the keybinding label can be seen in the Command Palette:
+![Keybinding label](images/theme-color/keybinding-label.png)
+
+Usages of the keybinding label include (but are not limited to):
+
+* The Command Palette
+* The Keyboard Shortcuts editor
+* The Keyboard Shortcuts recorder modal
+* The "feature contribution" section of an extension's marketplace page
+
+The following customizations are available:
+
+- `keybindingLabel.background`: Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.foreground`: Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.border`: Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.bottomBorder`: Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
+
 ## Integrated Terminal colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
