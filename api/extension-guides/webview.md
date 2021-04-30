@@ -279,7 +279,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       panel.webview.html = getWebviewContent(cats['Coding Cat']);
 
-      // After 5sec, pragmatically close the webview panel
+      // After 5sec, programmatically close the webview panel
       const timeout = setTimeout(() => panel.dispose(), 5000);
 
       panel.onDidDispose(
