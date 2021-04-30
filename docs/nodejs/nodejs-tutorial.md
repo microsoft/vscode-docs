@@ -101,7 +101,7 @@ You can now click Debug toolbar green arrow or press `kb(workbench.action.debug.
 
 Now that you've seen VS Code in action with "Hello World", the next section shows using VS Code with a full-stack Node.js web app.
 
->**Note:** We're done with the "Hello World" example so navigate out of that folder before you create an Express app. You can delete the "Hello" folder if you wish as it is not required for the rest of the walkthrough.
+>**Note:** We're done with the "Hello World" example so navigate out of that folder before you create an Express app. You can delete the "Hello" folder if you want as it is not required for the rest of the walkthrough.
 
 ## An Express application
 

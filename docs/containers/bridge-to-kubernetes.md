@@ -34,7 +34,7 @@ On your development computer, make sure your current context is set to the clust
 
 Open the workspace for the app you want to debug in Visual Studio Code. In the Kubernetes extension view under **Clusters**, make sure your cluster and namespace are selected. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
-Choose the Kubernetes service you wish to redirect to your local version.
+Choose the Kubernetes service you want to redirect to your local version.
 
 ![Select the service to connect to](images/bridge-to-kubernetes-sample/select_service.png)
 

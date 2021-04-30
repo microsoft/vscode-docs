@@ -210,7 +210,7 @@ You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking
 
 ![](images/March/column-select-mouse.gif)
 
-We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish.
+We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you want.
 
 For example:
 

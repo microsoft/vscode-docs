@@ -125,7 +125,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 1. Open PuTTYGen **locally** and load the private key you want to convert.
 2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (for example `C:\Users\youruser\.ssh`).
 3. Validate that this new **local** file is owned by you and no other user has permissions to access it.
-4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows to point to the file:
+4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you want to change, and add (or modify) a host entry in the config file as follows to point to the file:
 
     ```yaml
     Host name-of-ssh-host-here
