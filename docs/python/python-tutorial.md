@@ -33,7 +33,7 @@ To successfully complete this tutorial, you need to first setup your Python  dev
 ## Install Visual Studio Code and the Python Extension
 
 1. If you have not already done so, install [VS Code](https://code.visualstudio.com/).
-2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and it's published by Microsoft.
+2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). The Python extension is named **Python** and it's published by Microsoft.
 
    [![Python extension on Marketplace](images/tutorial/python-extension-marketplace.png)](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 

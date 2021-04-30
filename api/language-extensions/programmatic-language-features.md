@@ -383,7 +383,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to see all occurrences of a symbol in the open editor.
 
-![Select a symbol to highlight all occurences](images/language-support/document-highlights.gif)
+![Select a symbol to highlight all occurrences](images/language-support/document-highlights.gif)
 
 #### Language Server Protocol
 

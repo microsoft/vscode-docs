@@ -29,7 +29,7 @@ Files can be corrupted due to the fact that you either have a multi-root workspa
 
 ## How do I get IntelliSense to work correctly?
 
-Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (for example cl.exe/WSL/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the **C/C++: Edit Configurations (UI)** command. In that view, you can change the compiler you wish to emulate, the paths to include files you wish to use, preprocessor definitions, and more.
+Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (for example cl.exe/WSL/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the **C/C++: Edit Configurations (UI)** command. In that view, you can change the compiler you want to emulate, the paths to include files you want to use, preprocessor definitions, and more.
 
 Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the **C/C++: Change Configuration Provider...** command to enable any such extension to provide the configurations for IntelliSense.
 

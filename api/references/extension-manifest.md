@@ -72,7 +72,7 @@ Here is a complete `package.json`
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
   },
   "devDependencies": {
-    "vscode": "0.10.x",
+    "@types/vscode": "^0.10.x",
     "typescript": "^1.6.2"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
@@ -318,4 +318,4 @@ To learn more about VS Code extensibility model, try these topics:
 
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
 - [Activation Events](/api/references/activation-events) - VS Code activation events reference
-- [Extension Marketplace](/docs/editor/extension-gallery) - Read more about the VS Code Extension Marketplace
+- [Extension Marketplace](/docs/editor/extension-marketplace) - Read more about the VS Code Extension Marketplace

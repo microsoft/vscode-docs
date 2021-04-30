@@ -21,7 +21,9 @@ The [tutorial](/docs/python/python-tutorial.md) guides you through installing Py
 
 Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
-You can configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
+You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
+
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Insiders program
 

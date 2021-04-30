@@ -11671,7 +11671,7 @@ loading data for the next step in user input.</p>
 
 <a name="InputBox.ignoreFocusOut"></a><span class="ts" id=2245 data-target="#details-2245" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-2245">
-<div class="comment"><p>If the UI should stay open even when loosing UI focus. Defaults to false.</p>
+<div class="comment"><p>If the UI should stay open even when losing UI focus. Defaults to false.</p>
 </div>
 </div>
 
@@ -13431,7 +13431,7 @@ loading data for the next step in user input.</p>
 
 <a name="QuickInput.ignoreFocusOut"></a><span class="ts" id=2193 data-target="#details-2193" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-2193">
-<div class="comment"><p>If the UI should stay open even when loosing UI focus. Defaults to false.</p>
+<div class="comment"><p>If the UI should stay open even when losing UI focus. Defaults to false.</p>
 </div>
 </div>
 
@@ -13669,7 +13669,7 @@ loading data for the next step in user input.</p>
 
 <a name="QuickPick.ignoreFocusOut"></a><span class="ts" id=2222 data-target="#details-2222" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-2222">
-<div class="comment"><p>If the UI should stay open even when loosing UI focus. Defaults to false.</p>
+<div class="comment"><p>If the UI should stay open even when losing UI focus. Defaults to false.</p>
 </div>
 </div>
 

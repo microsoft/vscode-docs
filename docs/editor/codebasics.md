@@ -74,7 +74,7 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
 
 ### Column Selection mode
 

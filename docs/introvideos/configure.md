@@ -18,8 +18,9 @@ Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
 
 ## Video outline
 
-* Change your UI Color Theme
-* Change your File Icon Theme
+* Change your Color Theme.
+* Install a new Color Theme from the VS Code Extension Marketplace.
+* Change your File Icon Theme.
 
 ## Next video
 

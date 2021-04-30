@@ -17,7 +17,7 @@ Here are eight of the most popular language extensions:
 
 <div class="marketplace-extensions-languages-curated"></div>
 
-Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use our [integrated extension manager](/docs/editor/extension-gallery) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers and more.
+Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers and more.
 
 >**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/getstarted/locales.md) topic.
 
@@ -41,7 +41,7 @@ The richness of support varies across the different languages and their extensio
 
 ## Changing the language for the selected file
 
-In VS Code, we default the language support for a file based on its filename extension. However, at times you may wish to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
+In VS Code, we default the language support for a file based on its filename extension. However, at times you may want to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
 
 ![Language Selector](images/overview/languageselect.png)
 

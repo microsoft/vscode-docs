@@ -162,7 +162,7 @@ You can easily generate an options file using Pylint itself:
 pylint --generate-rcfile > .pylintrc
 ```
 
-For PowerShell you have to explictly specify a UTF-8 output encoding:
+For PowerShell you have to explicitly specify a UTF-8 output encoding:
 
 ```ps
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc

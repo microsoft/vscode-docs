@@ -74,7 +74,7 @@ Argument|Description
 
 ## Working with extensions
 
-You can install and manage VS Code [extensions](/docs/editor/extension-gallery.md) from the command line.
+You can install and manage VS Code [extensions](/docs/editor/extension-marketplace.md) from the command line.
 
 Argument|Description
 ------------------|-----------

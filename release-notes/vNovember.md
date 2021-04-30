@@ -18,9 +18,9 @@ VS Code has great features out of the box but now you and the community can exte
 
 ![marketplace](images/0_10_0/marketplace.png)
 
-## Extension Gallery
+## Extension Marketplace
 
-Find and install cool extensions by searching VS Code's public [extension gallery](/docs/editor/extension-gallery.md).  There you'll find new themes, snippets, languages and tools.
+Find and install cool extensions by searching VS Code's public [Extension Marketplace](/docs/editor/extension-marketplace.md).  There you'll find new themes, snippets, languages and tools.
 
 ![extension language](images/0_10_0/extension-language.png)
 
@@ -44,7 +44,7 @@ We've updated the [`yo code` generator](/docs/extensions/yocode.md) to create a 
 
 ### Extension Publishing
 
-The [`vsce` publishing tool](/docs/extensions/publish-extension.md) lets you easily package and publish your extension.  You can share your extension with colleagues by distributing a VS Code extension package or publish your extension for the community on the public gallery.
+The [`vsce` publishing tool](/docs/extensions/publish-extension.md) lets you easily package and publish your extension.  You can share your extension with colleagues by distributing a VS Code extension package or publish your extension for the community on the public marketplace.
 
 ## Extension samples
 
@@ -64,7 +64,7 @@ You can now contribute to VS Code:
 
 ## Add TextMate Snippets
 
-Another addition to the `yo code` generator is the option to add TextMate Snippets (.tmSnippets) to VS Code. Run `yo code`, select `New Code Snippets` and specify a folder containing TextMate snippet files. The generator will convert them to the VS Code snippet format and create a VS Code extension for your own use or to share on the gallery. The generator also supports Sublime snippets (.sublime-snippets).
+Another addition to the `yo code` generator is the option to add TextMate Snippets (.tmSnippets) to VS Code. Run `yo code`, select `New Code Snippets` and specify a folder containing TextMate snippet files. The generator will convert them to the VS Code snippet format and create a VS Code extension for your own use or to share on the Extension Marketplace. The generator also supports Sublime snippets (.sublime-snippets).
 
 ## Debugging - Debug Console Improvements
 * Colored text output to highlight diagnostic errors and warnings

@@ -17,11 +17,11 @@ The features that Visual Studio Code includes out-of-the-box are just the start.
 
 You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
 
-![Extensions view icon](images/extension-gallery/extensions-view-icon.png)
+![Extensions view icon](images/extension-marketplace/extensions-view-icon.png)
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-![popular extensions](images/extension-gallery/extensions-popular.png)
+![popular extensions](images/extension-marketplace/extensions-popular.png)
 
 Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can click on the extension item to display the extension's details page where you can learn more.
 
@@ -39,17 +39,17 @@ On the extension details page, you can read the extension's README as well as re
 * **Changelog** - The extension repository CHANGELOG if available.
 * **Dependencies** - Lists if the extension depends on any other extensions.
 
-![extension contributions](images/extension-gallery/extension-contributions.png)
+![extension contributions](images/extension-marketplace/extension-contributions.png)
 
 If an extension is an Extension Pack, the **Extension Pack** section will display which extensions will be installed when you install the pack. [Extension Packs](/api/references/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
-![extension dependencies](images/extension-gallery/extension-dependencies.png)
+![extension dependencies](images/extension-marketplace/extension-dependencies.png)
 
 ### Extensions view commands
 
 You can run various Extensions view commands by clicking on the Extensions view's `...` **More Actions** button.
 
-![more button](images/extension-gallery/more-button.png)
+![more button](images/extension-marketplace/more-button.png)
 
 There are commands to show:
 
@@ -61,7 +61,7 @@ There are commands to show:
 
 You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
 
-![more dropdown](images/extension-gallery/more-dropdown.png)
+![more dropdown](images/extension-marketplace/more-dropdown.png)
 
 ### Search for an extension
 
@@ -69,7 +69,7 @@ You can clear the Search box at the top of the Extensions view and type in the n
 
 For example, typing 'python' will bring up a list of Python language extensions:
 
-![python extensions](images/extension-gallery/extensions-python.png)
+![python extensions](images/extension-marketplace/extensions-python.png)
 
 If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:octref.vetur`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
 
@@ -85,7 +85,7 @@ By default, the Extensions view will show the extensions you currently have enab
 
 To uninstall an extension, click the gear button at the right of an extension entry and then choose **Uninstall** from the dropdown menu. This will uninstall the extension and prompt you to reload VS Code.
 
-![uninstall an extension](images/extension-gallery/uninstall-extension.png)
+![uninstall an extension](images/extension-marketplace/uninstall-extension.png)
 
 ### Disable an extension
 
@@ -99,7 +99,7 @@ Extensions remain disabled for all VS Code sessions until you re-enable them.
 
 Similarly if you have disabled an extension (it will be in the **Disabled** section of the list and marked ***Disabled***), you can re-enable it with the **Enable** or **Enable (Workspace)** commands in the dropdown menu.
 
-![enable extension](images/extension-gallery/enable-extension.png)
+![enable extension](images/extension-marketplace/enable-extension.png)
 
 There is also an **Enable All Extensions** command in the **More Actions** (`...`) dropdown menu.
 
@@ -124,7 +124,7 @@ See the section below to learn how to [contribute](#workspace-recommended-extens
 
 To dismiss a recommendation, click on the extension item to open the Details pane and then press the **Ignore Recommendation** button. Ignored recommendations will no longer be recommended to you.
 
-![Ignore extension recommendation](images/extension-gallery/ignore-recommendation.png)
+![Ignore extension recommendation](images/extension-marketplace/ignore-recommendation.png)
 
 ## Configuring extensions
 
@@ -153,13 +153,13 @@ code --enable-proposed-api (<extension-id>)
 
 You can see the extension ID on the extension details page next to the extension name.
 
-![extension identifier](images/extension-gallery/extension-identifier.png)
+![extension identifier](images/extension-marketplace/extension-identifier.png)
 
 ## Extensions view filters
 
 The Extensions view search box supports filters to help you find and manage extensions. You may have seen filters such as `@installed` and `@recommended` if you used the commands **Show Installed Extensions** and **Show Recommended Extensions**. Also, there are filters available to let you sort by popularity or ratings and search by category (for example 'Linters') and tags (for example 'node'). You can see a complete listing of all filters and sort commands by typing `@` in the extensions search box and navigating through the suggestions:
 
-![intellisense on extension search filters](images/extension-gallery/extension-search-filters.png)
+![intellisense on extension search filters](images/extension-marketplace/extension-search-filters.png)
 
 Here are the Extensions view filters:
 
@@ -187,19 +187,19 @@ You can sort extensions with the `@sort` filter, which can take the following va
 * `rating` - Sort by Marketplace rating (1-5 stars), in descending order.
 * `name` - Sort alphabetically by extension name.
 
-![sort by install count](images/extension-gallery/sort-install-count.png)
+![sort by install count](images/extension-marketplace/sort-install-count.png)
 
 ### Categories and tags
 
 Extensions can set **Categories** and **Tags** describing their features.
 
-![extension categories and tags](images/extension-gallery/categories-and-tags.png)
+![extension categories and tags](images/extension-marketplace/categories-and-tags.png)
 
 You can filter on category and tag by using `category:` and `tag:`.
 
 Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks]`. They can be accessed through IntelliSense in the extensions search box:
 
-![categories debuggers](images/extension-gallery/extension-search-categories.png)
+![categories debuggers](images/extension-marketplace/extension-search-categories.png)
 
 Note that you must surround the category name in quotes if it is more than one word (for example, `category:"SCM Providers"`).
 
@@ -242,11 +242,11 @@ which recommends a linter extension, ESLint, and the Chrome debugger extension.
 
 An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 
-![Extension identifier](images/extension-gallery/extension-identifier.png).
+![Extension identifier](images/extension-marketplace/extension-identifier.png).
 
 VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
 
-![Show Recommendations](images/extension-gallery/recommendations.png)
+![Show Recommendations](images/extension-marketplace/recommendations.png)
 
 ## Next steps
 
@@ -287,7 +287,7 @@ Yes, if you would prefer to not have VS Code display extension recommendations i
 * `extensions.showRecommendationsOnlyOnDemand` - Set to true to remove the **RECOMMENDED** section.
 * `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.
 
-The **Show Recommended Extensions** command is always available if you wish to see recommendations.
+The **Show Recommended Extensions** command is always available if you want to see recommendations.
 
 ### Can I trust extensions from the Marketplace?
 
