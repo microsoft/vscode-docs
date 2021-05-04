@@ -279,21 +279,17 @@ You can set `terminal.integrated.automationShell.<platform>` to override the she
 
 ## Changing how the terminal is rendered
 
-By default, the integrated terminal will render using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
+By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that change often. The terminal actually features 3 renderers which fallback if they are detected to perform poorly in this order:
+
+1. WebGL - This is the fastest renderer that truly unlocks the GPU's power to render the terminal quickly.
+2. Canvas - This will be used if the WebGL context fails to load (eg. hardware/environment incapabilities), it's performance may vary somewhat also depending on your environment but in general it's much faster than the DOM renderer.
+3. DOM - This is the slowest by quite a bit but arguably the most reliable since it just uses the DOM. If the canvas renderer is detected to run slowly the DOM renderer will be activated.
+
+Unfortunately some issues cannot be automatically detected, if you experience issues with the GPU acceleration you can disable it `terminal.integrated.gpuAcceleration` in your user or workspace [settings](/docs/getstarted/settings.md) which will use the DOM renderer. This can be driven by the follow setting:
 
 ```js
 {
-    "terminal.integrated.rendererType": "dom"
-}
-```
-
-Something else that might improve performance is to ignore Chromium's GPU disallow list by launching VS Code with `code --ignore-gpu-blacklist`.
-
-There is an experimental renderer based on WebGL that can also be enabled:
-
-```js
-{
-    "terminal.integrated.rendererType": "experimentalWebgl"
+    "terminal.integrated.gpuAcceleration": "off"
 }
 ```
 
@@ -450,7 +446,7 @@ EOF
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
-The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.
+The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
 
 ### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed?
 
