@@ -892,9 +892,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Workbench
 
-    // Defines a default kernel provider which takes precedence over all other kernel providers settings. Must be the identifier of an extension contributing a kernel provider.
-    "notebook.kernelProviderAssociations": [],
-
     // Controls the behavior of clicking an activity bar icon in the workbench.
     //  - toggle: Hide the side bar if the clicked item is already visible.
     //  - focus: Focus side bar if the clicked item is already visible.
@@ -967,7 +964,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls where editors open. Select `left` or `right` to open editors to the left or right of the currently active one. Select `first` or `last` to open editors independently from the currently active one.
     "workbench.editor.openPositioning": "right",
 
-    // Controls the default direction of editors that are opened side by side (e.g. from the Explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
+    // Controls the default direction of editors that are opened side by side (for example, from the Explorer). By default, editors will open on the right hand side of the currently active one. If changed to `down`, the editors will open below the currently active one.
     "workbench.editor.openSideBySideDirection": "right",
 
     // Controls the sizing of pinned editor tabs. Pinned tabs are sorted to the beginning of all opened tabs and typically do not close until unpinned. This value is ignored when `workbench.editor.showTabs` is disabled.
@@ -1154,15 +1151,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
     "workbench.view.alwaysShowHeaderActions": false,
 
-    // Hide categories of the welcome page's getting started section that are not relevant to you.
-    "workbench.welcomePage.hiddenCategories": [],
 
 // Window
 
-    // If set, automatically switch to the preferred color theme based on the OS appearance.
+    // If set, automatically switch to the preferred color theme based on the OS appearance. If the OS appearance is dark, the theme specified at `workbench.preferredDarkColorTheme` is used, for light `workbench.preferredLightColorTheme`.
     "window.autoDetectColorScheme": false,
 
-    // If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme.
+    // If enabled, will automatically change to high contrast theme if the OS is using a high contrast theme. The high contrast theme to use is specified by `workbench.preferredHighContrastColorTheme`.
     "window.autoDetectHighContrast": true,
 
     // If enabled, clicking on an inactive window will both activate the window and trigger the element under the mouse if it is clickable. If disabled, clicking anywhere on an inactive window will activate it only and a second click is required on the element.
@@ -1542,6 +1537,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Use the proxy support for extensions.
     //  - off: Disable proxy support for extensions.
     //  - on: Enable proxy support for extensions.
+    //  - fallback: Enable proxy support for extensions, fall back to request options, when no proxy found.
     //  - override: Enable proxy support for extensions, override request options.
     "http.proxySupport": "override",
 
@@ -1607,7 +1603,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     "debug.focusWindowOnBreak": true,
 
     // Show variable values inline in editor while debugging.
-    "debug.inlineValues": false,
+    //  - true: Always show variable values inline in editor while debugging.
+    //  - false: Never show variable values inline in editor while debugging.
+    //  - auto: Show variable values inline in editor while debugging when the language supports inline value locations.
+    "debug.inlineValues": "auto",
 
     // Controls when the internal debug console should open.
     "debug.internalConsoleOptions": "openOnFirstSessionStart",
@@ -1620,7 +1619,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "debug.onTaskErrors": "prompt",
 
     // Controls when the debug view should open.
-    "debug.openDebug": "openOnFirstSessionStart",
+    "debug.openDebug": "openOnDebugBreak",
 
     // Automatically open the explorer view at the end of a debug session.
     "debug.openExplorerOnEnd": false,
@@ -1791,6 +1790,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When a Markdown editor is scrolled, update the view of the preview.
     "markdown.preview.scrollPreviewWithEditor": true,
 
+    // Enable or disable some language-neutral replacement and quotes beautification in the Markdown preview.
+    "markdown.preview.typographer": false,
+
     // A list of URLs or local paths to CSS style sheets to use from the Markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the Markdown file. All '\' need to be written as '\\'.
     "markdown.styles": [],
 
@@ -1914,6 +1916,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires TS 3.7+ and strict null checks to be enabled.
     "javascript.suggest.includeAutomaticOptionalChainCompletions": true,
+
+    // Enable/disable auto-import-style completions on partially-typed import statements. Requires using TypeScript 4.3+ in the workspace.
+    "javascript.suggest.includeCompletionsForImportStatements": true,
 
     // Enable/disable generating `@return` annotations for JSDoc templates. Requires using TypeScript 4.2+ in the workspace.
     "javascript.suggest.jsdoc.generateReturns": true,
@@ -2073,6 +2078,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable showing completions on potentially undefined values that insert an optional chain call. Requires TS 3.7+ and strict null checks to be enabled.
     "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
 
+    // Enable/disable auto-import-style completions on partially-typed import statements. Requires using TypeScript 4.3+ in the workspace.
+    "typescript.suggest.includeCompletionsForImportStatements": true,
+
+    // Enable/disable snippet completions from TS Server. Requires using TypeScript 4.3+ in the workspace.
+    "typescript.suggest.includeCompletionsWithSnippetText": true,
+
     // Enable/disable generating `@return` annotations for JSDoc templates. Requires using TypeScript 4.2+ in the workspace.
     "typescript.suggest.jsdoc.generateReturns": true,
 
@@ -2089,7 +2100,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - watch: Only create compile and watch tasks.
     "typescript.tsc.autoDetect": "on",
 
-    // Specifies the folder path to the tsserver and lib*.d.ts files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.
+    // Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.
     // - When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.
     // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
     "typescript.tsdk": null,
@@ -2100,7 +2111,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
     "typescript.tsserver.log": "off",
 
-    // Set the maximum amount of memory (in MB) to allocate to the TypeScript server process
+    // The maximum amount of memory (in MB) to allocate to the TypeScript server process.
     "typescript.tsserver.maxTsServerMemory": 3072,
 
     // Additional paths to discover TypeScript Language Service plugins.
@@ -2128,24 +2139,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - allOpenProjects: Search all open JavaScript or TypeScript projects for symbols. Requires using TypeScript 3.9 or newer in the workspace.
     //  - currentProject: Only search for symbols in the current JavaScript or TypeScript project.
     "typescript.workspaceSymbols.scope": "allOpenProjects",
-
-// Testing
-
-    // Configures when the error peek view is automatically opened.
-    //  - failureAnywhere: Open automatically no matter where the failure is.
-    //  - failureInVisibleDocument: Open automatically when a test fails in a visible document.
-    "testing.automaticallyOpenPeekView": "failureInVisibleDocument",
-
-    // Controls whether to automatically open the peek view during auto-run mode.
-    "testing.automaticallyOpenPeekViewDuringAutoRun": false,
-
-    // How long to wait, in milliseconds, after a test is marked as outdated and starting a new run.
-    "testing.autoRun.delay": 1000,
-
-    // Controls which tests are automatically run.
-    //  - allInWorkspace: Automatically run and then re-run all tests in the workspace.
-    //  - onlyPreviouslyRun: Only re-run tests that have been run before, when they change.
-    "testing.autoRun.mode": "allInWorkspace",
 
 // CSS
 
@@ -2391,7 +2384,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, automatically checks extensions for updates. If an extension has an update, it is marked as outdated in the Extensions view. The updates are fetched from a Microsoft online service.
     "extensions.autoCheckUpdates": true,
 
-    // When enabled, automatically installs updates for extensions. The updates are fetched from a Microsoft online service.
+    // Controls the automatic update behavior of extensions. The updates are fetched from a Microsoft online service.
+    //  - true: Download and install updates automatically for all extensions.
+    //  - onlyEnabledExtensions: Download and install updates automatically only for enabled extensions. Disabled extensions will not be updated automatically.
+    //  - false: Extensions are not automatically updated.
     "extensions.autoUpdate": true,
 
     // When enabled, editors with extension details will be automatically closed upon navigating away from the Extensions View.
@@ -2425,7 +2421,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "notebook.breadcrumbs.showCodeCells": true,
 
     // Where the cell toolbar should be shown, or whether it should be hidden.
-    "notebook.cellToolbarLocation": "right",
+    "notebook.cellToolbarLocation": {
+        "default": "right"
+    },
 
     // Whether to use the enhanced text diff editor for notebook.
     "notebook.diff.enablePreview": true,
@@ -2438,6 +2436,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Priority list for output mime types
     "notebook.displayOrder": [],
+
+    // Controls the display of line numbers in the cell editor.
+    "notebook.lineNumbers": "off",
+
+    // When enabled cursor can navigate to the next/previous cell when the current cursor in the cell editor is at the first/last line.
+    "notebook.navigation.allowNavigateToSurroundingCells": true,
 
     // When enabled notebook outline shows code cells.
     "notebook.outline.showCodeCells": false,
@@ -2471,6 +2475,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether to allow menubar mnemonics (eg. alt+f) to trigger the open the menubar. Note that this will cause all alt keystrokes to skip the shell when true. This does nothing on macOS.
     "terminal.integrated.allowMnemonics": false,
 
+    // Allows shell and profile settings to be pick up from a workspace.
+    "terminal.integrated.allowWorkspaceConfiguration": false,
+
     // If enabled, alt/option + click will reposition the prompt cursor to underneath the mouse when `editor.multiCursorModifier` is set to `'alt'` (the default value). This may not work reliably depending on your shell.
     "terminal.integrated.altClickMovesCursor": true,
 
@@ -2482,6 +2489,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // A path that when set will override `terminal.integrated.shell.windows` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
     "terminal.integrated.automationShell.windows": null,
+
+    // The number of milliseconds to show the bell within a terminal tab when triggered.
+    "terminal.integrated.bellDuration": 1000,
 
     // A set of command IDs whose keybindings will not be sent to the shell but instead always be handled by VS Code. This allows keybindings that would normally be consumed by the shell to act instead the same as when the terminal is not focused, for example `Ctrl+P` to launch Quick Open.
     "terminal.integrated.commandsToSkipShell": [],
@@ -2504,6 +2514,15 @@ Below are the Visual Studio Code default settings and their values. You can also
     // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
     "terminal.integrated.cwd": "",
 
+    // The default profile used on Linux. When set to a valid profile name, this will override the values of `terminal.integrated.shell.osx` and `terminal.integrated.shellArgs.osx`.
+    "terminal.integrated.defaultProfile.linux": null,
+
+    // The default profile used on macOS. When set to a valid profile name, this will override the values of `terminal.integrated.shell.osx` and `terminal.integrated.shellArgs.osx`.
+    "terminal.integrated.defaultProfile.osx": null,
+
+    // The default profile used on Windows. When set to a valid profile name, this will override the values of `terminal.integrated.shell.windows` and `terminal.integrated.shellArgs.windows`.
+    "terminal.integrated.defaultProfile.windows": null,
+
     // Controls whether to detect and set the `$LANG` environment variable to a UTF-8 compliant option since VS Code's terminal only supports UTF-8 encoded data coming from the shell.
     //  - auto: Set the `$LANG` environment variable if the existing variable does not exist or it does not end in `'.UTF-8'`.
     //  - off: Do not set the `$LANG` environment variable.
@@ -2513,10 +2532,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
     "terminal.integrated.drawBoldTextInBrightColors": true,
 
-    // Controls whether or not WSL distros are shown in the terminal dropdown
-    "terminal.integrated.useWslProfiles": true,
-
-    // Controls whether the terminal bell is enabled.
+    // Controls whether the terminal bell is enabled, this shows up as a visual bell next to the terminal's name.
     "terminal.integrated.enableBell": false,
 
     // Whether to enable file links in the terminal. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
@@ -2558,6 +2574,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The font weight to use within the terminal for bold text. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
     "terminal.integrated.fontWeightBold": "bold",
 
+    // Controls whether the terminal will leverage the GPU to do its rendering.
+    //  - auto: Let VS Code detect which renderer will give the best experience.
+    //  - on: Enable GPU acceleration within the terminal.
+    //  - off: Disable GPU acceleration within the terminal.
+    "terminal.integrated.gpuAcceleration": "auto",
+
     // Whether new shells should inherit their environment from VS Code. This is not supported on Windows.
     "terminal.integrated.inheritEnv": true,
 
@@ -2584,11 +2606,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A multiplier to be used on the `deltaY` of mouse wheel scroll events.
     "terminal.integrated.mouseWheelScrollSensitivity": 1,
 
-    // Controls how the terminal is rendered.
-    //  - auto: Let VS Code guess which renderer to use.
-    //  - canvas: Use the standard GPU/canvas-based renderer.
-    //  - dom: Use the fallback DOM-based renderer.
-    "terminal.integrated.rendererType": "auto",
+    // The Linux profiles to present when creating a new terminal via the terminal dropdown. When set, these will override the default detected profiles. They are comprised of a `path` and optional `args`.
+    "terminal.integrated.profiles.linux": { },
+
+    // The macOS profiles to present when creating a new terminal via the terminal dropdown. When set, these will override the default detected profiles. They are comprised of a `path` and optional `args`.
+    "terminal.integrated.profiles.osx": { },
+
+    // The Windows profiles to present when creating a new terminal via the terminal dropdown. Set to null to exclude them, use the `source` property to use the default detected configuration. Or, set the `path` and optional `args`.
+    "terminal.integrated.profiles.windows": { },
 
     // Controls how terminal reacts to right click.
     //  - default: Show the context menu.
@@ -2603,26 +2628,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Dispatches most keybindings to the terminal instead of the workbench, overriding `terminal.integrated.commandsToSkipShell`, which can be used alternatively for fine tuning.
     "terminal.integrated.sendKeybindingsToShell": false,
 
-    // The path of the shell that the terminal uses on Linux (default: /bin/bash).
-    "terminal.integrated.shell.linux": null,
-
-    // The path of the shell that the terminal uses on macOS (default: /bin/bash).
-    "terminal.integrated.shell.osx": null,
-
-    // The path of the shell that the terminal uses on Windows (default: PowerShell).
-    "terminal.integrated.shell.windows": null,
-
-    // The command line arguments to use when on the Linux terminal.
-    "terminal.integrated.shellArgs.linux": [],
-
-    // The command line arguments to use when on the macOS terminal.
-    "terminal.integrated.shellArgs.osx": [
-        "-l"
-    ],
-
-    // The command line arguments to use when on the Windows terminal.
-    "terminal.integrated.shellArgs.windows": [],
-
     // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
     "terminal.integrated.showExitAlert": true,
 
@@ -2632,10 +2637,38 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
     "terminal.integrated.splitCwd": "inherited",
 
+    // Controls whether terminal tabs display as a list to the side of the terminal. When this is disabled a dropdown will display instead.
+    "terminal.integrated.tabs.enabled": true,
+
+    // Controls whether focusing the terminal of a tab happens on double or single click.
+    //  - singleClick: Focus the terminal when clicking a terminal tab
+    //  - doubleClick: Focus the terminal when double clicking a terminal tab
+    "terminal.integrated.tabs.focusMode": "doubleClick",
+
+    // Controls whether the terminal tabs view will hide under certain conditions.
+    //  - never: Never hide the terminal tabs view
+    //  - singleTerminal: Hide the terminal tabs view when there is only a single terminal opened
+    "terminal.integrated.tabs.hideCondition": "singleTerminal",
+
+    // Controls the location of the terminal tabs, either to the left or right of the actual terminal(s).
+    //  - left: Show the terminal tabs view to the left of the terminal
+    //  - right: Show the terminal tabs view to the right of the terminal
+    "terminal.integrated.tabs.location": "right",
+
+    // Shows the active terminal information in the view, this is particularly useful when the title within the tabs aren't visible.
+    //  - always: Always show the active terminal
+    //  - singleTerminal: Show the active terminal when it is the only terminal opened
+    //  - singleTerminalOrNarrow: Show the active terminal when it is the only terminal opened or when the tabs view is in its narrow textless state
+    //  - never: Never show the active terminal
+    "terminal.integrated.tabs.showActiveTerminal": "singleTerminalOrNarrow",
+
     // Controls what version of unicode to use when evaluating the width of characters in the terminal. If you experience emoji or other wide characters not taking up the right amount of space or backspace either deleting too much or too little then you may want to try tweaking this setting.
     //  - 6: Version 6 of unicode, this is an older version which should work better on older systems.
     //  - 11: Version 11 of unicode, this version provides better support on modern systems that use modern versions of unicode.
     "terminal.integrated.unicodeVersion": "11",
+
+    // Controls whether or not WSL distros are shown in the terminal dropdown
+    "terminal.integrated.useWslProfiles": true,
 
     // Whether to use ConPTY for Windows terminal process communication (requires Windows 10 build number 18309+). Winpty will be used if this is false.
     "terminal.integrated.windowsEnableConpty": true,
@@ -3028,7 +3061,8 @@ Below are the Visual Studio Code default settings and their values. You can also
         "markdown"
     ],
 
-    // Path to a folder containing Emmet profiles and snippets.
+    // An array of paths, where each path can contain Emmet syntaxProfiles and/or snippet files.
+    // In case of conflicts, the profiles/snippets of later paths will override those of earlier paths.
     "emmet.extensionsPath": [],
 
     // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and Emmet supported language.
@@ -3058,7 +3092,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, Emmet abbreviations are expanded when pressing TAB.
     "emmet.triggerExpansionOnTab": false,
 
-    // Variables to be used in Emmet snippets
+    // Variables to be used in Emmet snippets.
     "emmet.variables": {},
 
 // Git
