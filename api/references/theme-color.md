@@ -902,6 +902,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
 - `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
+## Ports Colors
+
+- `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
+
 ## Extension colors
 
 Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
