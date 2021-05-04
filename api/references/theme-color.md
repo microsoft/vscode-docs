@@ -68,6 +68,14 @@ Colors inside a text document, such as the welcome page.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
+## Action colors
+
+A set of colors to control the interactions with actions across the workbench.
+
+- `toolbar.hoverBackground`: Toolbar background when hovering over actions using the mouse
+- `toolbar.hoverOutline`: Toolbar outline when hovering over actions using the mouse
+- `toolbar.activeBackground`: Toolbar background when holding the mouse over actions
+
 ## Button control
 
 A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
