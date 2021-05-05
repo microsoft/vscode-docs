@@ -68,6 +68,14 @@ Colors inside a text document, such as the welcome page.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
+## Action colors
+
+A set of colors to control the interactions with actions across the workbench.
+
+- `toolbar.hoverBackground`: Toolbar background when hovering over actions using the mouse
+- `toolbar.hoverOutline`: Toolbar outline when hovering over actions using the mouse
+- `toolbar.activeBackground`: Toolbar background when holding the mouse over actions
+
 ## Button control
 
 A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
@@ -76,6 +84,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
+- `button.border`: Button border color.
 - `button.hoverBackground`: Button background color when hovering.
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
@@ -619,6 +628,25 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
+## Keybinding label colors
+
+Keybinding labels are shown when there is a keybinding associated with a command. An example of the keybinding label can be seen in the Command Palette:
+![Keybinding label](images/theme-color/keybinding-label.png)
+
+Usages of the keybinding label include (but are not limited to):
+
+* The Command Palette
+* The Keyboard Shortcuts editor
+* The Keyboard Shortcuts recorder modal
+* The "feature contribution" section of an extension's marketplace page
+
+The following customizations are available:
+
+- `keybindingLabel.background`: Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.foreground`: Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.border`: Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.bottomBorder`: Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
+
 ## Integrated Terminal colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
@@ -833,7 +861,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
-- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
@@ -870,6 +898,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
 - `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
 - `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
+
+## Ports Colors
+
+- `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
 
 ## Extension colors
 
