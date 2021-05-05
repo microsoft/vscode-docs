@@ -542,10 +542,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 
-### Preview colors
-
-- `imagePreview.border`: Border color for image in image preview.
-
 ## Status Bar colors
 
 The Status Bar is shown in the bottom of the workbench.
