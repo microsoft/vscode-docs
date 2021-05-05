@@ -84,6 +84,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
+- `button.border`: Button border color.
 - `button.hoverBackground`: Button background color when hovering.
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
@@ -864,7 +865,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
-- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
