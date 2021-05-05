@@ -202,7 +202,7 @@ Within the Python Notebook Editor, it's possible to view, inspect, and filter th
 
 ![Variable Explorer](images/jupyter/native-variable-explorer.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values using the boxes below each column header and, if you've made changes or transformations to your data, you can click the refresh button in the top left to retrieve the most recent data. ALong with that you can click on any column heading to sort its data in ascending or descending order, as well as click into individual cells in the Data Viewer to copy out their contents.
 
 ![Data Viewer](images/jupyter/native-data-viewer.png)
 
