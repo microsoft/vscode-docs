@@ -406,15 +406,23 @@ function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof c
 
 ### Inspecting and debugging webviews
 
-The **Developer: Open Webview Developer Tools** VS Code command lets you debug webviews. Running the command launches an instance of Developer Tools for any currently visible webviews:
+The **Developer: Toggle Developer Tools** command opens a [Developer Tools](https://developer.chrome.com/docs/devtools/) window that you can use debug and inspect your webviews.
 
-![Webview Developer Tools](images/webview/basics-developer_tools.png)
+![The developer tools](images/webview/developer-overview.png)
 
-The contents of the webview are within an iframe inside the webview document. You can use Developer Tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
+Note that if you are using a version of VS Code older than 1.56, or if you are trying to debug a webview that sets `enableFindWidget`, you must instead use the **Developer: Open Webview Developer Tools** command. This command opens a dedicated Developer Tools page for each webview instead of using a Developer Tools page that is shared by all webviews and the editor itself.
 
-If you use the webview Developer Tools console, make sure to select the **active frame** environment from the dropdown in the top left corner of the Console panel:
+From the Developer Tools, you can start inspecting the contents of your webview using the inspect tool located in the top left corner of the Developer Tools window:
 
-![Selecting the active frame](images/webview/debug-active-frame.png)
+![Inspecting a webview using the developer tools](images/webview/developer-inspect.png)
+
+You can also view all of the errors and logs from your webview in the developer tools console:
+
+![The developer tools console](images/webview/developer-console.png)
+
+To evaluate an expression in the context of your webview, make sure to select the **active frame** environment from the dropdown in the top left corner of the Developer tools console panel:
+
+![Selecting the active frame](images/webview/developer-active-frame.png)
 
 The **active frame** environment is where the webview scripts themselves are executed.
 
