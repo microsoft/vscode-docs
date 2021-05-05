@@ -15,7 +15,7 @@ As you learned in the [Extension Anatomy](/api/get-started/extension-anatomy) to
 
 ## Stability and Performance
 
-VS Code aims to deliver a stable and performant editor to end users, and misbehaving extensions should not impact the user experience. The Extension Host in VS Code prevents extensions from:
+VS Code aims to deliver a stable and performant editor to users, and misbehaving extensions should not impact the user experience. The Extension Host in VS Code prevents extensions from:
 
 - Impacting startup performance
 - Slowing down UI operations

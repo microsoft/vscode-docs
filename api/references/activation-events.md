@@ -173,7 +173,7 @@ will cause the extension to be activated when VS Code needs to restore a custom 
 
 ## Start up
 
-The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
 ...
