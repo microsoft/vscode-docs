@@ -21,5 +21,8 @@
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "yarn check-lfs"
     ]
+  },
+  "resolutions": {
+    "hosted-git-info": "^3.0.8"
   }
 }
