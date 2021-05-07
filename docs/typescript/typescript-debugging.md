@@ -10,7 +10,7 @@ MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
 # Debugging TypeScript
 
-Visual Studio Code supports TypeScript debugging through its built-in [Node.js debugger](/docs/nodejs/nodejs-debugging.md) and also through [extensions](/docs/editor/extension-marketplace.md) like [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) to support client-side TypeScript debugging.
+Visual Studio Code supports TypeScript debugging through its built-in [Node.js debugger](/docs/nodejs/nodejs-debugging.md) and [Edge and Chrome debugger](/docs/nodejs/browser-debugging.md).
 
 ## JavaScript source map support
 
@@ -31,7 +31,7 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 }
 ```
 
-For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Run view (`kb(workbench.view.debug)`) and press the gear icon to **Configure or Fix 'launch.json'**. If you have other debugger extensions installed (such as the Debugger for Chrome), you should select **Node.js** from the dropdown.
+For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Run view (`kb(workbench.view.debug)`) and press the gear icon or "Create a launch.json" link to **Configure or Fix 'launch.json'**.
 
 ![configure launch.json](images/debugging/configure-debugging.png)
 
@@ -72,7 +72,7 @@ If generated (transpiled) JavaScript files do not live next to their source, you
 
 ## Client-side debugging
 
-TypeScript is great for writing client-side code as well as Node.js applications and you can debug client-side source code with extensions such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
+TypeScript is great for writing client-side code as well as Node.js applications and you can debug client-side source code with the [built-in Edge and Chrome debugger](/docs/nodejs/browser-debugging.md).
 
 We'll create a tiny web application to show client-side debugging in action.
 
@@ -112,11 +112,7 @@ tsconfig.json
 
 Run `tsc` to build the app and then test by opening `helloweb.html` in your browser (you can right-click `helloweb.html` in the File Explorer and select **Copy Path** to paste into your browser).
 
-To debug the client-side code, install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) [extension](/docs/editor/extension-marketplace.md). Open the Extensions view (`kb(workbench.view.extensions)`) and search for "Chrome". Install the extension and reload VS Code.
-
-![debugger for chrome extension](images/debugging/debugger-for-chrome.png)
-
-In the Run view, press the gear icon to create a `launch.json` file selecting **Chrome** as the debugger.
+In the Run view, press the gear icon to create a `launch.json` file selecting **Edge: launch** as the debugger, or **Chrome** if you prefer.
 
 Update the `launch.json` to specify the local file URL to `helloweb.html`:
 
@@ -125,9 +121,9 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "pwa-msedge",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Edge against localhost",
             "url": "file:///C:/Users/username/deleteMe/HelloWeb/helloweb.html",
             "webRoot": "${workspaceFolder}"
         }
@@ -135,7 +131,7 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
 }
 ```
 
-The Run view configuration dropdown will now show the new configuration **Launch Chrome against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
+The Run view configuration dropdown will now show the new configuration **Launch Edge against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
 
 ![client-side debug breakpoint](images/debugging/client-side-debug-breakpoint.png)
 

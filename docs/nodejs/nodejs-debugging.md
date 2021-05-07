@@ -94,7 +94,7 @@ You can apply [other properties normally found in launch.json](#launch-configura
 
 Launch configs are the traditional way to set up debugging in VS Code, and provide you the most configuration options for running complex applications.
 
-In this section we'll go into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code-node-chrome), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
+In this section we'll go into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
 
 If you'd like to watch an introductory video, see [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8).
 
@@ -115,7 +115,7 @@ The following attributes are supported in launch configurations of type `launch`
 * `localRoot` - VS Code's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `remoteRoot` - Node's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
 * `smartStep`- try to automatically step over code that doesn't map to source files. See section [Smart stepping](/docs/nodejs/nodejs-debugging.md#smart-stepping).
-* `skipFiles` - automatically skip files covered by these glob patterns. See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code-node-chrome).
+* `skipFiles` - automatically skip files covered by these glob patterns. See section [Skipping uninteresting code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code).
 * `trace` - enable diagnostic output.
 
 These attributes are only available for launch configurations of request type `launch`:
@@ -347,9 +347,9 @@ Note that on the Windows operating system, pressing **Stop** always forcibly kil
 
 ## Source maps
 
-The Node.js debugger of VS Code supports JavaScript source maps that help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it's possible to single step through or set breakpoints in the original source. If no source map exists for the original source, or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
+The JavaScript debugger of VS Code supports source maps that help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it's possible to single step through or set breakpoints in the original source. If no source map exists for the original source, or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
 
-The source map feature is controlled by the `sourceMaps` attribute that defaults to `true`. This means that node debugging always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
+The source map feature is controlled by the `sourceMaps` attribute that defaults to `true`. This means that the debugger always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
 ### Tool Configuration
 

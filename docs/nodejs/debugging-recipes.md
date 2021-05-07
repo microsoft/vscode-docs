@@ -1,14 +1,14 @@
 ---
-Order: 9
+Order: 10
 Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
-PageTitle: Node.js Debugging Recipes for Visual Studio Code
+PageTitle: JavaScript Debugging Recipes for Visual Studio Code
 DateApproved: 5/5/2021
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
-# Node.js Debugging Recipes
+# JavaScript Debugging Recipes
 
 Visual Studio Code supports debugging of many languages and platforms via debuggers that are either built-in or contributed by extensions.
 
@@ -24,13 +24,13 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 
 - [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
 
-## Debug client-side JavaScript in Google Chrome
+## Debug client-side JavaScript in Browsers
 
-The Visual Studio Code editor supports debugging of JavaScript running in [Google Chrome](https://electron.atom.io) applications via the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
+The Visual Studio Code editor supports debugging of JavaScript running in [Microsoft Edge](https://www.microsoft.com/en-us/edge) and [Google Chrome](https://www.google.com/chrome/).
 
-![JavaScript and Chrome logo](images/recipes/chrome.png)
+![JavaScript, Edge, and Chrome logo](images/recipes/browsers.png)
 
-You can read more about how our Debugger for Chrome works in this introduction [blog post](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code).
+You can read more about debugging browsers works in the [Browser Debugging documentation](/docs/nodejs/browser-debugging.md).
 
 **Recipes:**
 
@@ -49,7 +49,7 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 ## Electron - Debug Electron applications
 
-The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in [Node.js](https://nodejs.org/) debugger and the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
+The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in JavaScript debugger.
 
 ![electron logo](images/recipes/electron.png)
 

@@ -146,7 +146,7 @@ VS Code has built-in support for TypeScript debugging. To support debugging Type
 
 Rebuild by running `tsc` and you should now have a `helloworld.js.map` in the `out` directory next to `helloworld.js`.
 
-With `helloworld.ts` open in the editor, press `kb(workbench.action.debug.start)`. If you have other debugger extensions installed (such as the Chrome Debug extension), you need to select **Node.js** from the dropdown.
+With `helloworld.ts` open in the editor, press `kb(workbench.action.debug.start)`. If you have other debugger extensions installed, you need to select **Node.js** from the dropdown.
 
 The debugger will start a session, run your code, and display the "Hello World" message in the Debug console panel.
 

@@ -319,7 +319,7 @@ VS Code supports folder level extension recommendations through the `extensions.
         "recommendations": [
             "eg2.tslint",
             "dbaeumer.vscode-eslint",
-            "msjsdiag.debugger-for-chrome"
+            "esbenp.prettier-vscode"
         ]
     }
 }

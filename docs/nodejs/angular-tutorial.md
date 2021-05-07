@@ -105,15 +105,9 @@ Once you save the `app.component.ts` file, the running instance of the server wi
 
 ## Debugging Angular
 
-To debug the client side Angular code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+To debug the client side Angular code, we'll use the built-in JavaScript debugger.
 
->Note: This tutorial assumes you have the Chrome browser installed. There are also debugger extensions for the [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browsers.
-
-Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome' in the search box. You'll see several extensions which reference Chrome.
-
-![debugger for chrome](images/reactjs/debugger-for-chrome.png)
-
-Press the **Install** button for **Debugger for Chrome**.
+>Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `pwa-chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
 
 ### Set a breakpoint
 
@@ -121,9 +115,9 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ![set a breakpoint](images/angular/breakpoint.png)
 
-### Configure the Chrome debugger
+### Configure the debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Run view (`kb(workbench.view.debug)`) and click on the gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Run view (`kb(workbench.view.debug)`) and click on the gear button or "Create a launch.json" link to create a `launch.json` debugger configuration file. Choose **Edge: launch** from the **Select Environment** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 
@@ -132,9 +126,9 @@ We need to make one change for our example: change the port of the `url` from `8
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "pwa-msedge",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Edge against localhost",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
         }
@@ -150,9 +144,7 @@ You can step through your source code (`kb(workbench.action.debug.stepOver)`), i
 
 ![debug variable](images/angular/debug-variable.png)
 
-The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
-
-![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+For more information about the debugger and its available options, check out our documentation on [browser debugging](/docs/nodejs/browser-debugging.md).
 
 ## Popular Starter Kits
 
@@ -160,7 +152,7 @@ In this tutorial, we used the Angular CLI to create a simple Angular application
 
 ### Recipes
 
-The VS Code team has created [recipes](https://github.com/microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
+The VS Code team has created [recipes](https://github.com/microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Debugging with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
 
 ### MEAN Starter
 
@@ -168,7 +160,7 @@ If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack exam
 
 ### React
 
-[React](https://facebook.github.io/react/) is another popular web framework. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+[React](https://facebook.github.io/react/) is another popular web framework. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the JavaScript debugger.
 
 ## Angular Extensions
 

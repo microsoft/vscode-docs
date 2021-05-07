@@ -317,7 +317,7 @@ VS Code comes with great debugging support for TypeScript, including support for
 
 ### Debug client side
 
-You can debug your client-side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+You can debug your client-side code using a browser debugger such as the [built-in Edge and Chrome debugger](/docs/nodejs/browser-debugging.md), or the [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
 
 ### Debug server side
 
