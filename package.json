@@ -23,7 +23,7 @@
     }
   },
   "lint-staged": {
-    "*.{gif,mp4,jpg,png}": [
+    "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "yarn check-lfs"
     ]
   }
