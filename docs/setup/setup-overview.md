@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Overview
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 PageTitle: Setting up Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: quicksetup_QuickSetup.png
 ---
@@ -44,7 +44,7 @@ VS Code is an editor, first and foremost, and prides itself on a small footprint
 
 ## Extensions
 
-VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional:
+VS Code [extensions](/docs/editor/extension-marketplace.md) let third parties add support for additional:
 
 * Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](/docs/languages/go.md), [Java](/docs/languages/java.md), [Python](/docs/languages/python.md)
 * Tools - [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) , [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)

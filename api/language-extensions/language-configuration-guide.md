@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: cd928e7f-bb5a-43b0-8e15-d398e416386d
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to configure language support for any language in Visual Studio Code.
@@ -217,6 +217,40 @@ if (true) {
   console.log();
 ```
 
+In addition to `increaseIndentPattern` and `decreaseIndentPatter`, there are two other indentation rules:
+
+- `indentNextLinePattern` - If a line matches this pattern, then **only the next line** after it should be indented once.
+- `unIndentedLinePattern` - If a line matches this pattern, then its indentation should not be changed and it should not be evaluated against the other rules.
+
 If there is no indentation rule set for the programming language, the editor will indent when the line ends with an open bracket and outdent when you type a closing bracket. The bracket here is defined by `brackets`.
 
 Notice that `editor.formatOnPaste` setting is controlled by the [`DocumentRangeFormattingEditProvider`](/api/references/vscode-api#DocumentRangeFormattingEditProvider) and not affected by auto indentation.
+
+## On Enter Rules
+
+`onEnterRules` defines a list of rules that will be evaluated when `kbstyle(Enter)` is pressed in the editor.
+
+```json
+{
+  "onEnterRules": [{
+    "beforeText": "^\\s*(?:def|class|for|if|elif|else|while|try|with|finally|except|async).*?:\\s*$",
+    "action": { "indent": "indent" }
+  }]
+}
+```
+
+When pressing `kbstyle(Enter)`, the text before, after, or one line above the cursor is checked against the following properties:
+
+- `beforeText` (mandatory). A regular expression that matches the text before the cursor (limited to the current line).
+- `afterText`. A regular expression that matches the text after the cursor (limited to the current line).
+- `previousLineText`. A regular expression that matches the text one line above the cursor.
+
+If all the specified properties match, the rule is considered to match and no further `onEnterRules` will be evaluated. An `onEnterRule` can specify the following actions:
+
+- `indent` (mandatory). One of `none, indent, outdent, indentOutdent`.
+  - `none` means that the new line will inherit the indentation of the current line.
+  - `indent` means that the new line will be indented relative to the current line.
+  - `outdent` means that the new line will be unindented relative to the current line.
+  - `indentOutdent` means that two new lines will be inserted, one indented and the second one outdented.
+- `appendText`. A string that will be appended after the new line and after the indentation.
+- `removeText`. The number of characters to remove from the new line's indentation.

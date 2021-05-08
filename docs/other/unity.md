@@ -125,7 +125,7 @@ dotnet_diagnostic.IDE0051.severity = none
 
 `root=true` tells OmniSharp that this is your project root and it should stop looking for parent `.editorconfig` files outside of this folder.
 
-`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you wish to this file.
+`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you want to this file.
 
 `[*.cs]` indicates that our custom rules should apply to all C# scripts (files with the `.cs` extension).
 

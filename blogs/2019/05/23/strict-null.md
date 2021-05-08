@@ -169,7 +169,7 @@ To do this, we created a new TypeScript project file called `tsconfig.strictNull
 }
 ```
 
-While this plan seemed reasonable, one issue was that engineers working in master would normally not be compiling the strict null checked subset of VS Code. To prevent accidental regressions to already strict null checked files, we added a continuous integration step that compiled `tsconfig.strictNullChecks.json`. This ensured that checkins that regressed strict null checking would break the build.
+While this plan seemed reasonable, one issue was that engineers working in main would normally not be compiling the strict null checked subset of VS Code. To prevent accidental regressions to already strict null checked files, we added a continuous integration step that compiled `tsconfig.strictNullChecks.json`. This ensured that checkins that regressed strict null checking would break the build.
 
 We also put together [two simple scripts](https://github.com/mjbvz/vscode-strict-null-check-migration-tools) to automate some of the repetitive tasks related to adding files to the strict null checked project. The first script printed a list of files that were eligible to be strict null checked. A file is considered eligible if it only imports files that were themselves strict null checked. The second script tried to automatically add eligible files to the strict null project. If adding the file caused no compile errors, then it was committed to `tsconfig.strictNullChecks.json`.
 

@@ -136,8 +136,8 @@ Exception has occurred: PermissionError
 To solve this issue, we need to correctly add permissions to the non-root user to gain access to this specific file or directory in the container. Within your Dockerfile, add:
 
 ```dockerfile
-# Creates a non-root user and adds permission to access the /app folder
-RUN useradd appuser && chown -R appuser /app
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+RUN useradd -u 5678 appuser && chown -R appuser /app
 
 # Adds permission for appuser (non-root) to access the /extra folder
 RUN chown -R appuser /extra
@@ -157,20 +157,10 @@ PermissionError: [Errno 13] Permission denied: '/share/logs/log.txt'
 
 In order to give access to a non-root user `appuser` from within the container, follow these steps:
 
-1. From the container command line, run one of these commands:
-
-    ```powershell
-    # To find a specific user's UID
-    id -u appuser
-
-    # Or to find a specific user's GID
-    id -g username
-    ```
-
-1. Copy the output from the container command line.
+1. Copy the explicit UID from your Dockerfile (`5678` in the example above).
 1. From the **host machine's** command line, run one of these commands:
 
-    ```powershell
+    ```bash
     # Example of giving a User ID with the value of 5678 access to the /share folder on the host machine
 
     setfacl -m u:5678:rwx /share

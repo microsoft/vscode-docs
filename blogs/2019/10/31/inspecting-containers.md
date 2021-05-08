@@ -72,7 +72,7 @@ During this time, VS Code is installing an instance of the VS Code **Server** in
 
 ![Remote Container architecture diagram](remote-container-architecture.png)
 
-Once the connection is complete, you should have a new VS Code window with a green indicator in the bottom left that shows this instance of VS Code is running in a remote context. If you click on the indicator, you see will see a drop-down of commands relevant to the current remote context.
+Once the connection is complete, you should have a new VS Code window with a green indicator in the bottom left that shows this instance of VS Code is running in a remote context. If you click on the indicator, you see will see a dropdown of commands relevant to the current remote context.
 
 ![Remote context shown in the Status bar](remote-context-status-bar.png)
 

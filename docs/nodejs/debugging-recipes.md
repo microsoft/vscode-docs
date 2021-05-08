@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: Node.js Debugging Recipes for Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -22,7 +22,7 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 
 **Recipes:**
 
-- [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/master/nodemon)
+- [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
 
 ## Debug client-side JavaScript in Google Chrome
 
@@ -34,12 +34,12 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 **Recipes:**
 
-- [Debugging Angular apps with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/master/Angular-CLI)
-- [Debugging Next.js apps](https://github.com/microsoft/vscode-recipes/tree/master/Next-js)
-- [Debugging Meteor apps](https://github.com/microsoft/vscode-recipes/tree/master/meteor)
-- [Debugging Vue.js apps](https://github.com/microsoft/vscode-recipes/tree/master/vuejs-cli)
-- [Debugging Mocha tests](https://github.com/microsoft/vscode-recipes/tree/master/debugging-mocha-tests)
-- [Debugging Jest tests](https://github.com/microsoft/vscode-recipes/tree/master/debugging-jest-tests)
+- [Debugging Angular apps with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI)
+- [Debugging Next.js apps](https://github.com/microsoft/vscode-recipes/tree/main/Next-js)
+- [Debugging Meteor apps](https://github.com/microsoft/vscode-recipes/tree/main/meteor)
+- [Debugging Vue.js apps](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli)
+- [Debugging Mocha tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-mocha-tests)
+- [Debugging Jest tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-jest-tests)
 
 **Blog posts**:
 
@@ -55,7 +55,7 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 
 **Recipes:**
 
-- [Debugging Electron Main and Renderer processes](https://github.com/microsoft/vscode-recipes/tree/master/Electron)
+- [Debugging Electron Main and Renderer processes](https://github.com/microsoft/vscode-recipes/tree/main/Electron)
 
 ## Next steps
 

@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
 PageTitle: Maven and Gradle support for Java in Visual Studio Code
-DateApproved: 9/14/2020
+DateApproved: 4/28/2021
 MetaDescription: Maven and Gradle support for Java in Visual Studio Code
 MetaSocialImage:
 ---
@@ -112,7 +112,10 @@ Another handy feature provided by this extension is to generate a Maven project 
 
 There are two ways to generate a Maven project:
 
-1. From the Command Palette, select **Maven: Generate from Maven Archetype**.
+1. From the Maven explore, click **+**.
+
+![Create Maven Project](images/java-build/create-maven-project.png)
+
 2. Right-click on a folder and select **Generate from Maven Archetype**.
 
 <video autoplay loop muted playsinline controls>

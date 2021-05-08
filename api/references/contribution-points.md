@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -34,6 +34,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`typescriptServerPlugins`](/api/references/contribution-points#contributes.typescriptServerPlugins)
 - [`resourceLabelFormatters`](/api/references/contribution-points#contributes.resourceLabelFormatters)
+- [`customEditors`](/api/references/contribution-points#contributes.customEditors)
 
 ## contributes.configuration
 
@@ -382,8 +383,10 @@ Currently extension writers can contribute to:
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
+- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
 - [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
+- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
@@ -1145,4 +1148,52 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
 };
 ```
 
-This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/microsoft/vscode-typescript-tslint-plugin/blob/main/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
+
+## contributes.customEditors
+
+The `customEditors` contribution point is how your extension tells VS Code about the custom editors that it provides. For example, VS Code needs to know what types of files your custom editor works with as well as how to identify your custom editor in any UI.
+
+Here's a basic `customEditor` contribution for the [custom editor extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample):
+
+```json
+"contributes": {
+  "customEditors": [
+    {
+      "viewType": "catEdit.catScratch",
+      "displayName": "Cat Scratch",
+      "selector": [
+        {
+          "filenamePattern": "*.cscratch"
+        }
+      ],
+      "priority": "default"
+    }
+  ]
+}
+```
+
+`customEditors` is an array, so your extension can contribute multiple custom editors.
+
+- `viewType` - Unique identifier for your custom editor.
+
+    This is how VS Code ties a custom editor contribution in the `package.json` to your custom editor implementation in code. This must be unique across all extensions, so instead of a generic `viewType` such as `"preview"` make sure to use one that is unique to your extension, for example `"viewType": "myAmazingExtension.svgPreview"`.
+
+- `displayName` - Name that identifies the custom editor in VS Code's UI.
+
+    The display name is shown to the user in VS Code UI such as the **View: Reopen with** dropdown.
+
+- `selector` - Specifies which files a custom editor is active for.
+
+    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
+
+    You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
+
+- `priority` - (optional) Specifies when the custom editor is used.
+
+    `priority` controls when a custom editor is used when a resource is open. Possible values are:
+
+  - `"default"` - Try to use the custom editor for every file that matches the custom editor's `selector`. If there are multiple custom editors for a given file, the user will have to select which custom editor they want to use.
+  - `"option"` - Do not use the custom editor by default but allow users to switch to it or configure it as their default.
+
+You can learn more in the [Custom Editors](/api/extension-guides/custom-editors) extension guide.
