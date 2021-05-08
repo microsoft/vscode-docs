@@ -30,7 +30,9 @@ yo code
 # ? Bundle the source code with webpack? No
 # ? Which package manager to use? npm
 
-code ./helloworld
+cd helloworld
+npm run compile
+code .
 ```
 
 Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
