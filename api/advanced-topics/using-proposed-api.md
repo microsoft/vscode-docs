@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f4d4e9e0-8901-405c-aaf5-faa16c32588b
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Visual Studio Code's Proposed API
@@ -34,9 +34,9 @@ Here is a pre-configured sample using proposed API: [proposed-api-sample](https:
 
 ## Proposed API incompatibility
 
-On the master branch, the `vscode.proposed.d.ts` is always compatible with `vscode.d.ts`. However, when you add `vscode.proposed.d.ts` to your project that uses `@types/vscode`, the latest `vscode.proposed.d.ts` might be incompatible with the version in `@types/vscode`.
+On the main branch, the `vscode.proposed.d.ts` is always compatible with `vscode.d.ts`. However, when you add `vscode.proposed.d.ts` to your project that uses `@types/vscode`, the latest `vscode.proposed.d.ts` might be incompatible with the version in `@types/vscode`.
 
 You can solve this issue by either:
 
-- Remove dependency on `@types/vscode` and use `npx vscode-dts master` to download `vscode.d.ts` from `microsoft/vscode` master branch.
+- Remove dependency on `@types/vscode` and use `npx vscode-dts main` to download `vscode.d.ts` from `microsoft/vscode` main branch.
 - Use `@types/vscode@<version>` and also use `npx vscode-dts dev <version>` to download the `vscode.proposed.d.ts` from an old branch of `microsoft/vscode`. However, be careful the API might have changed in the latest version of VS Code Insiders.

@@ -5,7 +5,7 @@ TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 ---
 # Remote development over SSH
 
@@ -71,7 +71,7 @@ You will then be prompted to enter a secure passphrase, but you can leave that b
 
 ## Add SSH key to your VM
 
-In the previous step, you generated an SSH key pair. Select **Use existing public key** in the drop down for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
+In the previous step, you generated an SSH key pair. Select **Use existing public key** in the dropdown for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
 
 ![Add SSH public key to VM](images/ssh-tutorial/add-ssh-public-key.png)
 

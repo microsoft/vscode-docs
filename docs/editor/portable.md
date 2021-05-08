@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
@@ -87,4 +87,4 @@ Here's the desired outcome on **Windows**:
 
 ## TMP directory
 
-By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, you can create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.
+By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you want to also have your TMP directory within your portable directory, you can create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.

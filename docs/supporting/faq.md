@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -27,17 +27,23 @@ Yes, VS Code is free for private or commercial use. See the [product license](ht
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't want to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` user [setting](/docs/getstarted/settings.md) to `false`.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and uncheck the **Telemetry: Enable Telemetry** setting. This will silence all telemetry events from VS Code going forward.
 
 > **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
+### How to disable experiments
+
+VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/getstarted/settings.md) to `false`.
+
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `experiments`, and uncheck the **Workbench: Enable Experiments** setting. This will prevent VS Code from calling out to the service and opt out of any ongoing experiments.
+
 ## How to disable crash reporting
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
+If you don't want to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
 
 * Open the Command Palette (`kb(workbench.action.showCommands)`).
 * Run the **Preferences: Configure Runtime Arguments** command.

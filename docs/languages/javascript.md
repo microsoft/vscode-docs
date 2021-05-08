@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -206,7 +206,7 @@ The **Organize Imports** Source Action sorts the imports in a JavaScript file an
 
 You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
-Organize imports can also be automatically when you save a JavaScript file by setting:
+Organize imports can also be done automatically when you save a JavaScript file by setting:
 
 ```json
 "editor.codeActionsOnSave": {
@@ -275,7 +275,7 @@ The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior.
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-marketplace.md) available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
@@ -307,7 +307,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Popular extensions
 
-VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-gallery.md).
+VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-marketplace.md).
 
 <div class="marketplace-extensions-javascript-curated"></div>
 

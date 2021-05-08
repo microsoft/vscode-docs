@@ -218,7 +218,7 @@ After a test run, VS Code displays results directly with the CodeLens adornments
 
 ![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
-VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
+VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the dropdown on the right side):
 
 ![Test results in the Python Test Log output panel](images/testing/python-test-log-output.png)
 
@@ -232,7 +232,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 1. Open the integrated terminal and install the `pytest-xdist` package. For more details refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
 
-   **For windows**
+   **For Windows**
 
    ```cmd
    py -3 -m pip install pytest-xdist
@@ -336,9 +336,9 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 | --- | --- | --- |
 | pytestEnabled | `false` | Specifies whether pytest is enabled as the test framework. All other frameworks should be disabled. |
 | pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. |
-| pytestArgs | `[]` | Arguments to pass to pytest, where each element that's separated by a space is a separate item in the list. See [pytest command-line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
+| pytestArgs | `[]` | Arguments to pass to pytest, where each element that's separated by a space is a separate item in the list. See [pytest command-line options](https://docs.pytest.org/en/latest/reference/reference.html#command-line-flags). |
 
-You can also configure pytest using a `pytest.ini` file as described on [pytest Configuration](https://docs.pytest.org/en/latest/customize.html).
+You can also configure pytest using a `pytest.ini` file as described on [pytest Configuration](https://docs.pytest.org/en/latest/reference/customize.html).
 
 > **Note**
 > If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests, for example by adding `"env": {"PYTEST_ADDOPTS": "--no-cov"}` to your debug configuration.  (See [Debug Tests](#debug-tests) above about how to set up that launch configuration.) (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -142,8 +142,8 @@ suite('Extension Test Suite', () => {
   });
 
   test('Sample test', () => {
-    assert.equal(-1, [1, 2, 3].indexOf(5));
-    assert.equal(-1, [1, 2, 3].indexOf(0));
+    assert.strictEqual(-1, [1, 2, 3].indexOf(5));
+    assert.strictEqual(-1, [1, 2, 3].indexOf(0));
   });
 });
 ```

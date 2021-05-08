@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -149,7 +149,7 @@ For your protection, VS Code displays a prompt before opening an outgoing websit
 
 ![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
 
-You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a drop-down lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
+You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a dropdown lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
 
 ![Configure Trusted Domains dropdown](images/editingevolved/trusted-domain-dropdown.png)
 

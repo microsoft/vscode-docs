@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 ---
 # Remote Development using SSH
 
@@ -166,7 +166,7 @@ Local extensions that actually need to run remotely will appear dimmed and disab
 
 ![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
 
-You can also install all locally installed extensions on the SSH host by going to the Extensions view and selecting **Install Local Extensions in SSH: [Hostname]** using the cloud button at the right of the **Local - Installed** title bar. This will display a drop down where you can select which locally installed extensions to install on your SSH host.
+You can also install all locally installed extensions on the SSH host by going to the Extensions view and selecting **Install Local Extensions in SSH: [Hostname]** using the cloud button at the right of the **Local - Installed** title bar. This will display a dropdown where you can select which locally installed extensions to install on your SSH host.
 
 ### "Always installed" extensions
 

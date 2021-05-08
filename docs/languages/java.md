@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in Visual Studio Code
 
-Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-gallery.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many of the most common Java development techniques.
+Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/editor/extension-marketplace.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many of the most common Java development techniques.
 
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, use the button below.
 
@@ -177,7 +177,7 @@ See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about s
 
 [Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions available from Microsoft to further improve your experience with Spring Boot in Visual Studio Code.
 
-See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code.
+See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spirng Cloud](/docs/java/java-spring-cloud.md) to learn more about deploying Spring apps to Azure from VS Code.
 
 ## Next steps
 
@@ -192,6 +192,7 @@ Learn more about Java in VS Code
 * [Java Project Management](/docs/java/java-project.md)
 * [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
 * [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md)
+* [Azure with VS Code](/docs/java/java-on-azure.md)
 
 Read on to find out more about Visual Studio Code:
 

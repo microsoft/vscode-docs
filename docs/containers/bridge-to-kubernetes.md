@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Develop with Kubernetes
 ContentId: 80bd336b-0d2d-4d63-a771-8b3ea22a64d3
 PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
-DateApproved: 07/22/2020
+DateApproved: 04/14/2021
 MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
 ---
 
@@ -20,7 +20,7 @@ In this guide, you will learn how to use Bridge to Kubernetes to redirect traffi
 
 ## Before you begin
 
-This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with a sample](/docs/containers/bridge-to-kubernetes-sample.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](bridge-to-kubernetes-aks.md).
+This article assumes you already have your own cluster with a microservices architecture and you want to debug one of the pods in your cluster. If you want to learn how to use Bridge to Kubernetes with an existing sample application, see [Use Bridge to Kubernetes with a sample](/docs/containers/bridge-to-kubernetes-sample.md). If you are using Azure Kubernetes service and want to use an existing sample application, see [Bridge to Kubernetes (AKS)](/docs/containers/bridge-to-kubernetes-aks.md).
 
 ### Prerequisites
 
@@ -32,9 +32,9 @@ This article assumes you already have your own cluster with a microservices arch
 
 On your development computer, make sure your current context is set to the cluster and namespace in which your application is running.
 
-Open the workspace for the app you want to debug in Visual Studio Code. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
+Open the workspace for the app you want to debug in Visual Studio Code. In the Kubernetes extension view under **Clusters**, make sure your cluster and namespace are selected. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
-Choose the Kubernetes service you wish to redirect to your local version.
+Choose the Kubernetes service you want to redirect to your local version.
 
 ![Select the service to connect to](images/bridge-to-kubernetes-sample/select_service.png)
 
@@ -46,15 +46,15 @@ After you select your service, you are prompted to enter the TCP port that your 
 
 ![Enter the port number](images/bridge-to-kubernetes-sample/enter_port.png)
 
-Choose a debug profile that you normally use when running your application locally.
+Choose a debug launch configuration that you normally use when running your application locally. If you don't have a launch configuration, you can either let Bridge to Kubernetes create one, or choose not to create one, in which case you have to start your application or service manually. Learn more at [Launch configurations](/docs/editor/debugging.md#launch-configurations).
 
-![Choose the debugger launch task](images/bridge-to-kubernetes-sample/launch_task.png)
+![Choose the debugger launch configuration](images/bridge-to-kubernetes-vs-code/choose-launch.png)
 
 You have the option of running isolated or not isolated. If you run isolated, only your requests are routed to your local process; other developers can use the cluster without being affected. If you don't run isolated, all traffic is redirected to your local process. For more information on this option, see [Using routing capabilities for developing in isolation][btk-overview-routing].
 
 ![Choose isolation](images/bridge-to-kubernetes-sample/isolation.png)
 
-Select the **Debug** icon on the left and select the newly added Kubernetes debug profile, such as **Launch via NPM with Kubernetes**, at the top. This debug profile is created by Bridge to Kubernetes from the debug profile you chose earlier.
+Select the **Debug** icon on the left and select the newly added Kubernetes launch configuration, such as **Launch via NPM with Kubernetes**, at the top. This launch configuration is created by Bridge to Kubernetes, if you choose that option.
 
 ![Choose debug launch profile](images/bridge-to-kubernetes-sample/debug_profile.png)
 
@@ -89,6 +89,8 @@ Select **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)
 ## Additional configuration
 
 Bridge to Kubernetes can handle routing traffic and replicating environment variables without any additional configuration. If you need to download any files that are mounted to the container in your Kubernetes cluster, such as a ConfigMap file, you can create a `KubernetesLocalProcessConfig.yaml` to download those files to your development computer. For more information, see [Configure Bridge to Kubernetes][kubernetesLocalProcessConfig-yaml].
+
+If you're using an AKS cluster that uses managed identity, a security feature provided by Azure Active Directory, see [Use managed identity with Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/containers/managed-identity) for information about how to configure Bridge to Kubernetes for this scenario.
 
 ## Using logging and diagnostics
 
@@ -155,6 +157,10 @@ For Node.js services, you can use code similar to the following, taken from the 
     });
 ```
 
+## Communicating with other services
+
+When you communicate with another service in the same Kubernetes cluster, for example with an HTTP request, you typically use the hardcoded service name in the URL for the request, but that won't work in some scenarios, such as when using Remote SSH, WSL, and Codespaces. [This article](/docs/containers/kubernetes-env-vars.md) describes how to use the Kubernetes service environment variables to specify the connection URL for these scenarios.
+
 ## Troubleshooting
 
  If you get this error when activating the Bridge to Kubernetes extension:
@@ -168,6 +174,8 @@ When you are using Bridge to Kubernetes in a remote SSH session, if EndpointMana
 ## Next steps
 
 Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-how-it-works].
+
+Information about the currently supported features and a future roadmap for Bridge to Kubernetes may be found at [Bridge to Kubernetes roadmap](https://github.com/microsoft/mindaro/projects/1).
 
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
 [azds-cli]: https://docs.microsoft.com/azure/dev-spaces/how-to/install-dev-spaces#install-the-client-side-tools

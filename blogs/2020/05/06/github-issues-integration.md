@@ -49,7 +49,7 @@ And from a selection, you can quickly create an issue with a permalink back to t
 
 ## Working on issues
 
-A common workflow is to look at your issues, pick one to work on, create a branch to work in, make some commits, then merge your changes back into master with a pull request. From the new **Issues** view, you can do exactly that.
+A common workflow is to look at your issues, pick one to work on, create a branch to work in, make some commits, then merge your changes back into main with a pull request. From the new **Issues** view, you can do exactly that.
 
 ![Work on an Issue](work-on-issue.gif)
 

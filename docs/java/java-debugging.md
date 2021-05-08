@@ -136,7 +136,7 @@ The default Debug Console in VS Code doesn't support inputs. If your program nee
 
 ### Step filtering
 
-Step filter is supported by the extension to filter out types that you do not wish to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they could be skipped when you step through.
+Step filter is supported by the extension to filter out types that you do not want to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they could be skipped when you step through.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/step-filter.mp4" type="video/mp4">

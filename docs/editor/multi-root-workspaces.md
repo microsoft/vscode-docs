@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 5/5/2021
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -182,7 +182,7 @@ When you go from a single folder instance to multiple folders, VS Code will add 
 
 You can easily review and modify the different settings files through the Settings editor. The Settings editor tabs let you select your User settings, global Workspace settings, and individual folder settings.
 
-![settings drop-down](images/multi-root-workspaces/settings-dropdown.png)
+![settings dropdown](images/multi-root-workspaces/settings-dropdown.png)
 
 You can also open specific settings files with the commands:
 
@@ -202,13 +202,13 @@ Unsupported editor-wide folder settings will be shown as grayed out in your fold
 
 With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionally VS Code will also display launch configurations defined in the workspace configuration file.
 
-![debugging drop-down](images/multi-root-workspaces/debugging-dropdown.png)
+![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
 The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `launch` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
 
-You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/microsoft/vscode-tslint/blob/main/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template drop-down.
+You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/microsoft/vscode-tslint/blob/main/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template dropdown.
 
-![debugging template drop-down](images/multi-root-workspaces/add-launch-config.png)
+![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
 [Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
 
@@ -218,7 +218,7 @@ Workspace scoped launch configurations live in the `"launch"` section of the wor
 
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 
-Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
+Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration dropdown menu:
 
 ![Add Config](images/multi-root-workspaces/add-config.png)
 
@@ -275,7 +275,7 @@ Here is an example for a launch configuration where the program lives in a folde
 
 Similar to how VS Code searches for debugging configurations, VS Code will also try to autodetect tasks from gulp, grunt, npm, and TypeScript project files across all folders in a workspace as well as search for tasks defined in `tasks.json` files. The location of tasks is indicated by a folder name suffix. Note that tasks defined in `tasks.json` must be version 2.0.0.
 
-![tasks drop-down](images/multi-root-workspaces/tasks-dropdown.png)
+![tasks dropdown](images/multi-root-workspaces/tasks-dropdown.png)
 
 From the TSLint extension [Workspace](https://github.com/microsoft/vscode-tslint/blob/main/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
 

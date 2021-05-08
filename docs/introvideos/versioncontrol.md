@@ -14,7 +14,7 @@ In this tutorial, we will learn how to use the basics of Git version control in 
 
 <iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [IntelliSense](/docs/introvideos/intellisense.md)
+Next video: [Customize](/docs/introvideos/customize.md)
 
 ## Video outline
 
@@ -27,7 +27,7 @@ Next video: [IntelliSense](/docs/introvideos/intellisense.md)
 
 ## Next video
 
-* [IntelliSense](/docs/introvideos/intellisense.md) - Learn how to set up IntelliSense and receive intelligent code completions.
+* [Customize](/docs/introvideos/customize.md) - Customize VS Code with settings and keyboard shortcuts.
 
 ## Related resources
 
