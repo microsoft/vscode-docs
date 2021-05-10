@@ -72,11 +72,11 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | completeFunctionParens | false | Adds parentheses to function completions. Accepted values are `true` and `false`. |
 | useLibraryCodeForTypes | true | Parses the source code for a package when a typestub is not found. Available values are `true` and `false`. |
 | autoImportCompletion | true | Controls the offering of auto-imports in completions. Available values are `true` and `false`. |
-| diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). For information about the keys to use for the diagnostic severity rules, see [this section](#diagnostic-severity-rules). |
+| diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
 
 > **Note:** Similar to the core Python extension, Pylance has an Insiders program that offers early access to new features and improvements. To enable the Insiders program, set `pylance.insidersChannel` to `daily`. This setting enables a daily check for new builds. At startup or when the Insiders setting is changed, Pylance will automatically update and prompt you to reload. To leave the Insiders program, just remove the setting, or explicitly set it to `off` instead. You might be prompted to downgrade your extension to the latest stable version.
 
-##### Diagnostic severity rules
+**Diagnostic severity rules**
 
 This section details all the available rules that can be customized using the `python.analysis.diagnosticSeverityOverrides` setting as shown in the following example.
 
