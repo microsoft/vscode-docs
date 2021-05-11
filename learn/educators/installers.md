@@ -49,8 +49,8 @@ In the Coding Pack for Python, we will include a User-level `settings.json` with
 
 The .NET coding pack includes everything you need to start coding with .NET.
 
-<a onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pac-win"><button name="windows-dotnet" aria-label="Windows download" role="link">Download - Windows</button></a>
-<a onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pac-mac"><button name="mac-dotnet" aria-label="macOS download" role="link">Download - macOS</button></a>
+<a onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win"><button name="windows-dotnet" aria-label="Windows download" role="link">Download - Windows</button></a>
+<a onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac"><button name="mac-dotnet" aria-label="macOS download" role="link">Download - macOS</button></a>
 
 This will install:
 
