@@ -58,7 +58,7 @@ The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on W
 
 VS Code will automatically present a set of common profiles for the dropdown and also detect less common ones which will only show up when selecting a default profile.
 
->**Note:** Profiles won't work automatically when set in the workspace scope, you must grant the _workspace_ permissions to configure your profile or environment changes using the **Terminal: Manage Workspace Shell Permissions** command.
+>**Note:** Several terminal settings won't work automatically when set in the workspace scope, you must grant them permission to run by setting the `terminal.integrated.allowWorkspaceConfiguration` setting to true in your user settings.
 
 ### Configuring profiles
 
