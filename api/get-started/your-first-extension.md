@@ -35,7 +35,7 @@ npm run compile
 code .
 ```
 
-Then, inside the editor, press `kb(workbench.action.debug.start)`. This will compile and run the extension in a new **Extension Development Host** window.
+Then, inside the editor, press `kb(workbench.action.debug.start)`. This will run the extension in a new **Extension Development Host** window.
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
@@ -49,6 +49,7 @@ You should see the `Hello World from HelloWorld!` notification showing up. Succe
 
 Let's make a change to the message:
 
+1. In a background terminal run `npm run watch`. This will recompile the TypeScript code everytime you make a change and save. Alternatively, you can run `npm run compile` to recompile the TypeScript code.
 1. Change the message from "Hello World from HelloWorld!" to "Hello VS Code" in `extension.ts`.
 1. Run **Developer: Reload Window** in the new window.
 1. Run the command **Hello World** again.
