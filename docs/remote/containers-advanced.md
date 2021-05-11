@@ -692,9 +692,9 @@ Both `.devcontainer.json` files would be updated as follows:
 
 This list of compose files is used when starting the containers, so referencing different files in each `.devcontainer.json` can have unexpected results.
 
-## Configure a sandbox for multiple projects or folders
+## Configure a separate container for multiple projects or folders
 
-While development containers often are tied to a single folder, repository, or project, they can also be used with multiple folders as a way to simplify setup or sandbox your tools. Imagine you had your source code across multiple repositories in a single folder for a given toolset.
+While development containers often are tied to a single folder, repository, or project, they can also be used with multiple folders as a way to simplify setup or separate your tools. Imagine you had your source code across multiple repositories in a single folder for a given toolset.
 
 For example:
 
