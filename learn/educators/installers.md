@@ -44,3 +44,19 @@ It will install:
 If any of these components are already installed, the coding packs will not update it and proceed with the other components.
 
 In the Coding Pack for Python, we will include a User-level `settings.json` with a few pre-configured Python settings so you're all ready to start coding in Python!
+
+## .NET Coding Pack
+
+The .NET coding pack includes everything you need to start coding with .NET.
+
+<a onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win"><button name="windows-dotnet" aria-label="Windows download" role="link">Download - Windows</button></a>
+<a onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac"><button name="mac-dotnet" aria-label="macOS download" role="link">Download - macOS</button></a>
+
+This will install:
+
+- VS Code
+- .NET SDK and add it to the PATH
+- .NET Extension pack in VS Code
+
+![.NET Installer](images/installers/dotnet-installer.png)
+
