@@ -250,15 +250,15 @@ Now we have a command that will refresh the node dependencies view, but a button
 In the `contributes` section of your `package.json`, add:
 
 ```json
-        "menus": {
-            "view/title": [
-                {
-                    "command": "nodeDependencies.refreshEntry",
-                    "when": "view == nodeDependencies",
-                    "group": "navigation"
-                },
-      ]
-    }
+"menus": {
+    "view/title": [
+        {
+            "command": "nodeDependencies.refreshEntry",
+            "when": "view == nodeDependencies",
+            "group": "navigation"
+        },
+    ]
+}
 ```
 
 ## Activation

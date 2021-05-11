@@ -433,7 +433,7 @@ Command|Key|Command id
 New File|`kb(workbench.action.files.newUntitledFile)`|`workbench.action.files.newUntitledFile`
 Open File...|`kb(workbench.action.files.openFile)`|`workbench.action.files.openFile`
 Save|`kb(workbench.action.files.save)`|`workbench.action.files.save`
-Save All|`kb(workbench.action.files.saveAll)`|`workbench.action.files.saveAll`
+Save All|`kb(saveAll)`|`saveAll`
 Save As...|`kb(workbench.action.files.saveAs)`|`workbench.action.files.saveAs`
 Close|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
 Close Others|`kb(workbench.action.closeOtherEditors)`|`workbench.action.closeOtherEditors`

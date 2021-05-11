@@ -666,7 +666,7 @@ class LogMessage(models.Model):
     def __str__(self):
         """Returns a string representation of a message."""
         date = timezone.localtime(self.log_date)
-        return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
+        return "'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
 ```
 
 A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
@@ -688,7 +688,7 @@ If you see errors when running the commands, make sure you're not using a debugg
 
 With your models in place and the database migrated, you can store and retrieve data using only your models. In this section, you add a form page to the app through which you can log a message. You then modify the home page to display those messages. Because you modify many code files here, be mindful of the details.
 
-1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains field drawn from the data model, `LogMessage`:
+1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains a field drawn from the data model, `LogMessage`:
 
     ```python
     from django import forms
