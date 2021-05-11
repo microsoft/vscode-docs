@@ -9,7 +9,7 @@ DateApproved: 5/5/2021
 ---
 # Create a development container
 
-The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase.
+The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
 
 ## Path to creating a dev container
 
@@ -69,7 +69,7 @@ After running this command, when VS Code restarts, you're now within a Node.js a
 
 Through a `devcontainer.json` file, you can:
 
-* Spin up a stand-alone "sandbox" container to isolate your toolchain or speed up setup.
+* Spin up a stand-alone container to isolate your toolchain or speed up setup.
 * Work with a container deployed application defined by an image, [Dockerfile](#dockerfile), or [Docker Compose](#use-docker-compose).
 * [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
 

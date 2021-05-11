@@ -27,7 +27,7 @@ Some benefits of remote development include:
 * Being able to develop in an environment that matches the target deployment environment.
 * Using larger or more specialized hardware than your local machine for development.
 * The ability to edit code stored in another location, such as in the cloud or at a customer site.
-* Sandboxing of developer environments to avoid conflicts, improve security, and speed up on-boarding.
+* Separating developer environments to avoid conflicts, improve security, and speed up on-boarding.
 
 Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
 
