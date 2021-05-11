@@ -183,7 +183,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     ]
     ```
 
-1. Save all modified files with `kb(workbench.action.files.saveAll)`.
+1. Save all modified files with `kb(saveAll)`.
 
 1. In the VS Code Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
