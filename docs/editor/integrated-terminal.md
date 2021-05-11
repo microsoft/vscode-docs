@@ -84,8 +84,22 @@ Profiles can be created using either a `path` or a `source`, as well as a set of
 Other arguments supports in profiles include:
 
 * `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title which detects what program is running with the static profile name.
+* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment.
+* `icon`: An icon ID to use for the profile.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
+
+The *default profile* can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the *name* of an existing profile:
+
+```json
+"terminal.integrated.profiles.windows": {
+  "PowerShell -NoProfile": {
+    "source": "PowerShell",
+    "args": ["-NoProfile"]
+  }
+},
+"terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+```
 
 ### Removing built-in profiles
 
