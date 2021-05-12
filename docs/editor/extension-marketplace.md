@@ -233,12 +233,12 @@ An example `extensions.json` could be:
 {
     "recommendations": [
         "dbaeumer.vscode-eslint",
-        "msjsdiag.debugger-for-chrome"
+        "esbenp.prettier-vscode"
     ]
 }
 ```
 
-which recommends a linter extension, ESLint, and the Chrome debugger extension.
+which recommends a linter extension and a code formatter extension.
 
 An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 
