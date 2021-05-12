@@ -33,7 +33,7 @@ Access all available commands based on your current context.
 
 Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
-![command palette](images/tips-and-tricks/OpenCommandPalatte.gif)
+![Command Palette](images/tips-and-tricks/OpenCommandPalatte.gif)
 
 ### Default keyboard shortcuts
 

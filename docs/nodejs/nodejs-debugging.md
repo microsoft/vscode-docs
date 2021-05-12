@@ -14,13 +14,13 @@ The Visual Studio Code editor has built-in debugging support for the [Node.js](h
 
 There are a few ways you can debug your Node.js programs in VS Code:
 
-- Use [auto attach](#auto-attach) to debug process you run in VS Code's integrated terminal,
-- Use the [JavaScript debug terminal](#javascript-debug-terminal), in a similar way, or
-- Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code
+* Use [auto attach](#auto-attach) to debug process you run in VS Code's integrated terminal,
+* Use the [JavaScript debug terminal](#javascript-debug-terminal), in a similar way, or
+* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code
 
 ## Auto Attach
 
-If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from VS Code's Integrated Terminal. To enable the feature, either use the **Toggle Auto Attach** command from the command palette (`kbstyle(F1)`) or, if it's already activated, use the **Auto Attach** Status bar item.
+If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to certain Node.js processes that have been launched from VS Code's Integrated Terminal. To enable the feature, either use the **Toggle Auto Attach** command from the Command Palette (`kb(workbench.action.showCommands)`) or, if it's already activated, use the **Auto Attach** Status bar item.
 
 There are three modes for auto attach, which you can select in the resulting Quick Pick and via the **debug.javascript.autoAttachFilter** setting:
 
@@ -72,7 +72,7 @@ In `smart` Auto Attach mode, VS Code will try to attach to your code, and not at
 
 ## JavaScript Debug Terminal
 
-In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the command palette (`kbstyle(F1)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
+In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
 
 ![Create Debug Terminal](images/nodejs-debugging/create-debug-terminal.png)
 
@@ -152,16 +152,16 @@ You can also bring up the snippets with the **Add Configuration...** button in t
 
 These are the available snippets:
 
-- **Launch Program**: Launch a Node.js program in debug mode.
-- **Launch via npm**: Launch a Node.js program through an npm 'debug' script. If you have defined an npm debug script in your package.json, you can use it directly from your launch configuration. Make sure that the debug port used in the npm script, corresponds to the port specified in the snippet.
-- **Attach**: Attach to the debug port of a locally running Node.js program. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet.
-- **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet. To help VS Code map source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
-- **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration, you can even attach to a node or gulp process that was not started in debug mode.
-- **Nodemon Setup**: Use nodemon to relaunch a debug session automatically whenever the JavaScript source has changed. Make sure that you have nodemon installed globally. Note that terminating the debug session only terminates the program to debug, not nodemon itself. To terminate nodemon, press `kbstyle(Ctrl+C)` in the Integrated Terminal.
-- **Mocha Tests**: Debug mocha tests in a `test` folder of your project. Make sure that your project has 'mocha' installed in its `node_modules` folder.
-- **Yeoman generator**: Debug a yeoman generator. The snippet asks you to specify the name of the generator. Make sure that your project has 'yo' installed in its `node_modules` folder and that your generated project has been installed for debugging by running `npm link` in the project folder.
-- **Gulp task**: Debug a gulp task. Make sure that your project has 'gulp' installed in its `node_modules` folder.
-- **Electron Main**: Debug the main Node.js process of an Electron application. The snippet assumes that the Electron executable has been installed inside the `node_modules/.bin` directory of the workspace.
+* **Launch Program**: Launch a Node.js program in debug mode.
+* **Launch via npm**: Launch a Node.js program through an npm 'debug' script. If you have defined an npm debug script in your package.json, you can use it directly from your launch configuration. Make sure that the debug port used in the npm script, corresponds to the port specified in the snippet.
+* **Attach**: Attach to the debug port of a locally running Node.js program. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet.
+* **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet. To help VS Code map source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
+* **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration, you can even attach to a node or gulp process that was not started in debug mode.
+* **Nodemon Setup**: Use nodemon to relaunch a debug session automatically whenever the JavaScript source has changed. Make sure that you have nodemon installed globally. Note that terminating the debug session only terminates the program to debug, not nodemon itself. To terminate nodemon, press `kbstyle(Ctrl+C)` in the Integrated Terminal.
+* **Mocha Tests**: Debug mocha tests in a `test` folder of your project. Make sure that your project has 'mocha' installed in its `node_modules` folder.
+* **Yeoman generator**: Debug a yeoman generator. The snippet asks you to specify the name of the generator. Make sure that your project has 'yo' installed in its `node_modules` folder and that your generated project has been installed for debugging by running `npm link` in the project folder.
+* **Gulp task**: Debug a gulp task. Make sure that your project has 'gulp' installed in its `node_modules` folder.
+* **Electron Main**: Debug the main Node.js process of an Electron application. The snippet assumes that the Electron executable has been installed inside the `node_modules/.bin` directory of the workspace.
 
 ### Node console
 
@@ -173,8 +173,8 @@ If an external terminal is used, you can configure which terminal program to use
 
 Instead of launching the Node.js program directly with node, you can use 'npm' scripts or other task runner tools directly from a launch configuration:
 
-- Any program available on the PATH (for example 'npm', 'mocha', 'gulp', etc.) can be used for the `runtimeExecutable` attribute and arguments can be passed via `runtimeArgs`.
-- You do not have to set the `program` attribute if your npm script or other tool implicitly specifies the program to launch.
+* Any program available on the PATH (for example 'npm', 'mocha', 'gulp', etc.) can be used for the `runtimeExecutable` attribute and arguments can be passed via `runtimeArgs`.
+* You do not have to set the `program` attribute if your npm script or other tool implicitly specifies the program to launch.
 
 Let's look at an 'npm' example. If your `package.json` has a 'debug' script, for example:
 
@@ -261,26 +261,26 @@ lines="foo\nbar"
 
 If you want to attach the VS Code debugger to an external Node.js program, launch Node.js as follows:
 
-```
+```bash
 node --inspect program.js
 ```
 
 or if the program shouldn't start running, but must wait for the debugger to attach:
 
-```
+```bash
 node --inspect-brk program.js
 ```
 
 Now you have a couple options for attaching the debugger to your program:
 
-- open a "process picker" that lists all potential candidate processes and let you pick one, or
-- create an "attach" configuration that explicitly specifies all configuration options and then press **F5**.
+* Open a "process picker" that lists all potential candidate processes and let you pick one, or
+* Create an "attach" configuration that explicitly specifies all configuration options and then press **F5**.
 
 Let's go through these options in detail:
 
 ### Attach to Node Process action
 
-The **Attach to Node Process** command from the command palette (`kbstyle(F1)`) opens a Quick Pick menu that lists all potential processes that are available to the Node.js debugger:
+The **Attach to Node Process** command from the Command Palette (`kb(workbench.action.showCommands)`) opens a Quick Pick menu that lists all potential processes that are available to the Node.js debugger:
 
 ![Node.js Process picker](images/nodejs-debugging/process-picker.png)
 
@@ -359,7 +359,7 @@ Since source maps are not always automatically created, you should make sure to 
 
 For TypeScript, you can enable sourcemaps by passing `--sourceMap` to `tsc`, or by adding `"sourceMap": true` in your tsconfig.json file.
 
-```
+```bash
 tsc --sourceMap --outDir bin app.ts
 ```
 
@@ -367,7 +367,7 @@ tsc --sourceMap --outDir bin app.ts
 
 For Babel, you'll want to set the [sourceMaps](https://babeljs.io/docs/en/options#sourcemaps) option to `true`, or pass the `--source-maps` option when compiling your code.
 
-```
+```bash
 npx babel script.js --out-file script-compiled.js --source-maps
 ```
 
@@ -431,7 +431,7 @@ Finally, the debug adapter searches for the full path of `app.ts` in this result
 
 Here are some things to try when your breakpoints turn gray:
 
-* While debugging, run the **Debug: Create Diagnostic Information for Current Session** command. This command will bring up a tool that can provide hints to help you resolve any issues from the command palette (`kbstyle(F1)`).
+* While debugging, run the **Debug: Create Diagnostic Information for Current Session** command. This command will bring up a tool that can provide hints to help you resolve any issues from the Command Palette (`kb(workbench.action.showCommands)`).
 * Did you build with source maps enabled? Make sure there are `.js.map` files, or inlined source maps in your `.js` files.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
@@ -556,10 +556,10 @@ The hit count syntax supported by the Node.js debugger is either an integer or o
 
 Some examples:
 
-- `>10` break always after 10 hits
-- `<3` break on the first two hits only
-- `10` same as `>=10`
-- `%2` break on every other hit
+* `>10` break always after 10 hits
+* `<3` break on the first two hits only
+* `10` same as `>=10`
+* `%2` break on every other hit
 
 ### Breakpoint validation
 

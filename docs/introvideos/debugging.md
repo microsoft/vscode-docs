@@ -14,7 +14,7 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 
 > **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [Node.js](https://nodejs.org/en/). To follow along with the Python portion of the video, you'll need to install [Python](https://www.python.org/downloads/).
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RWAIIi" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RWAIIi" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Next video: [Version Control](/docs/introvideos/versioncontrol.md)
 

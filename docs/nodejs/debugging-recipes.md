@@ -22,11 +22,11 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 
 **Recipes:**
 
-- [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
+* [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
 
 ## Debug client-side JavaScript in Browsers
 
-The Visual Studio Code editor supports debugging of JavaScript running in [Microsoft Edge](https://www.microsoft.com/en-us/edge) and [Google Chrome](https://www.google.com/chrome/).
+The Visual Studio Code editor supports debugging of JavaScript running in [Microsoft Edge](https://www.microsoft.com/edge) and [Google Chrome](https://www.google.com/chrome/).
 
 ![JavaScript, Edge, and Chrome logo](images/recipes/browsers.png)
 
@@ -34,17 +34,16 @@ You can read more about debugging browsers works in the [Browser Debugging docum
 
 **Recipes:**
 
-- [Debugging Angular apps with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI)
-- [Debugging Next.js apps](https://github.com/microsoft/vscode-recipes/tree/main/Next-js)
-- [Debugging Meteor apps](https://github.com/microsoft/vscode-recipes/tree/main/meteor)
-- [Debugging Vue.js apps](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli)
-- [Debugging Mocha tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-mocha-tests)
-- [Debugging Jest tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-jest-tests)
+* [Debugging Angular apps with Angular CLI](https://github.com/microsoft/vscode-recipes/tree/main/Angular-CLI)
+* [Debugging Next.js apps](https://github.com/microsoft/vscode-recipes/tree/main/Next-js)
+* [Debugging Meteor apps](https://github.com/microsoft/vscode-recipes/tree/main/meteor)
+* [Debugging Vue.js apps](https://github.com/microsoft/vscode-recipes/tree/main/vuejs-cli)
+* [Debugging Mocha tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-mocha-tests)
+* [Debugging Jest tests](https://github.com/microsoft/vscode-recipes/tree/main/debugging-jest-tests)
 
 **Blog posts**:
 
 * [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
-
 * [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
 
 ## Electron - Debug Electron applications
@@ -55,7 +54,7 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 
 **Recipes:**
 
-- [Debugging Electron Main and Renderer processes](https://github.com/microsoft/vscode-recipes/tree/main/Electron)
+* [Debugging Electron Main and Renderer processes](https://github.com/microsoft/vscode-recipes/tree/main/Electron)
 
 ## Next steps
 
