@@ -43,17 +43,17 @@ You can solve this issue by either:
 
 ## Sharing extensions using the Proposed API
 
-While you're not able to publish extensions using the Proposed API on the marketplace, you can still share your extension with your peers by packaging and sharing your packaged extension.
+While you're not able to publish extensions using the Proposed API on the Marketplace, you can still share your extension with your peers by packaging and sharing your extension.
 
 To package your extension, you can run `vsce package` to create a VSIX file of your extension. You can then share this VSIX file to others to install the extension in their VS Code.
 
-To install an extension from a VSIX file you would go into the Extension Marketplace tab and then click on the elipsies to see a menu item that allows you to install an extension from a VSIX; this is demoed by this short video below.
+To install an extension from a VSIX file, you would go into the Extensions view, select the **...** ellipsis **View and More Actions** button, and select **Install from VSIX**. Selecting the **Install from VSIX** menu item is demoed by the short video below.
 
-![Demo showing a user going into the Extension Marketplace to find the menu item to install an extension from a VSIX file](images/proposed-api/install-from-vsix.gif)
+![Demo showing a user going into the Extensions view to find the Install from VSIX menu item](images/proposed-api/install-from-vsix.gif)
 
-For extensions using the Proposed API, there's a couple more steps to enable your extension. After installing from your VSIX then you should quit the VS Code Insiders. Then launch VS Code Insiders from command line with `code-insiders --enable-proposed-api=<YOUR-EXTENSION-ID> .` in the folder you'd like to open VS Code Insiders with with your extension enabled.
+For extensions using the Proposed API, there are a couple more steps to enable your extension. After installing from your VSIX, you need to quit and relaunch VS Code Insiders from command line with `code-insiders --enable-proposed-api=<YOUR-EXTENSION-ID> .` in your project folder.
 
-If you'd like to set it so your extension using the Proposed API is always available to use on every launch of VS Code Insiders, you can edit `~/.vscode-insiders/argv.json` on Mac or `C:\Users\<USER>\.vscode-insiders\argv.json` on Windows to  set a list of extensions that are enabled with the Proposed API on launch of VS Code Insiders.
+If you'd like to set it so that your extension using the Proposed API is always available to use on every launch of VS Code Insiders, you can run the **Preferences: Configure Runtime Arguments** command to edit the `.vscode-insiders/argv.json` file to set a list of enabled extensions.
 
 ```json
 {
