@@ -63,9 +63,5 @@ There are many settings you can tweak to make VS Code look good. One of my favor
 
 ![font ligatures](font-ligatures-annotated.png)
 
-## How do you make your editor look good?
-
-What do you do to make your editor look good? Ping me on [Twitter](https://twitter.com/waderyan_) and I'd love to share your tips in a future blog post.
-
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)

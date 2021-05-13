@@ -1,21 +1,19 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Product Icon Theme in Visual Studio Code
 ---
 
-# Product Icon Theme (preview)
+# Product Icon Theme
 
 Visual Studio Code contains a set of built-in icons that are used in views and the editor, but can also be referenced in hovers, the status bar, and even by extensions. Examples are the icons in filter action buttons and view icons, in the status bar, breakpoints, and the folding icons in trees and the editor.
 
 A product icon theme allows an extension to redefine these icons to give VS Code a custom appearance. Not covered by product icon themes are the file icons (covered by file icon themes) and icons contributed by extensions.
 
 VS Code requires the icons to be defined as glyph in an icon font and (currently) limits product icons to consist of a single color. The color used for an icon is specific to the place where it is shown and is defined by the active color theme.
-
-> **Important**: Product icon themes are still in preview. The product icon theme format might still change. Until then, an extension defining a product icon theme needs to set `enableProposedApi`. Running a extension is limited to extension development in [Insider release](https://code.visualstudio.com/insiders/). Also, you cannot publish extensions such an extension to the Marketplace.
 
 ## Adding a new product icon theme
 
@@ -35,13 +33,7 @@ To define your own product icon theme, start by creating a VS Code extension and
 }
 ```
 
-The `id` is the identifier for the product icon theme. It is used in the settings, so make it unique but also readable. `label` is shown in the product icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your file name follows the `*product-icon-theme.json` name scheme, you will get completion support and hovers when editing the product icon theme file in VS Code.
-
-Until product icon themes are final, the `package.json` also needs to specify.
-
-```json
-"enableProposedApi": true
-```
+The `id` is the identifier for the product icon theme. It is used in the settings, so make it unique but also readable. `label` is shown in the product icon theme picker dropdown. The `path` points to a file in the extension that defines the icon set. If your file name follows the `*product-icon-theme.json` name scheme, you will get completion support and hovers when editing the product icon theme file in VS Code.
 
 ## Product icon definition file
 
@@ -118,4 +110,4 @@ To find out which icon is used at a certain location in the VS Code UI, open Dev
 
 ## Sample
 
-The [Product Color Theme Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/product-icon-theme-sample) can be used as a playground.
+The [Product Color Theme Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/product-icon-theme-sample) can be used as a playground.

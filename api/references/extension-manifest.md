@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -22,7 +22,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `license`                                               |          | `string`                                   | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.                                                                                                     |
 | `displayName`                                           |          | `string`                                   | The display name for the extension used in the Marketplace.                                                                                                                                                                                                                                                            |
 | `description`                                           |          | `string`                                   | A short description of what your extension is and does.                                                                                                                                                                                                                                                                |
-| `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`                                                                                                          |
+| `categories`                                            |          | `string[]`                                 | The categories you want to use for the extensions. Allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks, Education]`                                                                                                          |
 | `keywords`                                              |          | `array`                                    | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace. This list is currently limited to 5 keywords.                                                                                                                                   |
 | `galleryBanner`                                         |          | `object`                                   | Helps format the Marketplace header to match your icon. See details below.                                                                                                                                                                                                                                             |
 | `preview`                                               |          | `boolean`                                  | Sets the extension to be flagged as a Preview in the Marketplace.                                                                                                                                                                                                                                                      |
@@ -36,6 +36,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `devDependencies`                                       |          | `object`                                   | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).                                                                                                                                                   |
 | `extensionPack`                                         |          | `array`                                    | An array with the ids of extensions bundled with this extension. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                              |
 | `extensionDependencies`                                 |          | `array`                                    | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                           |
+| `extensionKind`                                 |          | `array`                                    | An array that indicates where the extension should run in remote configurations. Values are `ui` (run locally), `workspace` (run on remote machine) or both, with the order setting the preference. For example: `[ui, workspace]` indicates the extension can run in either location but prefers to run on the local machine.                                                                           |
 | `scripts`                                               |          | `object`                                   | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with extra VS Code specific fields such as [vscode:prepublish](/api/working-with-extensions/publishing-extension#prepublish-step) or [vscode:uninstall](/api/references/extension-manifest#extension-uninstall-hook).                   |
 | `icon`                                                  |          | `string`                                   | The path to the icon of at least 128x128 pixels (256x256 for Retina screens).                                                                                                                                                                                                                                          |
 
@@ -71,19 +72,19 @@ Here is a complete `package.json`
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
   },
   "devDependencies": {
-    "vscode": "0.10.x",
+    "@types/vscode": "^0.10.x",
     "typescript": "^1.6.2"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
   },
-  "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md"
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md"
 }
 ```
 
@@ -124,14 +125,14 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 ```json
 {
   "license": "SEE LICENSE IN LICENSE.txt",
-  "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md",
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md",
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
     "email": "smcbreen@microsoft.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
   }
 }
 ```
@@ -145,7 +146,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 
 Set a `category` for your extension. Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
 
-> **Note:** Only use the values that make sense for your extension. Allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Use `Programming Languages` for general language features like syntax highlighting and code completions. The category `Language Packs` is reserved for display language extensions (for example, localized Bulgarian).
+> **Note:** Only use the values that make sense for your extension. Allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs, Data Science, Machine Learning, Visualization, Notebooks, Education]`. Use `Programming Languages` for general language features like syntax highlighting and code completions. The category `Language Packs` is reserved for display language extensions (for example, localized Bulgarian).
 
 ```json
 {
@@ -174,34 +175,36 @@ We allow badges from the following URL prefixes:
 - cdn.travis-ci.org
 - ci.appveyor.com
 - circleci.com
-- [cla.opensource.microsoft.com](https://cla.opensource.microsoft.com)
+- cla.opensource.microsoft.com
 - codacy.com
 - codeclimate.com
 - codecov.io
 - coveralls.io
 - david-dm.org
 - deepscan.io
-- [dev.azure.com](https://dev.azure.com)
+- dev.azure.com
 - docs.rs
+- flat.badgen.net
 - gemnasium.com
 - githost.io
+- github.com (from Workflows only)
 - gitlab.com
 - godoc.org
 - goreportcard.com
 - img.shields.io
 - isitmaintained.com
-- [marketplace.visualstudio.com](https://marketplace.visualstudio.com)
+- marketplace.visualstudio.com
 - nodesecurity.io
 - opencollective.com
 - snyk.io
 - travis-ci.com
 - travis-ci.org
-- [visualstudio.com](https://visualstudio.com)
+- visualstudio.com
 - vsmarketplacebadge.apphb.com
 - www.bithound.io
 - www.versioneye.com
 
-If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
+If you have other badges you would like to use, please open a GitHub [issue](https://github.com/microsoft/vscode/issues) and we're happy to take a look.
 
 ## Combining Extension Contributions
 
@@ -315,4 +318,4 @@ To learn more about VS Code extensibility model, try these topics:
 
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
 - [Activation Events](/api/references/activation-events) - VS Code activation events reference
-- [Extension Marketplace](/docs/editor/extension-gallery) - Read more about the VS Code Extension Marketplace
+- [Extension Marketplace](/docs/editor/extension-marketplace) - Read more about the VS Code Extension Marketplace

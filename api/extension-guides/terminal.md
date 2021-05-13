@@ -5,4 +5,4 @@ MetaDescription:
 
 # Terminal Guide
 
-https://github.com/Microsoft/vscode-extension-samples/tree/master/terminal-sample
+https://github.com/microsoft/vscode-extension-samples/tree/main/terminal-sample

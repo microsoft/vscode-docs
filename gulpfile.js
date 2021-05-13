@@ -10,7 +10,6 @@ if (!GITHUB_TOKEN) {
 }
 
 const URL = `https://${GITHUB_TOKEN}@github.com/microsoft/vscode-website`
-const TAS_URL = `https://${GITHUB_TOKEN}@github.com/microsoft/TryAppServiceClient`
 
 /**
  * This task
@@ -22,7 +21,6 @@ gulp.task('build-dist', done => {
   if (!$.which('git')) {
     $.echo('This command requires git')
     $.exit(1)
-    done()
   }
 
   // Go to _build
@@ -43,13 +41,7 @@ gulp.task('build-dist', done => {
 
   // Copy over MD/asset files
   $.mkdir('vscode-website/vscode-docs')
-  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../remote-release-notes', '../tutorials', '../build', '../api', '../remote-tutorials'], 'vscode-website/vscode-docs')
-
-  // Clone tas-client
-  $.exec(`git clone ${TAS_URL} vscode-website/tas-client`)
-  $.cd('vscode-website/tas-client')
-  $.exec('git checkout tags/v1.13.0')
-  $.cd('../..')
+  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../remote-release-notes', '../learn', '../build', '../api'], 'vscode-website/vscode-docs')
 
   // Go to vscode-website
   $.cd('vscode-website')
@@ -66,4 +58,6 @@ gulp.task('build-dist', done => {
     console.log('Failed to build')
     done(build.stderr)
   }
+
+  done()
 })

@@ -64,7 +64,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]
 ```
 
-The `python.autocomplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
+The `python.autoComplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
 
 ```json
   "python.autoComplete.addBrackets": true,
@@ -85,17 +85,15 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Quick Fixes
 
-The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
+The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. Note that the functionality in the below examples is provided by the Pylance language server.
 
 ![Adding an import](images/editing/quickFix.gif)
 
-The add imports Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib`, as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp.
+The add imports Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib`, as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp, `panel` as pn, and `holoviews` as hv.
 
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
 The import suggestions list is ordered with import statements for packages (or modules) at the top, followed by statements for additional modules and/or members (classes, objects, etc.) from specified packages.
-
-> **Note**: This functionality requires use of the [Microsoft Python Language Server](https://devblogs.microsoft.com/python/introducing-the-python-language-server). To enable the language server,  set `python.jediEnabled` to **false** in your [settings.json file](/docs/python/settings-reference.md). Additionally, you'll need to make sure that linting is enabled by opening the Command Palette (**View > Command Palette...** or `kb(workbench.action.showCommands)`) and running the **Python: Enable Linting** command (Select **On** in the drop-down menu that appears).
 
 ## Run Selection/Line in Terminal (REPL)
 
@@ -154,17 +152,8 @@ If formatting fails, check the following possible causes:
 | The path to the python interpreter is incorrect. | Check the `pythonPath` setting. |
 | The formatter is not installed in the current environment. | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
-
-When using the black formatter, VS Code issues the following warning when pasting source code into the editor: **Black does not support the "Format Select" command.**
-
-To prevent this warning, add the following entry to your user or workspace settings to disable format on paste for Python files:
-
-```json
-"[python]": {
-    "editor.formatOnPaste": false
-}
-```
+| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`. |
+| Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 
 ## Refactoring
 
@@ -214,7 +203,9 @@ Custom arguments to isort are specified in the `python.sortImports.args` setting
 
 To use a custom isort script, use the `python.sortImports.path` setting to specify the path.
 
-Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
+Further configurations can be stored in an `.isort.cfg` file as documented on [isort Configuration](https://aka.ms/AA9j6k4).
+
+> **Note**: For those migrating from isort4 to isort5, some CLI flags and config options have changed, refer to the project's [isort5 Upgrade Guide](https://aka.ms/AA9j5x4).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -21,7 +21,7 @@ This guide teaches you how to write an extension that contributes Tree Views and
 
 ## Tree View API Basics
 
-To explain the Tree View API, we are going to build a sample extension called **Node Dependencies**. This extension will use a treeview to display all Node.js dependencies in the current folder. The steps for adding a treeview are to contribute the treeview in your `package.json`, create a `TreeDataProvider`, and register the `TreeDataProvider`. You can find the complete source code of this sample extension in the `tree-view-sample` in the [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample/README.md) GitHub repository.
+To explain the Tree View API, we are going to build a sample extension called **Node Dependencies**. This extension will use a treeview to display all Node.js dependencies in the current folder. The steps for adding a treeview are to contribute the treeview in your `package.json`, create a `TreeDataProvider`, and register the `TreeDataProvider`. You can find the complete source code of this sample extension in the `tree-view-sample` in the [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample/README.md) GitHub repository.
 
 ### package.json Contribution
 
@@ -33,7 +33,7 @@ Here's the `package.json` for the first version of our extension:
 {
     "name": "custom-view-samples",
     "displayName": "Custom view Samples",
-    "description": "Samples for VSCode's view API",
+    "description": "Samples for VS Code's view API",
     "version": "0.0.1",
     "publisher": "alexr00",
     "engines": {
@@ -82,7 +82,7 @@ There are two necessary methods in this API that you need to implement:
 - `getChildren(element?: T): ProviderResult<T[]>` - Implement this to return the children for the given `element` or root (if no element is passed).
 - `getTreeItem(element: T): TreeItem | Thenable<TreeItem>` - Implement this to return the UI representation ([TreeItem](/api/references/vscode-api#TreeItem)) of the element that gets displayed in the view.
 
-When the user opens the Tree View, the `getChildren` method will be called without an `element`. From there, your `TreeDataProvider` should return your top-level tree items. `getChildren` is then called for each of your top-level tree items, so that you can provide the children of those items.
+When the user opens the Tree View, the `getChildren` method will be called without an `element`. From there, your `TreeDataProvider` should return your top-level tree items. In our example, the `collapsibleState` of the top-level tree items is `TreeItemCollapsibleState.Collapsed`, meaning that the top-level tree items will show as collapsed. Setting the `collapsibleState` to `TreeItemCollapsibleState.Expanded` will cause tree items to show as expanded. Leaving the `collapsibleState` as its default of `TreeItemCollapsibleState.None` indicates that the tree item has no children. `getChildren` will not be called for tree items with a `collapsibleState` of `TreeItemCollapsibleState.None`.
 
 Here is an example of a `TreeDataProvider` implementation that provides node dependencies data:
 
@@ -164,14 +164,8 @@ class Dependency extends vscode.TreeItem {
         public readonly collapsibleState: vscode.TreeItemCollapsibleState,
     ) {
         super(label, collapsibleState);
-    }
-
-    get tooltip(): string {
-        return `${this.label}-${this.version}`;
-    }
-
-    get description(): string {
-        return this.version;
+        this.tooltip = `${this.label}-${this.version}`;
+        this.description = this.version;
     }
 
     iconPath = {
@@ -208,13 +202,13 @@ Here's the extension in action:
 
 Our node dependencies view is simple, and once the data is shown, it isn't updated. However, it would be useful to have a refresh button in the view and update the node dependencies view with the current contents of the `package.json`. To do this, we can use the `onDidChangeTreeData` event.
 
-- `onDidChangeTreeData?: Event<T | undefined | null>` - Implement this if your tree data can change and you want to update the treeview.
+- `onDidChangeTreeData?: Event<T | undefined | null | void>` - Implement this if your tree data can change and you want to update the treeview.
 
 Add the following to your `NodeDependenciesProvider`.
 
 ```ts
-  private _onDidChangeTreeData: vscode.EventEmitter<Dependency | undefined> = new vscode.EventEmitter<Dependency | undefined>();
-  readonly onDidChangeTreeData: vscode.Event<Dependency | undefined> = this._onDidChangeTreeData.event;
+  private _onDidChangeTreeData: vscode.EventEmitter<Dependency | undefined | null | void> = new vscode.EventEmitter<Dependency | undefined | null | void>();
+  readonly onDidChangeTreeData: vscode.Event<Dependency | undefined | null | void> = this._onDidChangeTreeData.event;
 
   refresh(): void {
     this._onDidChangeTreeData.fire();
@@ -256,15 +250,15 @@ Now we have a command that will refresh the node dependencies view, but a button
 In the `contributes` section of your `package.json`, add:
 
 ```json
-        "menus": {
-            "view/title": [
-                {
-                    "command": "nodeDependencies.refreshEntry",
-                    "when": "view == nodeDependencies",
-                    "group": "navigation"
-                },
-      ]
-    }
+"menus": {
+    "view/title": [
+        {
+            "command": "nodeDependencies.refreshEntry",
+            "when": "view == nodeDependencies",
+            "group": "navigation"
+        },
+    ]
+}
 ```
 
 ## Activation
@@ -281,7 +275,7 @@ You can register to this activation event in `package.json` and VS Code will act
 
 ## View Container
 
-A View Container contains a list of views that are displayed in the Activity Bar along with the built-in View Containers. Examples of built-in View Containers are Source Control and Explorer.
+A View Container contains a list of views that are displayed in the Activity Bar or Panel along with the built-in View Containers. Examples of built-in View Containers are Source Control and Explorer.
 
 ![View Container](images/tree-view/view-container.png)
 
@@ -291,7 +285,7 @@ You have to specify the following required fields:
 
 - `id` - The name of the new view container you're creating.
 - `title` - The name that will show up at the top of the view container.
-- `icon` - An image that will be displayed for the view container in the Activity Bar.
+- `icon` - An image that will be displayed for the view container when in the Activity Bar.
 
 ```json
 "contributes": {
@@ -307,6 +301,45 @@ You have to specify the following required fields:
 }
 ```
 
+Alternatively, you could contribute this view to the panel by placing it under the `panel` node.
+
+```json
+"contributes": {
+  "viewsContainers": {
+    "panel": [
+      {
+        "id": "package-explorer",
+        "title": "Package Explorer",
+        "icon": "media/dep.svg"
+      }
+    ]
+  }
+}
+```
+
+## Contributing views to View Containers
+
+Once you've created a View Container, you can use the [contributes.views](/api/references/contribution-points#contributes.views) Contribution Point in `package.json`.
+
+```json
+"contributes": {
+  "views": {
+    "package-explorer": [
+      {
+        "id": "nodeDependencies",
+        "name": "Node Dependencies",
+        "icon": "media/dep.svg",
+        "contextualTitle": "Package Explorer"
+      }
+    ]
+  }
+}
+```
+
+A view can also have an optional `visibility` property which can be set to `visible`, `collapsed`, or `hidden`. This property is only respected by VS Code the first time a workspace is opened with this view. After that, the visibility is set to whatever the user has chosen. If you have a view container with many views, or if your view will not be useful to every user of your extension, consider setting the view the `collapsed` or `hidden`. A `hidden` view will appear in the view containers "Views" menu:
+
+![Views Menu](images/tree-view/views-menu.png)
+
 ## View Actions
 
 Actions are available as inline icons on your individual tree items, in tree item context menus, and at the top of your view in the view title. Actions are commands that you set to show up in these locations by adding contributions to your `package.json`.
@@ -316,7 +349,7 @@ To contribute to these three places, you can use the following menu contribution
 - `view/title` - Location to show actions in the view title. Primary or inline actions use `"group": "navigation"` and rest are secondary actions, which are in `...` menu.
 - `view/item/context` - Location to show actions for the tree item. Inline actions use `"group": "inline"` and rest are secondary actions, which are in `...` menu.
 
-You can control the visibility of these actions using the `when` property.
+You can control the visibility of these actions using a [when clause](/api/references/when-clause-contexts).
 
 ![View Actions](images/tree-view/view-actions.png)
 
@@ -403,7 +436,7 @@ If your view can be empty, or if you want to add Welcome content to another exte
   "viewsWelcome": [
     {
       "view": "nodeDependencies",
-      "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:nodeDependencies.addEntry)",
+      "contents": "No node dependencies found [learn more](https://www.npmjs.com/).\n[Add Dependency](command:nodeDependencies.addEntry)"
     }
   ]
 }
@@ -411,7 +444,7 @@ If your view can be empty, or if you want to add Welcome content to another exte
 
 ![Welcome Content](images/tree-view/welcome-content.png)
 
-Links are supported in Welcome content. By convention, a link on a line by itself is a button. Each Welcome content can also contain a `when` clause. For more examples, see the [built-in Git extension](https://github.com/microsoft/vscode/tree/master/extensions/git).
+Links are supported in Welcome content. By convention, a link on a line by itself is a button. Each Welcome content can also contain a `when` clause. For more examples, see the [built-in Git extension](https://github.com/microsoft/vscode/tree/main/extensions/git).
 
 ## TreeDataProvider
 
@@ -421,7 +454,7 @@ Extension writers should register a [TreeDataProvider](/api/references/vscode-ap
 vscode.window.registerTreeDataProvider('nodeDependencies', new DepNodeProvider());
 ```
 
-See [nodeDependencies.ts](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample/src/nodeDependencies.ts) in the `tree-view-sample` for the implementation.
+See [nodeDependencies.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample/src/nodeDependencies.ts) in the `tree-view-sample` for the implementation.
 
 ## TreeView
 
@@ -433,4 +466,4 @@ vscode.window.createTreeView('ftpExplorer', {
 });
 ```
 
-See [ftpExplorer.ts](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample/src/ftpExplorer.ts) in the `tree-view-sample` for the implementation.
+See [ftpExplorer.ts](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample/src/ftpExplorer.ts) in the `tree-view-sample` for the implementation.

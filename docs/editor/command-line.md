@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line options
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code command-line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -74,7 +74,7 @@ Argument|Description
 
 ## Working with extensions
 
-You can install and manage VS Code [extensions](/docs/editor/extension-gallery.md) from the command line.
+You can install and manage VS Code [extensions](/docs/editor/extension-marketplace.md) from the command line.
 
 Argument|Description
 ------------------|-----------
@@ -93,8 +93,8 @@ There are several CLI options that help with reproducing errors and advanced set
 
 Argument|Description
 ------------------|-----------
-`--extensions-dir <dir>` | Set the root path for extensions.
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.
+`--extensions-dir <dir>` | Set the root path for extensions. Has no effect in [Portable Mode](/docs/editor/portable.md).
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root. Has no effect in [Portable Mode](/docs/editor/portable.md).
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
@@ -136,7 +136,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 ![vscode url in Windows Explorer](images/command-line/vscode-url.png)
 
->**Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
+> **Note**: If you are using VS Code [Insiders](/insiders) builds, the URL prefix is `vscode-insiders://`.
 
 ## Next steps
 
@@ -150,7 +150,7 @@ Read on to find out about:
 
 ### 'code' is not recognized as an internal or external command
 
-Your OS can not find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
+Your OS cannot find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
 
 On macOS, you need to manually run the **Shell Command: Install 'code' command in PATH** command (available through the **Command Palette** `kb(workbench.action.showCommands)`). Consult the [macOS](/docs/setup/mac.md) specific setup topic for details.
 

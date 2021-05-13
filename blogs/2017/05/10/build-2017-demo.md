@@ -43,13 +43,13 @@ Below are links to the samples, tools, and extensions demonstrated in the Build 
 
 * [Chrome Debugger](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) lets you debug your JavaScript code running in the Google Chrome browser or other targets that support the Chrome Debugging Protocol.
 
-* [Debugging configuration recipes](https://github.com/Microsoft/vscode-recipes)
+* [Debugging configuration recipes](https://github.com/microsoft/vscode-recipes)
 
 ## Linters
 
 * [TSLint](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) integrates the [tslint](https://github.com/palantir/tslint) linter for the TypeScript language into VS Code.
 
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates [ESLint](http://eslint.org/) (a pluggable linting utility for JavaScript and JavaScript React (JSX) into VS Code.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates [ESLint](https://eslint.org/) (a pluggable linting utility for JavaScript and JavaScript React (JSX) into VS Code.
 
 ## NoSQL MongoDB
 

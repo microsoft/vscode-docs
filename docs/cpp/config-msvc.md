@@ -1,7 +1,7 @@
 ---
-Order: 2
+Order: 6
 Area: cpp
-TOCTitle: Microsoft C++
+TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
 DateApproved: 2/19/2020
@@ -13,7 +13,7 @@ In this tutorial, you configure Visual Studio Code to use the Microsoft Visual C
 
 After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you details about the Microsoft C++ toolset or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -36,6 +36,8 @@ To successfully complete this tutorial, you must do the following:
    This will launch the Visual Studio Installer, which will bring up a dialog showing the available Visual Studio Build Tools workloads. Check the **C++ build tools** workload and select **Install**.
 
    ![Cpp build tools workload](images/msvc/cpp-build-tools.png)
+
+>**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
 ### Check your Microsoft Visual C++ installation
 
@@ -157,7 +159,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 
 The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler. This task tells the C++ compiler to take the active file (`${file}`), compile it, and create an executable file (`/Fe:` switch) in the current directory (`${fileDirname}`) with the same name as the active file but with the `.exe` extension (`${fileBasenameNoExtension}.exe`), resulting in `helloworld.exe` for our example.
 
->**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -330,7 +330,7 @@ Not installed with VS Code but there are spell checking extensions. Check the [V
 
 ### Does VS Code support GitHub Flavored Markdown?
 
-No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
+No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
 
 ### In the walkthrough above, I didn't find the Configure Task command in the Command Palette?
 

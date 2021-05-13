@@ -48,7 +48,7 @@ The Status Bar also reflects when no interpreter is selected.
 
 In either case, clicking this area of the Status Bar is a convenient shortcut for the **Python: Select Interpreter** command.
 
-> **Tip**: If you have any problems with VS Code recognizing a virtual environment, please [file an issue](https://github.com/Microsoft/vscode-docs/issues) in the documentation repository so we can help determine the cause.
+> **Tip**: If you have any problems with VS Code recognizing a virtual environment, please [file an issue](https://github.com/microsoft/vscode-docs/issues) in the documentation repository so we can help determine the cause.
 
 ### Environments and Terminal windows
 
@@ -81,26 +81,29 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](/docs/python/settings-reference.md#general-settings)), which can contain multiple virtual environments. The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Virtual environments located in a `~/.virtualenvs` folder for [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/).
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
-- A [pipenv](https://pipenv.readthedocs.io/) environment for the workplace folder. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
-- Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/) and [pipenv](https://pipenv.readthedocs.io/)).
+- Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)).
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
 You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code does not locate it automatically.
 
+> **Note**: Once the "select interpreter" flow is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
+
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
 ### Global, virtual, and conda environments
 
-By default, any Python interpreter that you've installed run in its own **global environment**, which is not specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
+By default, any Python interpreter that you've installed runs in its own **global environment**, which is not specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
 
 > **Note**: The Python Extension version 2018.8.1 and later automatically updates environments.
 
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
 
-For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages.
+For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
 
-> **Tip**: A **conda environment** is a virtual environments that's created and managed using the `conda` package manager. See [Conda environments](#conda-environments) for more details.
+> **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
+
+> **Tip**: A **conda environment** is a virtual environment that's created and managed using the `conda` package manager. See [Conda environments](#conda-environments) for more details.
 
 To create a virtual environment, use the following command, where ".venv" is the name of the environment folder:
 
@@ -128,7 +131,7 @@ run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=1351
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 ```
 
-> **Note**: If you're using a version of the Python extension prior to 2018.10, and you create a virtual environment in a VS Code terminal, you must run the **Reload Window** command from the Command Palette and then use **Python: Select Interpreter** to activate the environment. If you have any problems with VS Code recognizing a virtual environment, please [file an issue](https://github.com/Microsoft/vscode-docs/issues) in the documentation repository so we can help determine the cause.
+> **Note**: If you're using a version of the Python extension prior to 2018.10, and you create a virtual environment in a VS Code terminal, you must run the **Reload Window** command from the Command Palette and then use **Python: Select Interpreter** to activate the environment. If you have any problems with VS Code recognizing a virtual environment, please [file an issue](https://github.com/microsoft/vscode-docs/issues) in the documentation repository so we can help determine the cause.
 
 > **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on macOS/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on macOS/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
 
@@ -149,6 +152,8 @@ For more information on the conda command line, see [Conda environments](https:/
 Additional notes:
 
 - If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list shown with **Python: Select Interpreter**; otherwise you may not see the environment there. It might take a short time to appear; if you don't see it at first, wait 15 seconds then try using the command again.
+
+- To ensure the environment is set up well from a shell perspective, one option is to use an Anaconda prompt with the activated environment to launch VS Code using the `code .` command. At that point you just need to select the interpreter using the Command Palette or by clicking on the status bar.
 
 - Although the Python extension for VS Code doesn't currently have direct integration with conda environment.yml files, VS Code itself is a great YAML editor.
 
@@ -200,11 +205,13 @@ Then do any of the following steps:
     "python.pythonPath": "${env:PYTHON_INSTALL_LOC}",
     ```
 
+    > **Note**: Variable substitution is only supported in VS Code settings files, it will not work in `.env` environment files.
+
     By using an environment variable, you can easily transfer a project between operating systems where the paths are different, just be sure to set the environment variable on the operating system first.
 
 ## Environment variable definitions file
 
-An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values are not supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution).
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values are not supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution). Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but are not applied to the terminal.
 
 By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
@@ -242,12 +249,14 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
+> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. Environment variables contained in the `.env` file specified by the `python.envFile` setting (user or workspace) will override variables defined in the `envFile` specified in `launch.json`, as well as any `env` variables defined in the `launch.json` file itself. Similarly, environment variables defined in the `envFile` specified in `launch.json` will override `env` variables defined in the `launch.json` file.
+
 ### Variable substitution
 
 When defining an environment variable in a definitions file, you can use the value of any existing environment variable with the following general syntax:
 
 ```bash
-<VARIABLE>=...${EXISTING_VARIABLE}...
+<VARIABLE>=...${env:EXISTING_VARIABLE}...
 ```
 
 where `...` means any other text as used in the value. The curly braces are required.
@@ -255,10 +264,10 @@ where `...` means any other text as used in the value. The curly braces are requ
 Within this syntax, the following rules apply:
 
 - Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
-- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
+- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${env:VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
 - The `$` character can be escaped with a backslash, as in `\$`.
-- You can use recursive substitution, such as `PYTHONPATH=${PROJ_DIR}:${PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${VAR1}_EX}` is not supported.
+- You can use recursive substitution, such as `PYTHONPATH=${env:PROJ_DIR}:${env:PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
+- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` is not supported.
 - Entries with unsupported syntax are left as-is.
 
 ## Use of the PYTHONPATH variable

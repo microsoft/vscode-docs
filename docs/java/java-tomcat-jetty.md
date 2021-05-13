@@ -10,7 +10,7 @@ MetaDescription: Tomcat, Jetty and Open Liberty extensions for Java developer us
 
 # Working with Application Servers in VS Code
 
-Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](https://code.visualstudio.com/docs/java/java-debugging#_configuration) if you wish to attach to it.
+Visual Studio Code is a code editor-centric development tool, so it doesn't come with any embedded application server. For most servers, you will need to deploy them using the command line, and then use the appropriate debugger [configuration](https://code.visualstudio.com/docs/java/java-debugging#_configuration) if you want to attach to it.
 
 On the other hand, we know that for certain Java workloads, server integration is very useful. With Visual Studio Code, you can find third party extensions for popular application servers, for example [Tomcat](https://tomcat.apache.org/), [Jetty](https://www.eclipse.org/jetty/), and [Open Liberty](https://openliberty.io/), which are helpful when working with those servers locally.
 
@@ -67,4 +67,4 @@ You can use the [Community Server Connectors](https://marketplace.visualstudio.c
 
 The [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) extension by Red Hat allows you to start, stop, and deploy to a Red Hat server and runtime products like WildFly, JBoss EAP, Minishift, CDK.
 
-[MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack) provides tools for creating MicroProfile projects to develop and deploy to runtimes such as Open Liberty, Quarkus, and Payara.
+[Extension Pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack) provides tools for creating MicroProfile projects to develop and deploy to runtimes such as Open Liberty, Quarkus, and Payara.

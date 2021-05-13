@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 37b6ae0a-d1b5-48b6-9bd4-9b50ef11d573
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to add custom themes for colors and icons in Visual Studio Code.
@@ -25,7 +25,7 @@ As you can see in the illustration, Color Theme defines colors for UI components
 - The `tokenColors` define the color and styles for highlighting in the editor. The [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide) has more information on that topic.
 - The `semanticTokenColors` mappings as well as the `semanticHighlighting` setting allow to enhance the highlighting in the editor. The [Semantic Highlight Guide](/api/language-extensions/semantic-highlight-guide) explains the APIs related to that.
 
-We have a [Color Theme Guide](/api/extension-guides/color-theme) and a [Color Theme Sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) that illustrates how to create a theme.
+We have a [Color Theme Guide](/api/extension-guides/color-theme) and a [Color Theme Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/theme-sample) that illustrates how to create a theme.
 
 ## File Icon Theme
 

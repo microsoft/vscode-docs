@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8b70dba5-f71d-46dd-8da1-f5d44b9a6a96
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
@@ -9,13 +9,13 @@ MetaDescription: Learn how to write a Language Extension (plug-in) to add suppor
 
 # Language Extensions Overview
 
-Visual Studio Code provides smart editing features for different programming languages through Language Extensions. VS Code doesn't provide built-in language support but offers a set of APIs that enable rich language features. For example, it is a bundled [HTML](https://github.com/Microsoft/vscode/tree/master/extensions/html) extension that allows VS Code to show syntax highlighting for HTML files. Similarly, when you type `console.` and `log` shows up in IntelliSense, it is the [Typescript Language Features](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension at work.
+Visual Studio Code provides smart editing features for different programming languages through Language Extensions. VS Code doesn't provide built-in language support but offers a set of APIs that enable rich language features. For example, it has a bundled [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html) extension that allows VS Code to show syntax highlighting for HTML files. Similarly, when you type `console.` and `log` shows up in IntelliSense, it is the [Typescript Language Features](https://github.com/microsoft/vscode/tree/main/extensions/typescript-language-features) extension at work.
 
 Language features can be roughly put into two categories:
 
 ## Declarative language features
 
-Declarative language features are defined in configuration files. Examples include [html](https://github.com/Microsoft/vscode/tree/master/extensions/html), [css](https://github.com/Microsoft/vscode/tree/master/extensions/css) and [typescript-basic](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-basics) extensions bundled with VS Code, which offer a subset of the following Declarative Language Features:
+Declarative language features are defined in configuration files. Examples include [html](https://github.com/microsoft/vscode/tree/main/extensions/html), [css](https://github.com/microsoft/vscode/tree/main/extensions/css) and [typescript-basic](https://github.com/microsoft/vscode/tree/main/extensions/typescript-basics) extensions bundled with VS Code, which offer a subset of the following Declarative Language Features:
 
 - Syntax highlighting
 - Snippet completion
@@ -35,7 +35,7 @@ We have three guides for writing Language Extensions that provide Declarative La
 ## Programmatic language features
 
 Programmatic Language Features include auto completion, error checking, and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
-One example is the [`typescript-language-features`](https://github.com/Microsoft/vscode/tree/master/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/Microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer Programmatic Language Features such as:
+One example is the [`typescript-language-features`](https://github.com/microsoft/vscode/tree/main/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer Programmatic Language Features such as:
 
 - Hover information ([`vscode.languages.registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider))
 - Auto completion ([`vscode.languages.registerCompletionItemProvider`](/api/references/vscode-api#languages.registerCompletionItemProvider))

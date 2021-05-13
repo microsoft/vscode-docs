@@ -26,7 +26,32 @@
         <priority>0.70</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/events</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learntocode</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/migrate-from-brackets</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/supporting/FAQ</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/supporting/troubleshoot-terminal-launch</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
     </url>
@@ -37,6 +62,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/download</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/insiders</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -71,7 +101,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/introvideos/intellisense</loc>
+        <loc>https://code.visualstudio.com/docs/introvideos/customize</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -107,6 +137,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/setup/windows</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -151,11 +186,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/getstarted/theme-color-reference</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/getstarted/locales</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -176,7 +206,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/extension-gallery</loc>
+        <loc>https://code.visualstudio.com/docs/editor/extension-marketplace</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -192,6 +222,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/editor/versioncontrol</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editor/github</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -241,6 +276,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/editor/workspaces</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/editor/multi-root-workspaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -262,11 +302,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/azure/deployment</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/azure/docker</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -401,7 +436,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/nodejs/node-debugging</loc>
+        <loc>https://code.visualstudio.com/docs/nodejs/nodejs-debugging</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/nodejs/browser-debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -472,11 +512,6 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/python/python-on-azure</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/python/tutorial-create-containers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -556,12 +591,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-on-azure</loc>
+        <loc>https://code.visualstudio.com/docs/java/java-spring-cloud</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-azurefunctions</loc>
+        <loc>https://code.visualstudio.com/docs/java/java-on-azure</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -572,6 +607,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/java/extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/introvideos-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -616,6 +656,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/cpp/configure-intellisense-crosscompilation</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/cpp/colorization-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -651,6 +696,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/cpp/cmake-linux</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/cpp/faq-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -671,7 +721,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/remote/vsonline</loc>
+        <loc>https://code.visualstudio.com/docs/remote/codespaces</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -681,7 +731,17 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/remote/remote-tutorials</loc>
+        <loc>https://code.visualstudio.com/docs/remote/ssh-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/containers-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/wsl-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -692,6 +752,21 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/remote/containers-advanced</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/devcontainerjson-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/attach-container</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/create-dev-container</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -761,7 +836,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/python-user-rights</loc>
+        <loc>https://code.visualstudio.com/docs/containers/python-configure-containers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -781,6 +856,26 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-aks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/containers/kubernetes-env-vars</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-sample</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/other/unity</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -789,105 +884,6 @@
         <loc>https://code.visualstudio.com/docs/other/office</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/updates/latest</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- /remote-tutorials-->
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/getting-started</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/create-vm</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/create-ssh-key</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/add-ssh-key</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/connect-to-vm</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/create-website</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/ssh/edit-and-debug</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/wsl/getting-started</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/wsl/enable-wsl</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/wsl/install-linux</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/wsl/install-python</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/wsl/run-in-wsl</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/wsl/edit-and-debug</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/containers/getting-started</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/containers/install-extension</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/containers/get-the-sample</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/containers/run-in-container</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/remote-tutorials/containers/how-it-works</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
     </url>
 
     <!-- /api -->
@@ -973,6 +969,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/tree-view</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/notebook</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1092,6 +1093,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/references/when-clause-contexts</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/references/theme-color</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1106,4 +1112,107 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/references/extension-guidelines</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- /learn -->
+    <url>
+        <loc>https://code.visualstudio.com/learn</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/get-started/basics</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/get-started/extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/get-started/personalize</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/installers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/codetour</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/learn-modules</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/nodejs</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/python</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/notebooks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/webinars</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/students/nasa-python</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/students/over-the-moon-python</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/students/wonder-woman-python</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/collaboration/live-share</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/develop-cloud/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/develop-cloud/containers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/develop-cloud/wsl</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
 </urlset>

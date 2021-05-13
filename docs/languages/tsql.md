@@ -83,5 +83,5 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 [SQL Server on Linux documentation]: https://docs.microsoft.com/sql/linux/
 [SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
 [SQL Server Videos]: https://channel9.msdn.com/Tags/sql+server
-[GitHub]: https://github.com/Microsoft/vscode-mssql
-[GitHub Issue Tracker]: https://github.com/Microsoft/vscode-mssql/issues
+[GitHub]: https://github.com/microsoft/vscode-mssql
+[GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues

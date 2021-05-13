@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Visual Studio Code Tasks Appendix
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -11,7 +11,9 @@ This is additional information for Visual Studio Code [tasks](/docs/editor/tasks
 
 ## Schema for tasks.json
 
-The following interfaces define the schema of the tasks.json file.
+The following interfaces define the basic schema of the `tasks.json` file.
+
+>**Note**: Some task options are contributed by VS Code extensions. You can use `tasks.json` IntelliSense to find a complete list, using the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
 
 ```typescript
 

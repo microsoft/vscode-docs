@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -39,7 +39,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 >Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
-## Windows as a developer machine
+## Windows Subsystem for Linux
 
 Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) and the new Windows Terminal.
 
@@ -47,13 +47,13 @@ Windows is a popular operating system and it can be a great cross-platform devel
 
 Make sure you are on a recent Windows 10 build. Check **Settings** > **Windows Update** to see if you are up-to-date.
 
-### Windows Subsystem for Linux
+### Windows as a developer machine
 
 With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on your Windows machine.
 
 When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL.
 
-See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/remote-tutorials/wsl/getting-started.md) step-by-step tutorial.
+See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/docs/remote/wsl-tutorial.md) introductory tutorial.
 
 ### New Windows Terminal
 
@@ -72,8 +72,8 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ### What command-line arguments are supported by the Windows Setup?
 
-VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
-for Windows. Thus, all the [Inno Setup command-line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+VS Code uses [Inno Setup](https://www.jrsoftware.org/isinfo.php) to create its setup package
+for Windows. Thus, all the [Inno Setup command-line switches](https://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
 
 Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
 

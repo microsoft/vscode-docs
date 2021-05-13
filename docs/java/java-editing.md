@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Navigate and Edit
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Navigate and edit Java Source Code in Visual Studio Code
-DateApproved: 6/17/2019
+DateApproved: 7/6/2020
 MetaDescription: Navigate and edit Java Source Code in Visual Studio Code
 ---
 # Navigate and edit Java source code
@@ -17,9 +17,9 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Code navigation
 
-With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. [Package and Dependency View](/docs/java/java-project.md#package-and-dependency-view) also provide a great overview of your project. As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
+With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate your methods within the same class. [Project view](/docs/java/java-project.md#project-view) also provide a great overview of your project. As a Java editor, it also supports CodeLens (references) and Javadoc hovers and highlights out of box.
 
-Once you open your Java project or any source files with VS Code, all code navigation features as well as syntax check and documentation (hover to see Javadoc) would be available immediately by its [Syntax Mode](/docs/java/java-project.md#syntax-mode).
+Once you open your Java project or any source files with VS Code, all code navigation features as well as syntax check and documentation (hover to see Javadoc) would be available immediately by its [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
 
 ### Search for symbols
 

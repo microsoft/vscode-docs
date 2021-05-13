@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 9
 Area: cpp
 TOCTitle: Editing
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
@@ -55,6 +55,10 @@ For example, on the Windows platform:
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
+### Enhanced semantic colorization
+
+When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. See [Enhanced colorization](/docs/cpp/colorization-cpp.md) for more details about setting colors for classes, functions, variables and so on.
+
 ### Quick Info
 
 You can hover over a symbol to see an inline view of its definition:
@@ -109,9 +113,10 @@ Read on to find out about:
 * [Configure VS Code for MSVC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
+* [Configure IntelliSense for cross-compiling](configure-intellisense-crosscompilation.md)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues). You may be asked to provide logging information from the extension to help diagnose the issue. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for help on providing extension logs.

@@ -11,11 +11,11 @@ Author: Wade Anderson
 
 October 31, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-Visual Studio Code has excellent support for JavaScript out of the box. As with other languages, JavaScript is powered by a language service. The [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) is implemented by the TypeScript team, allowing JavaScript developers to leverage the best IntelliSense experience.
+Visual Studio Code has excellent support for JavaScript out of the box. As with other languages, JavaScript is powered by a language service. The [JavaScript language service](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) is implemented by the TypeScript team, allowing JavaScript developers to leverage the best IntelliSense experience.
 
 But what other features can you get with VS Code? VS Code has a rich extensibility model and many features are provided through VS Code extensions. This post is a follow up to my [previous post](/blogs/2016/09/14/js_roundup_1.md) about JavaScript extensions.
 
-> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions).
+> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
 
 ## Debugger for Chrome
 
@@ -47,16 +47,6 @@ To use this extension, first install it and then add the following configuration
 
 ![git project manager showcase](git_project_manager.gif)
 
-## Document This
-
-Marketplace - [Document This](https://marketplace.visualstudio.com/items?itemName=joelday.docthis)
-
-Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joel%20Day%22&target=VSCode)
-
-Joel Day has built an exceptionally useful extension for writing JavaScript and TypeScript docs. This extension will automatically generates detailed JSDoc comments for your code.
-
-![document this](document_this.gif)
-
 ## Beautify
 
 Marketplace - [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -75,9 +65,9 @@ There are two extensions in this section, one for [Atom](https://marketplace.vis
 
 These extensions are in preview because we want your feedback. There are still many shortcuts to include and it is easy for you to add any we may have missed.
 
-1. Go to the extension's GitHub repository ([Atom](https://github.com/waderyan/vscode-atom-keybindings) and [Sublime Text](https://github.com/Microsoft/vscode-sublime-keybindings)).
-2. Open the `package.json` file ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json) and [Sublime Text](https://github.com/Microsoft/vscode-sublime-keybindings/blob/master/package.json)).
-3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/waderyan/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/Microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
+1. Go to the extension's GitHub repository ([Atom](https://github.com/microsoft/vscode-atom-keybindings) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings)).
+2. Open the `package.json` file ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/main/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/main/package.json)).
+3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/main/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/main/package.json)).
 4. Open a pull request.
 
 ```json
@@ -94,7 +84,7 @@ Do you have other editors or IDEs you'd like to make a keymap for? Simply follow
 
 ## It's raining keyboard shortcuts
 
-If you find that VS Code does not have a keyboard shortcut feature from Atom, Sublime Text or another product, please comment in one of these GitHub issues ([Atom](https://github.com/Microsoft/vscode/issues/14316) and [Sublime Text](https://github.com/Microsoft/vscode/issues/3776)) or create a new issue.
+If you find that VS Code does not have a keyboard shortcut feature from Atom, Sublime Text or another product, please comment in one of these GitHub issues ([Atom](https://github.com/microsoft/vscode/issues/14316) and [Sublime Text](https://github.com/microsoft/vscode/issues/3776)) or create a new issue.
 
 Additionally, there are many extensions in the Marketplace which add useful keyboard shortcuts:
 
@@ -110,10 +100,6 @@ Additionally, there are many extensions in the Marketplace which add useful keyb
 ## Creating your own JavaScript extension
 
 Not finding an extension that meets your needs. You can make your own with JavaScript or TypeScript! Check out the [documentation](/docs/extensions/overview.md) to learn more.
-
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

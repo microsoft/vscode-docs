@@ -1,11 +1,11 @@
 ---
-Order: 8
+Order: 11
 Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 ---
 # Advanced Container Configuration
 
@@ -13,7 +13,9 @@ This article includes advanced setup scenarios for the [Visual Studio Code Remot
 
 ## Adding environment variables
 
-You can set environment variables in your container without altering the container image by using one of the options below. (Note that this section uses properties added in VS Code 1.41.)
+You can set environment variables in your container without altering the container image by using one of the options below. However, you should verify **Terminal > Integrated: Inherit Env** is checked in settings or the variables you set may not appear in the Integrated Terminal.
+
+![Inherit env setting](images/containers/inherit-env.png)
 
 ### Option 1: Add individual variables
 
@@ -47,7 +49,7 @@ Depending on what you reference in `devcontainer.json`:
 
     As this example illustrates, `remoteEnv` can reference both local and existing container variables.
 
-    To update variables that apply to the entire container, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+    To update variables that apply to the entire container, update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yaml
     version: '3'
@@ -74,13 +76,13 @@ ANOTHER_ENV_VAR_NAME=your-value-goes-here
 
 Next, depending on what you reference in `devcontainer.json`:
 
-* **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `.env` file relative to the location of `devcontainer.json`:
+* **Dockerfile or image**: Edit `devcontainer.json` and add a path to the `devcontainer.env` :
 
     ```json
-    "runArgs": ["--env-file","devcontainer.env"]
+    "runArgs": ["--env-file",".devcontainer/devcontainer.env"]
     ```
 
-* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `.env` file relative to the Docker Compose file:
+* **Docker Compose:** Edit `docker-compose.yml` and add a path to the `devcontainer.env` file relative to the Docker Compose file:
 
     ```yaml
     version: '3'
@@ -109,11 +111,11 @@ You can add a volume bound to any local folder by using the following appropriat
     ```json
     "mounts": [
         "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/host-home-folder,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/data,target=/data,type=bind,consistency=cached"
+        "source=${localWorkspaceFolder}/app-data,target=/data,type=bind,consistency=cached"
     ]
     ```
 
-* **Docker Compose:** Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yaml
     version: '3'
@@ -132,23 +134,30 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 You can also use a mount to persist your bash command history across sessions / container rebuilds.
 
-First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
+First, update your `Dockerfile` so that each time a command is used in `bash`, the history is updated and stored in a location we will persist.
+
+If you have a root user, update your `Dockerfile` with the following:
+
+```Dockerfile
+RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
+    && echo $SNIPPET >> "/root/.bashrc"
+```
+
+If you have a non-root user, update your `Dockerfile` with the following. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container.
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
 
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
-    && echo $SNIPPET >> "/root/.bashrc" \
-    # [Optional] If you have a non-root user
     && mkdir /commandhistory \
     && touch /commandhistory/.bash_history \
     && chown -R $USERNAME /commandhistory \
-    && echo $SNIPPET >> "/home/$USERNAME/.bashrc" \
+    && echo $SNIPPET >> "/home/$USERNAME/.bashrc"
 ```
 
 Next, add a local volume to store the command history. This step varies depending on whether or not you are using Docker Compose.
 
-* **Dockerfile or image**:  Use the `mounts` property (VS Code 1.41+) in your `devcontainer.json` file. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
+* **Dockerfile or image**:  Use the `mounts` property (VS Code 1.41+) in your `devcontainer.json` file.
 
     ```json
       "mounts": [
@@ -156,7 +165,7 @@ Next, add a local volume to store the command history. This step varies dependin
       ]
     ```
 
-* **Docker Compose:** Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container (if one exists).
+* **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service.
 
     ```yaml
     version: '3'
@@ -173,7 +182,9 @@ Finally, if you've already built the container and connected to it, run **Remote
 
 ## Changing the default source code mount
 
-If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container. While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, location, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
+If you add the `image` or `dockerFile` properties to `devcontainer.json`, VS Code will automatically "bind" mount your current workspace folder into the container.  If `git` is present on the host's `PATH` and the folder containing `.devcontainer/devcontainer.json` is within a `git` repository, the current workspace mounted will be the root of the repository.  If `git` is not present on the host's `PATH`, the current workspace mounted will be the folder containing `.devcontainer/devcontainer.json`.
+
+While this is convenient, you may want to change [mount settings](https://docs.docker.com/engine/reference/commandline/service_create/#add-bind-mounts-volumes-or-memory-filesystems), alter the type of mount, location, or [run in a remote container](#developing-inside-a-container-on-a-remote-docker-host).
 
 You can use the `workspaceMount` property in `devcontainer.json` to change the automatic mounting behavior. It expects the same value as the [Docker CLI `--mount` flag](https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the---mount-flag).
 
@@ -192,23 +203,53 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 The Remote - Containers extension uses "bind mounts" to source code in your local filesystem by default. While this is the simplest option, on macOS and Windows, you may encounter slower disk performance when running commands like `yarn install` from inside the container. There are few things you can do to resolve these type of issues.
 
+### Store your source code in the WSL 2 filesystem on Windows
+
+Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL 2) that provides a full Linux kernel and has significantly improved performance over WSL 1. Docker Desktop 2.3+ includes a new WSL 2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL 2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
+
+See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl-2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
+
+### Update the mount consistency to 'delegated' for macOS
+
+By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
+
+When using a **Dockerfile or image**, update the **Remote > Containers: Workspace Mount Consistency** property in settings to `delegated`:
+
+![Workspace Mount setting](images/containers/workspace-mount-setting.png)
+
+When using **Docker Compose**, update your local bind mount in `docker-compose.yml` as follows:
+
+```yaml
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - .:/workspace:delegated
+```
+
+If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Use Clone Repository in Container Volume
+
+The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
+
+See [Open a Git repository or GitHub PR in an isolated container volume](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) for details on using this approach.
+
+The next two sections will outline how to use a named volume in other scenarios.
+
 ### Use a targeted named volume
 
 Since macOS and Windows run containers in a VM, "bind" mounts are not as fast as using the container's filesystem directly. Fortunately, Docker has the concept of a local "named volume" that can act like the container's filesystem but survives container rebuilds. This makes it ideal for storing package folders like `node_modules`, data folders, or output folders like `build` where write performance is critical. Follow the appropriate steps below based on what you reference in `devcontainer.json`.
 
 **Dockerfile or image**:
 
-Let's use the [vscode-remote-try-node](https://github.com/Microsoft/vscode-remote-try-node) repository to illustrate how to speed up `yarn install`.
+Let's use the [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) repository to illustrate how to speed up `yarn install`.
 
 Follow these steps:
 
 1. Use the `workspaceMount` property in `devcontainer.json` to tell VS Code where to bind your source code. Then use the `mounts` property (VS Code 1.41+) to mount the `node_modules` sub-folder into a named local volume instead.
 
     ```json
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/workspace"
     "mounts": [
-        "source=try-node-node_modules,target=/workspace/node_modules,type=volume"
+        "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
     ]
     ```
 
@@ -216,10 +257,8 @@ Follow these steps:
 
     ```json
     "remoteUser": "node",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/workspace",
     "mounts": [
-        "source=try-node-node_modules,target=/workspace/node_modules,type=volume"
+        "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
     ],
     "postCreateCommand": "sudo chown node node_modules"
     ```
@@ -228,11 +267,17 @@ Follow these steps:
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
+Two notes on this approach:
+
+1. If you delete the `node_modules` folder in the container, it may lose the connection to the volume. Delete the contents of the `node_modules` folder instead when needed (`rm -rf node_modules/* node_modules/.*`).
+
+2. You'll find that an empty `node_modules` folder gets created locally with this method. This is because the volume mount point in the container is inside the local filesystem bind mount. This is expected and harmless.
+
 **Docker Compose**:
 
 While vscode-remote-try-node does not use Docker Compose, the steps are similar, but the volume mount configuration is placed in a different file.
 
-1. In your Docker Compose file (or an [extended one](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)), add a named local volume mount to the `node_modules` sub-folder for the appropriate service(s). For example:
+1. In your Docker Compose file (or an [extended one](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)), add a named local volume mount to the `node_modules` sub-folder for the appropriate service(s). For example:
 
     ```yaml
     version: '3'
@@ -264,18 +309,6 @@ While vscode-remote-try-node does not use Docker Compose, the steps are similar,
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-### Update the mount consistency to 'delegated' for macOS
-
-By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
-
-Update the `remote.containers.workspaceMountConsistency` property in settings.json:
-
-```json
-"remote.containers.workspaceMountConsistency": "delegated"
-```
-
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
-
 ### Use a named volume for your entire source tree
 
 Finally, if none of the above options meet your needs, you can go one step further and **clone your entire source tree inside of a named volume** rather than locally. You can set up a named volume by taking an existing `devcontainer.json` configuration and modifying it as follows (updating `your-volume-name-here` with whatever you want to call the volume).
@@ -289,7 +322,7 @@ Depending on what you reference in `devcontainer.json`:
     "workspaceFolder": "/workspace",
     ```
 
-* **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
+* **Docker Compose**: Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service(s):
 
     ```yaml
     version: '3'
@@ -354,15 +387,15 @@ To create the named local volume, follow these steps:
 
     **Docker Compose**:
 
-    Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replace `unique-vol-name-here` with a unique name for the volume.
+    Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replacing `/root` with the home directory in the container if not root (for example `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume.
 
     ```yml
     services:
       your-service-name-here:
         volumes:
-          - unique-vol-name-here:~/.vscode-server/extensions
+          - unique-vol-name-here:/root/.vscode-server/extensions
           # And/or for VS Code Insiders
-          - unique-vol-name-here-insiders:~/.vscode-server-insiders/extensions
+          - unique-vol-name-here-insiders:/root/.vscode-server-insiders/extensions
         # ...
 
     volumes:
@@ -414,7 +447,7 @@ In some cases, you may need all processes in the container to run as a different
 
     On Linux, like `remoteUser`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`).
 
-* **Docker Compose**: Update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* **Docker Compose**: Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yaml
     user: user-name-or-UID-goes-here
@@ -475,7 +508,7 @@ RUN apk add --no-cache shadow
 
 ## Setting the project name for Docker Compose
 
-VS Code will respect the value of [the `COMPOSE_PROJECT_NAME` environment variable](https://docs.docker.com/compose/reference/envvars/#compose_project_name) if set for the VS Code process or in a `.env` file in the root of the project.
+VS Code will respect the value of the [COMPOSE_PROJECT_NAME](https://docs.docker.com/compose/reference/envvars/#compose_project_name)  environment variable if set for the VS Code process or in a `.env` file in the root of the project.
 
 For example, after shutting down all VS Code windows, you can start VS Code from the command line as follows:
 
@@ -504,23 +537,31 @@ Once the needed CLIs are in place, you can also work with the appropriate contai
 
 See the following example dev containers definitions for additional information on a specific scenario:
 
-* [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+* [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Illustrates how to run Docker (or Moby) entirely inside a container. Provides support for bind mounting all folders inside the development container, but cannot reuse your local machine's cache.
 
-* [Docker-in-Docker Compose](https://aka.ms/vscode-remote/samples/docker-in-docker-compose) - Variation of Docker-in-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
+* [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker) - Also known as "Docker-outside-of-Docker", this illustrates how you can use the Docker (or Moby) CLI in your dev container to connect to your host's Docker daemon by bind mounting the Docker Unix socket. Lower overhead and can reuse your machine's cache, but has [bind mounting limitations](#mounting-host-volumes-with-docker-from-inside-a-container).
 
-* [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Includes the Docker CLI, kubectl, and Helm and illustrates how you can use them from inside a dev container to access a local Minikube or Docker provided Kubernetes cluster.
+* [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose) - Variation of Docker-from-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
+
+* [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Takes the Docker-from-Docker model and adds kubectl and Helm to illustrate how you can access a local Minikube or Docker provided Kubernetes cluster.
 
 ### Mounting host volumes with Docker from inside a container
 
-When using Docker inside a container, the host's Docker daemon is used. This effects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
+When following the [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) model, using the Docker CLI from inside a dev container will cause it to interact with a Docker daemon running in the same place. This means that you can "bind" mount anything inside the dev container into the "inner" containers you create.
 
-For example:
+For example, this will "just work":
 
 ```bash
-docker run -v /workspace/examplefile.txt:/incontainer/path busybox
+docker run -v /workspace/examplefile.txt:/incontainer/path debian
 ```
 
-This will fail as the path on the host, outside the container isn't `/workspace/...`. To work around this issue, you can pass the host directory into the container as an environment variable as follows in `devcontainer.json`:
+However, if you want to bind mount a host folder available into this inner container, you need to [mount it](#adding-another-local-file-mount) into your dev container first.
+
+With [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), the type of bind mounting that works by default is reversed. Here, the Docker CLI inside the container interacts with the host's Docker daemon instead. This affects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
+
+The same example above will fail since the path on the host, outside the container isn't `/workspace/...`. In addition, some folders simply cannot be mounted because they only exist in the container. If you need to do this, you may find the Docker-in-Docker model fits your needs better.
+
+If you are opening a folder in a container, you can pass the host directory into the container as an environment variable to allow you to mount the workspace folder. (This does not, however, work if you used a volume - Docker-in-Docker is the best choice there.) To do so, add the following to `devcontainer.json`:
 
 ```json
   "remoteEnv": {
@@ -537,7 +578,7 @@ docker run -p 8089:8089 -p 9090:9090 -v $(shell echo ${KUBECONFIG} | sed s#/work
 
 ## Connecting to multiple containers at once
 
-Currently you can only connect to one container per VS Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/remote/containers.md#attaching-to-running-containers).
+Currently you can only connect to one container per VS Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/remote/attach-container.md).
 
 If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can create separate  `devcontainer.json` files for each service in your source tree that point to a common `docker-compose.yml`.
 
@@ -589,13 +630,13 @@ You can then set up `container1-src/.devcontainer.json` for Go development as fo
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "container-1",
     "shutdownAction": "none",
-    "extensions": ["ms-vscode.Go"],
+    "extensions": ["golang.go"],
     // Open the sub-folder with the source code
     "workspaceFolder": "/workspace/container1-src",
 }
 ```
 
-Next, you can `container2-src/.devcontainer.json` for Node.js development by changing `workspaceFolder` and installing Node.js extensions:
+Next, you can set up `container2-src/.devcontainer.json` for Node.js development by changing `workspaceFolder` and installing Node.js extensions:
 
 ```json
 {
@@ -622,7 +663,7 @@ You can now interact with both containers at once from separate windows.
 
 ### Extending a Docker Compose file when connecting to two containers
 
-If you want to [extend your Docker Compose file for development](/docs/remote/containers.md#extending-your-docker-compose-file-for-development), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
+If you want to [extend your Docker Compose file for development](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
 
 For example, consider this `docker-compose.devcontainer.yml` file:
 
@@ -651,15 +692,66 @@ Both `.devcontainer.json` files would be updated as follows:
 
 This list of compose files is used when starting the containers, so referencing different files in each `.devcontainer.json` can have unexpected results.
 
+## Configure a separate container for multiple projects or folders
+
+While development containers often are tied to a single folder, repository, or project, they can also be used with multiple folders as a way to simplify setup or separate your tools. Imagine you had your source code across multiple repositories in a single folder for a given toolset.
+
+For example:
+
+```text
+📁 Repos
+   📁 node
+   📁 python
+      📁 starter-snake-python
+      📁 vscode-remote-try-python
+      📁 your-python-project-here
+   📁 go
+   📁 dotnet
+```
+
+Let's set up a container for use with all of the Python projects in the `./Repos/python` folder.
+
+1. Start VS Code, select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the `./Repos/python` folder.
+
+    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+
+    ![Quick actions Status bar item](images/common/remote-dev-status-bar.png)
+
+2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
+
+    > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
+
+    ![Select a python dev container definition](images/containers/select-dev-container-def-python.png)
+
+    The list will be automatically sorted based on the contents of the folder you open. Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+
+3. After picking the starting point for your container, VS Code will add the dev container configuration files to the `./Repos/python/.devcontainer` folder.
+
+4. The VS Code window will reload and start building the dev container. A progress notification provides status updates. You only have to build a dev container the first time you open it; opening the folder after the first successful build will be much quicker.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+5. After the build completes, VS Code will automatically connect to the container. Once connected use **File > Open... / Open Folder...** to select one of the folders under `./Repos/python`.
+
+    ![Open python folder in the container](images/containers/open-folder-python.png)
+
+6. In a moment, VS Code will open the folder inside the same container. In the future, you can use the **Remote Explorer** in the Activity Bar to open this sub-folder in the container directly.
+
+    ![Container explorer with multiple folders under python container](images/containers/containers-explorer-python.png)
+
+> **Tip:** Instead of mounting the local filesystem, you can use a similar flow to set up a container with an isolated, more performant volume that you clone your source code into. See the [Advanced Containers](/docs/remote/containers-advanced.md#use-a-named-volume-for-your-entire-source-tree) article for details.
+
 ## Developing inside a container on a remote Docker host
 
-Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either **[attach to any running container](/docs/remote/containers.md#attaching-to-running-containers)**, or use a **local `devcontainer.json` file** as a way to configure, create, and connect to a remote dev container.
+Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote container, so VS Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [attach to any running container](/docs/remote/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container.
 
 However, note that the **Docker CLI still needs to be installed locally** (along with the Docker Compose CLI if you are using it).
 
 ### A basic remote example
 
-Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the `docker.host` property in `settings.json` and restarting VS Code (or reloading the window). For example:
+Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` and restarting VS Code (or reloading the window).
+
+For example:
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
@@ -667,7 +759,7 @@ Setting up VS Code to attach to a container on a remote Docker host can be as ea
 
 Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
 
-At this point, you can [attach](/docs/remote/containers.md#attaching-to-running-containers) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
+At this point, you can [attach](/docs/remote/attach-container.md) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
 
@@ -683,7 +775,7 @@ Here is a basic `devcontainer.json` example of this setup:
 }
 ```
 
-In fact, the **Remote-Containers: Open Repository in Container...** command in the Command Palette (`kbstyle(F1)`) uses this same technique. If you already have a `devcontainer.json` file in a GitHub repository that references an image or Dockerfile, the command will automatically use a named volume instead of a bind mount - which also works with remote hosts.
+In fact, the **Remote-Containers: Clone Repository in Container Volume...** command in the Command Palette (`kbstyle(F1)`) uses this same technique. If you already have a `devcontainer.json` file in a GitHub repository that references an image or Dockerfile, the command will automatically use a named volume instead of a bind mount - which also works with remote hosts.
 
 The second approach is to **bind mount a folder on the remote machine** into your container. This requires you to have access to the remote filesystem, but also allows you to work with **existing source code** on the remote machine.
 
@@ -707,19 +799,19 @@ Recent versions of Docker (18.06+) have added support for the SSH protocol to co
 
 First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
-Then, add the following to `settings.json` (replacing values as appropriate):
+Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property to `settings.json` (replacing values as appropriate):
 
 ```json
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
-After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/remote/containers.md#attaching-to-running-containers) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
+After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/remote/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
 > **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, be sure you have the [SSH agent running with your authentication key](/docs/remote/containers.md#using-ssh-keys). If all else fails, you can use [an SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker-host) instead.
 
 **Using the TCP protocol**
 
-While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other properties. These are:
+While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties. These are:
 
 ```json
 "docker.host":"tcp://your-remote-machine-fqdn-or-ip-here:port",
@@ -798,7 +890,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     **Docker Compose**:
 
-    If you do **not** have login access to the remote host, update (or [extend](/docs/remote/containers.md#extending-your-docker-compose-file-for-development)) your `docker-compose.yml`. Replace  `your-service-name-here` with the value specified for the `"service"` property in `devcontainer.json` and appropriate and `remote-workspace` with a unique volume name:
+    If you do **not** have login access to the remote host, update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml`. Replace  `your-service-name-here` with the value specified for the `"service"` property in `devcontainer.json` and appropriate and `remote-workspace` with a unique volume name:
 
     ```yaml
     version: '3'
@@ -850,14 +942,9 @@ The following are some tips for eliminating warnings that may be appearing in yo
 This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in stdout when installing the needed package by adding the following to your Dockerfile:
 
 ```Dockerfile
-# Configure apt
-ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1
-
-## YOUR DOCKERFILE CONTENT GOES HERE
-
-ENV DEBIAN_FRONTEND=dialog
 ```
 
 ### Warning: apt-key output should not be parsed (stdout is not a terminal)
@@ -900,5 +987,5 @@ If the command fails, you will still be able to see the errors but they won't be
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-* Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+* Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

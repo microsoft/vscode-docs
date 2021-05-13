@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 10
 Area: cpp
 TOCTitle: Settings
 ContentId: 4E34F6AF-BFC6-4BBB-8464-2E50C85AE826
 PageTitle: Customize default settings in Visual Studio Code C++ projects
-DateApproved: 07/24/2019
+DateApproved: 05/21/2020
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
 # Customizing default settings
@@ -23,8 +23,8 @@ C_Cpp.default.macFrameworkPath                     : string[]
 C_Cpp.default.forcedInclude                        : string[]
 C_Cpp.default.intelliSenseMode                     : string
 C_Cpp.default.compilerPath                         : string
-C_Cpp.default.cStandard                            : c89 | c99 | c11
-C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17
+C_Cpp.default.cStandard                            : c89 | c99 | c11 | c17
+C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17 | c++20
 C_Cpp.default.browse.path                          : string[]
 C_Cpp.default.browse.databaseFilename              : string
 C_Cpp.default.browse.limitSymbolsToIncludedHeaders : boolean
@@ -74,9 +74,11 @@ A special variable has been added to the accepted syntax of `c_cpp_properties.js
 ],
 ```
 
-Take note that for the properties that accept string[], the syntax proposed above allows you to augment the VS Code setting with additional values, thus allowing you to have common paths listed in the VS Code settings and configuration-specific settings in `c_cpp_properties.json`.
+Note that for the properties that accept string[], the syntax proposed above allows you to augment the VS Code setting with additional values, thus allowing you to have common paths listed in the VS Code settings and configuration-specific settings in `c_cpp_properties.json`.
 
 If a property is missing from `c_cpp_properties.json`, the extension will use the value in the VS Code setting. If a developer assigns values to all of the settings that apply for a given folder, then `c_cpp_properties.json` could be removed from the .vscode folder as it will no longer be needed.
+
+For in-depth information about the c_cpp_properties.json settings file, See [c_cpp_properties.json reference](/docs/cpp/c-cpp-properties-schema-reference.md).
 
 ### System includes
 
@@ -106,3 +108,11 @@ The extension determines the system includePath and defines to send to the Intel
       4. If `compilerPath` is undefined, look for a compiler on the system and query it.
 
 System includes should not be added to the `includePath` or `browse.path` variables. If the extension detects any system include paths in the `includePath` property it will silently remove them so that it can ensure system include paths are added last and in the correct order (this is especially important for GCC/Clang).
+
+### Enhanced semantic colorization
+
+When IntelliSense is enabled, the Visual Studio Code C/C++ extension supports semantic colorization. See [Enhanced colorization](/docs/cpp/colorization-cpp.md) for more details about setting colors for classes, functions, variables and so on.
+
+### Extension logging
+
+If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for information about how to collect logs.

@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order:
 Area: cpp
 TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
@@ -11,7 +11,7 @@ MetaDescription: Learn how the Natvis framework provides custom views for native
 
 The [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 
-For gdb/lldb debugging (`type": "cppdbg`), a subset of the Natvis framework has been ported to the C/C++ extension and the code resides in the [MIEngine](https://github.com/Microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/Microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
+For gdb/lldb debugging (`type": "cppdbg`), a subset of the Natvis framework has been ported to the C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
 
 For Microsoft C++ debugging (`type": "cppvsdbg`), the debugger contains the full implementation of the Natvis framework as Visual Studio.
 
@@ -461,7 +461,7 @@ The Natvis schema is provided here for convenience:
     </xs:choice>
     <xs:attribute name="HideRawView" type="xs:boolean">
       <xs:annotation>
-        <xs:documentation>Specifies whether or not the the "[Raw View]" node for this object should be hidden. By default, this attribute is set to 'false',
+        <xs:documentation>Specifies whether or not the "[Raw View]" node for this object should be hidden. By default, this attribute is set to 'false',
         which will result in the raw view node of the current object visible to the user.
         </xs:documentation>
       </xs:annotation>

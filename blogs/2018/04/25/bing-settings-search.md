@@ -51,7 +51,7 @@ During each build, VS Code starts up in a mode where it writes all of its config
 
 `123000832` is a unique build number, computed from the product version plus the number of Git commits since the previous release. `c1cd4378...` is the Git commit id that the build was built off of. And `ticino`, some of you diehard fans might remember, was our original short-lived code name.
 
-Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its `package.json` file (for extensions, all configuration metadata is contained in the `package.json`. No need to start it up.) and passes those settings to the Ingestion Service as well.
+Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code Extension Marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its `package.json` file (for extensions, all configuration metadata is contained in the `package.json`. No need to start it up.) and passes those settings to the Ingestion Service as well.
 
 This entire process is fully automated and constantly updates the indexed settings in real-time for each of our stable release builds and our daily Insiders builds. Within minutes of the completion of a build, Bing's index has been updated to include any newly added settings.
 

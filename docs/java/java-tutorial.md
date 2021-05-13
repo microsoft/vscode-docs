@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 7/25/2019
+DateApproved: 4/14/2021
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -18,62 +18,66 @@ If you run into any issues when following this tutorial, you can contact us by c
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'getting-started')" href="javascript:void(0)">Report an issue</a>
 
-If you need to install VS Code, [download it here](https://code.visualstudio.com/download).
+## Setting up VS Code for Java development
 
-## Supported Java versions
+### Coding Pack for Java
 
-VS Code works with all major versions of Java SE up to 14.
+To help you set up quickly, you can install the **Coding Pack for Java**, which includes VS Code, the Java Development Kit (JDK), and essential Java extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
-## Setting up Visual Studio Code for Java Development
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-### Installing a Java Development Kit (JDK)
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
 
-Before going through this tutorial, your development environment must have a Java SE Development Kit (JDK) installed. If it doesn't, you can download and install a JDK from one of these sources:
+> **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
-* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
-* [AdoptOpenJDK](https://adoptopenjdk.net/)
-* [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
+### Installing extensions
 
-### Configuring your development environment to use a JDK
-
-Your development environment needs to know where the JDK is located. A common way to do this is [setting the value of the `JAVA_HOME` system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in [VS Code's User or Workspace settings](/docs/getstarted/settings.md).
-
-To help you get started quickly, there is a special [Installer of Visual Studio Code for Java developers](https://aka.ms/vscode-java-installer-win).
-
-> **Note**: The installer is currently only available for Windows. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions. We're working on the macOS version. Please stay tuned.
-
-The package can be used as a clean install, or you can also use it to update an existing development environment to add Java or VS Code. After you've [downloaded](https://aka.ms/vscode-java-installer-win) and opened it, the installer automatically tries to detect a JDK, VS Code, and essential Java extensions. During install, it downloads the stable versions of those tools from trusted online sources then installs and configures them.
-
-![Detect Environment](images/java-tutorial/detect-eng.png)
-
-You can also add Java support to VS Code by installing the popular Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
+If you are an existing VS Code user, you can also add Java support by installing [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 * [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-* [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-You can also select which extensions you would like to install separately. For this tutorial, the only required extensions are
+The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`) to launch the guide.
+
+![Java Getting Started](images/java-tutorial/getting-started.png)
+
+You can also install extensions separately. The **Extension Guide** is provided to help you. You can launch the guide with the **Java: Extension Guide** command.
+
+For this tutorial, the only required extensions are:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
-If a JDK is not already installed, the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides links to download a reliable JDK.
-
 ## Settings for the JDK
 
-To access various settings for using the JDK, bring up the **Command Palette** (`kb(workbench.action.showCommands)`) and use the command **Java: Configure Java Runtime**.
+### Supported Java versions
 
-![JDK Configuration](images/java-tutorial/jdk-configuration.png)
+The supported version for running the VS Code for Java extension and the supported version for your projects are two separate runtimes. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
-The [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), also provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`).
+### Using Java runtime configuration wizard
 
-![Java Getting Started](images/java-tutorial/getting-started.png)
+To help you configure correctly, we provide a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
+
+![JDK Configuration](images/java-tutorial/jdk-config-wizard-overview.png)
 
 > **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
+
+### Using VS Code settings
+
+Alternatively, you can configure JDK settings using the VS Code Settings editor. A common way to do this is [setting the value of the JAVA_HOME system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in VS Code's [User or Workspace settings](/docs/getstarted/settings.md).
+
+### Installing a Java Development Kit (JDK)
+
+When you need install a JDK, we recommend you to consider installing from one of these sources:
+
+* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
+* [AdoptOpenJDK](https://adoptopenjdk.net/)
+* [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
 
 ## Creating a source code file
 

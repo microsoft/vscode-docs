@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 # Portable Mode
@@ -13,7 +13,7 @@ Visual Studio Code supports [Portable mode](https://en.wikipedia.org/wiki/Portab
 
 This mode also provides a way to set the installation folder location for VS Code extensions, useful for corporate environments that prevent extensions from being installed in the Windows AppData folder.
 
-Portable mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip` file for your platform.
+Portable mode is supported on the ZIP download for Windows, and the TAR.GZ download for Linux, as well as the regular Application download for macOS. See the [Download page](/download) to find the correct `.zip / .tar.gz` file for your platform.
 
 > **Note:** Do not attempt to configure portable mode on an installation from the **Windows User or System installers**. Portable mode is only supported on the Windows ZIP (`.zip`) archive. Note as well that the Windows ZIP archive does not support auto update.
 
@@ -37,7 +37,6 @@ The `data` folder can be moved to other VS Code installations. This is useful fo
 ### macOS
 
 On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that VS Code can find it. The default folder name is `code-portable-data`:
-
 
 ```
 |- Visual Studio Code.app
@@ -88,4 +87,4 @@ Here's the desired outcome on **Windows**:
 
 ## TMP directory
 
-By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, you can create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.
+By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you want to also have your TMP directory within your portable directory, you can create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.

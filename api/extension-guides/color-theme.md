@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 113b458a-3692-4ccf-a181-048bd572a120
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Color Theme in Visual Studio Code
@@ -77,7 +77,7 @@ Themes can define theming rules for semantic tokens as described in the [Syntax 
 Once you have tweaked your theme colors using `workbench.colorCustomizations` and `editor.tokenColorCustomizations`, it's time to create the actual theme.
 
 1. Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
-2. Use VS Code's [Yeoman](http://yeoman.io) extension generator to generate a new theme extension:
+2. Use VS Code's [Yeoman](https://yeoman.io) extension generator to generate a new theme extension:
 
    ```bash
    npm install -g yo generator-code
@@ -115,7 +115,7 @@ You can also use an existing TextMate theme by telling the extension generator t
 
 To try out the new theme, press F5 to launch an Extension Development Host window.
 
-There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the drop-down list. Arrow up and down to see a live preview of your theme.
+There, open the Color Theme picker with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown list. Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/color-theme/mytheme.png)
 
@@ -123,7 +123,7 @@ Changes to the theme file are applied live in the `Extension Development Host` w
 
 ## Publishing a Theme to the Extension Marketplace
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery). Use the [vsce publishing tool](/api/working-with-extensions/publishing-extension) to package your theme and publish it to the VS Code Marketplace.
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-marketplace). Use the [vsce publishing tool](/api/working-with-extensions/publishing-extension) to package your theme and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Themes` in your `package.json`.
 
@@ -131,7 +131,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Adding a new Color Id
 
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
+Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
 
 ## Further reading
 

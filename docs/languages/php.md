@@ -1,15 +1,15 @@
 ---
-Order: 10
+Order: 11
 Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code
 
-Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extension-gallery.md).
+Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community-created VS Code [extensions](/docs/editor/extension-marketplace.md).
 
 ## Linting
 
@@ -53,11 +53,9 @@ Visual Studio Code includes a set of common snippets for PHP. To access these, h
 
 ## PHP extensions
 
-There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions drop-down list by typing 'php'.
+There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created. You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions dropdown list by typing 'php'.
 
-<div class="marketplace-extensions-php"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+![Searching for PHP in the Extensions view](images/php/category-php.png)
 
 ### Disable built-in PHP support
 
@@ -71,5 +69,5 @@ PHP debugging with **XDebug** is supported through a [PHP Debug extension](https
 
 Read on to find out about:
 
-* [Extension Marketplace](/docs/editor/extension-gallery.md) - Browse the extensions others have shared
+* [Extension Marketplace](/docs/editor/extension-marketplace.md) - Browse the extensions others have shared
 * [Debugging](/docs/editor/debugging.md) - Learn more about VS Code debugging

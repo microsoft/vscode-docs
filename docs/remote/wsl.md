@@ -1,11 +1,11 @@
 ---
-Order: 5
+Order: 4
 Area: remote
 TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 ---
 # Developing in WSL
 
@@ -19,13 +19,15 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ## Getting started
 
+**Note**: After reviewing this topic, you can get started with the introductory [WSL tutorial](/docs/remote/wsl-tutorial.md).
+
 ### Installation
 
 To get started, you need to:
 
 1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
 
-    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development and WSL 2 support is **experimental**. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
+    > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native source code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
 2. Install [Visual Studio Code](https://code.visualstudio.com/) on the **Windows** side (not in WSL).
 
@@ -83,7 +85,7 @@ for example: `code --remote wsl+Ubuntu /home/jim/projects/c`
 
 If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
 
-You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) to for details.
+You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) for details.
 
 ## Managing extensions
 
@@ -97,11 +99,11 @@ If you install an extension from the Extensions view, it will automatically be i
 
 > **Note:** If you are an extension author and your extension is not working properly or installs in the wrong place, see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-Local extensions that actually need to run remotely will appear **Disabled** in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
+Local extensions that actually need to run remotely will appear dimmed and disabled in the **Local - Installed** category. Select **Install** to install an extension on your remote host.
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
-You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** from the **More Actions** menu (...).
+You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** using the cloud button at the right of the **Local - Installed** title bar. This will display a dropdown where you can select which locally installed extensions to install in your WSL instance.
 
 ![Install all extensions](images/wsl/install-all-extn-wsl.png)
 
@@ -131,15 +133,41 @@ The script needs to be a valid Bourne shell script. Be aware that an invalid scr
 
 Check the WSL log (Remote WSL: Open WSL Log) for output and errors.
 
+## Advanced: Opening a WSL 2 folder in a container
+
+If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Remote - Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
+
+1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL 2 support.
+
+    > **Tip:**  Go to **Settings > Resources > WSL Integration** and enable Docker integration with the WSL distribution you will be using.
+
+2. If you have not already, install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension along with the WSL extension.
+
+3. Next, [open your source code folder in WSL](#open-a-remote-folder-or-workspace) as you would normally.
+
+4. Once your folder is open in WSL, select **Remote-Containers: Reopen Folder in Container** from the Command Palette (`kbstyle(F1)`).
+
+5. If the folder does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
+
+    ![Select a node dev container definition](images/containers/select-dev-container-def.png)
+
+6. The VS Code window (instance) will reload and start building the dev container. A progress notification provides status updates.
+
+    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+
+7. After the build completes, VS Code will automatically connect to the container. You can now work with the your source code from inside the container.
+
+See the [Remote - Containers documentation](/docs/remote/containers.md) for more information.
+
 ## Known limitations
 
 This section contains a list of common know issues with WSL. The intent is not to provide a complete list of issues but to highlight some of the common problems seen with WSL.
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace
+### I see EACCESS: permission denied error trying to rename a folder in the open workspace in WSL 1
 
-That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/Microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/Microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
+That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
 To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polling based file watching has a performance impact for large workspaces.
 
@@ -147,19 +175,19 @@ For large workspace you want to increase the polling interval: `remote.WSL.fileW
 
 [WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
 
-### Golang in WSL
+### Golang in WSL 1
 
 | Issue | Existing issues |
 |---|---|
-Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/Microsoft/vscode-go/issues/926) |
+Delve debugger doesn't work under WSL | [go-delve/delve#810](https://github.com/go-delve/delve/issues/810),  [Microsoft/vscode-go#926](https://github.com/microsoft/vscode-go/issues/926) |
 
-### Node.js in WSL
+### Node.js in WSL 1
 
 | Issue | Existing issues |
 |---|---|
-NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/Microsoft/WSL/issues/3886) |
-Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/Microsoft/WSL/issues/2709) |
-Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/Microsoft/WSL/issues/2657) |
+NodeJS Error: spawn EACCES (different variants of this error) | [Microsoft/WSL#3886](https://github.com/microsoft/WSL/issues/3886) |
+Webpack HMR not working | [Microsoft/WSL#2709](https://github.com/microsoft/WSL/issues/2709) |
+Firebase via node unusably slow only on WSL | [Microsoft/WSL#2657](https://github.com/microsoft/WSL/issues/2657) |
 
 ### Git limitations
 
@@ -167,17 +195,7 @@ If you clone a Git repository using SSH and your SSH key has a passphrase, VS Co
 
 ### Docker Extension limitations
 
-By default, the Docker extension will run remotely. Depending on how WSL is configured, this can prevent the extension from seeing local containers.
-
-You can use one of the following solutions to resolve this problem:
-
-- Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
-
-- Open a new local window (**File > New Window**) and use it to work with local containers.
-
-- Install the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#option-1-use-the-containers-remote-explorer) in situations when you need to see your local containers.
-
-- Use the [extensionKind property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+While the Docker extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
 
 ### Extension limitations
 
@@ -234,8 +252,8 @@ When a remote window is opened out of VSCode, the Remote - WSL extension tries t
 
 When the remote VSCode is started from a WSL terminal, the download is done using `wget` in the WSL distro. Proxy settings can be configured in:
 
-- wget proxy settings: https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget
-- manually in the [server setup script](/docs/remote/wsl#_advanced-environment-setup-script)
+- wget proxy settings: [https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget](https://stackoverflow.com/questions/11211705/how-to-set-proxy-for-wget)
+- manually in the [server setup script](/docs/remote/wsl.md#advanced-environment-setup-script)
 
 Once the server is up and running the proxy settings on the *Remote* tab are used.
 
@@ -254,10 +272,6 @@ For example, the setting below will force the Docker extension to run locally an
 
 A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-### Can I use the Remote - Containers extension to work with source code stored in WSL2 on Windows?
-
-If you are using [Docker Desktop's WSL2 engine](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can enable experimental support in the Remote - Containers extension that will allow you to open folders from the `\\wsl$` share in a container. Simply check **Remote > Containers: Experimental WSL** in [VS Code settings](/docs/getstarted/settings.md) and restart VS Code. See [this excellent blog post](https://stuartleeks.com/posts/vscode-devcontainers-wsl/) for complete setup details.
-
 ### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
@@ -267,5 +281,5 @@ The VS Code extension API abstracts away local/remote details so most extensions
 - See [Tips and Tricks](/docs/remote/troubleshooting.md#wsl-tips) or the [FAQ](/docs/remote/faq.md).
 - Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - Add a [feature requests](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Contribute to [our documentation](https://github.com/Microsoft/vscode-docs) or [VS Code itself](https://github.com/Microsoft/vscode).
+- Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.

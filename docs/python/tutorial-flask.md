@@ -16,9 +16,9 @@ Flask is called a "micro" framework because it doesn't directly provide features
 
 In this Flask tutorial, you create a simple Flask app with three pages that use a common base template. Along the way, you experience a number of features of Visual Studio Code including using the terminal, the editor, the debugger, code snippets, and more.
 
-The completed code project for this Flask tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+The completed code project for this Flask tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial).
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To successfully complete this Flask tutorial, you must do the following (which a
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.9.1** button that appears first on the page (or whatever is the latest version).
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must run `sudo apt install python3-pip` in the terminal.
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
@@ -43,8 +43,11 @@ In this section, you create a virtual environment in which Flask is installed. U
 1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
 
     ```bash
-    # macOS/Linux
+    # Linux
     sudo apt-get install python3-venv    # If needed
+    python3 -m venv env
+
+    # macOS
     python3 -m venv env
 
     # Windows
@@ -63,7 +66,7 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     ![Flask tutorial: selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run [**Terminal: Create New Integrated Terminal**](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -71,17 +74,19 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     ![Flask tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
-1. Install Flask in the virtual environment by running one of the following commands in the VS Code Terminal:
+1. Update pip in the virtual environment by running the following command in the VS Code Terminal:
 
-    ```bash
-    # macOS/Linux
-    pip3 install flask
-
-    # Windows
-    pip install flask
+     ```bash
+    python -m pip install --upgrade pip
     ```
 
-You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\scripts\activate` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+1. Install Flask in the virtual environment by running the following command in the VS Code Terminal:
+
+    ```bash
+    python -m pip install flask
+    ```
+
+You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
 
 ## Create and run a minimal Flask app
 
@@ -108,7 +113,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 
 1. Save the `app.py` file (`kb(workbench.action.files.save)`).
 
-1. In the terminal, run the app by entering `python3 -m flask run` (macOS/Linux) or `python -m flask run` (Windows), which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
+1. In the Integrated Terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
     ```bash
     (env) D:\py\\hello_flask>python -m flask run
@@ -119,7 +124,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
     ```
 
-    If you see an error that the Flask module cannot be found, make sure you've run `pip3 install flask` (macOS/Linux) or `pip install flask` (Windows) in your virtual environment as described at the end of the previous section.
+    If you see an error that the Flask module cannot be found, make sure you've run `python -m pip install flask` in your virtual environment as described at the end of the previous section.
 
     Also, if you want to run the development server on a different IP address or port, use the host and port command-line arguments, as with `--host=0.0.0.0 --port=80`.
 
@@ -135,7 +140,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 
 1. Stop the app by using `kbstyle(Ctrl+C)` in the terminal.
 
-> **Tip**: If you want to use a different filename than `app.py`, such as `program.py`, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](http://flask.pocoo.org/docs/1.0/cli/).
+> **Tip**: If you want to use a different filename than `app.py`, such as `program.py`, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](https://flask.palletsprojects.com/en/1.1.x/cli/).
 
 ## Run the app in the debugger
 
@@ -189,11 +194,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Flask tutorial: a breakpoint set on the first line of the hello_there function](images/flask-tutorial/debug-breakpoint-set.png)
 
-1. Switch to **Run** view in VS Code (using the left-side activity bar). Along the top of the Run view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
+1. Switch to **Run** view in VS Code (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
 
     ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. Select the gear icon and select **Flask** from the list that appears. VS Code creates and opens a `launch.json` file. This JSON file contains a debugging configuration, which is a JSON object within the `configuration` array.
+1. 1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the dropdown and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration, which is named "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
 
@@ -221,7 +226,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Run** > **Add Configuration** menu command does the same action.).
 
-1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Flask** configuration.
+1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration dropdown list select the **Python: Flask** configuration.
 
     ![Flask tutorial: selecting the Flask debugging configuration](images/flask-tutorial/debug-select-configuration.png)
 
@@ -289,12 +294,12 @@ During your work with Flask or any other library, you may want to examine the co
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](http://flask.pocoo.org/docs/1.0/security/#cross-site-scripting-xss). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
+The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](https://flask.palletsprojects.com/security/#cross-site-scripting-xss). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
 
 A much better practice is to keep HTML out of your code entirely by using **templates**, so that your code is concerned only with data values and not with rendering.
 
 - A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
-- The default templating engine for Flask is [Jinja](http://jinja.pocoo.org/), which is installed automatically when you install Flask. This engine provides flexible options including automatic escaping (to prevent XSS attacks) and template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
+- The default templating engine for Flask is [Jinja](https://jinja.palletsprojects.com), which is installed automatically when you install Flask. This engine provides flexible options including automatic escaping (to prevent XSS attacks) and template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
 
 In this section, you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contains a nav bar from a base template.
 
@@ -373,7 +378,7 @@ The following sections demonstrate both types of static files.
     <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />
     ```
 
-    Flask's [url_for](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) tag that is used here, creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
+    Flask's [url_for](https://flask.palletsprojects.com/api/#flask.url_for) tag that is used here, creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
 
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag (and also displays a message if you just use a hello/ URL without a name):
 
@@ -579,7 +584,7 @@ Although you can create the file by hand, you can also use the `pip freeze` comm
 
 Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original the environment. (The recipient still needs to create their own virtual environment, however.)
 
-> **Note**: `pip freeze` lists all the Python packages you have installed in the current environment, including packages you aren't currently using. The command also lists packages with exact version numbers, which you might want to convert to ranges for more flexibility in the future. For more information, see [Requirements files](https://pip.readthedocs.io/en/stable/user_guide/#requirements-files) in the pip command documentation.
+> **Note**: `pip freeze` lists all the Python packages you have installed in the current environment, including packages you aren't currently using. The command also lists packages with exact version numbers, which you might want to convert to ranges for more flexibility in the future. For more information, see [Requirements Files](https://pip.pypa.io/en/stable/user_guide/#requirements-files) in the pip command documentation.
 
 ### Refactor the project to support further development
 
@@ -664,25 +669,25 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
 
 1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps from a terminal:
     1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
-    1. Navigate into the `hello_app` folder, then launch the program using `python3 -m flask run` (Linux/macOS) or `python -m flask run` (Windows).
+    1. Navigate into the `hello_app` folder, then launch the program using `python -m flask run`.
 
 ### Create a container for a Flask app using the Docker extension
 
 The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) makes it easy to build, manage, and deploy containerized applications from Visual Studio Code. If you're interested in learning how to create a Python container for the Flask app developed in this tutorial, check out the [Python in a container](/docs/containers/quickstart-python.md) tutorial, which will walk you through how to:
 
 - Create a `Dockerfile` file describing a simple Python container.
-- Build, run, and verify the functionality of a [Flask](http://flask.pocoo.org/) app.
+- Build, run, and verify the functionality of a [Flask](https://flask.palletsprojects.com) app.
 - Debug the app running in a container.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
 
 ## Next steps
 
 Congratulations on completing this walkthrough of working with Flask in Visual Studio Code!
 
-The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial).
 
-Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/templates/#synopsis) contains all the details on the template language. You might also want to review the [official Flask tutorial](http://flask.pocoo.org/docs/1.0/tutorial/) as well as the documentation for Flask [extensions](http://flask.pocoo.org/extensions/).
+Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](https://jinja.palletsprojects.com) for more information about templates. The [Template Designer Documentation](https://jinja.palletsprojects.com/templates/#synopsis) contains all the details on the template language. You might also want to review the [official Flask tutorial](https://flask.palletsprojects.com/tutorial) as well as the documentation for Flask [extensions](https://flask.palletsprojects.com/extensions/).
 
 To try your app on a production website, check out the tutorial [Deploy Python apps to Azure App Service using Docker Containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01). Azure also offers a standard container, [App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01), to which you deploy web apps from within VS Code.
 
@@ -694,4 +699,4 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Debugging Python](/docs/python/debugging.md)
 - [Testing](/docs/python/testing.md)
 
-If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
+If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).

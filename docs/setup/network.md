@@ -1,10 +1,10 @@
 ---
-Order: 5
+Order: 6
 Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 4/8/2020
+DateApproved: 5/5/2021
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -17,18 +17,20 @@ A handful of features within VS Code require network communication to work, such
 
 If you are behind a firewall that needs to allow specific domains used by VS Code, here's the list of hostnames you should allow communication to go through:
 
-* `update.code.visualstudio.com`
-* `code.visualstudio.com`
-* `go.microsoft.com`
-* `vscode.blob.core.windows.net`
-* `marketplace.visualstudio.com`
-* `*.gallery.vsassets.io`
-* `*.gallerycdn.vsassets.io`
-* `rink.hockeyapp.net`
-* `vscode.search.windows.net`
-* `raw.githubusercontent.com`
-* `vsmarketplacebadge.apphb.com`
-* `az764295.vo.msecnd.net`
+* `update.code.visualstudio.com` - Visual Studio Code download and update server
+* `code.visualstudio.com` - Visual Studio Code documentation
+* `go.microsoft.com` - Microsoft link forwarding service
+* `vscode.blob.core.windows.net` - Visual Studio Code blob storage, used for remote server
+* `marketplace.visualstudio.com` - Visual Studio Marketplace
+* `*.gallery.vsassets.io` - Visual Studio Marketplace
+* `*.gallerycdn.vsassets.io` - Visual Studio Marketplace
+* `rink.hockeyapp.net` - Crash reporting service
+* `bingsettingssearch.trafficmanager.net` - In-product settings search
+* `vscode.search.windows.net` - In-product settings search
+* `raw.githubusercontent.com` - GitHub repository raw file access
+* `vsmarketplacebadge.apphb.com` - Visual Studio Marketplace badge service
+* `az764295.vo.msecnd.net` - Visual Studio Code download CDN
+* `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
 
 ## Proxy server support
 
@@ -65,7 +67,7 @@ To learn more about these command-line arguments, see [Chromium Network Settings
 
 ### Authenticated proxies
 
-Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/Microsoft/vscode/pull/22369).
+Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/microsoft/vscode/pull/22369).
 
 The authentication methods supported are:
 
@@ -92,9 +94,9 @@ Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium 
 
 ## Legacy proxy server support
 
-Extensions don't benefit yet from the same proxy support that VS Code supports. You can follow this issue's development in [GitHub](https://github.com/Microsoft/vscode/issues/12588).
+Extensions don't benefit yet from the same proxy support that VS Code supports. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/12588).
 
-Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/Microsoft/vscode/issues/29910).
+Similarly to extensions, a few other VS Code features don't yet fully support proxy networking, namely the CLI interface. The CLI interface is what you get when running `code --install-extension vscodevim.vim` from a command prompt or terminal. You can follow this issue's development in [GitHub](https://github.com/microsoft/vscode/issues/29910).
 
 Due to both of these constraints, the `http.proxy`, `http.proxyStrictSSL` and `http.proxyAuthorization` variables are still part of VS Code's settings, yet they are only respected in these two scenarios.
 
