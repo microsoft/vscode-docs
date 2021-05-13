@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -143,28 +143,6 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
 
-## Outgoing link protection
-
-For your protection, VS Code displays a prompt before opening an outgoing website link from the editor.
-
-![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
-
-You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a dropdown lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
-
-![Configure Trusted Domains dropdown](images/editingevolved/trusted-domain-dropdown.png)
-
-The option to **Manage Trusted Domains**, also available at any time from the Command Palette, brings up the **Trusted Domains** JSON file, where you can add, remove, or modify trusted domains.
-
-```jsonc
-// You can use the "Manage Trusted Domains" command to open this file.
-// Save this file to apply the trusted domains rules.
-[
-  "*.twitter.com"
-]
-```
-
-The **Trusted Domains** JSON file also has comments with examples of the supported domain formats and a list of the domains trusted by default, such as `https://*.visualstudio.com` and `https://*.microsoft.com`.
-
 ## Next steps
 
 Now that you know how the editor works, time to try a few other things...
@@ -181,16 +159,14 @@ Now that you know how the editor works, time to try a few other things...
 With the command `workbench.action.quickOpenPreviousEditor`, you can have the second entry automatically selected in Quick Open. This can be useful if you want to select the previous entry from the list without having to invoke another keybinding:
 
 ```json
-[
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpenPreviousEditor"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "-workbench.action.quickOpen"
-    }
-]
+{
+	"key": "ctrl+p",
+	"command": "workbench.action.quickOpenPreviousEditor"
+},
+{
+	"key": "ctrl+p",
+	"command": "-workbench.action.quickOpen"
+}
 ```
 
 ### How can I configure Ctrl+Tab to navigate across all editors of all groups
@@ -198,25 +174,23 @@ With the command `workbench.action.quickOpenPreviousEditor`, you can have the se
 By default, `kbstyle(Ctrl+Tab)` navigates between editors of the same editor group. If you want to navigate across all opened editors in all groups, you can create keyboard shortcuts for the `workbench.action.quickOpenPreviousRecentlyUsedEditor` and `workbench.action.quickOpenLeastRecentlyUsedEditor` commands:
 
 ```json
-[
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-        "when": "!inEditorsPicker"
-    },
-    {
-        "key": "ctrl+shift+tab",
-        "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
-        "when": "!inEditorsPicker"
-    }
-]
+{
+    "key": "ctrl+tab",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+},
+{
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
+    "when": "!inEditorsPicker"
+}
 ```
 
 ### How can I navigate between recently used editors without a picker
 
 Here is a list of commands you can use to navigate in editors without opening a picker:
 
-Key|Command|Command ID
+Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.openNextRecentlyUsedEditor)`|Open Next Recently Used Editor|`workbench.action.openNextRecentlyUsedEditor`
 `kb(workbench.action.openPreviousRecentlyUsedEditor)`|Open Previously Used Editor|`workbench.action.openPreviousRecentlyUsedEditor`

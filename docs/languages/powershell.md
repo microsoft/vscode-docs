@@ -16,7 +16,7 @@ The Microsoft [PowerShell](https://marketplace.visualstudio.com/items?itemName=m
 ## Install the PowerShell extension
 
 The official PowerShell extension can be installed by following the steps described in the
-[Visual Studio Code User Guide](/docs/editor/extension-marketplace.md) or by going directly to the Visual Studio Code Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
+[Visual Studio Code User Guide](/docs/editor/extension-gallery.md) or by going directly to the Visual Studio Code Marketplace and clicking the [Install Button](vscode:extension/ms-vscode.PowerShell).
 
 You can also install the PowerShell extension from within Visual Studio Code by opening the Extensions view with keyboard shortcut `kb(workbench.view.extensions)` and typing "PowerShell" and select the PowerShell extension:
 
@@ -70,7 +70,6 @@ You can also open the examples from the Command Palette (`kb(workbench.action.sh
 * Run selected section of PowerShell code using `kbstyle(F8)`
 * Launch online help for the symbol under the cursor using `kbstyle(Ctrl + F1)`
 * Local script debugging and basic interactive console support
-* Enable ISE mode using `kbstyle(Ctrl + Shift + P)` then search for "Enable ISE Mode"
 
 ## Debugging
 
@@ -94,7 +93,7 @@ You can also click the gear icon located in the lower left corner of the Activit
 
 ![codeGear](images/powershell/codeGear.png)
 
-You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings. The VS Code team has introduced a settings GUI in version 1.27.1 as the new default interface for customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
+You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings. The VS Code team has introduced a settings GUI in the latest version 1.27.1 as the new default interface for customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
 
 You can still open the `settings.json` file by using **Preferences: Open Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings editor with the `"workbench.settings.editor"` setting.
 
@@ -102,7 +101,7 @@ Go to [User and Workspace settings](/docs/getstarted/settings.md) for more infor
 
 ## Multi-version support
 
-You can configure the PowerShell extension to use any version of PowerShell installed on your machine by following [these instructions](https://docs.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7#choosing-a-version-of-powershell-to-use-with-the-extension).
+You can configure the PowerShell extension to use any version of PowerShell installed on your machine by following [these instructions](https://docs.microsoft.com/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6#using-a-specific-installed-version-of-powershell).
 
 You can also change the version by clicking on the version number in the lower right corner:
 
@@ -128,7 +127,7 @@ The PowerShell extension allows the creation of new Plaster projects by running 
 
 ## PSScriptAnalyzer
 
-[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static source code checker for PowerShell modules and scripts. PSScriptAnalyzer checks the quality of PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by the PowerShell Team and the community. PSScriptAnalyzer generates diagnostic records (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
+[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static source code checker for PowerShell modules and scripts. PSScriptAnalyzer checks the quality of PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by the PowerShell Team and the community. Pester generates diagnostic records (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
 
 The PowerShell extension includes PSScriptAnalyzer by default, and automatically performs analysis on PowerShell script files being edited in VS Code.
 

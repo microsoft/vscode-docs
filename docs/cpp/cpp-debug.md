@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 6
 Area: cpp
 TOCTitle: Debugging
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
 PageTitle: Debug C++ in Visual Studio Code
-DateApproved: 05/21/2020
+DateApproved: 07/25/2019
 MetaDescription: How to debug C++ programs in Visual Studio Code.
 ---
 # Debug C++ in Visual Studio Code
@@ -94,9 +94,9 @@ For example:
 }
 ```
 
-## GDB, LLDB, and LLDB-MI Commands (GDB/LLDB)
+## GDB, LLDB, and MI Commands (GDB/LLDB)
 
-For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LLDB-MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
+For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
 
 ## Other debugging features
 
@@ -105,21 +105,7 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 * Call stack
 * Stepping
 
-For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
-
-For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
-
-### Natvis framework
-
-You create custom views of C++ object in the debugger with the [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
-
-### Debug remotely
-
-For information about attaching to a remote process, such as debugging a process in a Docker container, see [Pipe transport](/docs/cpp/pipe-transport.md).
-
-### Debug the debugger
-
-If you are experiencing a debugging problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable logging and send us your logs. See [Enable logging for the debug adapter](/docs/cpp/enable-logging-cpp.md#enable-logging-for-the-debug-adapter) to learn how to get C/C++ extension logs.
+ For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
 
 ## Known limitations
 
@@ -138,13 +124,7 @@ Windows:
 
 Linux:
 
-* You may see an error saying: `ptrace: Operation not permitted`. This is due to GDB needing elevated permissions in order to attach to a process. This can be solved using the solutions below:
-    1. When using *attach to process*, you need to provide your password before the debugging session can begin.
-    1. To disable this error temporarily, use the following command:
-
-        `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
-
-    1. To remove the error permanently, add a file called `10-ptrace.conf` to `/etc/sysctl.d/` and add the following `kernel.yama.ptrace_scope = 0`.
+* GDB needs elevated permissions to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin.
 
 macOS:
 
@@ -164,10 +144,9 @@ Read on to find out about:
 * [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
-* [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) - Learn about additional debugger configuration options.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful Visual Studio Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more.
-* [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger.
+* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+* [Debugging](/docs/editor/debugging.md) - find out about the Visual Studio Code debugger
 
-If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/microsoft/vscode-cpptools/issues).
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).

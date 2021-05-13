@@ -13,7 +13,7 @@ April 10, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 I'm a big fan of Sublime Text. It was my [go to editor](https://www.youtube.com/watch?v=OnkYnm-WiVo&t=15s) for my first few years of programming. Naturally, I now like VS Code more, but sometimes I miss things from Sublime Text.
 
-We wrote an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) to help alleviate some of the pain I felt (for example, keyboard muscle memory). There is still more work to do (see this [GitHub issue](https://github.com/microsoft/vscode/issues/3776)), but the gaps are closing fast. You can find other extensions to cover almost all of the features you are missing.
+We wrote an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) to help alleviate some of the pain I felt (for example, keyboard muscle memory). There is still more work to do (see this [GitHub issue](https://github.com/Microsoft/vscode/issues/3776)), but the gaps are closing fast. You can find other extensions to cover almost all of the features you are missing.
 
 In this blog, I'll present some existing VS Code features and suggested extensions to help you if you are coming from Sublime Text.
 
@@ -90,6 +90,10 @@ Marketplace - [Sublime Commands](https://marketplace.visualstudio.com/items?item
 Author - [Zarel](https://marketplace.visualstudio.com/search?term=publisher%3A%22Zarel%22&target=VSCode)
 
 Ports the **Transpose**, **Expand Selection to Line**, and **Split into Lines** commands to VS Code.
+
+## Want to see your extension featured?
+
+Have other extensions you like or want to see your extension in the next Roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
 
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)

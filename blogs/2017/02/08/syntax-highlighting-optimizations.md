@@ -61,7 +61,7 @@ tokens = [
 
 Holding on to that tokens array takes 648 bytes in Chrome and so storing such an object is quite costly in terms of memory (each object instance must reserve space for pointing to its prototype, to its properties list, etc). Our current machines do have a lot of RAM, but storing 648 bytes for a 15 characters line is unacceptable.
 
-So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8](https://github.com/microsoft/vscode/blob/release/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given that there would be duplicate token types, we collected them in a separate map (per file), doing something like the following:
+So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8](https://github.com/Microsoft/vscode/blob/release/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given that there would be duplicate token types, we collected them in a separate map (per file), doing something like the following:
 
 ```javascript
 //     0        1               2                  3                      4
@@ -112,7 +112,7 @@ We thought it would be a good idea to follow browser best practices, such as lea
   <span class="token delimiter curly js">{</span>
 ```
 
-And we'd write our themes [in CSS](https://github.com/microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css) (for example the Visual Studio theme):
+And we'd write our themes [in CSS](https://github.com/Microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css) (for example the Visual Studio theme):
 
 ```css
 ...
@@ -393,7 +393,7 @@ A few months ago we reviewed all the code we have in the VS Code core that reads
 
 Recently we've gotten the OK from our internal partners (other teams inside Microsoft consuming the Monaco Editor), that they no longer need support for IE9 and IE10 in the Monaco Editor.
 
-Probably most important, the number one most voted feature for the editor is [minimap support](https://github.com/microsoft/vscode/issues/4865). To render a minimap in a reasonable amount of time, we cannot use DOM nodes and CSS matching. We will probably use a canvas, and we're going to need to know the color of each token in JavaScript, so we can paint those tiny letters with the right colors.
+Probably most important, the number one most voted feature for the editor is [minimap support](https://github.com/Microsoft/vscode/issues/4865). To render a minimap in a reasonable amount of time, we cannot use DOM nodes and CSS matching. We will probably use a canvas, and we're going to need to know the color of each token in JavaScript, so we can paint those tiny letters with the right colors.
 
 Perhaps the biggest breakthrough we've had is that we **don't need to store tokens, nor their scopes**, since tokens only produce effects in terms of a theme matching them or in terms of bracket matching skipping strings.
 
@@ -463,7 +463,7 @@ For example:
 
 ### Changes to tokenization
 
-All the TextMate tokenization code used in VS Code lives in a separate project, [vscode-textmate](https://github.com/microsoft/vscode-textmate), which can be used independently of VS Code. We've changed the way we represent the scope stack in `vscode-textmate` to be [an immutable linked list](https://github.com/microsoft/vscode-textmate/blob/main/src/grammar.ts#L946) that also stores the fully resolved `metadata`.
+All the TextMate tokenization code used in VS Code lives in a separate project, [vscode-textmate](https://github.com/Microsoft/vscode-textmate), which can be used independently of VS Code. We've changed the way we represent the scope stack in `vscode-textmate` to be [an immutable linked list](https://github.com/Microsoft/vscode-textmate/blob/master/src/grammar.ts#L946) that also stores the fully resolved `metadata`.
 
 When pushing a new scope onto the scope stack, we will look up the new scope in the theme trie. We can then compute immediately the fully resolved desired foreground or font style for a scope list, based on what we inherit from the scope stack and on what the theme trie returns.
 
@@ -605,7 +605,7 @@ We've added a new widget to help with authoring and debugging themes or grammars
 
 Making changes in this component of the editor presented some serious risk as any bug in our approach (in the new trie creation code, in the new binary encoding format, etc) could potentially result in huge user-visible differences.
 
-In VS Code, we have an integration suite that asserts colors for all the programming languages we ship across the five themes we author (Light, Light+, Dark, Dark+, High Contrast). These tests are very helpful both when making changes to one of our themes and also when updating a certain grammar. Each of the 73 integration tests consists of a fixture file (for example [test.c](https://github.com/microsoft/vscode/blob/release/1.9/extensions/cpp/test/colorize-fixtures/test.c)) and the expected colors for the five themes ([test_c.json](https://github.com/microsoft/vscode/blob/release/1.9/extensions/cpp/test/colorize-results/test_c.json)), and they run on each commit on our [CI build](https://travis-ci.org/Microsoft/vscode/jobs/198766250#L3184).
+In VS Code, we have an integration suite that asserts colors for all the programming languages we ship across the five themes we author (Light, Light+, Dark, Dark+, High Contrast). These tests are very helpful both when making changes to one of our themes and also when updating a certain grammar. Each of the 73 integration tests consists of a fixture file (for example [test.c](https://github.com/Microsoft/vscode/blob/release/1.9/extensions/cpp/test/colorize-fixtures/test.c)) and the expected colors for the five themes ([test_c.json](https://github.com/Microsoft/vscode/blob/release/1.9/extensions/cpp/test/colorize-results/test_c.json)), and they run on each commit on our [CI build](https://travis-ci.org/Microsoft/vscode/jobs/198766250#L3184).
 
 To validate the tokenization change, we've collected colorization results from these tests, across all the 14 themes we ship with (not just the five themes we author) using the old CSS based approach. Then, after each change, we ran the same tests using the new trie-based logic and, using a custom-built visual diff (and patch) tool, we would look into each and every color difference and figure out the root cause of the color change. We caught at least 2 bugs using this technique and we were able to change our five themes to get minimal color changes across VS Code versions:
 

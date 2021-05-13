@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -50,14 +50,6 @@ You can turn off autoclosing tags with the following [setting](/docs/getstarted/
 
 ```json
 "html.autoClosingTags": false
-```
-
-## Auto update tags
-
-When modifying a tag, the linked editing feature automatically updates the matching closing tag. The feature is optional and can be enabled by setting:
-
-```json
-"editor.linkedEditing": true
 ```
 
 ## Color picker
@@ -122,12 +114,6 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force`: Wrap all attributes, except first
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
-  * `aligned-multiple`: Wrap when line length is exceeded, align attributes vertically
-  * `preserve`: Preserve wrapping of attributes
-  * `preserve-aligned`: Preserve wrapping of attributes but align
-* `html.format.wrapAttributesIndentSize`: Alignment size when using `force aligned` and `aligned multiple` in `html.format.wrapAttributes` or `null` to use the default indent size.
-* `html.format.templating`: Honor django, erb, handlebars and php templating language tags.
-* `html.format.unformattedContentDelimiter`: Keep text content together between this string.
 
 >**Tip:** The formatter doesn't format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
@@ -158,7 +144,7 @@ We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## HTML custom data
 
-You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/microsoft/vscode-html-languageservice/blob/main/docs/customData.md). By setting `html.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
+You can extend VS Code's HTML support through a declarative [custom data format](https://github.com/Microsoft/vscode-html-languageservice/blob/master/docs/customData.md). By setting `html.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new HTML tags, attributes and attribute values. VS Code will then offer language support such as completion & hover information for the provided tags, attributes and attribute values.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 

@@ -127,16 +127,16 @@ The folding range result for the document containing above function `bar` is emi
 
 ![LSIF graph for a folding range result](./foldingRange.png)
 
-These are only two examples of LSP requests supported by the LSIF. The current version of the [LSIF specification](https://github.com/microsoft/language-server-protocol/blob/main/indexFormat/specification.md) also supports document symbols, document links, Go to Definition, Go to Declaration, Go to Type Definition, Find All References, and Go to Implementation.
+These are only two examples of LSP requests supported by the LSIF. The current version of the [LSIF specification](https://github.com/Microsoft/language-server-protocol/blob/master/indexFormat/specification.md) also supports document symbols, document links, Go to Definition, Go to Declaration, Go to Type Definition, Find All References, and Go to Implementation.
 
 ## We need your feedback!
 
-We have made good initial progress on the LSIF specification and we want to open the conversation to the community so you can learn what we're working on. For feedback, please comment on the issue [Language Server Index Format](https://github.com/microsoft/language-server-protocol/issues/623).
+We have made good initial progress on the LSIF specification and we want to open the conversation to the community so you can learn what we're working on. For feedback, please comment on the issue [Language Server Index Format](https://github.com/Microsoft/language-server-protocol/issues/623).
 
 ## How to get started
 
 To get started with LSIF, you can have a look at the following resources:
 
-- The [LSIF specification](https://github.com/microsoft/language-server-protocol/blob/main/indexFormat/specification.md) - The document also describes some additional optimizations that have been done to keep the emitted data compact.
-- [LSIF Index for TypeScript](https://github.com/microsoft/lsif-typescript) - A tool that generates LSIF for TypeScript. The README provides instructions for using the tool.
-- [Visual Studio Code extension for LSIF](https://github.com/microsoft/vscode-lsif-extension) - An extension for VS Code that provides language comprehension features using an LSIF JSON dump. If you implement a new LSIF generator, you can use this extension to validate it with arbitrary source code.
+- The [LSIF specification](https://github.com/Microsoft/language-server-protocol/blob/master/indexFormat/specification.md) - The document also describes some additional optimizations that have been done to keep the emitted data compact.
+- [LSIF Index for TypeScript](https://github.com/Microsoft/lsif-typescript) - A tool that generates LSIF for TypeScript. The README provides instructions for using the tool.
+- [Visual Studio Code extension for LSIF](https://github.com/Microsoft/vscode-lsif-extension) - An extension for VS Code that provides language comprehension features using an LSIF JSON dump. If you implement a new LSIF generator, you can use this extension to validate it with arbitrary source code.

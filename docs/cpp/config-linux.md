@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: cpp
 TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
@@ -13,7 +13,7 @@ In this tutorial, you will configure Visual Studio Code to use the GCC C++ compi
 
 After configuring VS Code, you will compile and debug a simple C++ program in VS Code. This tutorial does not teach you GCC, GDB, Ubuntu or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -152,7 +152,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 }
 ```
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is g++.
 The `args` array specifies the command-line arguments that will be passed to g++. These arguments must be specified in the order expected by the compiler.
@@ -171,7 +171,7 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
    ![G++ build output in terminal](images/wsl/wsl-task-in-terminal.png)
 
-1. Create a new terminal using the **+** button and you'll have a terminal running your default shell with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` (no file extension).
+1. Create a new terminal using the **+** button and you'll have a bash terminal running in the context of WSL with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` (no file extension).
 
     ![WSL bash terminal](images/wsl/wsl-bash-terminal.png)
 
@@ -294,7 +294,7 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
-![IntelliSense configuration window](images/wsl/intellisense-configurations-wsl.png)
+![Intellisense configuration window](images/wsl/intellisense-configurations-wsl.png)
 
 You only need to modify the **Include path** setting if your program includes header files that are not in your workspace or in the standard library path.
 

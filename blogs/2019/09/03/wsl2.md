@@ -60,7 +60,7 @@ Add in the Remote - WSL extension in Visual Studio Code and you have the best of
 
 ## Further reading
 
-To help you set up VS Code with WSL, there is a [Working in WSL tutorial](https://code.visualstudio.com/docs/remote/wsl-tutorial). If you want to learn more about VS Code Remote and how it can also work over SSH and inside Docker containers, see the full VS Code [Remote Development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
+To help you set up VS Code with WSL, there is a step-by-step [Working in WSL tutorial](https://code.visualstudio.com/remote-tutorials/wsl/getting-started). If you want to learn more about VS Code Remote and how it can also work over SSH and inside Docker containers, see the full VS Code [Remote Development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
 
 Happy Remote Coding,
 

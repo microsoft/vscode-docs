@@ -59,7 +59,7 @@ You may see a dialog saying "Developer Tools Access needs to take control of ano
 
 If you get this prompt, you will have to enter your username and password to allow debugging.
 
-If you want to permanently dismiss this prompt, you can run the following command in a terminal:
+If you wish to permanently dismiss this prompt, you can run the following command in a terminal:
 
 ```bash
 sudo DevToolsSecurity --enable
@@ -69,7 +69,7 @@ sudo DevToolsSecurity --enable
 
 ### Using an LLDB.framework not installed via XCode
 
-If you want to use an LLDB.framework that is not installed with XCode, you need to:
+If you wish to use an LLDB.framework that is not installed with XCode, you need to:
 
 1. Copy the `lldb-mi` executable in `~/.vscode/extensions/ms.vscode-cpptools-<version>/debugAdapters/lldb-mi/bin` to the folder where the `LLDB.framework` is located.
 

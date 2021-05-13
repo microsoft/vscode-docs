@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -18,7 +18,6 @@ The following predefined variables are supported:
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
-- **${fileWorkspaceFolder}** - the current opened file's workspace folder
 - **${relativeFile}** - the current opened file relative to `workspaceFolder`
 - **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
@@ -30,7 +29,6 @@ The following predefined variables are supported:
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
 - **${defaultBuildTask}** - the name of the default build task
-- **${pathSeparator}** - the character used by the operating system to separate components in file paths
 
 ### Predefined variables examples
 
@@ -44,7 +42,6 @@ So you will have the following values for each variable:
 - **${workspaceFolder}** - `/home/your-username/your-project`
 - **${workspaceFolderBasename}** - `your-project`
 - **${file}** - `/home/your-username/your-project/folder/file.ext`
-- **${fileWorkspaceFolder}** - `/home/your-username/your-project`
 - **${relativeFile}** - `folder/file.ext`
 - **${relativeFileDirname}** - `folder`
 - **${fileBasename}** - `file.ext`
@@ -54,7 +51,6 @@ So you will have the following values for each variable:
 - **${lineNumber}** - line number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
-- **${pathSeparator}** - `/` on macOS or linux, `\\` on Windows
 
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
@@ -87,7 +83,7 @@ You can reference VS Code settings ("configurations") through **${config:Name}**
 
 If the predefined variables from above are not sufficient, you can use any VS Code command as a variable through the **${command:commandID}** syntax.
 
-A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API. If the command returns anything other than a string, then the variable replacement will not complete. Command variables **must** return a string.
+A command variable is replaced with the (string) result from the command evaluation. The implementation of a command can range from a simple calculation with no UI, to some sophisticated functionality based on the UI features available via VS Code's extension API.
 
 An example of this functionality is in VS Code's Node.js debugger extension, which provides an interactive command `extension.pickNodeProcess` for selecting a single process from the list of all running Node.js processes. The command returns the process ID of the selected process. This makes it possible to use the `extension.pickNodeProcess` command in an **Attach by Process ID** launch configuration in the following way:
 
@@ -110,7 +106,7 @@ Command variables are already powerful but they lack a mechanism to configure th
 
 This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
 
-The following example shows the overall structure of a `tasks.json` that makes use of input variables:
+The following example shows the overall structure of a `task.json` that makes use of input variables:
 
 ```json
 {
@@ -269,10 +265,6 @@ Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)
 ### Why isn't ${workspaceRoot} documented?
 
 The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
-
-### Why aren't variables in tasks.json being resolved?
-
-Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
 
 ### How can I know a variable's actual value?
 

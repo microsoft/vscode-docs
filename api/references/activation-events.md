@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -23,7 +23,6 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`*`](/api/references/activation-events#Start-up)
-- [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -173,24 +172,12 @@ will cause the extension to be activated when VS Code needs to restore a custom 
 
 ## Start up
 
-The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
 ...
 "activationEvents": [
     "*"
-]
-...
-```
-
-## onStartupFinished
-
-This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup.
-
-```json
-...
-"activationEvents": [
-    "onStartupFinished"
 ]
 ...
 ```

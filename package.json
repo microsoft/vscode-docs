@@ -6,23 +6,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/vscode-docs.git"
+    "url": "https://github.com/Microsoft/vscode-docs.git"
   },
   "scripts": {
     "check-lfs": "node ./build/check-lfs.js"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "husky": "^4.0.0",
-    "lint-staged": "^10.0.0",
+    "gulp": "^3.9.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
     "shelljs": "^0.7.8"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
+    "*.{gif,mp4,jpg,png}": [
       "yarn check-lfs"
     ]
-  },
-  "resolutions": {
-    "hosted-git-info": "^3.0.8"
   }
 }

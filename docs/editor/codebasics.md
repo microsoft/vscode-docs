@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -74,11 +74,7 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
-
-### Column Selection mode
-
-The user setting **Editor: Column Selection** controls this feature. Once this mode is entered, as indicated in the Status bar, the mouse gestures and the arrow keys will create a column selection by default. This global toggle is also accessible via the **Selection** > **Column Selection Mode** menu item. In addition, one can also disable Column Selection mode from the Status bar.
+You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
 ## Save / Auto Save
 
@@ -107,9 +103,9 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 
 If something happens to go wrong with hot exit, all backups are stored in the following folders for standard install locations:
 
-* **Windows** `%APPDATA%\Code\Backups`
-* **macOS** `$HOME/Library/Application Support/Code/Backups`
-* **Linux** `$HOME/.config/Code/Backups`
+- **Windows** `%APPDATA%\Code\Backups`
+- **macOS** `$HOME/Library/Application Support/Code/Backups`
+- **Linux** `$HOME/.config/Code/Backups`
 
 ## Find and Replace
 
@@ -167,21 +163,20 @@ You can configure advanced search options by clicking the ellipsis (**Toggle Sea
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
-In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use glob syntax:
+In the input box below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `!` to exclude those patterns from the search. `!example` will skip searching any folder or file named `example`. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use glob syntax:
 
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
 * `{}` to group conditions (for example `{**/*.html,**/*.txt}` matches all HTML and text files)
-* `[]` to **declare** a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
+* `[]` to declare a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
-
-Note that glob patterns in the search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the search view, the `**` prefix is assumed.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+
 
 ### Search and replace
 
@@ -278,7 +273,7 @@ Perl5|`#region` or `=pod`|`#endregion` or `=cut`
 PHP|`#region`|`#endregion`
 PowerShell|`#region`|`#endregion`
 Python|`#region` or `# region`|`#endregion` or `# endregion`
-TypeScript/JavaScript|`//#region` |`//#endregion`
+TypeScript/JavaScript|`//#region` or `//region`|`//#endregion` or `//endregion`
 Visual Basic|`#Region`|`#End Region`
 
 To fold and unfold only the regions defined by markers use:
@@ -301,7 +296,7 @@ VS Code analyzes your open file and determines the indentation used in the docum
 
 ![auto detect indentation](images/codebasics/indentation-detection.png)
 
-You can click on the Status Bar indentation display to bring up a dropdown with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 

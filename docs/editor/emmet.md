@@ -4,16 +4,16 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
 
-Support for [Emmet](https://emmet.io/) snippets and expansion is built right into Visual Studio Code, **no extension required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Emmet support is built right into Visual Studio Code, **no extension is required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
 ## How to expand Emmet abbreviations and snippets
 
-Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `pug`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files, as well as any language that inherits from any of the above like `handlebars` and `php`.
+Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `pug`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files. As well as any language that inherits from any of the above like `handlebars` and `php`.
 
 ![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 
@@ -54,13 +54,14 @@ To ensure Emmet suggestions are always on top in the suggestion list, add the fo
 
 ## Emmet abbreviations in other file types
 
-To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping, with the right side being the language identifier of an Emmet supported language (see the list above).
+To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping.
 
 For example:
 
 ```json
 "emmet.includeLanguages": {
     "javascript": "javascriptreact",
+    "vue-html": "html",
     "razor": "html",
     "plaintext": "pug"
 }
@@ -79,6 +80,29 @@ Emmet has no knowledge of these new languages, and so there might be Emmet sugge
 You can use most of the Emmet actions with multi-cursors as well:
 
 ![Emmet with multi cursors](images/emmet/emmet-multi-cursor.gif)
+
+## Include vendor prefixes
+
+Prefix your CSS abbreviations with `-` to get all applicable vendor prefixes included in the expanded abbreviation.
+
+![Vendor prefix in emmet](images/emmet/emmet-vendor-prefix.gif)
+
+Below are a few examples of how you can control which vendors get applied to which CSS property by updating the `emmet.preferences` setting:
+
+```json
+{
+    "emmet.preferences": {
+        "css.webkitProperties": "border-right,animation",
+        "css.mozProperties": "",
+        "css.oProperties": null,
+        "css.msProperties": null
+    }
+}
+```
+
+- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to those CSS properties.
+- Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
+- Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
 
 ## Using filters
 
@@ -184,7 +208,7 @@ HTML custom snippets are applicable to all other markup flavors like `haml` or `
 
 For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `pug` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html` files.
 
-If you want a snippet for plain text, then surround the text with `{}`.
+If you want a snippet for plain text, then surround the text with the `{}`.
 
 ### CSS Emmet snippets
 
@@ -193,6 +217,8 @@ Values for CSS Emmet snippets should be a complete property name and value pair.
 CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on whether the language requires it.
 
 Do not use `:` in the snippet name. `:` is used to separate property name and value when Emmet tries to fuzzy match the abbreviation to one of the snippets.
+
+> Note: After making changes to the `snippets.json` file, remember to reload VS Code for it to take effect.
 
 ### Tab stops and cursors in custom snippets
 
@@ -207,13 +233,14 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.includeLanguages`
 
-    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language ids for both sides of the mapping.
+    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter.
+    Make sure to use language ids for both sides of the mapping.
 
     For example:
-
     ```json
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
+        "vue-html": "html",
         "plaintext": "pug"
     }
     ```
@@ -302,7 +329,11 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `filter.commentAfter`
     - `format.noIndentTags`
     - `format.forceIndentationForTags`
-    - `profile.allowCompactBoolean`
+    - `profile.allowCompactBoolean`,
+    - `css.webkitProperties`
+    - `css.mozProperties`
+    - `css.msProperties`
+    - `css.oProperties`
     - `css.fuzzySearchMinScore`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
@@ -323,7 +354,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     }
     ```
 
-    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/microsoft/vscode/issues/new).
+    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new).
 
 ## Next steps
 

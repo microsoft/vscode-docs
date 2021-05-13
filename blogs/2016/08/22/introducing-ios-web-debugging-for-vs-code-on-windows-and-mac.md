@@ -13,7 +13,7 @@ August 24, 2016 by [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
 ## Update
 
-The [iOS Web debugger](https://github.com/microsoft/vscode-ios-web-debug) has been deprecated and we now recommend that you use the [RemoteDebug iOS WebKit Adapter](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) together with Visual Studio Code. To learn more, see this introductory [guide](https://medium.com/@auchenberg/hello-remotedebug-ios-webkit-adapter-debug-safari-and-ios-webviews-from-anywhere-2a8553df7465) to the RemoteDebug iOS WebKit Adapter.
+The [iOS Web debugger](https://github.com/Microsoft/vscode-ios-web-debug) has been deprecated and we now recommend that you use the [RemoteDebug iOS WebKit Adapter](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) together with Visual Studio Code. To learn more, see this introductory [guide](https://medium.com/@auchenberg/hello-remotedebug-ios-webkit-adapter-debug-safari-and-ios-webviews-from-anywhere-2a8553df7465) to the RemoteDebug iOS WebKit Adapter.
 
 ## Introduction
 
@@ -21,7 +21,7 @@ Debugging websites running on iOS devices is accessible only to a subset of deve
 
 ![Demo](ios-debugger-splash.png)
 
-Our new iOS Web Debugger works quite similar to our Chrome debugger which we [introduced back in February](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code). Under the hood, it’s the same debugger running inside VS Code, which is powered by our open-source [vscode-chrome-debug-core](https://github.com/microsoft/vscode-chrome-debug-core) library. To make the connection from our debugging library to the iOS device, we are leveraging two open-source projects, [ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy) and [ios-webkit-debug-proxy-win32](https://github.com/artygus/ios-webkit-debug-proxy-win32), that enables communication with the iOS devices over USB through the WebKit Remote Debugging Protocol. The protocol is compatible with the Chrome Debugging Protocol for the script debugging APIs, and this means our debugger works without additional mapping logic.
+Our new iOS Web Debugger works quite similar to our Chrome debugger which we [introduced back in February](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code). Under the hood, it’s the same debugger running inside VS Code, which is powered by our open-source [vscode-chrome-debug-core](https://github.com/Microsoft/vscode-chrome-debug-core) library. To make the connection from our debugging library to the iOS device, we are leveraging two open-source projects, [ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy) and [ios-webkit-debug-proxy-win32](https://github.com/artygus/ios-webkit-debug-proxy-win32), that enables communication with the iOS devices over USB through the WebKit Remote Debugging Protocol. The protocol is compatible with the Chrome Debugging Protocol for the script debugging APIs, and this means our debugger works without additional mapping logic.
 
 ## Enabling easy local development through emulated port forwarding
 
@@ -33,7 +33,7 @@ So we found a way to emulate port forwarding by adding the option to start an in
 
 ## Getting started
 
-To get started, open the **Extensions** view (`kb(workbench.view.extensions)`). When the extension list appears, type "ios" to filter the list and install the Debugger for iOS Web extension. You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/microsoft/vscode-ios-web-debug).
+To get started, open the **Extensions** view (`kb(workbench.view.extensions)`). When the extension list appears, type "ios" to filter the list and install the Debugger for iOS Web extension. You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-ios-web-debug).
 
 ## Supported features
 
@@ -52,7 +52,7 @@ In this release, we support the following features:
 
 Our new iOS Web Debugger is a **public experiment** and this means we are releasing it to the public to find out if **integrated script debugging for iOS** are valuable for developers, so please let us know what you think.
 
-If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or on [GitHub](https://github.com/microsoft/vscode-ios-web-debug).
+If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or on [GitHub](https://github.com/Microsoft/vscode-ios-web-debug).
 
 –
 

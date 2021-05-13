@@ -88,9 +88,9 @@ Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdor
 
 ## Share your thoughts on the new Emmet
 
-Do you miss any features of the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/microsoft/vscode/issues) and we will do our best to help you out.
+Do you miss any features of the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will do our best to help you out.
 
-It is also easier than ever to contribute to Emmet in VS Code as it is now an extension. The [emmet folder](https://github.com/microsoft/vscode/tree/main/extensions/emmet) in the VS Code GitHub repo has all the source code you need to get started.
+It is also easier than ever to contribute to Emmet in VS Code as it is now an extension. The [emmet folder](https://github.com/Microsoft/vscode/tree/master/extensions/emmet) in the VS Code GitHub repo has all the source code you need to get started.
 
 Happy Coding!
 

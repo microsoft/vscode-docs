@@ -1,6 +1,6 @@
 ---
 ContentId: f00c4913-58e3-4a61-aa42-e769c3430906
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to migrating extension projects from the TSLint linter to ESLint.
@@ -57,7 +57,7 @@ Congratulations. You should now have a working ESLint setup and it's time to cle
 
 The removal of TSLint depends on your project, but usually these are the steps:
 
-* Update `.vscode/extensions.json` to recommend the ESLint extension and not TSLint anymore:
+* Update `vscode/extensions.json` to recommend the ESLint extension and not TSLint anymore:
 
   ```json
   "recommendations": [

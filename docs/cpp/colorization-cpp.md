@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 9
 Area: cpp
 TOCTitle: Enhanced colorization
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
@@ -19,7 +19,9 @@ The Visual Studio Code C/C++ extension now supports semantic colorization, when 
 
 Colors can be associated using the existing support for theming and color customization in VS Code.  See the [VS Code Themes documentation](/docs/getstarted/themes.md) for more information.
 
-Colors are associated with [semantic tokens](https://code.visualstudio.com/api/extension-guides/color-theme#semantic-colors) as well as [TextMate scopes](https://macromates.com/manual/en/language_grammars#naming_conventions).
+Colors are associated with [TextMate scopes](https://macromates.com/manual/en/language_grammars#naming_conventions).
+
+Many of the tokens recognized by IntelliSense do not directly map to existing scopes in VS Code's default C/C++ TextMate grammar, so are likely not colored by existing VS Code themes.
 
 ### C/C++ Themes Extension
 
@@ -27,61 +29,67 @@ We've created a set of VS Code themes that closely resemble the default Light an
 
 ## IntelliSense Tokens and Scopes
 
-| Token | Semantic Token name | Fallback TextMate Scope |
-| ------------- |:-------------:|:-------------:|
-| Class Template | templateType | entity.name.type.class.templated |
-| Enumerator | enumMember | variable.other.enummember |
-| Event (C++/CLI) | event | variable.other.event |
-| Function | function | entity.name.function |
-| Function Template | templateFunction | entity.name.function.templated |
-| Generic Type (C++/CLI) | genericType | entity.name.type.class.generic |
-| Global Variable | variable.global | variable.other.global |
-| Label | label | entity.name.label |
-| Local Variable | variable.local | variable.other.local |
-| Macro | macro | entity.name.function.preprocessor |
-| Member Field | property | variable.other.property |
-| Member Function | member | entity.name.function.member |
-| Namespace | namespace | entity.name.namespace |
-| New / Delete | newOperator | keyword.operator.new |
-| Operator Overload Function | operatorOverload | entity.name.function.operator |
-| Operator Overload Member | memberOperatorOverload | entity.name.function.operator.member |
-| Parameter | parameter | variable.parameter |
-| Property (C++/CLI) | cliProperty | variable.other.property.cli |
-| Reference Type (C++/CLI) | referenceType | entity.name.type.class.reference |
-| Static Member Field | property.static | variable.other.property.static |
-| Static Member Function | member.static | entity.name.function.member.static |
-| Type | type | entity.name.type |
-| User-Defined Literal - Number | numberLiteral | entity.name.operator.custom-literal.number |
-| User-Defined Literal - Raw | customLiteral | entity.name.operator.custom-literal |
-| User-Defined Literal - String | stringLiteral | entity.name.operator.custom-literal.string |
-| Value Type (C++/CLI) | valueType | entity.name.type.class.value |
+| Token         | Scope         |
+| ------------- |:-------------:|
+| Class Template | entity.name.type.class.templated |
+| Enumerator | variable.other.enummember |
+| Event  (C++/CLI) | variable.other.event |
+| Function | entity.name.function |
+| Function Template | entity.name.function.templated |
+| Generic Type (C++/CLI) | entity.name.type.class.generic |
+| Global Variable | variable.other.global |
+| Label | entity.name.label |
+| Local Variable | variable.other.local |
+| Macro | entity.name.function.preprocessor |
+| Member Field  | variable.other.property |
+| Member Function | entity.name.function.member |
+| Namespace | entity.name.namespace |
+| New / Delete | keyword.operator.new |
+| Operator Overload Function | entity.name.function.operator |
+| Operator Overload Member | entity.name.function.operator.member |
+| Parameter | variable.parameter |
+| Property (C++/CLI) | variable.other.property.cli |
+| Reference Type (C++/CLI) | entity.name.type.class.reference |
+| Static Member Field | variable.other.property.static |
+| Static Member Function | entity.name.function.member.static |
+| Type | entity.name.type |
+| User-Defined Literal - Number | entity.name.operator.custom-literal.number |
+| User-Defined Literal - Raw | entity.name.operator.custom-literal |
+| User-Defined Literal - String | entity.name.operator.custom-literal.string |
+| Value Type (C++/CLI) | entity.name.type.class.value |
 
 ## Customizing Colors in Settings
 
 Colors can also be overridden globally, in settings:
 
 ```json
-    "editor.semanticTokenColorCustomizations": {
-        "rules": {
-            "templateType": {
-                "foreground": "#ff0000",
-                "fontStyle": "italic bold underline"
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "entity.name.type",
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "italic bold underline"
+                }
             }
-        }
+        ]
     }
 ```
 
 Or, overridden on a per-theme basis:
 
 ```json
-    "editor.semanticTokenColorCustomizations": {
+    "editor.tokenColorCustomizations": {
         "[Visual Studio Dark]": {
-            "rules": {
-                "templateType": {
-                    "foreground": "#ff0000",
-                    "fontStyle": "italic bold underline"
+            "textMateRules": [
+                {
+                    "scope": "entity.name.type",
+                    "settings": {
+                        "foreground": "#FF0000",
+                        "fontStyle": "italic bold underline"
+                    }
                 }
-            }
+            ]
         }
     }
 ```

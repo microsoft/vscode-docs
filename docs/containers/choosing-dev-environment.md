@@ -68,7 +68,7 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 
 ![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 
-> To use WSL 2 for Docker development you will need Windows 10 version 2004 or newer, and Docker Desktop for Windows version 2.2.0.5 or newer.
+> As of November 2019, WSL 2 is part of Windows Insider builds. To try out the new Docker engine you will need Windows Insider build 19018 or newer, and the [Docker Desktop for Windows Edge release 2.1.6.1 or newer](https://docs.docker.com/docker-for-windows/edge-release-notes/)
 >
 > The old version of WSL (WSL 1) does not provide an easy way to connect to the Docker daemon on the host.
 
@@ -76,11 +76,9 @@ Windows Subsystem for Linux represents a great choice for container-based servic
 
 The recommended way to enable container development with a remote machine is to do [a full Docker installation](https://docs.docker.com/install/) on the machine, including Docker daemon.
 
->**Note**: Docker Desktop product is supported only on physical Windows and macOS machines, not virtual machines. If you want to use a virtual machine as a remote development environment, we recommend to use a Linux VM with [Docker Engine](https://docs.docker.com/engine/).
-
 After Docker is installed and working on the remote machine, you can use VS Code's [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension from the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack to connect to your remote machine and work there.
 
-1. Open VS Code Command Palette (`kb(workbench.action.showCommands)`) and run command **Remote-SSH: Add new SSH host...**. Follow the prompts to set up a connection to the target host.
+1. Run command **Remote-SSH: Add new SSH host...** and follow the prompts to set up a connection to the target host.
 
 1. Run command **Remote-SSH: Connect to host...** and connect to the host.
 
@@ -92,11 +90,11 @@ After Docker is installed and working on the remote machine, you can use VS Code
 
 >**NOTE**: If you are using the Docker extension to build Docker images and have source code, the approach above probably means you have your source enlistment on the remote host, rather than on your developer workstation. If you are just using the Docker extension for the Docker Explorer features, then you can disregard this.
 
-### Local Linux VM
+### Local VM
 
-To use a Linux virtual machine running on your developer workstation, you should [install Docker](https://docs.docker.com/install/) on the VM in the same way as you would install it on a remote machine, and use the [VS Code Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to the VM.
+To use a virtual machine running on your developer workstation, you need to enable **nested virtualization** option in your virtualization software. Nested virtualization is supported by all mainstream virtualization technologies such as [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization), [Parallels](https://kb.parallels.com/116239), or [Oracle VirtualBox](https://docs.oracle.com/en/virtualization/virtualbox/6.0/admin/nested-virt.html). Then you can [install Docker](https://docs.docker.com/install/) in the same way as you would install it on a remote machine.
 
-Alternatively, you can install just the Docker CLI inside your development environment and point the CLI to the Docker host (engine) running on the developer workstation using the [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker engine on the host, and to do so in a secure way. One option is to use [SSH tunneling](/docs/containers/ssh.md) to the developer workstation. Another option is to [have the Docker engine listen on an HTTPS port](https://docs.docker.com/engine/security/https/). You need to be proficient with SSH and public-key infrastructure (PKI) to use the host Docker engine from the Docker CLI running inside the VM. For most users, we recommend full Docker installation inside the virtual machine.
+Alternatively, you can install just the Docker CLI inside your development environment and point the CLI to the Docker host (daemon) running on the developer workstation using [Docker context mechanism](https://docs.docker.com/engine/context/working-with-contexts/). The main concern with this approach is to ensure network connectivity from the VM to the Docker daemon on the host, and to do so in a secure way. One option is to use [SSH tunneling](/docs/containers/ssh.md) to the developer workstation. Another option is to [make Docker daemon listen on HTTPS port](https://docs.docker.com/engine/security/https/).
 
 ## Debugging in a container
 
@@ -104,7 +102,7 @@ The Docker extension supports debugging .NET Core-based and Node.js-based servic
 
 Debugging in a container may be harder to set up than regular debugging because a container is a stronger isolation mechanism than a process. In particular:
 
-- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET Core).
+- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In case of a service running inside a container this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET Core).
 - Source file information generated during build time is valid in the context of the build environment (where VS Code is running). The container filesystem is different from the build environment filesystem, and paths to source files need to be re-mapped in order for the debugger to display correct source file when a breakpoint is hit.
 
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.

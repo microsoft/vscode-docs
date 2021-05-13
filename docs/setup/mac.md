@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -21,19 +21,16 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 
 You can also run VS Code from the terminal by typing 'code' after adding it to the path:
 
-* Launch VS Code.
-* Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
+- Launch VS Code.
+- Open the **Command Palette** (`kbstyle(F1)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
 
 ![macOS shell commands](images/mac/shell-command.png)
 
-* Restart the terminal for the new `$PATH` value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.
+- Restart the terminal for the new `$PATH` value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.
 
 >**Note:** If you still have the old `code` alias in your `.bash_profile` (or equivalent) from an early VS Code version, remove it and replace it by executing the **Shell Command: Install 'code' command in PATH** command.
 
-### Alternative manual instructions
-
-Instead of running the command above, you can manually add VS Code to your path,
-to do so run the following commands:
+To manually add VS Code to your path, you can run the following commands:
 
 ```bash
 cat << EOF >> ~/.bash_profile
@@ -45,15 +42,6 @@ EOF
 Start a new terminal to pick up your `.bash_profile` changes.
 
 **Note**: The leading slash `\` is required to prevent `$PATH` from expanding during the concatenation. Remove the leading slash if you want to run the export command directly in a terminal.
-
-**Note**: Since `zsh` became the default shell in macOS Catalina, run the following commands to add VS Code to your path:
-
-```zsh
-cat << EOF >> ~/.zprofile
-# Add Visual Studio Code (code)
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-EOF
-```
 
 ## Touch Bar support
 
@@ -73,9 +61,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Preferences menu
 
-You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md), and [custom keybindings](/docs/getstarted/keybindings.md) available through the **Code** > **Preferences** menu group.
-
-You may see mention of **File** > **Preferences** in documentation, which is the **Preferences** menu group location on Windows and Linux. On a macOS, the **Preferences** menu group is under **Code**, not **File**.
+You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md), and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention of the **File** > **Preferences** menu group.  On a macOS, the **Preferences** menu group is under **Code**, not **File**.
 
 ## Next steps
 
@@ -94,7 +80,3 @@ If you are running macOS Mojave version, you may see dialogs saying "Visual Stud
 ### VS Code fails to update
 
 If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.
-
-### Does VS Code run on Mac M1 machines?
-
-Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple M1 chip. You can install the Universal build, which includes both Intel and Apple Silicon builds, or one of the platform specific builds.

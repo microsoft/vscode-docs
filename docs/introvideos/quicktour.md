@@ -28,7 +28,7 @@ This tutorial gives you an overview of the core features of Visual Studio Code, 
 * [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [JavaScript IntelliSense](/docs/languages/javascript.md#intellisense) - Define a JavaScript project with `jsconfig.json` to get IntelliSense across files.
 * [Debugging](/docs/editor/debugging.md) - Official documentation for VS Code debugging.
-* [Extension Marketplace](/docs/editor/extension-marketplace.md) - Find and install new extensions.
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Find and install new extensions.
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Use the Integrated Terminal inside VS Code.
 
 ## Next video

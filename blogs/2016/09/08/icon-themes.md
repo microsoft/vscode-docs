@@ -18,11 +18,11 @@ These words all describe the first time we added icons to the File Explorer tree
 
 When we started work on the "Monaco" editor, icons in the Explorer didn't make the cut for a lightweight editor. The team loved the simple, clean look of an icon-less tree. To us, icons felt heavy and provided little value. We worried about maintaining 100+ icons and keeping them in sync with the Visual Studio IDE. We left in the icon implementation in case we changed our minds in the future, but we never turned it on.
 
-Fast forward to February 2016. [PR 3200](https://github.com/microsoft/vscode/pull/3200) forced us to have the discussion again, but given our "1.0" deliverables and other feature requests (such as Tabs), we had to push out the conversation.
+Fast forward to February 2016. [PR 3200](https://github.com/Microsoft/vscode/pull/3200) forced us to have the discussion again, but given our "1.0" deliverables and other feature requests (such as Tabs), we had to push out the conversation.
 
-As we planned the August 2016 release, many of the [top feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request) had been addressed and support for icons bubbled to the top:
+As we planned the August 2016 release, many of the [top feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request) had been addressed and support for icons bubbled to the top:
 
-* Over [200 thumbs up on GitHub](https://github.com/microsoft/vscode/issues/211).
+* Over [200 thumbs up on GitHub](https://github.com/Microsoft/vscode/issues/211).
 * Number 9 with almost 2500 votes on the [recently retired](https://code.visualstudio.com/blogs/2016/08/19/goodbyeuservoice) User Voice list.
 * With over 200K downloads, 170 reviews, and a 5 star rating, [Roberto Huertas](https://github.com/robertohuertasm)' [vscode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons) extension had become the 5th most popular extension in the Marketplace.
 
@@ -62,7 +62,7 @@ Most of the team now runs on the Seti icons so we decided to include them in the
 
 ## Create your own Icon Theme
 
-It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/microsoft/vscode/issues/10804) and the ["Adding a new Icon Theme"](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in the VS Code docs. Looking ahead, we will continue to fill out the API based on your feedback.
+It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and the ["Adding a new Icon Theme"](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in the VS Code docs. Looking ahead, we will continue to fill out the API based on your feedback.
 
 Thanks again for all of your feedback and thanks to Roberto for building a popular extension and helping us deliver great APIs.
 

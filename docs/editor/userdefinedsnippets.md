@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -17,27 +17,21 @@ The snippet syntax follows the [TextMate snippet syntax](https://manual.macromat
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
-## Built-in snippets
-
-VS Code has built-in snippets for a number of languages such as: JavaScript, TypeScript, Markdown, and PHP.
-
-![builtin javascript snippet](images/userdefinedsnippets/builtin-javascript-snippets.png)
-
-You can see the available snippets for a language by running the **Insert Snippet** command in the Command Palette to get a list of the snippets for the language of the current file. However, keep in mind that this list also includes user snippets that you have defined, and any snippets provided by extensions you have installed.
-
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/editor/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [Extension Marketplace](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
 
-![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
+Below are some popular extensions that include snippets in their language support:
 
-If you find an extension you want to use, install it, then restart VS Code and the new snippets will be available.
+<div class="marketplace-extensions-snippets"></div>
+
+> **Tip**: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Create your own snippets
 
 You can easily define your own snippets without any extension. To create or edit your own snippets, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
 
-![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
+![snippet drop-down](images/userdefinedsnippets/snippet-dropdown.png)
 
 Snippets files are written in JSON, support C-style comments, and can define an unlimited number of snippets. Snippets support most TextMate syntax for dynamic behavior, intelligently format whitespace based on the insertion context, and allow easy multiline editing.
 
@@ -125,10 +119,8 @@ The following variables can be used:
 * `TM_FILENAME_BASE` The filename of the current document without its extensions
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
-* `RELATIVE_FILEPATH` The relative (to the opened workspace or folder) file path of the current document
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
-* `WORKSPACE_FOLDER` The path of the opened workspace or folder
 
 For inserting the current date and time:
 
@@ -144,12 +136,6 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
-
-For inserting random values:
-
-* `RANDOM` 6 random Base-10 digits
-* `RANDOM_HEX` 6 random Base-16 digits
-* `UUID` A Version 4 UUID
 
 For inserting line or block comments, honoring the current language:
 
@@ -227,7 +213,7 @@ variable    ::= '$' var | '${' var '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
-                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/pascalcase' '}'
+                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
                 | '${' int ':+' if '}'
                 | '${' int ':?' if ':' else '}'
                 | '${' int ':-' else '}' | '${' int ':' else '}'
@@ -284,29 +270,3 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
 You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
-
-### How do I have a snippet place a variable in the pasted script?
-
-To have a variable in the pasted script, you need to escape the '$' of the `$variable` name so that it isn't parsed by the snippet expansion phase.
-
-```json
-"VariableSnippet":{
-    "prefix": "_Var",
-    "body": "\\$MyVar = 2",
-    "description": "A basic snippet that places a variable into script with the $ prefix"
-  }
-```
-
-This results in the pasted snippet as:
-
-```text
-$MyVar = 2
-```
-
-### Can I remove snippets from IntelliSense?
-
-Yes, you can hide specific snippets from showing in IntelliSense (completion list) by selecting the **Hide from IntelliSense** button to the right of snippet items in the **Insert Snippet** command dropdown.
-
- ![Hide from IntelliSense button in Insert Snippet dropdown](images/userdefinedsnippets/hide-from-intellisense.png)
-
- You can still select the snippet with the **Insert Snippet** command but the hidden snippet won't be displayed in IntelliSense.

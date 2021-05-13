@@ -56,7 +56,7 @@ Watch a video tutorial for further C# setup help on [Windows](https://channel9.m
    * Enter the following command in the command shell:
 
    ```cmd
-   dotnet new console -lang "F#"
+   dotnet new console -lang F#
    ```
 
 2. Once it completes, open the project in Visual Studio Code:

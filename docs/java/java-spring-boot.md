@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
 PageTitle: Spring Boot support in Visual Studio Code
-DateApproved: 4/14/2021
+DateApproved: 1/2/2019
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
 
@@ -24,13 +24,11 @@ If you run into any issues when using the features below, you can contact us by 
 
 A working Java environment with essential extensions installed is needed, including:
 
-* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/), version 11 or later.
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
 * [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
 For more details, please refer to [Java Tutorial](/docs/java/java-tutorial.md#before-you-begin)
-
->**Note**: More information about JDK can be found at [supported Java versions](/docs/java/java-tutorial.md#supported-java-versions).
 
 ## Create the project
 

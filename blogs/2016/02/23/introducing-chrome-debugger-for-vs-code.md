@@ -30,9 +30,9 @@ For now, Chrome needs to be started with remote debugging enabled, and only supp
 
 ## To get started
 
-To get started, open the **Extensions** view (`kb(workbench.view.extensions)`).  When the extension list appears, type 'chrome' to filter the list and install the `Debugger for Chrome` extension.  You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/microsoft/vscode-chrome-debug).
+To get started, open the **Extensions** view (`kb(workbench.view.extensions)`).  When the extension list appears, type 'chrome' to filter the list and install the `Debugger for Chrome` extension.  You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-chrome-debug).
 
-You can either setup VS Code to connect to an already running Chrome instance or simply start a new one with remote debugging enabled, but read more about that in our [README](https://github.com/microsoft/vscode-chrome-debug).
+You can either setup VS Code to connect to an already running Chrome instance or simply start a new one with remote debugging enabled, but read more about that in our [README](https://github.com/Microsoft/vscode-chrome-debug).
 
 ## Supported features
 
@@ -51,11 +51,11 @@ In this first release, we support the following features:
 
 We believe there’s much to be done for front-end developers, as building for the web in the recent years has become incredibly complex. With our Chrome debugger, we are taking the first step towards a simpler web development workflow, where browsers and tooling from different vendors are able to work together, and building for the web feels more integrated.
 
-We’ve released this extension on [GitHub](https://github.com/microsoft/vscode-chrome-debug) as an MIT licensed open-source project. It’s a work in progress, so see our issues page for known bugs – for example, we have a few issues around supporting all flavors of generated source maps.
+We’ve released this extension on [GitHub](https://github.com/Microsoft/vscode-chrome-debug) as an MIT licensed open-source project. It’s a work in progress, so see our issues page for known bugs – for example, we have a few issues around supporting all flavors of generated source maps.
 
 For now we support Google Chrome, but we’re also looking at expanding our support to [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge) and other browsers. We really want your feedback and help to build an even better debugging experience.
 
-If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or [GitHub](https://github.com/microsoft/vscode-chrome-debug/).
+If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or [GitHub](https://github.com/Microsoft/vscode-chrome-debug/).
 
 –
 

@@ -11,7 +11,7 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 
 Visual Studio Code provides many features as a Java language editor. You can also install VS Code extensions to add more features for Java development.
 
-> **Tip:** To learn how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-marketplace.md).
+> **Tip:** To see how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-gallery.md).
 
 Thanks to the great Java community around VS Code, you can search for a large number of Java extensions easily within VS Code:
 
@@ -28,7 +28,7 @@ To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](htt
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+5. [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
@@ -52,7 +52,7 @@ Here are a few useful extensions:
 2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
 3. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
 4. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
-5. [Extension Pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+5. [MicroProfile Extension Pack](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
 6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 7. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 8. [Java Linter](https://marketplace.visualstudio.com/items?itemName=faustinoaq.javac-linter)

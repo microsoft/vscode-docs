@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -84,7 +84,7 @@ There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <=
 
 ## Go to Symbol in file
 
-You can quickly navigate to the relevant CSS symbol in the current file by pressing `kb(workbench.action.gotoSymbol)`.
+You can quickly navigate to the relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
 
 ## Hovers
 
@@ -100,7 +100,7 @@ There is jump to definition for `@import` and `url()` links in CSS, SCSS and Les
 
 ## CSS custom data
 
-You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
+You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/Microsoft/vscode-css-languageservice/blob/master/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
@@ -335,4 +335,4 @@ Yes, color picker has been added in version [1.15](https://code.visualstudio.com
 
 ### Is there support for the indentation based Sass syntax (.sass)?
 
-No, but there are several extensions in the Marketplace supporting the indented flavor of Sass, for example, the [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented) extension originally created by Robin Bentley, now maintained by Leonard Grosoli.
+No, but there are several extensions in the Marketplace supporting the indented flavor of Sass, for example, the [sass-indented](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented) extension by Robin Bentley.

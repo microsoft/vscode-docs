@@ -25,7 +25,7 @@ Read on to get into the details...
 
 ## Languages - JavaScript
 
-**Please note**: If you have tested the [Salsa](https://github.com/microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk` setting, then please make sure to remove it. Otherwise you might be using an older version of TypeScript. When you have `typescript.tsdk` set, then the TypeScript version is shown in the bottom right of the Status Bar.
+**Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk` setting, then please make sure to remove it. Otherwise you might be using an older version of TypeScript. When you have `typescript.tsdk` set, then the TypeScript version is shown in the bottom right of the Status Bar.
 
 ### Documentation
 
@@ -49,7 +49,7 @@ Similarly when your JavaScript project is growing too large, often because of li
 
 ### Go To Symbol is back
 
-During the transition to Salsa, the support for **Go to Symbol** was lost ([TypeScript #7134](https://github.com/microsoft/TypeScript/issues/7134)) for some JavaScript coding patterns. Thanks to the TypeScript team this feature is now back.
+During the transition to Salsa, the support for **Go to Symbol** was lost ([TypeScript #7134](https://github.com/Microsoft/TypeScript/issues/7134)) for some JavaScript coding patterns. Thanks to the TypeScript team this feature is now back.
 
 ### No more "Reload JavaScript Project"
 
@@ -71,7 +71,7 @@ In the snippet, below you get no IntelliSense for `React`:
 import React from 'react-native';
 ```
 
-The issue is that the `react-native` typings do not define a `default` export. By adding the new [compiler option](https://github.com/microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#allow-captured-letconst-in-loops) `allowSyntheticDefaultImports` to the `jsconfig.json`, you tell the compiler to create synthetic default members and you get IntelliSense.
+The issue is that the `react-native` typings do not define a `default` export. By adding the new [compiler option](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#allow-captured-letconst-in-loops) `allowSyntheticDefaultImports` to the `jsconfig.json`, you tell the compiler to create synthetic default members and you get IntelliSense.
 
 In `jsconfig.json`:
 
@@ -87,7 +87,7 @@ This works since **React Native** is using `Babel` to create the run-time code w
 
 ### Support for mix & match of ES6 and CommonJS import/export
 
-Thanks to fix [microsoft/TypeScript#7249](https://github.com/microsoft/TypeScript/pull/7249) mixing & matching of ES6 and **CommonJS** import/export syntax across files is now supported.
+Thanks to fix [microsoft/TypeScript#7249](https://github.com/Microsoft/TypeScript/pull/7249) mixing & matching of ES6 and **CommonJS** import/export syntax across files is now supported.
 
 ### Formatting options
 
@@ -210,25 +210,23 @@ You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking
 
 ![](images/March/column-select-mouse.gif)
 
-We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you want.
+We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish.
 
 For example:
 
 ```json
-[
-    { "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
-                                    "when": "editorTextFocus" },
-    { "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
-                                    "when": "editorTextFocus" },
-    { "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
-                                    "when": "editorTextFocus" },
-    { "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
-                                    "when": "editorTextFocus" },
-    { "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
-                                    "when": "editorTextFocus" },
-    { "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
-                                    "when": "editorTextFocus" }
-]
+{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
+                                  "when": "editorTextFocus" }
 ```
 
 ### Source Code Folding Shortcuts
@@ -261,16 +259,14 @@ Visual Studio Code stops by default at the beginning of words when using `kbstyl
 For example:
 
 ```json
-[
-    { "key": "ctrl+right",       "command": "cursorWordStartRight",
-                                    "when": "editorTextFocus" },
-    { "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
-                                    "when": "editorTextFocus" },
-    { "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
-                                    "when": "editorTextFocus" },
-    { "key": "ctrl+delete",      "command": "deleteWordStartRight",
-                                    "when": "editorTextFocus" }
-]
+{ "key": "ctrl+right",       "command": "cursorWordStartRight",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+delete",      "command": "deleteWordStartRight",
+                                "when": "editorTextFocus" }
 ```
 
 ### Toggle Whitespace
@@ -332,7 +328,7 @@ Please note: The **Run** action is always available, but a debugger extension ha
 
 ### Improved thread handling
 
-Thanks to this [pull request](https://github.com/microsoft/vscode/pull/3990), VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
+Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
 
 ## Tasks
 
@@ -436,20 +432,20 @@ You can view the Insiders license at https://code.visualstudio.com/license/insid
 
 ## Notable Bug Fixes
 
-- [2116](https://github.com/microsoft/vscode/issues/2116): Inconsistent de-indentation behavior while closing html tags using Autocomplete
-- [2808](https://github.com/microsoft/vscode/issues/2808): Make it easier to add more file extensions to an existing colorizer/language
-- [2912](https://github.com/microsoft/vscode/issues/2912) Html code returned from a TextDocumentContentProvider can now embed JavaScript code.
+- [2116](https://github.com/Microsoft/vscode/issues/2116): Inconsistent de-indentation behavior while closing html tags using Autocomplete
+- [2808](https://github.com/Microsoft/vscode/issues/2808): Make it easier to add more file extensions to an existing colorizer/language
+- [2912](https://github.com/Microsoft/vscode/issues/2912) Html code returned from a TextDocumentContentProvider can now embed JavaScript code.
 
-Here are the [closed bugs](https://github.com/microsoft/vscode/issues?q=milestone%3A%22March+2016%22+is%3Aclosed) and the [closed feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22March+2016%22+is%3Aclosed+label%3Afeature-request) for the March update.
+Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=milestone%3A%22March+2016%22+is%3Aclosed) and the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22March+2016%22+is%3Aclosed+label%3Afeature-request) for the March update.
 
 ## Thank You
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [Joe Martella (@martellaj)](https://github.com/martellaj): Adds sort lines (ascending and descending) command [2796](https://github.com/microsoft/vscode/pull/2796).
-* [Ivan Enderlin (@Hywan)](https://github.com/Hywan): Improved PHP support [4323](https://github.com/microsoft/vscode/pull/4323) [4322](https://github.com/microsoft/vscode/pull/4322).
-- [Sanders Lauture (@golf1052)](https://github.com/golf1052): Fix markdown highlighting for C# [4225](https://github.com/microsoft/vscode/pull/4225).
-- [Phillip Johnsen (@phillipj)](https://github.com/phillipj): Multiple script enhancements  [3691](https://github.com/microsoft/vscode/pull/3691) [3649](https://github.com/microsoft/vscode/pull/3649) [3636](https://github.com/microsoft/vscode/pull/3636).
-- [Ed Muñoz (@edumunoz)](https://github.com/edumunoz): Support stop-all-threads mode debugging for multi-threaded debuggers [3990](https://github.com/microsoft/vscode/pull/3990).
-- [Pierson Lee (@pieandcakes)](https://github.com/pieandcakes): Added telemetry for debugging scenarios [3687](https://github.com/microsoft/vscode/pull/3687).
-- [Guillaume Jenkins (@guillaumejenkins)](https://github.com/guillaumejenkins): Adding descriptions of Ionic HTML tags [3734](https://github.com/microsoft/vscode/pull/3734).
+* [Joe Martella (@martellaj)](https://github.com/martellaj): Adds sort lines (ascending and descending) command [2796](https://github.com/Microsoft/vscode/pull/2796).
+* [Ivan Enderlin (@Hywan)](https://github.com/Hywan): Improved PHP support [4323](https://github.com/Microsoft/vscode/pull/4323) [4322](https://github.com/Microsoft/vscode/pull/4322).
+- [Sanders Lauture (@golf1052)](https://github.com/golf1052): Fix markdown highlighting for C# [4225](https://github.com/Microsoft/vscode/pull/4225).
+- [Phillip Johnsen (@phillipj)](https://github.com/phillipj): Multiple script enhancements  [3691](https://github.com/Microsoft/vscode/pull/3691) [3649](https://github.com/Microsoft/vscode/pull/3649) [3636](https://github.com/Microsoft/vscode/pull/3636).
+- [Ed Muñoz (@edumunoz)](https://github.com/edumunoz): Support stop-all-threads mode debugging for multi-threaded debuggers [3990](https://github.com/Microsoft/vscode/pull/3990).
+- [Pierson Lee (@pieandcakes)](https://github.com/pieandcakes): Added telemetry for debugging scenarios [3687](https://github.com/Microsoft/vscode/pull/3687).
+- [Guillaume Jenkins (@guillaumejenkins)](https://github.com/guillaumejenkins): Adding descriptions of Ionic HTML tags [3734](https://github.com/Microsoft/vscode/pull/3734).

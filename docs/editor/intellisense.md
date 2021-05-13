@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
 
-IntelliSense is a general term for various code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting."
+IntelliSense is a general term for a variety of code editing features including: code completion, parameter info, quick info, and member lists. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting."
 
 ![IntelliSense demo](images/intellisense/intellisense.gif)
 
@@ -17,7 +17,7 @@ IntelliSense is a general term for various code editing features including: code
 
 Visual Studio Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. VS Code supports word based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
 
-Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Select an extension tile below to read the description and reviews to decide which extension is best for you.
+Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Click on an extension tile below to read the description and reviews to decide which extension is best for you.
 
 <div class="marketplace-extensions-languages-curated"></div>
 
@@ -53,26 +53,19 @@ VS Code IntelliSense offers different types of completions, including language s
 
 |       |         |       |
 | ----- | ------- | ----- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
+| ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`  |
 | ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
 | ![field icon](images/intellisense/Field_16x.svg) | Fields | `field` |
-| ![type parameter](images/intellisense/symbol-parameter.svg) | Type parameters | `typeParameter` |
-| ![constant](images/intellisense/symbol-constant.svg) | Constants | `constant` |
 | ![class](images/intellisense/Class_16x.svg) | Classes | `class` |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces | `interface` |
-| ![structure](images/intellisense/symbol-structure.svg) | Structures | `struct` |
-| ![event](images/intellisense/symbol-event.svg) | Events | `event` |
-| ![operator](images/intellisense/symbol-operator.svg) | Operators | `operator` |
 | ![module](images/intellisense/Namespace_16x.svg) | Modules | `module` |
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes | `property` |
 | ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations | `value`, `enum` |
 | ![reference](images/intellisense/Reference_16x.svg) | References | `reference` |
 | ![keyword](images/intellisense/Keyword_16x.svg) | Keywords | `keyword` |
-| ![file](images/intellisense/symbol-file.svg) | Files | `file` |
-| ![folder](images/intellisense/folder.svg) | Folders | `folder` |
 | ![color](images/intellisense/ColorPalette_16x.svg) | Colors | `color` |
 | ![unit](images/intellisense/Ruler_16x.svg) | Unit | `unit` |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet prefixes | `snippet` |
+| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes | `snippet` |
 | ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words | `text` |
 
 ## Customizing IntelliSense
@@ -105,7 +98,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggestOnTriggerCharacters": true,
 
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
-    "editor.tabCompletion": "off",
+    "editor.tabCompletion": "on",
 
     // Controls whether sorting favours words that appear close to the cursor
     "editor.suggest.localityBonus": true,
@@ -159,6 +152,7 @@ When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item
 
 By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
+
 ### Key bindings
 
 The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
@@ -191,7 +185,7 @@ If you find IntelliSense has stopped working, the language service may not be ru
 
 > **Tip:** For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
-A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
+A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click the `Support` link.
 
 ## Next steps
 
@@ -215,3 +209,4 @@ This can be caused by a variety of reasons. First, try restarting VS Code. If th
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
 This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch](https://microsoft.github.io/TypeSearch) site. There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
+

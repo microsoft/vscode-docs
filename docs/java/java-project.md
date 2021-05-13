@@ -3,113 +3,99 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 1/29/2021
-MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
+PageTitle: Syntax Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
+DateApproved: 6/17/2019
+MetaDescription: Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
 # Java project management in VS Code
 
-This document will give you an overview of how to manage your Java project in Visual Studio Code.
+This document will give you an overview of how to work with your Java project using the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) as well as the Syntax Mode which works best for reading and navigating through source files even without a project structure.
 
 If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
 
+## Syntax Mode
+
+Reading and navigating through source code is a common use for a lightweight editor. When developers use VS Code to open a Java source file/folder that doesn't involve a project system (such as drag and drop some Java files into VS Code), it's annoying to see semantic errors reported when the source cannot be resolved to a project. With Syntax Mode, you'll be able to read source code more efficiently with the help of Code Navigation (between your sources and JDK), Outline as well as Javadoc features. Syntax errors are also reported so you can fix them right away.
+
+Usually you won't even know Syntax Mode is on, but you can configure it. Go to Problems panel, and look for the warning `File xxx is non-project file, only syntax errors are reported`, which means you are in Syntax Mode. If you want to see all the type errors and get full support, right-click on this warning and switch out of Syntax Mode through the context menu. See the screenshots below.
+
+![Enable Semantic](images/java-project/enablesemantic.png)
+
+The project mode will provide you full support for [standalone Java files](#standalone-java-file-support). It's also easy to turn back to Syntax Mode for either a single file or any non-project files with the **Only report syntax errors for** actions.
+
+![Switch to Syntax](images/java-project/syntaxonly.png)
+
+You can also configure your editor to control whether to enable syntax mode. The configuration is `java.server.launchMode`, below are the accepted values:
+
+- `Hybrid` (default) - Provides full features with better responsiveness. It starts a standard language server and a secondary syntax server. The syntax server provides syntax features until the standard server is ready. The syntax server will be shutdown automatically after the standard server up and running.
+- `Standard` - Provides full features such as IntelliSense, refactoring, building, Maven/Gradle support etc. With this option, you will wait until the full server is up for all features.
+- `LightWeight` - Starts a syntax server with lower start-up cost. Only provides syntax features such as outline, navigation, Javadoc, syntax errors. The lightweight mode won't load third party extensions, such as Java test runner, Java debugger, etc. This mode consumes the least resources but won't provide key features such as IntelliSense.
+
 ## Project management
 
-Managing a project in VS Code requires the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. The extension helps manage class paths and dependencies, and create new projects, packages, and classes.
+Project Management in Visual Studio Code is provided by the [Java Dependency Viewer](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. This extension has many features including creating projects as well as viewing the package structure of the project and its dependencies.
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Project Manager for Java</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Java Dependency Viewer</a>
 
-### Project view
+### Create project
 
-Project view helps you view your project and its dependencies, and provides entry points for project management tasks. You can switch between a hierarchy view and flat view.
+In addition to creating a project through Maven Archetype, you can also use the following command to create a simple Java project: **Java: Create Java Project** from the Command Palette.
 
-![project view](images/java-project/projectmanager-overview.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/create-project.mp4" type="video/mp4">
+</video>
 
-### Create a project
+If you're creating a Spring Boot project, you can also use the [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension, see [Spring Boot in Visual Studio Code](/docs/java/java-spring-boot.md).
 
-You can create a project or source only workload by clicking the **+** sign on project view, or through the command: **Java: Create Java Project...**. During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't installed.
+### Package and dependency view
 
-![create project](images/java-project/projectmanager-createproject.png)
+The extension also has a hierarchy view of your project and dependencies, which supplements the file view and outline provided by Visual Studio Code, so you don't need to expand multiple subfolders to just view your Java package.
 
-### Import a project or module
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/package-viewer.mp4" type="video/mp4">
+</video>
 
-A project or module is imported to a workspace through **File** > **Open Folder** or **File** > **Open Workspace** menu. VS Code for Java will detect your project type automatically. As a tip, you can run the command **Java: Import Java projects in workspace** to reimport a project and alert the language server that there were changes to the project, without reloading your window.
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/hierarchical.mp4" type="video/mp4">
+</video>
 
-### Add a dependency
+### Standalone Java file support
 
-For Maven project, you can add a dependency by clicking the **+** sign next to **Maven Dependencies** node in project view.
+Visual Studio Code also supports Java files without a project system. The solution is folder-based, so you can open a source folder with Visual Studio Code. After switching from [Syntax Mode](#syntax-mode) to Project Mode (by selecting the **Report compilation errors...** Quick Fix), all the Java files within the folder will be properly compiled with all language features available. You can also run and debug standalone files.
 
-![add maven dependency](images/java-project/projectmanager-addmavendep.PNG)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/standalone.mp4" type="video/mp4">
+</video>
 
-### Add a JAR
+### Multiple source folders
 
-JAR file(s) can be added by clicking the **+** sign next to **Referenced Libraries** node in project view.
+If you have multiple subfolders that have source code for your project, you can easily add these folders to source path, then all the code inside will be correctly compiled.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/multiple-source.mp4" type="video/mp4">
+</video>
+
+## Working with JAR files
+
+If you're just starting to learn Java and don't know what Maven or Gradle are, the Java extension lets you work with JAR files directly without any build tools through the **JAVA DEPENDENCIES** view.
+
+### Adding external JAR
+
+You can use the Java Dependency Viewer to add any JAR file to your project. Go to the **JAVA DEPENDENCIE** view, find the **Referenced Libraries** node, and click the **+** button to add a JAR file:
 
 ![Add Dependency](images/java-project/manage-dependencies.gif)
 
-For more details on library, refer to [Library Configuration](/docs/java/java-project.md#library-configuration).
+The other easy way to bring additional JAR files as dependencies is to create a `lib/` folder in the root directory of the standalone files and place your JAR files there. Source for `foo.jar` is automatically detected if there is a `foo-sources.jar` in the `lib/` folder.
 
-### Export to JAR
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-project/lib.mp4" type="video/mp4">
+</video>
 
-You can export your build to JAR by clicking the **↓** sign on project view or run command: **Java: Export Jar...**.
-
-![export jar](images/java-project/projectmanager-exportjar.gif)
-
-## Configure JDK
-
-As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you have to know two configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
-
-> **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
-
-The easiest way for you to configure the JDK is to use the Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will bring up the configuration user interface shown below.
-
-![JDK Configuration](images/java-tutorial/jdk-configuration.png)
-
-If you want to configure without the wizard, please refer below for details.
-
-### JDK for projects
-
-VS Code will detect the runtime required for your project and choose the appropriate configuration from `java.configuration.runtimes`.
-
-```json
-"java.configuration.runtimes": [
-  {
-    "name": "JavaSE-1.8",
-    "path": "/usr/local/jdk1.8.0_201"
-  },
-  {
-    "name": "JavaSE-11",
-    "path": "/usr/local/jdk-11.0.3",
-    "sources" : "/usr/local/jdk-11.0.3/lib/src.zip",
-    "javadoc" : "https://docs.oracle.com/en/java/javase/11/docs/api",
-    "default":  true
-   },
-   {
-    "name": "JavaSE-12",
-    "path": "/usr/local/jdk-12.0.2"
-   },
-   {
-    "name": "JavaSE-13",
-    "path": "/usr/local/jdk-13"
-   }
-]
-```
-
-Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.8", "JavaSE-9", "JavaSE-10", "JavaSE-11", "JavaSE-12", "JavaSE-13", "JavaSE-14", "JavaSE-15". We will update the list with each supported release of the JDK.
-
-> **Note**: To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
-
-### JDK for source only
-
-If you only work with source files and don't use a build tool, VS Code will apply an appropriate runtime using the default configuration of `java.configuration.runtimes`. If a default isn't specified, VS Code will use the runtime used by the language server, which is determined by the order shown below:
-
-![jdk home](images/java-project/projectmanager-javahomeconf.png)
-
-## Library configuration
+### Library configuration
 
 Behind the scene, there's a setting `java.project.referencedLibaries` in `settings.json`. Below are details on how to customize this setting.
 
@@ -181,31 +167,37 @@ In case VS Code throws an error for a classpath issue, try setting your classpat
 
 In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
-## Lightweight Mode
+## Configure JDK
 
-VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
+As Java evolves, Java developers sometimes need to deal with multiple Java runtimes. The Java extension supports preference mapping through the `java.configuration.runtimes` array for Java execution environments. VS Code will detect the runtime required for your project and choose the appropriate one configured.
 
-Lightweight mode doesn't resolve imported dependencies nor build the project, so it does not support running, debugging, refactoring, linting, or detecting semantic errors. For these features to be available, you need to switch your workspace from lightweight mode to standard mode.
+```json
+"java.configuration.runtimes": [
+  {
+    "name": "JavaSE-1.8",
+    "path": "/usr/local/jdk1.8.0_201"
+  },
+  {
+    "name": "JavaSE-11",
+    "path": "/usr/local/jdk-11.0.3",
+    "sources" : "/usr/local/jdk-11.0.3/lib/src.zip",
+    "javadoc" : "https://docs.oracle.com/en/java/javase/11/docs/api",
+    "default":  true
+   },
+   {
+    "name": "JavaSE-12",
+    "path": "/usr/local/jdk-12.0.2"
+   },
+   {
+    "name": "JavaSE-13",
+    "path": "/usr/local/jdk-13"
+   }
+]
+```
 
-You can control which mode to launch with by configuring `java.server.launchMode` with the options below:
+Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.8", "JavaSE-9", "JavaSE-10", "JavaSE-11", "JavaSE-12", "JavaSE-13", "JavaSE-14". We will update the list with each supported release of the JDK.
 
-- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
-- `Standard` - A workspace is opened with standard mode.
-- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
-
-The Status bar indicates which mode the current workspace is in using different icons.
-
-<div id="codicon-listing">
-
-- <i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode.
-- <i class="codicon codicon-sync"></i> - workspace in the process of being opened with standard mode.
-- <i class="codicon codicon-thumbsup"></i> - workspace opened with standard mode.
-
-</div>
-
-Clicking the lightweight mode icon switches to standard mode.
-
-![Switch to Standard](images/java-project/switch-to-standard.gif)
+> **Note**: To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
 ## Build Status
 
@@ -217,7 +209,7 @@ When you edit Java source code in Visual Studio Code, the Java language server i
 
 ### Additional resources
 
-Visit the [GitHub Repo](https://github.com/microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/microsoft/vscode-maven/blob/master/Troubleshooting.md).
+Visit the [GitHub Repo](https://github.com/Microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/Microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/Microsoft/vscode-maven/blob/master/Troubleshooting.md).
 
 In addition to Maven, there's also a [Bazel extension](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) if you use Bazel to build and test your project.
 

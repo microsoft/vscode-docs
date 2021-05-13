@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 11
 Area: cpp
 TOCTitle: Debug configuration
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
@@ -99,7 +99,7 @@ Sets the working directory of the application launched by the debugger.
 
 ### environment
 
-Environment variables to add to the environment for the program. Example: `[ { "name": "config", "value": "Debug" } ]`, not `[ { "config": "Debug" } ]`.
+Environment variables to add to the environment for the program. Example: `[ { "name": "squid", "value": "clam" } ]`.
 
 **Example:**
 
@@ -110,7 +110,7 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "request": "launch",
    "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
-   "environment": [{"name": "config", "value": "Debug"}],
+   "environment": [{"name": "squid", "value": "clam"}],
    "cwd": "${workspaceFolder}"
 }
 ```
@@ -214,15 +214,11 @@ Server-started pattern to look for in the debug server output.
 
 Time in milliseconds, for the debugger to wait for the debugServer to start up. Default is 10000.
 
-### pipeTransport
-
-For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](/docs/cpp/pipe-transport.md) settings article.
-
 ## Additional properties
 
 ### processId
 
-Defaults to `${command:pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
+Defaults to `${command.pickProcess}` which will display a list of available processes the debugger can attach to. We recommend that you leave this default, but the property can be explicitly set to a specific process ID for the debugger to attach to.
 
 ### request
 

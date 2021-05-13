@@ -14,7 +14,6 @@ In this guide you will learn how to:
 - Create a container image for your application.
 - Push the image to a container registry.
 - Deploy the image to Azure App Service.
-- Deploy the image to Azure Container Instances (ACI).
 
 ## Prerequisites
 
@@ -33,7 +32,7 @@ If you already have an image, skip this step and proceed to [Push the image to a
 
     ![Build container image](images/app-service/command-build-image.png)
 
-    You can find the image name in the output of the Build Image command, the same can be found in the Images pane of the Docker Explorer.
+    You can find the image name in the output of the Build Image command, the same can be found in the Images pane of the Docker view.
 
     ![Build image output](images/app-service/terminal-output-build-image.png)
 
@@ -41,7 +40,7 @@ If you already have an image, skip this step and proceed to [Push the image to a
 
 Before deploying the image to an App Service, the image must be uploaded to a container registry. The image can be uploaded to either [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Docker Hub](https://hub.docker.com/).
 
-1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
+1. Open the Docker view and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (Azure or Docker Hub) and provide the credential to connect to the registry.
 
     ![Connect to Registry](images/app-service/explorer-connect-registry.png)
 
@@ -50,13 +49,13 @@ Before deploying the image to an App Service, the image must be uploaded to a co
    ![Registries](images/app-service/explorer-registries.png)
 
 3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry.
-    - The image built in previous section will appear in the Docker Explorer under Images section. Right-click and choose **Tag...**.
+    - The image built in previous section will appear in the Docker view under Images section. Right-click and choose **Tag...**.
 
         ![Tag image](images/app-service/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
     tag action. For example, new image name for ACR would be 'mainacr.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
 
-4. The image will show up in the Docker Explorer under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you will be prompted to choose a registry to push to, and the image will be tagged based on the selection.
+4. The image will show up in the Docker view under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you will be prompted to choose a registry to push to, and the image will be tagged based on the selection.
 
     ![Push image](images/app-service/explorer-push-image.png)
 
@@ -68,7 +67,7 @@ Before deploying the image to an App Service, the image must be uploaded to a co
 
 In the previous section, the image is pushed to a remote container registry. Now deploy this image to Azure App Service.
 
-1. In Docker Explorer, navigate to your image under Registries, right-click on the tag, and select **Deploy Image To Azure App Service...**.
+1. In Docker view, navigate to your image under Registries, right-click on the tag, and select **Deploy Image To Azure App Service...**.
 
     ![Deploy to Azure App Service](images/app-service/explorer-deploy-to-app-service.png)
 
@@ -88,24 +87,6 @@ In the previous section, the image is pushed to a remote container registry. Now
 5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. The new App Service also appears in the Azure view in Visual Studio Code under the App Service section, where you can right-click the website and select Browse Website.
 
     ![Web Application](images/app-service/webapp-homepage.png)
-
-## Deploy to ACI
-
-In the previous section, the image was deployed to Azure App Service. Another option is to deploy the image to [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/). First, deploy the container to a container registry, such as Docker Hub or ACR, as described earlier in this article. Then, find the container in the **Registries** section of the Docker Explorer. Use the **Refresh** button if you don't see it there. Right-click the entry for the image you want, and choose **Deploy image to Azure Container Instances**.
-
-![Deploy to ACI menu item](images/app-service/deploy-aci-menu.png)
-
-Choose an existing context, or use **Create new ACI Context**, and then choose the resource group. The container is started in ACI.
-
-The context you created is displayed in the **Contexts** pane in the Docker Explorer and selected as the active context. Whichever context is the active one affects the images shown in the **Containers** pane.
-
-![ACI in contexts pane](images/app-service/deploy-aci-contexts.png)
-
- When the image finishes the start-up process and becomes available, an entry for the image appears in the **Containers** pane. You can then manage the container instance by right-clicking on the entry. For example, to monitor the logs, choose **View Logs**.
-
-![Manage images in the Containers pane](images/app-service/deploy-aci-containers-pane.png)
-
-If it's a web app, you can use **Open in Browser** to navigate to the app's homepage. When you're done with the instance, right-click the instance name, and choose **Remove**. Because billing in ACI is by the second and only when the container is running, as soon as you remove it, you are no longer accruing charges.
 
 ## Next steps
 

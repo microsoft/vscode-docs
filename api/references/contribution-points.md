@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -26,7 +26,6 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
 - [`views`](/api/references/contribution-points#contributes.views)
-- [`viewsWelcome`](/api/references/contribution-points#contributes.viewsWelcome)
 - [`viewsContainers`](/api/references/contribution-points#contributes.viewsContainers)
 - [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
 - [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
@@ -34,7 +33,6 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`typescriptServerPlugins`](/api/references/contribution-points#contributes.typescriptServerPlugins)
 - [`resourceLabelFormatters`](/api/references/contribution-points#contributes.resourceLabelFormatters)
-- [`customEditors`](/api/references/contribution-points#contributes.customEditors)
 
 ## contributes.configuration
 
@@ -219,23 +217,15 @@ Example:
 
 **Other JSON Schema properties**
 
-You can use any of the validation JSON Schema properties to describe other constraints on configuration values:
+You can use any the properties defined by JSON Schema to describe other constraints on configuration values.
 
 - `default` for defining the default value of a property
 - `minimum` and `maximum` for restricting numeric values
 - `maxLength`, `minLength` for restricting string length
 - `pattern` for restricting strings to a given regular expression
-- `patternErrorMessage` for giving a tailored error message when a pattern does not match.
 - `format` for restricting strings to well-known formats, such as `date`, `time`, `ipv4`, `email`,
   and `uri`
 - `maxItems`, `minItems` for restricting array length
-
-**Unsupported JSON Schema properties**
-
-Not supported in the configuration section are:
-
-- `$ref` and `definition`: The configuration schemas needs to be self-contained and cannot make assumptions how the aggregated settings JSON schema document looks like.
-
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/understanding-json-schema/reference/index.html).
 
@@ -319,7 +309,7 @@ The following example contributes default editor configurations for the `markdow
 
 ## contributes.commands
 
-Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with [when clauses](/api/references/when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
+Contribute the UI for a command consisting of a title and (optionally) an icon, category, and enabled state. Enablement is expressed with `when` [clauses](/docs/getstarted/keybindings#_when-clause-contexts). By default, commands show in the **Command Palette** (`kb(workbench.action.showCommands)`) but they can also show in other [menus](/api/references/contribution-points#contributes.menus).
 
 Presentation of contributed commands depends on the containing menu. The **Command Palette**, for
 instance, prefixes commands with their `category`, allowing for easy grouping. However, the
@@ -362,9 +352,9 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause, which uses the key bindings [when clause contexts](/api/references/when-clause-contexts).
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause, which uses the key bindings [when clause contexts](/docs/getstarted/keybindings#_when-clause-contexts).
 
-In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. On Windows and Linux `kbstyle(Shift)` also does this, which is useful in situations where `kbstyle(Alt)` would trigger the window menu bar.
+In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu.
 
 Last, a `group` property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
@@ -379,14 +369,11 @@ Currently extension writers can contribute to:
 - The editor title context menu - `editor/title/context`
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
-- The debug variables view context menu - `debug/variables/context`
 - The debug toolbar - `debug/toolbar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
-- [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
 - [SCM resources](/api/extension-guides/scm-provider#menus) menus - `scm/resourceState/context`
 - [SCM change title](/api/extension-guides/scm-provider#menus) menus - `scm/change/title`
-- The [SCM source control menu](/api/extension-guides/scm-provider#menus) - `scm/sourceControl`
 - The [View title menu](/api/references/contribution-points#contributes.views) - `view/title`
 - The [View item menu](/api/references/contribution-points#contributes.views) - `view/item/context`
 - The macOS Touch Bar - `touchBar`
@@ -479,13 +466,9 @@ The **editor tab context menu** has these default groups:
 
 The **editor title menu** has these default groups:
 
-- `navigation` - Commands related to navigating.
-- `1_run` - Commands related to running and debugging the editor.
 - `1_diff` - Commands related to working with diff editors.
 - `3_open` - Commands related to opening editors.
 - `5_close` - Commands related to closing editors.
-
-`navigation` and `1_run` are shown in the primary editor title area. The other groups are shown in the secondary area - under the `...` menu.
 
 The **Timeline view item context menu** has these default groups:
 
@@ -583,11 +566,21 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 - `label` is the user visible name of this debugger in the UI.
 - `program` the path to the debug adapter that implements the VS Code debug protocol against the real debugger or runtime.
 - `runtime` if the path to the debug adapter is not an executable but needs a runtime.
-- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger. Please note that the JSON schema constructs `$ref` and `definition` are not supported.
+- `configurationAttributes` is the schema for launch configuration arguments specific to this debugger.
 - `initialConfigurations` lists launch configurations that are used to populate an initial launch.json.
 - `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json.
 - `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 - `languages` those languages for which the debug extension could be considered the "default debugger".
+- `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
+
+```json
+{
+  "command": "<executable>",
+  "args": ["<argument1>", "<argument2>", "<argumentsn...>"]
+}
+```
+
+The attribute `command` must be either an absolute path to an executable or a name of executable looked up via the PATH environment variable. The special value `node` will be mapped to VS Code's built-in node runtime without being looked up on the PATH.
 
 ### debugger example
 
@@ -796,7 +789,7 @@ The example below shows adding snippets for the Go language.
 
 ## contributes.jsonValidation
 
-Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://www.schemastore.org/json).
+Contribute a validation schema for a specific type of `json` file. The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
 
 ```json
 {
@@ -804,7 +797,7 @@ Contribute a validation schema for a specific type of `json` file. The `url` val
     "jsonValidation": [
       {
         "fileMatch": ".jshintrc",
-        "url": "https://json.schemastore.org/jshintrc"
+        "url": "http://json.schemastore.org/jshintrc"
       }
     ]
   }
@@ -821,7 +814,7 @@ Contribute a view to VS Code. You must specify an identifier and name for the vi
 - `test`: Test view container in the Activity Bar
 - [Custom view containers](#contributes.viewsContainers) contributed by Extensions.
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value. The `icon` specified will be used when the title cannot be shown (e.g. when the view is dragged to the Activity Bar). The `contextualTitle` is used when the view is moved out of its default view container and needs additional context.
+When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (`onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
 ```json
 {
@@ -831,9 +824,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
         {
           "id": "nodeDependencies",
           "name": "Node Dependencies",
-          "when": "workspaceHasPackageJSON",
-          "icon": "media/dep.svg",
-          "contextualTitle": "Package Explorer"
+          "when": "workspaceHasPackageJSON"
         }
       ]
     }
@@ -843,36 +834,11 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/contribution-points/views.png)
 
-The content of a view can be populated in two ways:
-
-- With a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. TreeViews are ideal for showing hierarchical data and lists. Refer to the [tree-view-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample).
-- With a [WebviewView](/api/references/vscode-api#WebviewView) by registering a [provider](/api/references/vscode-api#WebviewViewProvider) with `registerWebviewViewProvider`. Webview views allow rendering arbitrary HTML in the view. See the [webview view sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample) for more details.
-
-## contributes.viewsWelcome
-
-Contribute welcome content to [Custom views](#contributes.views). Welcome content only applies to empty tree views. A view is considered empty if the tree has no children. By convention, any command links that are on a line by themselves are displayed as a button. You can specify the view that the welcome content should apply to with the `view` property. Visibility of the welcome content can be controlled with the `when` context value. The text to be displayed as the welcome content is set with the `contents` property.
-
-```json
-{
-  "contributes": {
-    "viewsWelcome": [
-      {
-        "view": "scm",
-        "contents": "In order to use git features, you can open a folder containing a git repository or clone from a URL.\n[Open Folder](command:vscode.openFolder)\n[Clone Repository](command:git.clone)\nTo learn more about how to use git and source control in VS Code [read our docs](https://aka.ms/vscode-scm).",
-        "when": "config.git.enabled && git.state == initialized && workbenchState == empty"
-      }
-    ]
-  }
-}
-```
-
-![Welcome content example](images/contribution-points/viewsWelcome.png)
-
-Multiple welcome content items can be contributed to one view. When this happens, the content that come from VS Code core comes first, followed by content from built-in extensions, followed by content from all other extensions.
+Extension writers should create a [TreeView](/api/references/vscode-api#TreeView) by providing a [data provider](/api/references/vscode-api#TreeDataProvider) through `createTreeView` API or register the [data provider](/api/references/vscode-api#TreeDataProvider) directly through `registerTreeDataProvider` API to populate data. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 ## contributes.viewsContainers
 
-Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) and Panel (`panel`). Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
+Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title, and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
 
 ```json
 {
@@ -1034,7 +1000,7 @@ const errorColor = new vscode.ThemeColor("superstatus.error");
 
 ## contributes.typescriptServerPlugins
 
-Contributes [TypeScript server plugins](https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
+Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
 
 ```json
 {
@@ -1048,7 +1014,7 @@ Contributes [TypeScript server plugins](https://github.com/microsoft/TypeScript/
 }
 ```
 
-The above example extension contributes the [`typescript-styled-plugin`](https://github.com/microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be installed as a normal NPM `dependency` in the extension:
+The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be installed as a normal NPM `dependency` in the extension:
 
 ```json
 {
@@ -1148,52 +1114,4 @@ export = function init({ typescript }: { typescript: typeof ts_module }) {
 };
 ```
 
-This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/microsoft/vscode-typescript-tslint-plugin/blob/main/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.
-
-## contributes.customEditors
-
-The `customEditors` contribution point is how your extension tells VS Code about the custom editors that it provides. For example, VS Code needs to know what types of files your custom editor works with as well as how to identify your custom editor in any UI.
-
-Here's a basic `customEditor` contribution for the [custom editor extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample):
-
-```json
-"contributes": {
-  "customEditors": [
-    {
-      "viewType": "catEdit.catScratch",
-      "displayName": "Cat Scratch",
-      "selector": [
-        {
-          "filenamePattern": "*.cscratch"
-        }
-      ],
-      "priority": "default"
-    }
-  ]
-}
-```
-
-`customEditors` is an array, so your extension can contribute multiple custom editors.
-
-- `viewType` - Unique identifier for your custom editor.
-
-    This is how VS Code ties a custom editor contribution in the `package.json` to your custom editor implementation in code. This must be unique across all extensions, so instead of a generic `viewType` such as `"preview"` make sure to use one that is unique to your extension, for example `"viewType": "myAmazingExtension.svgPreview"`.
-
-- `displayName` - Name that identifies the custom editor in VS Code's UI.
-
-    The display name is shown to the user in VS Code UI such as the **View: Reopen with** dropdown.
-
-- `selector` - Specifies which files a custom editor is active for.
-
-    The `selector` is an array of one or more glob patterns. These glob patterns are matched against file names to determine if the custom editor can be used for them. A `filenamePattern` such as `*.png` will enable the custom editor for all PNG files.
-
-    You can also create more specific patterns that match on file or directory names, for example `**/translations/*.json`.
-
-- `priority` - (optional) Specifies when the custom editor is used.
-
-    `priority` controls when a custom editor is used when a resource is open. Possible values are:
-
-  - `"default"` - Try to use the custom editor for every file that matches the custom editor's `selector`. If there are multiple custom editors for a given file, the user will have to select which custom editor they want to use.
-  - `"option"` - Do not use the custom editor by default but allow users to switch to it or configure it as their default.
-
-You can learn more in the [Custom Editors](/api/extension-guides/custom-editors) extension guide.
+This API allows VS Code extensions to synchronize VS Code settings with a TypeScript server plugin, or dynamically change the behavior of a plugin. Take a look at the [TypeScript TSLint plugin](https://github.com/Microsoft/vscode-typescript-tslint-plugin/blob/master/src/index.ts) and [lit-html](https://github.com/mjbvz/vscode-lit-html/blob/master/src/index.ts) extensions to see how this API is used in practice.

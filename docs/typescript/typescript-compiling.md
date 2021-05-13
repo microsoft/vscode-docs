@@ -4,12 +4,12 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/microsoft/TypeScript/tree/master/doc) has full details about the language.
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/Microsoft/TypeScript/tree/master/doc) has full details about the language.
 
 ## Install the TypeScript compiler
 
@@ -126,7 +126,7 @@ As an example, if there was a simple error (extra 'g' in `console.log`) in our T
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the **Tasks - build tsconfig.json** in the terminal view dropdown.
+This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the **Tasks - build tsconfig.json** in the terminal view drop-down.
 
 You can see the error and warning counts in the Status Bar. Click on the error and warnings icon to get a list of the problems and navigate to them.
 
@@ -158,7 +158,7 @@ Having the generated JavaScript file in the same folder at the TypeScript source
 
 ## Hiding derived JavaScript files
 
-When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) and you can easily create an expression to hide those derived files:
+When you are working with TypeScript, you often don't want to see generated JavaScript files in the File Explorer or in Search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) and you can easily create an expression to hide those derived files:
 
 `**/*.js: { "when": "$(basename).ts" }`
 
@@ -166,15 +166,11 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/compiling/hidingDerivedBefore.png) ![Hiding derived resources](images/compiling/hidingDerivedAfter.png)
 
-Add the `files.exclude` setting with a filter in the workspace `settings.json` file, located in the `.vscode` folder at the root of the workspace. You can open the workspace `settings.json` via the **Preferences: Open Workspace Settings (JSON)** command from the Command Palette (`kb(workbench.action.showCommands)`).
-
 To exclude JavaScript files generated from both `.ts` and `.tsx` source files, use this expression:
 
 ```json
-"files.exclude": {
-    "**/*.js": { "when": "$(basename).ts" },
-    "**/**.js": { "when": "$(basename).tsx" }
-}
+"**/*.js": { "when": "$(basename).ts" },
+"**/**.js": { "when": "$(basename).tsx" }
 ```
 
 This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
@@ -230,7 +226,7 @@ The `typescript.tsdk` workspace setting only tells VS Code that a workspace vers
 
 The simplest way to try out the latest TypeScript features in VS Code is to install the [JavaScript and TypeScript Nightly extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-This extension automatically replaces VS Code's built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using VS Code's TypeScript version](#using-the-workspace-version-of-typescript) if you've configured your TypeScript version with the **TypeScript: Select TypeScript Version** command.
+This extension automatically replaces VS Code's built-in TypeScript version with the latest TypeScript nightly build. Just make sure you [switch back to using VS Code's TypeScript version](#_using-the-workspace-version-of-typescript) if you've configured your TypeScript version with the **TypeScript: Select TypeScript Version** command.
 
 ## Mixed TypeScript and JavaScript projects
 
@@ -250,7 +246,7 @@ Use `include` or `files` in your project's `tsconfig.json` to make sure the proj
 
 ### Break up your project using project references
 
-Instead of structuring your source code as a single large project, you can improve performance by breaking it up into smaller projects using [project references](https://www.typescriptlang.org/docs/handbook/project-references.html). This allows TypeScript to load just a subset of your codebase at a time, instead of loading the entire thing.
+Instead of structuring your source code as a single large project, you can improve performance by breaking it up into smaller projects using [project references](https://www.typescriptlang.org/docs/handbook/project-references.html). This allows TypeScript to load just a subset of your codebase at a time, instead of the loading the entire thing.
 
 See the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/project-references.html) for details on how to use project references and best practices for working with them.
 

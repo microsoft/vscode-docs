@@ -13,7 +13,7 @@ In this tutorial, you configure Visual Studio Code on macOS to use the Clang/LLV
 
 After configuring VS Code, you will compile and debug a simple C++ program in VS Code. This tutorial does not teach you about Clang or the C++ language. For those subjects, there are many good resources available on the Web.
 
-If you have any trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have any trouble, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/Microsoft/vscode-docs/issues).
 
 ## Prerequisites
 
@@ -167,7 +167,7 @@ The `problemMatcher` value selects the output parser to use for finding errors a
 
 The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to `false`, you can still build from the Terminal menu with **Terminal > Run Build Task**.
 
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
+>**Note**: You can learn more about `task.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 ### Running the build
 
@@ -228,8 +228,6 @@ The `program` setting specifies the program you want to debug. Here it is set to
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
 
 Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
-
-Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.
 
 ### Start a debugging session
 
@@ -331,29 +329,6 @@ VS Code is now configured to use Clang on macOS. The configuration applies to th
 ### Compiler and linking errors
 
 The most common cause of errors (such as `undefined _main`, or `attempting to link with file built for unknown-unsupported file format`, and so on) occurs when `helloworld.cpp` is not the active file when you start a build or start debugging. This is because the compiler is trying to compile something that isn't source code, like your `launch.json`, `tasks.json`, or `c_cpp_properties.json` file.
-
-If you see build errors mentioning "C++11 extensions", you may not have updated your `tasks.json` build task to use the clang++ argument `--std=c++17`. By default, clang++ uses the C++98 standard, which doesn't support the initialization used in `helloworld.cpp`. Make sure to replace the entire contents of your `tasks.json` file with the code block provided in the [Build helloworld.cpp](#build-helloworldcpp) section.
-
-### Terminal won't launch For input
-
-On macOS Catalina and onwards, you might have a issue where you are unable to enter input, even after setting `"externalConsole": true`. A terminal window opens, but it does not actually allow you type any input.
-
-The issue is currently tracked [#5079](https://github.com/microsoft/vscode-cpptools/issues/5079).
-
-The workaround is to have VS Code launch the terminal once. You can do this by adding and running this task in your `tasks.json`:
-
-```json
-{
-    "label": "Open Terminal",
-    "type": "shell",
-    "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo hello\"\nend tell'",
-    "problemMatcher": []
-}
-```
-
-You can run this specific task using **Terminal** > **Run Task...** and select **Open Terminal**.
-
-Once you accept the permission request, then the external console should appear when you debug.
 
 ## Next steps
 

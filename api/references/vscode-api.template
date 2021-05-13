@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 
-VSCodeCommitHash: 6449b6b7253b5808e2278903c82da8d59a230383
-VSCodeVersion: 1.56.0
+VSCodeCommitHash: abb4a35cfc26102f93fd00df7b59ce1a19c2017a
+VSCodeVersion: 1.45.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
@@ -16,7 +16,7 @@ MetaDescription: Visual Studio Code extensions (plug-in) API Reference.
 
 ## API namespaces and classes
 
-This listing is compiled from the [vscode.d.ts](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts) file from the VS Code repository.
+This listing is compiled from the [`vscode.d.ts`](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts) file from the VS Code repository.
 
 {$ Content $}
 
@@ -71,4 +71,4 @@ An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is
 
 ### Strict null
 
-The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/microsoft/TypeScript/pull/7140).
+The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/Microsoft/TypeScript/pull/7140).

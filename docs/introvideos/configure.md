@@ -1,34 +1,33 @@
 ---
 Order:
 Area: introvideos
-TOCTitle: Personalize
+TOCTitle: Customize
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
-PageTitle: Personalize Visual Studio Code
-DateApproved: 4/8/2021
-MetaDescription: Learn how to personalize Visual Studio Code with themes.
+PageTitle: Customize Visual Studio Code
+DateApproved: 3/6/2017
+MetaDescription: Learn how to configure Visual Studio Code, including settings, keybindings, and snippets
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Personalize Visual Studio Code
+# Customize Visual Studio Code
 
-In this Visual Studio Code tutorial, we show you how to personalize Visual Studio Code with themes.
+In this tutorial, we show you how to personalize Visual Studio Code.
 
-<iframe src="https://www.microsoft.com/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.youtube.com/embed/4wVF4w_53hs?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
+## Outline
 
-## Video outline
+* Change your UI Color Theme and File Icon Theme.
+* Find customization options in user and workspace settings.
+* Learn and change keyboard shortcuts (key bindings).
+* Write code faster with snippets, including creating your own.
 
-* Change your Color Theme.
-* Install a new Color Theme from the VS Code Extension Marketplace.
-* Change your File Icon Theme.
-
-## Next video
-
-* [Extensions in Visual Studio Code](/docs/introvideos/extend.md) - Add features to VS Code through Extensions.
-
-## Related resources
+## Learn more
 
 * [User and Workspace Settings](/docs/getstarted/settings.md) - Configure user and workspace settings.
 * [Key Bindings](/docs/getstarted/keybindings.md) - See the default keyboard shortcuts (key bindings) for editing, navigation, and more.
 * [Snippets](/docs/editor/userdefinedsnippets.md) - Create your own custom snippets.
 * [Themes](/docs/getstarted/themes.md) - Change your Color Theme to customize VS Code's background text and language syntax colorization.
+
+## Next video
+
+* [Extensions in Visual Studio Code](/docs/introvideos/extend.md) - Add features to VS Code through Extensions.

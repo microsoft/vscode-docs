@@ -15,16 +15,6 @@ The Docker extension provides a `docker` debug configuration provider that manag
 
 The Docker extension currently supports debugging [Node.js](#node-js), [Python](#python), and [.NET Core](#net-core) applications within Docker containers.
 
-## Requirements
-
-Scaffolding or pasting a launch configuration into `launch.json` is **not sufficient** to build and debug a Docker container. To successfully run a Docker launch configuration, you must have:
-
-- A Dockerfile.
-- `docker-build` and `docker-run` tasks in `tasks.json`.
-- A launch configuration that invokes these tasks.
-
-We recommend using the **Docker: Add Docker Files to Workspace...** command to create these items, if none of these assets already exist. If you already have a functional Dockerfile, we recommend using the **Docker: Initialize for Docker debugging** command to scaffold a launch configuration and Docker-related tasks.
-
 ## Node.js
 
 More information about debugging Node.js applications within Docker containers can be found at [Debug Node.js within a container](/docs/containers/debug-node.md).
@@ -78,7 +68,7 @@ Example `launch.json` configuration for debugging a Python application:
 
 More information about debugging .NET Core applications within Docker containers can be found in [Debug .NET Core within Docker containers](/docs/containers/debug-netcore.md).
 
-> The previous (Preview) .NET Core Docker debugging support (utilizing `"type": "docker-coreclr"` instead of the current preview's `"type": "docker"`) is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
+> The previous (Preview) .NET Core Docker debugging support is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
 
 Example `launch.json` configuration for debugging a .NET Core application:
 
@@ -106,7 +96,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `containerName` | Name of the container used for debugging. |
 | `dockerServerReadyAction` | Options for launching a browser to the Docker container. Similar to serverReadyAction, but replaces container ports with host ports. |
 | `removeContainerAfterDebug` | Whether to remove the debug container after debugging. |
-| `platform` | The target platform for the application. Can be `netCore` or `node`. |
+| `platform` | The target plaform for the application. Can be `netCore` or `node`. |
 | `netCore` | Options for debugging .NET Core projects in Docker. |
 | `node` | Options for debugging Node.js projects in Docker. |
 | `python` | Options for debugging Python projects in Docker. |
@@ -120,6 +110,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `pattern` | The regex pattern to look for in Debug console output. |
 | `uriFormat` | The URI format to launch. |
 | `webRoot` | The root folder from which web pages are served. Used only when `action` is set to `debugWithChrome`. |
+
 
 ### node object properties
 

@@ -26,7 +26,7 @@ VS Code provides information about HTML/CSS entities in auto-completion and hove
 
 With the Custom Data Format, users can easily define new HTML/CSS entities and get auto-completions, hover information, and other language features.
 
-To get started, users can write a JSON file `html.html-data.json`:
+To get started, end users can write a JSON file `html.html-data.json`:
 
 ```json
 {
@@ -58,7 +58,7 @@ You then get language features for the defined entities:
 
 ![Custom Data helloworld](custom-data-helloworld.png)
 
-You can try this feature by opening the preconfigured [Custom Data hello world sample](https://github.com/microsoft/vscode-custom-data/tree/main/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
+You can try this feature by opening the preconfigured [Custom Data hello world sample](https://github.com/microsoft/vscode-custom-data/tree/master/samples/helloworld) with VS Code. You can edit the HTML/CSS custom data files in order to add, remove, or refine the definitions of custom entities and fine-tune the language features.
 
 The `html.customData` and `css.customData` settings serve as a good starting point for using Custom Data. However, there are other ways to take advantage of Custom Data as well. In the following sections, we describe how extension authors can share curated sets of Custom Data or leverage Custom Data to build language support.
 
@@ -78,7 +78,7 @@ The extension's source code is at the [vscode-mavo](https://github.com/octref/vs
 
 ## Using Custom Data for language servers
 
-The [vscode-html-languageservice](https://github.com/microsoft/vscode-html-languageservice) and [vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice) libraries allow extension authors to easily implement language servers for languages that extend or embed HTML and CSS. Recently, we added an API for loading custom data:
+The [vscode-html-languageservice](https://github.com/Microsoft/vscode-html-languageservice) and [vscode-css-languageservice](https://github.com/Microsoft/vscode-css-languageservice) libraries allow extension authors to easily implement language servers for languages that extend or embed HTML and CSS. Recently, we added an API for loading custom data:
 
 ```ts
 import { getLanguageService } from 'vscode-html-languageservice'
@@ -88,14 +88,14 @@ getLanguageService({
 })
 ```
 
-Our built-in [HTML language server](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) utilizes this API to load a curated set of Custom Data that we have collected from various sources:
+Our built-in [HTML language server](https://github.com/microsoft/vscode/tree/master/extensions/html-language-features) utilizes this API to load a curated set of Custom Data that we have collected from various sources:
 
 - W3C specifications of HTML, CSS, and WAI-ARIA
 - Mozilla Developer Network
 - Mozilla's [mdn-data](https://github.com/mdn/data) and [mdn-browser-compat-data](https://github.com/mdn/browser-compat-data) packages
 - Chrome's ranking of CSS properties usage
 
-We have published this set of data to [NPM](https://www.npmjs.com/package/vscode-web-custom-data). You can find the data [on GitHub](https://github.com/microsoft/vscode-custom-data/tree/main/web-data) as well. Language server authors might use this dataset in combination with our HTML/CSS language services to implement support for their languages that extend or embed HTML/CSS, or they could use this data to implement support for languages that transpile to HTML/CSS, such as Pug or Stylus. Finally, we will continue to curate this dataset to provide up-to-date language support for HTML/CSS in VS Code.
+We have published this set of data to [NPM](https://www.npmjs.com/package/vscode-web-custom-data). You can find the data [on GitHub](https://github.com/microsoft/vscode-custom-data/tree/master/web-data) as well. Language server authors might use this dataset in combination with our HTML/CSS language services to implement support for their languages that extend or embed HTML/CSS, or they could use this data to implement support for languages that transpile to HTML/CSS, such as Pug or Stylus. Finally, we will continue to curate this dataset to provide up-to-date language support for HTML/CSS in VS Code.
 
 ## Summary
 

@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 5/5/2021
+DateApproved: 4/8/2020
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -77,12 +77,11 @@ Git | `git-commit` and `git-rebase`
 Go | `go`
 Groovy | `groovy`
 Handlebars | `handlebars`
-Haml | `haml`
 HTML | `html`
 Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
-JavaScript React | `javascriptreact`, `jsx`
+JavaScript React | `javascriptreact`
 JSON | `json`
 JSON with Comments | `jsonc`
 LaTeX | `latex`
@@ -96,7 +95,7 @@ Perl | `perl` and `perl6`
 PHP | `php`
 Plain Text | `plaintext`
 PowerShell | `powershell`
-Pug | `jade`, `pug`
+Pug | `jade`
 Python | `python`
 R | `r`
 Razor (cshtml) | `razor`
@@ -105,16 +104,12 @@ Rust | `rust`
 SCSS | `scss` (syntax using curly brackets), `sass` (indented syntax)
 ShaderLab | `shaderlab`
 Shell Script (Bash) | `shellscript`
-Slim | `slim`
 SQL | `sql`
-Stylus | `stylus`
 Swift | `swift`
 TypeScript | `typescript`
 TypeScript React | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
-Vue | `vue`
-Vue HTML | `vue-html`
 XML | `xml`
 XSL | `xsl`
 YAML | `yaml`

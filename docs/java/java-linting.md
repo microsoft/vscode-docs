@@ -1,10 +1,10 @@
 ---
 Order: 4
 Area: java
-TOCTitle: Formatting and Linting
+TOCTitle: Linting
 ContentId: dd4fa82e-0021-404c-87e4-3b69f1e12463
 PageTitle: Formatting, linting, and code analysis for Java in Visual Studio Code
-DateApproved: 2/26/2021
+DateApproved: 4/9/2020
 MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
 ---
 # Java formatting and linting

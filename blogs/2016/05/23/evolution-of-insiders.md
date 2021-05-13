@@ -21,9 +21,9 @@ Initially, we released an Insiders build once per month, a few days before the S
 
 ## Nightly Builds
 
-Even with weekly Insiders builds, [many users asked](https://github.com/microsoft/vscode/issues/5453) for access to our nightly builds.
+Even with weekly Insiders builds, [many users asked](https://github.com/Microsoft/vscode/issues/5453) for access to our nightly builds.
 
-We initially looked at releasing our internal "Alpha" builds. Alpha builds are what we use to develop VS Code. They are produced from our main branch each night or on demand, if the nightly build has a blocking issue.
+We initially looked at releasing our internal "Alpha" builds. Alpha builds are what we use to develop VS Code. They are produced from our master branch each night or on demand, if the nightly build has a blocking issue.
 
 We decided that the overhead of releasing three different builds outweighed the benefits and the difference between weekly and nightly builds was actually low. We then considered retiring the Insiders builds and moving everyone to Alpha but decided that would leave dead ended installations of Insiders builds on everyone's desktops.
 
@@ -41,15 +41,15 @@ We recognize that occasionally, you may encounter blocking issues with the Insid
 
 ## Release Notes
 
-Because we are producing Insiders builds daily, the "Release Notes" become the completed issues for the last day. Handy queries for completed issues can be found in the [Insiders Release Notes wiki page](https://github.com/microsoft/vscode/wiki/Insiders-Release-Notes). Features being worked on can be found in the [current month's iteration plan](https://github.com/microsoft/vscode/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aiteration-plan+).
+Because we are producing Insiders builds daily, the "Release Notes" become the completed issues for the last day. Handy queries for completed issues can be found in the [Insiders Release Notes wiki page](https://github.com/Microsoft/vscode/wiki/Insiders-Release-Notes). Features being worked on can be found in the [current month's iteration plan](https://github.com/Microsoft/vscode/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aiteration-plan+).
 
 ## Next Steps
 
-We will start building and releasing the Insiders builds on a daily basis in conjunction with releasing the [May Stable release](https://github.com/microsoft/vscode/issues/6105). If you are already using the Insiders build, there is nothing for you to do! Starting in June, you will begin receiving daily update notifications.
+We will start building and releasing the Insiders builds on a daily basis in conjunction with releasing the [May Stable release](https://github.com/Microsoft/vscode/issues/6105). If you are already using the Insiders build, there is nothing for you to do! Starting in June, you will begin receiving daily update notifications.
 
 If you are not using the Insiders builds and want to be on the leading edge, using the same builds we use to develop VS Code, head over to our [downloads page](/insiders) and install the Insiders build today.
 
-See you on [GitHub](https://github.com/microsoft/vscode), [Twitter](https://go.microsoft.com/fwlink/?LinkID=533687), and [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode)!
+See you on [GitHub](https://github.com/Microsoft/vscode), [Twitter](https://go.microsoft.com/fwlink/?LinkID=533687), and [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode)!
 
 Wade Anderson <br>
 [@waderyan_](https://twitter.com/waderyan_)
