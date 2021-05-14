@@ -60,7 +60,7 @@ Select the **Debug** icon on the left and select the newly added Kubernetes laun
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
-Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
+Your development computer is connected when the VS Code Status bar turns orange and the Kubernetes extension shows you are connected.
 
 ![Debugging with Bridge to Kubernetes](images/bridge-to-kubernetes-sample/debugging.png)
 
