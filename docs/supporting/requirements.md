@@ -21,7 +21,7 @@ We recommend:
 
 VS Code has been tested on the following platforms:
 
-* OS X Yosemite (10.10+)
+* OS X El Capitan (10.11+)
 * Windows 7 (with .NET Framework 4.5.2), 8.0, 8.1 and 10 (32-bit and 64-bit)
 * Linux (Debian): Ubuntu Desktop 16.04, Debian 9
 * Linux (Red Hat): Red Hat Enterprise Linux 7, CentOS 8, Fedora 24
