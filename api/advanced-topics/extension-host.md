@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 106AA11C-DB26-493A-9E3C-16F513B2AEC8
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: The Visual Studio Code Extension Host is responsible for managing extensions and ensuring the stability and performance of Visual Studio Code.
@@ -15,7 +15,7 @@ As you learned in the [Extension Anatomy](/api/get-started/extension-anatomy) to
 
 ## Stability and Performance
 
-VS Code aims to deliver a stable and performant editor to end users, and misbehaving extensions should not impact the user experience. The Extension Host in VS Code prevents extensions from:
+VS Code aims to deliver a stable and performant editor to users, and misbehaving extensions should not impact the user experience. The Extension Host in VS Code prevents extensions from:
 
 - Impacting startup performance
 - Slowing down UI operations

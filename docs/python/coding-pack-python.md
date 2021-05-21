@@ -64,7 +64,7 @@ If you have any problems during installation, the following manual steps can be 
 ### Visual Studio Code and the Python extension
 
 1. If there was an issue installing VS Code, you can install it from [here](https://code.visualstudio.com/).
-1. Once VS Code is installed, you can install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details about installing extensions, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). The Python extension is named **Python** and is published by Microsoft.
+1. Once VS Code is installed, you can install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details about installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). The Python extension is named **Python** and is published by Microsoft.
 
       [![Python extension on Marketplace](images/coding-pack/python-extension-marketplace-install.jpg)](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 

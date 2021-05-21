@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -68,6 +68,14 @@ Colors inside a text document, such as the welcome page.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
+## Action colors
+
+A set of colors to control the interactions with actions across the workbench.
+
+- `toolbar.hoverBackground`: Toolbar background when hovering over actions using the mouse
+- `toolbar.hoverOutline`: Toolbar outline when hovering over actions using the mouse
+- `toolbar.activeBackground`: Toolbar background when holding the mouse over actions
+
 ## Button control
 
 A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
@@ -76,6 +84,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
+- `button.border`: Button border color.
 - `button.hoverBackground`: Button background color when hovering.
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
@@ -533,10 +542,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 
-### Preview colors
-
-- `imagePreview.border`: Border color for image in image preview.
-
 ## Status Bar colors
 
 The Status Bar is shown in the bottom of the workbench.
@@ -559,7 +564,6 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
 - `statusBarItem.errorBackground`: Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions.
 - `statusBarItem.errorForeground`: Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions.
-
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -624,6 +628,25 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
+## Keybinding label colors
+
+Keybinding labels are shown when there is a keybinding associated with a command. An example of the keybinding label can be seen in the Command Palette:
+![Keybinding label](images/theme-color/keybinding-label.png)
+
+Usages of the keybinding label include (but are not limited to):
+
+* The Command Palette
+* The Keyboard Shortcuts editor
+* The Keyboard Shortcuts recorder modal
+* The "feature contribution" section of an extension's marketplace page
+
+The following customizations are available:
+
+- `keybindingLabel.background`: Keybinding label background color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.foreground`: Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.border`: Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
+- `keybindingLabel.bottomBorder`: Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
+
 ## Integrated Terminal colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
@@ -667,26 +690,24 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `debugTokenExpression.number`: Foreground color for numbers in debug views
 - `debugTokenExpression.error`: Foreground color for expression errors in debug views
 
-
 ## Testing view colors
 
--  "`testing.iconFailed`: Color for the 'failed' icon in the test explorer.
--  "`testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
--  "`testing.iconPassed`: Color for the 'passed' icon in the test explorer.
--  "`testing.runAction`: Color for 'run' icons in the editor.
--  "`testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
--  "`testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
--  "`testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
--  "`testing.peekBorder`: Color of the peek view borders and arrow.
--  "`testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
--  "`testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
--  "`testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
--  "`testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
--  "`testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
--  "`testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
--  "`testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
--  "`testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
-
+- `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
+- `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
+- `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
+- `testing.runAction`: Color for 'run' icons in the editor.
+- `testing.iconQueued`: Color for the 'Queued' icon in the test explorer.
+- `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
+- `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
+- `testing.peekBorder`: Color of the peek view borders and arrow.
+- `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
+- `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
+- `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
+- `testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
+- `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
+- `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
+- `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
+- `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
 ## Welcome page colors
 
@@ -840,7 +861,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
-- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
@@ -861,7 +882,6 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 ## Testing Colors
 
-
 - `testing.iconFailed`: Color for the 'failed' icon in the test explorer.
 - `testing.iconErrored`: Color for the 'Errored' icon in the test explorer.
 - `testing.iconPassed`: Color for the 'passed' icon in the test explorer.
@@ -879,6 +899,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
 - `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
+## Ports Colors
+
+- `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
+
 ## Extension colors
 
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery#_extension-details) tab.
+Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.

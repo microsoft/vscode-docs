@@ -5,7 +5,7 @@ TOCTitle: GitHub Codespaces
 PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 ---
 # GitHub Codespaces
 
@@ -65,6 +65,13 @@ In certain cases, VS Code might ask you for permission to access the clipboard w
 ![Allow clipboard access in browser](images/codespaces/allow-clipboard-access.png)
 
 Once you have granted VS Code access to the clipboard, you can retry the operation.
+
+### How do I allow VS Code to always open new tabs and windows?
+
+Sometimes browsers will as a security precaution block VS Code from opening new tabs or windows. In case this happens VS Code will detect this and explicitly prompt the user. However you can allow VS Code to be able to always open new windows and tabs by opening the site settings via the context menu in the browser navigation bar and by allowing to Pop-up Windows.
+
+![Allow pop-up window in browser](images/codespaces/allow-new-tab.png)
+
 
 ## Questions or feedback
 

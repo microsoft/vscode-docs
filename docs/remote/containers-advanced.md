@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 ---
 # Advanced Container Configuration
 
@@ -555,7 +555,7 @@ For example, this will "just work":
 docker run -v /workspace/examplefile.txt:/incontainer/path debian
 ```
 
-However, if you wish to bind mount a host folder available into this inner container, you need to [mount it](#adding-another-local-file-mount) into your dev container first.
+However, if you want to bind mount a host folder available into this inner container, you need to [mount it](#adding-another-local-file-mount) into your dev container first.
 
 With [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker), the type of bind mounting that works by default is reversed. Here, the Docker CLI inside the container interacts with the host's Docker daemon instead. This affects mounting directories from inside the container as the path inside the container may not match the path of the directory on the host.
 

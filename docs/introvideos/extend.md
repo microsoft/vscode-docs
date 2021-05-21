@@ -18,9 +18,9 @@ Next video: [Debugging](/docs/introvideos/debugging.md)
 
 ## Video outline
 
-* Find extensions to install using the Extensions View.
-* Install an extension.
-* See what features are added via the Contributions tab or Command Palette.
+* Find extensions to install using the Extensions view.
+* Install an extension from the VS Code Extension Marketplace.
+* See what features are added via the **Features Contributions** tab or Command Palette (`kb(workbench.action.showCommands)`).
 * See recommendations for other extensions.
 
 ## Next video
@@ -29,5 +29,5 @@ Next video: [Debugging](/docs/introvideos/debugging.md)
 
 ## Related resources
 
-* [Extension Marketplace Documentation](/docs/editor/extension-gallery.md) - Official documentation for the VS Code Extension Marketplace.
+* [Extension Marketplace Documentation](/docs/editor/extension-marketplace.md) - Official documentation for the VS Code Extension Marketplace.
 * [Marketplace](https://marketplace.visualstudio.com/) - Browse extensions online.

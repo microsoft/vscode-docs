@@ -218,7 +218,7 @@ After a test run, VS Code displays results directly with the CodeLens adornments
 
 ![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
-VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the drop-down on the right side):
+VS Code also shows test results in the **Python Test Log** output panel (use the **View** > **Output** menu command to show the **Output** panel, then select **Python Test Log** from the dropdown on the right side):
 
 ![Test results in the Python Test Log output panel](images/testing/python-test-log-output.png)
 
@@ -232,7 +232,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 1. Open the integrated terminal and install the `pytest-xdist` package. For more details refer to the [project's documentation page](https://pypi.org/project/pytest-xdist/).
 
-   **For windows**
+   **For Windows**
 
    ```cmd
    py -3 -m pip install pytest-xdist

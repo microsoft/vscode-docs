@@ -5,7 +5,7 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 ---
 # Remote development in Containers
 
@@ -148,7 +148,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 | Option | Description |
 |---|---|
-| `dockerfile` | Relative path to a `Dockerfile` that you wish to use as your image. |
+| `dockerfile` | Relative path to a `Dockerfile` that you want to use as your image. |
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
 | `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
 | `forwardPorts`  | Make a list of ports inside the container available locally. |

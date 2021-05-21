@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 ---
 # Remote Development Tips and Tricks
 
@@ -125,7 +125,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 1. Open PuTTYGen **locally** and load the private key you want to convert.
 2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (for example `C:\Users\youruser\.ssh`).
 3. Validate that this new **local** file is owned by you and no other user has permissions to access it.
-4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows to point to the file:
+4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you want to change, and add (or modify) a host entry in the config file as follows to point to the file:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -162,6 +162,10 @@ If you encounter an error when connecting, you may need to enable socket forward
 ### Troubleshooting hanging or failing connections
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
+
+**General troubleshooting: Remove the server**
+
+One command helpful to troubleshoot a variety of Remote-SSH issues is **Remote-SSH: Kill VS Code Server on Host**. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The VS Code Server failed to start."
 
 **See if VS Code is waiting on a prompt**
 
@@ -246,7 +250,7 @@ One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/L
 
 **Contact your system administrator for configuration help**
 
-SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the `Remote-SSH` output window, they could be due to a missing setting.
+SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the **Remote-SSH** output window, they could be due to a missing setting.
 
 Contact your system administrator for information about the required settings for your SSH host and client. Specific command-line arguments for connecting to your SSH host can be added to an [SSH config file](https://linux.die.net/man/5/ssh_config).
 
@@ -1000,14 +1004,6 @@ If you are trying to connect to a localhost port from an external application, t
 
 **Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
 
-### Websockets do not work in port forwarded content in the Codespaces browser-based editor
-
-Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
-
-However, the Remote Development and Codespaces extensions for VS Code itself do not have this limitation.
-
-**Resolution:** Use the Codespaces extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The Codespaces team is investigating solutions to this problem. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
-
 ### Errors storing extension data
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
@@ -1058,7 +1054,7 @@ Extensions that rely on Electron or VS Code base modules (not exposed by the ext
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
 
-**Resolution:** None currently. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
+**Resolution:** If you create a "UI" extension designed to run locally, you can use the `vscode.workspace.fs` API to interact with the remote workspace filesystem. You can then make this a dependency of your "Workspace" extension and invoke it using a command as needed. See the [extension author's guide](/api/advanced-topics/remote-extensions) for details on different types of extensions and how to use commands to communicate between them.
 
 ### Cannot access attached device from extension
 
@@ -1068,6 +1064,26 @@ Extensions that access locally attached devices will be unable to connect to the
 
 ## Questions and feedback
 
-- See [Remote Development FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+### Reporting issues
+
+If you run into an issue with one of the remote development extensions, it's important to collect the correct logs so that we'll be able to help [diagnose your issue](https://aka.ms/vscode-remote/issues/new).
+
+Each remote extension has a command to view its logs.
+
+You can get the Remote - SSH extension logs with **Remote-SSH: Show Log** from the Command Palette (`kbstyle(F1)`). When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
+
+Similarly, you can get the Remote - Containers extension logs with **Remote-Containers: Show Log**.
+
+Like the two above, you can get the Remote - WSL logs with **Remote WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the Remote - WSL extension).
+
+If you're experiencing issues using other extensions remotely (for example, other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the **Remote Extension Host** output channel (**Output: Focus on Output View**), and select **Log (Remote Extension Host)** from the dropdown.
+
+> **Note**: If you only see **Log (Extension Host)**, this is the local extension host, and the remote extension host didn't launch. This is because the log channel is created only after the log file is created, so if the remote extension host does not launch, the remote extension host log file was not created and is not shown in the Output view. This is still helpful information to include in your issue.
+
+### Remote question and feedback resources
+
+We have a variety of other remote resources:
+
+* See [Remote Development FAQ](/docs/remote/faq.md).
+* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
+* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).

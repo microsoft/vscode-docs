@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -23,7 +23,7 @@ To open the terminal:
 
 ## Managing multiple terminals
 
-You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the drop-down list that can be used to switch between them.
+You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the dropdown list that can be used to switch between them.
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
@@ -48,9 +48,13 @@ Key|Command|
 `kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up |
 `kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down |
 
-## Terminal profiles
+## Configuration
 
-The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. Terminal profiles can be used to configure either the default or secondary shells by running the `kb(workbench.action.terminal.selectDefaultShell)` command which is also accessible via the terminal's dropdown.
+You can configure your default integrated terminal shell via terminal profiles as well as tune other terminal features with your user [settings](/docs/getstarted/settings.md).
+
+### Terminal profiles
+
+The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. Terminal profiles can be used to configure either the default or secondary shells by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal's dropdown.
 
 VS Code will automatically present a set of common profiles for the dropdown and also detect less common ones which will only show up when selecting a default profile.
 
@@ -58,7 +62,7 @@ VS Code will automatically present a set of common profiles for the dropdown and
 
 ### Configuring profiles
 
-The recommended way to create a new profile is to run the `kb(workbench.action.terminal.selectDefaultShell)` command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your settings.json file.
+The recommended way to create a new profile is to run the **Terminal: Select Default Profile** command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
 
 Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
@@ -79,13 +83,13 @@ Profiles can be created using either a `path` or a `source`, as well as a set of
 
 Other arguments supports in profiles include:
 
-- `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title which detects what program is running with the static profile name.
+* `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title which detects what program is running with the static profile name.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
 ### Removing built-in profiles
 
-To remove profile entries from the dropdown set the name of the profile to null. For example to remove the `Git Bash` profile on Windows, use this setting:
+To remove profile entries from the dropdown, set the name of the profile to null. For example, to remove the `Git Bash` profile on Windows, use this setting:
 
 ```json
 "terminal.integrated.profiles.windows": {
@@ -238,7 +242,7 @@ Note that the command only works with the `\u0000` format for using characters v
 
 ## Rename terminal sessions
 
-Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
+Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection dropdown.
 
 ## Open at a specific folder
 
@@ -275,21 +279,17 @@ You can set `terminal.integrated.automationShell.<platform>` to override the she
 
 ## Changing how the terminal is rendered
 
-By default, the integrated terminal will render using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower at rendering to canvas on some environments so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
+By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that change often. The terminal actually features 3 renderers which fallback if they are detected to perform poorly in this order:
+
+1. WebGL - This is the fastest renderer that truly unlocks the GPU's power to render the terminal quickly.
+2. Canvas - This will be used if the WebGL context fails to load (eg. hardware/environment incapabilities), it's performance may vary somewhat also depending on your environment but in general it's much faster than the DOM renderer.
+3. DOM - This is the slowest by quite a bit but arguably the most reliable since it just uses the DOM. If the canvas renderer is detected to run slowly the DOM renderer will be activated.
+
+Unfortunately some issues cannot be automatically detected, if you experience issues with the GPU acceleration you can disable it `terminal.integrated.gpuAcceleration` in your user or workspace [settings](/docs/getstarted/settings.md) which will use the DOM renderer. This can be driven by the follow setting:
 
 ```js
 {
-    "terminal.integrated.rendererType": "dom"
-}
-```
-
-Something else that might improve performance is to ignore Chromium's GPU disallow list by launching VS Code with `code --ignore-gpu-blacklist`.
-
-There is an experimental renderer based on WebGL that can also be enabled:
-
-```js
-{
-    "terminal.integrated.rendererType": "experimentalWebgl"
+    "terminal.integrated.gpuAcceleration": "off"
 }
 ```
 
@@ -446,7 +446,7 @@ EOF
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
-The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.rendererType": "dom"` to avoid using the canvas in the terminal.
+The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
 
 ### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed?
 

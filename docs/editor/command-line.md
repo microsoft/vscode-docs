@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line options
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code command-line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -74,7 +74,7 @@ Argument|Description
 
 ## Working with extensions
 
-You can install and manage VS Code [extensions](/docs/editor/extension-gallery.md) from the command line.
+You can install and manage VS Code [extensions](/docs/editor/extension-marketplace.md) from the command line.
 
 Argument|Description
 ------------------|-----------

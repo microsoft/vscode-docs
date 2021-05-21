@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -72,7 +72,7 @@ Here is a complete `package.json`
     "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
   },
   "devDependencies": {
-    "vscode": "0.10.x",
+    "@types/vscode": "^0.10.x",
     "typescript": "^1.6.2"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
@@ -184,9 +184,10 @@ We allow badges from the following URL prefixes:
 - deepscan.io
 - dev.azure.com
 - docs.rs
+- flat.badgen.net
 - gemnasium.com
 - githost.io
-- github.com
+- github.com (from Workflows only)
 - gitlab.com
 - godoc.org
 - goreportcard.com
@@ -317,4 +318,4 @@ To learn more about VS Code extensibility model, try these topics:
 
 - [Contribution Points](/api/references/contribution-points) - VS Code contribution points reference
 - [Activation Events](/api/references/activation-events) - VS Code activation events reference
-- [Extension Marketplace](/docs/editor/extension-gallery) - Read more about the VS Code Extension Marketplace
+- [Extension Marketplace](/docs/editor/extension-marketplace) - Read more about the VS Code Extension Marketplace
