@@ -109,7 +109,7 @@ Once you save the `index.js` file, the running instance of the server will updat
 
 ## Debugging React
 
-To debug the client side Angular code, we'll use the built-in JavaScript debugger.
+To debug the client side React code, we'll use the built-in JavaScript debugger.
 
 >Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `pwa-chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
 
