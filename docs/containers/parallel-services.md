@@ -19,7 +19,23 @@ Bridge to Kubernetes provides the ability to debug your Kubernetes services in a
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** and, for each of your services, go through the configuration steps.
 
-> **Warning**: If you configured your services to run isolated, make sure that they’re using the same **isolateAs** value in their *.vscode/tasks.json* files. This value is the prefix that Bridge to Kubernetes uses to direct traffic for an isolated service. By default, when configuring them, they will have different values. You can choose one of the values and hand-edit the *tasks.json* files for the other services to give them all the same value.
+    > **Warning**: If you configured your services to run isolated, make sure that they’re using the same **isolateAs** value in their *.vscode/tasks.json* files. This value is the prefix that Bridge to Kubernetes uses to direct traffic for an isolated service. By default, when configuring them, they will have different values. You can choose one of the values and hand-edit the *tasks.json* files for the other services to give them all the same value.
+    >
+    > ```json
+    >   {
+    > "tasks": [
+    >    {
+    >        "label": "bridge-to-kubernetes.service",
+    >        "type": "bridge-to-kubernetes.service",
+    >        "service": "service-name",
+    >        "ports": [
+    >            3000
+    >        ],
+    >        "isolateAs": "<copy-same-value-for-all-debugged-services>",
+    >        "useKubernetesServiceEnvironmentVariables": false      
+    >    }
+    >]
+    > ```
 
 1. Set up any breakpoints that you need in each service.
 
