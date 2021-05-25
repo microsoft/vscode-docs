@@ -48,6 +48,6 @@ Along with TensorBoard, VS Code and the Python extension also integrate the PyTo
 
 ## IntelliSense for PyTorch through the Pylance language server
 
-Through the Python editing experience in VS Code powered by Pylance provides completions and other rich features for PyTorch. For the best experience, update PyTorch to 1.8.1 to get improved completions for submodules, such as nn, cuda and optim.
+The Python editing experience in VS Code, enhanced with the power of Pylance, provides completions and other rich features for PyTorch. For the best experience, update PyTorch to 1.8.1 to get improved completions for submodules, such as nn, cuda and optim.
 
 ![Pylance support for PyTorch](images/pytorch-support/pytorch-pylance.gif)
