@@ -452,13 +452,19 @@ Once a host has been configured, you can connect to it directly from the termina
 
 For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
 
-`code --remote ssh-remote+remote_server /code/my_project`
+```bash
+code --remote ssh-remote+remote_server /code/my_project
+```
 
 We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
 
-To force that a folder is opened, add slash to the path or use: `code --folder-uri vscode-remote://ssh-remote+remote_server/code/folder.with.dot`
+To force that a folder is opened, add slash to the path or use:
 
-To force that a file is opened, add `--goto` or use: `code --file-uri vscode-remote://ssh-remote+remote_server/code/fileWithoutExtension`
+`code --folder-uri vscode-remote://ssh-remote+remote_server/code/folder.with.dot`
+
+To force that a file is opened, add `--goto` or use:
+
+`code --file-uri vscode-remote://ssh-remote+remote_server/code/fileWithoutExtension`
 
 
 ### Using rsync to maintain a local copy of your source code
