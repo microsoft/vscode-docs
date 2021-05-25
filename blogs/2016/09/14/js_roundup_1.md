@@ -20,7 +20,7 @@ Visual Studio Code is not an IDE, but you can extend it to do many of the things
 
 Below are some of the essential JavaScript extensions that I and many of you are using every day.
 
-> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions).
+> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
 
 ## ESLint
 
@@ -65,10 +65,6 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 A second incredibly useful extension from Christian Kohler. This extension provides IntelliSense for npm modules.
 
 ![npm intellisense](npm_intellisense.gif)
-
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

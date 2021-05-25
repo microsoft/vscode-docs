@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: cpp
 TOCTitle: FAQ
 ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
@@ -29,9 +29,9 @@ Files can be corrupted due to the fact that you either have a multi-root workspa
 
 ## How do I get IntelliSense to work correctly?
 
-Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (for example cl.exe/WSL/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the `C/C++: Edit Configurations (UI)` command. In that view, you can change the compiler you wish to emulate, the paths to include files you wish to use, preprocessor definitions, and more.
+Without any configuration, the extension will attempt to locate headers by searching your workspace folder and by emulating a compiler it finds on your computer. (for example cl.exe/WSL/MinGW for Windows, gcc/clang for macOS/Linux). If this automatic configuration is insufficient, you can modify the defaults by running the **C/C++: Edit Configurations (UI)** command. In that view, you can change the compiler you want to emulate, the paths to include files you want to use, preprocessor definitions, and more.
 
-Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the `C/C++: Change Configuration Provider...` command to enable any such extension to provide the configurations for IntelliSense.
+Or, if you install a build system extension that interfaces with our extension, you can allow that extension to provide the configurations for you. For example, the CMake Tools extension can configure projects that use the CMake build system. Use the **C/C++: Change Configuration Provider...** command to enable any such extension to provide the configurations for IntelliSense.
 
 A third option for projects without build system extension support is to use a [compile_commands.json](https://clang.llvm.org/docs/JSONCompilationDatabase.html) file if your build system supports generating this file. In the "Advanced" section of the Configuration UI, you can supply the path to your `compile_commands.json` and the extension will use the compilation information listed in that file to configure IntelliSense.
 
@@ -71,7 +71,7 @@ When you open a workspace for the first time, the extension adds `${workspaceFol
 
 ## How do I recreate the IntelliSense database?
 
-Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C_Cpp: Reset IntelliSense Database** command.
+Starting in version 0.12.3 of the extension, there is a command to reset your IntelliSense database. Open the Command Palette (`kb(workbench.action.showCommands)`) and choose the **C/C++: Reset IntelliSense Database** command.
 
 ## What is the ipch folder?
 

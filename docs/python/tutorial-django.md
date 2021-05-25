@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
@@ -183,7 +183,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     ]
     ```
 
-1. Save all modified files with `kb(workbench.action.files.saveAll)`.
+1. Save all modified files with `kb(saveAll)`.
 
 1. In the VS Code Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
@@ -197,7 +197,7 @@ You're probably already wondering if there's an easier way to run the server and
 
     ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the drop-down and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the dropdown and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration with the name "Python: Django":
 
@@ -666,7 +666,7 @@ class LogMessage(models.Model):
     def __str__(self):
         """Returns a string representation of a message."""
         date = timezone.localtime(self.log_date)
-        return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
+        return "'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
 ```
 
 A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
@@ -688,7 +688,7 @@ If you see errors when running the commands, make sure you're not using a debugg
 
 With your models in place and the database migrated, you can store and retrieve data using only your models. In this section, you add a form page to the app through which you can log a message. You then modify the home page to display those messages. Because you modify many code files here, be mindful of the details.
 
-1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains field drawn from the data model, `LogMessage`:
+1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains a field drawn from the data model, `LogMessage`:
 
     ```python
     from django import forms

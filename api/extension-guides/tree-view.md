@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -82,7 +82,7 @@ There are two necessary methods in this API that you need to implement:
 - `getChildren(element?: T): ProviderResult<T[]>` - Implement this to return the children for the given `element` or root (if no element is passed).
 - `getTreeItem(element: T): TreeItem | Thenable<TreeItem>` - Implement this to return the UI representation ([TreeItem](/api/references/vscode-api#TreeItem)) of the element that gets displayed in the view.
 
-When the user opens the Tree View, the `getChildren` method will be called without an `element`. From there, your `TreeDataProvider` should return your top-level tree items. `getChildren` is then called for each of your top-level tree items, so that you can provide the children of those items.
+When the user opens the Tree View, the `getChildren` method will be called without an `element`. From there, your `TreeDataProvider` should return your top-level tree items. In our example, the `collapsibleState` of the top-level tree items is `TreeItemCollapsibleState.Collapsed`, meaning that the top-level tree items will show as collapsed. Setting the `collapsibleState` to `TreeItemCollapsibleState.Expanded` will cause tree items to show as expanded. Leaving the `collapsibleState` as its default of `TreeItemCollapsibleState.None` indicates that the tree item has no children. `getChildren` will not be called for tree items with a `collapsibleState` of `TreeItemCollapsibleState.None`.
 
 Here is an example of a `TreeDataProvider` implementation that provides node dependencies data:
 
@@ -250,15 +250,15 @@ Now we have a command that will refresh the node dependencies view, but a button
 In the `contributes` section of your `package.json`, add:
 
 ```json
-        "menus": {
-            "view/title": [
-                {
-                    "command": "nodeDependencies.refreshEntry",
-                    "when": "view == nodeDependencies",
-                    "group": "navigation"
-                },
-      ]
-    }
+"menus": {
+    "view/title": [
+        {
+            "command": "nodeDependencies.refreshEntry",
+            "when": "view == nodeDependencies",
+            "group": "navigation"
+        },
+    ]
+}
 ```
 
 ## Activation

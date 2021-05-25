@@ -12,9 +12,9 @@ MetaSocialImage:
 
 In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Learn More](/docs/introvideos/codeediting.md#learn-more) section to see more features.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4M6Vx" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RE4M6Vx" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [Customize Visual Studio Code](/docs/introvideos/configure.md)
+Next video: [Personalize Visual Studio Code](/docs/introvideos/configure.md)
 
 ## Video outline
 
@@ -28,7 +28,7 @@ Next video: [Customize Visual Studio Code](/docs/introvideos/configure.md)
 
 ## Next video
 
-* [Customize Visual Studio Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style with themes.
+* [Personalize Visual Studio Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style with themes.
 
 ## Related resources
 

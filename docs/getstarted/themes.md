@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -35,7 +35,7 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
 
 There are several out-of-the-box color themes in VS Code for you to try.
 
-Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, install it and restart VS Code and the new theme will be available.
+Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-marketplace.md) by the community.  If you find one you want to use, install it and restart VS Code and the new theme will be available.
 
 You can search for themes in the Extensions view (`kb(workbench.view.extensions)`) search box using the `@category:"themes"` filter.
 
@@ -151,11 +151,11 @@ See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a
 
 ## Remove default Color Themes
 
-If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** drop-down menu from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
+If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** dropdown menu from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
 
 ![built-in themes](images/themes/built-in-themes.png)
 
-You can disable a built-in theme extension as you would any other VS Code [extension](/docs/editor/extension-gallery.md) with the **Disable** command on the gear context menu.
+You can disable a built-in theme extension as you would any other VS Code [extension](/docs/editor/extension-marketplace.md) with the **Disable** command on the gear context menu.
 
 ![disable theme](images/themes/disable-theme.png)
 
@@ -170,7 +170,7 @@ File icon themes can be contributed by extensions and selected by users as their
 3. Use the cursor keys to preview the icons of the theme.
 4. Select the theme you want and hit `kbstyle(Enter)`.
 
-![file icon theme drop-down](images/themes/file-icon-theme-dropdown.png)
+![file icon theme dropdown](images/themes/file-icon-theme-dropdown.png)
 
 By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once a file icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -236,7 +236,7 @@ There are more task properties to configure your workflow. You can use IntelliSe
 
 In addition to the global menu bar, task commands can be accessed using the **Command Palette** (`kb(workbench.action.showCommands)`). You can filter on 'task' and can see the various task related commands.
 
-![tasks in command palette](images/tasks/command-palette.png)
+![Tasks in Command Palette](images/tasks/command-palette.png)
 
 ### Compound tasks
 
@@ -464,6 +464,8 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 ## Variable substitution
 
 When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
+
+>**Note:** Not all properties will accept variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
 
 Below is an example of a custom task configuration that passes the current opened file to the TypeScript compiler.
 
@@ -705,7 +707,7 @@ You can also define a problem matcher that captures only a file. To do so, defin
 
 >**Note:** A functional pattern must at least provide a match group for `file` and `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location`, a function pattern must provide a `line` or `location` property as well.
 
->**Note:** The problem matcher only parses output from the given command. If you wish to parse output written to separate file (e.g. a log file), make the command that you run print out lines from the separate file before it finishes executing.
+>**Note:** The problem matcher only parses output from the given command. If you want to parse output written to separate file (e.g. a log file), make the command that you run print out lines from the separate file before it finishes executing.
 
 ## Defining a multiline problem matcher
 

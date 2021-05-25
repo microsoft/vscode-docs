@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube.com/embed/S320N3sxinE?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RWz32O" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Next video: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -22,7 +22,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 You can also run VS Code from the terminal by typing 'code' after adding it to the path:
 
 * Launch VS Code.
-* Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
+* Open the **Command Palette** (`kbstyle(Cmd+Shift+P)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
 
 ![macOS shell commands](images/mac/shell-command.png)
 
@@ -97,6 +97,4 @@ If VS Code doesn't update once it restarts, it might be set under quarantine by 
 
 ### Does VS Code run on Mac M1 machines?
 
-Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple M1 chip. Currently, only [Insiders](/insiders) macOS ARM64 builds are available.
-
-![macOS ARM64 Insiders build](images/mac/arm64-insiders.png)
+Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple M1 chip. You can install the Universal build, which includes both Intel and Apple Silicon builds, or one of the platform specific builds.

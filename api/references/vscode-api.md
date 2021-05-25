@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 
 VSCodeCommitHash: 96d03d1ecc393a047d549dc8bd13c74dc174f20a
 VSCodeVersion: 1.51.0
@@ -283,7 +283,7 @@ If no debug session is active, output sent to the debug console is not shown.</p
 <a name="debug.activeDebugSession"></a><span class="ts" id=3144 data-target="#details-3144" data-toggle="collapse"><span class="ident">activeDebugSession</span><span>: </span><a class="type-ref" href="#DebugSession">DebugSession</a> &#124; <a class="type-intrinsic">undefined</a></span>
 <div class="details collapse" id="details-3144">
 <div class="comment"><p>The currently active <a href="#DebugSession">debug session</a> or <code>undefined</code>. The active debug session is the one
-represented by the debug action floating window or the one currently shown in the drop down menu of the debug action floating window.
+represented by the debug action floating window or the one currently shown in the dropdown menu of the debug action floating window.
 If no debug session is active, the value is <code>undefined</code>.</p>
 </div>
 </div>
@@ -11671,7 +11671,7 @@ loading data for the next step in user input.</p>
 
 <a name="InputBox.ignoreFocusOut"></a><span class="ts" id=2245 data-target="#details-2245" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-2245">
-<div class="comment"><p>If the UI should stay open even when loosing UI focus. Defaults to false.</p>
+<div class="comment"><p>If the UI should stay open even when losing UI focus. Defaults to false.</p>
 </div>
 </div>
 
@@ -13431,7 +13431,7 @@ loading data for the next step in user input.</p>
 
 <a name="QuickInput.ignoreFocusOut"></a><span class="ts" id=2193 data-target="#details-2193" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-2193">
-<div class="comment"><p>If the UI should stay open even when loosing UI focus. Defaults to false.</p>
+<div class="comment"><p>If the UI should stay open even when losing UI focus. Defaults to false.</p>
 </div>
 </div>
 
@@ -13669,7 +13669,7 @@ loading data for the next step in user input.</p>
 
 <a name="QuickPick.ignoreFocusOut"></a><span class="ts" id=2222 data-target="#details-2222" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-2222">
-<div class="comment"><p>If the UI should stay open even when loosing UI focus. Defaults to false.</p>
+<div class="comment"><p>If the UI should stay open even when losing UI focus. Defaults to false.</p>
 </div>
 </div>
 

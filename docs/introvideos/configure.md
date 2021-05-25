@@ -1,25 +1,26 @@
 ---
 Order:
 Area: introvideos
-TOCTitle: Customize
+TOCTitle: Personalize
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
-PageTitle: Customize Visual Studio Code
-DateApproved: 3/6/2017
-MetaDescription: Learn how to customize Visual Studio Code with themes
+PageTitle: Personalize Visual Studio Code
+DateApproved: 4/8/2021
+MetaDescription: Learn how to personalize Visual Studio Code with themes.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Customize Visual Studio Code
+# Personalize Visual Studio Code
 
 In this Visual Studio Code tutorial, we show you how to personalize Visual Studio Code with themes.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
 
 ## Video outline
 
-* Change your UI Color Theme
-* Change your File Icon Theme
+* Change your Color Theme.
+* Install a new Color Theme from the VS Code Extension Marketplace.
+* Change your File Icon Theme.
 
 ## Next video
 

@@ -26,12 +26,22 @@
         <priority>0.70</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/events</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://code.visualstudio.com/learntocode</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/migrate-from-brackets</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
     </url>
@@ -91,7 +101,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/introvideos/intellisense</loc>
+        <loc>https://code.visualstudio.com/docs/introvideos/customize</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -130,11 +140,11 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <!-- <url>
-        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi-os</loc>
+    <url>
+        <loc>https://code.visualstudio.com/docs/setup/raspberry-pi</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url> -->
+    </url>
     <url>
         <loc>https://code.visualstudio.com/docs/setup/network</loc>
         <changefreq>weekly</changefreq>
@@ -196,7 +206,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/extension-gallery</loc>
+        <loc>https://code.visualstudio.com/docs/editor/extension-marketplace</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -431,6 +441,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/nodejs/browser-debugging</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/nodejs/debugging-recipes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -482,6 +497,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/python/data-science-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/python/pytorch-support</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -592,6 +612,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/java/extensions</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/cpp/introvideos-cpp</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -816,7 +841,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/python-user-rights</loc>
+        <loc>https://code.visualstudio.com/docs/containers/python-configure-containers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -851,7 +876,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/minikube</loc>
+        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-sample</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1131,6 +1156,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/learn/educators/learn-modules</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/learn/educators/nodejs</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>

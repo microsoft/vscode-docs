@@ -4,27 +4,27 @@ Area: introvideos
 TOCTitle: Debugging
 ContentId: cf275b3d-c1d8-4a55-b2eb-a8a744882b6a
 PageTitle: Introduction to Debugging in Visual Studio Code
-DateApproved: 7/30/2018
+DateApproved: 4/5/2021
 MetaDescription: Debugging is a core feature of Visual Studio Code. Learn how to configure and use the Node.js debugger in this introductory video.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
 # Debugging in Visual Studio Code
 
-Debugging is a core feature of Visual Studio Code. In this tutorial, we will show you how to configure and use debugging basics. We will walk you through how you get started with Node.js debugging in VS Code.
+Debugging is a core feature of Visual Studio Code. In this tutorial, we will show you how to run and debug a program in VS Code. We’ll take a tour of the Run View, explore some debugging features, and end by setting a breakpoint.
 
-> **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [Node.js](https://nodejs.org/en/).
+> **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [Node.js](https://nodejs.org/en/). To follow along with the Python portion of the video, you'll need to install [Python](https://www.python.org/downloads/).
 
-<iframe src="https://www.youtube.com/embed/2oFKNL7vYV8?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RWAIIi" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Next video: [Version Control](/docs/introvideos/versioncontrol.md)
 
 ## Video outline
 
 * Debugging that "just works".
+* Run a sample Node.js app.
+* Use a `launch.json` configuration file.
 * Single file debugging.
-* Using a `launch.json` configuration files.
-* The difference between launch and attach debug configurations.
-* Use Watches to inspect your program's state and variables.
+* Set a breakpoint.
 
 ## Next video
 

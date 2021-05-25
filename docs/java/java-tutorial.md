@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 1/29/2021
+DateApproved: 4/14/2021
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -63,7 +63,7 @@ The supported version for running the VS Code for Java extension and the support
 
 To help you configure correctly, we provide a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
 
-![JDK Configuration](images/java-tutorial/jdk-configuration.png)
+![JDK Configuration](images/java-tutorial/jdk-config-wizard-overview.png)
 
 > **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
 
@@ -73,7 +73,7 @@ Alternatively, you can configure JDK settings using the VS Code Settings editor.
 
 ### Installing a Java Development Kit (JDK)
 
-When you need install a JDK, we recommend you to consider installing from one of these sources:
+When you need to install a JDK, we recommend you to consider installing from one of these sources:
 
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)

@@ -16,7 +16,7 @@ Create a container registry to push images to. For more information about how to
 
 Make sure that the registry endpoint you created is visible under **Registries** in the **Docker Explorer** of VS Code:
 
-    ![Docker Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
+![Docker Explorer in VS Code showing registries](images/quickstarts/python-django-registries.png)
 
 ## Settings for Django apps
 

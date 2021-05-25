@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -433,7 +433,7 @@ Command|Key|Command id
 New File|`kb(workbench.action.files.newUntitledFile)`|`workbench.action.files.newUntitledFile`
 Open File...|`kb(workbench.action.files.openFile)`|`workbench.action.files.openFile`
 Save|`kb(workbench.action.files.save)`|`workbench.action.files.save`
-Save All|`kb(workbench.action.files.saveAll)`|`workbench.action.files.saveAll`
+Save All|`kb(saveAll)`|`saveAll`
 Save As...|`kb(workbench.action.files.saveAs)`|`workbench.action.files.saveAs`
 Close|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
 Close Others|`kb(workbench.action.closeOtherEditors)`|`workbench.action.closeOtherEditors`

@@ -15,7 +15,7 @@ Visual Studio Code has excellent support for JavaScript out of the box. As with 
 
 But what other features can you get with VS Code? VS Code has a rich extensibility model and many features are provided through VS Code extensions. This post is a follow up to my [previous post](/blogs/2016/09/14/js_roundup_1.md) about JavaScript extensions.
 
-> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions).
+> **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
 
 ## Debugger for Chrome
 
@@ -66,8 +66,8 @@ There are two extensions in this section, one for [Atom](https://marketplace.vis
 These extensions are in preview because we want your feedback. There are still many shortcuts to include and it is easy for you to add any we may have missed.
 
 1. Go to the extension's GitHub repository ([Atom](https://github.com/microsoft/vscode-atom-keybindings) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings)).
-2. Open the `package.json` file ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/master/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json)).
-3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/master/package.json#L25) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/master/package.json#L25)).
+2. Open the `package.json` file ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/main/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/main/package.json)).
+3. Add a JSON object to `contributes.keybindings` section of `package.json` as seen below ([Atom](https://github.com/microsoft/vscode-atom-keybindings/blob/main/package.json) and [Sublime Text](https://github.com/microsoft/vscode-sublime-keybindings/blob/main/package.json)).
 4. Open a pull request.
 
 ```json
@@ -100,10 +100,6 @@ Additionally, there are many extensions in the Marketplace which add useful keyb
 ## Creating your own JavaScript extension
 
 Not finding an extension that meets your needs. You can make your own with JavaScript or TypeScript! Check out the [documentation](/docs/extensions/overview.md) to learn more.
-
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

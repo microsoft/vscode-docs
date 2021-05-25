@@ -64,7 +64,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]
 ```
 
-The `python.autocomplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
+The `python.autoComplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
 
 ```json
   "python.autoComplete.addBrackets": true,
@@ -85,17 +85,15 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Quick Fixes
 
-The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
+The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. Note that the functionality in the below examples is provided by the Pylance language server.
 
 ![Adding an import](images/editing/quickFix.gif)
 
-The add imports Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib`, as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp.
+The add imports Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib`, as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp, `panel` as pn, and `holoviews` as hv.
 
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
 The import suggestions list is ordered with import statements for packages (or modules) at the top, followed by statements for additional modules and/or members (classes, objects, etc.) from specified packages.
-
-> **Note**: This functionality requires use of the [Microsoft Python Language Server](https://devblogs.microsoft.com/python/introducing-the-python-language-server). To enable the language server,  set `python.jediEnabled` to **false** in your [settings.json file](/docs/python/settings-reference.md). Additionally, you'll need to make sure that linting is enabled by opening the Command Palette (**View > Command Palette...** or `kb(workbench.action.showCommands)`) and running the **Python: Enable Linting** command (Select **On** in the drop-down menu that appears).
 
 ## Run Selection/Line in Terminal (REPL)
 

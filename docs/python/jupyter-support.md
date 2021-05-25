@@ -128,7 +128,14 @@ Once your code is added, you can run a cell using the green run arrow and the ou
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
-You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard combos can be used in both command and edit modes.
+You can also use key combos to run a selected code cell. 
+
+- `kbstyle(Ctrl+Enter)` runs the currently selected cell
+- `kbstyle(Shift+Enter)` runs the currently selected cell and, if a cell is not already present, inserts a new cell immediately below (focus moves to the below cell in command mode)
+- `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell in edit mode). 
+
+These keyboard combos can be used in both command and edit modes.
+
 
 ### Run multiple code cells
 
@@ -202,7 +209,7 @@ Within the Python Notebook Editor, it's possible to view, inspect, and filter th
 
 ![Variable Explorer](images/jupyter/native-variable-explorer.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values using the boxes below each column header and, if you've made changes or transformations to your data, you can click the refresh button in the top left to retrieve the most recent data. ALong with that you can click on any column heading to sort its data in ascending or descending order, as well as click into individual cells in the Data Viewer to copy out their contents.
 
 ![Data Viewer](images/jupyter/native-data-viewer.png)
 

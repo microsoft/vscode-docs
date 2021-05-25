@@ -13,7 +13,7 @@ August 2, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 The first extension I built for Visual Studio Code was called [Git Blame](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame). It lets you quickly see which developer most recently modified the currently selected line ("blame"). It was simple and effective. Since the time when I built this extension, there have been many more awesome Git extensions added to the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode). Here are some of my favorite.
 
-> Tip: Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions).
+> Tip: Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
 
 ## Annotator
 
@@ -98,10 +98,6 @@ Publisher - [CodeZombie](https://marketplace.visualstudio.com/search?term=publis
 The second gitignore extension (note that they are from different publishers) will pull in template `.gitignore` files. Are you coding in Python and want all the "usual" Python `.gitignore` configurations? Install this extension and run a simple command to pull down the `.gitignore` from [github/gitignore](https://github.com/github/gitignore).
 
 ![gitignore template extension](gitignore-template.png)
-
-## Want to see your extension featured?
-
-Have other extensions you like or want to see your extension in the next roundup? Ping me on [Twitter](https://twitter.com/waderyan_)!
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

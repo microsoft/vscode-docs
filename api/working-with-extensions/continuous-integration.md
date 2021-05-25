@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -196,6 +196,46 @@ In our example, the condition has three checks:
 - `success()` - Publish only if the tests pass.
 - `startsWith( github.ref, 'refs/tags/releases/')` - Publish only if a tagged (release) build.
 - `matrix.os == 'ubuntu-latest'` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
+
+## GitLab CI
+
+GitLab CI can be used to test and publish the extension in headless Docker containers. This can be done by pulling a preconfigured Docker image, or installing `xvfb` and the libraries required to run Visual Studio Code during the pipeline.
+
+```yml
+image: node:12-buster
+
+before_script:
+  - npm install
+
+test:
+  script:
+    - |
+      apt update
+      apt install -y libasound2 libgbm-dev libgtk-3-0 libnss3 xvfb
+      xvfb-run -a npm run test
+```
+
+### GitLab CI automated publishing
+
+1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ee/ci/variables/README.html#mask-a-cicd-variable).
+2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+3. Declare a `deploy` script in `package.json` without the PAT.
+
+```json
+"scripts": {
+  "deploy": "vsce publish --yarn"
+}
+```
+
+4. Add a `deploy` job that calls `npm run deploy` with the masked variable which will only trigger on tags.
+
+```yaml
+deploy:
+  only:
+    - tags
+  script:
+    - npm run deploy
+```
 
 ## Travis CI
 

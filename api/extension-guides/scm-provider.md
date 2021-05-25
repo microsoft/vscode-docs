@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide illustrating how to use Source Control API.
@@ -28,9 +28,9 @@ You can create a new SourceControl with `vscode.scm.createSourceControl`.
 In order to better understand how these three entities correlate with each other, let's take [Git](https://github.com/microsoft/vscode/tree/main/extensions/git) as an example. Consider the following output of `git status`:
 
 ```bash
-vsce master* → git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
+vsce main* → git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
@@ -103,11 +103,19 @@ export interface SourceControlResourceState {
 
 ### Menus
 
-There are five Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
+There are six Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
 
-The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` drop-down menu.
+The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown menu.
 
-The `scm/resourceGroup/context` and `scm/resourceState/context` are similar. The former will let you customize resource groups, while the later refers to resource states. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click. Commands called from within these menus will have the respective resource states on passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
+These three are similar:
+
+- `scm/resourceGroup/context` adds commands to [`SourceControlResourceGroup`](/api/references/contribution-points#SourceControlResourceGroup) items.
+- `scm/resourceState/context` adds commands to [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState) items.
+- `scm/resourceFolder/context` add commands to the intermediate folders that appear when a [`SourceControlResourceState`](/api/references/contribution-points#SourceControlResourceState)'s resourceUri path includes folders and the user has opted for tree-view rather than list-view mode.
+
+Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click.
+
+Note that the SCM view supports multiple selection, so a command receives as its argument an array of one or more resources.
 
 For example, Git supports staging multiple files by adding the `git.stage` command to the `scm/resourceState/context` menu and using such a method declaration:
 
@@ -115,7 +123,7 @@ For example, Git supports staging multiple files by adding the `git.stage` comma
 stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
 ```
 
-When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these [context keys](/api/references/when-clause-contexts) in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
+When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these [context keys](/api/references/when-clause-contexts) in the `when` clauses of your menu items. Here's how Git is able to show an inline menu item for its `git.stage` command:
 
 ```json
 {
@@ -125,17 +133,15 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
-The `scm/change/title` allows you to contribute commands to the title bar of an inline change. The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change affordance is currently focused on. For example, here's the declaration of the `stageChange` Git command, which is contributed to this menu:
-
-```ts
-async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
-```
-
 The `scm/sourceControl` menu is located contextually near SourceControl instances:
 
 ![source control menu](images/scm-provider/sourcecontrol-menu.png)
 
-Finally, the `scm/change/title` menu is related to the Quick Diff experience, showcased further ahead. It lets you contribute commands which are specific to code changes.
+The `scm/change/title` allows you to contribute commands to the title bar of the [Quick Diff](/api/references/contribution-points#QuickDiffProvider) inline diff editor, described [further ahead](#quick-diff). The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change diff editor is currently focused on. For example, here's the declaration of the `stageChange` Git command which is contributed to this menu with a `when` clause testing that the `originalResourceScheme` [context key](/api/references/when-clause-contexts) equals `git`:
+
+```ts
+async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
+```
 
 ### SCM Input Box
 
@@ -173,9 +179,9 @@ export interface SourceControl {
 }
 ```
 
-Using a `QuickDiffProvider`, your implementation is able to tell VS Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
+Using a `QuickDiffProvider`'s `provideOriginalResource` method, your implementation is able to tell VS Code the `Uri` of the original resource that matches the resource whose `Uri` is provided as an argument to the method.
 
-You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/api/references/vscode-api#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
+Combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/api/references/vscode-api#workspace), which lets you provide contents for arbitrary resources, given a [`Uri`](/api/references/vscode-api#Uri) matching the custom `scheme` that it registered for.
 
 ## Next steps
 

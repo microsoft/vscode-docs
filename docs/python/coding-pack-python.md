@@ -64,7 +64,7 @@ If you have any problems during installation, the following manual steps can be 
 ### Visual Studio Code and the Python extension
 
 1. If there was an issue installing VS Code, you can install it from [here](https://code.visualstudio.com/).
-1. Once VS Code is installed, you can install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details about installing extensions, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). The Python extension is named **Python** and is published by Microsoft.
+1. Once VS Code is installed, you can install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details about installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). The Python extension is named **Python** and is published by Microsoft.
 
       [![Python extension on Marketplace](images/coding-pack/python-extension-marketplace-install.jpg)](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
@@ -154,4 +154,4 @@ If you need to uninstall (or repair) your Coding Pack for Python installation, y
 
    ![Coding Pack for Python uninstall complete screen](images/coding-pack/coding-pack-python-uninstall-complete.png)
 
->**Note**: The uninstall process will not remove Visual Studio Code. At the end of the uninstall process, you can click the provided link to open “Apps & features” to uninstall Visual Studio Code. If you decide to repair your installation, be aware that any other Python packages you might have installed will be removed as part of the repair process.
+>**Note**: The uninstall process will not remove Visual Studio Code. At the end of the uninstall process, you can click the provided link to open "Apps & features" to uninstall Visual Studio Code. If you decide to repair your installation, be aware that any other Python packages you might have installed will be removed as part of the repair process.

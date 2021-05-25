@@ -4,12 +4,12 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files as well as some select settings. Variable substitution is supported inside some key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -269,6 +269,10 @@ Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)
 ### Why isn't ${workspaceRoot} documented?
 
 The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+
+### Why aren't variables in tasks.json being resolved?
+
+Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
 
 ### How can I know a variable's actual value?
 

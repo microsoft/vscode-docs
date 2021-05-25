@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 2/4/2021
+DateApproved: 5/5/2021
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -335,4 +335,4 @@ Yes, color picker has been added in version [1.15](https://code.visualstudio.com
 
 ### Is there support for the indentation based Sass syntax (.sass)?
 
-No, but there are several extensions in the Marketplace supporting the indented flavor of Sass, for example, the [sass-indented](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented) extension by Robin Bentley.
+No, but there are several extensions in the Marketplace supporting the indented flavor of Sass, for example, the [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented) extension originally created by Robin Bentley, now maintained by Leonard Grosoli.

@@ -12,9 +12,9 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [IntelliSense](/docs/introvideos/intellisense.md)
+Next video: [Customize](/docs/introvideos/customize.md)
 
 ## Video outline
 
@@ -27,7 +27,7 @@ Next video: [IntelliSense](/docs/introvideos/intellisense.md)
 
 ## Next video
 
-* [IntelliSense](/docs/introvideos/intellisense.md) - Learn how to set up IntelliSense and receive intelligent code completions.
+* [Customize](/docs/introvideos/customize.md) - Customize VS Code with settings and keyboard shortcuts.
 
 ## Related resources
 
