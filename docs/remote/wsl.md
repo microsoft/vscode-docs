@@ -83,13 +83,13 @@ for example: `code --remote wsl+Ubuntu /home/jim/projects/c`
 
 We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
 
-To force that a folder is opened, add a slash to the end:
+To force that a folder is opened, add slash to the path or use: `code --folder-uri vscode-remote://wsl+Ubuntu/home/ubuntu/folder.with.dot`
 
-`code-insiders --remote ssh-remote+mymachine /home/ubuntu/folder.with.dot/`
+To force that a file is opened add `--goto` or use: `code --file-uri vscode-remote://wsl+Ubuntu/home/ubuntu/fileWithoutExtension`
 
-To force that a file is opened, add the `--goto` option. You can then, optionally, also add a line and column to open on (`:line:column`):
 
-`code --remote ssh-remote+mymachine --goto /home/ubuntu/fileWithoutExtension:1:1`
+
+
 
 ## Working with Git
 
