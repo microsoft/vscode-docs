@@ -23,6 +23,7 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 **Recipes:**
 
 * [Debugging Node.js with Nodemon](https://github.com/microsoft/vscode-recipes/tree/main/nodemon)
+* [Debugging Node.js AWS Lambda functions](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-lambda-functions)
 
 ## Debug client-side JavaScript in Browsers
 
