@@ -42,9 +42,9 @@ Items are placed inside of various containers and include:
 * [Warning](/api/references/vscode-api#window.showWarningMessage)
 * [Error](/api/references/vscode-api#window.showErrorMessage)
 
-It's important to limit the number of notifications sent in order to respect the user's attention. To help guide your decision on whether or not you should show a notificaiton, please follow our notification decision tree:
+It's important to limit the number of notifications sent in order to respect the user's attention. To help guide your decision on whether or not you should show a notification, please follow our notification decision tree:
 
-[![Notification decision tree for showing notifications](images/guidelines/notification-decision-tree.png)](images/guidelines/notification-decision-tree.png)
+[![Notification decision tree for showing notifications](images/guidelines/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
 
 ### Notification examples
 
