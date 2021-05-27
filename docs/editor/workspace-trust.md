@@ -120,22 +120,24 @@ You can also at any time use:
 * **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.actions.showCommands)`)
 * **Manage Workspace Trust** from the **Manage** gear in the Activity bar
 
+![Manage Workspace Trust command in the Manage gear context menu](images/workspace-trust/gear-manage-workspace-trust.png)
 
-
+<!--
 ### Trusting an empty window
 
 A trusted window (only lasts for the session) unless use the `security.workspace.trust.emptyWindow` setting.
-
+ -->
 ## Selecting folders
 
-Folders added to the list as you trust a folder. You can also manually add or modify the trusted folder list.
+When you trust a folder, it is added to the  **Trusted Folders & Workspaces** list displayed in the Workspace Trust editor.
 
-**Add Folder** button brings up platform Folder dialog with **Trust Folder** button.
-Can not edit folder path directly? Could in earlier demo video, now goes to platform folder dialog
+![Workspace Trust editor Trusted Folders and Workspaces list](images/workspace-trust/trusted-folders-workspaces-list.png)
 
-example for selecting parent folders
+You can manually add, edit, and remove folders from this list and the active folder enabling trust is highlights in bold.
 
-See a different message in Restricted Mode square and not **Don't Trust** button.
+### Selecting a parent folder
+
+TBD See a different message in Restricted Mode square and not **Don't Trust** button.
 
 ### Folder configurations
 
