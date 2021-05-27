@@ -23,7 +23,7 @@ To open the terminal:
 
 ## Managing terminals
 
-The terminal tabs view is to the right of the terminals. It contains an entry for each terminal, labeled by its name and distinguished by its icon.
+The terminal tabs view is to the right of the terminals. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
 ![Terminal tabs](images/integrated-terminal/tabs.png)
 > **Tip:** Change the tabs location using the `integrated.terminal.tabs.location` setting.
@@ -33,6 +33,8 @@ Terminal instances can be added by clicking the plus icon on the top-right of th
 Remove terminal instances by hovering a tab and pressing the trash can button, selecting a tab item and pressing `kbstyle(delete)`, by triggering the `kb(workbench.action.terminal.kill)` command, or via the right click context menu.
 
 Navigate between terminal groups using focus next `kbstyle(workbench.action.terminal.focusNext)` and focus previous `kbstyle(workbench.action.terminal.focusPrevious)`.
+
+Icons may appear to the right of the terminal title on the tab label when the terminal's status change. Statuses include disconnected, in need of relaunch, and bell. Hover the icon to read status information and to take action.
 
 ### Grouping
 
@@ -66,7 +68,7 @@ Terminal profiles are a set of platform-specific shell configurations comprised 
 
 Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the new terminal dropdown.
 
-TODO: image
+![new terminal dropdown](images/integrated-terminal/new-terminal-dropdown.png)
 
 The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. VS Code will automatically detect most standard shells which can then be configured as the default.
 
@@ -158,9 +160,22 @@ There are also extensions available that give more options such as [Terminal Her
 
 
 ## Terminal process reconnection
-TODO:
+Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
 
 ## Links
+Files and URLs are underlined in the terminal. Low confidence links will be underlined on hover with ctrl/command.
+
+Clicking a file link will either open that document in an editor or produce a quick pick with all matches.
+
+Extensions make use of links in the terminal, such as GitLens, to identify branches.
+
+## Local echo
+
+On some remote connections, there's a delay between typing and seeing the characters on the terminal, as a result of the round trip the data has to make from VS code to the process. Local echo attempts to predict modifications and cursor movements made locally in the terminal in order to decrease this lag.
+
+When enabled, dimmed characters appear as you type. The dimmed style can be changed using the setting `terminal.integrated.localEchoStyle`.
+
+To disable the feature, set `terminal.integrated.localEchoLatencyThreshold` to `-1`. To enable it all of the time, set it to `0`.
 
 ## Terminal appearance
 
