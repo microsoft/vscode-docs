@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: datascience
 TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
@@ -9,7 +9,7 @@ MetaDescription: Python data science tutorial demonstrating the use of common da
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Data Science in Visual Studio Code
+# How to do Data Science in Visual Studio Code
 
 This tutorial demonstrates using Visual Studio Code and the Microsoft Python extension with common data science libraries to explore a basic data science scenario. Specifically, using passenger data from the Titanic, you will learn how to set up a data science environment, import and clean data, create a machine learning model for predicting survival on the Titanic, and evaluate the accuracy of the generated model.
 
