@@ -9,24 +9,23 @@ MetaDescription: Visual Studio Code workspace trust folder security
 ---
 # Workspace Trust
 
-TBD general description of the feature TL;DR
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The Workspace Trust feature lets you decide whether your project folders should allow or restrict automatic code execution.
 
-![Trust this folder dialog](https://link)
+![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
-When in doubt, leave a folder in [Restricted Mode](#restricted-mode).
+>**Note**: When in doubt, leave a folder in [Restricted Mode](#restricted-mode). You can always enable trust later.
 
 ## Safe code browsing
 
-Why Workspace Trust? - value prop
+It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution somewhere in open source. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
 
-Great to be able to share code on public repositories. With so much open source code available also comes some risk.
+Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution in "Restricted Mode".
 
-It is also great that there are so many powerful tools for code understanding, debugging, and correctness that can run on your projects.
-
-> **Note**: The term "workspace" is used widely in the VS Code UI and documentation. You can think of a "workspace" as a folder with extra metadata that VS Code understands.
+> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a "workspace" as a folder with extra metadata that VS Code understands.
 
 ## Restricted Mode
 
+When prompted by the Workspace Trust dialog, if you choose **No, I don't trust the authors**
 ### What you see
 
 Restricted Mode banner **Manage** and **Learn More**
@@ -168,11 +167,13 @@ Mention `extensions.supportUntrustedWorkspaces` setting but emphasize to use wit
 
 List of popular extensions that currently need this override.
 
+### Can I disable the Workspace Trust feature?
+
+You can but it is not recommended. If you don't want VS Code to check for Workspace Trust when opening a new folder or repository, you can set `security.workspace.trust.enabled` to false. VS Code will then behave as it did before release version 1.57.
+
 ### How do I untrust a folder/workspace?
 
-Bring up Workspace Trust editor and select **Don't Trust** button.
-
-Or remove folder entry
+Bring up Workspace Trust editor (**Workspaces: Manage Workspace Trust** from the Command Palette) and select **Don't Trust** button. You can also remove the folder from the **Trusted Folders & Workspaces** list.
 
 ### Why don't I see the "Don't Trust" button?
 
