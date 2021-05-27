@@ -17,7 +17,7 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 ## Safe code browsing
 
-It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available for free somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
+It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution when a workspace is open in "Restricted Mode".
 
@@ -59,11 +59,24 @@ If you try to start a debug session (**Run** > **Start Debugging**) while in Res
 
 Workspace settings are stored in the `.vscode` folder at the root of your workspace and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could do damage. For this reason, there are a set of workspace settings that are disabled when running in Restricted Mode.
 
+![Workspace Trust editor workspace settings link](images/workspace-trust-workspace-settings-link.png)
+
 In the Workspace Trust editor, there is a link to display the workspace settings that aren't being applied by bringing up the Settings editor scoped by the `@tag:requireTrustedWorkspace` tag.
 
 ![Settings editor scoped by the requireTrustedWorkspace tag](images/workspace-trust/requireTrustedWorkspace-settings.png)
 
 ### Extensions
+
+The VS Code extensions ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis) and others let you play music or
+have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
+
+Most extensions run code on your behalf and so could potentially do harm. And some extensions have settings that could cause them to act maliciously if configured to run an unexpected executable. For this reason, extensions, if they have not explicitly opted into Workspace Trust, are disabled by default in Restricted Mode.
+
+![Workspace Trust disabled extensions link](images/workspace-trust/disabled-extensions-link.png)
+
+You can review installed extension status by clicking the **extensions are disabled or have limited functionality** link in the Workspace Trust editor and this will disply the Extensions view scoped with the `@workspaceUnsupported` filter.
+
+
 
 **Disabled in Restricted Mode** section
 
