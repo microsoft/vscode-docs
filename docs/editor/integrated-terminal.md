@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code has an integrated terminal so you can work i
 ---
 # Integrated Terminal
 
-In Visual Studio Code, you can open an integrated terminal, initially starting at the root of your workspace. This can be convenient as you don't have to switch windows or alter the state of an existing terminal to perform a quick command-line task.
+In Visual Studio Code, you can open an integrated terminal, starting at the root of your workspace. This is convenient as you don't have to switch windows and provides integration with the editor, such as link detection.
 
 To open the terminal:
 
@@ -19,50 +19,61 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can still open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
+> **Note:** You can open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
-## Managing multiple terminals
+## Managing terminals
 
-You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the dropdown list that can be used to switch between them.
+TODO://location and hide condition
 
-![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
+Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel, selecting a profile from the plus icon dropdown menu, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
-Remove terminal instances by pressing the trash can button.
+Remove terminal instances by hovering a tab and pressing the trash can button, selecting a tab item and pressing `kbstyle(delete)`, by triggering the `kb(workbench.action.terminal.kill)` command, or via the right click context menu.
 
->**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#terminal-keybindings) to allow navigation between them using only the keyboard.
+`workbench.action.terminal.focusNext`: Focuses the next terminal group.`
+`workbench.action.terminal.focusPrevious`: Focuses the previous terminal group.
 
-### Terminal Splitting
+### Grouping
 
-You can also split the terminal by triggering the `kb(workbench.action.terminal.split)` command or via the right click context menu.
+You can split the terminal by:
+- triggering the `kb(workbench.action.terminal.split)` command
+- right clicking the context menu and selecting the `Split...` submenu option
+- `kbstyle(alt)` clicking a tab, the plus button, or the the single tab on the terminal panel
+`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane |
+`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane |
 
-![Split terminals](images/integrated-terminal/terminal-split-pane.png)
+>**Tip:** Pressing `kbstyle(Ctrl/Cmd)` enables multi selection to apply an action to multiple tabs
 
-When focusing a split terminal pane, you can move focus and resize using one of the following commands:
+// mention drag and drop
+
+You can unsplit a split terminal by triggering the `kb(workbench.action.terminal.unsplit)` command.
+
+
+### Customization
+
+You can change the terminal's name, icon, and tab color via the right click context menu or by triggering the following commands:
 
 Key|Command|
 ---|---|
-`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane |
-`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane |
-`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left |
-`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right |
-`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up |
-`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down |
+`kb(workbench.action.terminal.rename)` | Terminal: Rename |
+`kb(workbench.action.terminal.changeIcon)` | Terminal: Change Icon |
+`kb(workbench.action.terminal.changeColor)` | Terminal: Change Color |
 
-## Configuration
+>**Tip:** You can go back to the old version by setting `terminal.integrated.tabs.enabled:false`
+![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
-You can configure your default integrated terminal shell via terminal profiles as well as tune other terminal features with your user [settings](/docs/getstarted/settings.md).
+## Terminal profiles
 
-### Terminal profiles
+Terminal profiles are a set of platform-specific shell configurations comprised of an executable path, arguments, and other customizations.
 
-The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. Terminal profiles can be used to configure either the default or secondary shells by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal's dropdown.
+You can configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the new terminal dropdown.
 
-VS Code will automatically present a set of common profiles for the dropdown and also detect less common ones which will only show up when selecting a default profile.
+TODO: image
 
->**Note:** Several terminal settings won't work automatically when set in the workspace scope, you must grant them permission to run by setting the `terminal.integrated.allowWorkspaceConfiguration` setting to true in your user settings.
+The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. VS Code will automatically detect most standard shells which can then be configured as the default.
 
 ### Configuring profiles
 
-The recommended way to create a new profile is to run the **Terminal: Select Default Profile** command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
+To create a new profile, run the **Terminal: Select Default Profile** command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
 
 Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
@@ -81,11 +92,12 @@ Profiles can be created using either a `path` or a `source`, as well as a set of
 }
 ```
 
-Other arguments supports in profiles include:
+Other arguments supported in profiles include:
 
 * `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title which detects what program is running with the static profile name.
-* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment.
+* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment. This can be configured for all profiles using the `terminal.integrated.env.<platform>` setting
 * `icon`: An icon ID to use for the profile.
+* `color`: A theme color ID to style the icon.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
@@ -93,17 +105,17 @@ The *default profile* can be defined manually with the `terminal.integrated.defa
 
 ```json
 "terminal.integrated.profiles.windows": {
-  "PowerShell -NoProfile": {
+  "my-pwsh": {
     "source": "PowerShell",
     "args": ["-NoProfile"]
   }
 },
-"terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+"terminal.integrated.defaultProfile.windows": "my-pwsh"
 ```
 
 ### Removing built-in profiles
 
-To remove profile entries from the dropdown, set the name of the profile to null. For example, to remove the `Git Bash` profile on Windows, use this setting:
+To remove entries from the new terminal dropdown, set the name of the profile to `null`. For example, to remove the `Git Bash` profile on Windows, use this setting:
 
 ```json
 "terminal.integrated.profiles.windows": {
@@ -111,154 +123,19 @@ To remove profile entries from the dropdown, set the name of the profile to null
 }
 ```
 
-### Configuring working directory or environment
+### Configuring the task/debug profile
 
-The `env` and `cwd` terminal settings all support resolving [variables](https://code.visualstudio.com/docs/editor/variables-reference):
+By default, the task/debug features will use the default profile. To override that, you can use the `terminal.integrated.automationShell.<platform>` setting:
 
-```json
-// Open the terminal in the currently opened file's directory
-"terminal.integrated.cwd": "${fileDirname}",
-// Set environment variable CUSTOM_VAR=test on all Linux terminals
-"terminal.integrated.env.linux": {
-  "CUSTOM_VAR": "test"
-}
-```
-
-## Terminal display settings
-
-You can customize the integrated terminal font and line height with the following settings:
-
-* `terminal.integrated.fontFamily`
-* `terminal.integrated.fontSize`
-* `terminal.integrated.fontWeight`
-* `terminal.integrated.fontWeightBold`
-* `terminal.integrated.lineHeight`
-* `terminal.integrated.letterSpacing`
-
-## Terminal keybindings
-
-The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
-
-Below are the keyboard shortcuts to quickly navigate within the integrated terminal:
-
-Key|Command|
----|---|
-`kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal|
-`kb(workbench.action.terminal.new)`|Create new terminal|
-`kb(workbench.action.terminal.scrollUp)`|Scroll up|
-`kb(workbench.action.terminal.scrollDown)`|Scroll down|
-`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up|
-`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down|
-`kb(workbench.action.terminal.scrollToTop)`|Scroll to top|
-`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom|
-`kb(workbench.action.terminal.clear)`|Clear the terminal|
-
-Other terminal commands are available and can be bound to your preferred keyboard shortcuts, such as:
-
-* `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hiding it, if it is visible.
-* `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
-* `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
-* `workbench.action.terminal.focusAtIndexN`: Focuses the terminal at index N (N=1-9)
-* `workbench.action.terminal.kill`: Remove the current terminal instance.
-* `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
-* `workbench.action.terminal.runActiveFile`: Run the active file in the terminal instance.
-
-### Copy & Paste
-
-The keybindings for copy and paste follow platform standards:
-
-* Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
-* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
-* Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
-
-### Right click behavior
-
-The right click behavior differs based on the platform:
-
-* Linux: Show the context menu.
-* macOS: Select the word under the cursor and show the context menu.
-* Windows: Copy and drop selection if there is a selection, otherwise paste.
-
-This can be configured using the `terminal.integrated.rightClickBehavior` setting.
-
-### Forcing key bindings to pass through the terminal
-
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. You can customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
-
-```js
+```jsonc
 {
-  "terminal.integrated.commandsToSkipShell": [
-    // Ensure the toggle sidebar visibility keybinding skips the shell
-    "workbench.action.toggleSidebarVisibility",
-    // Send quick open's keybinding to the shell
-    "-workbench.action.quickOpen",
-  ]
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    // Use a fully POSIX-compatible shell and avoid running a complex ~/.fishrc
+    // for tasks and debug
+    "terminal.integrated.automationShell.osx": "/bin/sh"
 }
 ```
-
-Look at the setting details to see the complete list of default commands.
-
-### Chord keybindings in the terminal
-
-By default, when a chord keybinding is the highest priority keybinding it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash this cuts the line after the cursor). This can be disabled with the following setting:
-
-```json
-{
-  "terminal.integrated.allowChords": false
-}
-```
-
-### Find
-
-The Integrated Terminal has basic find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
-
-If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to remove the keybinding like so:
-
-```js
-// Windows/Linux
-{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFind",
-                      "when": "terminalFocus" },
-// macOS
-{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFind",
-                      "when": "terminalFocus" },
-```
-
-## Run Selected Text
-
-To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
-
-![Run selected text](images/integrated-terminal/terminal_run_selected.png)
-
-The terminal will attempt to run the selected text.
-
-![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
-
-If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
-
-## Send text from a keybinding
-
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sort of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
-
-```json
-{
-  "key": "ctrl+u",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": { "text": "\u001b[1;5D\u007f" }
-}
-```
-
-This feature supports [variable substitution](/docs/editor/variables-reference.md).
-
-Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
-
-* [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
-* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
-
-## Rename terminal sessions
-
-Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection dropdown.
-
-## Open at a specific folder
+## Defining the working directory
 
 By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
 
@@ -278,34 +155,109 @@ Split terminals on Windows will start in the directory that the parent terminal 
 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
-## Changing shell for tasks and debug
 
-You can set `terminal.integrated.automationShell.<platform>` to override the shell and shell args used by tasks and debug:
+## Terminal process reconnection
+TODO:
 
-```jsonc
-{
-    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
-    // Use a fully POSIX-compatible shell and avoid running a complex ~/.fishrc
-    // for tasks and debug
-    "terminal.integrated.automationShell.osx": "/bin/sh"
-}
-```
+## Terminal appearance
 
-## Changing how the terminal is rendered
+Customize the terminal's appearance using the following [settings](https://code.visualstudio.com/docs/getstarted/settings):
 
-By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that change often. The terminal actually features 3 renderers which fallback if they are detected to perform poorly in this order:
+- Font: family, size, and weight
+- Spacing: line height and letter spacing
+- Cursor: style, width, and blinking
 
-1. WebGL - This is the fastest renderer that truly unlocks the GPU's power to render the terminal quickly.
-2. Canvas - This will be used if the WebGL context fails to load (eg. hardware/environment incapabilities), it's performance may vary somewhat also depending on your environment but in general it's much faster than the DOM renderer.
-3. DOM - This is the slowest by quite a bit but arguably the most reliable since it just uses the DOM. If the canvas renderer is detected to run slowly the DOM renderer will be activated.
+## Copy & Paste
 
-Unfortunately some issues cannot be automatically detected, if you experience issues with the GPU acceleration you can disable it `terminal.integrated.gpuAcceleration` in your user or workspace [settings](/docs/getstarted/settings.md) which will use the DOM renderer. This can be driven by the follow setting:
+The keybindings for copy and paste follow platform standards:
+
+* Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`, selection paste is available with `kbstyle(Shift+Insert)`
+* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+* Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
+
+## Right click behavior
+
+The right click behavior differs based on the platform:
+
+* Linux: Show the context menu.
+* macOS: Select the word under the cursor and show the context menu.
+* Windows: Copy and drop selection if there is a selection, otherwise paste.
+
+This can be configured using the `terminal.integrated.rightClickBehavior` setting.
+
+## Keybindings and the shell
+
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. You can customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
 
 ```js
 {
-    "terminal.integrated.gpuAcceleration": "off"
+  "terminal.integrated.commandsToSkipShell": [
+    // Ensure the toggle sidebar visibility keybinding skips the shell
+    "workbench.action.toggleSidebarVisibility",
+    // Send quick open's keybinding to the shell
+    "-workbench.action.quickOpen",
+  ]
 }
 ```
+
+Look at the setting details to see the complete list of default commands.
+>**Tip:** To override `terminal.integrated.commandsToSkipShell` and send keybindings to the shell instead of the workbench, set `terminal.integrated.sendKeybindingsToShell`.
+
+### Chord keybindings in the terminal
+
+By default, when a chord keybinding is the highest priority keybinding, it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash this cuts the line after the cursor). This can be disabled with the following setting:
+
+```json
+{
+  "terminal.integrated.allowChords": false
+}
+```
+### Send text via a keybinding
+
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sort of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
+
+```json
+{
+  "key": "ctrl+u",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001b[1;5D\u007f" }
+}
+```
+
+This feature supports [variable substitution](/docs/editor/variables-reference.md).
+
+Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
+
+* [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
+## Find
+
+The Integrated Terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
+
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to remove the keybinding like so:
+
+```js
+// Windows/Linux
+{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFind",
+                      "when": "terminalFocus" },
+// macOS
+{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFind",
+                      "when": "terminalFocus" },
+```
+
+## Run selected text
+
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
+
+![Run selected text](images/integrated-terminal/terminal_run_selected.png)
+
+The terminal will attempt to run the selected text.
+
+![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
+
+If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
+
+>**Tip:** You can also run the active file using the command`workbench.action.terminal.runActiveFile`.
 
 ## Next steps
 
@@ -484,3 +436,19 @@ Unfortunately, unlike in Linux, standalone macOS terminals all run as login shel
 There are two direct fixes for this. You can set `"terminal.integrated.inheritEnv": false`, which will strip most environment variables from the terminal's environment, except for some important ones (like `HOME`, `SHELL`, `TMPDIR`, etc.).
 
 The other fix is to no longer run a login shell in the terminal by setting `"terminal.integrated.shellArgs": []`. If you go with this fix, you will want to make sure any aliases in your profile scripts are moved over to your `~/.bashrc`/`~/.zshrc` file since aliases only apply to the shell they're set in.
+
+## I'm having problems with the terminal rendering, what can I do?
+
+By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that change often. The terminal actually features 3 renderers which fallback if they are detected to perform poorly in this order:
+
+1. WebGL - This is the fastest renderer that truly unlocks the GPU's power to render the terminal quickly.
+2. Canvas - This will be used if the WebGL context fails to load (eg. hardware/environment incapabilities), it's performance may vary somewhat also depending on your environment but in general it's much faster than the DOM renderer.
+3. DOM - This is the slowest by quite a bit but arguably the most reliable since it just uses the DOM. If the canvas renderer is detected to run slowly the DOM renderer will be activated.
+
+Unfortunately some issues cannot be automatically detected, if you experience issues with the GPU acceleration you can disable it `terminal.integrated.gpuAcceleration` in your user or workspace [settings](/docs/getstarted/settings.md) which will use the DOM renderer. This can be driven by the follow setting:
+
+```js
+{
+    "terminal.integrated.gpuAcceleration": "off"
+}
+```
