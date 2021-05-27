@@ -23,14 +23,18 @@ To open the terminal:
 
 ## Managing terminals
 
-TODO://location and hide condition
+TODO://location add a tip under the screenshot
+
+
 
 Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel, selecting a profile from the plus icon dropdown menu, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
 Remove terminal instances by hovering a tab and pressing the trash can button, selecting a tab item and pressing `kbstyle(delete)`, by triggering the `kb(workbench.action.terminal.kill)` command, or via the right click context menu.
 
-`workbench.action.terminal.focusNext`: Focuses the next terminal group.`
-`workbench.action.terminal.focusPrevious`: Focuses the previous terminal group.
+`kbstyle(workbench.action.terminal.focusNext)`: Focuses the next terminal group.`
+`kbstyle(workbench.action.terminal.focusPrevious)`: Focuses the previous terminal group.
+
+
 
 ### Grouping
 
@@ -40,8 +44,6 @@ You can split the terminal by:
 - `kbstyle(alt)` clicking a tab, the plus button, or the the single tab on the terminal panel
 `kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane |
 `kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane |
-
->**Tip:** Pressing `kbstyle(Ctrl/Cmd)` enables multi selection to apply an action to multiple tabs
 
 // mention drag and drop
 
@@ -95,11 +97,12 @@ Profiles can be created using either a `path` or a `source`, as well as a set of
 Other arguments supported in profiles include:
 
 * `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title which detects what program is running with the static profile name.
-* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment. This can be configured for all profiles using the `terminal.integrated.env.<platform>` setting
+* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment. This can be configured for all profiles using the `terminal.integrated.env.<platform>` setting.
 * `icon`: An icon ID to use for the profile.
 * `color`: A theme color ID to style the icon.
 
->**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
+>**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/editor/variables-reference)
+
 
 The *default profile* can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the *name* of an existing profile:
 
@@ -112,6 +115,7 @@ The *default profile* can be defined manually with the `terminal.integrated.defa
 },
 "terminal.integrated.defaultProfile.windows": "my-pwsh"
 ```
+>**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
 ### Removing built-in profiles
 
@@ -175,7 +179,8 @@ The keybindings for copy and paste follow platform standards:
 * macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
 * Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
-## Right click behavior
+## Mouse
+### Right click behavior
 
 The right click behavior differs based on the platform:
 
@@ -184,6 +189,10 @@ The right click behavior differs based on the platform:
 * Windows: Copy and drop selection if there is a selection, otherwise paste.
 
 This can be configured using the `terminal.integrated.rightClickBehavior` setting.
+
+### Alt click
+
+Alt left click will re-position the cursor to underneath the mouse. This works by simulating arrow key strokes, which may fail for some shells or programs. You can disable this feature.
 
 ## Keybindings and the shell
 
