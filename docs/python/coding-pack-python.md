@@ -27,7 +27,7 @@ With the Coding Pack for Python, it's easy to get started developing with Python
 
    ![Coding Pack for Python installation progress screen](images/coding-pack/coding-pack-python-install-02.png)
 
-   >**Note**: If you select **Cancel** before installation completes, you will need to manually remove and uninstall any components that have already been installed.
+   >**Note**: If you select **Cancel** before the installation completes, you will need to manually remove and uninstall any components that have already been installed.
 
 1. Launch Visual Studio Code and start coding!
 
@@ -76,13 +76,13 @@ If you have any problems during installation, the following manual steps can be 
 
 For additional information about using Python on Windows, see the VS Code [Python documentation](../languages/python.md) and [Using Python on Windows](https://docs.python.org/3.8/using/windows.html) at Python.org.
 
-1. Verify you Python installation by opening a cmd prompt and running the following code `python --version`. If the installation was successful, the output window shows the version of Python that you just installed.
+1. Verify your Python installation by opening a cmd prompt and running the following code `python --version`. If the installation was successful, the output window shows the version of Python that you just installed.
 
 ### Additional VS Code extensions
 
 #### Pylance language server extension
 
-Pylance is an extension that works alongside Python in Visual Studio Code to provide performant language support. Under the hood, Pylance is powered by Pyright, Microsoft's static type checking tool. Using Pyright, Pylance has the ability to supercharge your Python IntelliSense experience with rich type information, helping you write better code faster.
+Pylance is an extension that works alongside Python in Visual Studio Code to provide performant language support. Under the hood, Pylance is powered by Pyright, Microsoft's static type checking tool. Using Pyright, Pylance can supercharge your Python IntelliSense experience with rich type information, helping you write better code faster.
 
 1. Install the Pylance extension from the [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance).
 1. Open a Python (.py) file and the Pylance extension will activate.
@@ -96,14 +96,14 @@ The Gather extension adds the experimental Gather feature to the Python extensio
 
 #### Live Share extension
 
-Visual Studio Live Share enables you to collaboratively edit and debug with others in real time, regardless what programming languages you're using or app types you're building. It allows you to instantly share your current project, and then as needed, share debugging sessions, terminal instances, localhost web apps, voice calls, and more! For additional details, see the [documentation](https://aka.ms/vsls-docs).
+Visual Studio Live Share enables you to collaboratively edit and debug with others in real time, regardless of what programming languages you're using or app types you're building. It allows you to instantly share your current project, and then as needed, share debugging sessions, terminal instances, localhost web apps, voice calls, and more! For additional details, see the [documentation](https://aka.ms/vsls-docs).
 
 1. [Download](https://aka.ms/vsls-dl/vscode) and install the Visual Studio Live Share extension from the Visual Studio marketplace.
 1. Follow the guidance in the documentation about [How-to: Collaborate using Visual Studio Code](https://docs.microsoft.com/visualstudio/liveshare/use/vscode)
 
 ### Common Python packages
 
-If you need to manually install the Python packages that would otherwise have been installed by the Coding Pack, you can do so using the following Python commands.
+If you need to manually install the Python packages that the Coding Pack would otherwise have installed, you can do so using the following Python commands.
 
 ```powershell
 python -m pip install matplotlib
