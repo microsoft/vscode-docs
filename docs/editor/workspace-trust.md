@@ -76,13 +76,13 @@ Most extensions run code on your behalf and so could potentially do harm. And so
 
 You can review installed extension status by clicking the **extensions are disabled or have limited functionality** link in the Workspace Trust editor and this will disply the Extensions view scoped with the `@workspaceUnsupported` filter.
 
+![Extensions view filtered by workspaceUnsupported showing disabled and limited extensions](images/workspace-trust/workspaceUnsupported-extensions-view.png)
 
+**Disabled in Restricted Mode**
 
-**Disabled in Restricted Mode** section
+Extensions that have either not explicitly indicated that they support running in Restricted Mode are shown in the **Disabled in Restricted Mode** section. An extension author can also indicate that they never want to be enabled in Restricted Mode if they determine that their extension could be misused by modifications (settings or files) in a workspace.
 
-Extension authors has not updated their extensions for Workspace Trust or set a not supporting Workspace Trust
-
-**Limited in Restricted Mode** section
+**Limited in Restricted Mode**
 
 Badge showing "This extension has limited features because the current workspace is not trusted".
 
