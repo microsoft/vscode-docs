@@ -19,13 +19,13 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available for free somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
 
-Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution when working in a workspace in "Restricted Mode".
+Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution when a workspace is open in "Restricted Mode".
 
-> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a "workspace" as a folder with extra metadata that VS Code understands.
+> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a "workspace" as a folder with extra metadata created and used by VS Code.
 
 ## Restricted Mode
 
-When prompted by the Workspace Trust dialog, if you choose **No, I don't trust the authors**, VS Code will go into Restricted Mode to prevent code execution. The workbench will display a banner at the top with links to **Manage** and **Learn More** about Workspace Trust.
+When prompted by the Workspace Trust dialog, if you choose **No, I don't trust the authors**, VS Code will go into Restricted Mode to prevent code execution. The workbench will display a banner at the top with links to **Manage** your folder via the Workspace Trust editor and **Learn More** taking you to documentation.
 
 ![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 
@@ -33,17 +33,17 @@ You will also see a Restricted Mode badge in the Status bar.
 
 ![Workspace Trust Restricted Mode Status bar badge](images/workspace-trust/restricted-mode-status-bar.png)
 
-Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: tasks, debugging, workspace settings.
+Restricted Mode tries to prevent automatic code execution by disabling or limiting the operation of several VS Code features: tasks, debugging, workspace settings, and extensions.
 
-To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner or by clicking the Restricted Mode Status bar badge.
+To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner or by clicking the Restricted Mode badge in the Status bar.
 
 ![Workspace Trust editor](images/workspace-trust/workspace-trust-editor.png)
 
 ### Tasks
 
-Tasks can run execute scripts and tool binaries and because tasks definitions are defined in the workspace `.vscode` folder they are by default part of the committed source code for a repo and shared to every user of that repo. Were someone to create a malicious task, it could be unknownly run by anyone who cloned that repository.
+Tasks can run scripts and tool binaries and because tasks definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo and shared to every user of that repo. Were someone to create a malicious task, it could be unknownly run by anyone who cloned that repository.
 
-If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue executing the task.
+If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue executing the task. Cancelling the dialog, leaves VS Code in Restricted Mode.
 
 ![Workspace Trust Restricted Mode tasks dialog](images/workspace-trust/restricted-mode-tasks-dialog.png)
 
@@ -51,7 +51,7 @@ If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while
 
 Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, debugging is also disabled when a folder is open in Restricted Mode.
 
-If you try to start a debug session (**Run** > **Start Debugging**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue launching the debugger.
+If you try to start a debug session (**Run** > **Start Debugging**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue launching the debugger. Cancelling the dialog, leave VS Code in Restricted Mode and does not start the debug session.
 
 ![Workspace Trust Restricted Mode debugging dialog](images/workspace-trust/restricted-mode-debugging-dialog.png)
 
@@ -59,7 +59,7 @@ If you try to start a debug session (**Run** > **Start Debugging**) while in Res
 
 Workspace settings are stored in the `.vscode` folder at the root of your workspace and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could do damage. For this reason, there are a set of workspace settings that are disabled when running in Restricted Mode.
 
-In the Workspace Trust editor, there is a link to display the workspace settings that aren't being applied that brings up the Settings editor scoped by the `@tag:requireTrustedWorkspace` tag.
+In the Workspace Trust editor, there is a link to display the workspace settings that aren't being applied by bringing up the Settings editor scoped by the `@tag:requireTrustedWorkspace` tag.
 
 ![Settings editor scoped by the requireTrustedWorkspace tag](images/workspace-trust/requireTrustedWorkspace-settings.png)
 
