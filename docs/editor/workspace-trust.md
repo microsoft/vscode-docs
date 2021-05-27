@@ -41,7 +41,7 @@ To see the full list of features disabled in Restricted Mode, you can open the W
 
 ### Tasks
 
-Tasks can run scripts and tool binaries and because tasks definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo and shared to every user of that repo. Were someone to create a malicious task, it could be unknownly run by anyone who cloned that repository.
+[Tasks](/docs/editor/tasks.md) can run scripts and tool binaries and because tasks definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo and shared to every user of that repo. Were someone to create a malicious task, it could be unknownly run by anyone who cloned that repository.
 
 If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue executing the task. Cancelling the dialog, leaves VS Code in Restricted Mode.
 
@@ -49,7 +49,7 @@ If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while
 
 ### Debugging
 
-Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, debugging is also disabled when a folder is open in Restricted Mode.
+Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, [debugging](/docs/editor/debugging.md) is also disabled when a folder is open in Restricted Mode.
 
 If you try to start a debug session (**Run** > **Start Debugging**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue launching the debugger. Cancelling the dialog, leave VS Code in Restricted Mode and does not start the debug session.
 
@@ -57,9 +57,9 @@ If you try to start a debug session (**Run** > **Start Debugging**) while in Res
 
 ### Workspace settings
 
-Workspace settings are stored in the `.vscode` folder at the root of your workspace and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could do damage. For this reason, there are a set of workspace settings that are disabled when running in Restricted Mode.
+Workspace [settings](/docs/getstarted/settings.md) are stored in the `.vscode` folder at the root of your workspace and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could do damage. For this reason, there are a set of workspace settings that are disabled when running in Restricted Mode.
 
-![Workspace Trust editor workspace settings link](images/workspace-trust-workspace-settings-link.png)
+![Workspace Trust editor workspace settings link](images/workspace-trust/workspace-settings-link.png)
 
 In the Workspace Trust editor, there is a link to display the workspace settings that aren't being applied by bringing up the Settings editor scoped by the `@tag:requireTrustedWorkspace` tag.
 
@@ -67,7 +67,7 @@ In the Workspace Trust editor, there is a link to display the workspace settings
 
 ### Extensions
 
-The VS Code extensions ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis) and others let you play music or
+The VS Code [extensions](/docs/editor/extension-marketplace.md) ecosystem is incredibly rich and diverse. People have created extensions to help with just about any programming task or editor customization. Some extensions provide full programming language support (IntelliSense, debugging, code analysis) and others let you play music or
 have virtual [pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets).
 
 Most extensions run code on your behalf and so could potentially do harm. And some extensions have settings that could cause them to act maliciously if configured to run an unexpected executable. For this reason, extensions, if they have not explicitly opted into Workspace Trust, are disabled by default in Restricted Mode.
@@ -84,31 +84,43 @@ Extensions that have either not explicitly indicated that they support running i
 
 **Limited in Restricted Mode**
 
-Badge showing "This extension has limited features because the current workspace is not trusted".
+Extension authors can also evaluate their extensions for possible security vulnerabilites and declare that they have **limited** support when running in Restricted Mode. This means they may disable some features or functionality to prevent a possible exploit.
 
-Installing extensions will cause a prompt. You can install an extension without enabling Workspace Trust but the extension will be disabled.
+Extensions can add custom text to the Extensions view Workspace Trust badge explaining the limitation when running in an untrusted folder.
+
+For example, the VS Code built-in PHP extension limits the use of the `
+
+![PHP extension limited in Restricted Mode hover](images/workspace-trust/php-limited-hover.png)
+
+You can override an extension's Workspace Trust support level using the `extensions.supportUntrustedWorkspaces` setting described in the [Enabling extensions](#enabling-extensions) section below.
+
+If you try to install an extension in Restricted Mode, you will be prompted to either trust the workspace or just install the extension. If the extension doesn't support Workspace Trust, it will be installed but be disabled or running with limited functionality.
+
+![Workspace Trust install an extension in Restricted Mode dialog](images/workspace-trust/workspace-trust-install-extension.png)
 
 ## Trusting a workspace
 
-Initial dialog "Do you trust the authors of the files in this folder?"
+If you trust the authors and maintainers of a project, you can trust the project's folder on your local machine. For example, it is usually safe to trust repositories from well-known GitHub organizations such as github.com/microsoft or github.com/docker.
 
-Yes, I trust the authors
+The initial Workspace Trust prompt when you open a new folder allows you to trust the folder when you first open VS Code.
 
-No, I don't trust the authors
+![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
-Trust the parent option
+You can also bring up the Workspace Editor and quickly toggle a folder's trusted state.
 
-### Bring up the Workspace Trust editor
-
-When trusted:
-
-Gear - **Manage Workspace Trust**
-Command Palette - **Workspaces: Manage Workspace Trust**
+There are several ways to bring up the Workspace Editor Initial dialog.
 
 When in Restricted Mode:
 
-Restricted Mode banner **Manage** link.
-Restricted Mode Status bar item
+* Restricted Mode banner **Manage** link
+* Restricted Mode Status bar item
+
+You can also at any time use:
+
+* **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.actions.showCommands)`)
+* **Manage Workspace Trust** from the **Manage** gear in the Activity bar
+
+
 
 ### Trusting an empty window
 
@@ -143,8 +155,6 @@ You also group and set trust on your repositories by grouping them under organiz
 ## Enabling extensions
 
 Talk about `extensions.supportUntrustedWorkspaces`
-
-## Installing new extensions (need this??)
 
 ## Settings
 
