@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
@@ -462,7 +462,7 @@ For production deployments, you typically collect all the static files from your
 1. In `web_project/settings.py`, add the following line that defines a location where static files are collected when you use the `collectstatic` command:
 
     ```python
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+    STATIC_ROOT = BASE_DIR / 'static_collected'
     ```
 
 1. In the Terminal, run the command `python manage.py collectstatic` and observe that `hello/site.css` is copied into the top level `static_collected` folder alongside `manage.py`.

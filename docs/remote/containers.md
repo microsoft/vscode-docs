@@ -142,7 +142,7 @@ Also note that, while you cannot use multiple containers for the same workspace 
 
 While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work.
 
-Repository Containers use isolated, local Docker volumes instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
+Repository Containers use isolated, local Docker volumes instead of binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS. (See [Advanced Configuration](/docs/remote/containers-advanced.md#improving-container-disk-performance) for information on how to use these types of volumes in other scenarios.)
 
 For example, follow these steps to open one of the "try" repositories in a Repository Container:
 

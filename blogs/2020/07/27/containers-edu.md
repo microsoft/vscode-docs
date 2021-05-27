@@ -32,7 +32,7 @@ As an instructor, you can create a specific image for an assignment. Each studen
 
 ## Remote – Containers in VS Code
 
-The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/master/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code's full feature set, including IntelliSense and debugging, while coding.
+The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/main/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code's full feature set, including IntelliSense and debugging, while coding.
 
 The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
@@ -124,7 +124,7 @@ We'll select **Remote-Containers: Add Development Container Configuration Files�
 
 ![Add Development Container Configuration Files command](15-add-config.png)
 
-Container configuration files are what's needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/python-3) that appears is filtered based on the contents of your application, which in our case is a Python file. Let's select **Python 3**:
+Container configuration files are what's needed to create and customize a development container. The list of [container definitions](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/python-3) that appears is filtered based on the contents of your application, which in our case is a Python file. Let's select **Python 3**:
 
 ![Select Python 3 config file in Command Palette](16-python-config.png)
 
@@ -149,7 +149,7 @@ Variables we'd recommend starting off with in a `devcontainer.json` for educatio
 | Property | Type | Description |
 |----------|------|-------------|
 | `image` | string | The name of an image in a container registry (i.e. [DockerHub](https://hub.docker.com)) that VS Code should use to create the dev container. |
-| `dockerFile` | string | The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/master/containers). |
+| `dockerFile` | string | The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find a number of sample Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/main/containers). |
 | `name` | string | A display name for the container. |
 | `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |

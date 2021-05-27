@@ -321,7 +321,7 @@ You can add other services to your `docker-compose.yml` file as described in [Do
 network_mode: service:db
 ```
 
-You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/master/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L22).
+You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L22).
 
 ### Extend your Docker Compose file for development
 
