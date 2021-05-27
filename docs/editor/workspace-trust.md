@@ -13,7 +13,7 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 ![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
->**Note**: When in doubt, leave a folder in [Restricted Mode](#restricted-mode). You can always enable trust later.
+>**Note**: When in doubt, leave a folder in [Restricted Mode](#restricted-mode). You can always [enable trust](#trusting-a-workspace) later.
 
 ## Safe code browsing
 
