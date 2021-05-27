@@ -20,7 +20,7 @@ The VS Code Marketplace offers a family of extensions that provide a first-class
 
 <div class="marketplace-extensions-datascience-python"></div>
 
-## What else can I use notebooks for?
+## What else can you use notebooks for?
 
 The support for mixing executable code, equations, visualizations and rich markdown makes notebooks useful for breaking down new concepts in a story telling form. This makes notebooks an exceptional tool for educators and students!
 
