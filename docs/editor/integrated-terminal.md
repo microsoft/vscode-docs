@@ -5,11 +5,11 @@ TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
 DateApproved: 5/5/2021
-MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
+MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
 
-In Visual Studio Code, you can open an integrated terminal, starting at the root of your workspace. This is convenient as you don't have to switch windows and provides integration with the editor, such as link detection.
+Visual Studio Code includes a fully featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [link](#Links) and [error detection](/docs/editor/tasks.md).
 
 To open the terminal:
 
@@ -19,40 +19,37 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
+> **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
 ## Managing terminals
 
-TODO://location add a tip under the screenshot
+The terminal tabs view is to the right of the terminals. It contains an entry for each terminal, labeled by its name and distinguished by its icon.
 
+![Terminal tabs](images/integrated-terminal/tabs.png)
+> **Tip:** Change the tabs location using the `integrated.terminal.tabs.location` setting.
 
-
-Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel, selecting a profile from the plus icon dropdown menu, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
+Terminal instances can be added by clicking the plus icon on the top-right of the **TERMINAL** panel, selecting a profile from the new terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
 Remove terminal instances by hovering a tab and pressing the trash can button, selecting a tab item and pressing `kbstyle(delete)`, by triggering the `kb(workbench.action.terminal.kill)` command, or via the right click context menu.
 
-`kbstyle(workbench.action.terminal.focusNext)`: Focuses the next terminal group.`
-`kbstyle(workbench.action.terminal.focusPrevious)`: Focuses the previous terminal group.
-
-
+Navigate between terminal groups using focus next `kbstyle(workbench.action.terminal.focusNext)` and focus previous `kbstyle(workbench.action.terminal.focusPrevious)`.
 
 ### Grouping
 
-You can split the terminal by:
+Split the terminal by:
 - triggering the `kb(workbench.action.terminal.split)` command
 - right clicking the context menu and selecting the `Split...` submenu option
 - `kbstyle(alt)` clicking a tab, the plus button, or the the single tab on the terminal panel
-`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane |
-`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane |
 
-// mention drag and drop
+Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, and focusing the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-You can unsplit a split terminal by triggering the `kb(workbench.action.terminal.unsplit)` command.
+Drag and drop tabs to re-arrange the groups.
 
+Unsplit a split terminal by triggering the `kb(workbench.action.terminal.unsplit)` command.
 
 ### Customization
 
-You can change the terminal's name, icon, and tab color via the right click context menu or by triggering the following commands:
+Change the terminal's name, icon, and tab color via the right click context menu or by triggering the following commands:
 
 Key|Command|
 ---|---|
@@ -60,14 +57,14 @@ Key|Command|
 `kb(workbench.action.terminal.changeIcon)` | Terminal: Change Icon |
 `kb(workbench.action.terminal.changeColor)` | Terminal: Change Color |
 
->**Tip:** You can go back to the old version by setting `terminal.integrated.tabs.enabled:false`
+>**Tip:** Go back to the old version by setting `terminal.integrated.tabs.enabled:false`
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
 ## Terminal profiles
 
 Terminal profiles are a set of platform-specific shell configurations comprised of an executable path, arguments, and other customizations.
 
-You can configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the new terminal dropdown.
+Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the new terminal dropdown.
 
 TODO: image
 
@@ -115,7 +112,7 @@ The *default profile* can be defined manually with the `terminal.integrated.defa
 },
 "terminal.integrated.defaultProfile.windows": "my-pwsh"
 ```
->**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
+>**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
 
 ### Removing built-in profiles
 
@@ -129,7 +126,7 @@ To remove entries from the new terminal dropdown, set the name of the profile to
 
 ### Configuring the task/debug profile
 
-By default, the task/debug features will use the default profile. To override that, you can use the `terminal.integrated.automationShell.<platform>` setting:
+By default, the task/debug features will use the default profile. To override that, use the `terminal.integrated.automationShell.<platform>` setting:
 
 ```jsonc
 {
@@ -163,6 +160,8 @@ There are also extensions available that give more options such as [Terminal Her
 ## Terminal process reconnection
 TODO:
 
+## Links
+
 ## Terminal appearance
 
 Customize the terminal's appearance using the following [settings](https://code.visualstudio.com/docs/getstarted/settings):
@@ -192,11 +191,11 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 ### Alt click
 
-Alt left click will re-position the cursor to underneath the mouse. This works by simulating arrow key strokes, which may fail for some shells or programs. You can disable this feature.
+Alt left click will re-position the cursor to underneath the mouse. This works by simulating arrow key strokes, which may fail for some shells or programs. This feature can be disabled.
 
 ## Keybindings and the shell
 
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. You can customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
 
 ```js
 {
@@ -223,7 +222,7 @@ By default, when a chord keybinding is the highest priority keybinding, it will 
 ```
 ### Send text via a keybinding
 
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The example below shows the sort of things you can achieve with this feature, it jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. For example, the below sequence jumps over the word to the left of the cursor (Ctrl+Left arrow) and presses backspace:
 
 ```json
 {
@@ -235,7 +234,7 @@ The `workbench.action.terminal.sendSequence` command can be used to send a speci
 
 This feature supports [variable substitution](/docs/editor/variables-reference.md).
 
-Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). You can read more about these hex code and the sequences terminals work with on the following resources:
+Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex code and the sequences terminals work with on the following resources:
 
 * [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
 * [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
@@ -266,7 +265,7 @@ The terminal will attempt to run the selected text.
 
 If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
 
->**Tip:** You can also run the active file using the command`workbench.action.terminal.runActiveFile`.
+>**Tip:** Also run the active file using the command`workbench.action.terminal.runActiveFile`.
 
 ## Next steps
 
@@ -284,11 +283,11 @@ There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-termin
 
 ### Can I use the integrated terminal with the Windows Subsystem for Linux?
 
-Yes, you can select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), you can select **WSL Bash** from the terminal **Select Default Shell** dropdown. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+Yes. Select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), select **WSL Bash** from the terminal **Select Default Shell** dropdown. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
-Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. You can use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
+Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. Use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
 
 ### Can I use Cmder's shell with the terminal on Windows?
 
@@ -311,7 +310,7 @@ When configuring the integrated terminal to use PowerShell on macOS, you may hit
 
 ### How can I change my default Windows terminal back to PowerShell?
 
-If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
+If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
 
 For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
 
@@ -353,9 +352,9 @@ This is mostly a macOS problem and does not happen in external terminals. The ty
 * `npm` was globally installed using another instance of `node` that is somewhere in your path (such as `/usr/local/bin/npm`).
 * In order to get the development tools on the `$PATH`, VS Code will launch a bash login shell on start up. This means that your `~/.bash_profile` has already run and when an Integrated Terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
 
-To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out of date node_modules. You can do this by finding the `nvm` initialization script and running `which npm` before it runs, which should print the path when you launch a new terminal.
+To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out of date node_modules. Find the `nvm` initialization script and running `which npm` before it runs, which should print the path when you launch a new terminal.
 
-Once you have the path to npm, you can find the old node_modules by resolving the symlink by running a command something like this:
+Once you have the path to npm, find the old node_modules by resolving the symlink by running a command something like this:
 
 ```bash
 ls -la /usr/local/bin | grep "np[mx]"
@@ -377,7 +376,7 @@ rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 
 ### Can I use Powerline fonts in the Integrated Terminal?
 
-Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
+Yes. Specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
 
 ```json
 "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
@@ -387,7 +386,7 @@ Note that you want to specify the font family, not an individual font like **Mes
 
 ### How do I configure zsh on macOS to jump words with Ctrl+Left/Right arrow?
 
-By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. You can configure the same for zsh by adding these keybindings:
+By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. Configure the same for zsh by adding these keybindings:
 
 ```json
 [
@@ -421,7 +420,7 @@ EOF
 
 ### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
 
-The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. You can work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
+The terminal can have problems rendering in some environments, for example you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Work around these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
 
 ### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed?
 
@@ -442,7 +441,7 @@ echo $PATH
 
 Unfortunately, unlike in Linux, standalone macOS terminals all run as login shells by default, since macOS does not run a login shell when the user logs into the system. This encourages "bad behavior", like initializing aliases in your profile script when they should live in your `rc` script as that runs on non-login shells.
 
-There are two direct fixes for this. You can set `"terminal.integrated.inheritEnv": false`, which will strip most environment variables from the terminal's environment, except for some important ones (like `HOME`, `SHELL`, `TMPDIR`, etc.).
+There are two direct fixes for this. The first is to set `"terminal.integrated.inheritEnv": false`, which will strip most environment variables from the terminal's environment, except for some important ones (like `HOME`, `SHELL`, `TMPDIR`, etc.).
 
 The other fix is to no longer run a login shell in the terminal by setting `"terminal.integrated.shellArgs": []`. If you go with this fix, you will want to make sure any aliases in your profile scripts are moved over to your `~/.bashrc`/`~/.zshrc` file since aliases only apply to the shell they're set in.
 
