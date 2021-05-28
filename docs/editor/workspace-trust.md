@@ -117,7 +117,7 @@ When in Restricted Mode:
 
 You can also at any time use:
 
-* **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.actions.showCommands)`)
+* **Workspaces: Manage Workspace Trust** command from the Command Palette (`kb(workbench.action.showCommands)`)
 * **Manage Workspace Trust** from the **Manage** gear in the Activity bar
 
 ![Manage Workspace Trust command in the Manage gear context menu](images/workspace-trust/gear-manage-workspace-trust.png)
@@ -231,7 +231,7 @@ Yes, you can still browse and edit source code in Restricted Mode. Some language
 
 In Restricted Mode, any extension that doesn't support Workspace Trust will be disabled and all UI elements such as Activity bar icons and commands will not be displayed.
 
-You can override an extension's Workspace Trust support level with the `extensions.supportUntrustedWorkspaces` setting but do so with care. [Enabling extensions](#enabling-extensions) has move details.
+You can override an extension's Workspace Trust support level with the `extensions.supportUntrustedWorkspaces` setting but do so with care. [Enabling extensions](#enabling-extensions) has more details.
 
 <!-- List of popular extensions that currently need this override. -->
 
