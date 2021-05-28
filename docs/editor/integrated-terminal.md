@@ -23,7 +23,7 @@ To open the terminal:
 
 ## Managing terminals
 
-The terminal tabs view is to the right of the terminals. Each terminal has an entry with its name, icon, color, and group decoration (if any).
+The terminal tabs view is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
 ![Terminal tabs](images/integrated-terminal/tabs.png)
 > **Tip:** Change the tabs location using the `integrated.terminal.tabs.location` setting.
