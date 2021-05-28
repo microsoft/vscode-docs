@@ -17,7 +17,7 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 ## Safe code browsing
 
-It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
+It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open-source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution when a workspace is open in "Restricted Mode".
 
@@ -41,7 +41,7 @@ To see the full list of features disabled in Restricted Mode, you can open the W
 
 ### Tasks
 
-[Tasks](/docs/editor/tasks.md) can run scripts and tool binaries and because tasks definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo and shared to every user of that repo. Were someone to create a malicious task, it could be unknownly run by anyone who cloned that repository.
+[Tasks](/docs/editor/tasks.md) can run scripts and tool binaries and because tasks definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo and shared to every user of that repo. Were someone to create a malicious task, it could be unknowningly run by anyone who cloned that repository.
 
 If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue executing the task. Cancelling the dialog, leaves VS Code in Restricted Mode.
 
@@ -57,7 +57,7 @@ If you try to start a debug session (**Run** > **Start Debugging**) while in Res
 
 ### Workspace settings
 
-Workspace [settings](/docs/getstarted/settings.md) are stored in the `.vscode` folder at the root of your workspace and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could do damage. For this reason, there are a set of workspace settings that are disabled when running in Restricted Mode.
+Workspace [settings](/docs/getstarted/settings.md) are stored in the `.vscode` folder at the root of your workspace and are therefore shared by anyone who clones the workspace repository. Some settings contain paths to executables (for example, linter binaries), which if set to point to malicious code, could do damage. For this reason, there is a set of workspace settings that are disabled when running in Restricted Mode.
 
 ![Workspace Trust editor workspace settings link](images/workspace-trust/workspace-settings-link.png)
 
@@ -74,7 +74,7 @@ Most extensions run code on your behalf and so could potentially do harm. And so
 
 ![Workspace Trust disabled extensions link](images/workspace-trust/disabled-extensions-link.png)
 
-You can review installed extension status by clicking the **extensions are disabled or have limited functionality** link in the Workspace Trust editor and this will disply the Extensions view scoped with the `@workspaceUnsupported` filter.
+You can review installed extension status by clicking the **extensions are disabled or have limited functionality** link in the Workspace Trust editor and this will display the Extensions view scoped with the `@workspaceUnsupported` filter.
 
 ![Extensions view filtered by workspaceUnsupported showing disabled and limited extensions](images/workspace-trust/workspaceUnsupported-extensions-view.png)
 
@@ -84,7 +84,7 @@ Extensions that have either not explicitly indicated that they support running i
 
 **Limited in Restricted Mode**
 
-Extension authors can also evaluate their extensions for possible security vulnerabilites and declare that they have **limited** support when running in Restricted Mode. This means they may disable some features or functionality to prevent a possible exploit.
+Extension authors can also evaluate their extensions for possible security vulnerabilities and declare that they have **limited** support when running in Restricted Mode. This means they may disable some features or functionality to prevent a possible exploit.
 
 Extensions can add custom text to the Extensions view Workspace Trust badge explaining the limitation when running in an untrusted folder.
 
@@ -160,9 +160,11 @@ For example, you could put all trusted repos under a "TrustedRepos" parent folde
 
 You also group and set trust on your repositories by grouping them under organization-base parent folders.
 
+```
 ├──github/microsoft - Clone a specific organization's repositories under this parent folder
 ├──github/{myforks} - Place your forked repositories under this parent folder
 └── local - Local un-published repositories
+```
 
 ## Enabling extensions
 
@@ -235,7 +237,7 @@ You can override an extension's Workspace Trust support level with the `extensio
 
 ### Can I disable the Workspace Trust feature?
 
-You can but it is not recommended. If you don't want VS Code to check for Workspace Trust when opening a new folder or repository, you can set `security.workspace.trust.enabled` to false. VS Code will then behave as it did before release version 1.57.
+You can but it is not recommended. If you don't want VS Code to check for Workspace Trust when opening a new folder or repository, you can set `security.workspace.trust.enabled` to false. VS Code will then behave as it did before the 1.57 release.
 
 ### How do I untrust a folder/workspace?
 
