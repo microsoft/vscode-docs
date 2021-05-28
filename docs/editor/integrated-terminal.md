@@ -163,7 +163,7 @@ There are also extensions available that give more options such as [Terminal Her
 Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
 
 ## Links
-Files and URLs are underlined in the terminal. Low confidence links will be underlined on hover with ctrl/command.
+The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as "low confidence" links which only show an underline when is held. These low confidence links will search the workspace for the term, opening the match if one is found.
 
 Clicking a file link will either open that document in an editor or produce a quick pick with all matches.
 
