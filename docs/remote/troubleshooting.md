@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 ---
 # Remote Development Tips and Tricks
 
@@ -453,10 +453,19 @@ Once a host has been configured, you can connect to it directly from the termina
 For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
 
 ```bash
-code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
+code --remote ssh-remote+remote_server /code/my_project
 ```
 
-You can also use the `--file-uri` switch to open a specific file instead.
+We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
+
+To force that a folder is opened, add slash to the path or use:
+
+`code --folder-uri vscode-remote://ssh-remote+remote_server/code/folder.with.dot`
+
+To force that a file is opened, add `--goto` or use:
+
+`code --file-uri vscode-remote://ssh-remote+remote_server/code/fileWithoutExtension`
+
 
 ### Using rsync to maintain a local copy of your source code
 

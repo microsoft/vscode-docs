@@ -90,6 +90,8 @@ Select **Run** then **Stop Debugging** or press `kb(workbench.action.debug.stop)
 
 Bridge to Kubernetes can handle routing traffic and replicating environment variables without any additional configuration. If you need to download any files that are mounted to the container in your Kubernetes cluster, such as a ConfigMap file, you can create a `KubernetesLocalProcessConfig.yaml` to download those files to your development computer. For more information, see [Configure Bridge to Kubernetes][kubernetesLocalProcessConfig-yaml].
 
+If you're using an AKS cluster that uses managed identity, a security feature provided by Azure Active Directory, see [Use managed identity with Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/containers/managed-identity) for information about how to configure Bridge to Kubernetes for this scenario.
+
 ## Using logging and diagnostics
 
 Logging output is written to the **Bridge to Kubernetes** window after your development computer is connected to your Kubernetes cluster.

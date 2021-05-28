@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Customize
 ContentId: 3e36b1fa-cefc-4a07-9773-e672da5881a2
 PageTitle: Customize Visual Studio Code with settings and keyboard shortcuts
-DateApproved: 3/6/2017
+DateApproved: 4/8/2021
 MetaDescription: Learn how to customize your Visual Studio Code with settings and keyboard shortcuts.
 MetaSocialImage: images/opengraph/introvideos.png
 ---

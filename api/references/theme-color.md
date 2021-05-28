@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -68,6 +68,14 @@ Colors inside a text document, such as the welcome page.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
 
+## Action colors
+
+A set of colors to control the interactions with actions across the workbench.
+
+- `toolbar.hoverBackground`: Toolbar background when hovering over actions using the mouse
+- `toolbar.hoverOutline`: Toolbar outline when hovering over actions using the mouse
+- `toolbar.activeBackground`: Toolbar background when holding the mouse over actions
+
 ## Button control
 
 A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
@@ -76,6 +84,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
+- `button.border`: Button border color.
 - `button.hoverBackground`: Button background color when hovering.
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
@@ -533,10 +542,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelSectionHeader.foreground`: Panel section header foreground color. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelSectionHeader.border`: Panel section header border color used when multiple views are stacked vertically in the panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 
-### Preview colors
-
-- `imagePreview.border`: Border color for image in image preview.
-
 ## Status Bar colors
 
 The Status Bar is shown in the bottom of the workbench.
@@ -856,7 +861,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
-- `notebook.symbolHighlightBackground`: Background color of highlighted cell"
+- `notebook.symbolHighlightBackground`: Background color of highlighted cell
 - `notebookScrollbarSlider.activeBackground`: Notebook scrollbar slider background color when clicked on.
 - `notebookScrollbarSlider.background`: Notebook scrollbar slider background color.
 - `notebookScrollbarSlider.hoverBackground`: Notebook scrollbar slider background color when hovering.
@@ -893,6 +898,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
 - `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
 - `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
+
+## Ports Colors
+
+- `ports.iconRunningProcessForeground`: The color of the icon for a port that has an associated running process.
 
 ## Extension colors
 

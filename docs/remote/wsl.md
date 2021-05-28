@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 3/31/2021
+DateApproved: 5/5/2021
 ---
 # Developing in WSL
 
@@ -80,6 +80,20 @@ To open a WSL window directly from a Windows prompt use the `--remote` command l
 `code --remote wsl+<distro name> <path in WSL>`
 
 for example: `code --remote wsl+Ubuntu /home/jim/projects/c`
+
+We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
+
+To force that a folder is opened, add slash to the path or use:
+
+`code --folder-uri vscode-remote://wsl+Ubuntu/home/ubuntu/folder.with.dot`
+
+To force that a file is opened add `--goto` or use:
+
+`code --file-uri vscode-remote://wsl+Ubuntu/home/ubuntu/fileWithoutExtension`
+
+
+
+
 
 ## Working with Git
 
