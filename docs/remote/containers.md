@@ -198,11 +198,15 @@ To learn more about creating `devcontainer.json` files, see [Create a Developmen
 
 ## Inspecting volumes
 
-Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Inspect Volume in Container...** from the Command Palette (`kbstyle(F1)`).
+Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Explore a Volume in a Development Container...** from the Command Palette (`kbstyle(F1)`).
 
-If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can also right-click on a volume in the **Volumes** section of the **Docker Explorer** and select **Inspect in Visual Studio Code**.
+You can also inspect your volumes in the Remote Explorer. Make sure you have Containers selected in the dropdown, then you'll notice a **Dev Volumes** section. You can right-click on a volume to inspect its creation information, like when the volume was created, what repo was cloned into it, and the mountpoint. You can also explore it in a dev container.
 
-![Inspect in VS Code context menu](images/containers/inspect-volume-context-menu.png)
+![Right-click dev volumes in Remote Explorer](images/containers/dev-volumes.png)
+
+If you have the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed, you can right-click on a volume in the **Volumes** section of the **Docker Explorer** and select **Explore in a Development Container**.
+
+![Explore in dev container in Docker context menu](images/containers/docker-explore-dev-container.png)
 
 ## Managing extensions
 
