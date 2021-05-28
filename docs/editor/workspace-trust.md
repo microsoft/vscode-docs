@@ -129,7 +129,7 @@ A trusted window (only lasts for the session) unless use the `security.workspace
  -->
 ## Selecting folders
 
-When you trust a folder, it is added to the  **Trusted Folders & Workspaces** list displayed in the Workspace Trust editor.
+When you trust a folder, it is added to the **Trusted Folders & Workspaces** list displayed in the Workspace Trust editor.
 
 ![Workspace Trust editor Trusted Folders and Workspaces list](images/workspace-trust/trusted-folders-workspaces-list.png)
 
@@ -137,36 +137,69 @@ You can manually add, edit, and remove folders from this list and the active fol
 
 ### Selecting a parent folder
 
-TBD See a different message in Restricted Mode square and not **Don't Trust** button.
+When you trust a folder via the Workspace Trust editor, you have the option to trust the parent folder. This will apply trust to the parent folder and all subfolders.
+
+![Workspace Trust button dropdown showing Trust All in Parent Folder](images/workspace-trust/trust-parent-folder.png)
+
+This can be helpful if you have many folders with trusted content collocated under one folder.
+
+When opening a subfolder under a trusted parent, you won't see the usual **Don't Trust** button to put you back in Restricted Mode, instead there is text mentioning that your folder is trusted due to another folder.
+
+You can add, modify, and remove a parent folder entry from the **Trusted Folders & Workspaces** list.
 
 ### Folder configurations
 
-You can trust a parent folder and all subfolders will be trusted. This allows you to control Workspace Trust via a repository's location on disk.
+As mentioned above, you can trust a parent folder and all subfolders will be trusted. This allows you to control Workspace Trust via a repository's location on disk.
 
-For example you could put all trusted repos unter a "TrustedRepos" parent folder and unfamiliar repos under another parent folder. You would trust the "TrustedRepos" folder and never trust any folders unter "UntrustedRepos".
+For example, you could put all trusted repos under a "TrustedRepos" parent folder and unfamiliar repos under another parent folder such as "ForEvaluation". You would trust the "TrustedRepos" folder and selectively trust folders under "ForEvaluation".
 
-* TrustedRepos - Clone trusted repositories under this parent folder
-* UntrustedRepos - Clone experimental or unfamiliar repositories under this parent folder
+```
+├── TrustedRepos - Clone trusted repositories under this parent folder
+└── ForEvaluation - Clone experimental or unfamiliar repositories under this parent folder
+```
 
 You also group and set trust on your repositories by grouping them under organization-base parent folders.
 
-* github/microsoft - Clone an organizations repositories under this parent folder
-* github/{myforks} - place your forks under this parent folder
-* local
+├──github/microsoft - Clone a specific organization's repositories under this parent folder
+├──github/{myforks} - Place your forked repositories under this parent folder
+└── local - Local un-published repositories
 
 ## Enabling extensions
 
-Talk about `extensions.supportUntrustedWorkspaces`
+What happens if you want to use Restricted Mode but your favorite extension doesn't support Workspace Trust? This can happen if an extension, while useful and functional, isn't being actively maintained and hasn't declared their Workspace Trust support. To handle this scenario, you can override the extension's trust state with the `extensions.supportUntrustedWorkspaces` setting.
+
+>**Note**: Be careful overriding an extension's Workspace Trust support. It may be that the extension author has a good reason for disabling their extension in Restricted Mode. If in doubt, reach out to the extension author or review recent changelogs to get more context.
+
+If you open the Settings editor (`kb(workbench.action.openSettings)`) and search for "trust extensions", you can find the **Extensions: Support Untrusted Workspaces** setting, which has an **Edit in settings.json** link.
+
+![Extension support ](images/workspace-trust/extensions-support-untrusted.png)
+
+Select that link and you will go to your user `settings.json` file with a new entry for `extensions.supportUntrustedWorkspaces`. This setting takes an object that has a list of extension IDs and their support status and version. You can select any of your installed extensions via IntelliSense suggestions.
+
+Below you can see a `settings.json` entry for the Prettier extension.
+
+```json
+  "extensions.supportUntrustedWorkspaces": {
+    "esbenp.prettier-vscode": {
+      "supported": true,
+      "version": "6.4.0"
+    },
+  },
+```
+
+You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the lowest version applicable and you can remove the version field if you want to set the state for all versions.
 
 ## Settings
+
+Below are the available Workspace Trust settings:
 
 * `security.workspace.trust.enabled` - Enable Workspace Trust feature. Default is true.
 * `security.workspace.trust.startupPrompt` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct workspace.
 * `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is false.
-* `security.workspace.trust.untrustedFiles` - TBD
-* `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false. TBD requires a reload?
+* `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
+* `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
 
-## Special configurations
+<!-- ## Special configurations
 
 ### Remote extensions
 
@@ -185,20 +218,20 @@ Paths a little weird
 Read on to find out about:
 
 * [Workspace Trust for extension authors](/api/extension-guides/workspace-trust.md) - TBD
-
+ -->
 ## Common questions
 
 ### Can I still edit my source code in Restricted Mode?
 
-Yes, you can still browse and edit source code in Restricted Mode and VS Code's built-in Git integration works the same.
+Yes, you can still browse and edit source code in Restricted Mode. Some language features may be disabled but text editing is always supported.
 
 ### Where did my installed extensions go?
 
 In Restricted Mode, any extension that doesn't support Workspace Trust will be disabled and all UI elements such as Activity bar icons and commands will not be displayed.
 
-Mention `extensions.supportUntrustedWorkspaces` setting but emphasize to use with care.
+You can override an extension's Workspace Trust support level with the `extensions.supportUntrustedWorkspaces` setting but do so with care. [Enabling extensions](#enabling-extensions) has move details.
 
-List of popular extensions that currently need this override.
+<!-- List of popular extensions that currently need this override. -->
 
 ### Can I disable the Workspace Trust feature?
 
@@ -210,4 +243,4 @@ Bring up Workspace Trust editor (**Workspaces: Manage Workspace Trust** from the
 
 ### Why don't I see the "Don't Trust" button?
 
-Mention trust via parent folders
+If you don't see the **Don't Trust** button in the Workspace Trust dialog, the folder's trust level may be inherited from a parent folder. Review the **Trusted Folders & Workspaces** list to check if a parent folder has enabled Workspace Trust.
