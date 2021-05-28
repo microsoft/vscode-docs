@@ -950,7 +950,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ## GitHub Codespaces tips
 
-For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces). You can also check out the [known web limitations and adaptations](/docs/remote/codespaces.md#known-limitations-and-adaptations) that may impact your Codespaces.
 
 ## Extension tips
 
