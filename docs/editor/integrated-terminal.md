@@ -34,22 +34,23 @@ Remove terminal instances by hovering a tab and pressing the trash can button, s
 
 Navigate between terminal groups using focus next `kbstyle(workbench.action.terminal.focusNext)` and focus previous `kbstyle(workbench.action.terminal.focusPrevious)`.
 
-Icons may appear to the right of the terminal title on the tab label when the terminal's status change. Statuses include disconnected, in need of relaunch, and bell. Hover the icon to read status information and to take action.
+Icons may appear to the right of the terminal title on the tab label when the terminal's status change. Some examples are on bell (MacOS) and for tasks, displaying a check mark when there are no errors and an X otherwise. Hover the icon to read status information, which may contain actions.
 
 ### Grouping
 
 Split the terminal by:
-- triggering the `kb(workbench.action.terminal.split)` command
+- on hover, selecting the inline split button
 - right clicking the context menu and selecting the `Split...` submenu option
 - `kbstyle(alt)` clicking a tab, the plus button, or the the single tab on the terminal panel
+- triggering the `kb(workbench.action.terminal.split)` command
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, and focusing the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Drag and drop tabs to re-arrange the groups.
+Tabs support drag and drop to allow re-arranging, dragging an entry in a terminal group into the empty will remove it from the group (ie. unsplit), dragging a tab into the main terminal area allows joining a group.
 
 Unsplit a split terminal by triggering the `kb(workbench.action.terminal.unsplit)` command.
 
-### Customization
+### Customizing Tabs
 
 Change the terminal's name, icon, and tab color via the right click context menu or by triggering the following commands:
 
@@ -168,6 +169,7 @@ The terminal features link detection, showing an underline when files or URLs ar
 Clicking a file link will either open that document in an editor or produce a quick pick with all matches.
 
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
+![](images/integrated-terminal/new-terminal-dropdown.png)
 
 ## Local echo
 
