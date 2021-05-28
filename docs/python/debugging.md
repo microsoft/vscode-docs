@@ -381,6 +381,25 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 | `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
 | `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console.                                            |
 
+### `autoReload`
+
+Allows for the automatic reload of the debugger when changes are made to code after the debugger execution has hit a breakpoint. To enable this feature set `{"enable": true}` as shown in the following code.
+
+```json
+{
+   "name": "Python: Current File",
+   "type": "python",
+   "request": "launch",
+   "program": "${file}",
+   "console": "integratedTerminal",
+   "autoReload": {
+      "enable": true
+ }
+}
+```
+
+> ***Note:** When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
+
 ### `cwd`
 
 Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to `${workspaceFolder}` (the folder open in VS Code).
