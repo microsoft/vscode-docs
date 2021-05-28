@@ -88,7 +88,7 @@ Extension authors can also evaluate their extensions for possible security vulne
 
 Extensions can add custom text to the Extensions view Workspace Trust badge explaining the limitation when running in an untrusted folder.
 
-For example, the VS Code built-in PHP extension limits the use of the `
+For example, the VS Code built-in PHP extension limits the use of the `php.validate.executablePath` setting to trusted folders since overriding this setting could run a malicious program.
 
 ![PHP extension limited in Restricted Mode hover](images/workspace-trust/php-limited-hover.png)
 
