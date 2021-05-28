@@ -169,7 +169,7 @@ The terminal features link detection, showing an underline when files or URLs ar
 Clicking a file link will either open that document in an editor or produce a quick pick with all matches.
 
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
-![](images/integrated-terminal/new-terminal-dropdown.png)
+![A branch link is hovered in the terminal](images/integrated-terminal/link-gitlens.png)
 
 ## Local echo
 
