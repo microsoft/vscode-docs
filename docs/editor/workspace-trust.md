@@ -98,6 +98,8 @@ If you try to install an extension in Restricted Mode, you will be prompted to e
 
 ![Workspace Trust install an extension in Restricted Mode dialog](images/workspace-trust/workspace-trust-install-extension.png)
 
+>**Note**: Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
+
 ## Trusting a workspace
 
 If you trust the authors and maintainers of a project, you can trust the project's folder on your local machine. For example, it is usually safe to trust repositories from well-known GitHub organizations such as github.com/microsoft or github.com/docker.
@@ -191,6 +193,8 @@ Below you can see a `settings.json` entry for the Prettier extension.
 
 You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the lowest version applicable and you can remove the version field if you want to set the state for all versions.
 
+If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
+
 ## Settings
 
 Below are the available Workspace Trust settings:
@@ -215,12 +219,14 @@ Containers
 
 Paths a little weird
 
+-->
+
 ## Next steps
 
-Read on to find out about:
+Learn more at:
 
-* [Workspace Trust for extension authors](/api/extension-guides/workspace-trust.md) - TBD
- -->
+* [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251) - Learn how your extensions can support Workspace Trust
+
 ## Common questions
 
 ### Can I still edit my source code in Restricted Mode?
