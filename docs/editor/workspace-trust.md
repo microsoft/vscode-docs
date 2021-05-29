@@ -21,7 +21,7 @@ It's great that there is so much source code available on public repositories an
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution when a workspace is open in "Restricted Mode".
 
-> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a "workspace" as a folder with extra metadata created and used by VS Code.
+> **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editor/workspaces.md) as a folder with extra metadata created and used by VS Code.
 
 ## Restricted Mode
 
@@ -225,7 +225,8 @@ Paths a little weird
 
 Learn more at:
 
-* [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251) - Learn how your extensions can support Workspace Trust
+* [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251) - Learn how extension authors can support Workspace Trust.
+* [What is a VS Code "workspace"?](/docs/editor/workspaces.md) - Find out more details about the VS Code "workspace" concept.
 
 ## Common questions
 
