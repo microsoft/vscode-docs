@@ -174,7 +174,7 @@ Now if you try to comment code or trigger snippets inside a set of tokens marked
 
 ### Developing a new grammar extension
 
-To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api/get-started/your-first-extension) to run `yo code` and select the `New Language` option:
+To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api/get-started/your-first-extension.md) to run `yo code` and select the `New Language` option:
 
 ![Selecting the 'new language' template in 'yo code'](images/syntax-highlighting/yo-new-language.png)
 
