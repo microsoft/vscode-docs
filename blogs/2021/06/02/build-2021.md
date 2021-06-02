@@ -19,11 +19,11 @@ Even though Build is over, all the sessions are now available to watch on-demand
 
 Among all the sessions that were presented, here is a hand-picked selection for you, VS Code users and developers, that we hope you'll enjoy!
 
-## See what's new
+## Find out what's new
 
 ### What's new in Visual Studio Code
 
-Join Sana Ajani and Jeffrey Mew to hear about some of the newest features of VS Code, including new debugging and testing features, custom notebooks, better support for Python, PyTorch, and Jupyter Notebooks.
+Join Sana Ajani and Jeffrey Mew for some of the newest features of VS Code, including new debugging and testing features, custom notebooks, better support for Python, PyTorch, and Jupyter Notebooks.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eKJftIqv8Uo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
