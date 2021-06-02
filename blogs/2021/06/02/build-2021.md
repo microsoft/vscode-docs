@@ -7,7 +7,7 @@ Date: 2021-06-02
 Author: Alessandro Segala
 ---
 
-# Microsoft Build 2021
+# Visual Studio Code at Build 2021
 
 June 2, 2021 by Alessandro Segala, [@ItalyPaleAle](https://twitter.com/ItalyPaleAle)
 
