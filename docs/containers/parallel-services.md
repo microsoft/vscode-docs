@@ -22,7 +22,6 @@ Bridge to Kubernetes provides the ability to debug your Kubernetes services in a
     > **Warning**: If you configured your services to run isolated, make sure that they’re using the same **isolateAs** value in their `.vscode/tasks.json` files. This value is the prefix that Bridge to Kubernetes uses to direct traffic for an isolated service. By default, when configuring them, they will have different values. You can choose one of the values and hand-edit the `tasks.json` files for the other services to give them all the same value.
     >
     > ```json
-    >   {
     > "tasks": [
     >    {
     >        "label": "bridge-to-kubernetes.service",
