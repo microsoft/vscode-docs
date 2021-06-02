@@ -43,7 +43,7 @@ There are a couple of different ways of starting the process of debugging with B
 
    > **Important**: You can only redirect services that have a single pod.
 
-1. After you select your service, skip the next section and continue by following the steps in [Configure the debugger for local tunnel debugging with Bridge to Kubernetes](#configure-the-debugger-for-local-tunnel-debugging-with-bridge-to-kubernetes). 
+1. After you select your service, skip the next section and continue by following the steps in [Configure the debugger for local tunnel debugging with Bridge to Kubernetes](#configure-the-debugger-for-local-tunnel-debugging-with-bridge-to-kubernetes).
 
 ## Install and use local tunnel debugging
 
@@ -55,7 +55,7 @@ There are two ways of starting to use local tunnel debugging in VS Code. The fir
 
 ![Screenshot showing Debug (Local Tunnel) command in VS Code](images/bridge-to-kubernetes-vs-code/debug-local-tunnel.png)
 
-Alternatively, navigate to your Kubernetes cluster explorer. Open the active cluster's resources and locate a service or pod you wish to debug, then right-click on the service and select **Debug: Local Tunnel**.  
+Alternatively, navigate to your Kubernetes cluster explorer. Open the active cluster's resources and locate a service or pod you wish to debug, then right-click on the service and select **Debug: Local Tunnel**.
 
 At this point, if you don't have any VS Code extension installed that offers local debugging capabilities, you'll be redirected to the Marketplace to select an extension that provides local debugging. Select the **Bridge to Kubernetes** extension.
 
@@ -198,7 +198,7 @@ When you are using Bridge to Kubernetes in a remote SSH session, if EndpointMana
 
 Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-how-it-works].
 
-If you need to debug multiple services at the same time in parallel, see [Debug multiple services at the same time](docs/parallel-services.md).
+If you need to debug multiple services at the same time in parallel, see [Debug multiple services at the same time](/docs/containers/parallel-services.md).
 
 Information about the currently supported features and a future roadmap for Bridge to Kubernetes may be found at [Bridge to Kubernetes roadmap](https://github.com/microsoft/mindaro/projects/1).
 
