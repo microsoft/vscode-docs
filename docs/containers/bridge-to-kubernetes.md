@@ -198,6 +198,8 @@ When you are using Bridge to Kubernetes in a remote SSH session, if EndpointMana
 
 Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-how-it-works].
 
+If you need to debug multiple services at the same time in parallel, see [Debug multiple services at the same time](docs/parallel-services.md).
+
 Information about the currently supported features and a future roadmap for Bridge to Kubernetes may be found at [Bridge to Kubernetes roadmap](https://github.com/microsoft/mindaro/projects/1).
 
 [azure-kubernetes-service]: https://docs.microsoft.com/azure/aks/kubernetes-walkthrough
