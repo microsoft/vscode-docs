@@ -136,7 +136,7 @@ By default, the task/debug features will use the default profile. To override th
 
 ```jsonc
 {
-    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    "terminal.integrated.defaultProfile.osx": "fish",
     // Use a fully POSIX-compatible shell and avoid running a complex ~/.fishrc
     // for tasks and debug
     "terminal.integrated.automationShell.osx": "/bin/sh"
@@ -320,31 +320,16 @@ Currently the terminal consumes many key bindings, preventing Visual Studio Code
 Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+"terminal.integrated.profiles.windows": {
+  "cmder": {
+    "path": "C:\\WINDOWS\\System32\\cmd.exe",
+    "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+  }
+},
+"terminal.integrated.defaultProfile.windows": "cmder"
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
-
-### PowerShell on macOS is complaining about a "-l" argument, how do I fix it?
-
-When configuring the integrated terminal to use PowerShell on macOS, you may hit [this error](https://github.com/microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
-
-```js
-"terminal.integrated.shellArgs.osx": []
-```
-
-### How can I change my default Windows terminal back to PowerShell?
-
-If you want to put the default integrated terminal shell back to the default (PowerShell on Windows), remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
-
-For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
-
-```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
-```
-
-Remove the entry to use the built-in VS Code default or set it to another shell executable path.
 
 ### Why is Cmd+k/Ctrl+k not clearing the terminal?
 
