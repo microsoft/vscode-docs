@@ -124,11 +124,14 @@ You can also at any time use:
 
 ![Manage Workspace Trust command in the Manage gear context menu](images/workspace-trust/gear-manage-workspace-trust.png)
 
-<!--
 ### Trusting an empty window
 
-A trusted window (only lasts for the session) unless use the `security.workspace.trust.emptyWindow` setting.
- -->
+If you open a new VS Code window (instance) without opening a folder or workspace, VS Code defaults to Restricted Mode for the empty window. You won't see the Restricted Mode banner at the top of the editor but you will see the Restricted Mode Status bar item. VS Code will also go into Restricted Mode if you close the current folder or workspace. Without the trust context of a folder or workspace, VS Code defaults to Restricted Mode to prevent code execution if you open loose files or install new extensions.
+
+You can trust an empty window via the Workspace Trust editor (click the Restricted Mode Status bar item or use the **Workspaces: Manage Workspace Trust** command) and select **Trust**. The empty window will remain trusted for your current session but will go back to Restricted Mode if you restart or create a new window.
+
+You can trust all empty windows by setting `security.workspace.trust.emptyWindow` to true.
+
 ## Selecting folders
 
 When you trust a folder, it is added to the **Trusted Folders & Workspaces** list displayed in the Workspace Trust editor.
