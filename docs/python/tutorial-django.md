@@ -666,7 +666,7 @@ class LogMessage(models.Model):
     def __str__(self):
         """Returns a string representation of a message."""
         date = timezone.localtime(self.log_date)
-        return "'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
+        return f"'{self.message}' logged on {date.strftime('%A, %d %B, %Y at %X')}"
 ```
 
 A model class can include methods that return values computed from other class properties. Models typically include a `__str__` method that returns a string representation of the instance.
