@@ -320,8 +320,13 @@ Currently the terminal consumes many key bindings, preventing Visual Studio Code
 Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
-"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+"terminal.integrated.profiles.windows": {
+  "cmder": {
+    "path": "C:\\WINDOWS\\System32\\cmd.exe",
+    "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+  }
+},
+"terminal.integrated.defaultProfile.windows": "cmder"
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
