@@ -17,7 +17,7 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 ## Safe code browsing
 
-It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimizes your code. However, using open-source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
+It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimize your code. However, using open-source code and tools does have risks and you can leave yourself open to malicious code execution and exploits.
 
 Workspace Trust provides an extra layer of security when working with unfamiliar code by preventing automatic code execution when a workspace is open in "Restricted Mode".
 
@@ -51,7 +51,7 @@ If you try to run or even enumerate tasks (**Terminal** > **Run Task...**) while
 
 Similar to running a VS Code task, debug extensions can run debugger binaries when launching a debug session. For that reason, [debugging](/docs/editor/debugging.md) is also disabled when a folder is open in Restricted Mode.
 
-If you try to start a debug session (**Run** > **Start Debugging**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue launching the debugger. Cancelling the dialog, leave VS Code in Restricted Mode and does not start the debug session.
+If you try to start a debug session (**Run** > **Start Debugging**) while in Restricted Mode, VS Code will display a prompt to trust the folder and continue launching the debugger. Cancelling the dialog, leaves VS Code in Restricted Mode and does not start the debug session.
 
 ![Workspace Trust Restricted Mode debugging dialog](images/workspace-trust/restricted-mode-debugging-dialog.png)
 
