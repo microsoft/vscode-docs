@@ -198,6 +198,16 @@ You can either enable or disable Workspace Trust support with the `supported` at
 
 If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
 
+## Opening untrusted files
+
+If you open a file that is located outside of a trusted folder, VS Code will detect that the file comes from somewhere outside the folder root and prompt you with the option to continue to open the file or open the file in a new window in Restricted Mode. Opening in Restricted Mode is the safest option and you can always reopen the file in your original VS Code window once you determine the file is trustworthy.
+
+![Untrusted files dialog](images/workspace-trust/untrusted-file-dialog.png)
+
+Similarly, when working with [multi-root workspaces](/docs/editor/multi-root-workspaces.md) with multiple folders, if you try to open a new folder in a trusted multi-root workspace, you will be prompted to either open the folder or open the folder in a new window in Restricted Mode.
+
+If you would prefer to not be prompted when opening files or folders from outside trusted workspaces, you can set `security.workspace.trust.untrustedFiles` to `open`. You can also set `security.workspace.trust.untrustedFiles` to `newWindow` to always create a new window in Restricted Mode. Checking the **Remember my decision for all workspaces** option in the untrusted files dialog applies your choice to the `security.workspace.trust.untrustedFiles` user setting.
+
 ## Settings
 
 Below are the available Workspace Trust settings:
