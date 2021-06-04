@@ -191,11 +191,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _context_ - Context object with uri and range
 * _(returns)_ - A promise that resolves to an array of ColorPresentation objects.
 
-`vscode.executeInlineHintProvider` - Execute inline hints provider
+`vscode.executeInlayHintProvider` - Execute inlay hints provider
 
 * _uri_ - Uri of a text document
 * _range_ - A range in a text document
-* _(returns)_ - A promise that resolves to an array of InlineHint objects
+* _(returns)_ - A promise that resolves to an array of Inlay objects
 
 `vscode.resolveNotebookContentProviders` - Resolve Notebook Content Providers
 
