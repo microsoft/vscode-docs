@@ -192,13 +192,13 @@ There are a couple of exceptions to this flow: 1) Clicking on a recent entry, an
 
 When [attaching to an existing container](/docs/remote/attach-container.md), you will be asked to confirm that attaching means you trust the container. This is only confirmed once.
 
-![Workspace trust prompt when attaching to container](images/containers/attach-container-trust.png)
+![Workspace trust prompt when attaching to container](images/containers/attach-containers-trust.png)
 
 ### Clone repository in a volume
 
 When [cloning a repository in a container volume](#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume), you are asked to confirm that cloning a repository means you trust the repository. This is only confirmed once.
 
-![Workspace trust prompt when cloning in container volume](images/containers/clone-container-trust.png)
+![Workspace trust prompt when cloning in container volume](images/containers/clone-containers-trust.png)
 
 ### Inspect volume
 
