@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: python
 TOCTitle: Django Tutorial
 ContentId: 3c0948f9-85a5-4dd4-a461-59788dbfce4c
@@ -183,7 +183,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     ]
     ```
 
-1. Save all modified files with `kb(workbench.action.files.saveAll)`.
+1. Save all modified files.
 
 1. In the VS Code Terminal, again with the virtual environment activated, run the development server with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
@@ -462,7 +462,7 @@ For production deployments, you typically collect all the static files from your
 1. In `web_project/settings.py`, add the following line that defines a location where static files are collected when you use the `collectstatic` command:
 
     ```python
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+    STATIC_ROOT = BASE_DIR / 'static_collected'
     ```
 
 1. In the Terminal, run the command `python manage.py collectstatic` and observe that `hello/site.css` is copied into the top level `static_collected` folder alongside `manage.py`.
@@ -688,7 +688,7 @@ If you see errors when running the commands, make sure you're not using a debugg
 
 With your models in place and the database migrated, you can store and retrieve data using only your models. In this section, you add a form page to the app through which you can log a message. You then modify the home page to display those messages. Because you modify many code files here, be mindful of the details.
 
-1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains field drawn from the data model, `LogMessage`:
+1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains a field drawn from the data model, `LogMessage`:
 
     ```python
     from django import forms

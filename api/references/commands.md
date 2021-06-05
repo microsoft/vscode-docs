@@ -236,7 +236,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _Cursor move argument object_ - Property-value pairs that can be passed through this argument:
   * 'to': A mandatory logical position value providing where to move the cursor.
     ```
-    'left', 'right', 'up', 'down'
+    'left', 'right', 'up', 'down', 'prevBlankLine', 'nextBlankLine',
     'wrappedLineStart', 'wrappedLineEnd', 'wrappedLineColumnCenter'
     'wrappedLineFirstNonWhitespaceCharacter', 'wrappedLineLastNonWhitespaceCharacter'
     'viewPortTop', 'viewPortCenter', 'viewPortBottom', 'viewPortIfOutside'

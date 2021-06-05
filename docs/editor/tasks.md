@@ -236,7 +236,7 @@ There are more task properties to configure your workflow. You can use IntelliSe
 
 In addition to the global menu bar, task commands can be accessed using the **Command Palette** (`kb(workbench.action.showCommands)`). You can filter on 'task' and can see the various task related commands.
 
-![tasks in command palette](images/tasks/command-palette.png)
+![Tasks in Command Palette](images/tasks/command-palette.png)
 
 ### Compound tasks
 

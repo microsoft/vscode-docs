@@ -120,6 +120,18 @@ The **default profile** can be defined manually with the `terminal.integrated.de
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
 
+The *default profile* can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the *name* of an existing profile:
+
+```json
+"terminal.integrated.profiles.windows": {
+  "PowerShell -NoProfile": {
+    "source": "PowerShell",
+    "args": ["-NoProfile"]
+  }
+},
+"terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+```
+
 ### Removing built-in profiles
 
 To remove entries from the terminal dropdown, set the name of the profile to `null`. For example, to remove the `Git Bash` profile on Windows, use this setting:

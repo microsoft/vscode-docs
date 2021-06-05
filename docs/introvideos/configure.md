@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this Visual Studio Code tutorial, we show you how to personalize Visual Studio Code with themes.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
 

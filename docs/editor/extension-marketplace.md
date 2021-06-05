@@ -43,7 +43,7 @@ On the extension details page, you can read the extension's README as well as re
 
 If an extension is an Extension Pack, the **Extension Pack** section will display which extensions will be installed when you install the pack. [Extension Packs](/api/references/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
-![extension dependencies](images/extension-marketplace/extension-dependencies.png)
+![Azure Tools extension pack](images/extension-marketplace/extension-pack.png)
 
 ### Extensions view commands
 
@@ -233,12 +233,12 @@ An example `extensions.json` could be:
 {
     "recommendations": [
         "dbaeumer.vscode-eslint",
-        "msjsdiag.debugger-for-chrome"
+        "esbenp.prettier-vscode"
     ]
 }
 ```
 
-which recommends a linter extension, ESLint, and the Chrome debugger extension.
+which recommends a linter extension and a code formatter extension.
 
 An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you with auto-completion for installed extensions inside these files.
 

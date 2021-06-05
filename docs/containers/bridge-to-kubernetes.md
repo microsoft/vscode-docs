@@ -5,12 +5,12 @@ TOCTitle: Develop with Kubernetes
 ContentId: 80bd336b-0d2d-4d63-a771-8b3ea22a64d3
 PageTitle: Use Bridge to Kubernetes to run and debug locally with Kubernetes
 DateApproved: 04/14/2021
-MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster
+MetaDescription: Learn how to use Bridge to Kubernetes to connect your development computer to a Kubernetes cluster and use local tunnel debugging to debug Kubernetes services on your local machine.
 ---
 
 # Use Bridge to Kubernetes
 
-Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
+Bridge to Kubernetes allows you to run and debug code on your development computer, while still connected to your Kubernetes cluster with the rest of your application or services. This type of debugging is often called *local tunnel debugging*. For example, if you have a large microservices architecture with many interdependent services and databases, replicating those dependencies on your development computer can be difficult. Additionally, building and deploying code to your Kubernetes cluster for each code change during inner-loop development can be slow, time consuming, and difficult to use with a debugger.
 
 Bridge to Kubernetes avoids having to build and deploy your code to your cluster by instead creating a connection directly between your development computer and your cluster. Connecting your development computer to your cluster while debugging allows you to quickly test and develop your service in the context of the full application without creating any Docker or Kubernetes configuration.
 
@@ -26,23 +26,46 @@ This article assumes you already have your own cluster with a microservices arch
 
 * A Kubernetes cluster with an app that you want to debug.
 * [Visual Studio Code][vs-code] running on macOS, Windows 10, or Linux (currently in preview).
-* The [Bridge to Kubernetes][btk-vs-code] extension installed in Visual Studio Code.
 
 ## Connect to your cluster and debug a service
 
-On your development computer, make sure your current context is set to the cluster and namespace in which your application is running.
+There are a couple of different ways of starting the process of debugging with Bridge to Kubernetes. If you're starting from the open source Kubernetes extension, without Bridge to Kubernetes installed, go to [Install and use local tunnel debugging](#install-and-use-local-tunnel-debugging). If you already have Bridge to Kubernetes installed, continue with the following steps:
 
-Open the workspace for the app you want to debug in Visual Studio Code. In the Kubernetes extension view under **Clusters**, make sure your cluster and namespace are selected. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
+1. On your development computer, make sure your current context is set to the cluster and namespace in which your application is running.
 
-Choose the Kubernetes service you want to redirect to your local version.
+1. Open the workspace for the app you want to debug in Visual Studio Code. In the Kubernetes extension view under **Clusters**, make sure your cluster and namespace are selected. Open the Command Palette (`kb(workbench.action.showCommands)`), and run the command **Bridge to Kubernetes: Configure** to start the configuration process.
 
-![Select the service to connect to](images/bridge-to-kubernetes-sample/select_service.png)
+1. Choose the Kubernetes service you want to redirect to your local version.
 
-All traffic in the Kubernetes cluster is redirected for your service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
+   ![Select the service to connect to](images/bridge-to-kubernetes-sample/select_service.png)
 
-> **Important**: You can only redirect services that have a single pod.
+   All traffic in the Kubernetes cluster is redirected for your service to the version of your application running in your development computer. Bridge to Kubernetes also routes all outbound traffic from the application back to your Kubernetes cluster.
 
-After you select your service, you are prompted to enter the TCP port that your application uses to run locally.
+   > **Important**: You can only redirect services that have a single pod.
+
+1. After you select your service, skip the next section and continue by following the steps in [Configure the debugger for local tunnel debugging with Bridge to Kubernetes](#configure-the-debugger-for-local-tunnel-debugging-with-bridge-to-kubernetes).
+
+## Install and use local tunnel debugging
+
+Follow these steps to start using local tunnel debugging when you have the open-source [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) installed and have a Kubernetes cluster with services you want to debug. The steps in this section will take you through the installation of Bridge to Kubernetes and start the configuration process for local tunnel debugging.
+
+> **Note**: The Kubernetes extension for VS Code provides an API entry point that allows extension authors to contribute other local tunnel solutions from the VS Code Marketplace. Bridge to Kubernetes is one possible implementation of the Local Tunnel Debug capability.
+
+There are two ways of starting to use local tunnel debugging in VS Code. The first way is to open the Command Palette (`kb(workbench.action.showCommands)`) and type **Kubernetes: Debug (Local Tunnel)**.
+
+![Screenshot showing Debug (Local Tunnel) command in VS Code](images/bridge-to-kubernetes-vs-code/debug-local-tunnel.png)
+
+Alternatively, navigate to your Kubernetes cluster explorer. Open the active cluster's resources and locate a service or pod you wish to debug, then right-click on the service and select **Debug: Local Tunnel**.
+
+At this point, if you don't have any VS Code extension installed that offers local debugging capabilities, you'll be redirected to the Marketplace to select an extension that provides local debugging. Select the **Bridge to Kubernetes** extension.
+
+![Screenshot showing Debug Local Tunnel context menu in VS Code](images/bridge-to-kubernetes-vs-code/debug-local-tunnel-context-menu.png)
+
+After the Bridge to Kubernetes extension is installed, the next time you choose **Debug: Local Tunnel**, you'll skip the installation step and proceed directly to the next step, [Configure the debugger for local tunnel debugging with Bridge to Kubernetes](#configure-the-debugger-for-local-tunnel-debugging-with-bridge-to-kubernetes).
+
+## Configure the debugger for local tunnel debugging with Bridge to Kubernetes
+
+The first step in configuring the debugger for local tunnel debugging is that you're prompted to enter the TCP port that your application uses to run locally:
 
 ![Enter the port number](images/bridge-to-kubernetes-sample/enter_port.png)
 
@@ -60,7 +83,7 @@ Select the **Debug** icon on the left and select the newly added Kubernetes laun
 
 > **Note**: You will be prompted to allow the **EndpointManager** to run elevated and modify your hosts file.
 
-Your development computer is connected when the VS Code status bar turns orange and the Kubernetes extension shows you are connected.
+Your development computer is connected when the VS Code Status bar turns orange and the Kubernetes extension shows you are connected.
 
 ![Debugging with Bridge to Kubernetes](images/bridge-to-kubernetes-sample/debugging.png)
 
@@ -174,6 +197,8 @@ When you are using Bridge to Kubernetes in a remote SSH session, if EndpointMana
 ## Next steps
 
 Learn more about Bridge to Kubernetes at [How Bridge to Kubernetes works][btk-how-it-works].
+
+If you need to debug multiple services at the same time in parallel, see [Debug multiple services at the same time](/docs/containers/parallel-services.md).
 
 Information about the currently supported features and a future roadmap for Bridge to Kubernetes may be found at [Bridge to Kubernetes roadmap](https://github.com/microsoft/mindaro/projects/1).
 

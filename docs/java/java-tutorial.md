@@ -73,7 +73,7 @@ Alternatively, you can configure JDK settings using the VS Code Settings editor.
 
 ### Installing a Java Development Kit (JDK)
 
-When you need install a JDK, we recommend you to consider installing from one of these sources:
+When you need to install a JDK, we recommend you to consider installing from one of these sources:
 
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)

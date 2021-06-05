@@ -33,7 +33,7 @@ code .
 
 Tasks are defined in a workspace `tasks.json` file and VS Code has templates for common task runners. In the **Command Palette** (`kb(workbench.action.showCommands)`), you can filter on 'task' and can see the various Task related commands.
 
-![tasks in command palette](images/tasks/tasks-command-palette.png)
+![Tasks in Command Palette](images/tasks/tasks-command-palette.png)
 
 Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates. Select **Others** to create a task which runs an external command.
 
