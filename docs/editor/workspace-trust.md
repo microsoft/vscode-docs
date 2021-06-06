@@ -110,7 +110,7 @@ The initial Workspace Trust prompt when you open a new folder allows you to trus
 
 You can also bring up the Workspace Editor and quickly toggle a folder's trusted state.
 
-There are several ways to bring up the Workspace Editor Initial dialog.
+There are several ways to bring up the Workspace Editor dialog.
 
 When in Restricted Mode:
 
