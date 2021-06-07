@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Python debug configurations in Visual Studio Code
 
-The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
+The Python extension supports debugging of several types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
 **For general debugging features** such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
 
@@ -20,7 +20,7 @@ This article addresses only those considerations that are specific to Python, ma
 
 A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 
-> **Note** In order to change debugging configuration, your code must be stored in a folder.
+> **Note** To change debugging configuration, your code must be stored in a folder.
 
 To initialize debug configurations, first select the Run view in the sidebar:
 
@@ -39,7 +39,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
    > **Note** Starting a debugging session through the Debug Panel, **F5** or **Run > Start Debugging**, when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
 
-1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
+1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
    ![Configuration json](images/debugging/configuration-json.png)
 
@@ -47,7 +47,7 @@ The details of configuration properties are covered later in this article under 
 
 ## Additional configurations
 
-By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
+By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
 
 ![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
 
@@ -89,7 +89,7 @@ python -m debugpy
     [<arg>]...
 ```
 
-As an example, from the command line, you could start the debugger using a specified port (5678) and script using the following syntax. This example assumes the script is long running and omits the `--wait-for-client` flag, meaning that the script will not wait for the client to attach.
+As an example, from the command line, you could start the debugger using a specified port (5678) and script using the following syntax. This example assumes the script is long-running and omits the `--wait-for-client` flag, meaning that the script will not wait for the client to attach.
 
 ```bash
 python -m debugpy --listen 5678 ./myscript.py
@@ -135,14 +135,14 @@ The associated configuration file would then look as follows.
 
 |Flag  |Options  |Description  |
 |---------|---------|---------|
-|**--listen** or **--connect**  |  `[<host>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default the host address is `localhost (127.0.0.1)`.      |
+|**--listen** or **--connect**  |  `[<host>:]<port>`       |   **Required**. Specifies the host address and port for the debug adapter server to wait for incoming connections (--listen) or to connect with a client that is waiting for an incoming connection (--connect). This is the same address that is used in the VS Code debug configuration. By default, the host address is `localhost (127.0.0.1)`.      |
 |**--wait-for-client**     |   none      | **Optional**. Specifies that the code should not run until there's a connection from the debug server. This setting allows you to debug from the first line of your code.        |
 |**--log-to**     |   `<path>`      | **Optional**. Specifies a path to an existing directory for saving logs.         |
 |**--log-to-stderr**     |    none     |  **Optional**. Enables debugpy to write logs directly to stderr.       |
 |**--pid**     |    `<pid>`     | **Optional**. Specifies a process that is already running to inject the debug server into.        |
 |**--configure-\<name>** | `<value>` | **Optional**. Sets a debug property that must be known to the debug server before the client connects. Such properties can be used directly in *launch* configuration, but must be set in this manner for *attach* configurations. For example, if you don't want the debug server to automatically inject itself into subprocesses created by the process you're attaching to, use `--configure-subProcess false`.|
 
-> **Note**: `[<arg>]` can be used to pass command line arguments along to the app being launched.
+> **Note**: `[<arg>]` can be used to pass command-line arguments along to the app being launched.
 
 ## Debugging by attaching over a network connection
 
@@ -347,7 +347,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 ### `python`
 
-Full path that points to the Python interpreter to be used for debugging.
+The full path that points to the Python interpreter to be used for debugging.
 
 If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
 
@@ -460,7 +460,7 @@ In your Python code, you can call `debugpy.breakpoint()` at any point where you 
 
 ### Breakpoint validation
 
-The Python extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to nearest valid line to ensure that code execution stops at that point.
+The Python extension automatically detects breakpoints that are set on non-executable lines, such as `pass` statements or the middle of a multiline statement. In such cases, running the debugger moves the breakpoint to the nearest valid line to ensure that code execution stops at that point.
 
 ## Debugging specific app types
 
@@ -499,7 +499,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
 },
 ```
 
-As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise you may see "Cannot import module C" errors where C is a drive letter.)
+As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise, you may see "Cannot import module C" errors where C is a drive letter.)
 
 The `"jinja": true` setting also enables debugging for Flask's default Jinja templating engine.
 
