@@ -113,12 +113,15 @@ When creating and working with a dev container, you may need different commands 
 | Property | Description |
 |----------|-------------|
 | `initializeCommand` | A command to run locally before anything else. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
-| `onCreateCommand` | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. <br> You may want to have some script steps happen before VS Code attaches (`onCreateCommand`) and some after (`postCreateCommand`). But, you can change this with `waitFor` to include even waiting for `postStartCommand` if you have something you want to happen every time. |
+| `onCreateCommand` | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `updateContentCommand` | Reserved for future use. |
 | `postCreateCommand` | A command to run after creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `postStartCommand` | A command to run after starting the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `postAttachCommand` | A command to run when attaching to the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
-| `waitFor` | The user command to wait for before continuing execution in the background while the UI is starting up. The default is `updateContentCommand`. |
+
+The `waitFor` property allows you to configure when the VS Code UI may connect to the dev container.
+
+By default, you may have VS Code `waitFor` the `onCreateCommand`- this is valuable so that you can have something run that VS Code should wait for, and then something else that can happen after. You can also choose to `waitFor` any other property above.
 
 ## Attached container configuration reference
 
