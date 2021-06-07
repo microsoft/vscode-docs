@@ -222,6 +222,10 @@ Below are the available Workspace Trust settings:
 * `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
 
+## Command line switch
+
+You can disable Workspace Trust via the VS Code command line by passing `--disable-workspace-trust`. This switch only affects the current session.
+
 <!-- ## Special configurations
 
 ### Remote extensions
