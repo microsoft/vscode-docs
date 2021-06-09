@@ -124,14 +124,6 @@ You can also at any time use:
 
 ![Manage Workspace Trust command in the Manage gear context menu](images/workspace-trust/gear-manage-workspace-trust.png)
 
-### Trusting an empty window
-
-If you open a new VS Code window (instance) without opening a folder or workspace, VS Code defaults to Restricted Mode for the empty window. You won't see the Restricted Mode banner at the top of the editor but you will see the Restricted Mode Status bar item. VS Code will also go into Restricted Mode if you close the current folder or workspace. Without the trust context of a folder or workspace, VS Code defaults to Restricted Mode to prevent code execution if you open loose files or install new extensions.
-
-You can trust an empty window via the Workspace Trust editor (click the Restricted Mode Status bar item or use the **Workspaces: Manage Workspace Trust** command) and select **Trust**. The empty window will remain trusted for your current session but will go back to Restricted Mode if you restart or create a new window.
-
-You can trust all empty windows by setting `security.workspace.trust.emptyWindow` to true.
-
 ## Selecting folders
 
 When you trust a folder, it is added to the **Trusted Folders & Workspaces** list displayed in the Workspace Trust editor.
@@ -211,6 +203,16 @@ If you would prefer to not be prompted when opening files from outside trusted w
 When working with [multi-root workspaces](/docs/editor/multi-root-workspaces.md) with multiple folders, if you try to add a new folder to a trusted multi-root workspace, you will be prompted to decide if you trust the files in that folder or if not, the entire workspace will switch to Restricted Mode.
 
 ![Untrusted folder dialog](images/workspace-trust/untrusted-folder-dialog.png)
+
+### Empty windows (no open folder)
+
+By default, if you open a new VS Code window (instance) without opening a folder or workspace, VS Code runs the window with full trust. All installed extensions are enabled and you can use the empty window without restrictions.
+
+When you open a file, you will be prompted whether you want to open an [untrusted file](#opening-untrusted-files) since there is no folder to parent it.
+
+You can switch an empty window to Restricted Mode using the Workspace Trust editor (select **Manage Workspace Trust** from the **Manage** gear button or the Command Palette) and selecting **Don't Trust**. The empty window will remain in Restricted Mode for your current session but will go back to trusted if you restart or create a new window.
+
+If you want all empty windows to be in Restricted Mode, you can set `security.workspace.trust.emptyWindow` to `false`.
 
 ## Settings
 
