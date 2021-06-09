@@ -671,6 +671,7 @@ The following customizations are available:
 - `terminal.selectionBackground`: The selection background color of the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
+- `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
 
 ## Debug colors
 
