@@ -610,6 +610,14 @@ Once opened in the Notification Center, they are displayed in a list with a head
 - `notificationsWarningIcon.foreground`: The color used for the notification warning icon.
 - `notificationsInfoIcon.foreground`: The color used for the notification info icon.
 
+## Banner colors
+
+The banner appears below the title bar and spans the entire width of the workbench when visible.
+
+- `banner.background`: Banner background color.
+- `banner.foreground`: Banner foreground color.
+- `banner.iconForeground`: Color for the icon in front of the banner text.
+
 ## Extensions colors
 
 - `extensionButton.prominentForeground`: Extension view button foreground color (for example **Install** button).
