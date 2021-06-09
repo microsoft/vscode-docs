@@ -17,7 +17,7 @@ See [Set up a folder to run in a container](/docs/remote/create-dev-container.md
 
 While some devcontainer.json properties apply generally, others are only used in specific scenarios. The following table will outline the properties that apply in each situation.
 
-You may need different commands to be run at different points in the container's lifecycle. The [lifecycle scripts](#_Lifecycle-scripts) section later in this doc describes how some of the below properties may shape the container over time.
+You may need different commands to be run at different points in the container's lifecycle. The [lifecycle scripts](#lifecycle-scripts) section later in this doc describes how some of the below properties may shape the container over time.
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -110,7 +110,7 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 
 ## Lifecycle scripts
 
-When creating and working with a dev container, you may need different commands to be run at different points in the container's lifecycle. The below are properties that shape how the container is created and takes shape over time, and the order in which they are run (i.e. `onCreateCommand` will run after `initializeCommand`).
+When creating and working with a dev container, you may need different commands to be run at different points in the container's lifecycle. The table below has the properties that determine how the container is created and takes shape over time, in the order in which they are run (for example, `onCreateCommand` will run after `initializeCommand`).
 
 | Property | Description |
 |----------|-------------|
