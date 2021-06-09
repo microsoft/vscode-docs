@@ -155,6 +155,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
 - `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.focusHighlightForeground`: List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree.
 - `list.focusOutline`: List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
@@ -467,8 +468,10 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorSuggestWidget.background`: Background color of the suggestion widget.
 - `editorSuggestWidget.border`: Border color of the suggestion widget.
 - `editorSuggestWidget.foreground`: Foreground color of the suggestion widget.
+- `editorSuggestWidget.focusHighlightForeground`: Color of the match highlights in the suggest widget when an item is focused.
 - `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggestion widget.
 - `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
+- `editorSuggestWidget.selectedForeground`: Foreground color of the selected entry in the suggest widget.
 
 - `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
@@ -634,6 +637,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `quickInput.background`: Quick input background color. The quick input widget is the container for views like the color theme picker.
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
 - `quickInputList.focusBackground`: Quick picker background color for the focused item.
+- `quickInputList.focusForeground`: Quick picker foreground color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Keybinding label colors
