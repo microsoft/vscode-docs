@@ -851,6 +851,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
 - `notebook.cellStatusBarItemHoverBackground`: The background color of notebook cell status bar items.
 - `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
+- `notebook.cellEditorBackground`: The color of the notebook cell editor background
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
 - `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
