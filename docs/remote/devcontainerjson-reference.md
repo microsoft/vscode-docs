@@ -114,14 +114,14 @@ When creating and working with a dev container, you may need different commands 
 |----------|-------------|
 | `initializeCommand` | A command to run locally before anything else. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `onCreateCommand` | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
-| `updateContentCommand` | Reserved for future use. |
+| `updateContentCommand` | Reserved for future scenarios where the source code may be updated sometime during the create process. |
 | `postCreateCommand` | A command to run after creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `postStartCommand` | A command to run after starting the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `postAttachCommand` | A command to run when attaching to the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 
 The `waitFor` property allows you to configure when the VS Code UI may connect to the dev container.
 
-By default, you may have VS Code `waitFor` the `onCreateCommand`- this is valuable so that you can have something run that VS Code should wait for, and then something else that can happen after. You can also choose to `waitFor` any other property above.
+By default, the `waitFor` property is set to `updateContentCommand`. This allows you to use `onCreateCommand` or `updateContentCommand` for steps that must happen before VS Code connects while still using `postCreateCommand` for steps that can happen behind the scenes afterwards.
 
 ## Attached container configuration reference
 
