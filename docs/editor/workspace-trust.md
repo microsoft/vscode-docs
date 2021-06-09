@@ -220,7 +220,7 @@ Below are the available Workspace Trust settings:
 
 * `security.workspace.trust.enabled` - Enable Workspace Trust feature. Default is true.
 * `security.workspace.trust.startupPrompt` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct workspace.
-* `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is false.
+* `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is true.
 * `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
 
