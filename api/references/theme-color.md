@@ -679,6 +679,8 @@ The following customizations are available:
 - `debugToolBar.border`: Debug toolbar border color.
 - `editor.stackFrameHighlightBackground`: Background color of the top stack frame highlight in the editor.
 - `editor.focusedStackFrameHighlightBackground`: Background color of the focused stack frame highlight in the editor.
+- `editor.inlineValuesForeground`: Color for the debug inline value text.
+- `editor.inlineValuesBackground`: Color for the debug inline value background.
 - `debugView.exceptionLabelForeground`: Foreground color for a label shown in the CALL STACK view when the debugger breaks on an exception
 - `debugView.exceptionLabelBackground`: Background color for a label shown in the CALL STACK view when the debugger breaks on an exception
 - `debugView.stateLabelForeground`: Foreground color for a label in the CALL STACK view showing the current session's or thread's state
