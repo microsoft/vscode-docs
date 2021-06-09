@@ -17,6 +17,8 @@ See [Set up a folder to run in a container](/docs/remote/create-dev-container.md
 
 While some devcontainer.json properties apply generally, others are only used in specific scenarios. The following table will outline the properties that apply in each situation.
 
+You may need different commands to be run at different points in the container's lifecycle. The [lifecycle scripts](#_Lifecycle-scripts) section later in this doc describes how some of the below properties may shape the container over time.
+
 | Property | Type | Description |
 |----------|------|-------------|
 |**Dockerfile or image**|||
