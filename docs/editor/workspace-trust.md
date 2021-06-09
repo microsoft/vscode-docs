@@ -275,7 +275,7 @@ Bring up Workspace Trust editor (**Workspaces: Manage Workspace Trust** from the
 
 If you don't see the **Don't Trust** button in the Workspace Trust dialog, the folder's trust level may be inherited from a parent folder. Review the **Trusted Folders & Workspaces** list to check if a parent folder has enabled Workspace Trust.
 
-Some workflows such as connecting to a [GitHub Codespace](/docs/remote/codespaces.md) or [attaching to a running Docker container](/docs/remote/attach-container.md) are automatically trusted since these are managed remote environments and are unlikely to pose a risk to your local machine.
+Some workflows such as connecting to a [GitHub Codespace](/docs/remote/codespaces.md) or [attaching to a running Docker container](/docs/remote/attach-container.md) are automatically trusted since these are managed environments to which you should already have a high level of trust.
 
 ### What does Workspace Trust protect against?
 
