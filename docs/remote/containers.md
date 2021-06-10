@@ -176,6 +176,38 @@ Note that if the container fails to come up due to something like a Docker build
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
 
+## Trusting your Workspace
+
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
+
+Remote - Containers has adopted workspace trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
+
+### Reopen folder in container
+
+[Setting up a dev container for an existing project](#_quick-start-open-an-existing-folder-in-a-container) requires trusting the local (or WSL) folder. You will be asked to trust the local (or WSL) folder before the window reloads.
+
+There are a couple of exceptions to this flow: 1) Clicking on a recent entry, and 2) the **Open Folder in Container** command will ask for trust after the window reloads, if trust is not already given.
+
+### Attach to existing container
+
+When [attaching to an existing container](/docs/remote/attach-container.md), you will be asked to confirm that attaching means you trust the container. This is only confirmed once.
+
+![Workspace trust prompt when attaching to container](images/containers/attach-containers-trust.png)
+
+### Clone repository in a volume
+
+When [cloning a repository in a container volume](#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume), you are asked to confirm that cloning a repository means you trust the repository. This is only confirmed once.
+
+![Workspace trust prompt when cloning in container volume](images/containers/clone-containers-trust.png)
+
+### Inspect volume
+
+[Inspecting a volume](#_inspecting-volumes) starts in restricted mode, and you can trust the folder inside the container.
+
+### Docker deamon running remotely
+
+This implies trusting [the machine the Docker daemon runs on](/docs/remote/containers-advanced#_developing-inside-a-container-on-a-remote-docker-host). There are no additional prompts to confirm (only those listed for the local/WSL case above).
+
 ## Create a devcontainer.json file
 
 VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
