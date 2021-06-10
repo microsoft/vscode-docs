@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 1/29/2021
+DateApproved: 6/10/2021
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
@@ -55,9 +55,9 @@ For more details on library, refer to [Library Configuration](/docs/java/java-pr
 
 ### Export to JAR
 
-You can export your build to JAR by clicking the **↓** sign on project view or run command: **Java: Export Jar...**.
+You can export your build to JAR from project view or by running command: **Java: Export Jar...**.
 
-![export jar](images/java-project/projectmanager-exportjar.gif)
+![export jar](images/java-project/exportjar.gif)
 
 ## Configure JDK
 
