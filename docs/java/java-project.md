@@ -55,9 +55,9 @@ For more details on library, refer to [Library Configuration](/docs/java/java-pr
 
 ### Export to JAR
 
-You can export your build to JAR from project view or by running command: **Java: Export Jar...**.
+You can export your build to JAR from the project view or by running the command **Java: Export Jar...**.
 
-![export jar](images/java-project/exportjar.gif)
+![Export jar from the project view](images/java-project/exportjar.gif)
 
 ## Configure JDK
 
