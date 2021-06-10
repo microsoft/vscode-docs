@@ -919,13 +919,14 @@ Contribute a view container into which [Custom views](#contributes.views) can be
   | Active  | 100%    |
 
 ## contributes.walkthroughs
-[Sample Extension](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample)
 
-Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are automatically opened on install of your extension and provide a convinient way to introduce users to features of your extension.
+[Sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample)
 
-Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys, for instance a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
+Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are automatically opened on install of your extension and provide a convenient way to introduce users to features of your extension.
 
-Each step in a walkthrough has a title, description, id, and media element (either an image or markdown content), along with an optional set of events which will cause the step to be checked (detailed below). Step descriptions are markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys. For example, a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
+
+Each step in a walkthrough has a title, description, id, and media element (either an image or Markdown content), along with an optional set of events that will cause the step to be checked (shown in the example below). Step descriptions are Markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
 
 ```json
 {
@@ -957,20 +958,22 @@ Each step in a walkthrough has a title, description, id, and media element (eith
 }
 ```
 
-![Walkthrough Example](images/contribution-points/walkthroughs.png)
+![Walkthrough example](images/contribution-points/walkthroughs.png)
 
-### Completion Events
+### Completion events
 
-By default, if no `completionEvents` events are provided, the step will be checked off when any of it's buttons are clicked, or in the event the step has no buttons, when it is opened. If finer control is required, a list of `completionEvents` can be provided. Available completion events include:
+By default, if no `completionEvents` events are provided, the step will be checked off when any of it's buttons are clicked, or if the step has no buttons, when it is opened. If finer control is required, a list of `completionEvents` can be provided.
+
+Available completion events include:
 
 - `onCommand:myCommand.id`: Check off step when a command has been run.
-- `onSettingChanged:mySetting.id`: Check off step once the given setting has been modified
-- `onContext:contextKeyExpression`: Check off step when a context key expression evaluates true
-- `extensionInstalled:myExt.id`: Check off step if the given extension is installed
-- `onView:myView.id`: Check off step once a given view becomes visible
-- `onLink:https://...`: Check off step once a given link has been opened via a Walkthrough
+- `onSettingChanged:mySetting.id`: Check off step once the given setting has been modified.
+- `onContext:contextKeyExpression`: Check off step when a context key expression evaluates true.
+- `extensionInstalled:myExt.id`: Check off step if the given extension is installed.
+- `onView:myView.id`: Check off step once a given view becomes visible.
+- `onLink:https://...`: Check off step once a given link has been opened via a Walkthrough.
 
-Once a step has been checked off, it will remain checked off until the user explicity unchecks it or resets their progress (`Getting Started: Reset Progress`).
+Once a step has been checked off, it will remain checked off until the user explicitly unchecks the step or resets their progress (via the **Getting Started: Reset Progress** command).
 
 ## contributes.problemMatchers
 
