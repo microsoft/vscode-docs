@@ -28,7 +28,7 @@ Dev containers provide a separate coding environment from your computer. For exa
 
 ![Containers diagram](1-containers-abc.png)
 
-As an instructor, you can create a specific image for an assignment. Each student will get the same exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
+As an instructor, you can create a specific image for an assignment. Each student will get the exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
 ## Remote – Containers in VS Code
 

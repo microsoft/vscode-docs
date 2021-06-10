@@ -17,6 +17,8 @@ See [Set up a folder to run in a container](/docs/remote/create-dev-container.md
 
 While some devcontainer.json properties apply generally, others are only used in specific scenarios. The following table will outline the properties that apply in each situation.
 
+You may need different commands to be run at different points in the container's lifecycle. The [lifecycle scripts](#lifecycle-scripts) section later in this doc describes how some of the below properties may shape the container over time.
+
 | Property | Type | Description |
 |----------|------|-------------|
 |**Dockerfile or image**|||
@@ -55,7 +57,9 @@ While some devcontainer.json properties apply generally, others are only used in
 | `postCreateCommand` | string,<br>array | A command string or list of command arguments to run **inside** the container after is created. The commands execute from the `workspaceFolder` in the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. <br />It fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`. Not set by default. |
 | `postStartCommand` | string,<br>array | A command string or list of command arguments to run when the container starts (in all cases). The parameters behave exactly like `postCreateCommand`, but the commands execute on start rather than create. Not set by default.|
 | `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code has attached to a running container (in all cases). The parameters behave exactly like `postCreateCommand`, but the commands execute on attach rather than create. Not set by default. |
+| `waitFor` | string,<br>array | The user command to wait for before continuing execution in the background while the UI is starting up. |
 | `initializeCommand` | string,<br>array | A command string or list of command arguments to run on the **host machine** before the container is created. The command executes from the `workspaceFolder` locally. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell, but **supports Windows/macOS/Linux path translation**. The string syntax (`"yarn install"`) is better for simple commands.<br /><br /> ⚠️ The command is run wherever the source code is located on the host. For Codespaces, this is in the cloud. |
+| `onCreateCommand` | string,<br>array | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `userEnvProbe` | enum | Indicates the type of shell VS Code should use to "probe" for user environment variables to use by default while debugging or running a task: `none` (default), `interactiveShell`, `loginShell`, or `loginInteractiveShell`. Interactive shells will typically include variables set in `/etc/bash.bashrc` and `.bashrc` while login shells usually include variables from these "rc" files, `/etc/profile`, and `.profile`. The default is `none`, since the other modes can slow startup. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
 
@@ -103,6 +107,23 @@ Variables can be referenced in certain string values in `devcontainer.json` in t
 | `${containerWorkspaceFolder}` | Any | The path that the workspaces files can be found in the container. |
 | `${localWorkspaceFolderBasename}` | Any | Name of the local folder that was opened in VS Code (that contains `.devcontainer/devcontainer.json`).<br /><br />⚠️ Not yet supported when using Clone Repository in Container Volume. |
 | `${containerWorkspaceFolderBasename}` | Any | Name of the folder where the workspace files can be found in the container. |
+
+## Lifecycle scripts
+
+When creating and working with a dev container, you may need different commands to be run at different points in the container's lifecycle. The table below has the properties that determine how the container is created and takes shape over time, in the order in which they are run (for example, `onCreateCommand` will run after `initializeCommand`).
+
+| Property | Description |
+|----------|-------------|
+| `initializeCommand` | A command to run locally before anything else. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
+| `onCreateCommand` | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
+| `updateContentCommand` | Reserved for future scenarios where the source code may be updated sometime during the create process. |
+| `postCreateCommand` | A command to run after creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
+| `postStartCommand` | A command to run after starting the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
+| `postAttachCommand` | A command to run when attaching to the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
+
+The `waitFor` property allows you to configure when the VS Code UI may connect to the dev container.
+
+By default, the `waitFor` property is set to `updateContentCommand`. This allows you to use `onCreateCommand` or `updateContentCommand` for steps that must happen before VS Code connects while still using `postCreateCommand` for steps that can happen behind the scenes afterwards.
 
 ## Attached container configuration reference
 

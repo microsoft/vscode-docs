@@ -46,7 +46,7 @@ You can also customize the general behavior of autocomplete and IntelliSense, ev
 
 ### Enable IntelliSense for custom package locations
 
-To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case you'd specify those locations as follows:
+To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case, you'd specify those locations as follows:
 
 **Windows:**
 
@@ -173,7 +173,7 @@ Invoked by:
 
 ### Extract Method
 
-Extracts all similar occurrences of the selected expression or block of within the current scope, and replaces it with a method call. The new method is given the name `newmethodNNN` where NNN is a random number.
+Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call. The new method is given the name `newmethodNNN` where NNN is a random number.
 
 Invoked by:
 
@@ -185,7 +185,7 @@ Invoked by:
 
 ### Sort Imports
 
-Sort Imports uses the isort package to consolidate specific imports from the same module into a single `import` statement and  to organize `import` statements in alphabetical order.
+Sort Imports uses the isort package to consolidate specific imports from the same module into a single `import` statement and to organize `import` statements in alphabetical order.
 
 Invoked by:
 

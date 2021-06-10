@@ -104,13 +104,13 @@ If you try to install an extension in Restricted Mode, you will be prompted to e
 
 If you trust the authors and maintainers of a project, you can trust the project's folder on your local machine. For example, it is usually safe to trust repositories from well-known GitHub organizations such as github.com/microsoft or github.com/docker.
 
-The initial Workspace Trust prompt when you open a new folder allows you to trust the folder when you first open VS Code.
+The initial Workspace Trust prompt when you open a new folder allows you to trust that folder and its subfolders.
 
 ![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
 You can also bring up the Workspace Editor and quickly toggle a folder's trusted state.
 
-There are several ways to bring up the Workspace Editor Initial dialog.
+There are several ways to bring up the Workspace Editor dialog.
 
 When in Restricted Mode:
 
@@ -124,21 +124,13 @@ You can also at any time use:
 
 ![Manage Workspace Trust command in the Manage gear context menu](images/workspace-trust/gear-manage-workspace-trust.png)
 
-### Trusting an empty window
-
-If you open a new VS Code window (instance) without opening a folder or workspace, VS Code defaults to Restricted Mode for the empty window. You won't see the Restricted Mode banner at the top of the editor but you will see the Restricted Mode Status bar item. VS Code will also go into Restricted Mode if you close the current folder or workspace. Without the trust context of a folder or workspace, VS Code defaults to Restricted Mode to prevent code execution if you open loose files or install new extensions.
-
-You can trust an empty window via the Workspace Trust editor (click the Restricted Mode Status bar item or use the **Workspaces: Manage Workspace Trust** command) and select **Trust**. The empty window will remain trusted for your current session but will go back to Restricted Mode if you restart or create a new window.
-
-You can trust all empty windows by setting `security.workspace.trust.emptyWindow` to true.
-
 ## Selecting folders
 
 When you trust a folder, it is added to the **Trusted Folders & Workspaces** list displayed in the Workspace Trust editor.
 
 ![Workspace Trust editor Trusted Folders and Workspaces list](images/workspace-trust/trusted-folders-workspaces-list.png)
 
-You can manually add, edit, and remove folders from this list and the active folder enabling trust is highlights in bold.
+You can manually add, edit, and remove folders from this list and the active folder enabling trust is highlighted in bold.
 
 ### Selecting a parent folder
 
@@ -194,7 +186,7 @@ Below you can see a `settings.json` entry for the Prettier extension.
   },
 ```
 
-You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the lowest version applicable and you can remove the version field if you want to set the state for all versions.
+You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the exact extension version applicable and you can remove the version field if you want to set the state for all versions.
 
 If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
 
@@ -212,15 +204,29 @@ When working with [multi-root workspaces](/docs/editor/multi-root-workspaces.md)
 
 ![Untrusted folder dialog](images/workspace-trust/untrusted-folder-dialog.png)
 
+### Empty windows (no open folder)
+
+By default, if you open a new VS Code window (instance) without opening a folder or workspace, VS Code runs the window with full trust. All installed extensions are enabled and you can use the empty window without restrictions.
+
+When you open a file, you will be prompted whether you want to open an [untrusted file](#opening-untrusted-files) since there is no folder to parent it.
+
+You can switch an empty window to Restricted Mode using the Workspace Trust editor (select **Manage Workspace Trust** from the **Manage** gear button or the Command Palette) and selecting **Don't Trust**. The empty window will remain in Restricted Mode for your current session but will go back to trusted if you restart or create a new window.
+
+If you want all empty windows to be in Restricted Mode, you can set `security.workspace.trust.emptyWindow` to `false`.
+
 ## Settings
 
 Below are the available Workspace Trust settings:
 
 * `security.workspace.trust.enabled` - Enable Workspace Trust feature. Default is true.
-* `security.workspace.trust.startupPrompt` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct workspace.
-* `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is false.
+* `security.workspace.trust.startupPrompt` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct folder or workspace.
+* `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is true.
 * `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
+
+## Command line switch
+
+You can disable Workspace Trust via the VS Code command line by passing `--disable-workspace-trust`. This switch only affects the current session.
 
 <!-- ## Special configurations
 
@@ -270,3 +276,9 @@ Bring up Workspace Trust editor (**Workspaces: Manage Workspace Trust** from the
 ### Why don't I see the "Don't Trust" button?
 
 If you don't see the **Don't Trust** button in the Workspace Trust dialog, the folder's trust level may be inherited from a parent folder. Review the **Trusted Folders & Workspaces** list to check if a parent folder has enabled Workspace Trust.
+
+Some workflows such as connecting to a [GitHub Codespace](/docs/remote/codespaces.md) or [attaching to a running Docker container](/docs/remote/attach-container.md) are automatically trusted since these are managed environments to which you should already have a high level of trust.
+
+### What does Workspace Trust protect against?
+
+Many features of VS Code allow third-party tools and extensions to run automatically, such as linting or format on save, or when you do certain operations like compiling code or debugging. An unethical person could craft an innocent looking project that would run malicious code without your knowledge and harm your local machine. Workspace Trust provides an extra layer of security by trying to prevent code execution while you are evaluating the safety and integrity of unfamiliar source code.
