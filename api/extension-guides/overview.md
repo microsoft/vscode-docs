@@ -59,6 +59,7 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 | [Source Control Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/source-control-sample) | [workspace.workspaceFolders](https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders)<br>[SourceControl](https://code.visualstudio.com/api/references/vscode-api#SourceControl)<br>[SourceControlResourceGroup](https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup)<br>[scm.createSourceControl](https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl)<br>[TextDocumentContentProvider](https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider)<br>[contributes.menus](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) |
 | [Commenting API Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/comment-sample) |  |
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
+| [Getting Started Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample) | [contributes.walkthroughs](https://code.visualstudio.com/api/references/contribution-points#contributes.walkthroughs) |
 ## Language Extension Samples
 
 These samples are [Language Extensions](/api/language-extensions/overview) samples:

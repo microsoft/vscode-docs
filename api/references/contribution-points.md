@@ -28,6 +28,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`views`](/api/references/contribution-points#contributes.views)
 - [`viewsWelcome`](/api/references/contribution-points#contributes.viewsWelcome)
 - [`viewsContainers`](/api/references/contribution-points#contributes.viewsContainers)
+- [`walkthroughs`](/api/references/contribution-points#contributes.walkthroughs)
 - [`problemMatchers`](/api/references/contribution-points#contributes.problemMatchers)
 - [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
 - [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
@@ -916,6 +917,60 @@ Contribute a view container into which [Custom views](#contributes.views) can be
   | Default | 60%     |
   | Hover   | 100%    |
   | Active  | 100%    |
+
+## contributes.walkthroughs
+[Sample Extension](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample)
+
+Contribute walkthroughs to appear on the Getting Started page. Walkthroughs are automatically opened on install of your extension and provide a convinient way to introduce users to features of your extension.
+
+Walkthroughs consist of a title, description, id, and a series of steps. Additionally, a `when` condition can be set to hide or show the walkthrough based on context keys, for instance a walkthrough to explain setup on a Linux platform could be given `when: "isLinux"` to only appear on Linux machines.
+
+Each step in a walkthrough has a title, description, id, and media element (either an image or markdown content), along with an optional set of events which will cause the step to be checked (detailed below). Step descriptions are markdown content, and support `**bold**`, `__underlined__`, and ``` ``code`` ``` rendering, as well as links. Similar to walkthroughs, steps can be given when conditions to hide or show them based on context keys.
+
+```json
+{
+  "contributes": {
+    "walkthroughs": [
+      {
+        "id": "sample",
+        "title": "Sample",
+        "description": "A sample walkthrough",
+        "steps": [
+          {
+            "id": "runcommand",
+            "title": "Run Command",
+            "description": "This step will run a command and check off once it has been run.\n[Run Command](command:getting-started-sample.runCommand)",
+            "media": { "image": "media/image.png", "altText": "Empty image" },
+            "completionEvents": ["onCommand:getting-started-sample.runCommand"]
+          },
+          {
+            "id": "changesetting",
+            "title": "Change Setting",
+            "description": "This step will change a setting and check off when the setting has changed\n[Change Setting](command:getting-started-sample.changeSetting)",
+            "media": { "markdown": "media/markdown.md" },
+            "completionEvents": ["onSettingChanged:getting-started-sample.sampleSetting"]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+![Walkthrough Example](images/contribution-points/walkthroughs.png)
+
+### Completion Events
+
+By default, if no `completionEvents` events are provided, the step will be checked off when any of it's buttons are clicked, or in the event the step has no buttons, when it is opened. If finer control is required, a list of `completionEvents` can be provided. Available completion events include:
+
+- `onCommand:myCommand.id`: Check off step when a command has been run.
+- `onSettingChanged:mySetting.id`: Check off step once the given setting has been modified
+- `onContext:contextKeyExpression`: Check off step when a context key expression evaluates true
+- `extensionInstalled:myExt.id`: Check off step if the given extension is installed
+- `onView:myView.id`: Check off step once a given view becomes visible
+- `onLink:https://...`: Check off step once a given link has been opened via a Walkthrough
+
+Once a step has been checked off, it will remain checked off until the user explicity unchecks it or resets their progress (`Getting Started: Reset Progress`).
 
 ## contributes.problemMatchers
 
