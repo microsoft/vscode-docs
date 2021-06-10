@@ -478,6 +478,9 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorHoverWidget.border`: Border color of the editor hover.
 - `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
 
+- `editorGhostText.border`: Border color of the ghost text shown by inline completion providers and the suggest preview.
+- `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
+
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
 
 - `debugExceptionWidget.background`: Exception widget background color.
