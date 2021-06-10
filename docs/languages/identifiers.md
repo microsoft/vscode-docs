@@ -78,6 +78,7 @@ Go | `go`
 Groovy | `groovy`
 Handlebars | `handlebars`
 Haml | `haml`
+HCL | `hcl` (unknown schemas **only**; see also Terraform)
 HTML | `html`
 Ini | `ini`
 Java | `java`
@@ -109,6 +110,7 @@ Slim | `slim`
 SQL | `sql`
 Stylus | `stylus`
 Swift | `swift`
+Terraform | `terraform` (`*.tf`), `terraform-vars` (`*.tfvars`)
 TypeScript | `typescript`
 TypeScript React | `typescriptreact`
 TeX | `tex`
