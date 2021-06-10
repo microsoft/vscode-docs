@@ -8,9 +8,11 @@ Author: Brigit Murtaugh, Eric Amodio
 ---
 # Remote Repositories
 
-June 9, 2021 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh), Eric Amodio, [@eamodio](https://twitter.com/eamodio)
+June 10, 2021 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh), Eric Amodio, [@eamodio](https://twitter.com/eamodio)
 
-We're excited to present the new Remote Repositories extension for Visual Studio Code! This is a new experience that we've been building in partnership with our friends at GitHub to enable working with source code repositories quickly and safely inside VS Code.
+We're excited to present the new [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension for Visual Studio Code! This is a new experience that we've been building in partnership with our friends at GitHub to enable working with source code repositories quickly and safely inside VS Code.
+
+![Remote Repositories extension](remote-repositories-banner.png)
 
 ## A quicker way to open source code repositories
 
@@ -176,5 +178,5 @@ If you're an extension author, check out the [Virtual Workspace Support for Exte
 
 Happy Coding!
 
-Brigit Murtaugh, VS Code Program Manager [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
+Brigit Murtaugh, VS Code Program Manager [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)<br>
 Eric Amodio, VS Code Principal Software Engineer [@eamodio](https://twitter.com/eamodio)
