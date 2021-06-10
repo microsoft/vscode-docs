@@ -104,7 +104,7 @@ If you try to install an extension in Restricted Mode, you will be prompted to e
 
 If you trust the authors and maintainers of a project, you can trust the project's folder on your local machine. For example, it is usually safe to trust repositories from well-known GitHub organizations such as github.com/microsoft or github.com/docker.
 
-The initial Workspace Trust prompt when you open a new folder allows you to trust the folder when you first open VS Code.
+The initial Workspace Trust prompt when you open a new folder allows you to trust that folder and its subfolders.
 
 ![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
@@ -130,7 +130,7 @@ When you trust a folder, it is added to the **Trusted Folders & Workspaces** lis
 
 ![Workspace Trust editor Trusted Folders and Workspaces list](images/workspace-trust/trusted-folders-workspaces-list.png)
 
-You can manually add, edit, and remove folders from this list and the active folder enabling trust is highlights in bold.
+You can manually add, edit, and remove folders from this list and the active folder enabling trust is highlighted in bold.
 
 ### Selecting a parent folder
 
@@ -186,7 +186,7 @@ Below you can see a `settings.json` entry for the Prettier extension.
   },
 ```
 
-You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the lowest version applicable and you can remove the version field if you want to set the state for all versions.
+You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the exact extension version applicable and you can remove the version field if you want to set the state for all versions.
 
 If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
 
@@ -219,7 +219,7 @@ If you want all empty windows to be in Restricted Mode, you can set `security.wo
 Below are the available Workspace Trust settings:
 
 * `security.workspace.trust.enabled` - Enable Workspace Trust feature. Default is true.
-* `security.workspace.trust.startupPrompt` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct workspace.
+* `security.workspace.trust.startupPrompt` - Whether to show the Workspace Trust dialog on startup. Default is to only show once per distinct folder or workspace.
 * `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is true.
 * `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
