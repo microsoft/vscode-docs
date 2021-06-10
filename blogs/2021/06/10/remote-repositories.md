@@ -170,7 +170,7 @@ You can learn more about virtual file systems, workspaces, and how to implement 
 
 We are very excited for you to try out Remote Repositories and can't wait for your feedback.
 
-Please install the [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension, and file any issues or feature requests on the [VS Code GitHub repo](https://github.com/microsoft/vscode/issues) or Tweet us your thoughts [@code](https://twitter.com/code).
+Please install the [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension. You can file any [issues or feature requests](https://github.com/microsoft/vscode-remote-repositories-github) or Tweet us your thoughts [@code](https://twitter.com/code).
 
 You can also check out our new [YouTube video](https://www.youtube.com/watch?v=wHsmaXoGIXI) about how to use the Remote Repositories extension.
 
