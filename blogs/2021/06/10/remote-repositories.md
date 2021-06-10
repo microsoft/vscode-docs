@@ -12,7 +12,7 @@ June 10, 2021 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMu
 
 We're excited to present the new [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension for Visual Studio Code! This is a new experience that we've been building in partnership with our friends at GitHub to enable working with source code repositories quickly and safely inside VS Code.
 
-![Remote Repositories extension](remote-repositories-banner.png)
+[![Remote Repositories extension](remote-repositories-banner.png)](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
 
 ## A quicker way to open source code repositories
 
