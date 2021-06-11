@@ -898,7 +898,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether or not the empty window is trusted by default within VS Code.
     "security.workspace.trust.emptyWindow": true,
 
-    // Controls whether or not workspace trust is enabled within VS Code.
+    // Controls whether or not Workspace Trust is enabled within VS Code.
     "security.workspace.trust.enabled": true,
 
     // Controls when the startup prompt to trust a workspace is shown.

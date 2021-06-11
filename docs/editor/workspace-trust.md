@@ -5,7 +5,7 @@ TOCTitle: Workspace Trust
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
 PageTitle: Visual Studio Code Workspace Trust security
 DateApproved: 6/10/2021
-MetaDescription: Visual Studio Code workspace trust folder security
+MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
 
@@ -25,7 +25,7 @@ Workspace Trust provides an extra layer of security when working with unfamiliar
 
 ## Restricted Mode
 
-When prompted by the Workspace Trust dialog, if you choose **No, I don't trust the authors**, VS Code will go into Restricted Mode to prevent code execution. The workbench will display a banner at the top with links to **Manage** your folder via the Workspace Trust editor, and **Learn More** about workspace trust (which takes you to back to this documentation).
+When prompted by the Workspace Trust dialog, if you choose **No, I don't trust the authors**, VS Code will go into Restricted Mode to prevent code execution. The workbench will display a banner at the top with links to **Manage** your folder via the Workspace Trust editor, and **Learn More** about Workspace Trust (which takes you to back to this documentation).
 
 ![Workspace Trust Restricted Mode banner](images/workspace-trust/restricted-mode-banner.png)
 

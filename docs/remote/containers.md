@@ -180,7 +180,7 @@ Note that if the container fails to come up due to something like a Docker build
 
 Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
 
-The Remote - Containers extension has adopted workspace trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
+The Remote - Containers extension has adopted Workspace Trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
 
 ### Reopen folder in container
 
