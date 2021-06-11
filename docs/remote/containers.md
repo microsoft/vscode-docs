@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 5/5/2021
+DateApproved: 6/10/2021
 ---
 # Developing inside a Container
 
@@ -175,6 +175,41 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 Note that if the container fails to come up due to something like a Docker build error, you can select **Reopen in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. This opens the docker volume with the cloned repository in a minimal container and shows you the creation log. Once you are done fixing, use **Reopen in Container** to retry.
 
 > **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
+
+## Trusting your Workspace
+
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
+
+The Remote - Containers extension has adopted workspace trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
+
+### Reopen folder in container
+
+[Setting up a dev container for an existing project](#quick-start-open-an-existing-folder-in-a-container) requires trusting the local (or WSL) folder. You will be asked to trust the local (or WSL) folder before the window reloads.
+
+There are a couple of exceptions to this flow:
+
+1. When clicking on a recent entry.
+2. Using the **Open Folder in Container** command will ask for trust after the window reloads, if trust is not already given.
+
+### Attach to existing container
+
+When [attaching to an existing container](/docs/remote/attach-container.md), you will be asked to confirm that attaching means you trust the container. This is only confirmed once.
+
+![Workspace trust prompt when attaching to container](images/containers/attach-containers-trust.png)
+
+### Clone repository in a volume
+
+When [cloning a repository in a container volume](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume), you are asked to confirm that cloning a repository means you trust the repository. This is only confirmed once.
+
+![Workspace trust prompt when cloning in container volume](images/containers/clone-containers-trust.png)
+
+### Inspect volume
+
+[Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
+
+### Docker deamon running remotely
+
+This implies trusting [the machine the Docker daemon runs on](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). There are no additional prompts to confirm (only those listed for the local/WSL case above).
 
 ## Create a devcontainer.json file
 
