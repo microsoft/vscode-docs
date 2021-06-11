@@ -315,7 +315,7 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | pytestEnabled | `false` | Specifies whether pytest is enabled for testing. | [Testing](/docs/python/testing.md) |
-| pytestPath | `"py.test"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
+| pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
 | pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging tests with pytest-cov installed, include `--no-cov` in these arguments. | [Testing](/docs/python/testing.md) |
 
 ### Nose framework
