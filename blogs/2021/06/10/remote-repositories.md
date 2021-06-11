@@ -54,7 +54,13 @@ Clicking the link shows which extensions are disabled and which ones have limite
 
 ![VS Code Extensions view with limited and disabled extensions](extension-limits.png)
 
-If you would like to manually enable an extension in a virtual workspace, you can set `"extensions.supportVirtualWorkspaces": { "<extensionID>": true }` in your `settings.json`.
+If you would like to manually enable an extension in a virtual workspace, you can use the `extensions.supportVirtualWorkspaces` setting in your user `settings.json` file.
+
+```json
+    "extensions.supportVirtualWorkspaces": { "<extensionID>": true }
+```
+
+Keep in mind that an extension might not be implemented to handle a virtual workspace without access to the local file system, and so the extension might not work as expected.
 
 ## You opened a repo, what's next?
 
