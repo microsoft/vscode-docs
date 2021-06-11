@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 6/10/2021
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less

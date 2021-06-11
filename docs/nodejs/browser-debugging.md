@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Browser Debugging
 ContentId: d0e271da-0372-4ab9-a2ab-b7add855bd5a
 PageTitle: Debug Browser Apps using Visual Studio Code
-DateApproved: 5/5/2021
+DateApproved: 6/10/2021
 MetaDescription: The Visual Studio Code editor includes browser debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
