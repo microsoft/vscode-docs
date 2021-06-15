@@ -37,7 +37,7 @@ For example, let's install the popular [Bracket Pair Colorizer](https://marketpl
 
 ![Bracket Pair Colorizer extension highlighting in the editor](images/extension-marketplace/bracket-pair-colorizer.png)
 
-In the Extensions view ((`kb(workbench.view.extensions)`), type 'bracket' in the search box to filter the Marketplace offerings to extensions with 'bracket' in the title or metadata. You should see the **Bracket Pair Colorizer** in the list.
+In the Extensions view (`kb(workbench.view.extensions)`), type 'bracket' in the search box to filter the Marketplace offerings to extensions with 'bracket' in the title or metadata. You should see the **Bracket Pair Colorizer** in the list.
 
 ![Search for bracket in the Extensions view](images/extension-marketplace/search-for-bracket-extension.png)
 
@@ -63,7 +63,7 @@ If an extension doesn't provide the functionality you want, you can always **Uni
 
 ![Uninstall the Bracket Pair Colorizer extension](images/extension-marketplace/bracket-pair-colorizer-uninstall.png)
 
-This has been just one example of how to install and use an extension. The VS Code Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](images/extension-marketplace/bracket-pair-colorizer-settings.png), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
+This has been just one example of how to install and use an extension. The VS Code Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
 
 ### Extension details
 
@@ -79,13 +79,13 @@ If an extension is an Extension Pack, the **Extension Pack** section will displa
 
 ![Azure Tools extension pack](images/extension-marketplace/extension-pack.png)
 
-### Extensions view commands
+### Extensions view filter and commands
 
-You can run various Extensions view commands by clicking on the Extensions view's `...` **More Actions** button.
+You can filter the Extensions view with the **Filter Extensions** context menu.
 
-![more button](images/extension-marketplace/more-button.png)
+![Extensions view filter context menu](images/extension-marketplace/extensions-view-filter-menu.png)
 
-There are commands to show:
+There are filters to show:
 
 * The list of currently installed extensions
 * The list of outdated extensions that can be updated
@@ -94,6 +94,12 @@ There are commands to show:
 * The list of globally popular extensions
 
 You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
+
+You can run additional Extensions view commands via the `...` **View and More Actions** button.
+
+![more button](images/extension-marketplace/more-button.png)
+
+Through this context menu you can control extension updates, enable or disable all extensions, and use the [Extension Bisect](https://code.visualstudio.com/blogs/2021/02/16/extension-bisect) utility to isolate problematic extension behavior.
 
 ![more dropdown](images/extension-marketplace/more-dropdown.png)
 
