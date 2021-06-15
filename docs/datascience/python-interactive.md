@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Python Interactive
 ContentId: 09645514-3c23-49ec-8e27-71831bc06ce7
 PageTitle: Working with Jupyter code cells in the Python Interactive window
-DateApproved: 5/25/2021
+DateApproved: 6/15/2021
 MetaDescription: Working with Jupyter code cells in the Python Interactive window
 MetaSocialImage: images/tutorial/social.png
 ---

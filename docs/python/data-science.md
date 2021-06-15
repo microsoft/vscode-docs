@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Data Science
 ContentId: 61af0524-2702-486e-a859-d1e993ddbf8f
 PageTitle: Data Science in Visual Studio Code
-DateApproved: 05/27/2021
+DateApproved: 06/15/2021
 MetaDescription: Data Science in Visual Studio Code
 ---
 

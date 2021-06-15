@@ -9,7 +9,7 @@ MetaDescription: Working with Jupyter code cells in the Python Interactive windo
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Working with the Python Interactive window
+# The Python Interactive window
 
 [Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/python/jupyter-support.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
 
