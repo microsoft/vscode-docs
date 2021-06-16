@@ -566,6 +566,8 @@ With all the page templates in place, save `app.py`, run the app, and open a bro
 
 ![Flask tutorial: app rendering a common nav bar from the base template](images/flask-tutorial/full-app.png)
 
+>**Note**: If you're not seeing the latest changes, you might need to do a hard refresh on the page to avoid seeing a cached file.
+
 ## Optional activities
 
 The following sections describe additional steps that you might find helpful in your work with Python and Visual Studio Code.
