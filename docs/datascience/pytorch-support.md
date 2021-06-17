@@ -10,11 +10,11 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # PyTorch support in Visual Studio Code
 
-Along with support for [Jupyter Notebooks](/docs/python/jupyter-support.md), Visual Studio Code offers many features of particular interest for PyTorch developers. This article covers some of those features and illustrates how they can help you in your projects. If you're unfamiliar with PyTorch development, Microsoft Learn offers a [Get started with PyTorch](https://docs.microsoft.com/learn/paths/pytorch-fundamentals) learning path that covers the fundamentals of deep learning with PyTorch.
+Along with support for [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md), Visual Studio Code offers many features of particular interest for PyTorch developers. This article covers some of those features and illustrates how they can help you in your projects. If you're unfamiliar with PyTorch development, Microsoft Learn offers a [Get started with PyTorch](https://docs.microsoft.com/learn/paths/pytorch-fundamentals) learning path that covers the fundamentals of deep learning with PyTorch.
 
 ## Data Viewer support for Tensors and data slices
 
-VS Code provides a [Data Viewer](/docs/python/jupyter-support.md#variable-explorer-and-data-viewer) that allows you to explore the variables within your code and notebooks, including PyTorch and TensorFlow `Tensor` data types. Along with that the Data Viewer has support for slicing data, allowing you to view any 2D slice of your higher dimensional data.
+VS Code provides a [Data Viewer](/docs/datascience/jupyter-notebooks.md#variable-explorer-and-data-viewer) that allows you to explore the variables within your code and notebooks, including PyTorch and TensorFlow `Tensor` data types. Along with that the Data Viewer has support for slicing data, allowing you to view any 2D slice of your higher dimensional data.
 
 To access the Data Viewer, you can either open it from the Notebook Variable Explorer by clicking the Data Viewer icon that shows up beside any Tensor variable. You'll also notice that the Variable Explorer shows the shape/dimensions of the Tensor as well.
 

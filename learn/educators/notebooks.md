@@ -52,4 +52,4 @@ In addition, you need to install the [Jupyter Notebooks extension](https://marke
 
 Once you have Python and the extensions installed, you will need to activate the Python environment by using the command **Python: Select Interpreter** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-For full instructions on how to use Jupyter Notebooks, follow the [step by step Jupyter Notebook guide](/docs/python/jupyter-support.md).
+For full instructions on how to use Jupyter Notebooks, follow the [step by step Jupyter Notebook guide](/docs/datascience/jupyter-notebooks.md).

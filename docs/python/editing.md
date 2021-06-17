@@ -18,7 +18,7 @@ The Python extension provides many features for editing Python source code in Vi
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
-Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/python/jupyter-support.md).
+Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/datascience/jupyter-notebooks.md).
 
 ## Autocomplete and IntelliSense
 
