@@ -108,6 +108,28 @@ Use the full product name "Visual Studio Code" in the topic MetaDescription and 
 
 * **DateApproved** - This is set when the page is published on the VS Code website.
 
+## File and Folder names
+
+Use lowercase for file and folder names and dashes `-` as separators.
+
+For example:
+
+* `/docs/editor/workspace-trust.md`
+* `/docs/supporting/troubleshoot-terminal-launch.md`
+* `/api/extension-guides/custom-editors.md`
+
+### Moving or renaming content
+
+Before moving or renaming content, a redirect should be added in case people have bookmarked the topic. Redirects are added in the private website repo.
+
+It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
+
+For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extension-marketplace.md`
+
+### sitemap
+
+The code.visualstudio.com sitemap is authored in `/build/sitemap.xml` and should be updated when new topics are added or existing content moved or renamed.
+
 ## Formatting
 
 ### Headings & Right Nav
@@ -156,9 +178,9 @@ Images are important to bring the product to life and clarify the written conten
 
 For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
-When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase.
+When you link to an image, the path and filename are case-sensitive. The convention is for image filenames to be all lowercase and use dashes `-` for separators.
 
->For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
+>For example: `![Debug Breakpoints](images/debugging/breakpoints-view.png)`
 
 ### Key bindings
 
