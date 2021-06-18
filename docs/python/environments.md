@@ -28,15 +28,11 @@ While this article provides some information about Python environments and their
 
 By default, any Python interpreter that you've installed runs in its own **global environment**, which is not specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
 
-> **Note**: The Python Extension version 2018.8.1 and later automatically updates environments.
-
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
 
-For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
+For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` environment variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
-
-> **Tip**: A **conda environment** is a virtual environment that's created and managed using the `conda` package manager. See [Conda environments](#conda-environments) for more details.
 
 ### Conda environments
 
@@ -77,13 +73,14 @@ python3 -m venv .venv
 python -m venv .venv
 ```
 
-When you create a new virtual environment, a prompt will be displayed to allow you to select it for the workspace. To learn more about the `venv` module, see [Creation of virtual environments](https://docs.python.org/3/library/venv.html) on Python.org.
+>**Note**: To learn more about the `venv` module, see [Creation of virtual environments](https://docs.python.org/3/library/venv.html) on Python.org.
+
+When you create a new virtual environment, a prompt will be displayed to allow you to select it for the workspace.
+
 
 ![Python environment prompt](images/environments/python-environment-prompt.png)
 
 This will add the path to the Python interpreter from the new virtual environment to your workspace settings. That environment will then be used when installing packages and running code through the Python extension. For examples of using virtual environment in projects, see the [Python tutorial](/docs/python/python-tutorial.md), [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
-
-> **Note**: If you're using a version of the Python extension prior to 2018.10, and you create a virtual environment in a VS Code terminal, you must run the **Reload Window** command from the Command Palette and then use **Python: Select Interpreter** to activate the environment. If you have any problems with VS Code recognizing a virtual environment, please [file an issue](https://github.com/microsoft/vscode-docs/issues) in the documentation repository so we can help determine the cause.
 
 > **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on macOS/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on macOS/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
 
@@ -138,7 +135,7 @@ current system.", then you need to temporarily change the PowerShell execution p
 run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`
 
-> **Note**: By default, VS Code uses the interpreter identified by `python:pythonPath` setting when debugging code. You can override this behavior by specifying a different path in the `pythonPath` property of a debug configuration. See [Choose a debugging environment](#choose-a-debugging-environment).
+> **Note**: By default, VS Code uses the interpreter identified by `python.pythonPath` setting when debugging code. You can override this behavior by specifying a different path in the `pythonPath` property of a debug configuration. See [Choose a debugging environment](#choose-a-debugging-environment).
 
 The Status Bar always shows the current interpreter.
 
