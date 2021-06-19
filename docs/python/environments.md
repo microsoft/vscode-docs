@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 04/18/2019
+DateApproved: 06/18/2021
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Using Python environments in VS Code
 
-This article discusses the helpful features provided by the VS Code Python extension for working with Python environments. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages. After you finish this article you'll have a good understanding of:
+This article discusses the helpful features provided by the VS Code Python extension for working with Python environments. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages. After you finish this article, you'll have a good understanding of:
 
 - [General environment concepts](#global-and-virtual-environments)
 - [How to select an environment](#select-and-activate-an-environment)
@@ -18,7 +18,7 @@ This article discusses the helpful features provided by the VS Code Python exten
 - How to [select and activate](#select-and-activate-an-environment) a virtual environment
 - How to work with [Environments and Terminal windows](#environments-and-terminal-windows)
 - [Where the Python extension looks for environments](#where-the-extension-looks-for-environments)
-- Environment variables and [environment variable definitions files (.env)](#environment-variable-definitions.file)
+- Environment variables and [environment variable definitions files (.env)](#environment-variable-definitions-file)
 
 While this article provides some information about Python environments and their concepts, it is primarily for understanding how to work with them within VS Code. If you're new to working with Python environments, you can learn more at [Virtual Environments and Packages (Python.org)](https://docs.python.org/3/tutorial/venv.html) and [Installing Python Modules (Python.org)](https://docs.python.org/3/installing/index.html#installing-index).
 
@@ -77,10 +77,9 @@ python -m venv .venv
 
 When you create a new virtual environment, a prompt will be displayed to allow you to select it for the workspace.
 
-
 ![Python environment prompt](images/environments/python-environment-prompt.png)
 
-This will add the path to the Python interpreter from the new virtual environment to your workspace settings. That environment will then be used when installing packages and running code through the Python extension. For examples of using virtual environment in projects, see the [Python tutorial](/docs/python/python-tutorial.md), [Django tutorial](/docs/python/tutorial-django.md) and the [Flask tutorial](/docs/python/tutorial-flask.md).
+This will add the path to the Python interpreter from the new virtual environment to your workspace settings. That environment will then be used when installing packages and running code through the Python extension. For examples of using virtual environment in projects, see the [Python](/docs/python/python-tutorial.md), [Django](/docs/python/tutorial-django.md), and [Flask](/docs/python/tutorial-flask.md) tutorials.
 
 > **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on macOS/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on macOS/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
 
