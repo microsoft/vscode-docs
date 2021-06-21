@@ -27,7 +27,7 @@ The terminal tabs view is on the right side of the terminal view. Each terminal 
 
 ![Terminal tabs](images/integrated-terminal/tabs.png)
 
-> **Tip:** Change the tabs location using the `integrated.terminal.tabs.location` setting.
+> **Tip:** Change the tabs location using the `terminal.integrated.tabs.location` setting.
 
 Terminal instances can be added by clicking the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
