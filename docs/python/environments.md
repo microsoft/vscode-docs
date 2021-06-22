@@ -291,7 +291,19 @@ When PYTHONPATH is set using an `.env` file, it will affect anything the extensi
 
 If needed, you can set PYTHONPATH using both methods.
 
-An example of when to use PYTHONPATH would be if you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, those tests can't normally access modules in `src` unless you hard-code relative paths. To solve this problem, add the path to `src` to PYTHONPATH.
+An example of when to use PYTHONPATH would be if you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, those tests can't normally access modules in `src` unless you hard-code relative paths.
+
+To solve this problem, you could add the path to `src` to PYTHONPATH by creating an .env file within your VS Code workspace.
+
+```cmd
+PYTHONPATH=src
+```
+
+Then you just need to set `python.envFile` to the .env file you created in your settings.json file. For example, if the .env file was in your workspace root, your settings.json would be set as shown:
+
+```json
+"python.envFile"="${workspaceFolder}/.env"
+```
 
 The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`: a semicolon (`;`) on Windows and a colon (`:`) on Linux/macOS. Invalid paths are ignored. If you find that your value for PYTHONPATH isn't working as expected, make sure that you're using the correct separator between locations for the operating system. For example, using a colon to separate locations on Windows, or using a semicolon to separate locations on Linux/macOS results in an invalid value for PYTHONPATH, which is ignored.
 
