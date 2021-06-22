@@ -19,7 +19,9 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Markdown preview
+## Markdown printing and preview
+
+While VS code does not itself support printing, there are extensions that do, and one of these prints markdown using VS Code's own rendering pipeline - which allows other markdown extensions to participate. Search the [Marketplace](https://marketplace.visualstudio.com) for "printing".
 
 VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
@@ -134,7 +136,9 @@ There are several built-in Markdown snippets included in VS Code - press `kb(edi
 
 ## Compiling Markdown into HTML
 
-VS Code integrates with Markdown compilers through the integrated [task runner](/docs/editor/tasks.md). We can use this to compile `.md` files into `.html` files. Let's walk through compiling a simple Markdown document.
+If HTML is only an intermediate step on your way to paper or PDF, there is a printing extension that automates the entire process. Search the [Marketplace](https://marketplace.visualstudio.com) for "printing".
+
+If HTML is the final objective then VS Code can integrate with Markdown compilers through the integrated [task runner](/docs/editor/tasks.md). We can use this to compile `.md` files into `.html` files. Let's walk through compiling a simple Markdown document.
 
 ### Step 1: Install a Markdown compiler
 
