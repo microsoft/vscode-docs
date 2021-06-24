@@ -62,7 +62,7 @@ Marketplace - [npm IntelliSense](https://marketplace.visualstudio.com/items?item
 
 Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=publisher%3A%22Christian%20Kohler%22&target=VSCode)
 
-This extension provides IntelliSense for npm modules when using `import` or `require`.
+This extension provides IntelliSense for npm modules when using `require` or `import`.
 
 ![npm intellisense](images/extensions/npm_intellisense.gif)
 
