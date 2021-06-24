@@ -293,13 +293,13 @@ If needed, you can set PYTHONPATH using both methods.
 
 An example of when to use PYTHONPATH would be if you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, those tests can't normally access modules in `src` unless you hard-code relative paths.
 
-To solve this problem, you could add the path to `src` to PYTHONPATH by creating an .env file within your VS Code workspace.
+To solve this problem, you could add the path to `src` to PYTHONPATH by creating an `.env` file within your VS Code workspace.
 
 ```cmd
 PYTHONPATH=src
 ```
 
-Then you just need to set `python.envFile` to the .env file you created in your settings.json file. For example, if the .env file was in your workspace root, your settings.json would be set as shown:
+Then set `python.envFile` in your `settings.json` file to point to the `.env` file you just created. For example, if the `.env` file was in your workspace root, your `settings.json` would be set as shown:
 
 ```json
 "python.envFile"="${workspaceFolder}/.env"
