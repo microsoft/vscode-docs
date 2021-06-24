@@ -302,7 +302,7 @@ PYTHONPATH=src
 Then set `python.envFile` in your `settings.json` file to point to the `.env` file you just created. For example, if the `.env` file was in your workspace root, your `settings.json` would be set as shown:
 
 ```json
-"python.envFile"="${workspaceFolder}/.env"
+"python.envFile": "${workspaceFolder}/.env"
 ```
 
 The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`: a semicolon (`;`) on Windows and a colon (`:`) on Linux/macOS. Invalid paths are ignored. If you find that your value for PYTHONPATH isn't working as expected, make sure that you're using the correct separator between locations for the operating system. For example, using a colon to separate locations on Windows, or using a semicolon to separate locations on Linux/macOS results in an invalid value for PYTHONPATH, which is ignored.
