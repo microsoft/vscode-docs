@@ -15,9 +15,11 @@ MetaDescription: See how to use the features of Visual Studio Code and integrate
 
 Under the hood, an Office Add-in is just a web app that you can host anywhere. Using a `manifest.xml` file, you tell the Office application where your web app is located and how you want it to appear. The Office application takes care of hosting it within Office.
 
-## Step 1: Create a new Office Add-in project
+## Create a new Office Add-in project
 
-Follow the instructions to [Create an Office Add-in using any editor](https://developer.microsoft.com/office/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
+First follow the instructions to [Create an Office Add-in using any editor](https://developer.microsoft.com/office/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use the Yeoman generator `yo office` to create a new add-in project.
+
+The following table lists the project attributes to select in the Yeoman generator.
 
 | Option | Value |
 |:------|:------|
