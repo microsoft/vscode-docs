@@ -153,7 +153,7 @@ When VS Code connects to a remote environment, extensions are classified as eith
 
 When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other UI customizations are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
 
-See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details.
+If your extension is not functioning as expected, [there are steps to check](https://code.visualstudio.com/api/advanced-topics/remote-extensions#incorrect-execution-location) if it is running in the correct location or should perhaps have a different `extensionKind`. Also see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details on what extension authors need to know about Remote Development and Codespaces.
 
 ## License and privacy
 
