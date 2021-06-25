@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code hardware and platform (operating system) req
 
 ## Hardware
 
-Visual Studio Code is a small download (< 100 MB) and has a disk footprint of 200 MB. VS Code is lightweight and should easily run on today's hardware.
+Visual Studio Code is a small download (< 200 MB) and has a disk footprint of < 500 MB. VS Code is lightweight and should easily run on today's hardware.
 
 We recommend:
 
