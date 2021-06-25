@@ -30,11 +30,11 @@ Follow the instructions to [Create an Office Add-in using any editor](https://de
 
 ## Use Visual Studio Code to develop your Office Add-in
 
-Visual Studio Code is a great tool to help you develop your custom Office Add-ins for Outlook, Word, Excel, PowerPoint and runs in web clients, Windows clients, iOS clients or on macOS!
+Visual Studio Code is a great tool to help you develop your custom Office Add-ins for Outlook, Word, Excel, PowerPoint, regardless of whether the Add-ins run in web clients, Windows clients, iOS clients or on macOS!
 
 ### Getting started
 
-Open the project in Visual Studio Code by entering the following on the command line from within the same folder where you ran the generator:
+Open the project in Visual Studio Code by entering the following text on the command line from within the same folder where you ran the generator:
 
 ```bash
 code .
@@ -58,11 +58,11 @@ Office Add-ins must be installed, or registered, with the Office application in 
 
 ### Side loading Mail Add-ins
 
-Mail Add-ins can be installed within the Outlook Web App. Browse to your [Outlook Web App](https://mail.office365.com) and login. Once logged in, click the gear icon in the top-right section and select **Manage add-ins**:
+Mail Add-ins can be installed within the Outlook Web App. Browse to your [Outlook Web App](https://mail.office365.com) and login. Once logged in, select the gear icon in the top-right section and select **Manage add-ins**:
 
 ![Manage Add-ins](images/office/owamanageaddins.png)
 
-On the **Manage add-ins** page, select the *+* icon and then select **Add from a file**.
+On the **Manage add-ins** page, select the **+** icon, and then select **Add from a file**.
 
 ![Add from File](images/office/owaaddaddin.png)
 
@@ -72,7 +72,7 @@ Once that's done, select an existing email and you will see a horizontal bar bel
 
 ![The Add-in in action in mail](images/office/mailaddin.png)
 
-Next try creating an email, click the **Add-ins** or **Apps** menu item to get the Task Pane to appear:
+Next try creating an email, select the **Add-ins** or **Apps** menu item to get the Task Pane to appear:
 
 ![Open task pane](images/office/mailaddin01.png)
 
@@ -98,11 +98,11 @@ To install an Add-in within an Office application, select the **Insert** tab and
 
 ![Excel Add-in](images/office/exceladdin.png)
 
-You can select Add-ins you've uploaded to your Office 365 tenancy's App Catalog using the Office  Add-ins dialog (*listed under My Organization*) or acquire Add-ins from the Office Store.
+You can select Add-ins you've uploaded to your Office 365 tenancy's App Catalog using the Office Add-ins dialog (listed under **My Organization**) or acquire Add-ins from the Office Store.
 
 ## Next steps
 
-Check out the other pages on the VS Code site to find out how you can leverage more capabilities of the editor when creating custom Office Add-ins:
+Check out the other pages on the VS Code site to find out how you can use more capabilities of the editor when creating custom Office Add-ins:
 
 - [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
 - [User Interface](/docs/getstarted/userinterface.md) - Just starting out with VS Code? This is worth reviewing.
