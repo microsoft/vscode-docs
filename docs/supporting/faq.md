@@ -188,6 +188,12 @@ Want an early peek at new VS Code features?  You can try prerelease versions of 
 
 To install the Insiders build, go to the [Insiders download page](/insiders).
 
+## Where can I find the Visual Studio Code icons?
+
+**Are there guidelines for using the icons and names?**
+
+You can download the official Visual Studio Code icons and read the usage guidelines at [Icons and names usage guidelines](/brand).
+
 ## What is a VS Code "workspace"?
 
 A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/getstarted/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
