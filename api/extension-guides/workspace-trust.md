@@ -11,11 +11,11 @@ MetaDescription: A guide for updating Visual Studio Code extensions to support W
 
 ## What is Workspace Trust?
 
-[Workspace Trust](/docs/editor/workspace-trust) is a feature driven by the security risks associated with unintended code execution when a user opens a workspace in VS Code. For example, consider that a language extension, in order to provide functionality, may execute code from the currently loaded workspace. In this scenario, the user should trust that the contents of the workspace are not malicious. Workspace Trust centralizes this decision within VS Code and supports a [Restricted Mode](/docs/editor/workspace-trust#restricted-mode) to protect against automatic code execution so that extension authors do not have to handle this themselves. VS Code offers static declaration and API support to onboard extensions quickly without the need to duplicate code across extensions.
+[Workspace Trust](/docs/editor/workspace-trust) is a feature driven by the security risks associated with unintended code execution when a user opens a workspace in VS Code. For example, consider that a language extension, in order to provide functionality, may execute code from the currently loaded workspace. In this scenario, the user should trust that the contents of the workspace are not malicious. Workspace Trust centralizes this decision within VS Code and supports a [Restricted Mode](/docs/editor/workspace-trust#_restricted-mode) to protect against automatic code execution so that extension authors do not have to handle this infrastructure themselves. VS Code offers static declaration and API support to onboard extensions quickly without the need to duplicate code across extensions.
 
 ## Onboarding
 
-### Static Declarations
+### Static declarations
 
 In your extension's `package.json`, VS Code supports the following new `capabilities` property `untrustedWorkspaces.supported`:
 
@@ -41,9 +41,9 @@ The `restrictedConfigurations` property takes an array of configuration setting 
 
 ## How to support Restricted Mode?
 
-To help extension authors understand what is in scope for Workspace Trust and what features are safe in Restricted Mode, here are a list of questions to consider.
+To help extension authors understand what is in scope for Workspace Trust and what types of features are safe in Restricted Mode, here are a list of questions to consider.
 
-### Does my extension have a `main` entry point?
+### Does my extension have a main entry point?
 
 If an extension does not have a `main` entry point (for example themes and language grammars), the extension does not require Workspace Trust. Extension authors do not need to take any action for such extensions as they will continue to function independent whether the workspace is trusted or not.
 
@@ -93,7 +93,7 @@ VS Code also exposes a context key `isWorkspaceTrusted` for use in `when` clause
 
 ### Commands, views, or other UI
 
-When the user has not trusted the workspace, they will operating in Restricted Mode with functionality geared towards browsing code. Any features that you want to disable in Restricted Mode should be hidden from the user. This can be done via [when clause contexts](/api/reference/when-clause-contexts) and the context key `isWorkspaceTrusted`. A command can still be called even if it is not presented in the UI, so you should block execution or not register a command based on the API above in your extension code.
+When the user has not trusted the workspace, they will be operating in Restricted Mode with limited functionality geared towards browsing code. Any features that you disable in Restricted Mode should be hidden from the user. This can be done via [when clause contexts](/api/references/when-clause-contexts) and the context key `isWorkspaceTrusted`. A command can still be called even if it is not presented in the UI, so you should block execution or not register a command based on the API above in your extension code.
 
 ### Configurations (settings)
 
