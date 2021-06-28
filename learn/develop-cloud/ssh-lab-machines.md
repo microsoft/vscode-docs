@@ -13,7 +13,7 @@ MetaDescription: Learn to use SSH connections to lab machines with Visual Studio
 
 SSH, or the secure shell protocol, lets you access a remote computer or virtual machine securely over a network connection.
 
-You can connect over SSH into another machine from VS Code and interact with files and folders anywhere on that remote filesystem. If you have an app located on a different computer, you could use SSH to connect to it and access your app, view its files, and even modify, run, and debug it.
+You can connect over SSH into another machine from Visual Studio Code and interact with files and folders anywhere on that remote filesystem. If you have an app located on a different computer, you could use SSH to connect to it and access your app, view its files, and even modify, run, and debug it.
 
 You can also take advantage of any tools or dependencies installed on that remote machine. You could connect to remote machines very different than your local machine. For instance, they could have a different operating system, different tools installed, or much stronger computing power.
 

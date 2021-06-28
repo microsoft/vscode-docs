@@ -7,7 +7,7 @@ PageTitle:  Install Visual Studio Code extensions
 DateApproved: 10/22/2020
 MetaDescription: Install Visual Studio Code extensions
 ---
-# Installing Visual Studio Code Extensions
+# Install Visual Studio Code extensions
 
 In this video, we walk you through installing Visual Studio Code extensions.
 
