@@ -201,7 +201,7 @@ In a when clause, you can reference a configuration (setting) value by prefixing
 
 If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views by using a `when` clause context and none of the existing keys suit your needs, you can add your own context with the `setContext` command.
 
-The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
+The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
 vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
@@ -232,13 +232,13 @@ Then, in the `package.json` you could add a menu contribution for the `explorer/
   "explorer/context": [
     {
       "command": "ext.doSpecial",
-      "when": "explorerResourceIsFolder && resourceFilename in ext:supportedFolders"
+      "when": "explorerResourceIsFolder && resourceFilename in ext.supportedFolders"
     }
   ]
 }
 ```
 
-In that example, we are taking the value of `resourceFilename` (which is the name of the folder in this case) and checking for its existence in the value of `ext:supportedFolders`. If it exists, the menu will be shown. This powerful operator should allow for richer conditional and dynamic contributions that support `when` clauses, for example menus, views, etc.
+In that example, we are taking the value of `resourceFilename` (which is the name of the folder in this case) and checking for its existence in the value of `ext.supportedFolders`. If it exists, the menu will be shown. This powerful operator should allow for richer conditional and dynamic contributions that support `when` clauses, for example menus, views, etc.
 
 ## Inspect Context Keys utility
 
