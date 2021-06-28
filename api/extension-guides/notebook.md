@@ -262,7 +262,7 @@ Then, run `yo code` and choose `New Notebook Renderer (TypeScript)`.
 
 ### A Simple, Non-Interactive Renderer
 
-Renderers are declared for a set of mimetypes by contributing to the `contributes.notebookRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed kernel is able to provide:
+Renderers are declared for a set of mimetypes by contributing to the `contributes.notebookRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed controller is able to provide:
 
 ```json
 {
@@ -285,7 +285,7 @@ Renderers are declared for a set of mimetypes by contributing to the `contribute
 
 Output renderers are always rendered in a single `iframe`, separate from the rest of VS Code's UI, to ensure they don't accidentally interfere or cause slowdowns in VS Code. The contribution refers to an "entrypoint" script, which is loaded into the notebook's `iframe` right before any output needs to be rendered. Your entrypoint needs to be a single file, which you can write yourself, or use a bundler like Webpack, Rollup, or Parcel to create.
 
-When it's loaded, your entrypoint script should immediately call `ActivationFunction` from `vscode-notebook-renderer` to render your UI once VS Code is ready to activate and render your renderer. For example, this will put all your GitHub issue data as JSON into the cell output:
+When it's loaded, your entrypoint script export `ActivationFunction` from `vscode-notebook-renderer` to render your UI once VS Code is ready to render your renderer. For example, this will put all your GitHub issue data as JSON into the cell output:
 
 ```js
 import type { ActivationFunction } from 'vscode-notebook-renderer';
