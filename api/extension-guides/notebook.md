@@ -170,8 +170,9 @@ class Controller {
 
 Samples:
 
-* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/main/src/extension/notebookProvider.ts): Controller to execute queries for GitHub Issues
+* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/main/src/extension/notebookProvider.ts#L29): Controller to execute queries for GitHub Issues
 * [REST Book](https://github.com/tanhakabir/rest-book/blob/main/src/extension/notebookKernel.ts): Controller to run REST queries.
+* [Regexper notebooks](https://github.com/jrieken/vscode-regex-notebook/blob/master/src/extension/extension.ts#L56): Controller to visualize regular expressions.
 
 ## Output types
 
