@@ -286,7 +286,7 @@ Renderers are declared for a set of mimetypes by contributing to the `contribute
 
 Output renderers are always rendered in a single `iframe`, separate from the rest of VS Code's UI, to ensure they don't accidentally interfere or cause slowdowns in VS Code. The contribution refers to an "entrypoint" script, which is loaded into the notebook's `iframe` right before any output needs to be rendered. Your entrypoint needs to be a single file, which you can write yourself, or use a bundler like Webpack, Rollup, or Parcel to create.
 
-When it's loaded, your entrypoint script export `ActivationFunction` from `vscode-notebook-renderer` to render your UI once VS Code is ready to render your renderer. For example, this will put all your GitHub issue data as JSON into the cell output:
+When it's loaded, your entrypoint script should export `ActivationFunction` from `vscode-notebook-renderer` to render your UI once VS Code is ready to render your renderer. For example, this will put all your GitHub issue data as JSON into the cell output:
 
 ```js
 import type { ActivationFunction } from 'vscode-notebook-renderer';
@@ -383,27 +383,29 @@ const Issue: FunctionComponent<{ issue: GithubIssueWithComments }> = ({ issue })
 
 This immediately raises some flags. For one, we're loading full comment data for all issues, even before we've clicked the button. Additionally, we require controller support for a whole different mimetype even though we just want to show a bit more data.
 
-Instead, the controller can provide additional functionality to the renderer by registering a `NotebookRendererMessaging` object to communicate back and forth with the renderer.
+Instead, the controller can provide additional functionality to the renderer by including a preload script which VS Code will load in the iframe as well. This script has access global functions `postKernelMessage` and `onDidReceiveKernelMessage` that can be used to communicate with the controller.
+
+![Diagram showing how controllers interact with renderers through the NotebookRendererScript](images/notebook/kernel-communication.png)
+
+For example, you might modify your controller `rendererScripts` to reference a new file where you create a connection back to the Extension Host, and expose a global communication script for the renderer to use.
+
+In your controller:
 
 ```ts
 class Controller {
-    ...
-    readonly rendererId = 'github-issue-renderer'
-    private readonly _renderMessaging: vscode.NotebookRendererMessaging;
+    // ...
+
+    readonly rendererScriptId = 'my-renderer-script';
 
     constructor() {
-        ...
-        this._renderMessaging = vscode.notebooks.createRendererMessaging(rendererId);
-        this._renderMessaging.onDidReceiveMessage(this._handleMessage.bind(this));
-    }
+        // ...
 
-    private async _handleMessage(event: vscode.NotebookRendererMessage<any>) {
-        /* Handle message from renderer */
+        this._controller.rendererScripts.push(new vscode.NotebookRendererScript(vscode.Uri.file(/* path to script */), rendererScriptId));
     }
 }
 ```
 
-Then to declare messaging hard dependency for the renderer, add the flag for `requiresMessaging` to be `always` in the `package.json`. If messaging is not a hard dependency, then set the flag to be `optional`.
+In your `package.json` specify your script as a dependency of your renderer:
 
 ```json
 {
@@ -415,41 +417,40 @@ Then to declare messaging hard dependency for the renderer, add the flag for `re
         "id": "github-issue-renderer",
         "displayName": "GitHub Issue Renderer",
         "entrypoint": "./out/renderer.js",
-        "requiresMessaging": "always",
-        "mimeTypes": [...]
+        "mimeTypes": [...],
+        "dependencies": [
+            "my-renderer-script"
+        ]
       }
     ]
   }
 }
 ```
 
-This now allows messaging from the renderer to the notebook controller. The `context` from the `ActivationFunction` will have access to a non-null messaging functions `postMessage` and `onDidReceiveMessage`.
+In your script file you can declare communication functions to communicate with the controller:
 
-For example:
+```js
+globalThis.githubIssueCommentProvider = {
+  loadComments(issueId: string, callback: (comments: GithubComment[]) => void) {
+    postKernelMessage({ command: 'comments', issueId });
+
+    onDidReceiveKernelMessage(event => {
+        if (event.data.type === 'comments' && event.data.issueId === issueId) {
+            callback(event.data.comments);
+        }
+    })
+  }
+};
+```
+
+And then you can consume that in the renderer. You want to make sure that you check whether the global exposed by the controllers's render scripts is available, since other developers might create github issue output in other notebooks and controllers that don't implement the `githubIssueCommentProvider`. In this case, we'll only show the "Load Comments" button if the global is available:
 
 ```jsx
-export const activate: ActivationFunction = (context) => ({
-    renderOutputItem(data, element) {
-        let loadComments;
-        if(context.postMessage && context.onDidReceiveMessage) {
-            loadComments = (issueId: string, callback: (comments: GithubComment[]) => void) => {
-                context.postMessage!({ command: 'comments', issueId })
-            }
-
-            context.onDidReceiveMessage(event => {
-                if (event.data.type === 'comments' && event.data.issueId === issueId) {
-                  callback(event.data.comments);
-                }
-            })
-        }
-
-        render(<GithubIssues issues={data.json()} loadComments={loadComments}/>, element);
-    }
-});
-
-const Issue: FunctionComponent<{ issue: GithubIssue, loadComments?: (issueId: string, callback: any) => void }> = ({ issue, loadComments }) => {
+const canLoadComments = globalThis.githubIssueCommentProvider !== undefined;
+const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
   const [comments, setComments] = useState([]);
-  const canLoadComments = loadComments !== undefined;
+  const loadComments = () =>
+    globalThis.githubIssueCommentProvider.loadComments(issue.id, setComments);
 
   return (
     <div key={issue.number}>
@@ -466,31 +467,27 @@ const Issue: FunctionComponent<{ issue: GithubIssue, loadComments?: (issueId: st
 };
 ```
 
-Finally, we want to set up communication to the renderer with the `_handleMessage` method. This is called with the `NotebookRendererMessaging` object from the controller.
+Finally, we want to set up communication to the controller. `NotebookController.onDidReceiveMessage` method is called when a renderer posts a message using the its global `postKernelMessage` function. To implement this method, attach to `onDidReceiveMessage` to listen for messages:
 
 ```ts
 class Controller {
     // ...
 
-    private async _handleMessage(event: vscode.NotebookRendererMessage<any>) {
-        if (message.command === 'comments') {
-            _getCommentsForIssue(message.issueId).then(comments => this._renderMessaging.postMessage({
-                type: 'comments',
-                issueId: message.issueId,
-                comments,
-            }));
-        }
-    }
+    constructor() {
+        // ...
 
-    private async _getCommentsForIssue(id: string) {
-        /* Not implemented */
+        this._controller.onDidReceiveMessage(event => {
+            if (event.message.command === 'comments') {
+                _getCommentsForIssue(event.message.issueId).then(comments => this._controller.postMessage({
+                    type: 'comments',
+                    issueId: event.message.issueId,
+                    comments,
+                }), event.editor);
+            }
+        })
     }
 }
 ```
-
-Here's a higher level view of the communication between controllers and renderers:
-
-![Diagram showing how controllers interact with renderers through the NotebookRendererMessaging object](images/notebook/kernel-communication.png)
 
 ## Supporting debugging
 
