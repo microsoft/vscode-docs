@@ -17,7 +17,7 @@ MetaDescription: A guide for updating Visual Studio Code extensions to support W
 
 ### Static declarations
 
-In your extension's `package.json`, VS Code supports the following new `capabilities` property `untrustedWorkspaces.supported`:
+In your extension's `package.json`, VS Code supports the following new `capabilities` property `untrustedWorkspaces`:
 
 ```typescript
 capabilities:
