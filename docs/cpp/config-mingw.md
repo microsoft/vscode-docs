@@ -136,7 +136,7 @@ Your new `tasks.json` file should look similar to the JSON below:
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "C:/msys64/mingw64/bin"
+                "cwd": "${fileDirname}"
             },
             "problemMatcher": [
                 "$gcc"
@@ -202,7 +202,7 @@ VS Code creates a `launch.json` file, opens it in the editor, and builds and run
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "C:/msys64/mingw64/bin",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
