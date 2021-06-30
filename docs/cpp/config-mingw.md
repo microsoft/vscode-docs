@@ -166,11 +166,11 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Run Build Task**.
 1. When the task starts, you should see the Integrated Terminal panel appear below the source code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful g++ build, the output looks something like this:
 
-   ![G++ build output in terminal](images/mingw/build-output-in-terminal.png)
+   ![G++ build output in terminal](images/mingw/mingw-build-output.png)
 
 1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `dir` and you should now see the executable `helloworld.exe`.
 
-    ![Hello World in PowerShell terminal](images/mingw/helloworld-in-terminal.png)
+    ![Hello World in PowerShell terminal](images/mingw/mingw-dir-output.png)
 
 1. You can run `helloworld` in the terminal by typing `helloworld.exe` (or `.\helloworld.exe` if you use a PowerShell terminal).
 
@@ -270,7 +270,7 @@ Now you're ready to start stepping through the code.
 
    When the loop has completed, you can see the output in the Integrated Terminal, along with some other diagnostic information that is output by GDB.
 
-   ![Debug output in terminal](images/mingw/debug-output.png)
+   ![Debug output in terminal](images/mingw/mingw-debug-output.png)
 
 ## Set a watch
 
