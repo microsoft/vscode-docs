@@ -57,18 +57,7 @@ If you don't have a compiler installed, in the example below, we describe how to
 
 ## Example: Install MinGW-x64
 
-We will install Mingw-w64 via the SourceForge website. You can use this [Mingw-w64 link](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to download the Windows Mingw-w64 installer.
-
-1. Run the installer, which should be named `mingw-w64-install.exe` in your Download folder.
-
-   ![MinGW installation dialog welcome page](images/cpp/welcome-mingw-w64.png)
-
-2. For **Architecture** select **x86_64** and then select **Next**.
-
-   ![Choose x86_64 on the MinGW settings page](images/cpp/choose-x86-64.png)
-
-3. On the **Installation Folder** page, use the default location for the **Destination folder**. Copy the location as you will need it later.
-4. Select **Next** to start the installation.
+We will install Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  [Click here](https://github.com/msys2/msys2-installer/releases/download/2021-06-04/msys2-x86_64-20210604.exe) to download the MSYS2 installer. Then follow the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
 
 ### Add the MinGW compiler to your path
 
@@ -77,7 +66,7 @@ Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment va
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. Choose the `Path` variable and then select **Edit**.
-   1. Select **New** and add the Mingw-w64 destination folder path, with `\mingw64\bin` appended, to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin`.
+   1. Select **New** and add the Mingw-w64 destination folder path, with `\mingw64\bin` appended, to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\msys64\mingw64\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
 ### Check your MinGW installation
@@ -89,7 +78,7 @@ g++ --version
 gdb --version
 ```
 
-If you don't see the expected output or `g++` or `gdb` is not a recognized command, check your installation (Windows **Control Panel** > **Programs** > **Programs and Features**) and make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located.
+If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located.
 
 ## Hello World
 
@@ -134,7 +123,7 @@ Now that we have a simple C++ program, let's build it. Select the **Terminal** >
 
 This will display a dropdown with various compiler task options. If you are using a GCC toolset like MinGW, you would choose **C/C++: g++.exe build active file**.
 
-![Select g++.exe task](images/cpp/select-gpp-task.png)
+![Select g++.exe task](images/cpp/gpp-build-task-msys64.png)
 
 This will compile `helloworld.cpp` and create an executable file called `helloworld.exe`, which will appear in the File Explorer.
 
