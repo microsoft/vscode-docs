@@ -447,7 +447,17 @@ fi
 
 If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
-If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+If you do not have GPG set up, you can configure it for your platform:
+
+* On **Windows**, you can install [Gpg4win](https://www.gpg4win.org/).
+* On **macOS**, you can install [GPG Tools](https://gpgtools.org/).
+* On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+* On **WSL**:
+     * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side
+     * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro, i.e. `sudo apt install socat`
+     * Install gpg in your WSL distro, i.e. `sudo apt install gpg`
+     * Register a pinentry GUI in your WSL distro, i.e. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
+     * Reload the gpg agent in WSL, i.e. `gpg-connect-agent reloadagent /bye`
 
 Next, install `gnupg2` in your container by updating your Dockerfile. For example:
 
