@@ -9,7 +9,7 @@ The Notebook API allows Visual Studio Code extensions to open files as notebooks
 
 ## Parts of a Notebook
 
-A notebook consists of a sequence of cells and their outputs. The cells of a notebook can be either **Markdown cells** or **code cells**, and are rendered within the core of VS Code. The outputs can be of a variety of formats. Some output formats, such as plain text, JSON, images, and HTML are rendered by VS Code core. Others, such as application-specific data or interactive applets, are rendered by extensions.
+A notebook consists of a sequence of cells and their outputs. The cells of a notebook can be either **Markdown cells** or **code cells**, and are rendered within the core of VS Code. The outputs can be of various formats. Some output formats, such as plain text, JSON, images, and HTML are rendered by VS Code core. Others, such as application-specific data or interactive applets, are rendered by extensions.
 
 Cells in a notebook are read and written to the file system by a `NotebookSerializer`, which handles reading data from the file system and converting it into a description of cells, as well as persisting modifications to the notebook back to the file system. The **code cells** of a notebook can be executed by a `NotebookController`, which takes the contents of a cell and from it produces zero or more outputs in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by a `NotebookRenderer`.
 
@@ -21,7 +21,7 @@ Visually:
 
 [NotebookContentProvider API Reference](https://github.com/microsoft/vscode/blob/e1a8566a298dcced016d8e16db95c33c270274b4/src/vs/vscode.d.ts#L11865-L11884)
 
-A `NotebookSerializer` is responsible for taking a serialized bytes of a notebook and deserializing those bytes into `NotebookData`, which contains list of Markdown and code cells. It is responsible for the opposite conversion as well: taking `NotebookData` and converting the data into serialized bytes to be saved.
+A `NotebookSerializer` is responsible for taking the serialized bytes of a notebook and deserializing those bytes into `NotebookData`, which contains list of Markdown and code cells. It is responsible for the opposite conversion as well: taking `NotebookData` and converting the data into serialized bytes to be saved.
 
 Samples:
 
@@ -251,11 +251,11 @@ To render an alternative mimetype, a `NotebookRenderer` must be registered for t
 
 ## Notebook Renderer
 
-An notebook renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. A renderer shared by output cells can maintain global state between these cells. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
+A notebook renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. A renderer shared by output cells can maintain global state between these cells. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
 
 You can get started quickly using boilerplate from our Yeoman generators. To do so, first install Yeoman and the VS Code Generators using:
 
-```
+```bash
 npm install -g yo generator-code
 ```
 
@@ -443,7 +443,7 @@ globalThis.githubIssueCommentProvider = {
 };
 ```
 
-And then you can consume that in the renderer. You want to make sure that you check whether the global exposed by the controllers's render scripts is available, since other developers might create github issue output in other notebooks and controllers that don't implement the `githubIssueCommentProvider`. In this case, we'll only show the "Load Comments" button if the global is available:
+And then you can consume that in the renderer. You want to make sure that you check whether the global exposed by the controller's render scripts is available, since other developers might create github issue output in other notebooks and controllers that don't implement the `githubIssueCommentProvider`. In this case, we'll only show the **Load Comments** button if the global is available:
 
 ```jsx
 const canLoadComments = globalThis.githubIssueCommentProvider !== undefined;
@@ -467,7 +467,7 @@ const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
 };
 ```
 
-Finally, we want to set up communication to the controller. `NotebookController.onDidReceiveMessage` method is called when a renderer posts a message using the its global `postKernelMessage` function. To implement this method, attach to `onDidReceiveMessage` to listen for messages:
+Finally, we want to set up communication to the controller. `NotebookController.onDidReceiveMessage` method is called when a renderer posts a message using the global `postKernelMessage` function. To implement this method, attach to `onDidReceiveMessage` to listen for messages:
 
 ```ts
 class Controller {
@@ -491,7 +491,7 @@ class Controller {
 
 ## Supporting debugging
 
-For some controllers, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To add debugging support, a notebook kernel can implement a [debug adapter](https://code.visualstudio.com/api/extension-guides/debugger-extension), either by directly implementing the [debug adapter protocol](https://microsoft.github.io/debug-adapter-protocol/) (DAP), or by delegating and transforming the protocol to an existing notebook debugger (see 'vscode-simple-jupyter-notebook'). A much simpler approach is to use an existing unmodified debug extension and transform the DAP for notebook needs on the fly (see 'vscode-nodebook').
+For some controllers, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To add debugging support, a notebook kernel can implement a [debug adapter](/api/extension-guides/debugger-extension), either by directly implementing the [debug adapter protocol](https://microsoft.github.io/debug-adapter-protocol/) (DAP), or by delegating and transforming the protocol to an existing notebook debugger (as done in the 'vscode-simple-jupyter-notebook' sample). A much simpler approach is to use an existing unmodified debug extension and transform the DAP for notebook needs on the fly (as done in 'vscode-nodebook').
 
 Samples:
 
