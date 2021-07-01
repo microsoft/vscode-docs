@@ -98,7 +98,7 @@ If you try to install an extension in Restricted Mode, you will be prompted to e
 
 ![Workspace Trust install an extension in Restricted Mode dialog](images/workspace-trust/workspace-trust-install-extension.png)
 
->**Note**: Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
+>**Note**: Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md).
 
 ## Trusting a workspace
 
@@ -188,7 +188,7 @@ Below you can see a `settings.json` entry for the Prettier extension.
 
 You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the exact extension version applicable and you can remove the version field if you want to set the state for all versions.
 
-If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
+If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md).
 
 ## Opening untrusted files
 
@@ -248,7 +248,7 @@ Paths a little weird
 
 Learn more at:
 
-* [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251) - Learn how extension authors can support Workspace Trust.
+* [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md) - Learn how extension authors can support Workspace Trust.
 * [What is a VS Code "workspace"?](/docs/editor/workspaces.md) - Find out more details about the VS Code "workspace" concept.
 
 ## Common questions
