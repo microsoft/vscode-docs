@@ -464,7 +464,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enables the code action lightbulb in the editor.
     "editor.lightbulb.enabled": true,
 
-    // Controls the line height. Use 0 to compute the line height from the font size.
+    // Controls the line height.
+    //  - Use 0 to automatically compute the line height from the font size.
+    //  - Values between 0 and 8 will be used as a multiplier with the font size.
+    //  - Values greater than 8 will be used as effective values.
     "editor.lineHeight": 0,
 
     // Controls the display of line numbers.
@@ -895,7 +898,13 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Security
 
-    // Controls whether or not the empty window is trusted by default within VS Code.
+    // Controls when the restricted mode banner is shown.
+    //  - always: Show the banner every time an untrusted workspace is open.
+    //  - untilDismissed: Show the banner when an untrusted workspace is opened until dismissed.
+    //  - never: Do not show the banner when an untrusted workspace is open.
+    "security.workspace.trust.banner": "untilDismissed",
+
+    // Controls whether or not the empty window is trusted by default within VS Code. When used with `security.workspace.trust.untrustedFiles`, you can enable the full functionality of VS Code without prompting in an empty window.
     "security.workspace.trust.emptyWindow": true,
 
     // Controls whether or not workspace trust is enabled within VS Code.
@@ -907,7 +916,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - never: Do not ask for trust when an untrusted workspace is opened.
     "security.workspace.trust.startupPrompt": "once",
 
-    // Controls how to handle opening untrusted files in a trusted workspace.
+    // Controls how to handle opening untrusted files in a trusted workspace. This setting also applies to opening files in an empty window which is trusted via `security.workspace.trust.emptyWindow`.
     //  - prompt: Ask how to handle untrusted files for each workspace. Once untrusted files are introduced to a trusted workspace, you will not be prompted again.
     //  - open: Always allow untrusted files to be introduced to a trusted workspace without prompting.
     //  - newWindow: Always open untrusted files in a separate window in restricted mode without prompting.
@@ -1033,7 +1042,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.editor.titleScrollbarSizing": "default",
 
     // Controls if the untitled hint should be inline text in the editor or a floating button or hidden.
-    "workbench.editor.untitled.hint": "default",
+    "workbench.editor.untitled.hint": "text",
 
     // Controls the format of the label for an untitled editor.
     //  - content: The name of the untitled file is derived from the contents of its first line unless it has an associated file path. It will fallback to the name in case the line is empty or contains no word characters.
@@ -1149,13 +1158,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls which editor is shown at startup, if none are restored from the previous session.
     //  - none: Start without an editor.
-    //  - welcomePage: Open the legacy Welcome page.
-    //  - readme: Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise.
+    //  - welcomePage: Open the Welcome page, with content to aid in getting started with VS Code and extensions.
+    //  - readme: Open the README when opening a folder that contains one, fallback to 'welcomePage' otherwise. Note: This is only observed as a global configuration, it will be ignored if set in a workspace or folder configuration.
     //  - newUntitledFile: Open a new untitled file (only applies when opening an empty window).
-    //  - welcomePageInEmptyWorkbench: Open the legacy Welcome page when opening an empty workbench.
-    //  - gettingStarted: Open the new Welcome Page with content to aid in getting started with VS Code and extensions.
-    //  - gettingStartedInEmptyWorkbench: When opening an empty workbench, open the new Welcome Page with content to aid in getting started with VS Code and extensions.
-    "workbench.startupEditor": "gettingStarted",
+    //  - welcomePageInEmptyWorkbench: Open the Welcome page when opening an empty workbench.
+    "workbench.startupEditor": "welcomePage",
 
     // Controls the visibility of the status bar at the bottom of the workbench.
     "workbench.statusBar.visible": true,
@@ -1171,6 +1178,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the tree should render indent guides.
     "workbench.tree.renderIndentGuides": "onHover",
+
+    // When enabled, trusted domain prompts will appear when opening links in trusted workspaces.
+    "workbench.trustedDomains.promptInTrustedWorkspace": false,
 
     // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
     "workbench.view.alwaysShowHeaderActions": false,
@@ -1288,7 +1298,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configure file associations to languages (e.g. `"*.extension": "html"`). These have precedence over the default associations of the languages installed.
     "files.associations": {},
 
-    // When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language.
+    // When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language. Note, this setting is not respected by text search. Only `files.encoding` is respected.
     "files.autoGuessEncoding": false,
 
     // Controls auto save of dirty editors.
@@ -2461,8 +2471,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled notebook breadcrumbs contain code cells.
     "notebook.breadcrumbs.showCodeCells": true,
 
-    // Control whether to render the focus indicator as cell borders or a highlight bar on the left gutter
-    "notebook.cellFocusIndicator": "border",
+    // Control whether to render the focus indicator as a cell border or a highlight bar on the left gutter
+    "notebook.cellFocusIndicator": "gutter",
 
     // Where the cell toolbar should be shown, or whether it should be hidden.
     "notebook.cellToolbarLocation": {
@@ -2479,7 +2489,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "notebook.consolidatedOutputButton": true,
 
     // Control whether extra actions are shown in a dropdown next to the run button.
-    "notebook.consolidatedRunButton": true,
+    "notebook.consolidatedRunButton": false,
 
     // Whether to use the enhanced text diff editor for notebook.
     "notebook.diff.enablePreview": true,
@@ -2503,9 +2513,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     "notebook.experimental.useMarkdownRenderer": true,
 
     // Control whether to render a global toolbar inside the notebook editor.
-    "notebook.globalToolbar": false,
+    "notebook.globalToolbar": true,
 
-    // Control where the insert cell actions should be rendered.
+    // Control where the insert cell actions should appear.
+    //  - betweenCells: A toolbar that appears on hover between cells.
+    //  - notebookToolbar: The toolbar at the top of the notebook editor.
+    //  - both: Both toolbars.
+    //  - hidden: The insert actions don't appear anywhere.
     "notebook.insertToolbarLocation": "both",
 
     // Controls the display of line numbers in the cell editor.
@@ -2521,10 +2535,12 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - hidden: The cell Status bar is always hidden.
     //  - visible: The cell Status bar is always visible.
     //  - visibleAfterExecute: The cell Status bar is hidden until the cell has executed. Then it becomes visible to show the execution status.
-    "notebook.showCellStatusBar": true,
+    "notebook.showCellStatusBar": "visible",
 
-    // Controls when the folding controls are shown.
-    "notebook.showFoldingControls": "always",
+    // Controls when the Markdown header folding arrow is shown.
+    //  - always: The folding controls are always visible.
+    //  - mouseover: The folding controls are visible only on mouseover.
+    "notebook.showFoldingControls": "mouseover",
 
     // Whether to use separate undo/redo stack for each cell.
     "notebook.undoRedoPerCell": false,
@@ -2591,6 +2607,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
     "terminal.integrated.cwd": "",
 
+    // Controls where newly created terminals will appear.
+    //  - editor: Create terminals in the editor
+    //  - view: Create terminals in the terminal view
+    "terminal.integrated.defaultLocation": "view",
+
     // The default profile used on Linux. This setting will currently be ignored if either `terminal.integrated.shell.linux` or `terminal.integrated.shellArgs.linux` are set.
     "terminal.integrated.defaultProfile.linux": null,
 
@@ -2655,6 +2676,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - auto: Let VS Code detect which renderer will give the best experience.
     //  - on: Enable GPU acceleration within the terminal.
     //  - off: Disable GPU acceleration within the terminal.
+    //  - canvas: Use the fallback canvas renderer within the terminal. This uses a 2d context instead of webgl and may be better on some systems.
     "terminal.integrated.gpuAcceleration": "auto",
 
     // Whether new shells should inherit their environment from VS Code, which may source a login shell to ensure $PATH and other development variables are initialized. This has no effect on Windows.
@@ -2708,6 +2730,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
     "terminal.integrated.showExitAlert": true,
 
+    // Whether to show hovers for links in the terminal output.
+    "terminal.integrated.showLinkHover": true,
+
     // Controls the working directory a split terminal starts with.
     //  - workspaceRoot: A new split terminal will use the workspace root as the working directory. In a multi-root workspace a choice for which root folder to use is offered.
     //  - initial: A new split terminal will use the working directory that the parent terminal started with.
@@ -2732,6 +2757,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - left: Show the terminal tabs view to the left of the terminal
     //  - right: Show the terminal tabs view to the right of the terminal
     "terminal.integrated.tabs.location": "right",
+
+    // Controls whether terminal split and kill buttons are displays next to the new terminal button.
+    //  - always: Always show the actions
+    //  - singleTerminal: Show the actions when it is the only terminal opened
+    //  - singleTerminalOrNarrow: Show the actions when it is the only terminal opened or when the tabs view is in its narrow textless state
+    //  - never: Never show the actions
+    "terminal.integrated.tabs.showActions": "singleTerminalOrNarrow",
 
     // Shows the active terminal information in the view, this is particularly useful when the title within the tabs aren't visible.
     //  - always: Always show the active terminal
@@ -3110,7 +3142,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Remote
 
-    // When enabled, new running processes are detected and ports that they listen on are automatically forwarded.
+    // When enabled, new running processes are detected and ports that they listen on are automatically forwarded. Disabling this setting will not prevent all ports from being forwarded. Even when disabled, extensions will still be able to cause ports to be forwarded, and opening some URLs will still cause ports to forwarded.
     "remote.autoForwardPorts": true,
 
     // Sets the source from which ports are automatically forwarded when `remote.autoForwardPorts` is true. On Windows and Mac remotes, the `process` option has no effect and `output` will be used. Requires a reload to take effect.
@@ -3127,6 +3159,9 @@ Below are the Visual Studio Code default settings and their values. You can also
             "ui"
         ]
     },
+
+    // Specifies the local host name that will be used for port forwarding.
+    "remote.localPortHost": "localhost",
 
     // Set default properties that are applied to all ports that don't get properties from the setting `remote.portsAttributes`.
     "remote.otherPortsAttributes": {},
@@ -3221,6 +3256,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "git.branchWhitespaceChar": "-",
 
     // Controls what type of git refs are listed when running `Checkout to...`.
+    //  - local: Local branches
+    //  - tags: Tags
+    //  - remote: Remote branches
     "git.checkoutType": [
         "local",
         "remote",
@@ -3233,7 +3271,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether to ask for confirmation before force-pushing.
     "git.confirmForcePush": true,
 
-    // Controls whether to ask for confirmation before commiting without verification.
+    // Controls whether to ask for confirmation before committing without verification.
     "git.confirmNoVerifyCommit": true,
 
     // Confirm before synchronizing git repositories.
@@ -3404,6 +3442,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "github-enterprise.uri": "",
 
 // Grunt
+
     // Controls enablement of Grunt task detection. Grunt task detection can cause files in any open workspace to be executed.
     "grunt.autoDetect": "off",
 
@@ -3413,6 +3452,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "gulp.autoDetect": "off",
 
 // Jake
+
     // Controls enablement of Jake task detection. Jake task detection can cause files in any open workspace to be executed.
     "jake.autoDetect": "off",
 
