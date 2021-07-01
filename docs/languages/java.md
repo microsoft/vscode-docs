@@ -177,7 +177,7 @@ See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about s
 
 [Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions available from Microsoft to further improve your experience with Spring Boot in Visual Studio Code.
 
-See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spirng Cloud](/docs/java/java-spring-cloud.md) to learn more about deploying Spring apps to Azure from VS Code.
+See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spring Cloud](/docs/java/java-spring-cloud.md) to learn more about deploying Spring apps to Azure from VS Code.
 
 ## Next steps
 
