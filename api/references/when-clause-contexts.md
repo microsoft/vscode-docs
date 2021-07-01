@@ -185,7 +185,7 @@ Panel Identifiers:
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
 
-If you want a when clause that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activiewFocus`.
+If you want a when clause that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activePanel`.
 
 For example, the when clause below is true only when the File Explorer has focus:
 
