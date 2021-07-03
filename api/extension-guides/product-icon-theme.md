@@ -22,7 +22,7 @@ To define your own product icon theme, start by creating a VS Code extension and
 ```json
 {
   "contributes": {
-    "productIconTheme": [
+    "productIconThemes": [
       {
         "id": "aliensAreBack",
         "label": "Aliens Are Back",
