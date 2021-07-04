@@ -53,7 +53,7 @@ This can mean things like settings that can be set by the workspace or actual co
 
 ### Does my extension treat any contents of the workspace as code?
 
-The most common example of this is using a project's workspace dependencies, such as the Node.j modules stored in the local workspace. A malicious workspace might check in a compromised version of the module. Thus, this is a security risk for the user and extension. In addition, an extension may rely on JavaScript or other configuration files that control the extension or other modules' behavior. There are many other examples, such as executing an opened code file to determine its output for error reporting.
+The most common example of this is using a project's workspace dependencies, such as the Node.js modules stored in the local workspace. A malicious workspace might check in a compromised version of the module. Thus, this is a security risk for the user and extension. In addition, an extension may rely on JavaScript or other configuration files that control the extension or other modules' behavior. There are many other examples, such as executing an opened code file to determine its output for error reporting.
 
 ### Does my extension use settings that determine code execution that can be defined in the workspace?
 
