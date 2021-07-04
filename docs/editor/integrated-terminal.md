@@ -149,7 +149,7 @@ By default, the task/debug features will use the default profile. To override th
 ```jsonc
 {
     "terminal.integrated.defaultProfile.osx": "fish",
-    // Use a fully POSIX-compatible shell and avoid running a complex ~/.fishrc
+    // Use a fully POSIX-compatible shell and avoid running a complex ~/.config/fish/config.fish
     // for tasks and debug
     "terminal.integrated.automationShell.osx": "/bin/sh"
 }
