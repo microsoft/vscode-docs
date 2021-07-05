@@ -54,7 +54,7 @@ So you will have the following values for each variable:
 - **${lineNumber}** - line number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
-- **${pathSeparator}** - `/` on macOS or linux, `\\` on Windows
+- **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
 
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
