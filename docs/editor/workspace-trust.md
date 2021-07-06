@@ -223,6 +223,7 @@ Below are the available Workspace Trust settings:
 * `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is true.
 * `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
+* `security.workspace.trust.banner` - Controls when the Restricted Mode banner is displayed. Default is `untilDismissed`.
 
 ## Command line switch
 
