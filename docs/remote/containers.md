@@ -207,7 +207,7 @@ When [cloning a repository in a container volume](#quick-start-open-a-git-reposi
 
 [Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
 
-### Docker deamon running remotely
+### Docker daemon running remotely
 
 This implies trusting [the machine the Docker daemon runs on](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). There are no additional prompts to confirm (only those listed for the local/WSL case above).
 
