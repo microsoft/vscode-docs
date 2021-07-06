@@ -8,7 +8,7 @@ Author: Chris Dias
 ---
 # Workspace Trust
 
-July 8, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
+July 6, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 Can I trust myself? This is the existential question facing many Visual Studio Code users since the [1.57 update](https://code.visualstudio.com/updates/v1_57).
 
@@ -142,7 +142,7 @@ Looking ahead, we want to help [extension authors](https://code.visualstudio.com
 
 One of the benefits of building VS Code in the open is that the community can help us create the best possible experiences. So, please let us know how we can improve the flow, helping to keep you safe while being as unobtrusive as possible. Comment (politely!) on [existing issues](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aworkspace-trust), [submit a new one](https://github.com/microsoft/vscode/issues/new), or tweet us [@code](https://twitter.com/code), we're listening!
 
-Thanks!
+Thanks,
 
 Chris and the VS Code Team
 
