@@ -142,7 +142,7 @@ in VS Code, you would use a simpler:
 
 ### Trim filter (t)
 
-This filter is applicable only when providing abbreviations for the **Emmet: Wrap Individual Lines with Abbreviation** command. It [removes line markers](https://docs.emmet.io/actions/wrap-with-abbreviation/#removing-list-markers) from wrapped lines.
+This filter is applicable only when providing abbreviations for the **Emmet: Wrap with Abbreviation** command. It [removes line markers](https://docs.emmet.io/actions/wrap-with-abbreviation/#removing-list-markers) from wrapped lines.
 
 ## Using custom Emmet snippets
 
