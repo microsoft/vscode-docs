@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Ember Tutorial
 ContentId: 4a60ed36-93ff-4ff3-b650-ce74baa405ca
 PageTitle: Ember JavaScript Tutorial in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 7/8/2021
 MetaDescription: Ember JavaScript tutorial showing IntelliSense and code navigation support in the Visual Studio Code editor.
 ---
 # Using Ember in Visual Studio Code

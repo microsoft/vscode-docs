@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 6/10/2021
+DateApproved: 7/8/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -369,7 +369,8 @@ To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 - `editorIndentGuide.background`: Color of the editor indentation guides.
 - `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
 
-To see the editor inline hints set `"editor.inlineSuggest.enabled": true`.
+To see the editor inline hints, set `"editor.inlineSuggest.enabled": true`.
+
 - `editorInlayHint.background`: Background color of inline hints.
 - `editorInlayHint.foreground`: Foreground color of inline hints.
 
@@ -658,10 +659,10 @@ Keybinding labels are shown when there is a keybinding associated with a command
 
 Usages of the keybinding label include (but are not limited to):
 
-* The Command Palette
-* The Keyboard Shortcuts editor
-* The Keyboard Shortcuts recorder modal
-* The "feature contribution" section of an extension's marketplace page
+- The Command Palette
+- The Keyboard Shortcuts editor
+- The Keyboard Shortcuts recorder modal
+- The "feature contribution" section of an extension's marketplace page
 
 The following customizations are available:
 
