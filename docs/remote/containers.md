@@ -180,7 +180,7 @@ Note that if the container fails to come up due to something like a Docker build
 
 Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The [Workspace Trust feature](/docs/editor/workspace-trust.md) lets you decide whether your project folders should allow or restrict automatic code execution.
 
-The Remote - Containers extension has adopted workspace trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
+The Remote - Containers extension has adopted Workspace Trust. Depending on how you open and interact with your source code, you'll be prompted to decide if you trust the code you're editing or executing at different points.
 
 ### Reopen folder in container
 
@@ -207,7 +207,7 @@ When [cloning a repository in a container volume](#quick-start-open-a-git-reposi
 
 [Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
 
-### Docker deamon running remotely
+### Docker daemon running remotely
 
 This implies trusting [the machine the Docker daemon runs on](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). There are no additional prompts to confirm (only those listed for the local/WSL case above).
 
@@ -447,9 +447,21 @@ fi
 
 If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
-If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+If you do not have GPG set up, you can configure it for your platform:
 
-Next, install `gnupg2` in your container by updating your Dockerfile. For example:
+* On **Windows**, you can install [Gpg4win](https://www.gpg4win.org/).
+* On **macOS**, you can install [GPG Tools](https://gpgtools.org/).
+* On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+* On **WSL**:
+  * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side.
+  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
+  * Install `gpg` in your WSL distro. `sudo apt install gpg`
+  * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
+  * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
+
+Next, install `gnupg2` in your container by updating your Dockerfile.
+
+For example:
 
 ```bash
 RUN apt-get update && apt-get install gnupg2 -y

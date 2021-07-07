@@ -211,7 +211,7 @@ test:
   script:
     - |
       apt update
-      apt install -y libasound2 libgbm-dev libgtk-3-0 libnss3 xvfb
+      apt install -y libasound2 libgbm1 libgtk-3-0 libnss3 xvfb
       xvfb-run -a npm run test
 ```
 

@@ -7,34 +7,32 @@ MetaDescription: Use the Notebook API to create rich Notebook experiences within
 
 The Notebook API allows Visual Studio Code extensions to open files as notebooks, execute notebook code cells, and render notebook outputs in a variety of rich and interactive formats. You may know of popular notebook interfaces like Jupyter Notebook or Google Colab – the Notebook API allows for similar experiences inside Visual Studio Code.
 
-> **Note**: The Notebook API is still proposed and under development, which means it is only available on VS Code [Insiders](/insiders) and requires adding `vscode.proposed.d.ts` to your extension project. You can learn more in [Using Proposed APIs](/api/advanced-topics/using-proposed-api).
-
 ## Parts of a Notebook
 
-A notebook consists of a sequence of cells and their outputs. The cells of a notebook can be either **Markdown cells** or **code cells**, and are rendered within the core of VS Code. The outputs can be of a variety of formats. Some output formats, such as plain text, JSON, images, and HTML are rendered by VS Code core. Others, such as application-specific data or interactive applets, are rendered by extensions.
+A notebook consists of a sequence of cells and their outputs. The cells of a notebook can be either **Markdown cells** or **code cells**, and are rendered within the core of VS Code. The outputs can be of various formats. Some output formats, such as plain text, JSON, images, and HTML are rendered by VS Code core. Others, such as application-specific data or interactive applets, are rendered by extensions.
 
-Cells in a notebook are read and written to the file system by a `NotebookContentProvider`, which handles reading data from the file system and converting it into a description of cells, as well as persisting modifications to the notebook back to the file system. The **code cells** of a notebook can be executed by a `NotebookKernel`, which takes the contents of a cell and from it produces output in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by a `NotebookOutputRenderer`.
+Cells in a notebook are read and written to the file system by a `NotebookSerializer`, which handles reading data from the file system and converting it into a description of cells, as well as persisting modifications to the notebook back to the file system. The **code cells** of a notebook can be executed by a `NotebookController`, which takes the contents of a cell and from it produces zero or more outputs in a variety of formats ranging from plain text to formatted documents or interactive applets. Application-specific output formats and interactive applet outputs are rendered by a `NotebookRenderer`.
 
 Visually:
 
-![Overview of 3 components of notebooks: NotebookContentProvider, NotebookKernel, and NotebookOutputRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
+![Overview of 3 components of notebooks: NotebookSerializer, NotebookController, and NotebookRenderer, and how they interact. Described textually above and in following sections.](images/notebook/architecture-overview.png)
 
-## Content Provider
+## Serializer
 
-[NotebookContentProvider API Reference](https://github.com/microsoft/vscode/blob/43184b2beda9edb613caadc2bab29ec50bad863f/src/vs/vscode.proposed.d.ts#L1792-L1805)
+[NotebookContentProvider API Reference](https://github.com/microsoft/vscode/blob/e1a8566a298dcced016d8e16db95c33c270274b4/src/vs/vscode.d.ts#L11865-L11884)
 
-A `NotebookContentProvider` is responsible for taking a serialized description of a notebook and generating a list of Markdown and code cells. It additionally handles saving modifications made in the notebook back to the original resource.
+A `NotebookSerializer` is responsible for taking the serialized bytes of a notebook and deserializing those bytes into `NotebookData`, which contains list of Markdown and code cells. It is responsible for the opposite conversion as well: taking `NotebookData` and converting the data into serialized bytes to be saved.
 
 Samples:
 
-* [.ipynb Content Provider](https://github.com/microsoft/notebook-extension-samples/tree/main/notebook-provider): Work with notebooks in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html).
-* [Markdown Content Provider](https://github.com/microsoft/vscode-markdown-notebook): Open and edit Markdown files as a notebook.
+* [JSON Notebook Serializer](https://github.com/microsoft/notebook-extension-samples/tree/main/notebook-serializer): Simple example notebook that takes JSON input and outputs prettified JSON in a custom `NotebookRenderer`.
+* [Markdown Serializer](https://github.com/microsoft/vscode-markdown-notebook): Open and edit Markdown files as a notebook.
 
 ### Example
 
 In this example, we build a simplified notebook provider extension for viewing files in the [Jupyter Notebook format](https://nbformat.readthedocs.io/en/latest/format_description.html) with a `.notebook` extension.
 
-A content provider is declared in `package.json` under the `contributes.notebookProvider` section as follows:
+A notebook serializer is declared in `package.json` under the `contributes.notebooks` section as follows:
 
 ```json
 {
@@ -42,10 +40,11 @@ A content provider is declared in `package.json` under the `contributes.notebook
     "activationEvents": ["onNotebook:my-notebook-provider"],
     "contributes": {
         ...
-        "notebookProvider": [
+        "notebooks": [
             {
-                "viewType": "my-notebook-provider",
-                "displayName": "My Notebook Provider",
+                "id": "my-notebook",
+                "type": "my-notebook",
+                "displayName": "My Notebook",
                 "selector": [
                     {
                         "filenamePattern": "*.notebook"
@@ -57,55 +56,58 @@ A content provider is declared in `package.json` under the `contributes.notebook
 }
 ```
 
-The content provider is then registered in the extension's activation event:
+The notebook serializer is then registered in the extension's activation event:
 
 ```ts
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.notebook.registerNotebookContentProvider(
-            "my-notebook-provider", new SampleProvider()
+        vscode.workspace.registerNotebookSerializer(
+            "my-notebook", new SampleSerializer()
         )
     );
 }
 
-class SampleProvider implements vscode.NotebookContentProvider {
-    async openNotebook(uri: vscode.Uri): Promise<vscode.NotebookData> {
-        const content = JSON.parse((await vscode.workspace.fs.readFile(uri)).toString());
-        return {
-            languages: [],
-            metadata: { custom: content.metadata },
-            cells: content.cells.map((cell: any) => {
-                if (cell.cell_type === 'markdown') {
-                    return {
-                        cellKind: vscode.CellKind.Markdown,
-                        source: cell.source,
-                        language: 'markdown',
-                        outputs: [],
-                        metadata: {}
-                    };
-                } else if (cell.cell_type === 'code') {
-                    return {
-                        cellKind: vscode.CellKind.Code,
-                        source: cell.source,
-                        language: content.metadata?.language_info?.name || 'python',
-                        outputs: [/* not implemented */],
-                        metadata: {}
-                    };
-                } else {
-                    console.error('Unexpected cell:', cell);
-                }
-            })
-        };
+interface RawNotebookCell {
+    language: string;
+    value: string;
+    kind: vscode.NotebookCellKind;
+}
+
+class SampleSerializer implements vscode.NotebookSerializer {
+    async deserializeNotebook(content: Uint8Array, _token: vscode.CancellationToken): Promise<vscode.NotebookData> {
+        var contents = new TextDecoder().decode(content);
+
+        let raw: RawNotebookCell[];
+        try {
+            raw = <RawNotebookCell[]>JSON.parse(contents);
+        } catch {
+            raw = [];
+        }
+
+        const cells = raw.map(item => new vscode.NotebookCellData(
+            item.kind,
+            item.value,
+            item.language
+        ));
+
+        return new vscode.NotebookData(cells);
     }
 
-    // The following are dummy implementations not relevant to this example.
-    onDidChangeNotebook = new vscode.EventEmitter<vscode.NotebookDocumentEditEvent>().event;
-    async resolveNotebook(): Promise<void> { }
-    async saveNotebook(): Promise<void> { }
-    async saveNotebookAs(): Promise<void> { }
-    async backupNotebook(): Promise<vscode.NotebookDocumentBackup> { return { id: '', delete: () => { } }; }
+    async serializeNotebook(data: vscode.NotebookData, _token: vscode.CancellationToken): Promise<Uint8Array> {
+        let contents: RawNotebookCell[] = [];
+
+        for (const cell of data.cells) {
+            contents.push({
+                kind: cell.kind,
+                language: cell.languageId,
+                value: cell.value
+            });
+        }
+
+        return new TextEncoder().encode(stringify(contents));
+    }
 }
 ```
 
@@ -113,66 +115,70 @@ Now try running your extension and opening a Jupyter Notebook formatted file sav
 
 ![Notebook showing contents of a Jupyter Notebook formatted file](images/notebook/ipynb-simple-provider.png)
 
-You should be able to open Jupyter-formatted notebooks and view their cells as both plain text and rendered Markdown, as well as edit the cells. However, edits will not be persisted to disk, and you won't be able to run any cells. Saving requires implementing the `saveNotebook`-family commands above, and to run a cell, you will need to implement a `NotebookKernel`.
+You should be able to open Jupyter-formatted notebooks and view their cells as both plain text and rendered Markdown, as well as edit the cells. However, outputs will not be persisted to disk; to save outputs you would need to also serialize and deserialize the outputs of cells from `NotebookData`.
 
-**Note**: The default ordering of output mimetypes is defined by the notebook content provider via the `NotebookData#metadata.displayOrder` property, which can be set in a content provider's `openNotebook` method.
+To run a cell, you will need to implement a `NotebookController`.
 
-## Kernel
+## Controller
 
-[NotebookKernel API Reference](https://github.com/microsoft/vscode/blob/43184b2beda9edb613caadc2bab29ec50bad863f/src/vs/vscode.proposed.d.ts#L1807-L1812)
+[NotebookController API Reference](https://github.com/microsoft/vscode/blob/e1a8566a298dcced016d8e16db95c33c270274b4/src/vs/vscode.d.ts#L11941)
 
-A `NotebookKernel` is responsible for taking a **code cell** and producing some output or set of outputs.
+A `NotebookController` is responsible for taking a **code cell** and executing the code to produce some or no outputs.
 
-A kernel can either be directly associated with a content provider by setting the `NotebookContentProvider#kernel` property, or registered globally by invoking the `vscode.registerNotebookKernel` function with an identifier for the kernel, a list of file patterns it should be available in, and a `vscode.NotebookKernel` object:
+A controller is directly associated with a notebook serializer and a type of notebook by setting the `NotebookController#notebookType` property on creation of the controller. Then the controller is registered globally by pushing the controller onto the extension subscriptions on activate of the extension.
 
 ```ts
-vscode.notebook.registerNotebookKernel(
-    "http-kernel",
-    ["*.http"],
-    {
-        label: "Http Kernel",
-        executeCell(document: NotebookDocument, cell: NotebookCell, token: CancellationToken): Promise<void> { ... }
-        executeAllCells(document: NotebookDocument, token: CancellationToken): Promise<void> { ... }
-    }
-)
-```
+export function activate(context: vscode.ExtensionContext) {
+    context.subscriptions.push(new Controller());
+}
 
-If a kernel has been directly registered to a `NotebookContentProvider` via the `NotebookContentProvider#kernel` property, it will be selected by default when opening notebooks provided by that content provider. Otherwise, a kernel will be selected from those that are registered for a particular file pattern, and the user can switch between kernels using the **Notebook: Select Notebook Kernel** command.
+class Controller {
+    readonly controllerId = 'my-notebook-controller-id'
+    readonly notebookType = 'my-notebook';
+    readonly label = 'My Notebook';
+    readonly supportedLanguages = ['python'];
+
+    private readonly _controller: vscode.NotebookController;
+    private _executionOrder = 0;
+
+    constructor() {
+        this._controller = vscode.notebooks.createNotebookController(this.controllerId, this.notebookType, this.label);
+
+        this._controller.supportedLanguages = this.supportedLanguages;
+        this._controller.supportsExecutionOrder = true;
+        this._controller.executeHandler = this._execute.bind(this);
+    }
+
+    private _execute(cells: vscode.NotebookCell[], _notebook: vscode.NotebookDocument, _controller: vscode.NotebookController): void {
+        for (let cell of cells) {
+            this._doExecution(cell);
+        }
+    }
+
+    private async _doExecution(cell: vscode.NotebookCell): Promise<void> {
+        const execution = this._controller.createNotebookCellExecution(cell);
+        execution.executionOrder = ++this._executionOrder;
+        execution.start(Date.now()); // Keep track of elapsed time to execute cell.
+
+        /* Do some execution here; not implemented */
+
+        execution.replaceOutput([new vscode.NotebookCellOutput([vscode.NotebookCellOutputItem.text('Dummy output text!')])])
+        execution.end(true, Date.now());
+    }
+}
+```
 
 Samples:
 
-* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/main/src/extension/notebookProvider.ts): Kernel to execute queries for GitHub Issues
-
-<!-- - [HTTP Request Notebook](): Kernel to issue HTTP requests (TODO: PR against https://github.com/Huachao/vscode-restclient to add notebooks) -->
-
-### Best practices
-
-While a kernel need only return an output, it can be desirable to set metadata on cells as it executes them to enable features like the run duration counter, execution order badge, and run status icon. For instance, a kernel's `executeCell` function might look like this:
-
-```ts
-async function executeCell(document: vscode.NotebookDocument, cell: vscode.NotebookCell, token: vscode.CancellationToken) {
-    try {
-        cell.metadata.runState = vscode.NotebookCellRunState.Running;
-        const start = +new Date();
-        cell.metadata.runStartTime = start;
-        cell.metadata.executionOrder = ++this.runIndex;
-        const result = await doExecuteCell(document, cell, token);
-        cell.outputs = [result];
-        cell.metadata.runState = vscode.NotebookCellRunState.Success;
-        cell.metadata.lastRunDuration = +new Date() - start;
-    } catch (e) {
-        cell.outputs = [{ outputKind: vscode.CellOutputKind.Error, ename: e.name, evalue: e.message, traceback: [e.stack] }];
-        cell.metadata.runState = vscode.NotebookCellRunState.Error;
-        cell.metadata.lastRunDuration = undefined;
-    }
-};
-```
+* [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/93359d842cd01dfaef0a78b620c5a3b4cf5c2e38/src/extension/notebookProvider.ts#L29): Controller to execute queries for GitHub Issues
+* [REST Book](https://github.com/tanhakabir/rest-book/blob/main/src/extension/notebookKernel.ts): Controller to run REST queries.
+* [Regexper notebooks](https://github.com/jrieken/vscode-regex-notebook/blob/master/src/extension/extension.ts#L56): Controller to visualize regular expressions.
 
 ## Output types
 
 Outputs must be in one of three formats: Text Output, Error Output, or Rich Output. A kernel may provide multiple outputs for a single execution of a cell, in which case they will be displayed as a list.
 
-Simple formats like Text Output, Error Output, or "simple" variants of Rich Output (HTML, Markdown, JSON, etc.) are rendered by VS Code core, whereas application specific Rich Output types are rendered by a [NotebookOutputRenderer](#output-renderer). An extension may optionally choose to render "simple" Rich Outputs itself, for instance to add LaTeX support to Markdown outputs.
+Simple formats like Text Output, Error Output, or "simple" variants of Rich Output (HTML, Markdown, JSON, etc.) are rendered by VS Code core, whereas application specific Rich Output types are rendered by a [NotebookRenderer](#notebook-renderer). An extension may optionally choose to render "simple" Rich Outputs itself, for instance to add LaTeX support to Markdown outputs.
 
 ![Diagram of the different output types described above](images/notebook/kernel.png)
 
@@ -181,24 +187,20 @@ Simple formats like Text Output, Error Output, or "simple" variants of Rich Outp
 Text outputs are the most simple output format, and work much like many REPLs you may be familiar with. They consist only of a `text` field, which is rendered as plain text in the cell's output element:
 
 ```ts
-{
-    outputKind: vscode.CellOutputKind.Text,
-    text: '...'
-}
+vscode.NotebookCellOutputItem.text('This is the output...')
 ```
 
 ![Cell with simple text output](images/notebook/text-output.png)
 
 ### Error Output
 
-Error outputs are helpful for displaying runtime errors in a consistent and understandable manner. They contain `ename` and `evalue` fields for displaying the error type and message, respectively, as well as `traceback` field, which takes a list of strings that get displayed like a callstack. Strings in the traceback stack support ANSI escape sequences for colorization:
+Error outputs are helpful for displaying runtime errors in a consistent and understandable manner. They support standard `Error` objects.
 
 ```ts
-{
-    outputKind: vscode.CellOutputKind.Error,
-    ename: 'Error Name',
-    evalue: 'Error Value',
-    traceback: ['\x1b[35mstack frame 1\x1b[0m', 'stack frame 2', 'stack frame 3', 'stack frame 4']
+try {
+    /* Some code */
+} catch (error) {
+    vscode.NotebookCellOutputItem.error(error)
 }
 ```
 
@@ -210,26 +212,22 @@ Rich outputs are the most advanced form of displaying cell outputs. They allow f
 
 * A `text/html` field containing a formatted view of the issue.
 * An `application/json` field containing a machine readable view.
-* An `application/github-issue` field that a `NotebookOutputRenderer` could use to create a fully interactive view of the issue.
+* An `application/github-issue` field that a `NotebookRenderer` could use to create a fully interactive view of the issue.
 
-In this case, the `text/html` and `application/json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookOutputRenderer` was registered to that mimetype.
+In this case, the `text/html` and `application/json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookRenderer` was registered to that mimetype.
 
 ```ts
-{
-    outputKind: vscode.CellOutputKind.Rich,
-    data: {
-        'text/html': '<b>Hello</b> World',
-        'application/json': { hello: 'world' },
-        'application/custom': 'my-custom-data-interchange-format',
-    }
-}
+execution.replaceOutput([new vscode.NotebookCellOutput([
+                            vscode.NotebookCellOutputItem.text('<b>Hello</b> World', 'text/html'),
+                            vscode.NotebookCellOutputItem.json({ hello: 'world' }),
+                            vscode.NotebookCellOutputItem.json({ custom-data-for-custom-renderer: 'data' }, 'application/custom'),
+                        ])]);
 ```
 
 ![Cell with rich output showing switching between formatted HTML, a JSON editor, and an error message showing no renderer is available (application/hello-world)](images/notebook/rich-output.gif)
 
 By default, VS Code can render the following mimetypes:
 
-* application/json
 * application/javascript
 * text/html
 * image/svg+xml
@@ -237,35 +235,45 @@ By default, VS Code can render the following mimetypes:
 * image/png
 * image/jpeg
 * text/plain
+
+VS Code will render these mimetypes as code in a built-in editor:
+
+* application/json
 * text/x-javascript
+* text/x-html
+* text/x-rust
+* ... text/x-LANGUAGE_ID for any other built-in or installed languages.
 
-To render an alternative mimetype, a `NotebookOutputRenderer` must be registered for that mimetype.
+This notebook is using the built-in editor to display some Rust code:
+![Notebook displaying Rust code in a built in Monaco editor](images/notebook/rust-output.png)
 
-## Output Renderer
+To render an alternative mimetype, a `NotebookRenderer` must be registered for that mimetype.
 
-An output renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. An output renderer shared by output cells can maintain global state between these cells. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
+## Notebook Renderer
+
+A notebook renderer is responsible for taking output data of a specific mimetype and providing a rendered view of that data. A renderer shared by output cells can maintain global state between these cells. The complexity of the rendered view can range from simple static HTML to dynamic fully interactive applets. In this section, we'll explore various techniques for rendering an output representing a GitHub Issue.
 
 You can get started quickly using boilerplate from our Yeoman generators. To do so, first install Yeoman and the VS Code Generators using:
 
-```
+```bash
 npm install -g yo generator-code
 ```
 
-Then, run `yo code --insiders`.
+Then, run `yo code` and choose `New Notebook Renderer (TypeScript)`.
 
 ### A Simple, Non-Interactive Renderer
 
-Renderers are declared for a set of mimetypes by contributing to the `contributes.notebookOutputRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed kernel is able to provide:
+Renderers are declared for a set of mimetypes by contributing to the `contributes.notebookRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed controller is able to provide:
 
 ```json
 {
   "activationEvents": ["...."],
   "contributes": {
     ...
-    "notebookOutputRenderer": [
+    "notebookRenderer": [
       {
-        "id": "github-issue-static-renderer",
-        "displayName": "Static Issue Renderer",
+        "id": "github-issue-renderer",
+        "displayName": "GitHub Issue Renderer",
         "entrypoint": "./out/renderer.js",
         "mimeTypes": [
           "ms-vscode.github-issue-notebook/github-issue"
@@ -278,24 +286,25 @@ Renderers are declared for a set of mimetypes by contributing to the `contribute
 
 Output renderers are always rendered in a single `iframe`, separate from the rest of VS Code's UI, to ensure they don't accidentally interfere or cause slowdowns in VS Code. The contribution refers to an "entrypoint" script, which is loaded into the notebook's `iframe` right before any output needs to be rendered. Your entrypoint needs to be a single file, which you can write yourself, or use a bundler like Webpack, Rollup, or Parcel to create.
 
-When it's loaded, your entrypoint script should immediately call `acquireNotebookRendererApi()` with your renderer ID, and start listening to notebook output events. For example, this will put all your GitHub issue data as JSON into the cell output:
+When it's loaded, your entrypoint script should export `ActivationFunction` from `vscode-notebook-renderer` to render your UI once VS Code is ready to render your renderer. For example, this will put all your GitHub issue data as JSON into the cell output:
 
 ```js
-const notebookApi = acquireNotebookRendererApi("github-issue-static-renderer");
+import type { ActivationFunction } from 'vscode-notebook-renderer';
 
-notebookApi.onDidCreateOutput((evt) => {
-  evt.element.innerText = JSON.stringify(evt.value);
-});
+export const activate: ActivationFunction = (context) => ({
+    renderOutputItem(data, element) {
+        element.innerText = JSON.stringify(data.json())
+    }
+})
 ```
 
-You can [refer to the complete API definition here](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts). If you're using TypeScript, you can install `@types/vscode-notebook-renderer` and then add `vscode-notebook-renderer` to the `types` array in your `tsconfig.json` to make these types available in your code. These typings inject `acquireNotebookRendererApi` as a global variable, so we keep them separate from the rest of `@types/vscode`.
+You can [refer to the complete API definition here](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/vscode-notebook-renderer/index.d.ts). If you're using TypeScript, you can install `@types/vscode-notebook-renderer` and then add `vscode-notebook-renderer` to the `types` array in your `tsconfig.json` to make these types available in your code.
 
 To create richer content, you could manually create DOM elements, or use a framework like Preact and render it into the output element, for example:
 
 ```jsx
+import type { ActivationFunction } from 'vscode-notebook-renderer';
 import { h, render } from 'preact';
-
-const notebookApi = acquireNotebookRendererApi("github-issue-static-renderer");
 
 const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => (
   <div key={issue.number}>
@@ -312,8 +321,10 @@ const GithubIssues: FunctionComponent<{ issues: GithubIssue[]; }> = ({ issues })
   <div>{issues.map(issue => <Issue key={issue.number} issue={issue} />)}</div>
 );
 
-notebookApi.onDidCreateOutput((evt) => {
-  render(<GithubIssues issues={evt.value} />, evt.element);
+export const activate: ActivationFunction = (context) => ({
+    renderOutputItem(data, element) {
+        render(<GithubIssues issues={data.json()} />, element);
+    }
 });
 ```
 
@@ -321,40 +332,35 @@ Running this renderer on an output cell with a `ms-vscode.github-issue-notebook/
 
 ![Cell output showing rendered HTML view of issue](images/notebook/static-renderer-sample.png)
 
-If you have elements outside of the container or other asynchronous processes, you can use `onWillDestroyOutput` to tear them down. This event will fire when output is cleared, a cell is deleted, and before new output is rendered for an existing cell. For example:
+If you have elements outside of the container or other asynchronous processes, you can use `disposeOutputItem` to tear them down. This event will fire when output is cleared, a cell is deleted, and before new output is rendered for an existing cell. For example:
 
 ```js
 const intervals = new Map();
 
-notebookApi.onDidCreateOutput((evt) => {
-  render(<GithubIssues issues={evt.value} />, evt.element);
+export const activate: ActivationFunction = (context) => ({
+    renderOutputItem(data, element) {
+        render(<GithubIssues issues={data.json()} />, element);
 
-  // create an interval that changes the color of the title <h2> every second:
-  intervals.set(evt.outputId, setInterval(() => {
-    evt.element.querySelector('h2').style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-  }, 1000));
-});
-
-notebookApi.onWillDestroyOutput(scope => {
-  if (scope === undefined) {
-    // If scope is undefined, all outputs will be destroyed:
-    for (const interval of intervals.values()) {
-      clearInterval(interval);
+        intervals.set(data.mime, setInterval(() => {
+            if(element.querySelector('h2')) {
+                element.querySelector('h2')!.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            }
+        }, 1000));
+    },
+    disposeOutputItem(id) {
+        clearInterval(intervals.get(id));
+        intervals.delete(id);
     }
-    intervals.clear();
-  } else {
-    // Otherwise we're destroying a single output:
-    clearInterval(intervals.get(scope.outputId));
-    intervals.delete(scope.outputId);
-  }
 });
 ```
 
-It's important to bear in mind that all outputs for a notebook are rendered in different elements in the same iframe. If you use functions like `document.querySelector`, make sure to scope it to the specific output you're interested in to avoid conflicting with other outputs. In this example, we use `evt.element.querySelector` to avoid that issue.
+It's important to bear in mind that all outputs for a notebook are rendered in different elements in the same iframe. If you use functions like `document.querySelector`, make sure to scope it to the specific output you're interested in to avoid conflicting with other outputs. In this example, we use `element.querySelector` to avoid that issue.
+
+> **Note**: The following parts of Notebook API is still proposed and under development, which means some Notebook functionality, like the following, is only available on VS Code [Insiders](/insiders) and requires adding `vscode.proposed.d.ts` to your extension project. You can learn more in [Using Proposed APIs](/api/advanced-topics/using-proposed-api).
 
 ### Interactive Notebooks
 
-Imagine we want to add the ability to view an issue's comments after clicking a button in the rendered output. Assuming a kernel can provide issue data with comments under the `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype, we might try to retrieve all the comments up front and implement it as follows:
+Imagine we want to add the ability to view an issue's comments after clicking a button in the rendered output. Assuming a controller can provide issue data with comments under the `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype, we might try to retrieve all the comments up front and implement it as follows:
 
 ```jsx
 const Issue: FunctionComponent<{ issue: GithubIssueWithComments }> = ({ issue }) => {
@@ -375,35 +381,72 @@ const Issue: FunctionComponent<{ issue: GithubIssueWithComments }> = ({ issue })
 };
 ```
 
-This immediately raises some flags. For one, we're loading full comment data for all issues, even before we've clicked the button. Additionally, we require kernel support for a whole different mimetype even though we just want to show a bit more data.
+This immediately raises some flags. For one, we're loading full comment data for all issues, even before we've clicked the button. Additionally, we require controller support for a whole different mimetype even though we just want to show a bit more data.
 
-Instead, the kernel can provide additional functionality to the renderer by including a preload which VS Code will load in the iframe as well. This script has access to the `acquireVsCodeApi()` with its postMessage interface, which you can wrap and expose as a global in the iframe.
+Instead, the controller can provide additional functionality to the renderer by including a preload script which VS Code will load in the iframe as well. This script has access global functions `postKernelMessage` and `onDidReceiveKernelMessage` that can be used to communicate with the controller.
 
-![Kernel communication diagram](images/notebook/kernel-communication.png)
+![Diagram showing how controllers interact with renderers through the NotebookRendererScript](images/notebook/kernel-communication.png)
 
-For example, you might modify your kernel `preloads` to reference a new file where you create a connection back to the Extension Host, and expose a global for the renderer to use:
+For example, you might modify your controller `rendererScripts` to reference a new file where you create a connection back to the Extension Host, and expose a global communication script for the renderer to use.
+
+In your controller:
+
+```ts
+class Controller {
+    // ...
+
+    readonly rendererScriptId = 'my-renderer-script';
+
+    constructor() {
+        // ...
+
+        this._controller.rendererScripts.push(new vscode.NotebookRendererScript(vscode.Uri.file(/* path to script */), rendererScriptId));
+    }
+}
+```
+
+In your `package.json` specify your script as a dependency of your renderer:
+
+```json
+{
+  "activationEvents": ["...."],
+  "contributes": {
+    ...
+    "notebookRenderer": [
+      {
+        "id": "github-issue-renderer",
+        "displayName": "GitHub Issue Renderer",
+        "entrypoint": "./out/renderer.js",
+        "mimeTypes": [...],
+        "dependencies": [
+            "my-renderer-script"
+        ]
+      }
+    ]
+  }
+}
+```
+
+In your script file you can declare communication functions to communicate with the controller:
 
 ```js
 globalThis.githubIssueCommentProvider = {
   loadComments(issueId: string, callback: (comments: GithubComment[]) => void) {
-    vscodeApi.postMessage({ command: 'comments', issueId });
-    const listener = event => {
-      if (event.data.type === 'comments' && event.data.issueId === issueId) {
-        callback(event.data.comments);
-        window.removeEventListener('message', listener);
-      }
-    };
+    postKernelMessage({ command: 'comments', issueId });
 
-    window.addEventListener('message', listener);
+    onDidReceiveKernelMessage(event => {
+        if (event.data.type === 'comments' && event.data.issueId === issueId) {
+            callback(event.data.comments);
+        }
+    })
   }
 };
 ```
 
-And then you can consume that in the renderer. You want to make sure that you check whether the global exposed by the kernel's preload is available, since other developers might create github issue output in other notebooks and kernels that don't implement the `githubIssueCommentProvider`. In this case, we'll only show the "Load Comments" button if the global is available:
+And then you can consume that in the renderer. You want to make sure that you check whether the global exposed by the controller's render scripts is available, since other developers might create github issue output in other notebooks and controllers that don't implement the `githubIssueCommentProvider`. In this case, we'll only show the **Load Comments** button if the global is available:
 
 ```jsx
 const canLoadComments = globalThis.githubIssueCommentProvider !== undefined;
-
 const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
   const [comments, setComments] = useState([]);
   const loadComments = () =>
@@ -424,28 +467,31 @@ const Issue: FunctionComponent<{ issue: GithubIssue }> = ({ issue }) => {
 };
 ```
 
-Finally, we want to set up communication to the webview. `NotebookKernelProvider.resolveKernel` method is called when a kernel is chosen for a document, and its arguments include a reference to the webview. To implement this method, you can set up a listener for `onDidReceiveMessage`:
+Finally, we want to set up communication to the controller. `NotebookController.onDidReceiveMessage` method is called when a renderer posts a message using the global `postKernelMessage` function. To implement this method, attach to `onDidReceiveMessage` to listen for messages:
 
 ```ts
-export class MyKernelProvider extends vscode.NotebookKernelProvider {
-  // ...
+class Controller {
+    // ...
 
-  public resolveKernel(kernel, document, webview) {
-    webview.onDidReceiveMessage(message => {
-      if (message.command === 'comments') {
-        kernel.getCommentsForIssue(message.issueId).then(comments => webview.postMessage({
-          type: 'comments',
-          issueId: message.issueId,
-          comments,
-        }));
-      }
-    });
-  }
+    constructor() {
+        // ...
+
+        this._controller.onDidReceiveMessage(event => {
+            if (event.message.command === 'comments') {
+                _getCommentsForIssue(event.message.issueId).then(comments => this._controller.postMessage({
+                    type: 'comments',
+                    issueId: event.message.issueId,
+                    comments,
+                }), event.editor);
+            }
+        })
+    }
+}
 ```
 
 ## Supporting debugging
 
-For some kernels, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To add debugging support, a notebook kernel can implement a [debug adapter](https://code.visualstudio.com/api/extension-guides/debugger-extension), either by directly implementing the [debug adapter protocol](https://microsoft.github.io/debug-adapter-protocol/) (DAP), or by delegating and transforming the protocol to an existing notebook debugger (see 'vscode-simple-jupyter-notebook'). A much simpler approach is to use an existing unmodified debug extension and transform the DAP for notebook needs on the fly (see 'vscode-nodebook').
+For some controllers, such as those that implement a programming language, it can be desirable to allow debugging a cell's execution. To add debugging support, a notebook kernel can implement a [debug adapter](/api/extension-guides/debugger-extension), either by directly implementing the [debug adapter protocol](https://microsoft.github.io/debug-adapter-protocol/) (DAP), or by delegating and transforming the protocol to an existing notebook debugger (as done in the 'vscode-simple-jupyter-notebook' sample). A much simpler approach is to use an existing unmodified debug extension and transform the DAP for notebook needs on the fly (as done in 'vscode-nodebook').
 
 Samples:
 

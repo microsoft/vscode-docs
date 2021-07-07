@@ -30,7 +30,7 @@ In this blog post, we'll explore just how easy it is to get started with Remote 
 
 Let's open a remote repo in VS Code. First, make sure you have installed the [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension.
 
-Currently, Remote Repositories supports GitHub repos, with support for Azure Repos coming soon. In this blog post, we'll start by opening the VS Code repository [(microsoft/vscode)](http://github.com/microsoft/vscode).
+Currently, Remote Repositories supports GitHub repos, with support for Azure Repos coming soon. In this blog post, we'll start by opening the VS Code repository [(microsoft/vscode)](https://github.com/microsoft/vscode).
 
 After installing the Remote Repositories extension, we get instant access to its **Open Remote Repository** command by clicking on the remote indicator in the lower left of VS Code (along with commands from any other [Remote Development extensions](https://code.visualstudio.com/docs/remote/remote-overview) you have installed):
 
@@ -53,6 +53,14 @@ A virtual workspace is a special setup, and some features, like extensions, are 
 Clicking the link shows which extensions are disabled and which ones have limited functionality. The limited functionality can be seen when hovering over the extension.
 
 ![VS Code Extensions view with limited and disabled extensions](extension-limits.png)
+
+If you would like to manually enable an extension in a virtual workspace, you can use the `extensions.supportVirtualWorkspaces` setting in your user `settings.json` file.
+
+```json
+    "extensions.supportVirtualWorkspaces": { "<extensionID>": true }
+```
+
+Keep in mind that an extension might not be implemented to handle a virtual workspace without access to the local file system, and so the extension might not work as expected.
 
 ## You opened a repo, what's next?
 

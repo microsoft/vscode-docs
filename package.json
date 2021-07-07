@@ -23,6 +23,7 @@
     ]
   },
   "resolutions": {
+    "glob-parent": ">=5.1.2",
     "hosted-git-info": "^3.0.8"
   }
 }

@@ -316,7 +316,7 @@ You only need to modify the **Include path** setting if your program includes he
 The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The `compilerPath` search order is:
 
 * Your PATH for the names of known compilers. The order the compilers appear in the list depends on your PATH.
-* Then hard-coded XCode paths are searched, such as `/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/`
+* Then hard-coded Xcode paths are searched, such as `/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/`
 
 ### Mac framework path
 

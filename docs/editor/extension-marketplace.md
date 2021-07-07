@@ -11,7 +11,7 @@ MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code
 
 **Increase the power of Visual Studio Code through Extensions**
 
-The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode).
+The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This article explains how to find, install, and manage VS Code extensions from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ## Browse for extensions
 
@@ -23,17 +23,51 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 ![popular extensions](images/extension-marketplace/extensions-popular.png)
 
-Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can click on the extension item to display the extension's details page where you can learn more.
+Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. You can select the extension item to display the extension's details page where you can learn more.
 
 > **Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
-### Install an extension
+## Install an extension
 
-To install an extension, click the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
+To install an extension, select the **Install** button. Once the installation is complete, the **Install** button will change to the **Manage** gear button.
+
+### Find and install an extension
+
+For example, let's install the popular [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension. This extension adds highlighted lines linking bracket characters like `[]`, `{}`, and `()` so you can quickly see your code's nested sections.
+
+![Bracket Pair Colorizer extension highlighting in the editor](images/extension-marketplace/bracket-pair-colorizer.png)
+
+In the Extensions view (`kb(workbench.view.extensions)`), type 'bracket' in the search box to filter the Marketplace offerings to extensions with 'bracket' in the title or metadata. You should see the **Bracket Pair Colorizer** in the list.
+
+![Search for bracket in the Extensions view](images/extension-marketplace/search-for-bracket-extension.png)
+
+An extension is uniquely identified by its publisher and extension IDs. If you select the **Bracket Pair Colorizer** extension, you will see the Extension details page, where you can find the extension ID, in this case, `coenraads.bracket-pair-colorizer`. Knowing the extension ID can be helpful if there are several similarly named extensions.
+
+![Bracket Pair Colorizer extension details with extension ID highlighted](images/extension-marketplace/bracket-pair-colorizer-details.png)
+
+Select the **Install** button, and VS Code will download and install the extension from the Marketplace. When the installation is complete, the **Install** button will be replaced with a **Manage** gear button.
+
+![Manage gear button](images/extension-marketplace/manage-button.png)
+
+To see the Bracket Pair Colorizer extension in action, open any source code file with nested regions and you will see highlighting lines and distinct colors for matching bracket characters. As you move the cursor around the editor, the highlighted enclosing region will change.
+
+Besides visual editor highlighting, the Bracket Pair Colorizer extension also contributes several commands, **Expand Bracket Selection** and **Undo Bracket Selection**, that you can find in the Command Palette (`kb(workbench.action.showCommands)`). These commands let you quickly expand or reduce text selection in the editor.
+
+![Bracket Pair Colorizer commands in the Command Palette](images/extension-marketplace/bracket-pair-colorizer-commands.png)
+
+The extension also provides settings for tuning its behavior, which you can find in the Settings editor (`kb(workbench.action.openSettings)`).
+
+![Bracket Pair Colorizer settings in the Settings editor](images/extension-marketplace/bracket-pair-colorizer-settings.png)
+
+If an extension doesn't provide the functionality you want, you can always **Uninstall** the extension from the **Manage** button context menu.
+
+![Uninstall the Bracket Pair Colorizer extension](images/extension-marketplace/bracket-pair-colorizer-uninstall.png)
+
+This has been just one example of how to install and use an extension. The VS Code Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
 
 ### Extension details
 
-On the extension details page, you can read the extension's README as well as review the extension's:
+On the extension details page, you can read the extension's README and review the extension's:
 
 * **Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
 * **Changelog** - The extension repository CHANGELOG if available.
@@ -45,13 +79,13 @@ If an extension is an Extension Pack, the **Extension Pack** section will displa
 
 ![Azure Tools extension pack](images/extension-marketplace/extension-pack.png)
 
-### Extensions view commands
+### Extensions view filter and commands
 
-You can run various Extensions view commands by clicking on the Extensions view's `...` **More Actions** button.
+You can filter the Extensions view with the **Filter Extensions** context menu.
 
-![more button](images/extension-marketplace/more-button.png)
+![Extensions view filter context menu](images/extension-marketplace/extensions-view-filter-menu.png)
 
-There are commands to show:
+There are filters to show:
 
 * The list of currently installed extensions
 * The list of outdated extensions that can be updated
@@ -60,6 +94,12 @@ There are commands to show:
 * The list of globally popular extensions
 
 You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
+
+You can run additional Extensions view commands via the `...` **View and More Actions** button.
+
+![more button](images/extension-marketplace/more-button.png)
+
+Through this context menu you can control extension updates, enable or disable all extensions, and use the [Extension Bisect](https://code.visualstudio.com/blogs/2021/02/16/extension-bisect) utility to isolate problematic extension behavior.
 
 ![more dropdown](images/extension-marketplace/more-dropdown.png)
 
@@ -83,7 +123,7 @@ By default, the Extensions view will show the extensions you currently have enab
 
 ### Uninstall an extension
 
-To uninstall an extension, click the gear button at the right of an extension entry and then choose **Uninstall** from the dropdown menu. This will uninstall the extension and prompt you to reload VS Code.
+To uninstall an extension, select the **Manage** gear button at the right of an extension entry and then choose **Uninstall** from the dropdown menu. This will uninstall the extension and prompt you to reload VS Code.
 
 ![uninstall an extension](images/extension-marketplace/uninstall-extension.png)
 
@@ -109,7 +149,7 @@ VS Code checks for extension updates and installs them automatically. After an u
 
 ### Update an extension manually
 
-If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command that uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
+If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command that uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Select the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
 
 ## Recommended extensions
 
@@ -122,7 +162,7 @@ See the section below to learn how to [contribute](#workspace-recommended-extens
 
 ### Ignoring recommendations
 
-To dismiss a recommendation, click on the extension item to open the Details pane and then press the **Ignore Recommendation** button. Ignored recommendations will no longer be recommended to you.
+To dismiss a recommendation, select on the extension item to open the Details page and then select the **Manage** gear button to display the context menu. Select the **Ignore Recommendation** menu item. Ignored recommendations will no longer be recommended to you.
 
 ![Ignore extension recommendation](images/extension-marketplace/ignore-recommendation.png)
 
@@ -170,10 +210,10 @@ Here are the Extensions view filters:
 * `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
 * `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
 * `@category` - Show extensions belonging to specified category. Below are a few of supported categories. For a complete list, type `@category` and follow the options in the suggestion list:
-    * `@category:themes`
-    * `@category:formatters`
-    * `@category:linters`
-    * `@category:snippets`
+  * `@category:themes`
+  * `@category:formatters`
+  * `@category:linters`
+  * `@category:snippets`
 
 These filters can be combined as well. For example: Use `@installed @category:themes` to view all installed themes.
 
@@ -217,7 +257,7 @@ code --install-extension myextension.vsix
 
 You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
-If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) topic in the Extension API.
+If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/api/working-with-extensions/publishing-extension.md) article in the Extension API.
 
 ## Workspace recommended extensions
 

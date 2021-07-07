@@ -1,15 +1,15 @@
 ---
-Order: 7
-Area: python
-TOCTitle: Jupyter Notebook Support
-ContentId: 779b7ad3-0aaa-4632-9998-0d8f964c0599
+Order: 2
+Area: datascience
+TOCTitle: Jupyter Notebooks
+ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 08/15/2019
-MetaDescription: Working with Jupyter Notebooks in Visual Studio Code
+DateApproved: 6/15/2021
+MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Working with Jupyter Notebooks in Visual Studio Code
+# Jupyter Notebooks in VS Code
 
 [Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively, as well as through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
 
@@ -128,14 +128,7 @@ Once your code is added, you can run a cell using the green run arrow and the ou
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
-You can also use key combos to run a selected code cell. 
-
-- `kbstyle(Ctrl+Enter)` runs the currently selected cell
-- `kbstyle(Shift+Enter)` runs the currently selected cell and, if a cell is not already present, inserts a new cell immediately below (focus moves to the below cell in command mode)
-- `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell in edit mode). 
-
-These keyboard combos can be used in both command and edit modes.
-
+You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard combos can be used in both command and edit modes.
 
 ### Run multiple code cells
 
@@ -209,7 +202,7 @@ Within the Python Notebook Editor, it's possible to view, inspect, and filter th
 
 ![Variable Explorer](images/jupyter/native-variable-explorer.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values using the boxes below each column header and, if you've made changes or transformations to your data, you can click the refresh button in the top left to retrieve the most recent data. ALong with that you can click on any column heading to sort its data in ascending or descending order, as well as click into individual cells in the Data Viewer to copy out their contents.
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
 
 ![Data Viewer](images/jupyter/native-data-viewer.png)
 
@@ -240,7 +233,7 @@ If you need additional debug support in order to diagnose an issue in your code 
 
 1. After saving the .py file, to start the debugger, use one of the following options:
 
-    - For the whole Notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Jupyter: Debug Current File in Python Interactive Window** command.
+    - For the whole Notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Debug Current File in Python Interactive Window** command.
     - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Data Science: Debug Just My Code** in the Python extension settings (`kb(workbench.action.openSettings)`).
 
 1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
@@ -264,4 +257,4 @@ To connect to a remote Jupyter server:
 
     ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remoter server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).

@@ -9,9 +9,9 @@ MetaDescription: Working with Jupyter code cells in the Python Interactive windo
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Working with the Python Interactive window
+# Python Interactive window
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/python/jupyter-support.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/datascience/jupyter-notebooks.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
 
 - Work with Jupyter-like code cells
 - Run code in the Python Interactive Window
@@ -135,7 +135,7 @@ To connect to a remote Jupyter server:
 
     ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remoter server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
 
 ## Convert Jupyter notebooks to Python code file
 

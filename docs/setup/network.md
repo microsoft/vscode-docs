@@ -31,6 +31,8 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vsmarketplacebadge.apphb.com` - Visual Studio Marketplace badge service
 * `az764295.vo.msecnd.net` - Visual Studio Code download CDN
 * `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
+* `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
+* `vscode-sync-insiders.trafficmanager.net` - Visual Studio Code Settings Sync service (Insiders)
 
 ## Proxy server support
 

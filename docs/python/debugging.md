@@ -345,6 +345,10 @@ You can also rely on a relative path from the workspace root. For example, if th
 "program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
+### `module`
+
+Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
+
 ### `python`
 
 The full path that points to the Python interpreter to be used for debugging.
@@ -399,6 +403,10 @@ Allows for the automatic reload of the debugger when changes are made to code af
 ```
 
 > ***Note:** When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
+
+### `subProcess`
+
+Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](/docs/editor/debugging.md#multitarget-debugging).
 
 ### `cwd`
 

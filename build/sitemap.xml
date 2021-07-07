@@ -21,6 +21,11 @@
         <priority>0.70</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/brand</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/blogs</loc>
         <changefreq>weekly</changefreq>
         <priority>0.70</priority>
@@ -501,16 +506,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/python/data-science-tutorial</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/python/pytorch-support</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/python/tutorial-django</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -536,12 +531,27 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/python/jupyter-support</loc>
+        <loc>https://code.visualstudio.com/docs/python/jupyter-support-py</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/python/jupyter-support-py</loc>
+        <loc>https://code.visualstudio.com/docs/datascience/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/data-science-tutorial</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/jupyter-notebooks</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/pytorch-support</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -999,6 +1009,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/virtual-documents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/workspace-trust</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

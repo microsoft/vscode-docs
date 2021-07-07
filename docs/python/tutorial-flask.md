@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 10
 Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
@@ -565,6 +565,8 @@ With the code snippet in place, you can quickly create templates for the Home, A
 With all the page templates in place, save `app.py`, run the app, and open a browser to see the results. Navigate between the pages to verify that the page templates are properly extending the base template.
 
 ![Flask tutorial: app rendering a common nav bar from the base template](images/flask-tutorial/full-app.png)
+
+>**Note**: If you're not seeing the latest changes, you might need to do a hard refresh on the page to avoid seeing a cached file.
 
 ## Optional activities
 
