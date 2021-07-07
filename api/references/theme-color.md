@@ -152,6 +152,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 
 - `list.activeSelectionBackground`: List/Tree background color for the selected item when the list/tree is active.
 - `list.activeSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is active.
+- `list.activeSelectionIconForeground`: List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
 - `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
@@ -162,6 +163,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
 - `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive.
 - `list.inactiveSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+- `list.inactiveSelectionIconForeground`: List/Tree icon foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.inactiveFocusBackground`: List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
 - `list.inactiveFocusOutline`: List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
@@ -367,6 +369,10 @@ To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 - `editorIndentGuide.background`: Color of the editor indentation guides.
 - `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
 
+To see the editor inline hints set `"editor.inlineSuggest.enabled": true`.
+- `editorInlayHint.background`: Background color of inline hints.
+- `editorInlayHint.foreground`: Foreground color of inline hints.
+
 To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
@@ -472,6 +478,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggestion widget.
 - `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
 - `editorSuggestWidget.selectedForeground`: Foreground color of the selected entry in the suggest widget.
+- `editorSuggestWidget.selectedIconForeground`: Icon foreground color of the selected entry in the suggest widget.
 
 - `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
@@ -641,6 +648,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
 - `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputList.focusForeground`: Quick picker foreground color for the focused item.
+- `quickInputList.focusIconForeground`: Quick picker icon foreground color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Keybinding label colors
@@ -770,6 +778,7 @@ The following customizations are available:
 - `settings.checkboxBackground`: Checkbox background.
 - `settings.checkboxForeground`: Checkbox foreground.
 - `settings.checkboxBorder`: Checkbox border.
+- `settings.rowHoverBackground`: The background color of a settings row when hovered.
 - `settings.textInputBackground`: Text input box background.
 - `settings.textInputForeground`: Text input box foreground.
 - `settings.textInputBorder`: Text input box border.
@@ -777,7 +786,7 @@ The following customizations are available:
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
 - `settings.focusedRowBackground`: Background color of a focused setting row.
-- `notebook.focusedRowBorder`: Border of a focused setting row.
+- `settings.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 - `notebook.rowHoverBackground`: Border color of a hovered setting row.
 
 ## Breadcrumbs colors
