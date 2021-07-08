@@ -246,7 +246,7 @@ When an extension fires a `CustomDocumentContentChangeEvent` from `onDidChangeCu
 
 A `CustomDocumentEditEvent` is a more complex edit that allows for undo/redo. You should always try to implement your custom editor using `CustomDocumentEditEvent` and only fallback to using `CustomDocumentContentChangeEvent` if implementing undo/redo is not possible.
 
-A `CustomDocumentContentChangeEvent` has the following fields:
+A `CustomDocumentEditEvent` has the following fields:
 
 - `document` — The `CustomDocument` the edit was for.
 - `label` — Optional text that that describes what type of edit was made (for example: "Crop", "Insert", ...)
