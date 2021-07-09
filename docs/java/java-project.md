@@ -179,7 +179,7 @@ In case VS Code throws an error for a classpath issue, try setting your classpat
 <classpathentry kind="lib" path="lib/log4j.jar"/>
 ```
 
-In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
+In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean Java Language Server Workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
 ## Lightweight Mode
 
