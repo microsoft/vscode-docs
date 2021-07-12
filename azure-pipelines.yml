@@ -4,18 +4,15 @@ resources:
   repositories:
   - repository: self
     type: github
-    endpoint: Monaco
-    name: microsoft/vscode-docs
     ref: main
     trigger:
     - main
     - vnext
   - repository: website
     type: github
+    endpoint: Monaco
+    name: microsoft/vscode-website
     ref: prod
-    trigger:
-    - main
-    - prod
   - repository: dist
     type: github
     endpoint: Monaco
