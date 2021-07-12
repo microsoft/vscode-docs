@@ -13,9 +13,6 @@ resources:
     endpoint: Monaco
     name: microsoft/vscode-website
     ref: prod
-    trigger:
-    - main
-    - prod
   - repository: dist
     type: github
     endpoint: Monaco
