@@ -13,20 +13,20 @@ The Testing API allows Visual Studio Code extensions to discover tests in the wo
 
 There are two test providers maintained by the VS Code team:
 
-- The [sample test provider](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) which provides tests in markdown files.
+- The [sample test provider](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) that provides tests in Markdown files.
 - The [selfhost test provider](https://github.com/microsoft/vscode-selfhost-test-provider) that we use for running tests in VS Code itself.
 
 ## Discovering Tests
 
-The foundation of the test API is the `TestItem` interface. This describes a test case, suite, or tree item as it exists in code. It must have a unique `id` and can have `children`, descriptive information, and indicate whether it's `runnable` or `debuggable`.
+The foundation of the test API is the `TestItem` interface. This interface describes a test case, suite, or tree item as it exists in code. It must have a unique `id` and can have `children`, descriptive information, and indicate whether it's `runnable` or `debuggable`.
 
 `TestItem`s are provided by `TestProviders`, either for a workspace or document. Providing happens lazily: VS Code will request tests for a document when it becomes visible, and may eventually request workspace tests if the user opens the test explorer, for example.
 
-The provider's methods return a `TestHierarchy` of these test items. There's a `root`, and a change event to tell VS Code when items update. Additionally, a promise can be returned to indicate when all the tests have been discovered, and you can emit events to indicate when results for existing tests might need to be invalidated. The invalidation logic drives the auto-run scenario (to rerun tests that change) and also has a small UI effect.
+The provider's methods return a `TestHierarchy` of these test items. There's a `root`, and a change event to tell VS Code when items update. Additionally, a promise can be returned to indicate when all the tests have been discovered, and you can emit events to indicate when results for existing tests might need to be invalidated. The invalidation logic drives the autorun scenario (to rerun tests that change) and also has a small UI effect.
 
 ## Test Results
 
-As you implement a `TestProvider`, you will notice the `runTests` method. This is called to execute tests, and takes the list of tests to run, exclude, and a flag indicating whether the run should be debugged. To update the state of a `TestItem`, you can call the `setState` method on the `TestRun` option passed into the method.
+As you implement a `TestProvider`, you will notice the `runTests` method. This method is called to execute tests, and takes the list of tests to run, exclude, and a flag indicating whether the run should be debugged. To update the state of a `TestItem`, you can call the `setState` method on the `TestRun` option passed into the method.
 
 The state of tests is stored separately from the `TestItem`s, and correlated by their `id`. This separation provides several advantages that a closer coupling would lose:
 
