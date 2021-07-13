@@ -125,7 +125,12 @@ The **Python: Select Interpreter** command displays a list of available global e
 
 If you have a folder or a workspace open in VS Code and you select an interpreter from the list, the Python extension will store that information so that the same interpreter will be used once you reopen the workspace.
 
- If you'd like to set up a default interpreter for your applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
+If you'd like to set up a default interpreter to be used on the first time your workspace is open, you can add an entry for `python.defaultInterpreterPath` manually in your Workspace Settings.
+
+> **Note**: Changes to the `python.defaultInterpreterPath` setting are not dynamically picked up, after an interpreter has already been selected for a workspace, any changes to the setting will not be picked up by the Python extension.
+
+Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
+
 
 The Python extension uses the selected environment for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Integrated Terminal** command. In the latter case, VS Code automatically activated the selected environment.
 
