@@ -60,7 +60,7 @@ During debugging, the Status Bar shows the current configuration and the current
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
+By default, the debugger uses the same interpreter selected for your workspace, just like as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `python` in `launch.json` for the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
 
 ## Basic debugging
 
@@ -353,7 +353,7 @@ Provides the ability to specify the name of a module to be debugged, similarly t
 
 The full path that points to the Python interpreter to be used for debugging.
 
-If not specified, this setting defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
+If not specified, this setting defaults to the interpreter selected for your workspace, which is equivalent to using the value `${command:python.interpreterPath}`. To use a different interpreter, specify its path instead in the `python` property of a debug configuration.
 
 Alternately, you can use a custom environment variable that's defined on each platform to contain the full path to the Python interpreter to use, so that no additional folder paths are needed.
 
@@ -536,7 +536,8 @@ If you want to run Flask's development server in development mode, use the follo
 
 There are many reasons why the debugger may not work. Oftentimes the debug console reveals specific causes, but two specific reasons are as follows:
 
-- The path to the python executable is incorrect: check the value of `python.pythonPath` in your user settings.
+- The path to the python executable is incorrect: check the path of your selected interpreter by running the `Python: Select Interpreter` command and looking at the current value:
+![Troubleshooting wrong Python interpreter when debugging](images/debugging/debug-troubleshooting-wrong-path.png)
 - There are invalid expressions in the watch window: clear all expressions from the Watch window and restart the debugger.
 - If you're working with a multi-threaded app that uses native thread APIs (such as the Win32 `CreateThread` function rather than the Python threading APIs), it's presently necessary to include the following source code at the top of whichever file you want to debug:
 
