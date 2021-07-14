@@ -268,7 +268,7 @@ Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (for example, embedding C# compiler in a Razor language server to support C#).
 - \+ No maintenance needed to get new features upstream from other language services.
-- \+ Does not work with diagnostics errors, which are pushed from Language server.
+- \- Does not yet work with diagnostics errors, which are pushed from Language server. LSP in 3.17 will provide a diagnostic pull model that will make this possible.
 - \- Hard to share state to other language servers because of lack of control.
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present).
 
