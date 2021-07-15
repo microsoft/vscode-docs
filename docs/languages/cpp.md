@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
-DateApproved: 12/13/2020
+DateApproved: 7/15/2021
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---

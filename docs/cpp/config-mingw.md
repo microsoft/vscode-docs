@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 7/20/2020
+DateApproved: 7/15/2021
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
 # Using GCC with MinGW
