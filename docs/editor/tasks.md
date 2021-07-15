@@ -496,7 +496,7 @@ Below is an example of a custom task configuration, which executes autopep8 on t
 }
 ```
 
-If you want to specify the selected Python interpreter used by the Python extension for a task, you can use the `${command:python.interpreterPath}` command.
+If you want to specify the selected Python interpreter used by the Python extension for `tasks.json` or `launch.json`, you can use the `${command:python.interpreterPath}` command.
 
 If simple variable substitution isn't enough, you can also get input from the user of your task by adding an `inputs` section to your `tasks.json` file.
 

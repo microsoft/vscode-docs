@@ -123,11 +123,11 @@ The **Python: Select Interpreter** command displays a list of available global e
 
 > **Note:** On Windows, it can take a little time for VS Code to detect available conda environments. During that process, you may see "(cached)" before the path to an environment. The label indicates that VS Code is presently working with cached information for that environment.
 
-If you have a folder or a workspace open in VS Code and you select an interpreter from the list, the Python extension will store that information so that the same interpreter will be used once you reopen the workspace.
+If you have a folder or a workspace open in VS Code and you select an interpreter from the list, the Python extension will store that information internally so that the same interpreter will be used once you reopen the workspace.
 
 If you'd like to set up a default interpreter to be used on the first time your workspace is open, you can add an entry for `python.defaultInterpreterPath` manually in your Workspace Settings.
 
-> **Note**: Changes to the `python.defaultInterpreterPath` setting are not dynamically picked up, after an interpreter has already been selected for a workspace, any changes to the setting will not be picked up by the Python extension.
+> **Note**: Changes to the `python.defaultInterpreterPath` setting are not picked up after an interpreter has already been selected for a workspace; any changes to the setting will be ignored once an initial interpreter is selected for the workspace.
 
 Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
 
@@ -163,9 +163,9 @@ You can do so by running the **Python: Select Interpreter** command and clicking
 
 ![Enter interpreter path option on the interpreters list](images/environments/enter-interpreter-path.png)
 
-Then you can either enter the full path of the Python interpreter directly on the text box (for example, ".venv/Scripts/python.exe"), or you can click on the "Find..." button and browse your file system to find the python.exe file you wish to select.
+Then you can either enter the full path of the Python interpreter directly in the text box (for example, ".venv/Scripts/python.exe"), or you can click on the "Find..." button and browse your file system to find the python executable you wish to select.
 
-![Enter path or browse for an interpreter](images/environments/enter-or-find-interpreter.pngs)
+![Enter path or browse for an interpreter](images/environments/enter-or-find-interpreter.png)
 
 If you want to manually specify a default interpreter that will be used once you first open your workspace, you can create or modify an entry for `python.defaultInterpreterPath` setting in your workspace `settings.json` with the full path to the Python executable.
 

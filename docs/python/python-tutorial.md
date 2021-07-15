@@ -115,7 +115,7 @@ The command presents a list of available interpreters that VS Code can find auto
 
 Selecting an interpreter sets which interpreter will be used by the Python extension for that workspace.
 
-> **Note**: If you select an interpreter without a workspace folder open, VS Code will set the interpreter in the User scope instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
+> **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.defaultInterpreterPath` in User scope instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
 
 ## Create a Python Hello World source code file
 
