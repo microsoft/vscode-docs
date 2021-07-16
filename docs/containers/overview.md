@@ -102,3 +102,4 @@ Read on to learn more about
 - [Build and run a .NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)
 - [Debug apps within Docker containers](/docs/containers/debug-common.md)
 - [Docker application development](https://docs.docker.com/develop)
+- [Troubleshooting](/docs/containers/troubleshooting.md)
