@@ -168,3 +168,4 @@ Read on to learn more about:
 - [Debugging Python within Docker containers](/docs/containers/debug-python.md)
 - [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)
 - [Debugging with Docker Compose](/docs/containers/docker-compose.md#debug)
+- [Troubleshooting](/docs/containers/troubleshooting.md)

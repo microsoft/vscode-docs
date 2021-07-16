@@ -11,9 +11,9 @@ DateApproved: 07/12/2021
 
 This article covers troubleshooting tips and tricks for the Visual Studio Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension. See the [Overview](/docs/containers/overview.md) and quickstart articles for [Node.js](/docs/containers/quickstart-node.md), [Python](/docs/containers/python.md), or [ASP.NET](/docs/containers/quickstart-aspnet-core.md) for details on setting up and working with Docker.
 
-## I'm on Linux and get the error "connect EACCES /var/run/docker.sock"
+## Error "connect EACCES /var/run/docker.sock" on Linux
 
-Since VS Code runs as a non-root user, you will need to follow the steps in "Manage Docker as a non-root user" from [Post-installation steps for Linux](https://aka.ms/AA37yk6) for the extension to be able to access docker.
+Since VS Code runs as a non-root user, you will need to follow the steps in "Manage Docker as a non-root user" from [Post-installation steps for Linux](https://aka.ms/AA37yk6) to access Docker from the extension.
 
 ## Docker containers and images have disappeared from Docker view
 
@@ -34,7 +34,7 @@ If you still need to override the Docker context you are currently using, make s
 
 > **Note:** Keep in mind that your `docker.host` attribute will override your Docker context and the `DOCKER_HOST` environment variable will override both the `docker.host` attribute and your Docker context.
 
-> **Tip**: In Powershell you can change your docker environment variable with `$ENV:DOCKER_HOST = 'ssh://username@1.2.3.4'`
+> **Tip**: In Powershell you can change your Docker environment variable with `$ENV:DOCKER_HOST = 'ssh://username@1.2.3.4'`
 
 ## Questions and feedback
 
