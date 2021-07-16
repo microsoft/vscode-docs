@@ -125,13 +125,6 @@ The **Python: Select Interpreter** command displays a list of available global e
 
 If you have a folder or a workspace open in VS Code and you select an interpreter from the list, the Python extension will store that information internally so that the same interpreter will be used once you reopen the workspace.
 
-If you'd like to set up a default interpreter to be used on the first time your workspace is open, you can add an entry for `python.defaultInterpreterPath` manually in your Workspace Settings.
-
-> **Note**: Changes to the `python.defaultInterpreterPath` setting are not picked up after an interpreter has already been selected for a workspace; any changes to the setting will be ignored once an initial interpreter is selected for the workspace.
-
-Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
-
-
 The Python extension uses the selected environment for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Integrated Terminal** command. In the latter case, VS Code automatically activated the selected environment.
 
 > **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file (it can be placed anywhere as a sibling to the existing settings).
@@ -167,17 +160,18 @@ Then you can either enter the full path of the Python interpreter directly in th
 
 ![Enter path or browse for an interpreter](images/environments/enter-or-find-interpreter.png)
 
+
 If you want to manually specify a default interpreter that will be used once you first open your workspace, you can create or modify an entry for `python.defaultInterpreterPath` setting in your workspace `settings.json` with the full path to the Python executable.
 
  For example:
 
-    - Windows:
+   - Windows:
 
       ```json
       "python.defaultInterpreterPath": "c:/python39/python.exe",
       ```
 
-    - macOS/Linux:
+   - macOS/Linux:
 
       ```json
       "python.defaultInterpreterPath": "/home/python39/python",
@@ -185,27 +179,32 @@ If you want to manually specify a default interpreter that will be used once you
 
 You can also use `python.defaultInterpreterPath` to point to a virtual environment, for example:
 
-    Windows:
+   - Windows:
 
-    ```json
-    "python.defaultInterpreterPath": "c:/dev/ala/venv/Scripts/python.exe",
-    ```
+     ```json
+     "python.defaultInterpreterPath": "c:/dev/ala/venv/Scripts/python.exe",
+     ```
 
-    macOS/Linux:
+   - macOS/Linux:
 
-    ```json
-    "python.defaultInterpreterPath": "/home/abc/dev/ala/venv/bin/python",
-    ```
+     ```json
+     "python.defaultInterpreterPath": "/home/abc/dev/ala/venv/bin/python",
+     ```
+    
+> **Note**: Changes to the `python.defaultInterpreterPath` setting are not picked up after an interpreter has already been selected for a workspace; any changes to the setting will be ignored once an initial interpreter is selected for the workspace.
+
+Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
 
 You can also use an environment variable in the path setting using the syntax `${env:VARIABLE}`. For example, if you've created a variable named `PYTHON_INSTALL_LOC` with a path to an interpreter, you can then use the following setting value:
 
-    ```json
-    "python.defaultInterpreterPath": "${env:PYTHON_INSTALL_LOC}",
-    ```
+ ```json
+ "python.defaultInterpreterPath": "${env:PYTHON_INSTALL_LOC}",
+ ```
+ 
+> **Note**: Variable substitution is only supported in VS Code settings files, it will not work in `.env` environment files.
 
-    > **Note**: Variable substitution is only supported in VS Code settings files, it will not work in `.env` environment files.
-
-    By using an environment variable, you can easily transfer a project between operating systems where the paths are different, just be sure to set the environment variable on the operating system first.
+By using an environment variable, you can easily transfer a project between operating systems where the paths are different, just be sure to set the environment variable on the operating system first.
+    
 
 ### Environments and Terminal windows
 
