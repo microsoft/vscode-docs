@@ -291,6 +291,14 @@ If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find c
                       "when": "terminalFocus" },
 ```
 
+Alternatively, you can add the following to your `settings.json`:
+
+```
+"terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.terminal.focusFind"
+],
+```
+
 ## Run selected text
 
 To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
