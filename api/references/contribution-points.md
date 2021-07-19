@@ -366,7 +366,9 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause, which uses the key bindings [when clause contexts](/api/references/when-clause-contexts).
 
-A `command` property indicates which command to run when selecting a menu item. A `submenu` property indicates which submenu to render in this location. Additionally, in the former case, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. On Windows and Linux `kbstyle(Shift)` also does this, which is useful in situations where `kbstyle(Alt)` would trigger the window menu bar.
+A `command` property indicates which command to run when selecting a menu item. A `submenu` property indicates which submenu to render in this location.
+
+When declaring a `command` menu item, an alternative command can also be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. On Windows and Linux `kbstyle(Shift)` also does this, which is useful in situations where `kbstyle(Alt)` would trigger the window menu bar.
 
 Last, a `group` property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
@@ -541,9 +543,9 @@ The order inside a group depends on the title or an order-attribute. The group-l
 
 ## contributes.submenus
 
-Contribute a submenu as a placeholder onto which menu items can be contributed to. A submenu requires a `label` to be shown in the parent menu.
+Contribute a submenu as a placeholder onto which menu items can be contributed. A submenu requires a `label` to be shown in the parent menu.
 
-In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
+In addition to a title, commands can also define icons that VS Code will show in the editor title menu bar.
 
 ### submenu example
 
