@@ -15,6 +15,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`configurationDefaults`](/api/references/contribution-points#contributes.configurationDefaults)
 - [`commands`](/api/references/contribution-points#contributes.commands)
 - [`menus`](/api/references/contribution-points#contributes.menus)
+- [`submenus`](/api/references/contribution-points#contributes.submenus)
 - [`keybindings`](/api/references/contribution-points#contributes.keybindings)
 - [`languages`](/api/references/contribution-points#contributes.languages)
 - [`debuggers`](/api/references/contribution-points#contributes.debuggers)
@@ -365,7 +366,7 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause, which uses the key bindings [when clause contexts](/api/references/when-clause-contexts).
 
-In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. On Windows and Linux `kbstyle(Shift)` also does this, which is useful in situations where `kbstyle(Alt)` would trigger the window menu bar.
+A `command` property indicates which command to run when selecting a menu item. A `submenu` property indicates which submenu to render in this location. Additionally, in the former case, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. On Windows and Linux `kbstyle(Shift)` also does this, which is useful in situations where `kbstyle(Alt)` would trigger the window menu bar.
 
 Last, a `group` property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
@@ -398,12 +399,15 @@ Currently extension writers can contribute to:
 - The Timeline view title menu bar - `timeline/title`
 - The Timeline view item context menu - `timeline/item/context`
 - The Extensions view context menu - `extension/context`
+- Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
 In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
 
 ### menu example
+
+Here's a command menu item:
 
 ```json
 {
@@ -423,6 +427,26 @@ In addition to a title, commands can also define icons which VS Code will show i
 ```
 
 ![menus extension point example](images/contribution-points/menus.png)
+
+Here's a submenu menu item:
+
+```json
+{
+  "contributes": {
+    "menus": {
+      "scm/title": [
+        {
+          "submenu": "git.commit",
+          "group": "2_main@1",
+          "when": "scmProvider == git"
+        }
+      ]
+    }
+  }
+}
+```
+
+![menus extension point example (submenu)](images/contribution-points/submenu.png)
 
 ### Context specific visibility of Command Palette menu items
 
@@ -514,6 +538,29 @@ The order inside a group depends on the title or an order-attribute. The group-l
   ]
 }
 ```
+
+## contributes.submenus
+
+Contribute a submenu as a placeholder onto which menu items can be contributed to. A submenu requires a `label` to be shown in the parent menu.
+
+In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
+
+### submenu example
+
+```json
+{
+  "contributes": {
+    "submenus": [
+      {
+        "id": "git.commit",
+        "label": "Commit"
+      }
+    ]
+  }
+}
+```
+
+![submenus extension point example](images/contribution-points/submenucontrib.png)
 
 ## contributes.keybindings
 
