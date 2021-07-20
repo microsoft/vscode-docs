@@ -203,9 +203,9 @@ Custom arguments to isort are specified in the `python.sortImports.args` setting
 
 To use a custom isort script, use the `python.sortImports.path` setting to specify the path.
 
-Further configurations can be stored in an `.isort.cfg` file as documented on [isort Configuration](https://aka.ms/AA9j6k4).
+Further configurations can be stored in an `.isort.cfg` file as documented on [isort Configuration](https://pycqa.github.io/isort/docs/configuration/config_files.html).
 
-> **Note**: For those migrating from isort4 to isort5, some CLI flags and config options have changed, refer to the project's [isort5 Upgrade Guide](https://aka.ms/AA9j5x4).
+> **Note**: For those migrating from isort4 to isort5, some CLI flags and config options have changed, refer to the project's [isort5 Upgrade Guide](https://pycqa.github.io/isort/docs/upgrade_guides/5.0.0.html).
 
 ## Next steps
 
