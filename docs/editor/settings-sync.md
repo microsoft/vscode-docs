@@ -11,8 +11,6 @@ MetaDescription: Synchronize your user settings across all your Visual Studio Co
 
 Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
 
->**Note**: Settings Sync is still in preview.
-
 ## Turning on Settings Sync
 
 You can turn on Settings Sync using the **Turn On Settings Sync...** entry in the **Manage** gear menu at the bottom of the Activity Bar.
