@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 06/18/2021
+DateApproved: 7/20/2021
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -152,45 +152,52 @@ In either case, clicking this area of the Status Bar is a convenient shortcut fo
 
 If VS Code does not automatically locate an interpreter you want to use, you can browse for the interpreter on your file system or provide the path to it manually.
 
-You can do so by running the **Python: Select Interpreter** command and clicking on the "Enter interpreter path..." option that shows on the top of the interpreters list:
+You can do so by running the **Python: Select Interpreter** command and clicking on the **Enter interpreter path...** option that shows on the top of the interpreters list:
 
 ![Enter interpreter path option on the interpreters list](images/environments/enter-interpreter-path.png)
 
-Then you can either enter the full path of the Python interpreter directly in the text box (for example, ".venv/Scripts/python.exe"), or you can click on the "Find..." button and browse your file system to find the python executable you wish to select.
+You can then either enter the full path of the Python interpreter directly in the text box (for example, ".venv/Scripts/python.exe"), or you can click on the **Find...** button and browse your file system to find the python executable you wish to select.
 
 ![Enter path or browse for an interpreter](images/environments/enter-or-find-interpreter.png)
 
-
 If you want to manually specify a default interpreter that will be used once you first open your workspace, you can create or modify an entry for `python.defaultInterpreterPath` setting in your workspace `settings.json` with the full path to the Python executable.
 
- For example:
+For example:
 
-   - Windows:
+- Windows:
 
-      ```json
-      "python.defaultInterpreterPath": "c:/python39/python.exe",
-      ```
+  ```json
+  {
+    "python.defaultInterpreterPath": "c:/python39/python.exe",
+  }
+  ```
 
-   - macOS/Linux:
+- macOS/Linux:
 
-      ```json
-      "python.defaultInterpreterPath": "/home/python39/python",
-      ```
+  ```json
+  {
+    "python.defaultInterpreterPath": "/home/python39/python",
+  }
+  ```
 
 You can also use `python.defaultInterpreterPath` to point to a virtual environment, for example:
 
-   - Windows:
+- Windows:
 
-     ```json
-     "python.defaultInterpreterPath": "c:/dev/ala/venv/Scripts/python.exe",
-     ```
+  ```json
+  {
+    "python.defaultInterpreterPath": "c:/dev/ala/venv/Scripts/python.exe",
+  }
+  ```
 
-   - macOS/Linux:
+- macOS/Linux:
 
-     ```json
-     "python.defaultInterpreterPath": "/home/abc/dev/ala/venv/bin/python",
-     ```
-    
+  ```json
+  {
+    "python.defaultInterpreterPath": "/home/abc/dev/ala/venv/bin/python",
+  }
+  ```
+
 > **Note**: Changes to the `python.defaultInterpreterPath` setting are not picked up after an interpreter has already been selected for a workspace; any changes to the setting will be ignored once an initial interpreter is selected for the workspace.
 
 Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
@@ -200,11 +207,10 @@ You can also use an environment variable in the path setting using the syntax `$
  ```json
  "python.defaultInterpreterPath": "${env:PYTHON_INSTALL_LOC}",
  ```
- 
+
 > **Note**: Variable substitution is only supported in VS Code settings files, it will not work in `.env` environment files.
 
 By using an environment variable, you can easily transfer a project between operating systems where the paths are different, just be sure to set the environment variable on the operating system first.
-    
 
 ### Environments and Terminal windows
 
@@ -220,7 +226,7 @@ Changing interpreters with the **Python: Select Interpreter** command doesn't af
 
 ### Choose a debugging environment
 
-By default, the debugger will use the Python interpreter you have selected  with the Python extension. However, if you have a `python` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code will give precedence to the `python` property of the selected debug configuration in `launch.json`. If it's not defined, then it will use the path to the Python interpreter you have selected for your workspace.
+By default, the debugger will use the Python interpreter you have selected with the Python extension. However, if you have a `python` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code will give precedence to the `python` property of the selected debug configuration in `launch.json`. If it's not defined, then it will use the path to the Python interpreter you have selected for your workspace.
 
 For more details on debug configuration, see [Debugging configurations](/docs/python/debugging.md).
 

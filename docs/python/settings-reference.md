@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 08/14/2019
+DateApproved: 7/20/2021
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -19,7 +19,7 @@ For general information about working with settings in VS Code, refer to [User a
 | Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
 | condaPath | `"conda"` | Path to the `conda` executable. |
-| defaultInterpreterPath | `"python"` | Path to the default Python interpreter to be used by the Python extension on the first time it loads for a workspace, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. `settings.json` file can then be included in a source code repository. It's worth noting that changes to this setting made after an interpreter has been selected for a workspace will not be applied or considered by the Python extension. As well, the Python extension doesn't automatically add or change this setting.|
+| defaultInterpreterPath | `"python"` | Path to the default Python interpreter to be used by the Python extension on the first time it loads for a workspace, or the path to a folder containing the Python interpreter. Can use variables like `${workspaceFolder}` and `${workspaceFolder}/.venv`. Using a path to a folder allows anyone working with a project to create an environment in the `.venv` folder as appropriate to their operating system, rather than having to specify an exact platform-dependent path. `settings.json` file can then be included in a source code repository. **Note**: Changes to this setting made after an interpreter has been selected for a workspace will not be applied or considered by the Python extension. As well, the Python extension doesn't automatically add or change this setting.|
 | pipenvPath | `"pipenv"` | Path to the pipenv executable to use for activation. |
 | disableInstallationCheck | `false` | If set to `true`, disables a warning from the extension if no Python interpreter is installed. On macOS, also disables a warning that appears if you're using the OS-installed Python interpreter. It's generally recommended to install a separate interpreter on macOS. |
 | venvFolders | `[]` | Paths to folders where virtual environments are created. Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
