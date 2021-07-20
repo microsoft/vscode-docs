@@ -230,7 +230,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 ## How to build and run a container together
 
-1. In the previosly mentioned `tasks.json` file we have a dependency on the `docker-build` task. The task is part of the tasks array in the `tasks.json` and can look like this:
+1. In the previously mentioned `tasks.json` file we have a dependency on the `docker-build` task. The task is part of the tasks array in the `tasks.json` and can look like this:
 
 ```json
 "tasks":
@@ -250,8 +250,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 ]
 ```
 
-> [!TIP]
-> As the dependency clearly states `docker-build` as its dependency, the name has to be matches in this task. It can be changed to anything though.
+**Tip:** As the dependency clearly states `docker-build` as its dependency, the name has to be matches in this task. It can be changed to anything though.
 
 1. The `dockerBuild` object in the json allows for the following parameters:
 
@@ -259,7 +258,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
     - dockerfile: The path to the Dockerfile to execute
     - tag: The name of the image to be build, together with its version tag
 
-1. Overall, a vscode setup for building and debugging your Flask application can look like this:
+1. Overall, a VS Code setup for building and debugging your Flask application can look like this:
 
     - `launch.json`
 
