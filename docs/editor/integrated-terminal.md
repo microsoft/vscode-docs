@@ -280,18 +280,7 @@ Note that the command only works with the `\u0000` format for using characters v
 
 The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to remove the keybinding like so:
-
-```js
-// Windows/Linux
-{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFind",
-                      "when": "terminalFocus" },
-// macOS
-{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFind",
-                      "when": "terminalFocus" },
-```
-
-Alternatively, you can add the following to your `settings.json`:
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to add the following to your settings.json which will tell the terminal not to skip the shell for keybindings matching the `workbench.action.terminal.focusFind` command:
 
 ```
 "terminal.integrated.commandsToSkipShell": [
