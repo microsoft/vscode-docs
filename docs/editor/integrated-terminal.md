@@ -83,16 +83,18 @@ To create a new profile, run the **Terminal: Select Default Profile** command an
 Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "PowerShell -NoProfile": {
-    "source": "PowerShell",
-    "args": ["-NoProfile"]
-  }
-},
-"terminal.integrated.profiles.linux": {
-  "zsh (login)": {
-    "path": "zsh",
-    "args": ["-l"]
+{
+  "terminal.integrated.profiles.windows": {
+    "PowerShell -NoProfile": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  },
+  "terminal.integrated.profiles.linux": {
+    "zsh (login)": {
+      "path": "zsh",
+      "args": ["-l"]
+    }
   }
 }
 ```
@@ -109,13 +111,15 @@ Other arguments supported in profiles include:
 The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "my-pwsh": {
-    "source": "PowerShell",
-    "args": ["-NoProfile"]
-  }
-},
-"terminal.integrated.defaultProfile.windows": "my-pwsh"
+{
+  "terminal.integrated.profiles.windows": {
+    "my-pwsh": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "my-pwsh"
+}
 ```
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
@@ -123,13 +127,15 @@ The **default profile** can be defined manually with the `terminal.integrated.de
 The *default profile* can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the *name* of an existing profile:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "PowerShell -NoProfile": {
-    "source": "PowerShell",
-    "args": ["-NoProfile"]
-  }
-},
-"terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+{
+  "terminal.integrated.profiles.windows": {
+    "PowerShell -NoProfile": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+}
 ```
 
 ### Removing built-in profiles
@@ -137,8 +143,10 @@ The *default profile* can be defined manually with the `terminal.integrated.defa
 To remove entries from the terminal dropdown, set the name of the profile to `null`. For example, to remove the `Git Bash` profile on Windows, use this setting:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "Git Bash": null
+{
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": null
+  }
 }
 ```
 
@@ -283,9 +291,11 @@ The integrated terminal has find functionality that can be triggered with `kb(wo
 If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to add the following to your settings.json which will tell the terminal not to skip the shell for keybindings matching the `workbench.action.terminal.focusFind` command:
 
 ```json
-"terminal.integrated.commandsToSkipShell": [
+{
+  "terminal.integrated.commandsToSkipShell": [
     "-workbench.action.terminal.focusFind"
-],
+  ],
+}
 ```
 
 ## Run selected text
@@ -329,13 +339,15 @@ Currently the terminal consumes many key bindings, preventing Visual Studio Code
 Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "cmder": {
-    "path": "C:\\WINDOWS\\System32\\cmd.exe",
-    "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
-  }
-},
-"terminal.integrated.defaultProfile.windows": "cmder"
+{
+  "terminal.integrated.profiles.windows": {
+    "cmder": {
+      "path": "C:\\WINDOWS\\System32\\cmd.exe",
+      "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "cmder"
+}
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
@@ -399,7 +411,9 @@ rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 Yes. Specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
 
 ```json
-"terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
+{
+  "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
+}
 ```
 
 Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
