@@ -430,6 +430,8 @@ In your `package.json` specify your script as a dependency of your renderer:
 In your script file you can declare communication functions to communicate with the controller:
 
 ```js
+import "vscode-notebook-renderer/preload";
+
 globalThis.githubIssueCommentProvider = {
   loadComments(issueId: string, callback: (comments: GithubComment[]) => void) {
     postKernelMessage({ command: 'comments', issueId });
