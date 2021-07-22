@@ -102,7 +102,7 @@ When a cell is in command mode, a solid vertical bar will appear to the left of 
 
 ![Code cell in edit mode](images/jupyter/native-code-cells-04.png)
 
-To move from edit mode to command mode, press the `kbstyle(ESC)` key. To move from command mode to edit mode, press the `kbstyle(Enter)` key. You can also use the mouse to **change the mode** by clicking the vertical bar to the left of the cell or out of the code/Markdown region in the code cell.
+To move from edit mode to command mode, press the `kbstyle(Esc)` key. To move from command mode to edit mode, press the `kbstyle(Enter)` key. You can also use the mouse to **change the mode** by clicking the vertical bar to the left of the cell or out of the code/Markdown region in the code cell.
 
 ### Add additional code cells
 
@@ -196,7 +196,7 @@ To toggle line numbering for the entire notebook, use `kbstyle(Shift+L)` when in
 
 ## Table of Contents
 
-To navigate through your notebook, open the File Explorer in the Activity bar. Then open the **Outline** tab in the side bar.
+To navigate through your notebook, open the File Explorer in the Activity bar. Then open the **Outline** tab in the Side bar.
 
 ![Table of contents](images/jupyter/table-of-contents.png)
 
@@ -228,13 +228,13 @@ To save a plot from your notebook, simply hover over the output and select the *
 
 > **Note:** There is support for rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
-## Custom Notebook diffing
+## Custom notebook diffing
 
 Under the hood, Jupyter Notebooks are JSON files. The segments in a JSON file are rendered as cells that are comprised of three components: input, output, and metadata. Comparing changes made in a notebook using lined-based diffing is difficult and hard to parse. The rich diffing editor for notebooks allows you to easily see changes for each component of a cell.
 
 You can even customize what types of changes you want displayed within your diffing view. In the top right, select the overflow menu item in the toolbar to customize what cell components you want included. Input differences will always be shown.
 
-![Custom Notebook Diffing](images/jupyter/notebook-diffing.png)
+![Custom notebook diffing](images/jupyter/notebook-diffing.png)
 
 To learn more about Git integration within VS Code, visit [Version Control in VS Code](/docs/editor/versioncontrol.md).
 
