@@ -4,36 +4,36 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 6/15/2021
+DateApproved: 7/22/2021
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
 
 # Jupyter Notebooks in VS Code
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively, as well as through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with Jupyter Notebooks natively, and through [Python code files](/docs/python/jupyter-support-py.md). This topic covers the native support available for Jupyter Notebooks and demonstrates how to:
 
 - Create, open, and save Jupyter Notebooks
 - Work with Jupyter code cells
-- View, inspect, and filter variables using the Variable explorer and Data viewer
+- View, inspect, and filter variables using the Variable Explorer and Data Viewer
 - Connect to a remote Jupyter server
-- Debug a Jupyter notebook
+- Debug a Jupyter Notebook
 
 ## Setting up your environment
 
-To work with Python in Jupyter notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
+To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.
 
 ## Workspace Trust
 
-When getting started with Notebooks you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](https://code.visualstudio.com/docs/editor/workspace-trust) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
+When getting started with Notebooks, you'll want to make sure that you are working in a trusted workspace. Harmful code can be embedded in notebooks and the [Workspace Trust](/docs/editor/workspace-trust.md) feature allows you to indicate which folders and their contents should allow or restrict automatic code execution.
 
-If you attempt to open a notebook from an untrusted workspace, you will not be able to execute cells and rich outputs will be hidden.
+If you attempt to open a notebook when VS Code is in an untrusted workspace running [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), you will not be able to execute cells and rich outputs will be hidden.
 
 ## Create or open a Jupyter Notebook
 
-You can create a Jupyter Notebook by running the **Jupyter: Create Blank New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new .ipynb file in your workspace.
+You can create a Jupyter Notebook by running the **Jupyter: Create Blank New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
@@ -41,29 +41,31 @@ Next, select a kernel using the kernel picker in the top right.
 
 ![Kernel Picker](images/jupyter/native-kernel-picker.png)
 
-After selecting a kernel, the language picker that is located in the bottom right of each code cell will automatically update to that supported by the kernel.
+After selecting a kernel, the language picker located in the bottom right of each code cell will automatically update to the language supported by the kernel.
 
 ![Language Picker](images/jupyter/native-language-picker-01.png)
 
-If you have an existing Jupyter Notebook, you can open it by right-clicking on the file and opening with Visual Studio Code, or through the Visual Studio Code File Explorer.
+If you have an existing Jupyter Notebook, you can open it by right-clicking on the file and opening with VS Code, or through the VS Code File Explorer.
 
 ## Running cells
 
-Once you have a Notebook, you can run a code cell using the run icon to the left of the cell and the output will appear directly below the code cell.
+Once you have a Notebook, you can run a code cell using the **Run** icon to the left of the cell and the output will appear directly below the code cell.
 
 You can also use keyboard shortcuts to run code. When in command or edit mode, use `kbstyle(Ctrl+Enter)` to run the current cell or `kbstyle(Shift+Enter)` to run the current cell and advance to the next.
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
-You can run multiple cells by using run all, run all above, or run all below.
+You can run multiple cells by using **Run All**, **Run All Above**, or **Run All Below**.
 
 ![Run Jupyter code cells](images/jupyter/native-code-runs.png)
+
 ## Save your Jupyter Notebook
 
-You can save your Jupyter Notebook using the keyboard combo `kbstyle(Ctrl+S)` or **File**>**Save**.
+You can save your Jupyter Notebook using the keyboard shortcut `kbstyle(Ctrl+S)` or **File** > **Save**.
+
 ## Export your Jupyter Notebook
 
-You can export a Jupyter Notebook as a Python file (.py), a PDF, or an HTML file. To export, just click the export icon on the main toolbar. You'll then be presented with file options from the Command Palette.
+You can export a Jupyter Notebook as a Python file (`.py`), a PDF, or an HTML file. To export, select the **Export** action on the main toolbar. You'll then be presented with a dropdown of file format options.
 
  ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-export.png)
 
@@ -118,7 +120,7 @@ The selected code cell can be changed using the mouse, the up/down arrow keys on
 
 ### Select multiple code cells
 
-To select multiple cells, start with one cell in selected mode. If you want to select consecutive cells, hold down shift and click the last cell you would like select. If you want to select any group of cells, hold down shift and click the cells you'd like to add to your selection.
+To select multiple cells, start with one cell in selected mode. If you want to select consecutive cells, hold down `kbstyle(Shift)` and click the last cell you want to select. If you want to select any group of cells, hold down `kbstyle(Shift)` and click the cells you'd like to add to your selection.
 
 Selected cells will be indicated by the filled background.
 
@@ -126,20 +128,21 @@ Selected cells will be indicated by the filled background.
 
 ### Run a single code cell
 
-Once your code is added, you can run a cell using the run icon to the left of the cell and the output will be displayed below the code cell.
+Once your code is added, you can run a cell using the **Run** icon to the left of the cell and the output will be displayed below the code cell.
 
 ![Run Jupyter code cell](images/jupyter/native-code-run.png)
 
-You can also use key combos to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard combos can be used in both command and edit modes.
+You can also use keyboard shortcuts to run a selected code cell. `kbstyle(Ctrl+Enter)` runs the currently selected cell, `kbstyle(Shift+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus moves to new cell), and `kbstyle(Alt+Enter)` runs the currently selected cell and inserts a new cell immediately below (focus remains on current cell). These keyboard shortcuts can be used in both command and edit modes.
 
 ### Run multiple code cells
 
-Running multiple code cells can be accomplished in a number of ways. You can use the double arrow in the main toolbar of the Notebook Editor to run all cells within the Notebook or the run icons with directional arrows in the cell toolbar to run all cells above or below the current code cell.
+Running multiple code cells can be accomplished in many ways. You can use the double arrow in the main toolbar of the Notebook Editor to run all cells within the Notebook or the **Run** icons with directional arrows in the cell toolbar to run all cells above or below the current code cell.
 
 ![Run multiple code cells](images/jupyter/native-code-runs.png)
+
 ### Move a code cell
 
-Moving cells up or down within a Notebook can be accomplished via dragging and dropping. For code cells, the drag and drop area is to the left of the cell editor as indicated below. For rendered markdown cells, you may click anywhere to drag and drop cells.
+Moving cells up or down within a Notebook can be accomplished via dragging and dropping. For code cells, the drag and drop area is to the left of the cell editor as indicated below. For rendered Markdown cells, you may click anywhere to drag and drop cells.
 
 ![Move a code cell](images/jupyter/code-move.png)
 
@@ -149,17 +152,17 @@ You can also use the keyboard shortcuts `kbstyle(Alt+Arrow)` to move one or mult
 
 ### Delete a code cell
 
-Deleting a code cell can be accomplished by using the delete icon in the code cell toolbar or through the keyboard combo `kbstyle(dd)` when the selected code cell is in command mode.
+Deleting a code cell can be accomplished by using the **Delete** icon in the code cell toolbar or through the keyboard shortcut `kbstyle(dd)` when the selected code cell is in command mode.
 
 ![Delete a code cell](images/jupyter/native-code-delete.png)
 
 ### Undo your last change
 
-You can use the `kbstyle(z)` key to undo your previous change, for example, if you've made an accidental edit you can undo it to the previous correct state, or if you've deleted a cell accidentally you can recover it.
+You can use the `kbstyle(z)` key to undo your previous change, for example, if you've made an accidental edit, you can undo it to the previous correct state, or if you've deleted a cell accidentally, you can recover it.
 
 ### Switch between code and Markdown
 
-The Notebook Editor allows you to easily change code cells between Markdown and code. Clicking the language picker in the bottom right of a cell will allow you to switch between markdown and, if applicable, any other language supported by the selected kernel.
+The Notebook Editor allows you to easily change code cells between Markdown and code. Clicking the language picker in the bottom right of a cell will allow you to switch between Markdown and, if applicable, any other language supported by the selected kernel.
 
 ![Change language](images/jupyter/native-language-picker-01.png)
 
@@ -169,9 +172,9 @@ Once Markdown is set, you can enter Markdown formatted content to the code cell.
 
 ![Raw Markdown displayed in code cell](images/jupyter/native-markdown-not-rendered.png)
 
-To render markdown cells you can click the checkmark in the cell toolbar, or use the `kbstyle(Ctrl+Enter)` and `kbstyle(Shift+Enter)` keyboard shortcuts.
+To render Markdown cells, you can select the check mark in the cell toolbar, or use the `kbstyle(Ctrl+Enter)` and `kbstyle(Shift+Enter)` keyboard shortcuts.
 
-![How to render markdown](images/jupyter/native-markdown-htr.png)
+![How to render Markdown](images/jupyter/native-markdown-htr.png)
 
 ![Rendered Markdown displayed in code cell](images/jupyter/native-markdown-rendered.png)
 
@@ -181,7 +184,7 @@ If you'd like to clear all code cell outputs or restart/interrupt the kernel, yo
 
 ![Notebook Toolbar](images/jupyter/notebook-toolbar.png)
 
-### Enable/Disable line numbers
+### Enable/disable line numbers
 
 When you are in command mode, you can enable or disable line numbering within a single code cell by using the `kbstyle(L)` key.
 
@@ -189,15 +192,15 @@ When you are in command mode, you can enable or disable line numbering within a 
 
 To toggle line numbering for the entire notebook, use `kbstyle(Shift+L)` when in command mode on any cell.
 
-![Line nubers enabled for notebook](images/jupyter/notebook-toggle-line-num.png)
+![Line numbers enabled for notebook](images/jupyter/notebook-toggle-line-num.png)
 
 ## Table of Contents
 
-To navigate through your notebook, open the file explorer in the activity bar. Then open the **Outline** tab in the side bar.
+To navigate through your notebook, open the File Explorer in the Activity bar. Then open the **Outline** tab in the side bar.
 
 ![Table of contents](images/jupyter/table-of-contents.png)
 
-> **Note:** By default, the outline will only show markdown. To show code cells, enable the following setting:  **Notebook > Outline: Show Code Cells**
+> **Note:** By default, the outline will only show Markdown. To show code cells, enable the following setting:  **Notebook > Outline: Show Code Cells**.
 
 ## IntelliSense support in the Jupyter Notebook Editor
 
@@ -207,55 +210,56 @@ The Python Jupyter Notebook Editor window has full IntelliSense – code complet
 
 ## Variable Explorer and Data Viewer
 
-Within a Python Notebook, it's possible to view, inspect, sort, and filter the variables within your current Jupyter session. By clicking the **Variables** icon in the main toolbar after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. The variables pane will open at the bottom of the notebook.
+Within a Python Notebook, it's possible to view, inspect, sort, and filter the variables within your current Jupyter session. By selecting the **Variables** icon in the main toolbar after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code. The variables pane will open at the bottom of the notebook.
 
 ![Variable Explorer](images/jupyter/variable-explorer-01.png)
 
 ![Variable Explorer](images/jupyter/variable-explorer-02.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable for a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
 
 ![Data Viewer](images/jupyter/data-viewer.png)
 
-## Saving Plots
+## Saving plots
 
-To save a plot from your notebook, simply hover over the output and click the save icon in the top right.
+To save a plot from your notebook, simply hover over the output and select the **Save** icon in the top right.
 
 ![Save output](images/jupyter/save-output.png)
 
 > **Note:** There is support for rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
-## Custom Notebook Diffing
+## Custom Notebook diffing
 
-Under the hood, Jupyter Notebooks are JSON files. The segments in a JSON file are rendered as cells that are comprised of 3 components: input, output, and metadata. Comparing changes made in a notebook using lined-based diffing is difficult and hard to parse. The rich diffing editor for notebooks allows you to easily see changes for each component of a cell.
+Under the hood, Jupyter Notebooks are JSON files. The segments in a JSON file are rendered as cells that are comprised of three components: input, output, and metadata. Comparing changes made in a notebook using lined-based diffing is difficult and hard to parse. The rich diffing editor for notebooks allows you to easily see changes for each component of a cell.
 
-You can even customize what types of changes you would like to see surfaced within your diffing view. In the top right, select the overflow menu item in the toolbar to customize what cell components you would like to see included. Input differences will always be shown.
+You can even customize what types of changes you want displayed within your diffing view. In the top right, select the overflow menu item in the toolbar to customize what cell components you want included. Input differences will always be shown.
 
 ![Custom Notebook Diffing](images/jupyter/notebook-diffing.png)
 
-To learn more about Git integration within VS Code, visit [Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
+To learn more about Git integration within VS Code, visit [Version Control in VS Code](/docs/editor/versioncontrol.md).
 
 ## Debug a Jupyter Notebook
 
-If you need additional debug support in order to diagnose an issue in your code cells, you can export it as a Python file. Once exported as a Python file, the Visual Studio Code debugger lets you step through your code, set breakpoints, examine state, and analyze problems. Using the debugger is a helpful way to find and correct issues in notebook code. To debug your Python file:
+If you need additional debug support in order to diagnose an issue in your code cells, you can export it as a Python file. Once exported as a Python file, the VS Code debugger lets you step through your code, set breakpoints, examine state, and analyze problems. Using the debugger is a helpful way to find and correct issues in notebook code. To debug your Python file:
 
 1. In VS Code, if you haven't already, activate a Python environment in which Jupyter is installed.
-1. From your Jupyter Notebook (.ipynb) select the convert button in the main toolbar.
+
+1. From your Jupyter Notebook (`.ipynb`), select the **Export** button in the main toolbar.
 
    ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-export.png)
 
-   Once exported, you'll have a .py file with your code that you can use for debugging.
+   Once exported, you'll have a `.py` file with your code that you can use for debugging.
 
-1. After saving the .py file, to start the debugger, use one of the following options:
+1. After saving the `.py` file, to start the debugger, use one of the following options:
 
     - For the whole Notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Debug Current File in Python Interactive Window** command.
-    - For an individual cell, use the **Debug Cell** adornment that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** just steps into user code. If you want to step into non-user code, you need to uncheck **Data Science: Debug Just My Code** in the Python extension settings (`kb(workbench.action.openSettings)`).
+    - For an individual cell, use the **Debug Cell** action that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** steps into user code. If you want to step into non-user code, you need to uncheck **Data Science: Debug Just My Code** in the Python extension settings (`kb(workbench.action.openSettings)`).
 
 1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
 
 1. As you find issues, stop the debugger, correct your code, save the file, and start the debugger again.
 
-1. When you're satisfied that all your code is correct, use the Python Interactive window to export the Python file as a Jupyter Notebook (.ipynb).
+1. When you're satisfied that all your code is correct, use the Python Interactive window to export the Python file as a Jupyter Notebook (`.ipynb`).
 
 ## Connect to a remote Jupyter server
 
@@ -263,16 +267,16 @@ You can offload intensive computation in a Jupyter Notebook to other computers b
 
 To connect to a remote Jupyter server:
 
-1. Click the **Jupyter Server: local** button in the global status bar or run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Select the **Jupyter Server: local** button in the global Status bar or run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![Specify remote Jupyter server](images/jupyter/specify-remote.png)
+   ![Specify remote Jupyter server](images/jupyter/specify-remote.png)
 
-2. When prompted to **Pick how to connect to Jupyter**, select **Existing: Specify the URI of an existing server**.
+1. When prompted to **Pick how to connect to Jupyter**, select **Existing: Specify the URI of an existing server**.
 
-    ![Choose to connect to an existing server](images/jupyter/connect-to-existing.png)
+   ![Choose to connect to an existing server](images/jupyter/connect-to-existing.png)
 
-3. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+1. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
-    ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
+   ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
