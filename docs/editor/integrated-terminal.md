@@ -316,7 +316,7 @@ If no text is selected in the active editor, the line that the cursor is on is r
 
 The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching of terminals, for example the following `.vscode/tasks.json` file will launch a Command Prompt and PowerShell terminal in a single terminal group when the window starts:
 
-```json
+```jsonc
 {
   "version": "2.0.0",
   "presentation": {
