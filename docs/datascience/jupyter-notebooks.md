@@ -120,7 +120,7 @@ The selected code cell can be changed using the mouse, the up/down arrow keys on
 
 ### Select multiple code cells
 
-To select multiple cells, start with one cell in selected mode. If you want to select consecutive cells, hold down `kbstyle(Shift)` and click the last cell you want to select. If you want to select any group of cells, hold down `kbstyle(Shift)` and click the cells you'd like to add to your selection.
+To select multiple cells, start with one cell in selected mode. If you want to select consecutive cells, hold down `kbstyle(Shift)` and click the last cell you want to select. If you want to select any group of cells, hold down `kbstyle(Ctrl)` and click the cells you'd like to add to your selection.
 
 Selected cells will be indicated by the filled background.
 
