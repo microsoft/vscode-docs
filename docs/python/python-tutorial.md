@@ -57,7 +57,7 @@ The system install of Python on macOS is not supported. Instead, an installation
 
 ### Linux
 
-The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [get-pip.py](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
+The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [get-pip.py](https://pip.pypa.io/en/stable/installation/#get-pip-py).
 
 ### Other options
 
