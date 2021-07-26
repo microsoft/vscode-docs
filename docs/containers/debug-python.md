@@ -254,7 +254,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 1. The `dockerBuild` object in the json allows for the following parameters:
 
-    - context: The docker build context, which your Dockerfile is called from
+    - context: The docker build context, from which your Dockerfile is called from
     - dockerfile: The path to the Dockerfile to execute
     - tag: The name of the image to be built, with its version tag
 
