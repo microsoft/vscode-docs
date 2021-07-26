@@ -256,7 +256,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
     - context: The docker build context, which your Dockerfile is called from
     - dockerfile: The path to the Dockerfile to execute
-    - tag: The name of the image to be build, together with its version tag
+    - tag: The name of the image to be built, with its version tag
 
 1. Overall, a VS Code setup for building and debugging your Flask application can look like this:
 
