@@ -590,7 +590,7 @@ For example, using:
   ]
 ```
 
-all code in the `node_modules` and `lib` folders in your project will be skipped.
+all code in the `node_modules` and `lib` folders in your project will be skipped. The `skipFiles` also apply to the location shown when calling `console.log` and similar methods: the first non-skipped location in the stack will be shown beside the output in the Debug Console.
 
 Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
 
