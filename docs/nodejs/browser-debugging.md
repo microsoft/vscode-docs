@@ -16,7 +16,7 @@ Visual Studio Code includes a built-in debugger for Edge and Chrome. There are a
 * Clicking a link in the [JavaScript debug terminal](/docs/nodejs/nodejs-debugging.md#javascript-debug-terminal).
 * Use a [launch config](#launch-configuration) to launch a browser with your app.
 
-We also have more detailed walkthroughs to get started with [React](/docs/nodesjs/reactjs-tutorial), [Angular](/docs/nodesjs/angular-tutorial), [Vue](/docs/nodesjs/vuejs-tutorial), and [Ember](/docs/nodesjs/emberjs-tutorial), as well as other debugging [recipes](/docs/nodesjs/debugging-recipes).
+We also have more detailed walkthroughs to get started with [React](/docs/nodejs/reactjs-tutorial), [Angular](/docs/nodejs/angular-tutorial), [Vue](/docs/nodejs/vuejs-tutorial), and [Ember](/docs/nodejs/emberjs-tutorial), as well as other debugging [recipes](/docs/nodejs/debugging-recipes).
 
 ## Open Link command
 
