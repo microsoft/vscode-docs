@@ -33,7 +33,7 @@ Visual Studio Code has a number of [command line options](/docs/getstarted/tips-
 
 With the `devcontainer` CLI, you can use the `devcontainer open` command to open the current folder straight into dev container mode, skipping the prompt.
 
-You can optionally specify the path to the folder to open, for example `devcontainer open ~/source/my-folder` to open the `~/source/my-folder` folder as a devcontainer.
+You can optionally specify the path to the folder to open, for example `devcontainer open ~/source/my-folder` to open the `~/source/my-folder` folder as a dev container.
 
 ## Building a dev container image
 
@@ -51,4 +51,3 @@ The following options can be used with the `build` command:
 ## Visual Studio Code Insiders
 
  You can install the CLI for the stable and insiders builds of Visual Studio Code side-by-side. When running Visual Studio Code  the insiders CLI will be `devcontainer-insiders`, so use this in place of `devcontainer` in the steps above.
-
