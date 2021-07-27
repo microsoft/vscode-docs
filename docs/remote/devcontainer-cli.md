@@ -50,4 +50,4 @@ The following options can be used with the `build` command:
 
 ## Visual Studio Code Insiders
 
- You can install the CLI for the stable and insiders builds of Visual Studio Code side-by-side. When running Visual Studio Code  the insiders CLI will be `devcontainer-insiders`, so use this in place of `devcontainer` in the steps above.
+ You can install the CLI for the stable and insiders builds of Visual Studio Code side-by-side. The insiders CLI will be `devcontainer-insiders`, so use this in place of `devcontainer` in the steps above.
