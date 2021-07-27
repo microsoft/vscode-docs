@@ -219,6 +219,28 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
+### Sync user global state between machines
+
+If your extension needs to preserve some user state across different machines
+then provide the state to sync using `vscode.ExtensionContext.globalState.setKeysForSync`.
+
+The common problem is to prevent welcome and update pages. You can use the following pattern:
+
+```TypeScript
+// on activate
+const versionKey = context.extension.id + '.version';
+context.globalState.setKeysForSync([versionKey]);
+
+// later on show page
+const currentVersion = context.extension.packageJSON.version;
+const lastVersionShown = context.globalState.get(versionKey);
+if (!isHigher(currentVersion, lastVersionShown)) {
+    return;
+}
+context.globalState.set(versionKey, currentVersion);
+// show page
+```
+
 ### Persisting secrets
 
 If your extension needs to persist passwords or other secrets, you may want to use your local operating system's secret store (Windows Cert Store, the macOS KeyChain, a `libsecret`-based keyring on Linux, or a browser-based equivalent) rather than the one on the remote machine environment. Further, on Linux you may be relying on `libsecret` and by extension `gnome-keyring` to store your secrets, and this does not typically work well on server distros or in a container.
