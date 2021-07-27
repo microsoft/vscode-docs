@@ -148,7 +148,7 @@ For the Less version of the above file, just change `$padding` to `@padding`.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration. To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from template**. In the selection dialog that shows up, select **Others**.
+The next step is to set up the task configuration. To do this, run **Terminal** > **Configure Tasks** and click **Create tasks.json file from template**. In the selection dialog that shows up, select **Others**.
 
 This will create a sample `tasks.json` file in the workspace `.vscode` folder. The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Sass/Less instead:
 
