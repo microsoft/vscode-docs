@@ -226,7 +226,7 @@ Place the following code in the `gulpfile.js` file:
 ```javascript
 // Sass configuration
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 
 gulp.task('sass', function(cb) {
     gulp.src('*.scss')
