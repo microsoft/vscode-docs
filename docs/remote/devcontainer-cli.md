@@ -10,7 +10,7 @@ MetaDescription: Documentation on using the devcontainer CLI with the Visual Stu
 
 Remote-Containers has a `devcontainer` Command Line Interface (CLI) which allows you to interact with a dev container from your terminal.
 
-## Installing the devcontainer CLI
+## Installing the `devcontainer` CLI
 
 To install the `devcontainer` CLI:
 
@@ -22,18 +22,29 @@ To install the `devcontainer` CLI:
     * **Windows**: You will be prompted to automatically add the `devcontainer` CLI to your `PATH` or to copy the `devcontainer` CLI path to your clipboard for you to add to your `PATH`.
     * **macOS/Linux**: If the extension detects a `bin` folder ( or `.local/bin` folder) in your user home folder and in your `PATH` then you will have the option of adding a symlink to the `devcontainer` CLI to this location. You will also have the option to copy the `devcontainer` CLI path to your clipboard for you to add to your `PATH`.
 
-3. From a system shell (one not inside Visual Studio Code), run `devcontainer --help` to test the installation and see the CLI's built-in help. Note that you may need to restart your shell for `PATH` changes to take effect.
+3. From an external terminal (one not inside Visual Studio Code), run `devcontainer --help` to test the installation and see the CLI's built-in help. Note that you may need to restart your shell for `PATH` changes to take effect.
+
+```bash
+ $ devcontainer --help
+devcontainer <command>
+:
+  devcontainer open [path]             Open a dev container in VS Code
+  devcontainer build [path] [options]  Build a dev container image
+
+Options:
+  -h, --help  Show help  [boolean]
+```
 
 
-## Opening a folder directly as a dev container
+## Opening a folder directly within dev container
 
-Visual Studio Code has a number of [command line options](/docs/getstarted/tips-and-tricks#_command-line), including `code .` which opens Visual Studio Code with the current folder. When you do this with a folder containing a dev container, Visual Studio Code will prompt you to reopen the folder as a dev container.
+Visual Studio Code has a number of [command line options](/docs/getstarted/tips-and-tricks#_command-line), including `code .` which opens Visual Studio Code with the current folder. When you do this with a folder containing a dev container, Visual Studio Code will prompt you to reopen the folder within a dev container.
 
-![Prompt to reopen folder as a dev container](images/devcontainer-cli/reopen-in-container.png)
+![Prompt to reopen folder within a dev container](images/devcontainer-cli/reopen-in-container.png)
 
 With the `devcontainer` CLI, you can use the `devcontainer open` command to open the current folder straight into dev container mode, skipping the prompt.
 
-You can optionally specify the path to the folder to open, for example `devcontainer open ~/source/my-folder` to open the `~/source/my-folder` folder as a dev container.
+You can optionally specify the path to the folder to open, for example `devcontainer open ~/source/my-folder` to open the `~/source/my-folder` folder within a dev container.
 
 ## Building a dev container image
 
@@ -51,3 +62,9 @@ The following options can be used with the `build` command:
 ## Visual Studio Code Insiders
 
  You can install the CLI for the stable and insiders builds of Visual Studio Code side-by-side. The insiders CLI will be `devcontainer-insiders`, so use this in place of `devcontainer` in the steps above.
+
+## Next steps
+
+* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
+* [Advanced Containers](/docs/remote/containers-advanced.md) - Find solutions to advanced container scenarios.
+* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
