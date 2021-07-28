@@ -14,6 +14,8 @@ In this Visual Studio Code tutorial, we show you how to customize Visual Studio 
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RWBdEz" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
+Next video: [Productivity Tips](/docs/introvideos/productivity.md)
+
 ## Video outline
 
 * Find a keyboard shortcut in the Command Palette
