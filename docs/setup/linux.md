@@ -76,7 +76,7 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
 ```bash
-sudo dnf check-update
+dnf check-update
 sudo dnf install code
 ```
 
