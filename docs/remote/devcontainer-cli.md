@@ -13,16 +13,16 @@ The [Remote-Containers extension](https://marketplace.visualstudio.com/items?ite
 
 ## Installing the devcontainer CLI
 
-To install the `devcontainer` CLI:
+To install the devcontainer CLI:
 
 1. Ensure you have the latest version of the [Remote-Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed (must be at least `v0.188.0`).
 
 2. Launch Visual Studio Code and select  **Remote-Containers: Install devcontainer CLI** from the Command Palette (`kbstyle(F1)`).
 
-    ![The "Install `devcontainer` CLI" command](images/devcontainer-cli/install.png)
+    ![The "Install devcontainer CLI" command](images/devcontainer-cli/install.png)
 
-* **Windows**: You will be prompted to automatically add the `devcontainer` CLI to your `PATH` or to copy the `devcontainer` CLI path to your clipboard for you to add to your `PATH`.
-* **macOS/Linux**: If the extension detects a `bin` folder (or `.local/bin` folder) in your user home folder and in your `PATH`, then you will have the option of adding a symlink to the `devcontainer` CLI to this location. You will also have the option to copy the `devcontainer` CLI path to your clipboard for you to add to your `PATH`.
+* **Windows**: You will be prompted to automatically add the devcontainer CLI to your `PATH` or to copy the devcontainer CLI path to your clipboard for you to add to your `PATH`.
+* **macOS/Linux**: If the extension detects a `bin` folder (or `.local/bin` folder) in your user home folder and in your `PATH`, then you will have the option of adding a symlink to the devcontainer CLI to this location. You will also have the option to copy the devcontainer CLI path to your clipboard for you to add to your `PATH`.
 
 3. From an external terminal (one not inside Visual Studio Code), run `devcontainer --help` to test the installation and see the CLI's built-in help. Note that you may need to restart your shell for `PATH` changes to take effect.
 
@@ -43,7 +43,7 @@ Visual Studio Code has many [command line options](/docs/editor/command-line.md)
 
 ![Prompt to reopen folder within a dev container](images/devcontainer-cli/reopen-in-container.png)
 
-With the `devcontainer` CLI, you can use the `devcontainer open` command to open the current folder straight into dev container mode, skipping the prompt.
+With the devcontainer CLI, you can use the `devcontainer open` command to open the current folder straight into dev container mode, skipping the prompt.
 
 You can optionally specify the path to the folder to open, for example `devcontainer open ~/source/my-folder` to open the `~/source/my-folder` folder within a dev container.
 
@@ -51,12 +51,12 @@ You can optionally specify the path to the folder to open, for example `devconta
 
 The `devcontainer build` command allows you to build the dev container image for a folder. As with the `open` command, `build` accepts a path to the folder to build the image for and defaults to the current working folder in your shell. For example, `devcontainer build` will build the dev container image for the current folder and `devcontainer build ~/source/my-folder` will build the container image for the `~/source/my-folder` folder.
 
-### devcontainer build options
+### devcontainer CLI build options
 
 The following options can be used with the `build` command:
 
-* `--no-cache` By default, building a Docker container image reuses layers from previous image builds. The `--no-cache` option prevents the cache being used and forces the image to be rebuilt.
-* `--image-name` The Remote-Containers extension typically determines its own name for the images it builds. You can specify the name to use for the built image using the `--image-name` option.
+* `--no-cache` : By default, building a Docker container image reuses layers from previous image builds. The `--no-cache` option prevents the cache being used and forces the image to be rebuilt.
+* `--image-name` : The Remote-Containers extension typically determines its own name for the images it builds. You can specify the name to use for the built image using the `--image-name` option.
 
 ## Visual Studio Code Insiders
 
