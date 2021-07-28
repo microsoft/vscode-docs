@@ -9,8 +9,6 @@ Topics submitted here will be published to the [Visual Studio Code](https://code
 
 If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/microsoft/vscode-docs)
-
 ## Index
 
 - [Index](#index)

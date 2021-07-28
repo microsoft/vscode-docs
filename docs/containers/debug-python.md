@@ -228,6 +228,125 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 1. Modify and save any file.
 1. Refresh the browser and validate changes have been made.
 
+## How to build and run a container together
+
+1. In the previously mentioned `tasks.json` file, there is a dependency on the `docker-build` task. The task is part of the `tasks` array in `tasks.json`. For example:
+
+```json
+"tasks":
+[
+  {
+    ...
+  },
+  {
+    "label": "docker-build",
+    "type": "docker-build",
+    "dockerBuild": {
+        "context": "${workspaceFolder}",
+        "dockerfile": "${workspaceFolder}/Dockerfile",
+        "tag": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG"
+    }
+  }
+]
+```
+
+**Tip:** As the dependency clearly states `docker-build` as its dependency, the name has to match this task. It can be changed to anything though.
+
+1. The `dockerBuild` object in the JSON allows for the following parameters:
+
+    - context: The docker build context, from which your Dockerfile is called
+    - dockerfile: The path to the Dockerfile to execute
+    - tag: The name of the image to be built, with its version tag
+
+1. Overall, a VS Code setup for building and debugging your Flask application can be:
+
+    - `launch.json`
+
+      ```json
+      {
+          "version": "0.2.0",
+          "configurations": [
+            {
+              "name": "Debug Flask App",
+              "type": "docker",
+              "request": "launch",
+
+              "preLaunchTask": "docker-run: debug",
+              "python": {
+                "pathMappings": [
+                  {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/app"
+                  }
+                ],
+                "projectType": "flask"
+              },
+              "dockerServerReadyAction": {
+                "action": "openExternally",
+                "pattern": "Running on (http?://\\S+|[0-9]+)",
+                "uriFormat": "%s://localhost:%s/"
+              }
+            }
+          ]
+      }
+      ```
+
+    - `tasks.json`
+
+      ```json
+      {
+        "version": "2.0.0",
+        "tasks": [
+          {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "dependsOn": [
+                "docker-build"
+            ],
+            "dockerRun": {
+                "containerName": "YOUR_IMAGE_NAME",
+                "image": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG",
+                "env": {
+                    "FLASK_APP": "path_to/flask_entry_point.py",
+                    "FLASK_ENV": "development"
+                },
+                "volumes": [
+                    {
+                        "containerPath": "/app",
+                        "localPath": "${workspaceFolder}"
+                    }
+                ],
+                "ports": [
+                    {
+                        "containerPort": 5000,
+                        "hostPort": 5000
+                    }
+                ]
+            },
+            "python": {
+                "args": [
+                    "run",
+                    "--host",
+                    "0.0.0.0",
+                    "--port",
+                    "5000"
+                ],
+                "module": "flask"
+            }
+        },
+        {
+            "label": "docker-build",
+            "type": "docker-build",
+            "dockerBuild": {
+                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "tag": "YOUR_IMAGE_NAME:YOUR_IMAGE_TAG"
+            }
+          }
+        ]
+      }
+      ```
+
 ## Next steps
 
 Learn more about:

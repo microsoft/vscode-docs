@@ -120,7 +120,7 @@ Python in Visual Studio code is configured by default to use a set of linting ru
 
 These rules are applied through the following default arguments passed to Pylint:
 
-```
+```bash
 --disable=all --enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode
 ```
 

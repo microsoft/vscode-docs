@@ -1,4 +1,8 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 535b4d05-c2c8-424a-b075-2cd91566b8da
+DateApproved: 7/8/2021
+
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Notebook API to create rich Notebook experiences within Visual Studio Code.
 ---
@@ -19,7 +23,7 @@ Visually:
 
 ## Serializer
 
-[NotebookContentProvider API Reference](https://github.com/microsoft/vscode/blob/e1a8566a298dcced016d8e16db95c33c270274b4/src/vs/vscode.d.ts#L11865-L11884)
+[NotebookSerializer API Reference](https://github.com/microsoft/vscode/blob/e1a8566a298dcced016d8e16db95c33c270274b4/src/vs/vscode.d.ts#L11865-L11884)
 
 A `NotebookSerializer` is responsible for taking the serialized bytes of a notebook and deserializing those bytes into `NotebookData`, which contains list of Markdown and code cells. It is responsible for the opposite conversion as well: taking `NotebookData` and converting the data into serialized bytes to be saved.
 
@@ -356,8 +360,6 @@ export const activate: ActivationFunction = (context) => ({
 
 It's important to bear in mind that all outputs for a notebook are rendered in different elements in the same iframe. If you use functions like `document.querySelector`, make sure to scope it to the specific output you're interested in to avoid conflicting with other outputs. In this example, we use `element.querySelector` to avoid that issue.
 
-> **Note**: The following parts of Notebook API is still proposed and under development, which means some Notebook functionality, like the following, is only available on VS Code [Insiders](/insiders) and requires adding `vscode.proposed.d.ts` to your extension project. You can learn more in [Using Proposed APIs](/api/advanced-topics/using-proposed-api).
-
 ### Interactive Notebooks
 
 Imagine we want to add the ability to view an issue's comments after clicking a button in the rendered output. Assuming a controller can provide issue data with comments under the `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype, we might try to retrieve all the comments up front and implement it as follows:
@@ -430,6 +432,8 @@ In your `package.json` specify your script as a dependency of your renderer:
 In your script file you can declare communication functions to communicate with the controller:
 
 ```js
+import "vscode-notebook-renderer/preload";
+
 globalThis.githubIssueCommentProvider = {
   loadComments(issueId: string, callback: (comments: GithubComment[]) => void) {
     postKernelMessage({ command: 'comments', issueId });

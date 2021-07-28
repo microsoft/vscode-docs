@@ -7,7 +7,7 @@ MetaDescription: Use a todo sample app to learn how to use Bridge to Kubernetes 
 ---
 # Use Bridge to Kubernetes with a sample
 
-This sample illustrates how Bridge to Kubernetes can be used to develop a microservice version of a simple TODO application on any Kubernetes cluster. This sample, using Visual Studio Code, has been adapted from code provided by [TodoMVC](http://todomvc.com). In this example, we use MiniKube to host the application, but these steps should work with any Kubernetes cluster.
+This sample illustrates how Bridge to Kubernetes can be used to develop a microservice version of a simple TODO application on any Kubernetes cluster. This sample, using Visual Studio Code, has been adapted from code provided by [TodoMVC](https://todomvc.com). In this example, we use MiniKube to host the application, but these steps should work with any Kubernetes cluster.
 
 The TODO application sample is composed of a frontend and a backend that provides persistent storage. This extended sample adds a statistics component and breaks the application into a number of microservices, specifically:
 

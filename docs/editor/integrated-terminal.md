@@ -83,16 +83,18 @@ To create a new profile, run the **Terminal: Select Default Profile** command an
 Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "PowerShell -NoProfile": {
-    "source": "PowerShell",
-    "args": ["-NoProfile"]
-  }
-},
-"terminal.integrated.profiles.linux": {
-  "zsh (login)": {
-    "path": "zsh",
-    "args": ["-l"]
+{
+  "terminal.integrated.profiles.windows": {
+    "PowerShell -NoProfile": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  },
+  "terminal.integrated.profiles.linux": {
+    "zsh (login)": {
+      "path": "zsh",
+      "args": ["-l"]
+    }
   }
 }
 ```
@@ -109,13 +111,15 @@ Other arguments supported in profiles include:
 The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "my-pwsh": {
-    "source": "PowerShell",
-    "args": ["-NoProfile"]
-  }
-},
-"terminal.integrated.defaultProfile.windows": "my-pwsh"
+{
+  "terminal.integrated.profiles.windows": {
+    "my-pwsh": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "my-pwsh"
+}
 ```
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
@@ -123,13 +127,15 @@ The **default profile** can be defined manually with the `terminal.integrated.de
 The *default profile* can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the *name* of an existing profile:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "PowerShell -NoProfile": {
-    "source": "PowerShell",
-    "args": ["-NoProfile"]
-  }
-},
-"terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+{
+  "terminal.integrated.profiles.windows": {
+    "PowerShell -NoProfile": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell -NoProfile"
+}
 ```
 
 ### Removing built-in profiles
@@ -137,8 +143,10 @@ The *default profile* can be defined manually with the `terminal.integrated.defa
 To remove entries from the terminal dropdown, set the name of the profile to `null`. For example, to remove the `Git Bash` profile on Windows, use this setting:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "Git Bash": null
+{
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": null
+  }
 }
 ```
 
@@ -233,7 +241,7 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list, and removed by adding the command name to the list prefixed with a `-`.
 
-```js
+```json
 {
   "terminal.integrated.commandsToSkipShell": [
     // Ensure the toggle sidebar visibility keybinding skips the shell
@@ -280,15 +288,14 @@ Note that the command only works with the `\u0000` format for using characters v
 
 The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to remove the keybinding like so:
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to add the following to your settings.json which will tell the terminal not to skip the shell for keybindings matching the `workbench.action.terminal.focusFind` command:
 
-```js
-// Windows/Linux
-{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFind",
-                      "when": "terminalFocus" },
-// macOS
-{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFind",
-                      "when": "terminalFocus" },
+```json
+{
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.terminal.focusFind"
+  ],
+}
 ```
 
 ## Run selected text
@@ -304,6 +311,80 @@ The terminal will attempt to run the selected text.
 If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
 
 >**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
+
+## Automating launching of terminals
+
+The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching of terminals, for example the following `.vscode/tasks.json` file will launch a Command Prompt and PowerShell terminal in a single terminal group when the window starts:
+
+```jsonc
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
+  "tasks": [
+    {
+      "label": "Create terminals",
+      "dependsOn": [
+        "First",
+        "Second"
+      ],
+      // Mark as the default build task so cmd/ctrl+shift+b will create them
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      // Try start the task on folder open
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      // The name that shows up in terminal tab
+      "label": "First",
+      // The task will launch a shell
+      "type": "shell",
+      "command": "",
+      // Set the shell type
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": []
+        }
+      },
+      // Mark as a background task to avoid the spinner animation on the terminal tab
+      "isBackground": true,
+      "problemMatcher": [],
+      // Create the tasks in a terminal group
+      "presentation": {
+        "group": "my-group"
+      }
+    },
+    {
+      "label": "Second",
+      "type": "shell",
+      "command": "",
+      "options": {
+        "shell": {
+          "executable": "pwsh.exe",
+          "args": []
+        }
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "my-group"
+      }
+    }
+  ]
+}
+```
+
+This file could be committed to the repository to share it with other developers or alternatively created as a user task via the `workbench.action.tasks.openUserTasks` command.
 
 ## Next steps
 
@@ -332,13 +413,15 @@ Currently the terminal consumes many key bindings, preventing Visual Studio Code
 Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
-"terminal.integrated.profiles.windows": {
-  "cmder": {
-    "path": "C:\\WINDOWS\\System32\\cmd.exe",
-    "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
-  }
-},
-"terminal.integrated.defaultProfile.windows": "cmder"
+{
+  "terminal.integrated.profiles.windows": {
+    "cmder": {
+      "path": "C:\\WINDOWS\\System32\\cmd.exe",
+      "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "cmder"
+}
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
@@ -402,7 +485,9 @@ rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 Yes. Specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
 
 ```json
-"terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
+{
+  "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
+}
 ```
 
 Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
@@ -478,7 +563,7 @@ By default, the integrated terminal will render using GPU acceleration on most m
 
 Unfortunately some issues cannot be automatically detected, if you experience issues with the GPU acceleration you can disable it `terminal.integrated.gpuAcceleration` in your user or workspace [settings](/docs/getstarted/settings.md), which will use the DOM renderer. This can be driven by the follow setting:
 
-```js
+```json
 {
     "terminal.integrated.gpuAcceleration": "off"
 }
