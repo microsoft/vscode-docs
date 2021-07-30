@@ -11,8 +11,8 @@ The Testing API allows Visual Studio Code extensions to discover tests in the wo
 
 There are two test providers maintained by the VS Code team:
 
-- The [sample test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) which provides tests in markdown files.
-- The [selfhost test extension](https://github.com/microsoft/vscode-selfhost-test-provider) that we use for running tests in VS Code itself.
+- The [sample test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample), which provides tests in markdown files.
+- The [selfhost test extension](https://github.com/microsoft/vscode-selfhost-test-provider), that we use for running tests in VS Code itself.
 
 ## Discovering Tests
 
@@ -42,10 +42,10 @@ parseMarkdown(content, {
 });
 ```
 
-Like Diagnostics, it's mostly up to the extension to control when tests are discovered. A simple extension might watch the entire workspace and parse all tests in all files from the get-go. However, this may be slow for large workspaces. Instead, you can do two things:
+Similar to Diagnostics, it's mostly up to the extension to control when tests are discovered. A simple extension might watch the entire workspace and parse all tests in all files from the get-go. However, parsing everything immediately may be slow for large workspaces. Instead, you can do two things:
 
 1. Actively discover tests for a file when it's opened in the editor, by watching `vscode.workspace.onDidOpenTextDocument`.
-1. Setting `item.canResolveChildren = true` and setting the `controller.resolveHandler`. This is called if the user takes an action to demand tests be discovered, such as by expanding an item in the test explorer.
+1. Setting `item.canResolveChildren = true` and setting the `controller.resolveHandler`. The `resolveHandler` is called if the user takes an action to demand tests be discovered, such as by expanding an item in the test explorer.
 
 Here's how this strategy might look in an extension that parses files lazily:
 
@@ -57,14 +57,14 @@ controller.resolveHandler = async test => {
   if (!test) {
     await discoverAllFilesInWorkspace();
   } else {
-    await resolveFileTests(test);
+    await parseTestsInFileContents(test);
   }
 };
 
 // When text documents are open, parse tests in them.
-vscode.workspace.onDidOpenTextDocument(parseFileForDocument);
+vscode.workspace.onDidOpenTextDocument(parseTestsInDocument);
 // We could also listen to document changes to re-parse unsaved changes:
-vscode.workspace.onDidChangeTextDocument(e => parseFileForDocument(e));
+vscode.workspace.onDidChangeTextDocument(e => parseTestsInDocument(e.document));
 
 // In this function, we'll get the file TestItem if we've already found it,
 // otherwise we'll create it with `canResolveChildren = true` to indicate it
@@ -82,7 +82,7 @@ function getOrCreateFile(uri: vscode.Uri) {
 
 function parseTestsInDocument(e: vscode.TextDocument) {
   if (e.uri.scheme === 'file' && e.uri.path.endsWith('.md')) {
-    parseTestsInFileContents(getOrCreateFile(ctrl, e.uri), e.getText(), file);
+    parseTestsInFileContents(getOrCreateFile(e.uri), e.getText());
   }
 }
 
@@ -91,7 +91,7 @@ async function parseTestsInFileContents(file: vscode.TestItem, contents?: string
   // called from the resolveHandler when a document isn't open, we'll need to
   // read them from disk ourselves.
   if (contents === undefined) {
-    const rawContent = await vscode.workspace.fs.readFile(uri);
+    const rawContent = await vscode.workspace.fs.readFile(file.uri);
     contents = new TextDecoder().decode(rawContent);
   }
 
@@ -99,10 +99,14 @@ async function parseTestsInFileContents(file: vscode.TestItem, contents?: string
 }
 ```
 
-The implementation of `discoverAllFilesInWorkspace` can be built using VS Code' existing file watching functionality. Note that, when the `resolveHandler` is called, you should continue watching for changes so that the data in the Test Explorer stays up to date.
+The implementation of `discoverAllFilesInWorkspace` can be built using VS Code' existing file watching functionality. When the `resolveHandler` is called, you should continue watching for changes so that the data in the Test Explorer stays up to date.
 
 ```ts
 async function discoverAllFilesInWorkspace() {
+  if (!vscode.workspace.workspaceFolders) {
+    return []; // handle the case of no open folders
+  }
+
   return Promise.all(vscode.workspace.workspaceFolders.map(async workspaceFolder => {
     const pattern = new vscode.RelativePattern(workspaceFolder, '**/*.md');
     const watcher = vscode.workspace.createFileSystemWatcher(pattern);
@@ -138,11 +142,24 @@ testData.set(item, new MyCustomData());
 const myData = testData.get(item);
 ```
 
-It is guaranteed that the `TestItem` instances passed to all `TestController`-related methods will be the same as the ones originally created from `createTestItem`, so you can be sure that this will work.
+It's guaranteed that the `TestItem` instances passed to all `TestController`-related methods will be the same as the ones originally created from `createTestItem`, so you can be sure that getting the item from the `testData` map will work.
+
+For this example, let's just store the type of each item:
+
+```ts
+enum ItemType {
+  File,
+  TestCase,
+}
+
+const testData = new WeakMap<vscode.TestItem, ItemType>();
+
+const getType = (testItem: vscode.TestItem) => testData.get(ItemType)!;
+```
 
 ## Running Tests
 
-Tests are executed through `TestRunProfile`s. Each profile belongs to a specific execution `kind`: run, debug, or coverage. Most test extensions will have at most one profile in each of these groups, but you can have additional profiles if, for example, your extension runs tests on multiple platforms. Each profile has a `runHandler` which is invoked when a run of that type is requested.
+Tests are executed through `TestRunProfile`s. Each profile belongs to a specific execution `kind`: run, debug, or coverage. Most test extensions will have at most one profile in each of these groups, but more are allowed. For example, if your extension runs tests on multiple platforms, you could have one profile for each combination of platform and `kind`. Each profile has a `runHandler`, which is invoked when a run of that type is requested.
 
 ```ts
 
@@ -150,11 +167,11 @@ function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token:
   // todo
 }
 
-controller.createRunProfile('Run', vscode.TestRunProfileKind.Run, (request, token) => [
+controller.createRunProfile('Run', vscode.TestRunProfileKind.Run, (request, token) => {
   runHandler(false, request, token);
 });
 
-controller.createRunProfile('Debug', vscode.TestRunProfileKind.Debug, (request, token) => [
+controller.createRunProfile('Debug', vscode.TestRunProfileKind.Debug, (request, token) => {
   runHandler(true, request, token);
 });
 ```
@@ -162,37 +179,49 @@ controller.createRunProfile('Debug', vscode.TestRunProfileKind.Debug, (request, 
 The `runHandler` should call `controller.createTestRun` at least once, passing through the original request. The request contains the tests to `include` in the test run (which is omitted if the user asked to run all tests) and possibly tests to `exclude` from the run. The extension should use the resulting `TestRun` object to update the state of tests involved in the run. For example:
 
 ```ts
-function runHandler(request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+async function runHandler(request: vscode.TestRunRequest, token: vscode.CancellationToken) {
   const run = controller.createTestRun(request);
-  const queued = [];
+  const queue: vscode.TestItem[] = [];
 
-  function enqueueTests(test: vscode.TestItem) {
-    run.enqueued(test);
-    queued.push(test);
-  }
-
-  // Recursively loop through all included tests, or all known tests
+  // Loop through all included tests, or all known tests, and add them to our queue
   if (request.include) {
-    request.include.forEach(runTest);
+    request.include.forEach(test => queue.push(test));
   } else {
-    controller.items.forEach(runTest);
+    controller.items.forEach(test => queue.push(test));
   }
 
   // For every test that was queued, try to run it. Call run.passed() or run.failed().
   // The `TestMessage` can contain extra information, like a failing location or
   // a diff output. But here we'll just give it a textual message.
-  for (const test of queued) {
-    if (token.isCancellationRequested) {
-      return; // abort if the user asked to stop this test run
+  while (queue.length > 0 && !token.isCancellationRequested) {
+    const test = queue.pop()!;
+
+    // Skip tests the user asked to exclude
+    if (request.exclude?.includes(test)) {
+      continue;
     }
 
-    const start = Date.now();
-    try {
-      await assertTestPasses(test);
-      run.passed(test, Date.now() - start);
-    } catch (e) {
-      run.failed(test, new vscode.TestMessage(e.message), Date.now() - start);
+    switch (getType(test)) {
+      case ItemType.File:
+        // If we're running a file and don't know what it contains yet, parse it now
+        if (test.children.size === 0) {
+          await parseTestsInFileContents(test);
+        }
+        break;
+      case ItemType.TestCase:
+        // Otherwise, just run the test case. Note that we don't need to manually
+        // set the state of parent tests; they'll be set automatically.
+        const start = Date.now();
+        try {
+          await assertTestPasses(test);
+          run.passed(test, Date.now() - start);
+        } catch (e) {
+          run.failed(test, new vscode.TestMessage(e.message), Date.now() - start);
+        }
+        break;
     }
+
+    test.children.forEach(test => queue.push(test));
   }
 
   // Make sure to end the run after all tests have been executed:
@@ -208,7 +237,7 @@ In addition to the `runHandler`, you can set a `configureHandler` on the `TestRu
 
 The presence of run profiles is optional. A controller is allowed to create tests, call `createTestRun` outside of the `runHandler`, and update tests' states in the run without having a profile. The common use case for this are controllers who load their results from an external source, like CI or summary files.
 
-In this case, these controllers should usually pass the additional `name` argument to `createTestRun`, as well as `false` for the `persist` argument. Passing `false` here instructs VS Code not to retain the test result like it would runs in the editor, since these results can be re-loaded from an external source externally.
+In this case, these controllers should usually pass the optional `name` argument to `createTestRun`, and `false` for the `persist` argument. Passing `false` here instructs VS Code not to retain the test result, like it would for runs in the editor, since these results can be reloaded from an external source externally.
 
 ```ts
 const controller = vscode.tests.createTestController('myCoverageFileTests', 'Coverage File Tests');
