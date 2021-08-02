@@ -98,7 +98,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
 Dropdown control is not used on macOS currently.
 
-![dropdown control](images/theme-color/Dropdown.png)
+![dropdown control](images/theme-color/dropdown.png)
 
 - `dropdown.background`: Dropdown background.
 - `dropdown.listBackground`: Dropdown list background.
@@ -791,7 +791,6 @@ The following customizations are available:
 - `settings.numberInputBorder`: Number input box border.
 - `settings.focusedRowBackground`: Background color of a focused setting row.
 - `settings.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
-- `notebook.rowHoverBackground`: Border color of a hovered setting row.
 
 ## Breadcrumbs colors
 
