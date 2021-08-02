@@ -323,6 +323,7 @@ You can use any of the validation JSON Schema properties to describe other const
 - `format` for restricting strings to well-known formats, such as `date`, `time`, `ipv4`, `email`,
   and `uri`
 - `maxItems`, `minItems` for restricting array length
+- `editPresentation` for controlling whether a single-line inputbox or multi-line textarea is rendered for the string setting in the Settings editor
 
 **Unsupported JSON Schema properties**
 
