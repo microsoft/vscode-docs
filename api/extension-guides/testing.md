@@ -22,7 +22,7 @@ Tests are provided by the `TestController`, which requires a globally unique ID 
 const controller = vscode.tests.createTestController('helloWorldTests', 'Hello World Tests');
 ```
 
-To publish tests, you add `TestITem`s as children to the controller's `items` collection. `TestItem`s are the foundation of the test API in the `TestItem` interface, and are a generic type that can describe a test case, suite, or tree item as it exists in code. They can, in turn, have `children` themselves, forming a hierarchy. For example, here's a simplified version of how the sample test extension creates tests:
+To publish tests, you add `TestItem`s as children to the controller's `items` collection. `TestItem`s are the foundation of the test API in the `TestItem` interface, and are a generic type that can describe a test case, suite, or tree item as it exists in code. They can, in turn, have `children` themselves, forming a hierarchy. For example, here's a simplified version of how the sample test extension creates tests:
 
 ```ts
 parseMarkdown(content, {
