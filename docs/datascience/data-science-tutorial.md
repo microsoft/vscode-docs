@@ -70,7 +70,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
-1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar
+1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar.
 
    ![Click variable explorer icon](images/data-science-tutorial/variable-explorer-1.png)
 
