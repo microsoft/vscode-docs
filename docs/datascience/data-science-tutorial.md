@@ -70,7 +70,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
-1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar
+1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar.
 
    ![Click variable explorer icon](images/data-science-tutorial/variable-explorer-1.png)
 
@@ -78,7 +78,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Click variable explorer icon](images/data-science-tutorial/variable-explorer-2.png)
 
-1. To view the data in the Pandas DataFrame just loaded, click the data viewer icon to the left of the `data` variable. For additional information about the titanic data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
+1. To view the data in the Pandas DataFrame just loaded, click the data viewer icon to the left of the `data` variable. For additional information about the Titanic data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
 
    ![Click data viewer icon](images/data-science-tutorial/variable-explorer-3.png)
 
@@ -118,7 +118,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Graphing the titanic data](images/data-science-tutorial/jupyter-cell-02.png)
 
-   To better view details on the graphs, you can open them in plot viewer by hovering over the upper right corner of the graph and clicking the button that appears.
+   To better view details on the graphs, you can open them in the plot viewer by hovering over the upper right corner of the graph and clicking the button that appears.
 
       ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer.png)
 
