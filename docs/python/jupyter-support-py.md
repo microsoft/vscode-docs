@@ -125,15 +125,13 @@ This feature requires the [Live Share extensions](https://marketplace.visualstud
 
 ## Variable explorer and data viewer
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By clicking on the 'Variables' button in the interactive window toolbar to open the variable explorer after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
 ![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
 
 For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
 
 ![Data Viewer](images/jupyter/jupyter-data-viewer.png)
-
-> **Note:** Variable explorer is enabled by default, but can be turned off in settings (Python > Data Science: Show Jupyter Variable Explorer).
 
 ## Connect to a remote Jupyter server
 
