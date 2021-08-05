@@ -5,7 +5,7 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 7/8/2021
+DateApproved: 8/5/2021
 ---
 # Remote development in Containers
 

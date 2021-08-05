@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 54fdcc33-7ad1-40cc-bc87-ded1841d01ad
-DateApproved: 7/8/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Virtual Documents in Visual Studio Code extensions (plug-ins)

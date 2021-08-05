@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 7/8/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
