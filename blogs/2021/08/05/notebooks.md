@@ -34,7 +34,7 @@ While we are excited about introducing new experiences in VS Code, surprises lik
 
 ## But it’s different!
 
-The original version of Notebooks in VS Code was very close to the classical Jupyter Notebooks experience:    it looked and behaved pretty much the same. This was a reasonable starting point, a warm, cozy, and familiar experience. However, as we learned more about how VS Code users work with both Notebooks and the rest of the tool, we realized that the two experiences needed to be more similar than different.
+The original version of Notebooks in VS Code was very close to the classical Jupyter Notebooks experience, it looked and behaved pretty much the same. This was a reasonable starting point, a warm, cozy, and familiar experience. However, as we learned more about how VS Code users work with both Notebooks and the rest of the tool, we realized that the two experiences needed to be more similar than different.
 
 Notebooks in VS Code should feel natural so that you can seamlessly move between crafting your code files  and your Notebook that is modelling the Universe in Python. This means that Notebooks in VS Code take advantage of built-in metaphors and familiar keyboard shortcuts as much as possible.
 
