@@ -93,6 +93,23 @@ The Python Interactive window has full IntelliSense – code completions, member
 The Plot Viewer gives you the ability to work more deeply with your plots. In the viewer you can pan, zoom, and navigate plots in the current session. You can also export plots to PDF, SVG, and PNG formats.
 
 Within the Python Interactive window, double-click any plot to open it in the viewer, or select the expand button on the upper left corner of the plot.
+<!--
+```
+#%%
+import matplotlib.pyplot as plt
+
+#%%
+cat = ["bored", "happy", "bored"]
+dog = ["happy", "bored", "happy"]
+activity = ["combing", "drinking", "feeding"]
+
+fig = ax = plt.subplot()
+ax.plot(activity, dog, label="dog")
+ax.plot(activity, cat, label="cat")
+ax.legend()
+
+plt.show()
+``` -->
 
 ![Plot Viewer with the Python Interactive window](images/jupyter/plot-viewer.gif)
 
