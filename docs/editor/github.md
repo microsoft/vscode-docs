@@ -177,7 +177,7 @@ You can easily switch between branches by clicking on the branch indicator in th
 
 You can quickly reopen remote repositories with the Remote Explorer available on the Activity bar. This view shows you the previously opened repositories and branches.
 
-![Remote Explorer view](images/github/remote-explorer.png)
+![Remote Explorer view](images/github/github-remote-explorer.png)
 
 ### Create Pull Requests
 
@@ -199,4 +199,4 @@ Extension authors can learn more about running in a virtual file system and work
 
 Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to clone the repository locally or into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed) with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the the Remote indicator in the Status bar.
 
-![Continue Working on command in Remote dropdown](images/github/continue-working-on.png)
+![Continue Working on command in Remote dropdown](images/github/continue-working.png)
