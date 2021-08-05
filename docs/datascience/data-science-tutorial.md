@@ -78,7 +78,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Click variable explorer icon](images/data-science-tutorial/variable-explorer-2.png)
 
-1. To view the data in the Pandas DataFrame just loaded, click the data viewer icon to the left of the `data` variable. For additional information about the titanic data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
+1. To view the data in the Pandas DataFrame just loaded, click the data viewer icon to the left of the `data` variable. For additional information about the Titanic data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
 
    ![Click data viewer icon](images/data-science-tutorial/variable-explorer-3.png)
 
