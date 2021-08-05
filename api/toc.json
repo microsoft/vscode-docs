@@ -37,6 +37,7 @@
       ["Source Control", "/api/extension-guides/scm-provider"],
       ["Debugger Extension", "/api/extension-guides/debugger-extension"],
       ["Markdown Extension", "/api/extension-guides/markdown-extension"],
+      ["Test Extension", "/api/extension-guides/testing"],
       ["Custom Data Extension", "/api/extension-guides/custom-data-extension"]
     ]
   },

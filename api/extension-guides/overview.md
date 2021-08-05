@@ -40,6 +40,7 @@ Here are the guides on the VS Code website, including their usage of the [VS Cod
 | [Source Control](https://code.visualstudio.com/api/extension-guides/scm-provider) | [workspace.workspaceFolders](https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders)<br>[SourceControl](https://code.visualstudio.com/api/references/vscode-api#SourceControl)<br>[SourceControlResourceGroup](https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup)<br>[scm.createSourceControl](https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl)<br>[TextDocumentContentProvider](https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider)<br>[contributes.menus](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) |
 | [Debugger Extension](https://code.visualstudio.com/api/extension-guides/debugger-extension) | [contributes.breakpoints](https://code.visualstudio.com/api/references/contribution-points#contributes.breakpoints)<br>[contributes.debuggers](https://code.visualstudio.com/api/references/contribution-points#contributes.debuggers)<br>[debug](https://code.visualstudio.com/api/references/vscode-api#debug) |
 | [Markdown Extension](https://code.visualstudio.com/api/extension-guides/markdown-extension) | markdown.previewStyles<br>markdown.markdownItPlugins<br>markdown.previewScripts |
+| [Test Extension](https://code.visualstudio.com/api/extension-guides/testing) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://vscode-docs-vnext.azurewebsites.net/api/references/vscode-api#TestItem) |
 | [Custom Data Extension](https://code.visualstudio.com/api/extension-guides/custom-data-extension) | contributes.html.customData<br>contributes.css.customData |
 
 Here is a list of additional samples from the [VS Code Extensions samples repo](https://github.com/microsoft/vscode-extension-samples).
@@ -61,6 +62,8 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 | [Commenting API Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/comment-sample) |  |
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
 | [Getting Started Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample) | [contributes.walkthroughs](https://code.visualstudio.com/api/references/contribution-points#contributes.walkthroughs) |
+| [Test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://vscode-docs-vnext.azurewebsites.net/api/references/vscode-api#TestItem) |
+
 ## Language Extension Samples
 
 These samples are [Language Extensions](/api/language-extensions/overview) samples:

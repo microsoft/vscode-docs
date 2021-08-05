@@ -11,7 +11,7 @@ The Testing API allows Visual Studio Code extensions to discover tests in the wo
 
 There are two test providers maintained by the VS Code team:
 
-- The [sample test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample), which provides tests in markdown files.
+- The [sample test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample), which provides tests in Markdown files.
 - The [selfhost test extension](https://github.com/microsoft/vscode-selfhost-test-provider), that we use for running tests in VS Code itself.
 
 ## Discovering Tests
@@ -22,7 +22,7 @@ Tests are provided by the `TestController`, which requires a globally unique ID 
 const controller = vscode.tests.createTestController('helloWorldTests', 'Hello World Tests');
 ```
 
-To publish tests, you add `TestITem`s as children to the controller's `items` collection. `TestItem`s are the foundation of the test API is the `TestItem` interface, and are a generic type that can describe a test case, suite, or tree item as it exists in code. They can, in turn, have `children` themselves, forming a hierarchy. For example, here's a simplified version of how the sample test extension creates tests:
+To publish tests, you add `TestITem`s as children to the controller's `items` collection. `TestItem`s are the foundation of the test API in the `TestItem` interface, and are a generic type that can describe a test case, suite, or tree item as it exists in code. They can, in turn, have `children` themselves, forming a hierarchy. For example, here's a simplified version of how the sample test extension creates tests:
 
 ```ts
 parseMarkdown(content, {
@@ -42,10 +42,10 @@ parseMarkdown(content, {
 });
 ```
 
-Similar to Diagnostics, it's mostly up to the extension to control when tests are discovered. A simple extension might watch the entire workspace and parse all tests in all files from the get-go. However, parsing everything immediately may be slow for large workspaces. Instead, you can do two things:
+Similar to Diagnostics, it's mostly up to the extension to control when tests are discovered. A simple extension might watch the entire workspace and parse all tests in all files at activation. However, parsing everything immediately may be slow for large workspaces. Instead, you can do two things:
 
 1. Actively discover tests for a file when it's opened in the editor, by watching `vscode.workspace.onDidOpenTextDocument`.
-1. Setting `item.canResolveChildren = true` and setting the `controller.resolveHandler`. The `resolveHandler` is called if the user takes an action to demand tests be discovered, such as by expanding an item in the test explorer.
+1. Setting `item.canResolveChildren = true` and setting the `controller.resolveHandler`. The `resolveHandler` is called if the user takes an action to demand tests be discovered, such as by expanding an item in the Test Explorer.
 
 Here's how this strategy might look in an extension that parses files lazily:
 
@@ -129,7 +129,7 @@ async function discoverAllFilesInWorkspace() {
 }
 ```
 
-The `TestItem` interface is plain and doesn't have room for custom data. If you need to associate extra information with a `TestItem`, you can use a [`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap):
+The `TestItem` interface is simple and doesn't have room for custom data. If you need to associate extra information with a `TestItem`, you can use a [`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap):
 
 ```ts
 const testData = new WeakMap<vscode.TestItem, MyCustomData>();
@@ -229,9 +229,9 @@ async function runHandler(request: vscode.TestRunRequest, token: vscode.Cancella
 }
 ```
 
-In addition to the `runHandler`, you can set a `configureHandler` on the `TestRunProfile`. If present, VS Code will have UI to allow the user to configure the test run, and call the handler when they do so. From here, you can open files, show a quickpick, or do whatever is appropriate for your test framework.
+In addition to the `runHandler`, you can set a `configureHandler` on the `TestRunProfile`. If present, VS Code will have UI to allow the user to configure the test run, and call the handler when they do so. From here, you can open files, show a Quick Pick, or do whatever is appropriate for your test framework.
 
-> VS Code intentionally handles test configuration differently than debug or task configuration. These are traditionally editor or IDE-centric features, and are configured in special files in the `.vscode` folder. However, tests have traditionally been executed from the command line, and most test frameworks have existing configuration strategies. Therefore, in VS Code we avoid duplication of configuration and instead leave it up to extensions to handle.
+> VS Code intentionally handles test configuration differently than debug or task configuration. These are traditionally editor or IDE-centric features, and are configured in special files in the `.vscode` folder. However, tests have traditionally been executed from the command line, and most test frameworks have existing configuration strategies. Therefore, in VS Code, we avoid duplication of configuration and instead leave it up to extensions to handle.
 
 ### Publish-Only Controllers
 
