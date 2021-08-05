@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
 PageTitle: Python and Data Science Tutorial in Visual Studio Code
-DateApproved: 6/15/2021
+DateApproved: 8/6/2021
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -30,7 +30,7 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
 1. Begin by creating an Anaconda environment for the data science tutorial. Open an Anaconda command prompt and run `conda create -n myenv python=3.7 pandas jupyter seaborn scikit-learn keras tensorflow` to create an environment named **myenv**. For additional information about creating and managing Anaconda environments, see the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 1. Next, create a folder in a convenient location to serve as your VS Code workspace for the tutorial, name it `hello_ds`.
-1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. Note that you can safely trust the opening the folder, since you created it.
+1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. Note that you can safely trust opening the folder, since you created it.
 
 1. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Jupyter: Create New Blank Jupyter Notebook**.
 
@@ -38,13 +38,13 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
    > **Note**: Alternatively, from the VS Code File Explorer, you can use the New File icon to create a Notebook file named `hello.ipynb`.
 
-1. Save the file as hello.ipynb using **File** > **Save As...**
+1. Save the file as `hello.ipynb` using **File** > **Save As...**.
 
-1. After your file is created, you should see the open [Jupyter notebook](https://jupyter.org/) in the notebook editor. For additional information about native Jupyter notebook support, see [this section](/docs/datascience/jupyter-notebooks.md) of the documentation.
+1. After your file is created, you should see the open [Jupyter notebook](https://jupyter.org/) in the notebook editor. For additional information about native Jupyter notebook support, you can read the [Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) topic.
 
    ![Viewing a new Jupyter Notebook](images/data-science-tutorial/notebook-editor.png)
 
-1. Now click **Select Kernel** at the top right of the notebook.
+1. Now select **Select Kernel** at the top right of the notebook.
 
    ![Selecting a Jupyter Notebook Kernel](images/data-science-tutorial/select-kernel.png)
 
@@ -56,9 +56,9 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
 This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic.html) available on [OpenML.org](https://www.openml.org/d/40945), which is obtained from Vanderbilt University's Department of Biostatistics at [http://biostat.mc.vanderbilt.edu/DataSets](http://biostat.mc.vanderbilt.edu/DataSets). The Titanic data provides information about the survival of passengers on the Titanic, as well as characteristics about the passengers such as age and ticket class. Using this data, the tutorial will establish a model for predicting whether a given passenger would have survived the sinking of the Titanic. This section shows how to load and manipulate data in your Jupyter notebook.
 
-1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a csv file named `data.csv` and save it to the `hello_ds` folder that you created in the previous section.
-1. If you haven't already in VS Code, open the `hello_ds` folder and the Jupyter notebook (`hello.ipynb`), by going to **File** > **Open Folder**.
-1. Within your Jupyter notebook begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the below code into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the [Working with Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) documentation.
+1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a CSV file named `data.csv` and save it to the `hello_ds` folder that you created in the previous section.
+1. If you haven't already open the file in VS Code, open the `hello_ds` folder and the Jupyter notebook (`hello.ipynb`), by going to **File** > **Open Folder**.
+1. Within your Jupyter notebook, begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the code below into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the [Working with Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) documentation.
 
    ```python
    import pandas as pd
@@ -70,20 +70,19 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Running a Jupyter notebook cell](images/data-science-tutorial/jupyter-cell-01.png)
 
-1. After the cell finishes running, you can view the data that was loaded using the variable explorer and data viewer. First click on the chart icon in the notebook's upper toolbar.
+1. After the cell finishes running, you can view the data that was loaded using the Variables Explorer and Data Viewer. First select the **Variables** icon in the notebook's upper toolbar.
 
-   ![Click variable explorer icon](images/data-science-tutorial/variable-explorer-1.png)
+   ![Select Variables icon](images/data-science-tutorial/variable-explorer-1.png)
 
 1. A **JUPYTER: VARIABLES** pane will open at the bottom of VS Code. It contains a list of the variables defined so far in your running kernel.
 
-   ![Click variable explorer icon](images/data-science-tutorial/variable-explorer-2.png)
+   ![Variables pane](images/data-science-tutorial/variable-explorer-2.png)
 
-1. To view the data in the Pandas DataFrame just loaded, click the data viewer icon to the left of the `data` variable. For additional information about the Titanic data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
+1. To view the data in the Pandas DataFrame just loaded, select the Data Viewer icon to the left of the `data` variable. For additional information about the Titanic data set, refer to [this document](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3info.txt) about how it was constructed.
 
-   ![Click data viewer icon](images/data-science-tutorial/variable-explorer-3.png)
+   ![Select Data Viewer icon](images/data-science-tutorial/variable-explorer-3.png)
 
-
-1. Use the data viewer to view, sort, and filter the rows of data. After reviewing the data, it can then be helpful to graph some aspects of it to help visualize the relationships between the different variables.
+1. Use the Data Viewer to view, sort, and filter the rows of data. After reviewing the data, it can then be helpful to graph some aspects of it to help visualize the relationships between the different variables.
 
    ![Data viewer and variable explorer](images/data-science-tutorial/dataviewer.png)
 

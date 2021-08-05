@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
 PageTitle: Working with Jupyter code cells in the Python Interactive window
-DateApproved: 10/02/2019
+DateApproved: 8/6/2021
 MetaDescription: Working with Jupyter code cells in the Python Interactive window
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -15,7 +15,7 @@ MetaSocialImage: images/tutorial/social.png
 
 - Work with Jupyter-like code cells
 - Run code in the Python Interactive Window
-- View, inspect, and filter variables using the Variable explorer and data viewer
+- View, inspect, and filter variables using the Variables Explorer and Data Viewer
 - Connect to a remote Jupyter server
 - Debug a Jupyter notebook
 - Export a Jupyter notebook
@@ -123,11 +123,11 @@ The Python Interactive window also supports [Visual Studio Live Share](https://v
 
 This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to be installed on both host and guest machines. -->
 
-## Variable explorer and data viewer
+## Variables Explorer and Data Viewer
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By clicking on the 'Variables' button in the interactive window toolbar to open the variable explorer after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. Select the **Variables** button in the interactive window toolbar to open the Variables explorer after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
-![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
+![Variables Explorer](images/jupyter/jupyter-variable-explorer.png)
 
 For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
 
