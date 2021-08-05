@@ -20,7 +20,7 @@ Ok, it's not totally new. Donald Knuth introduced the concept of [Literate Progr
 
 Over the past decade, we've seen an explosion in notebook usage, especially with the rise of Data Science. Tools like Jupyter Notebooks have become a de facto tool in the data science community. They are used and loved for everything from virtual scratch pads, data preparation tasks, and complex machine learning model development.
 
-One interesting trend we've seen is that data science and machine learning is becoming a team sport: developers are increasingly collaborating with data scientists to prepare data sets for model training, refactor exploratory code for production use, and integrate model inferencing into their core product. Our own team analyzes vast amounts of usage data every day and uses [Jupyter notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) to track, analyze, and validate hypotheses. We use domain specific notebooks ([GitHub Issues](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks)) to track issues and work items across GitHub repositories, providing insight into the readiness to release VS Code each month. Notebooks are now critical for us to run the VS Code project.
+One interesting trend we've seen is that data science and machine learning is becoming a team sport: developers are increasingly collaborating with data scientists to prepare data sets for model training, refactor exploratory code for production use, and integrate model inferencing into their core product. Our own team analyzes vast amounts of usage data every day and uses [Jupyter notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) to track, analyze, and validate hypotheses. We use domain-specific notebooks ([GitHub Issues](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks)) to track issues and work items across GitHub repositories, providing insight into the readiness to release VS Code each month. Notebooks are now critical for us to run the VS Code project.
 
 ## New UI, no warning
 
@@ -36,7 +36,7 @@ While we are excited about introducing new experiences in VS Code, surprises lik
 
 The original version of notebooks in VS Code was very close to the classic Jupyter Notebooks experience, it looked and behaved pretty much the same. That was a reasonable starting point, a warm, cozy, and familiar experience. However, as we learned more about how VS Code users work with both notebooks and the rest of the tool, we realized that the two experiences needed to be more similar than different.
 
-Notebooks in VS Code should feel natural so that you can seamlessly move between crafting your code files and your notebook modelling the Universe in Python. This means that notebooks in VS Code take advantage of built-in metaphors and familiar keyboard shortcuts as much as possible.
+Notebooks in VS Code should feel natural so that you can seamlessly move between crafting your code files and your notebook modeling the Universe in Python. This means that notebooks in VS Code take advantage of built-in metaphors and familiar keyboard shortcuts as much as possible.
 
 For example, writing in a code cell should feel the same as writing code in the full-fledged text editor, no matter the language you use. Settings should not be specific to notebooks. Quick fixes, outline, source actions, refactorings, multiple-cursors, word wrapping, shrink and expand selection, column selection mode, change casing, and other editor experiences should be the same. Your favorite editor extensions like [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) and Snippets should just work. You should be able to compare notebooks graphically, side by side, just as you do with source files today.
 
@@ -52,6 +52,6 @@ We believe that expanding VS Code's rich coding experiences and ecosystem to inc
 
 Thanks!
 
-Jim, Joe, Kai, Chris and the VS Code Team
+Jim, Joe, Kai, Chris, and the VS Code Team
 
 Happy Notebooking!
