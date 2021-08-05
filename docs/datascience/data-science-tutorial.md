@@ -118,7 +118,7 @@ This tutorial uses the [Titanic dataset](http://biostat.mc.vanderbilt.edu/wiki/p
 
    ![Graphing the titanic data](images/data-science-tutorial/jupyter-cell-02.png)
 
-   To better view details on the graphs, you can open them in plot viewer by hovering over the upper right corner of the graph and clicking the button that appears.
+   To better view details on the graphs, you can open them in the plot viewer by hovering over the upper right corner of the graph and clicking the button that appears.
 
       ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer.png)
 
