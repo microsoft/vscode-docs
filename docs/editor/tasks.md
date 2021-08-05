@@ -1052,3 +1052,26 @@ You can then use the task as a `prelaunchTask` in your `launch.json` file:
 ```
 
 For more on background tasks, go to [Background / watching tasks](/docs/editor/tasks.md#background-watching-tasks).
+
+### Why do I get "command not found" when running a task?
+
+The message "command not found" happens when the task command you're trying to run is not recognized by your terminal as something runnable. Most often, this occurs because the command is configured as part of your shell's startup scripts. Tasks are run as non-login and non-interactive, which means that the startup scripts for your shell won't be run. `nvm` in particular is known to use startup scripts as part of its configuration.
+
+There are several ways to resolve this issue:
+
+1. Make sure your command is on your path and doesn't require startup scripts to get added to your path. This is the most thorough way to solve the problem, and is the recommended solution.
+2. You can make a one-off fix for your task to run as login or interactive. This is not recommended, as it can have other consequences. However, it can also be a quick and easy fix for a single task. Below is an example of a task that does this with `bash` as the shell:
+
+```json
+{
+    "type": "npm",
+    "script": "watch",
+    "options": {
+        "shell": {
+            "args": ["-c", "-l"]
+        }
+    }
+}
+```
+
+The above `npm` task will run `bash` with a command (`-c`), just like the tasks system does by default. However, this task also runs `bash` as a login shell (`-l`).
