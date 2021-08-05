@@ -26,7 +26,7 @@ One interesting trend we’ve seen is that data science and machine learning is 
 
 We’ve been hard at work building Notebooks into the core  of VS Code to make them faster and safer—and to allow your favorite VS Code extensions to work in them. As a part of this effort, we are also introducing changes to the user experience to make Notebooks feel like an integral part of the tool, not an add-on as they were in earlier efforts.
 
-If you are on the [Insiders builds](https://code.visualstudio.com/insiders/) you have been able to follow along as we evolve the experience. On stable, we had 40% of users on the new Notebook experience. Feedback was generally positive. So, like Nigel Tufnel, we decided to turn the volume to 11 and moved everyone forward onto the new implementation.
+If you are on the [Insiders builds](https://code.visualstudio.com/insiders/) you have been able to follow along as we evolve the experience. On stable, we had 40% of users on the new Notebook experience. Feedback was generally positive. So, like Nigel Tufnel, we decided to [turn the volume to 11](https://www.youtube.com/watch?v=hW008FcKr3Q) and moved everyone forward onto the new implementation.
 
 Unfortunately, as you quickly let us know, we made the transition for you with little to no warning. There you are, deeply using Jupyter Notebooks , cleaning and analyzing that massive data set to model the expansion of the Universe, and we turned your world upside down. You grabbed a coffee, started VS Code, and boom your Notebook experience was..._different_.
 
@@ -38,7 +38,7 @@ The original version of Notebooks in VS Code was very close to the classical Jup
 
 Notebooks in VS Code should feel natural so that you can seamlessly move between crafting your code files  and your Notebook that is modelling the Universe in Python. This means that Notebooks in VS Code take advantage of built-in metaphors and familiar keyboard shortcuts as much as possible.
 
-For example, writing in a code cell should feel the same as writing code in the full-fledged text editor no matter the language you use. Settings should not be specific to Notebooks. Quick fixes, outline, source actions, refactorings, multiple-cursors, word wrapping, shrink and expand selection, column selection mode, change casing, and other editor experiences should be the same. Your favorite editor extensions like [Bracket Pair Colorizer](https://www.youtube.com/watch?v=hW008FcKr3Q) and Snippets should just work. You should compare Notebooks graphically, side by side, just as you do with source files today.
+For example, writing in a code cell should feel the same as writing code in the full-fledged text editor no matter the language you use. Settings should not be specific to Notebooks. Quick fixes, outline, source actions, refactorings, multiple-cursors, word wrapping, shrink and expand selection, column selection mode, change casing, and other editor experiences should be the same. Your favorite editor extensions like [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) and Snippets should just work. You should compare Notebooks graphically, side by side, just as you do with source files today.
 
 ## The Ecosystem
 
