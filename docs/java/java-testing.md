@@ -136,7 +136,3 @@ Read on to find out about:
 
 - [Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
 - [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
-
-
-
-
