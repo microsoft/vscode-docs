@@ -616,7 +616,7 @@ See the following example dev containers definitions for additional information 
 
 * [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Illustrates how to run Docker (or Moby) entirely inside a container. Provides support for bind mounting all folders inside the development container, but cannot reuse your local machine's cache.
 
-* [Kuberntes - Minikube-in-Docker](https://aka.ms/vscode-remote/samples/kubernetes-helm-minikube) - Illustrates how to run Minikube entirely inside a container with similar benefits and limitations as Docker-in-Docker.
+* [Kubernetes - Minikube-in-Docker](https://aka.ms/vscode-remote/samples/kubernetes-helm-minikube) - Illustrates how to run Minikube entirely inside a container with similar benefits and limitations as Docker-in-Docker.
 
 **Accessing an existing Docker or Minikube instance from a container**
 
