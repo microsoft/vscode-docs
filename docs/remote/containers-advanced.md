@@ -110,13 +110,13 @@ In other cases, you may want to start up a process and leave it running. This ca
 
 Those familiar with Linux may expect to be able to use the `systemctl` command to start and stop background services managed by something called `systemd`. Unfortunately, `systemd` has overhead and is generally not used in containers as a result.
 
-In many cases, there is a command you can run instead (for example, `sshd`). And on Debian/Ubuntu, there are often scripts under `/etc/init.d` that you can run directly instead.
+In many cases, there is a command you can run instead (for example, `sshd`). And on Debian/Ubuntu, there are often scripts under `/etc/init.d` that you can run directly.
 
 ```json
 "postStartCommand": "/etc/init.d/ssh start"
 ```
 
-These systems also include a `service` command that will use `systemd` or there are init scripts based on what is installed.
+These systems also include a `service` command that will use `systemctl` or `/etc/init.d` scripts based on what is installed.
 
 ```json
 "postStartCommand": "service ssh start"
@@ -610,7 +610,7 @@ While you can build, deploy, and debug your application inside a dev container, 
 
 Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
-See the following example dev containers definitions for additional information on a specific scenario:
+See the following example dev container definitions for additional information on a specific scenario:
 
 **Running Docker or Minikube in a development container**
 
