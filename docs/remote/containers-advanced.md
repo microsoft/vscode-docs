@@ -21,7 +21,7 @@ You can set environment variables in your container without altering the contain
 
 Depending on what you reference in `devcontainer.json`:
 
-* **Dockerfile or image**: Add the `containerEnv` property to `devcontainer.json` to set variables that should apply to the entire container or `remoteEnv` to set variables for VS Code and related sub-processes (terminals, tasks, debugging, etc):
+* **Dockerfile or image**: Add the `containerEnv` property to `devcontainer.json` to set variables that should apply to the entire container or `remoteEnv` to set variables for VS Code and related sub-processes (terminals, tasks, debugging, etc.):
 
     ```json
     "containerEnv": {
@@ -95,7 +95,8 @@ Next, depending on what you reference in `devcontainer.json`:
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Starting a process when the container starts
-When you are working in a development container, you may want execute a command or start something each time the container starts. The easiest way to do this is using the `postStartCommand` property in `devcontainer.json`. For example, if you wanted to run `yarn install` every time you connected to the container to keep dependencies up to date, you could add the following:
+
+When you are working in a development container, you may want to execute a command or start something each time the container starts. The easiest way to do this is using the `postStartCommand` property in `devcontainer.json`. For example, if you wanted to run `yarn install` every time you connected to the container to keep dependencies up to date, you could add the following:
 
 ```json
 "postStartCommand": "yarn install"
@@ -107,22 +108,23 @@ In other cases, you may want to start up a process and leave it running. This ca
 "postStartCommand": "nohup bash -c 'your-command-here &'"
 ```
 
-Those familiar with Linux may expect to be able to use the `systemctl` command to start and stop background services managed by something called `systemd`. Unfortuntely, `systemd` has quite a bit of overhead and is generally not used in containers as a result.
+Those familiar with Linux may expect to be able to use the `systemctl` command to start and stop background services managed by something called `systemd`. Unfortunately, `systemd` has overhead and is generally not used in containers as a result.
 
-In many cases there is a command you can just run instead (e.g. `sshd`). However, on Debian/Ubuntu, there are often still scripts under `/etc/init.d` that you can run directly instead.
+In many cases, there is a command you can run instead (for example, `sshd`). And on Debian/Ubuntu, there are often scripts under `/etc/init.d` that you can run directly instead.
 
 ```json
 "postStartCommand": "/etc/init.d/ssh start"
 ```
 
-These systems also include a `service` command that will use `systemd` or these init scripts based on what is installed.
+These systems also include a `service` command that will use `systemd` or there are init scripts based on what is installed.
 
 ```json
 "postStartCommand": "service ssh start"
 ```
 
 ### Adding startup commands to the Docker image instead
-While postStartCommand is convienent and allows you to execute commands in your source tree, you can add these steps to a Dockerfile instead using a custom [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) or [CMD](https://docs.docker.com/engine/reference/builder/#cmd).
+
+While `postStartCommand` is convenient and allows you to execute commands in your source tree, you can also add these steps instead to a Dockerfile using a custom [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) or [CMD](https://docs.docker.com/engine/reference/builder/#cmd).
 
 When referencing a Dockerfile in `devcontainer.json`, the default entrypoint and command is overridden. First, disable this behavior using the `overrrideCommand` property.
 
@@ -149,7 +151,7 @@ The `CMD` here makes sure the container stays running by default. Keeping your s
 /docker-entrypoint.sh sleep infinity
 ```
 
-Next, let's create our `docker-entrypoint.sh` script:
+Next, create a `docker-entrypoint.sh` script:
 
 ```bash
 #!/usr/env bash
@@ -166,7 +168,8 @@ Finally, if you are using Docker Compose, be sure that neither the [entrypoint](
 That's it!
 
 ## Adding another local file mount
-> **Note:** Mounting the local file system is not supported in GitHub Codespaces. See [developing inside a container on a remote Docker host](#developing-inside-a-container-on-a-remote-docker-host) for information on mounting remote folders in this sceanrio.
+
+> **Note:** Mounting the local file system is not supported in GitHub Codespaces. See [developing inside a container on a remote Docker host](#developing-inside-a-container-on-a-remote-docker-host) for information on mounting remote folders in this scenario.
 
 You can add a volume bound to any local folder by using the following appropriate steps, based on what you reference in `devcontainer.json`:
 
@@ -610,19 +613,20 @@ Once the needed CLIs are in place, you can also work with the appropriate contai
 See the following example dev containers definitions for additional information on a specific scenario:
 
 **Running Docker or Minikube in a development container**
+
 * [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Illustrates how to run Docker (or Moby) entirely inside a container. Provides support for bind mounting all folders inside the development container, but cannot reuse your local machine's cache.
 
-* [Kuberntes - Minikube-in-Docker](https://aka.ms/vscode-remote/samples/kubernetes-helm-minikube) - Illustrates how to run Minikube entirely inside a container with similar benifits and limitations as Docker-in-Docker.
+* [Kuberntes - Minikube-in-Docker](https://aka.ms/vscode-remote/samples/kubernetes-helm-minikube) - Illustrates how to run Minikube entirely inside a container with similar benefits and limitations as Docker-in-Docker.
 
 **Accessing an existing Docker or Minikube instance from a container**
+
 * [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker) - Also known as "Docker-outside-of-Docker", this illustrates how you can use the Docker (or Moby) CLI in your dev container to connect to your host's Docker daemon by bind mounting the Docker Unix socket. Lower overhead and can reuse your machine's cache, but has [bind mounting limitations](#mounting-host-volumes-with-docker-from-inside-a-container).
 
 * [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose) - Variation of Docker-from-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
 
 * [Kubernetes - Local Configuration](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Takes the Docker-from-Docker model and adds kubectl and Helm to illustrate how you can access a local Minikube or Docker provided Kubernetes cluster.
 
-
-There is also documentation on the [Docker-in-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md), [Docker-from-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker.md), and [Kubernetes](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/kubectl-helm.md) instaall scripts that you can reuse and are referenced by the samples above.
+There is also documentation on the [Docker-in-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md), [Docker-from-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker.md), and [Kubernetes](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/kubectl-helm.md) install scripts that you can reuse and are referenced by the samples above.
 
 ### Mounting host volumes with Docker from inside a container
 
