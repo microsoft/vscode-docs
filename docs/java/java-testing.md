@@ -41,7 +41,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 
 ### Run/Debug Test Cases
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/editor-decoration.png" alt="Run/Debug Test Cases"/>
+  <img src="images/java-testing/editor-decoration.png" alt="Run/Debug Test Cases"/>
 </p>
 
 - The extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, simply click on the green play button. You can also right click on it to see more options.
@@ -51,7 +51,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 ### Test Explorer
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/test_explorer.png" alt="Test Explorer"/>
+  <img src="images/java-testing/test_explorer.png" alt="Test Explorer"/>
 </p>
 
 - The Test Explorer is the place to show all the test cases in your workspace. You can also run/debug your test cases from here.
@@ -60,7 +60,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 
 ### Customize Test Configurations
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/configuration.png" alt="Customize Test Configurations"/>
+  <img src="images/java-testing/configuration.png" alt="Customize Test Configurations"/>
 </p>
 
 - Sometimes you may want to customize the configuration to run your test cases. To achieve this, you can add the configuration into your workspace settings under the section: `java.test.config`.
@@ -72,7 +72,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 ### View Test Result
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/test_report.png" alt="View Test Result"/>
+  <img src="images/java-testing/test_report.png" alt="View Test Result"/>
 </p>
 
 - After running/debugging the test cases, the state of the related test items will be updated in both editor decoration and test explorer.
@@ -82,7 +82,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 ### VS Code Embedded Commands for Testing
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/command_palette.png" alt="VS Code Embedded Commands for Testing"/>
+  <img src="images/java-testing/command_palette.png" alt="VS Code Embedded Commands for Testing"/>
 </p>
 
 There are other VS Code embedded commands for testing, which can be found by searching `Test:` in the Command Palette.
@@ -97,7 +97,7 @@ There are other VS Code embedded commands for testing, which can be found by sea
 ### VS Code Embedded Settings for Testing
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Microsoft/vscode-java-test/main/demo/settings.png" alt="VS Code Embedded Settings for Testing"/>
+  <img src="images/java-testing/settings.png" alt="VS Code Embedded Settings for Testing"/>
 </p>
 
 There are some other VS Code embedded settings for testing, which can be found by searching `testing` in the Settings view.
