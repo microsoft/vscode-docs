@@ -88,7 +88,7 @@ There are other testing commands (for example, **Run Tests in Current File**) th
 
 ### VS Code testing settings
 
-There are VS Code settings specific to testing that can be found by searching for `testing` in the Settings editor (`kb(workbench.action.openSettings)`).
+There are VS Code settings specific to testing that can be found by searching for 'testing' in the Settings editor (`kb(workbench.action.openSettings)`).
 
 ![Testing settings in the Settings editor](images/java-testing/settings.png)
 
@@ -106,7 +106,7 @@ Refer to [Download and Install](https://github.com/junit-team/junit4/wiki/Downlo
 
 ### TestNG
 
-Refer to the [Welcome documentation](https://testng.org/doc/) from the TestNG official website for getting started information.
+Refer to the [TestNG documentation](https://testng.org/doc/) from the TestNG official website for getting started information.
 
 ## FAQ
 
@@ -114,7 +114,7 @@ If you meet any problem when using the extension, you can review the [FAQ](https
 
 ## Contributing and Feedback
 
-If you are interested in providing feedback or contributing directly to the code base, please check the document [Contributing to Java Test Runner](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md), which covers the following parts:
+If you are interested in providing feedback or contributing directly to the code base, please read [Contributing to Java Test Runner](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md), which covers the following:
 
 - [Questions and Feedback](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#questions-and-feedback)
 - [Reporting Issues](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md#reporting-issues)
