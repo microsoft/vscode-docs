@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Python testing in Visual Studio Code
 
-The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/). [Nose](https://nose.readthedocs.io/en/latest/) is also supported, although the framework itself is in maintenance mode.
+The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/).
 
 After [enabling a test framework](#enable-a-test-framework), use the **Python: Discover Tests** command to [scan the project for tests](#test-discovery) according to the discovery patterns of the currently selected test framework. Once discovered, Visual Studio Code provides a variety of means to [run tests](#run-tests) and [debug tests](#debug-tests). VS Code displays test output in the **Python Test Log** panel, including errors caused when a test framework is not installed. With pytest, failed tests also appear in the **Problems** panel.
 
@@ -92,7 +92,7 @@ With this code, you can experience working with tests in VS Code as described in
 
 Testing in Python is disabled by default. To enable testing, use the **Python: Configure Tests** command on the Command Palette. This command prompts you to select a test framework, the folder containing tests, and the pattern used to identify test files.
 
-You can also configure testing manually by setting *one and only one* of the following settings to true: `python.testing.unittestEnabled`, `python.testing.pytestEnabled`, and `python.testing.nosetestsEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can also configure testing manually by setting *one and only one* of the following settings to true: `python.testing.unittestEnabled` or `python.testing.pytestEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Tests** command does this automatically.
 
@@ -104,7 +104,6 @@ When you enable a test framework, VS Code prompts you to install the framework p
 
 Each test framework has its own conventions for naming test files and structuring the tests within, as described in the following sections. Each case includes two test methods, one of which is intentionally set to fail for the purposes of demonstration.
 
-Because Nose is in maintenance mode and not recommended for new projects, only unittest and pytest examples are shown in the sections that follow. (Nose2, the successor to Nose, is just unittest with plugins, and so it follows the unittest patterns shown here.)
 
 ### Tests in unittest
 
@@ -317,7 +316,7 @@ The behavior of testing with Python is driven by both general settings and setti
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
-| unittestEnabled | `false` | Specifies whether unittest is enabled as the test framework. All other frameworks should be disabled. |
+| unittestEnabled | `false` | Specifies whether unittest is enabled as the test framework. The equivalent setting for pytest should be disabled. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
 
 The default arguments for unittest are as follows:
@@ -334,7 +333,7 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
-| pytestEnabled | `false` | Specifies whether pytest is enabled as the test framework. All other frameworks should be disabled. |
+| pytestEnabled | `false` | Specifies whether pytest is enabled as the test framework. The equivalent setting for unittest should be disabled. |
 | pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. |
 | pytestArgs | `[]` | Arguments to pass to pytest, where each element that's separated by a space is a separate item in the list. See [pytest command-line options](https://docs.pytest.org/en/latest/reference/reference.html#command-line-flags). |
 
@@ -342,16 +341,6 @@ You can also configure pytest using a `pytest.ini` file as described on [pytest 
 
 > **Note**
 > If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests, for example by adding `"env": {"PYTEST_ADDOPTS": "--no-cov"}` to your debug configuration.  (See [Debug Tests](#debug-tests) above about how to set up that launch configuration.) (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
-
-### Nose configuration settings
-
-| Setting<br/>(python.testing.) | Default | Description |
-| --- | --- | --- |
-| nosetestsEnabled | `false` | Specifies whether Nose  is enabled as the test framework. All other frameworks should be disabled. |
-| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if Nose is located outside the current environment. |
-| nosetestArgs | `[]` | Arguments to pass to Nose, where each element that's separated by a space is a separate item in the list. See [Nose usage options](https://nose.readthedocs.io/en/latest/usage.html#options). |
-
-You can also configure nose with a `.noserc` or `nose.cfg` file as described on [Nose configuration](https://nose.readthedocs.io/en/latest/usage.html#configuration).
 
 ## See also
 
