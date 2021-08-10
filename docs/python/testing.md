@@ -90,11 +90,13 @@ With this code, you can experience working with tests in VS Code as described in
 
 ## Enable a test framework
 
-Testing in Python is disabled by default. To enable testing, use the **Python: Configure Tests** command on the Command Palette. This command prompts you to select a test framework, the folder containing tests, and the pattern used to identify test files.
+Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar -- that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted you to select a test framework, the folder containing tests, and the pattern used to identify test files.
 
-You can also configure testing manually by setting *one and only one* of the following settings to true: `python.testing.unittestEnabled` or `python.testing.pytestEnabled`. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+[comment]: <TODO: add screenshot>
 
-It's important that you enable only a single test framework at a time. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Tests** command does this automatically.
+You can configure your tests anytime by using  the **Python: Configure Tests** command on the Command Palette. You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+
+It's important that you enable only a single test framework at a time for a given workspace. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Tests** command does this automatically.
 
 When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
@@ -140,9 +142,12 @@ def test_decrement():
 
 ## Test discovery
 
-VS Code uses the currently enabled testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Tests** command.
+By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command, or by clicking on the refresh button in the **Test Explorer**.
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
+[comment]: <TODO: add screenshot>
+
+
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is also performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -151,6 +156,8 @@ Test discovery applies the discovery patterns for the current framework (which c
 - `python.testing.pytestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
 
 > **Tip**: Sometimes tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
+
+[comment]: <TODO: update text below>
 
 If discovery succeeds, the status bar shows **Run Tests** instead:
 
