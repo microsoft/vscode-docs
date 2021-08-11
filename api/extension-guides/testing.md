@@ -7,6 +7,8 @@ MetaDescription: Testing APIs in VS Code allow users to discover and run unit te
 
 The Testing API allows Visual Studio Code extensions to discover tests in the workspace and publish results. Users can execute tests in the Test Explorer view, from decorations, and inside commands. With these new APIs, Visual Studio Code supports richer displays of outputs and diffs than was previously possible.
 
+>**Note**: The Testing API is available in VS Code version 1.59 and higher.
+
 ## Examples
 
 There are two test providers maintained by the VS Code team:
