@@ -289,7 +289,7 @@ If you specify `"dependsOrder": "sequence"` then your task dependencies are exec
 
 ### User level tasks
 
-You can create user level tasks that are not tied to a specifc workspace or folder using the **Tasks: Open User Tasks** command. Only `shell` and `process` tasks can be used here since other task types require workspace information.
+You can create user level tasks that are not tied to a specific workspace or folder using the **Tasks: Open User Tasks** command. Only `shell` and `process` tasks can be used here since other task types require workspace information.
 
 ## Output behavior
 
