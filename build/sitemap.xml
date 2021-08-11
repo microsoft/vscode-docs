@@ -1048,6 +1048,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/testing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/extension-guides/markdown-extension</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
