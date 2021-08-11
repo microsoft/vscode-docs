@@ -52,7 +52,9 @@ The VS Code extension API hides most of the implementation details of running re
 
 ## Browser-based editor
 
-GitHub Codespaces gives you a free, lightweight Visual Studio Code experience entirely in the browser. The Codespaces web-based editor lets you browse source code repositories from GitHub safely and quickly and make lightweight code changes. You can open any repository, fork, or pull request in the Codespaces editor, which has many of the features of VS Code, including search and syntax highlighting. If you want to run or debug your code, you can switch to the cloud-hosted environment or the VS Code desktop. To access this browser-based editor, you can go to your repo on github.com and press `kbstyle(.)` or change the URL of your repository to `github.dev/org/repo`.
+GitHub Codespaces gives you a free, lightweight Visual Studio Code experience entirely in the browser. The Codespaces web-based editor lets you browse source code repositories from GitHub safely and quickly and make lightweight code changes. You can open any repository, fork, or pull request in the Codespaces editor, which has many of the features of VS Code, including search and syntax highlighting. If you want to run or debug your code, you can switch to the cloud-hosted environment or the VS Code desktop.
+
+To access this browser-based editor, you can go to your repo on github.com and press `kbstyle(.)` or change the URL of your repository to `github.dev/org/repo`, replacing `github.com` with `github.dev`.
 
 Limitation: You may not be able to use the web-based editor if you are running your browser with Incognito mode or have ad blockers enabled.
 

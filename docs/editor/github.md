@@ -201,6 +201,6 @@ Sometimes you'll want to switch to working on a repository in a development envi
 
 ![Continue Working on command in Remote dropdown](images/github/continue-working.png)
 
-If you are using the [browser-based Codespaces editor](/docs/remote/codespaces.md#browser-based-editor), the **"Continue Working On..."** command has the options to open the repository locally or within a cloud-hosted environment in [GitHub Codespaces](https://github.com/features/codespaces).
+If you are using the [browser-based Codespaces editor](/docs/remote/codespaces.md#browserbased-editor), the **"Continue Working On..."** command has the options to open the repository locally or within a cloud-hosted environment in [GitHub Codespaces](https://github.com/features/codespaces).
 
 ![Continue Working On from web-based editor](images/github/codespaces-continue.png)
