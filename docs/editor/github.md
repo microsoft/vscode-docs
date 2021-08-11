@@ -200,3 +200,8 @@ Extension authors can learn more about running in a virtual file system and work
 Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to clone the repository locally or into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed) with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the the Remote indicator in the Status bar.
 
 ![Continue Working on command in Remote dropdown](images/github/continue-working.png)
+
+
+If you are using the browser-based Codespaces editor, you can also use the **"Continue Working On..."** option from the Run and Debug View to open the repository locally or within a cloud-hosted environment in GitHub Codespaces.
+
+![Continue Working On from web-based editor](images/github/codespaces-continue.png)
