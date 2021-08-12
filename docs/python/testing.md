@@ -142,7 +142,7 @@ def test_decrement():
 
 ## Test discovery
 
-By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command, or by clicking on the refresh button in the **Test Explorer**.
+By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command.
 
 [comment]: <TODO: add screenshot>
 
