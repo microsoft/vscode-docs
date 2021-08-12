@@ -95,7 +95,7 @@ Option  | Description
 `baseUrl`|Base directory to resolve non-relative module names.
 `paths`|Specify path mapping to be computed relative to baseUrl option.
 
-You can read more about the available `compilerOptions` in the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+You can read more about the available `compilerOptions` in the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/tsconfig#compilerOptions).
 
 ## Using webpack aliases
 
