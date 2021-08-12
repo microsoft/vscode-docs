@@ -29,7 +29,7 @@ To successfully complete this tutorial, you must do the following:
 
    If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
 
-   You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio** under the **All downloads** section and select the download for **Build Tools for Visual Studio**.
+   You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio 2019** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2019**.
 
    ![Build Tools for Visual Studio download](images/msvc/build-tools-for-vs.png)
 
