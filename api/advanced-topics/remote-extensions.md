@@ -221,25 +221,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 ### Sync user global state between machines
 
-If your extension needs to preserve some user state across different machines
-then provide the state to sync using `vscode.ExtensionContext.globalState.setKeysForSync`.
+If your extension needs to preserve some user state across different machines then provide the state to [Settings Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`. This can help prevent displaying the same welcome or updates page to users on multiple machines.
 
-The common problem is to prevent welcome and update pages. You can use the following pattern:
-
-```TypeScript
-// on activate
-const versionKey = context.extension.id + '.version';
-context.globalState.setKeysForSync([versionKey]);
-
-// later on show page
-const currentVersion = context.extension.packageJSON.version;
-const lastVersionShown = context.globalState.get(versionKey);
-if (!isHigher(currentVersion, lastVersionShown)) {
-    return;
-}
-context.globalState.set(versionKey, currentVersion);
-// show page
-```
+There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities#data-storage) topic.
 
 ### Persisting secrets
 

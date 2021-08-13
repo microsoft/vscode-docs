@@ -45,6 +45,29 @@ There are four options for storing data:
 
 The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
 
+### setKeysForSync example
+
+If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
+
+You can use the following pattern:
+
+```TypeScript
+// on activate
+const versionKey = context.extension.id + '.version';
+context.globalState.setKeysForSync([versionKey]);
+
+// later on show page
+const currentVersion = context.extension.packageJSON.version;
+const lastVersionShown = context.globalState.get(versionKey);
+if (!isHigher(currentVersion, lastVersionShown)) {
+    return;
+}
+context.globalState.set(versionKey, currentVersion);
+// show page
+```
+
+Sharing state across machines can help avoid the problem of users seeing multiple instances of a welcome or update page, by sharing dismissed or viewed flags.
+
 ## Display Notifications
 
 Almost all extensions need to present information to the user at some point. VS Code offers three APIs for displaying notification messages of different severity:
