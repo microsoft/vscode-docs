@@ -11,7 +11,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 Support for Java in Visual Studio Code is provided through a wide range of [extensions](/docs/java/extensions.md). Combined with the power of core VS Code, these extensions give you a lightweight and performant code editor that also supports many of the most common Java development techniques.
 
-This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, use the button below.
+This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, use the **Java Getting Started Tutorial** button below.
 
 <a class="tutorial-next-btn" href="/docs/java/java-tutorial">Java Getting Started Tutorial</a>
 
@@ -36,7 +36,7 @@ To help you set up quickly, we recommend you use the **Coding Pack for Java**, w
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
-If you have already installed VS Code and want to add Java support to it, we recommend to use [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
+If you have already installed VS Code and want to add Java support to it, we recommend to use the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
