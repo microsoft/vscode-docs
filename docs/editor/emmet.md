@@ -220,7 +220,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.excludeLanguages`
 
-    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language id strings.
+    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language ID strings.
 
 * `emmet.syntaxProfiles`
 

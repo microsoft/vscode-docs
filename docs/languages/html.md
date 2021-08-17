@@ -136,7 +136,7 @@ VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviatio
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language ID](/docs/languages/overview.md#language-id) and associates it with the language ID of an Emmet supported mode.
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 
