@@ -209,7 +209,7 @@ The Natvis schema is provided here for convenience:
     </xs:attribute>
     <xs:attribute name="LanguageId" type="GuidType" use="optional">
       <xs:annotation>
-        <xs:documentation>Specifies the language id used to identify the debugger component that implements the function. This must match the filter constraints of the IDkmIntrinsicFunctionEvaluator140 implementation.</xs:documentation>
+        <xs:documentation>Specifies the language ID used to identify the debugger component that implements the function. This must match the filter constraints of the IDkmIntrinsicFunctionEvaluator140 implementation.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Id" type="xs:unsignedInt" use="optional">

@@ -65,7 +65,7 @@ The following properties are supported:
 
 ### File association
 
-Icons can be associated to folders, folder names, files, file extensions, file names and [language ids](/api/references/contribution-points#contributes.languages).
+Icons can be associated to folders, folder names, files, file extensions, file names and [language IDs](/api/references/contribution-points#contributes.languages).
 
 Additionally each of these associations can be refined for 'light' and 'highContrast' color themes.
 
@@ -100,7 +100,7 @@ Each file association points to an icon definition.
 }
 ```
 
-- `file` is the default file icon, shown for all files that don't match any extension, filename or language id. Currently all properties defined by the definition of the file icon will be inherited (only relevant for font glyphs, useful for the fontSize).
+- `file` is the default file icon, shown for all files that don't match any extension, filename or language ID. Currently all properties defined by the definition of the file icon will be inherited (only relevant for font glyphs, useful for the fontSize).
 - `folder` is the folder icon for collapsed folders, and if `folderExpanded` is not set, also for expanded folders. Icons for specific folder names can be associated using the `folderNames` property.
   The folder icon is optional. If not set, no icon will be shown for folder.
 - `folderExpanded` is the folder icon for expanded folders. The expanded folder icon is optional. If not set, the icon defined for `folder` will be shown.
@@ -110,7 +110,7 @@ Each file association points to an icon definition.
 - `rootFolderExpanded` is the folder icon for expanded workspace root folders. If not set, the icon defined for `rootFolder` will be shown for exanded workspace root folders.
 - `languageIds` associates languages to icons. The key in the set is the language id as defined in the [language contribution point](/api/references/contribution-points#contributes.languages). The language of a file is evaluated based on the file extensions and file names as defined in the language contribution. Note that the 'first line match' of the language contribution is not considered.
 - `fileExtensions` associates file extensions to icons. The key in the set is the file extension name. The extension name is a file name segment after a dot (not including the dot). File names with multiple dots such as `lib.d.ts` can match multiple extensions; 'd.ts' and 'ts'. Extensions are compared case insensitive.
-- `fileNames` associates file names to icons. The key in the set is the full file name, not including any path segments. Patterns or wildcards are not supported. File name matching is case insensitive. A 'fileName' match is the strongest match, and the icon associated to the file name will be preferred over an icon of a matching fileExtension and also of a matching language Id.
+- `fileNames` associates file names to icons. The key in the set is the full file name, not including any path segments. Patterns or wildcards are not supported. File name matching is case insensitive. A 'fileName' match is the strongest match, and the icon associated to the file name will be preferred over an icon of a matching fileExtension and also of a matching language ID.
 
 A file extension match is preferred over a language match, but is weaker than a file name match.
 

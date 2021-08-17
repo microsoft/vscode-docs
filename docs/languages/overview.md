@@ -73,7 +73,7 @@ For example, the setting below adds the `.myphp` file extension to the `php` lan
 
 IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available language identifiers.
 
-![language id IntelliSense](images/overview/language-id-intellisense.png)
+![Language ID IntelliSense](images/overview/language-id-intellisense.png)
 
 ## Next steps
 
