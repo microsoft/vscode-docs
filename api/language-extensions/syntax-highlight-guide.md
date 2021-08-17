@@ -180,9 +180,9 @@ To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api
 
 Yeoman will walk you through some basic questions to scaffold the new extension. The important questions for creating a new grammar are:
 
-- `Language Id` - A unique identifier for your language.
-- `Language Name` - A human readable name for your language.
-- `Scope names` - Root TextMate scope name for your grammar
+- `Language id` - A unique identifier for your language.
+- `Language name` - A human readable name for your language.
+- `Scope names` - Root TextMate scope name for your grammar.
 
 ![Filling in the 'new language' questions](images/syntax-highlighting/yo-new-language-questions.png)
 
