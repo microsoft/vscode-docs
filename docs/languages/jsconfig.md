@@ -81,7 +81,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 
 Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language support.
 
-> **Tip:** Do not be confused by `compilerOptions`. This attribute exists because `jsconfig.json` is a descendant of `tsconfig.json`, which is used for compiling TypeScript.
+> **Tip:** Do not be confused by `compilerOptions`, since no actual compilation is required for JavaScript. This attribute exists because `jsconfig.json` is a descendant of `tsconfig.json`, which is used for compiling TypeScript. Most of the `compilerOptions` can be ignored for configuring JavaScript projects in VS Code.
 
 Option  | Description
 ----------------|-----
