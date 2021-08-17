@@ -286,7 +286,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {

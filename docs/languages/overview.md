@@ -47,7 +47,7 @@ In VS Code, we default the language support for a file based on its filename ext
 
 **Tip**: You can get the same dropdown by running the **Change Language Mode** command (`kb(workbench.action.editor.changeLanguageMode)`).
 
-## Language Id
+## Language identifier
 
 VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
 
@@ -73,7 +73,7 @@ For example, the setting below adds the `.myphp` file extension to the `php` lan
 
 IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available language identifiers.
 
-![language id IntelliSense](images/overview/language-id-intellisense.png)
+![Language ID IntelliSense](images/overview/language-id-intellisense.png)
 
 ## Next steps
 
