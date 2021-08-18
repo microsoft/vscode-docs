@@ -12,7 +12,7 @@ MetaDescription: Java tutorial showing basic Java language support in the Visual
 
 This tutorial shows you how to write and run Hello World program in Java with Visual Studio Code. It also covers a few advanced features, which you can explore by reading other documents in this section.
 
-For an overview of the features available for Java in VS Code, see [Java Language Overview](/docs/languages/java.md)
+For an overview of the features available for Java in VS Code, see [Java Language Overview](/docs/languages/java.md).
 
 If you run into any issues when following this tutorial, you can contact us by clicking the **Report an issue** button below.
 
@@ -32,13 +32,14 @@ To help you set up quickly, you can install the **Coding Pack for Java**, which 
 
 ### Installing extensions
 
-If you are an existing VS Code user, you can also add Java support by installing [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
+If you are an existing VS Code user, you can also add Java support by installing the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
 * [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 * [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 * [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
+* [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
@@ -59,21 +60,21 @@ For this tutorial, the only required extensions are:
 
 The supported version for running the VS Code for Java extension and the supported version for your projects are two separate runtimes. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
-### Using Java runtime configuration wizard
+### Using the Java runtime configuration wizard
 
-To help you configure correctly, we provide a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
+To help you configure VS Code for Java support, we provide a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
 
 ![JDK Configuration](images/java-tutorial/jdk-config-wizard-overview.png)
 
-> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions)
+> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
 ### Using VS Code settings
 
-Alternatively, you can configure JDK settings using the VS Code Settings editor. A common way to do this is [setting the value of the JAVA_HOME system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Or if you want to configure only VS Code to use the JDK, use the `java.home` setting in VS Code's [User or Workspace settings](/docs/getstarted/settings.md).
+If you prefer, you can configure JDK settings using the VS Code Settings editor instead of the graphical configuration wizard. A common way to do this is [setting the value of the JAVA_HOME system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Alternatively, if you want to configure only VS Code to use the JDK, use the `java.home` setting in VS Code's [User or Workspace settings](/docs/getstarted/settings.md).
 
 ### Installing a Java Development Kit (JDK)
 
-When you need to install a JDK, we recommend you to consider installing from one of these sources:
+If you need to install a JDK, we recommend you to consider installing from one of these sources:
 
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
@@ -97,7 +98,7 @@ You can also create a Java project using the **Java: Create Java Project** comma
   <source src="/docs/java/java-tutorial/JavaHelloWorld.Project.mp4" type="video/mp4">
 </video>
 
-Visual Studio Code also supports more complex Java projects, see [Project Management](/docs/java/java-project.md).
+Visual Studio Code also supports more complex Java projects — see [Project Management](/docs/java/java-project.md).
 
 ## Editing source code
 
@@ -111,19 +112,19 @@ To learn more about editing Java, see [Java Editing](/docs/java/java-editing.md)
 
 ## Running and debugging your program
 
-To run and debug Java code, set a breakpoint, then either press `kb(workbench.action.debug.start)` on your keyboard or use the **Run** > **Start Debugging** menu item. You can also use the **Run|Debug** CodeLens options in the editor. After the code compiles, you can see all your variables and threads in the Run view.
+To run and debug Java code, set a breakpoint, then either press `kb(workbench.action.debug.start)` on your keyboard or use the **Run** > **Start Debugging** menu item. You can also use the **Run|Debug** CodeLens option in the editor. After the code compiles, you can see all your variables and threads in the Run view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
 </video>
 
-The debugger also supports advanced features such as Hot Code replacement and conditional breakpoints.
+The debugger also supports advanced features such as Hot Code Replacement and conditional breakpoints.
 
 For more information, see [Java Debugging](/docs/java/java-debugging.md).
 
 ## More features
 
-The editor also has much more capability for your Java workload.
+The editor also has many more capabilities to assist with your Java workload.
 
 * [Editing Java](/docs/java/java-editing.md) explains how to navigate and edit Java in more details
 * [Debugging](/docs/java/java-debugging.md) illustrates all the key features of the Java Debugger
