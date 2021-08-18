@@ -55,8 +55,6 @@ In this release, we support the following features:
 
 ![Debugging Features](debug-features.png)
 
-Future releases will include expression evaluation and hot code replacement.
-
 ## Next Steps
 
 - Checkout more about [Java on VS Code](/docs/languages/java.md)

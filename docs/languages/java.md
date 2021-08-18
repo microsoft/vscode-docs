@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 1/29/2021
+DateApproved: 8/17/2021
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -151,7 +151,7 @@ Starting a debugging session is easy: click on the **Run|Debug** button availabl
   <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4">
 </video>
 
-Although it's lightweight, the Java debugger supports advanced features such as expression evaluation, conditional breakpoints, and hot code replacement. For more debugging-related information, visit [Java Debugging](/docs/java/java-debugging.md).
+Although it's lightweight, the Java debugger supports advanced features such as expression evaluation, conditional breakpoints, and [Hot Code Replace](/docs/java/java-debugging.md#hot-code-replace). For more debugging-related information, visit [Java Debugging](/docs/java/java-debugging.md).
 
 ## Testing
 

@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 4/14/2021
+DateApproved: 8/18/2021
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -62,7 +62,7 @@ The supported version for running the VS Code for Java extension and the support
 
 ### Using the Java runtime configuration wizard
 
-To help you configure VS Code for Java support, we provide a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
+To help you configure VS Code for Java support, there is a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
 
 ![JDK Configuration](images/java-tutorial/jdk-config-wizard-overview.png)
 
@@ -118,7 +118,7 @@ To run and debug Java code, set a breakpoint, then either press `kb(workbench.ac
   <source src="/docs/java/java-tutorial/run-debug.mp4" type="video/mp4">
 </video>
 
-The debugger also supports advanced features such as Hot Code Replacement and conditional breakpoints.
+The debugger also supports advanced features such as [Hot Code Replace](/docs/java/java-debugging.md#hot-code-replace) and conditional breakpoints.
 
 For more information, see [Java Debugging](/docs/java/java-debugging.md).
 

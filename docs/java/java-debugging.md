@@ -172,19 +172,19 @@ You can have the debugger break when a variable change its value. Note that the 
 
 ![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 
-### Hot Code replacement
+### Hot Code Replace
 
-Another advanced feature the debugger supports is 'Hot Code' replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
+Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
 </video>
 
-You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code replacement. The possible setting values are:
+You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code Replace. The possible setting values are:
 
 * `manual` - Click the toolbar to apply the changes (default).
 * `auto` - Automatically apply the changes after compilation.
-* `never` - Disable Hot Code replacement.
+* `never` - Disable Hot Code Replace.
 
 ### Logpoints
 
@@ -262,7 +262,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
   - manual - Click the toolbar to apply the changes.
   - auto - Automatically apply the changes after compilation.
   - never - Never apply the changes.
-- `java.debug.settings.enableHotCodeReplace`: Enable hot code replace for Java code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.settings.enableHotCodeReplace`: Enable Hot Code Replace for Java code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 - `java.debug.settings.enableRunDebugCodeLens`: Enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: Force building the workspace before launching java program, defaults to `true`.
 - `java.debug.settings.console`: The specified console to launch a Java program, defaults to `integratedTerminal`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
@@ -281,7 +281,7 @@ Common issues explained include:
 * *.java isn't on the classpath. Only syntax errors will be reported.
 * Program Error: Could not find or load main class X.
 * Program throws ClassNotFoundException.
-* Failed to complete hot code replace.
+* Failed to complete Hot Code Replace.
 * Please specify the host name and the port of the remote debuggee in the launch.json.
 * Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
 * Cannot find a class with the main method.
