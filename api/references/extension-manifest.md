@@ -54,7 +54,7 @@ Here is a complete `package.json`
   "publisher": "ms-vscode",
   "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
   "author": {
-    "name": "seanmcbreen"
+    "name": "sean"
   },
   "categories": ["Other"],
   "icon": "images/icon.png",
