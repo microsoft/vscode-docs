@@ -78,7 +78,7 @@ Here is a complete `package.json`
   "license": "SEE LICENSE IN LICENSE.txt",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-wordcount/issues",
-    "email": "smcbreen@microsoft.com"
+    "email": "sean@contoso.com"
   },
   "repository": {
     "type": "git",
@@ -128,7 +128,7 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
   "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-wordcount/issues",
-    "email": "smcbreen@microsoft.com"
+    "email": "sean@contoso.com"
   },
   "repository": {
     "type": "git",
