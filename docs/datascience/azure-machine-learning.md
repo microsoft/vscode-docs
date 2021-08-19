@@ -9,11 +9,13 @@ MetaDescription: Learn how to build machine learning applications in Azure Machi
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Azure Machine Learning in VS Code
+# Azure Machine Learning in Visual Studio Code (preview)
 
 Azure Machine Learning is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. For more information on Azure Machine Learning, see [What is Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
 The Azure Machine Learning VS Code extension lets you use the features you're used to in Visual Studio Code for developing your machine learning applications.
+
+:::image type="content" source="images/azure-machine-learning/azure-machine-learning-extension.png" alt-text="Azure Machine Learning Visual Studio Code extension view" lightbox="images/azure-machine-learning/azure-machine-learning-extension.png":::
 
 ## Azure Machine Learning 2.0 CLI support (preview)
 
@@ -25,9 +27,17 @@ The Azure Machine Learning
 - Autocompletion
 - Language support
 
+## Spec file authoring
+
+## Autocompletion
+
+## Language support
+
 ## Train machine learning models
 
 In Azure Machine Learning, you can use popular frameworks for training machine learning models such as scikit-learn, PyTorch, TensorFlow, and many more. The Azure Machine Learning extension makes it easy to submit and track the lifecycle of those models.
+
+For more information, see the [train an machine learning model tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-train-deploy-image-classification-model-vscode).
 
 ## Manage resources
 
