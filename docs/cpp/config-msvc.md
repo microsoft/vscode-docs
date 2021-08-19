@@ -53,6 +53,8 @@ You can test that you have the C++ compiler, `cl.exe`, installed correctly by ty
 
 If the Developer Command Prompt is using the BuildTools location as the starting directory (you wouldn't want to put projects there), navigate to your user folder (`C:\users\{your username}\`) before you start creating new projects.
 
+>**Note**: If for some reason you can't run VS Code from a **Developer Command Prompt**, you can find a workaround for building C++ projects with VS Code in [Run VS Code outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
+
 ## Create Hello World
 
 From the Developer Command Prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
@@ -331,19 +333,11 @@ If you have g++ or WSL installed, you might need to change `compilerPath` to mat
 
 VS Code is now configured to use the Microsoft C++ compiler. The configuration applies to the current workspace. To reuse the configuration, just copy the JSON files to a `.vscode` folder in a new project folder (workspace) and change the names of the source file(s) and executable as needed.
 
-## Troubleshooting
+## Run VS Code outside the Developer Command Prompt
 
-### The term 'cl.exe' is not recognized
+In certain circumstances, it isn't possible to run VS Code from **Developer Command Prompt for Visual Studio** (for example, in Remote Development through SSH scenarios). In that case, you can automate initialization of **Developer Command Prompt for Visual Studio** during the build using the following `tasks.json` configuration:
 
-If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
-
-You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
-
-## Remarks
-
-In certain circumstances it isn't possible to run VS Code from **Developer Command Prompt for Visual Studio** (for example in Remote Development through SSH scenario). In that case you can automate initialization of **Developer Command Prompt for Visual Studio** during the build using the following configuration:
-
-```
+```json
 {
     "version": "2.0.0",
     "windows": {
@@ -352,6 +346,7 @@ In certain circumstances it isn't possible to run VS Code from **Developer Comma
                 "executable": "cmd.exe",
                 "args": [
                     "/C",
+                    // The path to VsDevCmd.bat depends on the version of Visual Studio you have installed.
                     "\"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/Tools/VsDevCmd.bat\"",
                     "&&"
                 ]
@@ -382,7 +377,15 @@ In certain circumstances it isn't possible to run VS Code from **Developer Comma
 }
 ```
 
->**Note**: The path to `VsDevCmd.bat` might be different depending on the Visual Studio version or installation path.
+>**Note**: The path to `VsDevCmd.bat` might be different depending on the Visual Studio version or installation path. You can find the path to `VsDevCmd.bat` by opening a Command Prompt and running `dir "\VsDevCmd*" /s`.
+
+## Troubleshooting
+
+### The term 'cl.exe' is not recognized
+
+If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
+
+You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
 
 ## Next steps
 
