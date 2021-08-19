@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 2/19/2020
+DateApproved: 8/19/2021
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
@@ -27,7 +27,7 @@ To successfully complete this tutorial, you must do the following:
 
 1. Install the Microsoft Visual C++ (MSVC) compiler toolset.
 
-   If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and click the **Modify** button in the installer.
+   If you have a recent version of Visual Studio, open the Visual Studio Installer from the Windows Start menu and verify that the C++ workload is checked. If it's not installed, then check the box and select the **Modify** button in the installer.
 
    You can also install the **Desktop development with C++** workload without a full Visual Studio IDE installation. From the Visual Studio [Downloads](https://visualstudio.microsoft.com/downloads#other) page, scroll down until you see **Tools for Visual Studio 2019** under the **All Downloads** section and select the download for **Build Tools for Visual Studio 2019**.
 
@@ -43,7 +43,7 @@ To successfully complete this tutorial, you must do the following:
 
 To use MSVC from a command line or VS Code, you must run from a **Developer Command Prompt for Visual Studio**. An ordinary shell such as PowerShell, Bash, or the Windows command prompt does not have the necessary path environment variables set.
 
-To open the Developer Command Prompt for VS, start typing 'developer' in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Click on the item to open the prompt.
+To open the Developer Command Prompt for VS, start typing 'developer' in the Windows Start menu, and you should see it appear in the list of suggestions. The exact name depends on which version of Visual Studio or the Visual Studio Build Tools you have installed. Select the item to open the prompt.
 
 ![Developer Command Prompt](images/msvc/developer-cmd-prompt-menu.png)
 
@@ -241,7 +241,7 @@ By default, the C++ extension won't add any breakpoints to your source code and 
 
 Now you're ready to start stepping through the code.
 
-1. Click or press the **Step over** icon in the debugging control panel until the `for (const string& word : msg)` statement is highlighted.
+1. Select the **Step over** icon in the debugging control panel until the `for (const string& word : msg)` statement is highlighted.
 
     ![Step over button](images/cpp/step-over-button.png)
 
@@ -265,7 +265,7 @@ Now you're ready to start stepping through the code.
 
 Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
-1. Place the insertion point inside the loop. In the **Watch** window, click the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
+1. Place the insertion point inside the loop. In the **Watch** window, select the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
 
    ![Watch window](images/cpp/watch-window.png)
 
