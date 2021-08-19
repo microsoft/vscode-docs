@@ -339,6 +339,51 @@ If you see the error "The term 'cl.exe' is not recognized as the name of a cmdle
 
 You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
 
+## Remarks
+
+In certain circumstances it isn't possible to run VS Code from **Developer Command Prompt for Visual Studio** (for example in Remote Development through SSH scenario). In that case you can automate initialization of **Developer Command Prompt for Visual Studio** during the build using the following configuration:
+
+```
+{
+    "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "cmd.exe",
+                "args": [
+                    "/C",
+                    "\"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/Tools/VsDevCmd.bat\"",
+                    "&&"
+                ]
+            }
+        }
+    },
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/Fe:",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+
+>**Note**: The path to `VsDevCmd.bat` might be different depending on the Visual Studio version or installation path.
+
 ## Next steps
 
 - Explore the [VS Code User Guide](/docs/editor/codebasics.md).
