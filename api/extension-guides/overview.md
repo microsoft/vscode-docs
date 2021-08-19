@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn from Visual Studio Code extension guides and code samples
@@ -35,10 +35,12 @@ Here are the guides on the VS Code website, including their usage of the [VS Cod
 | [Webview](https://code.visualstudio.com/api/extension-guides/webview) | [window.createWebviewPanel](https://code.visualstudio.com/api/references/vscode-api#window.createWebviewPanel)<br>[window.registerWebviewPanelSerializer](https://code.visualstudio.com/api/references/vscode-api#window.registerWebviewPanelSerializer) |
 | [Custom Editors](https://code.visualstudio.com/api/extension-guides/custom-editors) | [window.registerCustomEditorProvider](https://code.visualstudio.com/api/references/vscode-api#window.registerCustomEditorProvider)<br>[CustomTextEditorProvider](https://code.visualstudio.com/api/references/vscode-api#CustomTextEditorProvider)<br>[contributes.customEditors](https://code.visualstudio.com/api/references/contribution-points#contributes.customEditors) |
 | [Virtual Documents](https://code.visualstudio.com/api/extension-guides/virtual-documents) | [workspace.registerTextDocumentContentProvider](https://code.visualstudio.com/api/references/vscode-api#workspace.registerTextDocumentContentProvider)<br>[commands.registerCommand](https://code.visualstudio.com/api/references/vscode-api#commands.registerCommand)<br>[window.showInputBox](https://code.visualstudio.com/api/references/vscode-api#window.showInputBox) |
+| [Workspace Trust](https://code.visualstudio.com/api/extension-guides/workspace-trust) | [workspace.isTrusted](https://code.visualstudio.com/api/references/vscode-api#workspace.isTrusted)<br>[workspace.onDidGrantWorkspaceTrust](https://code.visualstudio.com/api/references/vscode-api#workspace.onDidGrantWorkspaceTrust)<br>capabilities.untrustedWorkspaces |
 | [Task Provider](https://code.visualstudio.com/api/extension-guides/task-provider) | [tasks.registerTaskProvider](https://code.visualstudio.com/api/references/vscode-api#tasks.registerTaskProvider)<br>[Task](https://code.visualstudio.com/api/references/vscode-api#Task)<br>[ShellExecution](https://code.visualstudio.com/api/references/vscode-api#ShellExecution)<br>[contributes.taskDefinitions](https://code.visualstudio.com/api/references/contribution-points#contributes.taskDefinitions) |
 | [Source Control](https://code.visualstudio.com/api/extension-guides/scm-provider) | [workspace.workspaceFolders](https://code.visualstudio.com/api/references/vscode-api#workspace.workspaceFolders)<br>[SourceControl](https://code.visualstudio.com/api/references/vscode-api#SourceControl)<br>[SourceControlResourceGroup](https://code.visualstudio.com/api/references/vscode-api#SourceControlResourceGroup)<br>[scm.createSourceControl](https://code.visualstudio.com/api/references/vscode-api#scm.createSourceControl)<br>[TextDocumentContentProvider](https://code.visualstudio.com/api/references/vscode-api#TextDocumentContentProvider)<br>[contributes.menus](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) |
 | [Debugger Extension](https://code.visualstudio.com/api/extension-guides/debugger-extension) | [contributes.breakpoints](https://code.visualstudio.com/api/references/contribution-points#contributes.breakpoints)<br>[contributes.debuggers](https://code.visualstudio.com/api/references/contribution-points#contributes.debuggers)<br>[debug](https://code.visualstudio.com/api/references/vscode-api#debug) |
 | [Markdown Extension](https://code.visualstudio.com/api/extension-guides/markdown-extension) | markdown.previewStyles<br>markdown.markdownItPlugins<br>markdown.previewScripts |
+| [Test Extension](https://code.visualstudio.com/api/extension-guides/testing) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com/api/references/vscode-api#TestItem) |
 | [Custom Data Extension](https://code.visualstudio.com/api/extension-guides/custom-data-extension) | contributes.html.customData<br>contributes.css.customData |
 
 Here is a list of additional samples from the [VS Code Extensions samples repo](https://github.com/microsoft/vscode-extension-samples).
@@ -60,6 +62,8 @@ Here is a list of additional samples from the [VS Code Extensions samples repo](
 | [Commenting API Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/comment-sample) |  |
 | [Document Editing Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample) | [commands](https://code.visualstudio.com/api/references/vscode-api#commands) |
 | [Getting Started Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/getting-started-sample) | [contributes.walkthroughs](https://code.visualstudio.com/api/references/contribution-points#contributes.walkthroughs) |
+| [Test extension](https://github.com/microsoft/vscode-extension-samples/tree/main/test-provider-sample) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com.azurewebsites.net/api/references/vscode-api#TestItem) |
+
 ## Language Extension Samples
 
 These samples are [Language Extensions](/api/language-extensions/overview) samples:

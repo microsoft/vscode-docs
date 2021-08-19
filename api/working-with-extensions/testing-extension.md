@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -42,12 +42,12 @@ code \
 --extensionTestsPath=<TEST-RUNNER-SCRIPT-PATH>
 ```
 
-The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts)) uses the `vscode-test` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
+The **test script** ([`src/test/runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts)) uses the `@vscode/test-electron` API to simplify the process of downloading, unzipping, and launching VS Code with extension test parameters:
 
 ```ts
 import * as path from 'path';
 
-import { runTests } from 'vscode-test';
+import { runTests } from '@vscode/test-electron';
 
 async function main() {
   try {
@@ -71,7 +71,7 @@ async function main() {
 main();
 ```
 
-The `vscode-test` API also allows:
+The `@vscode/test-electron` API also allows:
 
 - Launching VS Code with a specific workspace.
 - Downloading a different version of VS Code rather than the latest stable release.
@@ -196,7 +196,7 @@ that you can even debug the tests.
 
 ### Disabling other extensions while debugging
 
-When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `launchArgs` option of `vscode-test`'s `runTests` API.
+When you debug an extension test in VS Code, VS Code uses the globally installed instance of VS Code and will load all installed extensions. You can add `--disable-extensions` configuration to the `launch.json` or the `launchArgs` option of `@vscode/test-electron`'s `runTests` API.
 
 ```json
 {
@@ -236,9 +236,9 @@ await runTests({
 });
 ```
 
-### Custom setup with `vscode-test`
+### Custom setup with `@vscode/test-electron`
 
-Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `vscode-test` has a more granular API to accommodate that case:
+Sometimes you might want to run custom setups, such as running `code --install-extension` to install another extension before starting your test. `@vscode/test-electron` has a more granular API to accommodate that case:
 
 ```ts
 import * as cp from 'child_process';
@@ -247,7 +247,7 @@ import {
   downloadAndUnzipVSCode,
   resolveCliPathFromVSCodeExecutablePath,
   runTests
-} from 'vscode-test';
+} from '@vscode/test-electron';
 
 async function main() {
   try {
@@ -280,10 +280,10 @@ main();
 
 ### Migrating from `vscode`
 
-The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`vscode-test`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
+The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had been the default way of running extension integration tests and is being superseded by [`@vscode/test-electron`](https://github.com/microsoft/vscode-test). Here's how you can migrate from it:
 
 - Remove `vscode` dependency.
-- Add `vscode-test` dependency.
+- Add `@vscode/test-electron` dependency.
 - As the old `vscode` module was also used for downloading VS Code type definition, you need to
   - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.

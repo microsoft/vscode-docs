@@ -121,6 +121,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/introvideos/productivity</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/introvideos/debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -776,6 +781,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/remote/devcontainer-cli</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/remote/devcontainerjson-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -876,22 +886,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-aks</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/containers/kubernetes-env-vars</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/containers/bridge-to-kubernetes-sample</loc>
+        <loc>https://code.visualstudio.com/docs/containers/troubleshooting</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1013,6 +1008,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/workspace-trust</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/extension-guides/task-provider</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1024,6 +1024,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/extension-guides/debugger-extension</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/testing</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

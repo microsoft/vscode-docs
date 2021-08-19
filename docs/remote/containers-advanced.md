@@ -5,7 +5,7 @@ TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
 MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 ---
 # Advanced Container Configuration
 
@@ -21,7 +21,7 @@ You can set environment variables in your container without altering the contain
 
 Depending on what you reference in `devcontainer.json`:
 
-* **Dockerfile or image**: Add the `containerEnv` property to `devcontainer.json` to set variables that should apply to the entire container or `remoteEnv` to set variables for VS Code and related sub-processes (terminals, tasks, debugging, etc):
+* **Dockerfile or image**: Add the `containerEnv` property to `devcontainer.json` to set variables that should apply to the entire container or `remoteEnv` to set variables for VS Code and related sub-processes (terminals, tasks, debugging, etc.):
 
     ```json
     "containerEnv": {
@@ -94,7 +94,82 @@ Next, depending on what you reference in `devcontainer.json`:
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
+## Starting a process when the container starts
+
+When you are working in a development container, you may want to execute a command or start something each time the container starts. The easiest way to do this is using the `postStartCommand` property in `devcontainer.json`. For example, if you wanted to run `yarn install` every time you connected to the container to keep dependencies up to date, you could add the following:
+
+```json
+"postStartCommand": "yarn install"
+```
+
+In other cases, you may want to start up a process and leave it running. This can be accomplished by using `nohup` and putting the process into the background using `&`.  For example:
+
+```json
+"postStartCommand": "nohup bash -c 'your-command-here &'"
+```
+
+Those familiar with Linux may expect to be able to use the `systemctl` command to start and stop background services managed by something called `systemd`. Unfortunately, `systemd` has overhead and is generally not used in containers as a result.
+
+In many cases, there is a command you can run instead (for example, `sshd`). And on Debian/Ubuntu, there are often scripts under `/etc/init.d` that you can run directly.
+
+```json
+"postStartCommand": "/etc/init.d/ssh start"
+```
+
+These systems also include a `service` command that will use `systemctl` or `/etc/init.d` scripts based on what is installed.
+
+```json
+"postStartCommand": "service ssh start"
+```
+
+### Adding startup commands to the Docker image instead
+
+While `postStartCommand` is convenient and allows you to execute commands in your source tree, you can also add these steps instead to a Dockerfile using a custom [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) or [CMD](https://docs.docker.com/engine/reference/builder/#cmd).
+
+When referencing a Dockerfile in `devcontainer.json`, the default entrypoint and command is overridden. First, disable this behavior using the `overrrideCommand` property.
+
+```json
+"overrideCommand": false
+```
+
+The `overrideCommand` property defaults to `true` because many images will immediately exit if a command is not specified. Instead, we will need to handle this in our Dockerfile.
+
+Next, consider this Dockerfile:
+
+```Dockerfile
+FROM mcr.microsoft.com/vscode/devcontainers/base:0-focal
+
+COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD [ "sleep", "infinity"' ]
+```
+
+The `CMD` here makes sure the container stays running by default. Keeping your startup steps in the `ENTRYPOINT` allows you to safely override the command when using `docker run` with your image or using Docker Compose. This resolves to the following:
+
+```bash
+/docker-entrypoint.sh sleep infinity
+```
+
+Next, create a `docker-entrypoint.sh` script:
+
+```bash
+#!/usr/env bash
+
+echo "Hello from our entrypoint!"
+
+exec "$@"
+```
+
+Anything you execute in this file will then fire each time the container starts. However, it's important to include the last `exec "$@"` line since this is what will cause the command `sleep infinity` in our example to fire.
+
+Finally, if you are using Docker Compose, be sure that neither the [entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) nor [command](https://docs.docker.com/compose/compose-file/compose-file-v3/#command) properties are set for your container.
+
+That's it!
+
 ## Adding another local file mount
+
+> **Note:** Mounting the local file system is not supported in GitHub Codespaces. See [developing inside a container on a remote Docker host](#developing-inside-a-container-on-a-remote-docker-host) for information on mounting remote folders in this scenario.
 
 You can add a volume bound to any local folder by using the following appropriate steps, based on what you reference in `devcontainer.json`:
 
@@ -533,17 +608,25 @@ COMPOSE_PROJECT_NAME=foo
 
 While you can build, deploy, and debug your application inside a dev container, you may also need to test it by running it inside a set of production-like containers. Fortunately, by installing the needed Docker or Kubernetes CLIs and mounting your local Docker socket, you can build and deploy your app's container images from inside your dev container.
 
-Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension if you force it to run as a Workspace extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
+Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
-See the following example dev containers definitions for additional information on a specific scenario:
+See the following example dev container definitions for additional information on a specific scenario:
+
+**Running Docker or Minikube in a development container**
 
 * [Docker-in-Docker](https://aka.ms/vscode-remote/samples/docker-in-docker) - Illustrates how to run Docker (or Moby) entirely inside a container. Provides support for bind mounting all folders inside the development container, but cannot reuse your local machine's cache.
+
+* [Kubernetes - Minikube-in-Docker](https://aka.ms/vscode-remote/samples/kubernetes-helm-minikube) - Illustrates how to run Minikube entirely inside a container with similar benefits and limitations as Docker-in-Docker.
+
+**Accessing an existing Docker or Minikube instance from a container**
 
 * [Docker-from-Docker](https://aka.ms/vscode-remote/samples/docker-from-docker) - Also known as "Docker-outside-of-Docker", this illustrates how you can use the Docker (or Moby) CLI in your dev container to connect to your host's Docker daemon by bind mounting the Docker Unix socket. Lower overhead and can reuse your machine's cache, but has [bind mounting limitations](#mounting-host-volumes-with-docker-from-inside-a-container).
 
 * [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose) - Variation of Docker-from-Docker for situations where you are using Docker Compose instead of a single Dockerfile.
 
-* [Kubernetes-Helm](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Takes the Docker-from-Docker model and adds kubectl and Helm to illustrate how you can access a local Minikube or Docker provided Kubernetes cluster.
+* [Kubernetes - Local Configuration](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Takes the Docker-from-Docker model and adds kubectl and Helm to illustrate how you can access a local Minikube or Docker provided Kubernetes cluster.
+
+There is also documentation on the [Docker-in-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md), [Docker-from-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker.md), and [Kubernetes](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/kubectl-helm.md) install scripts that you can reuse and are referenced by the samples above.
 
 ### Mounting host volumes with Docker from inside a container
 

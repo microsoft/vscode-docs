@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -80,6 +80,8 @@ You would then paste that URL into the **Git: Clone** prompt.
 ![set repository URL](images/versioncontrol/set-repo-URL.png)
 
 You'll also see the option to **Clone from GitHub**. Once you authenticate with your GitHub account in VS Code, you'll be able to search through repositories by name, and select any repo to clone it. You can also start the flow to clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). To see a step-by-step walkthrough, check out our [Clone repos from VS Code](https://www.youtube.com/watch?v=bz1KauFlbQI) video.
+
+>**Note**: If you'd like to work on a repository without cloning the contents to you local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/editor/github.md#github-repositories-extension) section.
 
 ## Branches and Tags
 

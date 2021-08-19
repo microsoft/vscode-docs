@@ -3,7 +3,7 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
+PageTitle: Java project management in Visual Studio Code
 DateApproved: 6/10/2021
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
@@ -179,7 +179,7 @@ In case VS Code throws an error for a classpath issue, try setting your classpat
 <classpathentry kind="lib" path="lib/log4j.jar"/>
 ```
 
-In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
+In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean Java Language Server Workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
 ## Lightweight Mode
 

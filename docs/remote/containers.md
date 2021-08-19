@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 ---
 # Developing inside a Container
 
@@ -207,7 +207,7 @@ When [cloning a repository in a container volume](#quick-start-open-a-git-reposi
 
 [Inspecting a volume](#inspecting-volumes) starts in [Restricted Mode](/docs/editor/workspace-trust.md#restricted-mode), and you can trust the folder inside the container.
 
-### Docker deamon running remotely
+### Docker daemon running remotely
 
 This implies trusting [the machine the Docker daemon runs on](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host). There are no additional prompts to confirm (only those listed for the local/WSL case above).
 
@@ -447,9 +447,21 @@ fi
 
 If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
-If you do not have GPG set up, on **Windows**, you can install [Gpg4win](https://www.gpg4win.org/) or on **macOS** you can install [GPG Tools](https://gpgtools.org/). On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+If you do not have GPG set up, you can configure it for your platform:
 
-Next, install `gnupg2` in your container by updating your Dockerfile. For example:
+* On **Windows**, you can install [Gpg4win](https://www.gpg4win.org/).
+* On **macOS**, you can install [GPG Tools](https://gpgtools.org/).
+* On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+* On **WSL**:
+  * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side.
+  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
+  * Install `gpg` in your WSL distro. `sudo apt install gpg`
+  * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
+  * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
+
+Next, install `gnupg2` in your container by updating your Dockerfile.
+
+For example:
 
 ```bash
 RUN apt-get update && apt-get install gnupg2 -y

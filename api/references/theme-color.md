@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -98,7 +98,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
 Dropdown control is not used on macOS currently.
 
-![dropdown control](images/theme-color/Dropdown.png)
+![dropdown control](images/theme-color/dropdown.png)
 
 - `dropdown.background`: Dropdown background.
 - `dropdown.listBackground`: Dropdown list background.
@@ -152,6 +152,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 
 - `list.activeSelectionBackground`: List/Tree background color for the selected item when the list/tree is active.
 - `list.activeSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is active.
+- `list.activeSelectionIconForeground`: List/Tree icon foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
 - `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
@@ -162,6 +163,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
 - `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive.
 - `list.inactiveSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+- `list.inactiveSelectionIconForeground`: List/Tree icon foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.inactiveFocusBackground`: List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
 - `list.inactiveFocusOutline`: List/Tree outline color for the focused item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
@@ -367,6 +369,11 @@ To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 - `editorIndentGuide.background`: Color of the editor indentation guides.
 - `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
 
+To see the editor inline hints, set `"editor.inlineSuggest.enabled": true`.
+
+- `editorInlayHint.background`: Background color of inline hints.
+- `editorInlayHint.foreground`: Foreground color of inline hints.
+
 To see editor rulers, define their location with `"editor.rulers"`
 
 - `editorRuler.foreground`: Color of the editor rulers.
@@ -472,6 +479,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggestion widget.
 - `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
 - `editorSuggestWidget.selectedForeground`: Foreground color of the selected entry in the suggest widget.
+- `editorSuggestWidget.selectedIconForeground`: Icon foreground color of the selected entry in the suggest widget.
 
 - `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
@@ -570,6 +578,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.remoteForeground`: Foreground color for the remote indicator on the status bar.
 - `statusBarItem.errorBackground`: Status bar error items background color. Error items stand out from other status bar entries to indicate error conditions.
 - `statusBarItem.errorForeground`: Status bar error items foreground color. Error items stand out from other status bar entries to indicate error conditions.
+- `statusBarItem.warningBackground`: Status bar warning items background color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
+- `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -641,6 +651,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `quickInput.foreground`: Quick input foreground color. The quick input widget is the container for views like the color theme picker.
 - `quickInputList.focusBackground`: Quick picker background color for the focused item.
 - `quickInputList.focusForeground`: Quick picker foreground color for the focused item.
+- `quickInputList.focusIconForeground`: Quick picker icon foreground color for the focused item.
 - `quickInputTitle.background`: Quick picker title background color. The quick picker widget is the container for pickers like the Command Palette.
 
 ## Keybinding label colors
@@ -650,10 +661,10 @@ Keybinding labels are shown when there is a keybinding associated with a command
 
 Usages of the keybinding label include (but are not limited to):
 
-* The Command Palette
-* The Keyboard Shortcuts editor
-* The Keyboard Shortcuts recorder modal
-* The "feature contribution" section of an extension's marketplace page
+- The Command Palette
+- The Keyboard Shortcuts editor
+- The Keyboard Shortcuts recorder modal
+- The "feature contribution" section of an extension's marketplace page
 
 The following customizations are available:
 
@@ -687,6 +698,7 @@ The following customizations are available:
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
+- `terminal.tab.activeBorder`: Border on the side of the terminal tab in the panel. This defaults to `tab.activeBorder`.
 
 ## Debug colors
 
@@ -770,6 +782,7 @@ The following customizations are available:
 - `settings.checkboxBackground`: Checkbox background.
 - `settings.checkboxForeground`: Checkbox foreground.
 - `settings.checkboxBorder`: Checkbox border.
+- `settings.rowHoverBackground`: The background color of a settings row when hovered.
 - `settings.textInputBackground`: Text input box background.
 - `settings.textInputForeground`: Text input box foreground.
 - `settings.textInputBorder`: Text input box border.
@@ -777,8 +790,7 @@ The following customizations are available:
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
 - `settings.focusedRowBackground`: Background color of a focused setting row.
-- `notebook.focusedRowBorder`: Border of a focused setting row.
-- `notebook.rowHoverBackground`: Border color of a hovered setting row.
+- `settings.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 
 ## Breadcrumbs colors
 
@@ -871,13 +883,10 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellEditorBackground`: The color of the notebook cell editor background
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
 - `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
-- `notebook.focusedCellShadow`: The color of the cell shadow when cells are focused.
 - `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
-- `notebook.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
 - `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
-- `notebook.rowHoverBackground`: The background color of a settings row when hovered.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell

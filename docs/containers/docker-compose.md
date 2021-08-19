@@ -301,3 +301,4 @@ Rather than use command customization, you can also define a task like the follo
 ## Next steps
 
 - [Overview of Docker Compose in the Docker documentation](https://docs.docker.com/compose/)
+- [Troubleshooting](/docs/containers/troubleshooting.md)

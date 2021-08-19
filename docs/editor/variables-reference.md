@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -54,7 +54,7 @@ So you will have the following values for each variable:
 - **${lineNumber}** - line number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
-- **${pathSeparator}** - `/` on macOS or linux, `\\` on Windows
+- **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
 
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 

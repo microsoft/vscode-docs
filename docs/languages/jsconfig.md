@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -81,7 +81,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 
 Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language support.
 
-> **Tip:** Do not be confused by `compilerOptions`. This attribute exists because `jsconfig.json` is a descendant of `tsconfig.json`, which is used for compiling TypeScript.
+> **Tip:** Do not be confused by `compilerOptions`, since no actual compilation is required for JavaScript. This attribute exists because `jsconfig.json` is a descendant of `tsconfig.json`, which is used for compiling TypeScript.
 
 Option  | Description
 ----------------|-----
@@ -95,7 +95,7 @@ Option  | Description
 `baseUrl`|Base directory to resolve non-relative module names.
 `paths`|Specify path mapping to be computed relative to baseUrl option.
 
-You can read more about the available `compilerOptions` in the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+You can read more about the available `compilerOptions` in the [TypeScript compilerOptions documentation](https://www.typescriptlang.org/tsconfig#compilerOptions).
 
 ## Using webpack aliases
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
@@ -142,7 +142,7 @@ in VS Code, you would use a simpler:
 
 ### Trim filter (t)
 
-This filter is applicable only when providing abbreviations for the **Emmet: Wrap Individual Lines with Abbreviation** command. It [removes line markers](https://docs.emmet.io/actions/wrap-with-abbreviation/#removing-list-markers) from wrapped lines.
+This filter is applicable only when providing abbreviations for the **Emmet: Wrap with Abbreviation** command. It [removes line markers](https://docs.emmet.io/actions/wrap-with-abbreviation/#removing-list-markers) from wrapped lines.
 
 ## Using custom Emmet snippets
 
@@ -207,7 +207,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.includeLanguages`
 
-    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language ids for both sides of the mapping.
+    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language IDs for both sides of the mapping.
 
     For example:
 
@@ -220,7 +220,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.excludeLanguages`
 
-    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language id strings.
+    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language ID strings.
 
 * `emmet.syntaxProfiles`
 
@@ -357,6 +357,5 @@ You can set the preferences using the setting `emmet.preferences`. Only a subset
 Of course!
 
 - In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
-- Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
 - Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
 - Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).

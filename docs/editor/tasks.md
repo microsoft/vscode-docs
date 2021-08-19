@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -289,7 +289,7 @@ If you specify `"dependsOrder": "sequence"` then your task dependencies are exec
 
 ### User level tasks
 
-You can create user level tasks that are not tied to a specifc workspace or folder using the **Tasks: Open User Tasks** command. Only `shell` and `process` tasks can be used here since other task types require workspace information.
+You can create user level tasks that are not tied to a specific workspace or folder using the **Tasks: Open User Tasks** command. Only `shell` and `process` tasks can be used here since other task types require workspace information.
 
 ## Output behavior
 
@@ -480,23 +480,23 @@ Below is an example of a custom task configuration that passes the current opene
 }
 ```
 
-Similarly, you can reference your project's configuration settings by prefixing the name with **${config:**. For example, `${config:python.pythonPath}` returns the Python extension setting `pythonPath`.
+Similarly, you can reference your project's configuration settings by prefixing the name with **${config:**. For example, `${config:python.formatting.autopep8Path}` returns the Python extension setting `formatting.autopep8Path`.
 
-Below is an example of a custom task configuration, which executes autopep8 on the current file using your project's selected Python executable:
+Below is an example of a custom task configuration, which executes autopep8 on the current file using the autopep8 executable defined by the `python.formatting.autopep8Path` setting:
 
 ```json
 {
     "label": "autopep8 current file",
     "type": "process",
-    "command": "${config:python.pythonPath}",
+    "command": "${config:python.formatting.autopep8Path}",
     "args": [
-        "-m",
-        "autopep8",
-        "-i",
+        "--in-place",
         "${file}"
     ]
 }
 ```
+
+If you want to specify the selected Python interpreter used by the Python extension for `tasks.json` or `launch.json`, you can use the `${command:python.interpreterPath}` command.
 
 If simple variable substitution isn't enough, you can also get input from the user of your task by adding an `inputs` section to your `tasks.json` file.
 
@@ -1052,3 +1052,26 @@ You can then use the task as a `prelaunchTask` in your `launch.json` file:
 ```
 
 For more on background tasks, go to [Background / watching tasks](/docs/editor/tasks.md#background-watching-tasks).
+
+### Why do I get "command not found" when running a task?
+
+The message "command not found" happens when the task command you're trying to run is not recognized by your terminal as something runnable. Most often, this occurs because the command is configured as part of your shell's startup scripts. Tasks are run as non-login and non-interactive, which means that the startup scripts for your shell won't be run. `nvm` in particular is known to use startup scripts as part of its configuration.
+
+There are several ways to resolve this issue:
+
+1. Make sure your command is on your path and doesn't require startup scripts to get added to your path. This is the most thorough way to solve the problem, and is the recommended solution.
+2. You can make a one-off fix for your task to run as login or interactive. This is not recommended, as it can have other consequences. However, it can also be a quick and easy fix for a single task. Below is an example of a task that does this with `bash` as the shell:
+
+```json
+{
+    "type": "npm",
+    "script": "watch",
+    "options": {
+        "shell": {
+            "args": ["-c", "-l"]
+        }
+    }
+}
+```
+
+The above `npm` task will run `bash` with a command (`-c`), just like the tasks system does by default. However, this task also runs `bash` as a login shell (`-l`).

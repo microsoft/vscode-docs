@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -17,7 +17,7 @@ As you type in HTML, we offer suggestions via HTML IntelliSense. In the image be
 
 ![HTML IntelliSense](images/html/htmlintellisense.png)
 
-We also offer up suggestions for elements, tags, some values (as defined in HTML5), Ionic and AngularJS tags. Document symbols are also available for HTML, allowing you to quickly navigate to DOM nodes by id and class name.
+Document symbols are also available for HTML, allowing you to quickly navigate to DOM nodes by id and class name.
 
 You can also work with embedded CSS and JavaScript. However, note that script and style includes from other files are not followed, the language support only looks at the content of the HTML file.
 
@@ -26,12 +26,6 @@ You can trigger suggestions at any time by pressing `kb(editor.action.triggerSug
 You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/getstarted/settings.md) if you prefer not to see the corresponding suggestions.
 
 ```json
-// Configures if the built-in HTML language suggests Angular V1 tags and properties.
-"html.suggest.angular1": true,
-
-// Configures if the built-in HTML language suggests Ionic tags, properties and values.
-"html.suggest.ionic": true,
-
 // Configures if the built-in HTML language suggests HTML5 tags, properties and values.
 "html.suggest.html5": true
 ```
@@ -142,7 +136,7 @@ VS Code supports [Emmet snippet](https://emmet.io/) expansion. Emmet abbreviatio
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with the language id of an Emmet supported mode.
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language identifier](/docs/languages/overview.md#language-identifier) and associates it with the language ID of an Emmet supported mode.
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 

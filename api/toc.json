@@ -32,10 +32,12 @@
       ["Notebook", "/api/extension-guides/notebook"],
       ["Custom Editors", "/api/extension-guides/custom-editors"],
       ["Virtual Documents", "/api/extension-guides/virtual-documents"],
+      ["Workspace Trust", "/api/extension-guides/workspace-trust"],
       ["Task Provider", "/api/extension-guides/task-provider"],
       ["Source Control", "/api/extension-guides/scm-provider"],
       ["Debugger Extension", "/api/extension-guides/debugger-extension"],
       ["Markdown Extension", "/api/extension-guides/markdown-extension"],
+      ["Test Extension", "/api/extension-guides/testing"],
       ["Custom Data Extension", "/api/extension-guides/custom-data-extension"]
     ]
   },

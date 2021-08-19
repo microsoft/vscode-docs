@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 31f461b7-c216-414a-b701-78c205fde8a8
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide for updating Visual Studio Code extensions to support Workspace Trust
@@ -17,7 +17,7 @@ MetaDescription: A guide for updating Visual Studio Code extensions to support W
 
 ### Static declarations
 
-In your extension's `package.json`, VS Code supports the following new `capabilities` property `untrustedWorkspaces.supported`:
+In your extension's `package.json`, VS Code supports the following new `capabilities` property `untrustedWorkspaces`:
 
 ```typescript
 capabilities:
@@ -53,7 +53,7 @@ This can mean things like settings that can be set by the workspace or actual co
 
 ### Does my extension treat any contents of the workspace as code?
 
-The most common example of this is using a project's workspace dependencies, such as the Node.j modules stored in the local workspace. A malicious workspace might check in a compromised version of the module. Thus, this is a security risk for the user and extension. In addition, an extension may rely on JavaScript or other configuration files that control the extension or other modules' behavior. There are many other examples, such as executing an opened code file to determine its output for error reporting.
+The most common example of this is using a project's workspace dependencies, such as the Node.js modules stored in the local workspace. A malicious workspace might check in a compromised version of the module. Thus, this is a security risk for the user and extension. In addition, an extension may rely on JavaScript or other configuration files that control the extension or other modules' behavior. There are many other examples, such as executing an opened code file to determine its output for error reporting.
 
 ### Does my extension use settings that determine code execution that can be defined in the workspace?
 

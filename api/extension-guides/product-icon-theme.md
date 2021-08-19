@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Product Icon Theme in Visual Studio Code
@@ -17,12 +17,12 @@ VS Code requires the icons to be defined as glyph in an icon font and (currently
 
 ## Adding a new product icon theme
 
-To define your own product icon theme, start by creating a VS Code extension and add the `productIconTheme` contribution point to the extension's `package.json`.
+To define your own product icon theme, start by creating a VS Code extension and add the `productIconThemes` contribution point to the extension's `package.json`.
 
 ```json
 {
   "contributes": {
-    "productIconTheme": [
+    "productIconThemes": [
       {
         "id": "aliensAreBack",
         "label": "Aliens Are Back",

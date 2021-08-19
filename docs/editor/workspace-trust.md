@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Workspace Trust
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
 PageTitle: Visual Studio Code Workspace Trust security
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -98,7 +98,7 @@ If you try to install an extension in Restricted Mode, you will be prompted to e
 
 ![Workspace Trust install an extension in Restricted Mode dialog](images/workspace-trust/workspace-trust-install-extension.png)
 
->**Note**: Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
+>**Note**: Extension authors can learn how to update their extensions to support Workspace Trust by reading the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md).
 
 ## Trusting a workspace
 
@@ -188,7 +188,7 @@ Below you can see a `settings.json` entry for the Prettier extension.
 
 You can either enable or disable Workspace Trust support with the `supported` attribute. The `version` attribute specifies the exact extension version applicable and you can remove the version field if you want to set the state for all versions.
 
-If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251).
+If you'd like to learn more about how extension authors evaluate and determine which features to limit in Restricted Mode, you can read the [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md).
 
 ## Opening untrusted files
 
@@ -223,6 +223,7 @@ Below are the available Workspace Trust settings:
 * `security.workspace.trust.emptyWindow` - Whether to always trust an empty window (no open folder). Default is true.
 * `security.workspace.trust.untrustedFiles` - Controls how to handle loose files in a workspace. Default is to prompt.
 * `extensions.supportUntrustedWorkspaces` - Override extension Workspace Trust declarations. Either true or false.
+* `security.workspace.trust.banner` - Controls when the Restricted Mode banner is displayed. Default is `untilDismissed`.
 
 ## Command-line switch
 
@@ -248,8 +249,9 @@ Paths a little weird
 
 Learn more at:
 
-* [Workspace Trust Extension Guide](https://github.com/microsoft/vscode/issues/120251) - Learn how extension authors can support Workspace Trust.
+* [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md) - Learn how extension authors can support Workspace Trust.
 * [What is a VS Code "workspace"?](/docs/editor/workspaces.md) - Find out more details about the VS Code "workspace" concept.
+* [GitHub Repositories extension](/docs/editor/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
 
 ## Common questions
 

@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -62,7 +62,7 @@ Marketplace - [npm IntelliSense](https://marketplace.visualstudio.com/items?item
 
 Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=publisher%3A%22Christian%20Kohler%22&target=VSCode)
 
-This extension provides IntelliSense for npm modules when using `require` or `import`.
+This extension provides IntelliSense for npm modules when using `import` or `require`.
 
 ![npm intellisense](images/extensions/npm_intellisense.gif)
 

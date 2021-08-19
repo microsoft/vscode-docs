@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
@@ -44,6 +44,29 @@ There are four options for storing data:
 - [`ExtensionContext.globalStoragePath`](/api/references/vscode-api#ExtensionContext.globalStoragePath): A global storage path pointing to a local directory where your extension has read/write access. This is a good option if you need to store large files that are accessible from all workspaces.
 
 The extension context is available to the `activate` function in the [Extension Entry File](/api/get-started/extension-anatomy#extension-entry-file).
+
+### setKeysForSync example
+
+If your extension needs to preserve some user state across different machines then provide the state to [Setting Sync](/docs/editor/settings-sync) using `vscode.ExtensionContext.globalState.setKeysForSync`.
+
+You can use the following pattern:
+
+```TypeScript
+// on activate
+const versionKey = context.extension.id + '.version';
+context.globalState.setKeysForSync([versionKey]);
+
+// later on show page
+const currentVersion = context.extension.packageJSON.version;
+const lastVersionShown = context.globalState.get(versionKey);
+if (!isHigher(currentVersion, lastVersionShown)) {
+    return;
+}
+context.globalState.set(versionKey, currentVersion);
+// show page
+```
+
+Sharing state across machines can help avoid the problem of users seeing multiple instances of a welcome or update page, by sharing dismissed or viewed flags.
 
 ## Display Notifications
 

@@ -59,7 +59,7 @@ Release|Features|Foundation
 [September 2017](/updates/v1_) |    Support for multiple SCM repos <BR> Region folding <BR> Import Suggestions| macOS touch bar support<BR>Terminal performance improvements
 [August 2017](/updates/v1_17) | HTML auto-tag close <BR> HTML/CSS color picker <BR> JS/TS Refactoring – Extract Method
 [July 2017](/updates/v1_16) |   Emmet 2.0 Support<BR>Loaded scripts explorer | 64-bit Windows Support <BR>Large file support
-[June 2017](/updates/v1_15) |   Terminal find, select & copy<BR>Command Pallette MRU list <BR> Improved auto indentation <BR> Debugging Recipes <BR> | Multi-root workspaces: in preview <BR> Improved screen reader support
+[June 2017](/updates/v1_15) |   Terminal find, select & copy<BR>Command Palette MRU list <BR> Improved auto indentation <BR> Debugging Recipes <BR> | Multi-root workspaces: in preview <BR> Improved screen reader support
 [May 2017](/updates/v1_13) |    Mini-map on by default (and others) <BR> Improved IntelliSense Documentation <BR> Resolve git conflicts inline|Faster debugging performance
 [April 2017](/updates/v1_12) |  Workbench theming <BR> Source Control providers <BR> JavaScript Type checking | Improved download speed<BR> macOS Native Tabs
 [March 2017](/updates/v1_11) |  Panel maximize & restore <BR> Async Call Stack support<BR>Keyboard shortcuts editor | Faster search over files<BR> Source Control API<BR>Increased extension size limit

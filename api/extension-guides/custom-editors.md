@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -246,7 +246,7 @@ When an extension fires a `CustomDocumentContentChangeEvent` from `onDidChangeCu
 
 A `CustomDocumentEditEvent` is a more complex edit that allows for undo/redo. You should always try to implement your custom editor using `CustomDocumentEditEvent` and only fallback to using `CustomDocumentContentChangeEvent` if implementing undo/redo is not possible.
 
-A `CustomDocumentContentChangeEvent` has the following fields:
+A `CustomDocumentEditEvent` has the following fields:
 
 - `document` — The `CustomDocument` the edit was for.
 - `label` — Optional text that that describes what type of edit was made (for example: "Crop", "Insert", ...)

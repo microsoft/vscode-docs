@@ -4,14 +4,12 @@ Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
 
 Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
-
->**Note**: Settings Sync is still in preview.
 
 ## Turning on Settings Sync
 
@@ -107,6 +105,16 @@ VS Code keeps track of the machines synchronizing your preferences and provides 
 ![Settings Sync machines views](images/settings-sync/sync-machines-view.png)
 
 You can open this view using **Settings Sync: Show Synced Data** command from the Command Palette.
+
+## Extension authors
+
+If you are an extension author, you should make sure your extension behaves appropriately when users enable Setting Sync. For example, you probably don't want your extension to display the same dismissed notifications or welcome pages on multiple machines.
+
+### Sync user global state between machines
+
+If your extension needs to preserve some user state across different machines then provide the state to Settings Sync using `vscode.ExtensionContext.globalState.setKeysForSync`. Sharing state such as UI dismissed or viewed flags across machines can provide a better user experience.
+
+There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities.md#data-storage) topic.
 
 ## Reporting issues
 

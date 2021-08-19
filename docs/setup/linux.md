@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -76,7 +76,7 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
 ```bash
-sudo dnf check-update
+dnf check-update
 sudo dnf install code
 ```
 

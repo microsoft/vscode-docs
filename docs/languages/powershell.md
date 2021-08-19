@@ -26,13 +26,13 @@ You can also install the PowerShell extension from within Visual Studio Code by 
 
 Alternatively, the PowerShell extension can be installed from any command line (including PowerShell, Cmd, bash) on all platforms using the following command
 
-```bash
+```
 code --install-extension ms-vscode.powershell
 ```
 
 If you are running VS Code [Insiders](/insiders), you will need this command instead:
 
-```bash
+```
 code-insiders --install-extension ms-vscode.powershell
 ```
 
@@ -44,13 +44,13 @@ Example scripts are included with the extension and can be found at the followin
 
 To open or view the examples in Visual Studio Code, run the following from your PowerShell command prompt:
 
-```bash
+```
 code (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
 If using the [Insiders](/insiders) edition:
 
-```bash
+```
 code-insiders (Get-ChildItem $Home\.vscode-insiders\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
@@ -196,12 +196,12 @@ After installing, add this configuration to your user settings:
 This tells the XML extension to use the official XML schemas from the PowerShell repository for all `.ps1xml` files.
 This enables the following features in `ps1xml` files:
 
-- Syntax error reporting
-- Schema validation
-- Tag and attribute completion
-- Auto-close tags
-- Symbol highlighting
-- Document folding
-- Document symbols and outline
-- Renaming support
-- Document Formatting
+* Syntax error reporting
+* Schema validation
+* Tag and attribute completion
+* Auto-close tags
+* Symbol highlighting
+* Document folding
+* Document symbols and outline
+* Renaming support
+* Document Formatting

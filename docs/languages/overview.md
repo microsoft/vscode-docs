@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -17,7 +17,7 @@ Here are eight of the most popular language extensions:
 
 <div class="marketplace-extensions-languages-curated"></div>
 
-Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers and more.
+Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the integrated [Extensions view](/docs/editor/extension-marketplace.md) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers, and more.
 
 >**Note**: If you want to change the display language of VS Code (for example, to Chinese), see the [Display Language](/docs/getstarted/locales.md) topic.
 
@@ -47,7 +47,7 @@ In VS Code, we default the language support for a file based on its filename ext
 
 **Tip**: You can get the same dropdown by running the **Change Language Mode** command (`kb(workbench.action.editor.changeLanguageMode)`).
 
-## Language Id
+## Language identifier
 
 VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
 
@@ -73,7 +73,7 @@ For example, the setting below adds the `.myphp` file extension to the `php` lan
 
 IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available language identifiers.
 
-![language id IntelliSense](images/overview/language-id-intellisense.png)
+![Language ID IntelliSense](images/overview/language-id-intellisense.png)
 
 ## Next steps
 

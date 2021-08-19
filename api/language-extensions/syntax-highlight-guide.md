@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -180,9 +180,9 @@ To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api
 
 Yeoman will walk you through some basic questions to scaffold the new extension. The important questions for creating a new grammar are:
 
-- `Language Id` - A unique identifier for your language.
-- `Language Name` - A human readable name for your language.
-- `Scope names` - Root TextMate scope name for your grammar
+- `Language id` - A unique identifier for your language.
+- `Language name` - A human readable name for your language.
+- `Scope names` - Root TextMate scope name for your grammar.
 
 ![Filling in the 'new language' questions](images/syntax-highlighting/yo-new-language-questions.png)
 

@@ -67,7 +67,7 @@ tasks.withType(Test) {
 }
 ```
 
-> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean the Java language server workspace**.
+> Note: If you are modifying a project that was already opened in VS Code, you may need to force clean the workspace and reload. To do so, run command **Java: Clean Java Language Server Workspace**.
 
 ## How can I use it behind a corporate proxy?
 

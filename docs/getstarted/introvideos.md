@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Visual Studio Code Introductory Videos
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Overview of Visual Studio Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
@@ -80,6 +80,16 @@ Start your journey using Visual Studio Code with this set of introductory videos
 				<h2 class="title faux-h3">Customize</h2>
 				<p class="description">Learn how to customize your settings and keyboard shortcuts in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+    </li>
+	<li class="video">
+		<a href="/docs/introvideos/productivity">
+			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Productivity Tips</h2>
+				<p class="description">Become a VS Code power user with these productivity tips.</p>
+				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
     </li>

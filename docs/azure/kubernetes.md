@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Kubernetes
 ContentId: d0ece2e4-8dd2-4c0d-a773-604542651c9e
 PageTitle: Working with Kubernetes in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved: 8/5/2021
 MetaDescription: Working with Kubernetes in Visual Studio Code
 ---
 # Working with Kubernetes in VS Code
@@ -17,7 +17,7 @@ You will need to have tools for [Docker](https://docker.com/) and [kubectl](http
 
 You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
 
-In addition, if you want to iteratively run and debug containers directly in MiniKube, Azure Kubernetes Service (AKS), or another Kubernetes provider, you can install the [Bridge to Kubernetes](https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro) extension. To get started, see [Use Bridge to Kubernetes](/docs/containers/bridge-to-kubernetes.md).
+In addition, if you want to iteratively run and debug containers directly in MiniKube, Azure Kubernetes Service (AKS), or another Kubernetes provider, you can install the [Bridge to Kubernetes](https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro) extension. To get started, see [Use Bridge to Kubernetes](https://docs.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs-code).
 
 ## Install the Kubernetes extension
 
