@@ -261,3 +261,14 @@ vscode.commands.registerCommand('myExtension.loadTestResultFile', async file => 
   run.end();
 });
 ```
+
+## Migrating from the Test Explorer UI
+
+If you have an existing extension using the Test Explorer UI, we suggest you migrate to the native experience for additional features and efficiency. We've put together a repo with an example migration of the Test Adapter sample in its [git history](https://github.com/connor4312/test-controller-migration-example/commits/master). You can view each step by clicking on the commit name, starting from  `[1] Create a native TestController`. In summary, the general steps are:
+
+1. Instead of retrieving and registering a `TestAdapter` with the Test Explorer UI's `TestHub`, call `const controller = vscode.tests.createTestController(...)`.
+1. Rather than firing `testAdapter.tests` when you discover or rediscover tests, instead create and push tests into `controller.items`, for example by calling `controller.items.replace` with an array of discovered tests that are created by calling `vscode.test.createTestItem`. Note that, as tests change, you can mutate properties on the test item and update their children, and changes will be reflected automatically in VS Code's UI.
+
+    To load tests initially, instead of waiting for a `testAdapter.load()` method call, set `controller.resolveHandler = () => { /* discover tests */ }`. See more information around how test discovery works in [Discovering Tests](#discovering-tests).
+
+1. To run tests, you should create a [Run Profile](#running-tests) with a handler function that calls `const run = controller.createTestRun(request)`. Instead of firing a `testStates` event, pass `TestItem`s to methods on the `run` to update their state.
