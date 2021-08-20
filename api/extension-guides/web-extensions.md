@@ -66,7 +66,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 Extensions with only declarative contributions are web extensions. They can be installed and used without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
-Extensions can have both a `browser` and `main` entry point to run in browser and in Node.js backends. The properties could point to the same source file, but given the different runtime and the restrictions for web extension main files, this only works in few cases. The [Web Extension Main File](#web-extension-main-file) section describes how entry files for web extensions need to look like.
+Extensions can have both a `browser` and `main` entry point to run in browser and in Node.js backends. The properties could point to the same source file, but given the different runtime and the restrictions for web extension main files, this only works in few cases. The [web extension main file](#web-extension-main-file) section describes the restrictions on entry files for web extensions.
 
 If an extension has `localizations`, `debuggers`, `terminal`, or `typescriptServerPlugins` contributions, these indicate that an extension is not suited for running in the web extension host. The extension will not be loaded and will not be available for download. Developers can override this behavior by adding a `browser` entry point or by adding `web` to `extensionKind`.
 
@@ -74,20 +74,18 @@ The [Web extension enablement](#web-extension-enablement) section lists the rule
 
 The example above is from the [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample).
 
-
 ### Web extension main file
 
-The web extension's main file runs in the web extension in a [Browser WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) environment. It is restricted by the browser worker sandbox and is limited compared to normal extensions running in a Node.js runtime.
+The web extension's main file runs in the web extension host in a [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) environment. It is restricted by the browser worker sandbox and is limited compared to normal extensions running in a Node.js runtime.
 
-
-* THe web extension main file is expected to be single file. Importing or requiring other modules is not supported. `importScripts` is not available as well.
+* The web extension main file is expected to be single file. Importing or requiring other modules is not supported. `importScripts` is not available as well.
 * The VS Code API can be loaded via the pattern `require('vscode')`. This will work because we shim require, but this cannot be used to load additional extension files or additional npm modules. It only works with `require('vscode')`.
 * Node.js globals and libraries such as `process`, `os`, `setImmediate`, `path`, `util`, `url` are not available at runtime. They can, however, be shimmed with tools like WebPack or Browserify.
 * The opened workspace or folder is on a virtual file system. Accesses to the workspace need to go through `vscode.workspace.fs`.
 * [Extension context](/api/references/vscode-api#ExtensionContext) locations (`ExtensionContext.extensionUri`), storage location (`ExtensionContext.storageUri`, `globalStorageUri`) are also on a virtual file system also need to go through `vscode.workspace.fs`.
-* For accessing web resources, the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API must be used. Accessed resources need to support [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (CORS)
+* For accessing web resources, the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) API must be used. Accessed resources need to support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS)
 * Creating child processes or running executables is not possible. However, web workers can be created through the [Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker) API
-* As with regular extensions, the extensions activate/deactivate functions need to be exported via the pattern `exports.activate = ....`
+* As with regular extensions, the extensions `activate/deactivate` functions need to be exported via the pattern `exports.activate = ....`.
 
 ## Develop a web extension
 
@@ -170,7 +168,6 @@ code  --extensionDevelopmentPath=$pathToExtensionFolder --extensionDevelopmentKi
 
 or use the launch configuration provided by the **New Web Extension** generator.
 
-
 ### Sideloading your web extension in a running VS Code Web instance
 
 For this scenario, you need to make the bits of the extension accessible to the service that runs VS Code.
@@ -207,17 +204,18 @@ Finally, in VS Code Web, run the command **Developer: Install Web Extension...**
 
 ## Web extension tests
 
-Web extension tests are supported as well and can be implemented very similar to regular extension tests. See the [Testing Extensions Article](https://code.visualstudio.com/api/working-with-extensions/testing-extension) to learn the basic structure of extension tests.
+Web extension tests are supported as well and can be implemented similar to regular extension tests. See the [Testing Extensions](/api/working-with-extensions/testing-extension) article to learn the basic structure of extension tests.
 
-The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module is the equivalent to [@vscode/test-web](https://github.com/microsoft/vscode-test) (previously named `vscode-test`). It allows to run extension tests from the command line on Chromium, Firefox and Safari. It starts VS Code Web from a local web server, opens the specified browser and runs the provided test runner script. With that you can run the tests in continuous builds to ensure that the extension works on all browsers.
+The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module is the equivalent to [@vscode/test-web](https://github.com/microsoft/vscode-test) (previously named `vscode-test`). It allows you to run extension tests from the command line on Chromium, Firefox, and Safari. The utility starts VS Code Web from a local web server, opens the specified browser, and runs the provided test runner script. You can run the tests in continuous builds to ensure that the extension works on all browsers.
 
 The test runner script is run on the web extension host with the same restrictions as the [web extension main file](#web-extension-main-file):
- - All bundled in a single file. It should containing the test runner (e.g. mocha) as well as all tests (typically *.test.ts)
- - Only `require('vscode`)` is supported.
 
-The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js) that is generated by `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains WebPack-specific syntax to import all test files.
+* All bundled in a single file. It should contain the test runner (for example, Mocha) and all tests (typically `*.test.ts`).
+* Only `require('vscode`)` is supported.
 
-To run the web test from the command line run the following in the extension folder:
+The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains WebPack-specific syntax to import all test files.
+
+To run the web test from the command line, run the following command in the extension folder:
 
 ```bash
 npx vscode-test-web --browserType=webkit --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js
@@ -245,7 +243,7 @@ Web extensions are hosted on the Marketplace along with other extensions. Make s
 
 As described above, web extensions are restricted by the browser runtime environment. This disqualifies extensions that depend on libraries written in other languages other than JavaScript. Invoking OS commands and forking processes are not possible.
 
-However, some libraries can be recombined to [WebAssembly](https://webassembly.org/). [vscode-anycode](https://github.com/microsoft/vscode-anycode) is an example as that.
+However, some libraries can be recombined to [WebAssembly](https://webassembly.org/). The [vscode-anycode](https://github.com/microsoft/vscode-anycode) extension is an example.
 
 WebWorkers can be used an alternative to forking processes. We have ported several language servers to run as web extensions, including the built-in [json](https://github.com/microsoft/vscode/tree/main/extensions/json-language-features), [css](https://github.com/microsoft/vscode/tree/main/extensions/css-language-features) and [html](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) language servers. The paragraph below gives more details.
 
