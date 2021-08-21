@@ -172,19 +172,17 @@ Once VS Code recognizes tests, it provides several ways to run those tests as de
 
 ## Run tests
 
-You run tests using any of the following actions:
+You can run tests using any of the following actions:
 
-- With a test file open, select the **Run Test** CodeLens adornment that appears above a test method or a class, as shown in the previous section. This command runs only that one method or only those tests in the class.
+- With a test file open, click on the green run icon that is displayed on the gutter next to the test definition line, as shown in the previous section. This command runs only that one method.
 
-- Select **Run Tests** on the Status Bar (which can change appearance based on results),
+    ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
-    ![Test command on the VS Code status bar](images/testing/discovery-succeeded-status-bar.png)
+- From the **Command Palette** by running any of the following commands, according to your preference:
+    - `Test: Run All Tests` -  runs all tests that have been discovered.
+    - `Test: Run Tests in Current File` - runs all tests in a file that that is open in the editor.
 
-    then select one of the commands like **Run All Tests** or **Discover Tests**:
-
-    ![Test commands that appear after using the Run Tests status bar command](images/testing/run-test-commands.png)
-
-- In **Test Explorer**:
+- From the **Test Explorer**:
 
   - To run all discovered tests, select the play button at the top of **Test Explorer**:
 
@@ -194,24 +192,11 @@ You run tests using any of the following actions:
 
       ![Running tests at specific scopes through Test Explorer](images/testing/test-explorer-run-scoped-tests.png)
 
-- Right-click a file in Explorer and select **Run All Tests**, which runs the tests in that one file.
 
-- From the **Command Palette**, select any of the run test commands:
+After a test run, VS Code displays results directly in the editor on the gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (`Preferences: Open Settings (UI)` command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
 
-    ![Python testing commands on the Command Palette](images/testing/commands.png)
 
-    | Command | Description |
-    | --- | --- |
-    | Debug All Tests | See [Debug tests](#debug-tests). |
-    | Debug Test Method | See [Debug tests](#debug-tests). |
-    | Run All Tests | Searches for and runs all tests in the workspace and its subfolders. |
-    | Run Current Test File | Runs the test in the file that's currently viewed in the editor. |
-    | Run Failed Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
-    | Run Test File | Prompts for a specific test filename, then runs the test in that file. |
-    | Run Test Method | Prompts for the name of a test to run, providing auto-completion for test names. |
-    | Show Test Output | Opens the Python Test Log panel with information about passing and failing tests, as well as errors and skipped tests. |
-
-After a test run, VS Code displays results directly with the CodeLens adornments in the editor and in **Test Explorer**. Results are shown both for individual tests as well as any classes and files containing those tests. Failed tests are also adorned in the editor with a red underline.
+ In the **Test Explorer**, results are shown for individual tests as well as any classes and files containing those tests.
 
 ![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
@@ -219,9 +204,6 @@ VS Code also shows test results in the **Python Test Log** output panel (use the
 
 ![Test results in the Python Test Log output panel](images/testing/python-test-log-output.png)
 
-With pytest, failed tests also appear in the **Problems** panel, where you can double-click on an issue to navigate directly to the test:
-
-![Test results for pytest in the Problems panel](images/testing/python-test-problems-output.png)
 
 ## Run tests in parallel
 
@@ -272,7 +254,7 @@ For example, the `test_decrement` functions given earlier are failing because th
     assert inc_dec.decrement(3) == 2
     ```
 
-1. Save the file and run the tests again to confirm that they pass, and see that the CodeLens adornments also indicate passing status.
+1. Save the file and run the tests again to confirm that they pass, and see that the gutter decorations also indicate passing status.
 
     > **Note**: running or debugging a test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
 
