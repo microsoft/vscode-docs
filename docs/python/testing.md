@@ -88,11 +88,12 @@ def decrement(x):
 
 With this code, you can experience working with tests in VS Code as described in the sections that follow.
 
-## Enable a test framework
+## Configure tests
 
-Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar -- that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted you to select a test framework, the folder containing tests, and the pattern used to identify test files.
+Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar - that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted you to select a test framework and the folder containing tests. If you're using unittest, you will also be asked to select the pattern used to identify your test files.
 
-[comment]: <TODO: add screenshot>
+![Configure Python Tests button displayed in the test explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
+
 
 You can configure your tests anytime by using  the **Python: Configure Tests** command on the Command Palette. You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
@@ -159,25 +160,15 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 [comment]: <TODO: update text below>
 
-If discovery succeeds, the status bar shows **Run Tests** instead:
-
-![Status bar showing successful test discovery failed](images/testing/discovery-succeeded-status-bar.png)
-
-If discovery fails (for example, the test framework isn't installed), you see a notification on the status bar. Selecting the notification provides more information:
-
-![Status bar showing that test discovery failed](images/testing/discovery-failed-status-bar.png)
-
-Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests). The most obvious means are CodeLens adornments that appear directly in the editor and allow you to easily run a single test method or, with unittest, a test class:
-
-![Test adornments that appear in the VS Code editor for unittest code](images/testing/editor-adornments-unittest.png)
-
-![Test adornments that appear in the VS Code editor for pytest code](images/testing/editor-adornments-pytest.png)
-
-> **Note**: At present, the Python extension doesn't provide a setting to turn the adornments on or off. To suggest a different behavior, file an issue on the [vscode-python repository](https://github.com/microsoft/vscode-python/issues).
-
-For Python, test discovery also activates the **Test Explorer** with an icon on the VS Code activity bar. The **Test Explorer** helps you visualize, navigate, and run tests:
+If discovery succeeds, you will see tests displayed in the test explorer:
 
 ![The VS Code Test Explorer for Python tests](images/testing/test-explorer.png)
+
+If discovery fails (for example, the test framework isn't installed), you will see an error message displayed on the test explorer. You can click on the console icon at the top-right of the test explorer to see what the entire error message in the output.
+
+![Discovery failure error messaged displayed in the test explorer](images/testing/test-discovery-error.png)
+
+Once VS Code recognizes tests, it provides several ways to run those tests as described in [Run tests](#run-tests).
 
 ## Run tests
 
