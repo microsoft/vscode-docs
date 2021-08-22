@@ -304,7 +304,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 `workbench.action.quickOpen` - Quick access
 
-* _prefix_ -
+* _prefix_ - String value indicating the value to fill into the quick access input field when opening
 
 `moveActiveEditor` - Move the active editor by tabs or groups
 
