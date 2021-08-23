@@ -304,7 +304,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ### Use Clone Repository in Container Volume
 
-The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
+The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead of binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
 
 See [Open a Git repository or GitHub PR in an isolated container volume](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) for details on using this approach.
 
