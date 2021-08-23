@@ -262,9 +262,9 @@ For example, the `test_decrement` functions given earlier are failing because th
     > **Note**: running or debugging a test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
 
 You can use the following commands from the Command Palette to debug tests:
-- **Test: Debug All Tests**: launches the debugger for all tests in your workspace.
-- **Test: Debug Tests in Current File**: launches the debugger for the tests you have defined in the file you have open in the editor.
-- **Test: Debug Test at Cursor**: launches the debugger only for the method where you have your cursor focused on the editor.  You can also use the "Debug Test" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
+- **Test: Debug All Tests** - launches the debugger for all tests in your workspace.
+- **Test: Debug Tests in Current File** - launches the debugger for the tests you have defined in the file you have open in the editor.
+- **Test: Debug Test at Cursor** - launches the debugger only for the method where you have your cursor focused on the editor.  You can also use the "Debug Test" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
 The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify ```"purpose": ["debug-test"]``` in the `launch.json` file in the ```.vscode``` folder from your workspace. This configuration will be used when you run **Test: Debug All Tests**, **Test: Debug Tests in Current File** and **Test: Debug Test at Cursor** commands.
 
