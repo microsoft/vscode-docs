@@ -179,8 +179,9 @@ You can run tests using any of the following actions:
     ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
 - From the **Command Palette** by running any of the following commands, according to your preference:
-    - `Test: Run All Tests` -  runs all tests that have been discovered.
-    - `Test: Run Tests in Current File` - runs all tests in a file that that is open in the editor.
+    - **Test: Run All Tests** -  runs all tests that have been discovered.
+    - **Test: Run Tests in Current File** - runs all tests in a file that that is open in the editor.
+    - **Test: Run Test at Cursor** - runs only the test method where you have your cursor focused on the editor.
 
 - From the **Test Explorer**:
 
@@ -193,7 +194,7 @@ You can run tests using any of the following actions:
       ![Running tests at specific scopes through Test Explorer](images/testing/test-explorer-run-scoped-tests.png)
 
 
-After a test run, VS Code displays results directly in the editor on the gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (`Preferences: Open Settings (UI)` command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
+After a test run, VS Code displays results directly in the editor on the gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
 
 
  In the **Test Explorer**, results are shown for individual tests as well as any classes and files containing those tests.
@@ -240,7 +241,9 @@ For example, the `test_decrement` functions given earlier are failing because th
 
 1. Set a breakpoint on first the line in the `test_decrement` function.
 
-1. Select the **Debug Test** adornment above that function or the "bug" icon for that test in **Test Explorer**. VS Code starts the debugger and pauses at the breakpoint.
+1. Right-click on the gutter decoration next to the function definition and select "Debug Test", or click on the "Debug Test" icon next to that test in the **Test Explorer**. VS Code starts the debugger and pauses at the breakpoint.
+
+    ![Debug Test icon in the test explorer](images/testing/debug-test-in-explorer.png)
 
 1. In the **Debug Console** panel, enter `inc_dec.decrement(3)` to see that the actual result is 2, whereas the expected result specified in the test is the incorrect value of 4.
 
@@ -258,23 +261,28 @@ For example, the `test_decrement` functions given earlier are failing because th
 
     > **Note**: running or debugging a test does not automatically save the test file. Always be sure to save changes to a test before running it, otherwise you'll likely be confused by the results because they still reflect the previous version of the file!
 
-The **Python: Debug All Tests** and **Python: Debug Test Method** commands (on both the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. You can also use the "bug" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
+You can use the following commands from the Command Palette to debug tests:
+- **Test: Debug All Tests**: launches the debugger for all tests in your workspace.
+- **Test: Debug Tests in Current File**: launches the debugger for the tests you have defined in the file you have open in the editor.
+- **Test: Debug Test at Cursor**: launches the debugger only for the method where you have your cursor focused on the editor.  You can also use the "Debug Test" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
-The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify ```"request":"test"``` in the launch.json file in the ```.vscode``` folder from your workspace. This configuration will be used when you run **Python: Debug All Tests** and **Python: Debug Test Method** commands.
+The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify ```"purpose": ["debug-test"]``` in the `launch.json` file in the ```.vscode``` folder from your workspace. This configuration will be used when you run **Test: Debug All Tests**, **Test: Debug Tests in Current File** and **Test: Debug Test at Cursor** commands.
 
 For example, the configuration below in the ```launch.json``` file disables the ```justMyCode``` setting for debugging tests:
 
 ```py
 {
-    "name": "Debug Tests",
+    "name": "Python: Current File",
     "type": "python",
-    "request": "test",
+    "request": "launch",
+    "program": "${file}",
+    "purpose": ["debug-test"],
     "console": "integratedTerminal",
     "justMyCode": false
 }
 ```
 
-If you have more than one configuration entry with ```"request":"test"```, the first definition will be used since we currently don't support multiple definitions for this request type.
+If you have more than one configuration entry with ```"purpose":"debug-test"```, the first definition will be used since we currently don't support multiple definitions for this request type.
 
 For more information on debugging, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
