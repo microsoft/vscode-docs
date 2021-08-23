@@ -97,7 +97,7 @@ Once you install the Python extension, a test beaker icon will be available on t
 
 You can configure your tests anytime by using  the **Python: Configure Tests** command on the Command Palette. You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
-It's important that you enable only a single test framework at a time for a given workspace. For this reason, when you enable one framework also be sure to disable the others. The **Python: Configure Tests** command does this automatically.
+If both the frameworks are enabled, then the Python extension will run `pytest` only.
 
 When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
