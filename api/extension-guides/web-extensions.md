@@ -18,7 +18,7 @@ Web extensions share the same structure as regular extensions, but given the dif
 
 A web extension is [structured like a regular extension](/api/get-started/extension-anatomy). The extension manifest (`package.json`) defines the entry file with the source code and declares extension contributions.
 
-For web extensions, the [entry file](/api/get-started/extension-anatomy#extension-entry-file) is defined by the `browser` property, and not by the `main` property as with regular extensions.
+For web extensions, the [main entry file](/api/get-started/extension-anatomy#web_extension_main_file) is defined by the `browser` property, and not by the `main` property as with regular extensions.
 
 The `contributes` property works the same way for both web and regular extensions:
 
@@ -76,11 +76,11 @@ The example above is from the [helloworld-web-sample](https://github.com/microso
 
 ### Web extension main file
 
-The web extension's main file runs in the web extension host in a [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) environment. It is restricted by the browser worker sandbox and is limited compared to normal extensions running in a Node.js runtime.
+The web extension's main file is defined bye the `browser` property. The script runs in the web extension host in a [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) environment. It is restricted by the browser worker sandbox and is limited compared to normal extensions running in a Node.js runtime.
 
 * The web extension main file is expected to be single file. Importing or requiring other modules is not supported. `importScripts` is not available as well.
 * The VS Code API can be loaded via the pattern `require('vscode')`. This will work because we shim require, but this cannot be used to load additional extension files or additional npm modules. It only works with `require('vscode')`.
-* Node.js globals and libraries such as `process`, `os`, `setImmediate`, `path`, `util`, `url` are not available at runtime. They can, however, be shimmed with tools like WebPack or Browserify.
+* Node.js globals and libraries such as `process`, `os`, `setImmediate`, `path`, `util`, `url` are not available at runtime. They can, however, be added with tools like WebPack or Browserify.
 * The opened workspace or folder is on a virtual file system. Accesses to the workspace need to go through `vscode.workspace.fs`.
 * [Extension context](/api/references/vscode-api#ExtensionContext) locations (`ExtensionContext.extensionUri`), storage location (`ExtensionContext.storageUri`, `globalStorageUri`) are also on a virtual file system also need to go through `vscode.workspace.fs`.
 * For accessing web resources, the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) API must be used. Accessed resources need to support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS)
@@ -110,6 +110,61 @@ The webpack configuration file automatically generated for you when you use `yo 
 
 [web-extension.webpack.config.js](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js)
 
+```js
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = /** @type WebpackConfig */ {
+	context: path.dirname(__dirname),
+	mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
+	target: 'webworker', // extensions run in a webworker context
+	entry: {
+		'extension': './src/web/extension.ts',
+		'test/suite/index': './src/web/test/suite/index.ts'
+	},
+	resolve: {
+		mainFields: ['browser', 'module', 'main'],
+		extensions: ['.ts', '.js'], // support ts-files and js-files
+		alias: {
+		},
+		fallback: {
+		  // Webpack 5 no longer polyfills Node.js core modules automatically.
+		  // see https://webpack.js.org/configuration/resolve/#resolvefallback
+		  // for the list of Node.js core module polyfills.
+		  'assert': require.resolve('assert')
+		}
+	},
+	module: {
+		rules: [{
+			test: /\.ts$/,
+			exclude: /node_modules/,
+			use: [
+				{
+					loader: 'ts-loader'
+				}
+			]
+		}]
+	},
+	plugins: [
+		new webpack.ProvidePlugin({
+			process: 'process/browser', // provide a shim for the global `process` variable
+		}),
+	],
+	externals: {
+		'vscode': 'commonjs vscode', // ignored because it doesn't exist
+	},
+	performance: {
+		hints: false
+	},
+	output: {
+		filename: '[name].js',
+		path: path.join(__dirname, '../dist/web'),
+		libraryTarget: 'commonjs'
+	},
+	devtool: 'nosources-source-map' // create a source map that points to the original source file
+};
+```
+
 Some important fields of `web-extension.webpack.config.js` are:
 
 1. The `entry` field contains the main entry point into your extension and test suite.
@@ -121,6 +176,7 @@ Some important fields of `web-extension.webpack.config.js` are:
 3. The `target` field indicates which type of environment the compiled JavaScript file will run. For web extensions, you want this to be `webworker`.
 4. The `resolve` field contains the ability to add fallbacks for node libraries with the `fallback` field.
     1. If you're using a library like `path`, you can specify how to resolve `path` in a web compiled context. You can point to a file in the project that defines `path` or you can use the Browserify node packaged version of the library called `path-browserify`.
+    2. See https://webpack.js.org/configuration/resolve/#resolvefallback for the list of Node.js core module polyfills.
 
 ## Test your web extension
 
@@ -282,6 +338,32 @@ import { LanguageClient } from `vscode-languageclient/browser`
 The server at `vscode-languageserver/browser`.
 
 The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample) shows how this works.
+
+### Update existing extensions to Web extensions
+
+Extensions that have no code, but only contribution points (e.g. themes, snippet extensions and basic language extensions) don't need any adoption. They run on a web extension host and can be installed from the Extensions viewlet.
+Republishing is not necessary, but when publishing a new version of the extension, make sure to use the most current version of `vsce`.
+
+Extensions with source (defined by the `main` property) need to add `browser` property to point to a [web extension main file](#web-extension-main-file).
+
+Add a Webpack config file as shown in the [Webpack cnfiguration](#webpack_configuration) paragraph. You can also add new sections to your existing Webpack config file.
+
+To make sure as much code as possible can be reused, here are a few techniques:
+
+ * Separate your code in a browser part, node part and common part. In common only use code that works in both browser and node runtime. Create abstractions for functionality that has different implementations in node and browser.
+ * Some node modules have separate `browser` and `main` entry points and Webpack will automatically select the correct one. Example for that are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
+ * Alternatively use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias) in the Webpack file to provide an alternative implementation for a node module.
+
+
+Look out for usages of `path`, `URI.file`, `context.extensionPath`, `rootPath`. `uri.fsPath`. These will not work with virtual workspaces (non-`file`) as they are used in VS Code Web. Instead use URIs with `URI.parse`, `context.extensionUri`. The [vscode-uri](https://www.npmjs.com/package/vscode-uri) node modules provides `joinPath`, `dirName`, `baseName`, `extName`, `resolvePath`.
+
+Look out for usages of `fs`. Replace by using vscode `workspace.fs`
+
+It is ok to provide less functionality in the Web. Use [when clause contexts](https://code.visualstudio.com/api/references/when-clause-contexts) to control which commands, views and task are available or hidden in the Web respective in a virtual workspace.
+  * Use the `virtualWorkspace` context variable to find out if the current workspace is a non-file workspaces.
+  * Use `resourceScheme` to check if the current resource is a `file` resource.
+  * Use `shellExecutionSupported` if there is a shell present.
+Implement alternative command handles that show a dialog that explain why the command is not applicable.
 
 ### Web extension enablement
 
