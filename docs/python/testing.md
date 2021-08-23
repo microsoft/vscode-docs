@@ -289,9 +289,13 @@ For more information on debugging, see [Python debugging configurations](/docs/p
 
 ## Test configuration settings
 
-The behavior of testing with Python is driven by both general settings and settings that are specific to whichever framework you've enabled.
+The behavior of testing with Python is driven by general UI settings provided by VS Code, and settings that are specific to Python and to whichever framework you've enabled.
 
-### General settings
+### General UI settings
+
+The settings that affect the UI of the testing features are provided by VS Code itself, and can be found in the [VS Code Settings Reference](https://code.visualstudio.com/docs/getstarted/settings) when you search for "Testing".
+
+### General Python settings
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
