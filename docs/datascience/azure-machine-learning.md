@@ -63,7 +63,7 @@ The Azure Machine Learning VS Code extension makes it easy to connect to and acc
 
 ## Remote Jupyter server
 
-Visual Studio Code offers great support for development using Jupyter notebooks. For more information.
+Visual Studio Code offers great support for development using Jupyter notebooks. For more information, see [Jupyter Notebooks in VS Code](./jupyter-notebooks.md).
 
 The Azure Machine Learning leverages the strong Jupyter notebooks support in Visual Studio Code and makes connecting to a remote compute instance and using them as repote Jupyter servers seamless. For more information, see [Configure a compute instance as a remote notebook server](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-vs-code-remote?tabs=extension)
 
@@ -73,4 +73,4 @@ By using the Azure Machine Learning Visual Studio Code extension to connect to a
 
 ## Next steps
 
-- [Set up the Azure Machine Learning extension]()
+- [Set up the Azure Machine Learning extension](https://docs.microsoft.com/azure/machine-learning/how-to-setup-vs-code)
