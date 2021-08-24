@@ -15,7 +15,7 @@ Azure Machine Learning is a cloud-based environment you can use to train, deploy
 
 The Azure Machine Learning VS Code extension lets you use the features you're used to in Visual Studio Code for developing your machine learning applications.
 
-![Azure Machine Learning Visual Studio Code extension view](images/azure-machine-learning/azure-machine-learning-extension.png)
+![Azure Machine Learning Visual Studio Code extension view](images/azure-machine-learning/azure-machine-learning-vscode-extension.png)
 
 ## Azure Machine Learning 2.0 CLI support (preview)
 
@@ -23,9 +23,27 @@ The Azure Machine Learning 2.0 CLI enables you to train and deploy models from t
 
 When working with Azure Machine Learning specification files, the Visual Studio Code extension provides support for the following:
 
-- Spec file authoring
-- Autocompletion
+- Specification file authoring
 - Language support
+- Resource autocompletion
+
+### Specification file authoring
+
+Use the `Azure ML` command in the command palette or the Azure Machine Learning View in VS Code to simplify the specification file authoring process.
+
+![Azure Machine Learning YAML specification file authoring](images/azure-machine-learning/specification-file-authoring.gif)
+
+### Language support
+
+The Azure Machine Learning VS Code extension cross-references all values with resources in your default workspace. If the extension detects an incorrectly specified resource or missing property, an inline error is displayed.
+
+![Azure Machine Learning specification file language support](images/azure-machine-learning/language-support.gif)
+
+### Resource autocompletion
+
+As you begin working with resources, the Azure Machine Learning extension is able to inspect the specification files and using the default workspace you've specified provides autocompletion support for resources in that workspace.
+
+![Azure Machine Learning resource autocompletion](images/azure-machine-learning/resource-autocompletion.gif)
 
 ## Train machine learning models
 
