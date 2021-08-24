@@ -174,8 +174,8 @@ Some important fields of `web-extension.webpack.config.js` are:
 2. The `output` field indicates where the compiled file will be.
     1. The number of compiled files will be one to one with the number of fields in `entry` and the `name` variable corresponds to the name from entry. So in the generated config file it will produce `dist/web/extension.js` and `dist/web/test/suite/index.js`.
 3. The `target` field indicates which type of environment the compiled JavaScript file will run. For web extensions, you want this to be `webworker`.
-4. The `resolve` field contains the ability to add fallbacks for node libraries with the `fallback` field.
-    1. If you're using a library like `path`, you can specify how to resolve `path` in a web compiled context. You can point to a file in the project that defines `path` or you can use the Browserify node packaged version of the library called `path-browserify`.
+4. The `resolve` field contains the ability to add fallbacks for node libraries that don't work in the browser with the `fallback` field.
+    1. If you're using a library like `path`, you can specify how to resolve `path` in a web compiled context. For instance, you can point to a file in the project that defines `path` with `path: path.resolve(__dirname, 'src/my-path-implementation-for-web.js')`. Or you can use the Browserify node packaged version of the library called `path-browserify` and specify `path: require.resolve('path-browserify')`.
     2. See https://webpack.js.org/configuration/resolve/#resolvefallback for the list of Node.js core module polyfills.
 
 ## Test your web extension
