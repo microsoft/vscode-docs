@@ -55,7 +55,7 @@ As you begin working with resources, the Azure Machine Learning extension is abl
 
 In Azure Machine Learning, you can use popular frameworks for training machine learning models such as scikit-learn, PyTorch, TensorFlow, and many more. The Azure Machine Learning extension makes it easy to submit and track the lifecycle of those models.
 
-For more information, see the [train an machine learning model tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-train-deploy-image-classification-model-vscode).
+For more information, see the [train a machine learning model tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-train-deploy-image-classification-model-vscode).
 
 ## Manage resources
 
