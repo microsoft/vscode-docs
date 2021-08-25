@@ -90,14 +90,14 @@ With this code, you can experience working with tests in VS Code as described in
 
 ## Configure tests
 
-Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar - that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted you to select a test framework and the folder containing tests. If you're using unittest, you will also be asked to select the pattern used to identify your test files.
+Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar - that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted to select a test framework and a folder containing the tests. If you're using unittest, you will also be asked to select the pattern used to identify your test files.
 
 ![Configure Python Tests button displayed in the test explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
 
-You can configure your tests anytime by using  the **Python: Configure Tests** command on the Command Palette. You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can configure your tests anytime by using the **Python: Configure Tests** command from the Command Palette. You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
-If both the frameworks are enabled, then the Python extension will run `pytest` only.
+If both frameworks are enabled, then the Python extension will only run `pytest`.
 
 When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
@@ -148,7 +148,7 @@ By default, the Python extension attempts to discover tests once you enable a fr
 [comment]: <TODO: add screenshot>
 
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is also performed automatically whenever you save a test file. To disable this feature, set the value to `false`.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning test discovery is also performed automatically whenever you, add, delete, or update any python file in the workspace. To disable this feature, set the value to `false`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -178,7 +178,7 @@ You can run tests using any of the following actions:
 
     ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
-- From the **Command Palette** by running any of the following commands, according to your preference:
+- From the **Command Palette**, by running any of the following commands:
     - **Test: Run All Tests** -  runs all tests that have been discovered.
     - **Test: Run Tests in Current File** - runs all tests in a file that that is open in the editor.
     - **Test: Run Test at Cursor** - runs only the test method where you have your cursor focused on the editor.
@@ -282,7 +282,7 @@ For example, the configuration below in the ```launch.json``` file disables the 
 }
 ```
 
-If you have more than one configuration entry with ```"purpose":"debug-test"```, the first definition will be used since we currently don't support multiple definitions for this request type.
+If you have more than one configuration entry with ```"purpose": ["debug-test"]```, the first definition will be used since we currently don't support multiple definitions for this request type.
 
 For more information on debugging, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
