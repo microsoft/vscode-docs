@@ -6,7 +6,7 @@ The Visual Studio Code extension for Julia includes built-in dynamic autocomplet
 
 Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the Julia features that the Julia VS Code extension ships with. For a more in-depth guide on how these features work and can be configured, see [The Julia VS Code Docs](https://www.julia-vscode.org/docs/stable/).
 
-## Getting started with the VS Code Julia extension
+## Getting started
 
 1. Install Julia for your platform: https://julialang.org/downloads/
 2. Install VS Code for your platform: https://code.visualstudio.com/download
