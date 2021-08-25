@@ -555,7 +555,7 @@ export const activate: ActivationFunction = (context) => ({
 
 And then you can consume that message in the extension host as follows:
 
-```js
+```ts
 const messageChannel = notebooks.createRendererMessaging('output-editor-renderer');
 messageChannel.onDidReceiveMessage((e) => {
   if (e.message.request === 'showEditor'){
