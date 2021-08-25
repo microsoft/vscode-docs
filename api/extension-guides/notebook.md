@@ -360,7 +360,7 @@ export const activate: ActivationFunction = (context) => ({
 
 It's important to bear in mind that all outputs for a notebook are rendered in different elements in the same iframe. If you use functions like `document.querySelector`, make sure to scope it to the specific output you're interested in to avoid conflicting with other outputs. In this example, we use `element.querySelector` to avoid that issue.
 
-### Interactive Notebooks
+### Interactive Notebooks (communicating with the controller)
 
 Imagine we want to add the ability to view an issue's comments after clicking a button in the rendered output. Assuming a controller can provide issue data with comments under the `ms-vscode.github-issue-notebook/github-issue-with-comments` mimetype, we might try to retrieve all the comments up front and implement it as follows:
 
@@ -493,21 +493,80 @@ class Controller {
 }
 ```
 
-#### Renderer communications
+### Interactive Notebooks (communicating with the extension host)
 
-Renderer extension authors need to be aware of the fact that renderer extensions can be used outside the context of Visual Studio Code, hence communications might not always be available along.
-As both the extensions are activated separately in two separate contexts its upto extension authors to setup a handshake to ensure both ends are able to communicate successfully.
+Imagine we want to add the ability to open the output item within a separate editor. To make this possible, the renderer needs to be able to send a message to the extension host, which will then launch the editor.
 
-Consider for example, a renderer extension contributes a renderer `renderer_a` for mimetype `application/vnd-sample`.
+This would be useful in scenarios where the renderer and controller are two seprate extensions.
 
-1. Users open a notebook, which contain an output with mimetype `application/vnd-sample`.
-2. Extension code gets activated by `onNotebook` event.
-  2.1 Create a communication object by `const comm = vscode.notebooks.createRendererMessaging('renderer_a')`. and use `comm.postMessage` and `comm.onDidReceiveMessage`
-3. Renderer code loaded in Notebook webview
-  3.1  Users scroll the output into view
-  3.2 Renderer code gets activated, and use `context.postMessage` and `context.onDidReceiveMessage` to communicate with the extension side
+In the `package.json` of the renderer extension specify the value for `requiresMessaging` as `always`.
 
-There is no guarantee when 2.1 or 3.2 is executed or in what sequence. We can see them as two processes and the code on each side talk to each other through `{ postMessage, onDidRecieveMessage }`. Both sides should still work even if the other side is not ready yet or become unresponsive.
+
+```json
+{
+  "activationEvents": ["...."],
+  "contributes": {
+    ...
+    "notebookRenderer": [
+      {
+        "id": "output-editor-renderer",
+        "displayName": "Output Editor Renderer",
+        "entrypoint": "./out/renderer.js",
+        "mimeTypes": [...],
+        "requiresMessaging": "always"
+      }
+    ]
+  }
+}
+```
+
+The possible values for `requiresMessaging` include:
+* `always`  : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
+* `optional`: The renderer is better with messaging available, but it's not requried.
+* `never`   : The renderer does not require messaging.
+
+The last two options are preferred, as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
+
+The renderer script file can setup communications as follows:
+
+```js
+import { ActivationFunction } from 'vscode-notebook-renderer';
+
+export const activate: ActivationFunction = (context) => ({
+	renderOutputItem(data, element) {
+		// Render the output using the output `data`
+    ....
+    // The availability of messaging depends on the value in `requiresMessaging`
+    if (!context.postMessage){
+      return;
+    }
+
+    // Upon some user action in the output (such as clicking a button),
+    // send a message to the extension host requesting the launch of the editor.
+    document.querySelector('#openEditor').addEventListener('click', () => {
+      context.postMessage({
+        request: 'showEditor',
+        data: '<custom data>'
+      })
+    });
+	}
+});
+```
+
+And then you can consume that message in the extension host as follows:
+
+```javascript
+const messageChannel = notebooks.createRendererMessaging('output-editor-renderer');
+messageChannel.onDidReceiveMessage((e) => {
+  if (e.message.request === 'showEditor'){
+    // Launch the editor for the output identified by `e.message.data`
+  }
+});
+```
+
+Note:
+* As renderer extensions and extenions in the extension host activate in two seprate contexts. Its possible for the extension in the extnesion host to activate after a message has been sent by the renderer.
+* All messages sent by the extension to the renderer are guaranteed to be delievered even if the renderer host has not yet been activated.
 
 
 ## Supporting debugging
