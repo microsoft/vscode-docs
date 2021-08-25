@@ -5,7 +5,7 @@ The Visual Studio Code extension for Julia includes built-in dynamic autocomplet
 ![Working with Julia in Visual Studio Code](https://user-images.githubusercontent.com/35577566/130633613-147349e9-50f1-473c-89a5-4c1c999873c7.png)
 (Todo: move to "images/javascript/overview.png")
 
-Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the Julia features that the Julia VS Code extension ships with. For a more in-depth guide on how these features work and can be configured, see [The Julia VSCode Docs](https://www.julia-vscode.org/docs/stable/).
+Most of these features just work out of the box, while some may require basic configuration to get the best experience. This page summarizes the Julia features that the Julia VS Code extension ships with. For a more in-depth guide on how these features work and can be configured, see [The Julia VS Code Docs](https://www.julia-vscode.org/docs/stable/).
 
 ## Getting started with the VS Code Julia extension
 
@@ -18,13 +18,13 @@ Most of these features just work out of the box, while some may require basic co
         clicking `View` on the top tool bar and then selecting `Extensions`.
     3. In the extensions view, simply search for the term ``julia`` in the marketplace
         search box, then select the extension named ``Julia`` (as shown below) and click the install button.
-        You should restart VS Code after this step. Note that if you run into any issues installing the Julia VSCode Extension, check out the [docs on installing an extension](https://code.visualstudio.com/docs/editor/extension-marketplace) which should help clarify any issues.
+        You should restart VS Code after this step. Note that if you run into any issues installing the Julia VS Code Extension, check out the [docs on installing an extension](https://code.visualstudio.com/docs/editor/extension-marketplace) which should help clarify any issues.
         
     <img width="620" alt="Screen Shot 2021-08-24 at 7 33 02 AM" src="https://user-images.githubusercontent.com/35577566/130635880-57ceda12-0297-49ae-9b2b-01545e5a1f30.png">
 
 ## Running Code
 
-There are a variety of different ways to run Julia code through the VS Code IDE. You have the option to run a Julia file (via `(Ctrl+F5)`, which will run whatever Julia file you have open and active), execute Julia commands via the REPL, or even just execute a specific block of code from a file you have open. To learn more about these options, head to the [The Julia VSCode Docs section on running code](https://www.julia-vscode.org/docs/stable/userguide/runningcode/).
+There are a variety of different ways to run Julia code through the VS Code IDE. You have the option to run a Julia file (via `(Ctrl+F5)`, which will run whatever Julia file you have open and active), execute Julia commands via the REPL, or even just execute a specific block of code from a file you have open. To learn more about these options, head to the [The Julia VS Code Docs section on running code](https://www.julia-vscode.org/docs/stable/userguide/runningcode/).
 
 ## Debugging 
 
@@ -42,8 +42,8 @@ After you have a breakpoint added (or any other kind of debug configuration), cl
 
 <img width="1903" alt="Screen Shot 2021-08-24 at 7 34 29 PM" src="https://user-images.githubusercontent.com/35577566/130717102-b9a911c4-0731-4c3a-b75d-105994709354.png">
 
-Notice that the second print command has yet to execute since we cannot see the text in the terminal yet. You can finish the execution of the program by clicking the "Countinue" button:
+Notice that the second print command has yet to execute given we cannot see the text from that proint command in the terminal yet. You can finish the execution of the program by clicking the "Countinue" button:
 
 <img width="1903" alt="Screen Shot 2021-08-24 at 7 35 48 PM" src="https://user-images.githubusercontent.com/35577566/130717213-6ca6c637-cc1f-4e46-b6ab-0d41ac1e7dd4.png">
 
-To find out more about debugging Julia code with VS Code, head to [The Julia VSCode Docs section on Debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/). 
+To find out more about debugging Julia code with VS Code, head to [The Julia VS Code Docs section on Debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/). 
