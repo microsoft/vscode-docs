@@ -47,3 +47,13 @@ Notice that the second print command has yet to execute given we cannot see the 
 <img width="1903" alt="Screen Shot 2021-08-24 at 7 35 48 PM" src="https://user-images.githubusercontent.com/35577566/130717213-6ca6c637-cc1f-4e46-b6ab-0d41ac1e7dd4.png">
 
 To find out more about debugging Julia code with VS Code, head to [The Julia VS Code Docs section on Debugging](https://www.julia-vscode.org/docs/stable/userguide/debugging/). 
+
+## Code completion (IntelliSense)
+
+The Julia VS Code extension comes with Code completion thanks to IntelliSense. This feature works out of the box and is extremely useful for experienced and beginner Julia developers alike.
+
+![completion](https://user-images.githubusercontent.com/35577566/130718247-71e331f6-68bb-4247-8acc-08ee25a6c4b6.gif)
+
+You can read more in the [VS Code Docs section on IntelliSense](https://code.visualstudio.com/docs/editor/intellisense).
+
+
