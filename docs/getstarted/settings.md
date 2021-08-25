@@ -260,6 +260,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - never
     "editor.autoSurround": "languageDefined",
 
+    // Controls whether bracket pair colorization is enabled or not. Use 'workbench.colorCustomizations' to override the bracket highlight colors.
+    "editor.bracketPairColorization.enabled": false,
+
     // Code action kinds to be run on save.
     "editor.codeActionsOnSave": {},
 
@@ -355,7 +358,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the editor should highlight folded ranges.
     "editor.foldingHighlight": true,
 
-    // Controls whether the editor should auto collapse folded ranges or not.
+    // Controls whether the editor automatically collapses import ranges.
     "editor.foldingImportsByDefault": false,
 
     // Controls the strategy for computing folding ranges.
@@ -461,6 +464,15 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls font size of inlay hints in the editor. When set to `0`, the 90% of `editor.fontSize` is used.
     "editor.inlayHints.fontSize": 0,
+
+    // Controls whether to automatically show inline suggestions in the editor.
+    "editor.inlineSuggest.enabled": true,
+
+    // Controls which mode to use for rendering inline suggestions.
+    //  - prefix: Only render an inline suggestion if the replace text is a prefix of the insert text.
+    //  - subword: Only render an inline suggestion if the replace text is a subword of the insert text.
+    //  - subwordSmart: Only render an inline suggestion if the replace text is a subword of the insert text, but the subword must start after the cursor.
+    "editor.inlineSuggest.mode": "subwordSmart",
 
     // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
     "editor.insertSpaces": true,
@@ -1018,6 +1030,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - long: Show the name of the file followed by its absolute path.
     "workbench.editor.labelFormat": "default",
 
+    // Controls whether the language in a text editor is automatically detected unless the language has been explicitly set by the language picker. This can also be scoped by language so you can control which languages you want to trigger language detection on.
+    "workbench.editor.languageDetection": true,
+
     // Controls if the number of opened editors should be limited or not. When enabled, less recently used editors that are not dirty will close to make space for newly opening editors.
     "workbench.editor.limit.enabled": false,
 
@@ -1381,7 +1396,8 @@ Below are the Visual Studio Code default settings and their values. You can also
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "**/.DS_Store": true
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
     },
 
     // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
@@ -1576,7 +1592,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The default number of surrounding context lines to use when creating new Search Editors. If using `search.searchEditor.reusePriorSearchConfiguration`, this can be set to `null` (empty) to use the prior Search Editor's configuration.
     "search.searchEditor.defaultNumberOfContextLines": 1,
 
-// Configure effect of double clicking a result in a search editor.
+    // Configure effect of double clicking a result in a search editor.
     //  - selectWord: Double clicking selects the word under the cursor.
     //  - goToLocation: Double clicking opens the result in the active editor group.
     //  - openLocationToSide: Double clicking opens the result in the editor group to the side, creating one if it does not yet exist.
@@ -1675,6 +1691,14 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Allow setting breakpoints in any file.
     "debug.allowBreakpointsEverywhere": false,
+
+    // Controls whether to confirm when the window closes if there are active debug sessions.
+    //  - never: Never confirm.
+    //  - always: Always confirm if there are debug sessions.
+    "debug.confirmOnExit": "never",
+
+    // Controls whether suggestions should be accepted on Enter in the Debug Console. Enter is also used to evaluate whatever is typed in the Debug Console.
+    "debug.console.acceptSuggestionOnEnter": "off",
 
     // Controls if the debug console should be automatically closed when the debug session ends.
     "debug.console.closeOnEnd": false,
@@ -1855,9 +1879,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - currentGroup: Open links in the active editor group.
     //  - beside: Open links beside the active editor.
     "markdown.links.openLocation": "currentGroup",
-
-    // Enable/disable rendering math in the built-in Markdown preview.
-    "markdown.math.enabled": true,
 
     // Sets how line-breaks are rendered in the Markdown preview. Setting it to 'true' creates a <br> for newlines inside paragraphs.
     "markdown.preview.breaks": false,
@@ -2204,7 +2225,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.
     // - When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.
     // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
-    "typescript.tsdk": null,
+    "typescript.tsdk": "",
 
     // Enables tracing TS server performance to a directory. These trace files can be used to diagnose TS Server performance issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
     "typescript.tsserver.enableTracing": false,
@@ -2221,8 +2242,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
     "typescript.tsserver.trace": "off",
 
-    // Enable/disable spawning a separate TypeScript server that can more quickly respond to syntax related operations, such as calculating folding or computing document symbols. Requires using TypeScript 3.4.0 or newer in the workspace.
-    "typescript.tsserver.useSeparateSyntaxServer": true,
+    // Controls if TypeScript launches a dedicated server to more quickly handle syntax related operations, such as computing code folding.
+    //  - always: Use a lighter weight syntax server to handle all IntelliSense operations. This syntax server can only provide IntelliSense for opened files.
+    //  - never: Don't use a dedicated syntax server. Use a single server to handle all IntelliSense operations.
+    //  - auto: Spawn both a full server and a lighter weight server dedicated to syntax operations. The syntax server is used to speed up syntax operations and provide IntelliSense while projects are loading.
+    "typescript.tsserver.useSyntaxServer": "auto",
 
     // Configure which watching strategies should be used to keep track of files and directories. Requires using TypeScript 3.8+ in the workspace.
     "typescript.tsserver.watchOptions": {},
@@ -2246,6 +2270,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configures when the error Peek view is automatically opened.
     //  - failureAnywhere: Open automatically no matter where the failure is.
     //  - failureInVisibleDocument: Open automatically when a test fails in a visible document.
+    //  - never: Never automatically open.
     "testing.automaticallyOpenPeekView": "failureInVisibleDocument",
 
     // Controls whether to automatically open the Peek view during auto-run mode.
@@ -2267,6 +2292,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the running test should be followed in the Test Explorer view.
     "testing.followRunningTest": true,
+
+    // Controls whether test decorations are shown in the editor gutter.
+    "testing.gutterEnabled": true,
 
 // CSS
 
@@ -2556,7 +2584,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled notebook breadcrumbs contain code cells.
     "notebook.breadcrumbs.showCodeCells": true,
 
-    // Control whether to render the focus indicator as a cell border or a highlight bar on the left gutter
+    // Controls where the focus indicator is rendered, either along the cell borders or on the left gutter.
     "notebook.cellFocusIndicator": "gutter",
 
     // Where the cell toolbar should be shown, or whether it should be hidden.
@@ -2567,7 +2595,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether the cell toolbar should appear on hover or click.
     "notebook.cellToolbarVisibility": "click",
 
-    // Control whether the notebook editor should be rendered in a compact form.
+    // Control whether the notebook editor should be rendered in a compact form. For example, when turned on, it will decrease the left margin width.
     "notebook.compactView": true,
 
     // Control whether outputs action should be rendered in the output toolbar.
@@ -2593,9 +2621,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Settings for code editors used in notebooks. This can be used to customize most editor.* settings.
     "notebook.editorOptionsCustomizations": {},
-
-    // Enable/disable using the new extensible Markdown renderer.
-    "notebook.experimental.useMarkdownRenderer": true,
 
     // Control whether to render a global toolbar inside the notebook editor.
     "notebook.globalToolbar": true,
@@ -2704,6 +2729,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the width of the cursor when `terminal.integrated.cursorStyle` is set to `line`.
     "terminal.integrated.cursorWidth": 1,
+
+    // Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work with the DOM renderer.
+    "terminal.integrated.customGlyphs": true,
 
     // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
     "terminal.integrated.cwd": "",
@@ -3606,7 +3634,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When debugging a remote web app, configures whether to automatically tunnel the remote server to your local machine.
     "debug.javascript.automaticallyTunnelRemoteServer": true,
 
-    // Whether to stop when conditional breakpoints throw an error. Note: your launch.json `type` must be prefixed with `pwa-` to use this, such as `pwa-node`.
+    // Whether to stop when conditional breakpoints throw an error.
     "debug.javascript.breakOnConditionalError": false,
 
     // Where a "Run" and "Debug" code lens should be shown in your npm scripts. It may be on "all", scripts, on "top" of the script section, or "never".
@@ -3635,12 +3663,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Configures whether sourcemapped file where the original file can't be read will automatically be unmapped. If this is false (default), a prompt is shown.
     "debug.javascript.unmapMissingSources": false,
-
-    // Use the new in-preview JavaScript debugger for Node.js and Chrome.
-    "debug.javascript.usePreview": true,
-
-    // Controls whether to show a warning when the 'useWSL' attribute is used.
-    "debug.node.showUseWslIsDeprecatedWarning": true,
 
 // References Search View
 
