@@ -55,4 +55,17 @@ The Julia VS Code extension comes with Code completion thanks to IntelliSense. T
 
 You can read more in the [VS Code Docs section on IntelliSense](https://code.visualstudio.com/docs/editor/intellisense).
 
+## Next steps
+
+This has been a brief overview showing the Julia extension features within VS Code. For more information, see the details provided in the Julia extension [README](https://github.com/julia-vscode/julia-vscode#julia).
+
+To stay up to date on the latest features/bug fixes for the Julia extension, see the [CHANGELOG](https://github.com/julia-vscode/julia-vscode/blob/master/CHANGELOG.md).
+
+If you have any issues or feature requests, feel free to log them in the Julia extension [GitHub repo](https://github.com/julia-vscode/julia-vscode/issues).
+
+If you'd like to learn more about VS Code, try these topics:
+
+* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
+* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
