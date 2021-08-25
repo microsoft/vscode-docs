@@ -1,6 +1,6 @@
 # Julia in Visual Studio Code
 
-The Visual Studio Code extension for Julia includes built-in dynamic autocompletion, inline results, plot pane, integrated REPL, variable view, code navigation, and many other advanced language features.
+The [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) for Visual Studio Code includes built-in dynamic autocompletion, inline results, plot pane, integrated REPL, variable view, code navigation, and many other advanced language features.
 
 ![Julia VS Code Overview](images/julia/overview.png)
 
