@@ -565,8 +565,8 @@ messageChannel.onDidReceiveMessage((e) => {
 ```
 
 Note:
-* As renderer extensions and extenions in the extension host activate in two seprate contexts. Its possible for the extension in the extnesion host to activate after a message has been sent by the renderer.
-* All messages sent by the extension to the renderer are guaranteed to be delievered even if the renderer host has not yet been activated.
+* Its possible for the extension in the extnesion host to activate after a message has been sent by the renderer, hence messages sent by a renderer might not be received at the other end as it has been activated yet.
+* All messages sent by the extensions in the extension host to the renderer extension are guaranteed to be delievered even if the renderer has not yet been activated.
 
 
 ## Supporting debugging
