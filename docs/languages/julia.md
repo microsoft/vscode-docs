@@ -1,5 +1,7 @@
 # Julia in Visual Studio Code
 
+The [Julia Programming language](https://julialang.org) is a high level and dynamic langauge built for speed and simplicity. Julia is commonly used in areas such as data science, machine learning, scientific computing, but is still a general purpose language which can handle most programming use cases.
+
 The [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) for Visual Studio Code includes built-in dynamic autocompletion, inline results, plot pane, integrated REPL, variable view, code navigation, and many other advanced language features.
 
 ![Julia VS Code Overview](images/julia/overview.png)
