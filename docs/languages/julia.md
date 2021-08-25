@@ -35,13 +35,13 @@ Next, you can add a breakpoint by clicking to the left of the line number:
 
 ![Adding a breakpoint](images/julia/debug2.png)  
 
-Note that the red dot will not show up until after you have clicked next to the line number. 
+Note that the red dot will not show up until after you have selected the area next to a line number.
 
-After you have a breakpoint added (or any other kind of debug configuration), click the "Run and Debug" button on the left. It may take a few seconds for the initial run to begin. You should then see the output of running the code with the debug configuration. In this example, since we added a breakpoint, you will see the following: 
+After you have a breakpoint added (or any other kind of debug configuration), select the **Run and Debug** button on the left. It may take a few seconds for the initial run to begin. You should then see the output of running the code with the debug configuration. In this example, since we added a breakpoint, you will see the following: 
 
 ![Run and Debug your Julia file](images/julia/debug3.png)  
 
-Notice that the second print command has yet to execute given we cannot see the text from that proint command in the terminal yet. You can finish the execution of the program by clicking the "Countinue" button:
+Notice that the second print command has yet to execute given we cannot see the text from that proint command in the terminal yet. You can finish the execution of the program by selecting the **Countinue** button:
 
 ![Finish the code execution in the debugger](images/julia/debug4.png)  
 
