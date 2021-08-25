@@ -533,8 +533,8 @@ The renderer script file can setup communications as follows:
 import { ActivationFunction } from 'vscode-notebook-renderer';
 
 export const activate: ActivationFunction = (context) => ({
-	renderOutputItem(data, element) {
-		// Render the output using the output `data`
+  renderOutputItem(data, element) {
+    // Render the output using the output `data`
     ....
     // The availability of messaging depends on the value in `requiresMessaging`
     if (!context.postMessage){
@@ -549,7 +549,7 @@ export const activate: ActivationFunction = (context) => ({
         data: '<custom data>'
       })
     });
-	}
+  }
 });
 ```
 
