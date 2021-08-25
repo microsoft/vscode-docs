@@ -18,7 +18,7 @@ Web extensions share the same structure as regular extensions, but given the dif
 
 A web extension is [structured like a regular extension](/api/get-started/extension-anatomy). The extension manifest (`package.json`) defines the entry file with the source code and declares extension contributions.
 
-For web extensions, the [main entry file](/api/get-started/extension-anatomy#web_extension_main_file) is defined by the `browser` property, and not by the `main` property as with regular extensions.
+For web extensions, the [main entry file](#web-extension-main-file) is defined by the `browser` property, and not by the `main` property as with regular extensions.
 
 The `contributes` property works the same way for both web and regular extensions:
 
@@ -115,53 +115,53 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = /** @type WebpackConfig */ {
-	context: path.dirname(__dirname),
-	mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
-	target: 'webworker', // extensions run in a webworker context
-	entry: {
-		'extension': './src/web/extension.ts',
-		'test/suite/index': './src/web/test/suite/index.ts'
-	},
-	resolve: {
-		mainFields: ['browser', 'module', 'main'],
-		extensions: ['.ts', '.js'], // support ts-files and js-files
-		alias: {
-		},
-		fallback: {
-		  // Webpack 5 no longer polyfills Node.js core modules automatically.
-		  // see https://webpack.js.org/configuration/resolve/#resolvefallback
-		  // for the list of Node.js core module polyfills.
-		  'assert': require.resolve('assert')
-		}
-	},
-	module: {
-		rules: [{
-			test: /\.ts$/,
-			exclude: /node_modules/,
-			use: [
-				{
-					loader: 'ts-loader'
-				}
-			]
-		}]
-	},
-	plugins: [
-		new webpack.ProvidePlugin({
-			process: 'process/browser', // provide a shim for the global `process` variable
-		}),
-	],
-	externals: {
-		'vscode': 'commonjs vscode', // ignored because it doesn't exist
-	},
-	performance: {
-		hints: false
-	},
-	output: {
-		filename: '[name].js',
-		path: path.join(__dirname, '../dist/web'),
-		libraryTarget: 'commonjs'
-	},
-	devtool: 'nosources-source-map' // create a source map that points to the original source file
+  context: path.dirname(__dirname),
+  mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
+  target: 'webworker', // extensions run in a webworker context
+  entry: {
+    'extension': './src/web/extension.ts',
+    'test/suite/index': './src/web/test/suite/index.ts'
+  },
+  resolve: {
+    mainFields: ['browser', 'module', 'main'],
+    extensions: ['.ts', '.js'], // support ts-files and js-files
+    alias: {
+    },
+    fallback: {
+      // Webpack 5 no longer polyfills Node.js core modules automatically.
+      // see https://webpack.js.org/configuration/resolve/#resolvefallback
+      // for the list of Node.js core module polyfills.
+      'assert': require.resolve('assert')
+    }
+  },
+  module: {
+    rules: [{
+      test: /\.ts$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'ts-loader'
+        }
+      ]
+    }]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser', // provide a shim for the global `process` variable
+    }),
+  ],
+  externals: {
+    'vscode': 'commonjs vscode', // ignored because it doesn't exist
+  },
+  performance: {
+    hints: false
+  },
+  output: {
+    filename: '[name].js',
+    path: path.join(__dirname, '../dist/web'),
+    libraryTarget: 'commonjs'
+  },
+  devtool: 'nosources-source-map' // create a source map that points to the original source file
 };
 ```
 
@@ -341,28 +341,27 @@ The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-sam
 
 ### Update existing extensions to Web extensions
 
-Extensions that have no code, but only contribution points (e.g. themes, snippet extensions and basic language extensions) don't need any adoption. They run on a web extension host and can be installed from the Extensions viewlet.
-Republishing is not necessary, but when publishing a new version of the extension, make sure to use the most current version of `vsce`.
+Extensions that have no code, but only contribution points (for example, themes, snippets, and basic language extensions) don't need any modification. They can run in a web extension host and can be installed from the Extensions view. Republishing is not necessary, but when publishing a new version of the extension, make sure to use the most current version of `vsce`.
 
-Extensions with source (defined by the `main` property) need to add `browser` property to point to a [web extension main file](#web-extension-main-file).
+Extensions with source code (defined by the `main` property) need to add the `browser` property to point to a [web extension main file](#web-extension-main-file).
 
-Add a Webpack config file as shown in the [Webpack cnfiguration](#webpack_configuration) paragraph. You can also add new sections to your existing Webpack config file.
+You should also add a Webpack config file as shown in the [Webpack configuration](#webpack-configuration) paragraph. You can also add new sections to your existing Webpack config file.
 
 To make sure as much code as possible can be reused, here are a few techniques:
 
- * Separate your code in a browser part, node part and common part. In common only use code that works in both browser and node runtime. Create abstractions for functionality that has different implementations in node and browser.
- * Some node modules have separate `browser` and `main` entry points and Webpack will automatically select the correct one. Example for that are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
- * Alternatively use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias) in the Webpack file to provide an alternative implementation for a node module.
-
+* Separate your code in a browser part, node part and common part. In common only use code that works in both browser and node runtime. Create abstractions for functionality that has different implementations in node and browser.
+* Some node modules have separate `browser` and `main` entry points and Webpack will automatically select the correct one. Example for that are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
+* Alternatively use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias) in the Webpack file to provide an alternative implementation for a node module.
 
 Look out for usages of `path`, `URI.file`, `context.extensionPath`, `rootPath`. `uri.fsPath`. These will not work with virtual workspaces (non-`file`) as they are used in VS Code Web. Instead use URIs with `URI.parse`, `context.extensionUri`. The [vscode-uri](https://www.npmjs.com/package/vscode-uri) node modules provides `joinPath`, `dirName`, `baseName`, `extName`, `resolvePath`.
 
 Look out for usages of `fs`. Replace by using vscode `workspace.fs`
 
 It is ok to provide less functionality in the Web. Use [when clause contexts](https://code.visualstudio.com/api/references/when-clause-contexts) to control which commands, views and task are available or hidden in the Web respective in a virtual workspace.
-  * Use the `virtualWorkspace` context variable to find out if the current workspace is a non-file workspaces.
-  * Use `resourceScheme` to check if the current resource is a `file` resource.
-  * Use `shellExecutionSupported` if there is a shell present.
+
+* Use the `virtualWorkspace` context variable to find out if the current workspace is a non-file workspaces.
+* Use `resourceScheme` to check if the current resource is a `file` resource.
+* Use `shellExecutionSupported` if there is a shell present.
 Implement alternative command handles that show a dialog that explain why the command is not applicable.
 
 ### Web extension enablement
