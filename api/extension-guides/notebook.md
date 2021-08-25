@@ -265,22 +265,6 @@ npm install -g yo generator-code
 
 Then, run `yo code` and choose `New Notebook Renderer (TypeScript)`.
 
-### Renderer communications
-
-Extensions and renderers are able to communicate via the `createRendererMessaging` and `{ postMessage, onDidRecieveMessage }` API as defined [here](https://code.visualstudio.com/api/references/vscode-api#notebooks).
-When setting up a communication channel between renderers and extension, one needs to remember the fact that they are both activated separately in two separate contexts and its upto extension authors to setup a handshake to ensure both ends are able to communicate successfully.
-
-Consider for example, a renderer extension contributes a renderer `renderer_a` for mimetype `application/vnd-sample`.
-
-1. Users open a notebook, which contain an output with mimetype `application/vnd-sample`.
-2. Extension code gets activated by `onNotebook` event.
-  2.1 Create a communication object by `const comm = vscode.notebooks.createRendererMessaging('renderer_a')`. and use `comm.postMessage` and `comm.onDidReceiveMessage`
-3. Renderer code loaded in Notebook webview
-  3.1  Users scroll the output into view
-  3.2 Renderer code gets activated, and use `context.postMessage` and `context.onDidReceiveMessage` to communicate with the extension side
-
-There is no guarantee when 2.1 or 3.2 is executed or in what sequence. We can see them as two processes and the code on each side talk to each other through `{ postMessage, onDidRecieveMessage }`. Both sides should still work even if the other side is not ready yet or become unresponsive.
-
 ### A Simple, Non-Interactive Renderer
 
 Renderers are declared for a set of mimetypes by contributing to the `contributes.notebookRenderer` property of an extension's `package.json`. This renderer will work with input in the `ms-vscode.github-issue-notebook/github-issue` format, which we will assume some installed controller is able to provide:
@@ -508,6 +492,23 @@ class Controller {
     }
 }
 ```
+
+#### Renderer communications
+
+Renderer extension authors need to be aware of the fact that renderer extensions can be used outside the context of Visual Studio Code, hence communications might not always be available along.
+As both the extensions are activated separately in two separate contexts its upto extension authors to setup a handshake to ensure both ends are able to communicate successfully.
+
+Consider for example, a renderer extension contributes a renderer `renderer_a` for mimetype `application/vnd-sample`.
+
+1. Users open a notebook, which contain an output with mimetype `application/vnd-sample`.
+2. Extension code gets activated by `onNotebook` event.
+  2.1 Create a communication object by `const comm = vscode.notebooks.createRendererMessaging('renderer_a')`. and use `comm.postMessage` and `comm.onDidReceiveMessage`
+3. Renderer code loaded in Notebook webview
+  3.1  Users scroll the output into view
+  3.2 Renderer code gets activated, and use `context.postMessage` and `context.onDidReceiveMessage` to communicate with the extension side
+
+There is no guarantee when 2.1 or 3.2 is executed or in what sequence. We can see them as two processes and the code on each side talk to each other through `{ postMessage, onDidRecieveMessage }`. Both sides should still work even if the other side is not ready yet or become unresponsive.
+
 
 ## Supporting debugging
 
