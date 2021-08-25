@@ -191,6 +191,8 @@ You can run tests using any of the following actions:
 
       ![Running tests at specific scopes through Test Explorer](images/testing/test-explorer-run-scoped-tests.png)
 
+  - You can also run a selection of tests through the test explorer. To do that,  Ctrl + click on the tests you wish to run, right-click on one of them and then select **Run Test**.
+
 
 After a test run, VS Code displays results directly in the editor on the gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
 
