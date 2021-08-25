@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/social.png
 
 # Azure Machine Learning in VS Code
 
-Azure Machine Learning is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. For more information on Azure Machine Learning, see [What is Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Azure Machine Learning is a cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models. For more information on Azure Machine Learning, see [What is Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
 
 The [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) VS Code extension lets you use the features you're used to in Visual Studio Code for developing your machine learning applications.
 
