@@ -842,7 +842,7 @@ For example:
 
 Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
 
-At this point, you can [attach](/docs/remote/attach-container.md) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker Machine](#connect-using-docker-machine) later in this section.
+At this point, you can [attach](/docs/remote/attach-container.md) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker contexts](#connect-using-docker-contexts) later in this section.
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
 
@@ -913,35 +913,19 @@ If you'd prefer not to use `settings.json`, you can set **environment variables*
 3. Set the environment variables (for example `DOCKER_HOST`) in a terminal / command prompt.
 4. Type `code` in this same terminal / command prompt to launch VS Code with the variables set.
 
-### Connect using Docker Machine
+### Connect using Docker Contexts
 
-[Docker Machine](https://docs.docker.com/machine/) is a CLI that allows you to securely set up remote Docker hosts and connect to them. You should also be aware that drivers like the [generic driver](https://docs.docker.com/machine/drivers/generic) shown below will require that any non-root user you specify has [passwordless-sudo](https://serverfault.com/questions/160581/how-to-setup-passwordless-sudo-on-linux) privileges.
+Docker Contexts allow you to interact with different hosts - you can set up contexts for each host and switch between them.
 
-Use the following command with the appropriate values to set up Docker on a remote SSH host. Note that you can use alternate [Docker Machine drivers](https://docs.docker.com/machine/drivers/) instead if you prefer.
+You create new contexts with `docker context create`, specifying a name and endpoint configuration (cluster or single nodes): `docker context create my-context`.
 
-```bash
-docker-machine create --driver generic --generic-ip-address your-ip-address-here --generic-ssh-user your-remote-user-here give-it-a-name-here
-```
+The current context can be changed using `docker context use <context>`.
 
-Once you have a machine set up:
+The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with `docker.host` (same as `DOCKER_HOST` env variable) and `docker.context` (same as `DOCKER_CONTEXT` env variable) user settings that are also honored by the Remote-Containers extension.
 
-1. Shut down **all instances** of VS Code.
-2. Ensure VS Code is in your operating system `PATH`.
-3. Execute one of the following commands for your OS:
+> **Note:** The above settings are only visible when the Docker extension is installed. Without the Docker extension, Remote-Containers will use the current context.
 
-    **macOS or Linux**:
-
-    ```bash
-    eval $(docker-machine env give-it-a-name-here)
-    code
-    ```
-
-    **Windows PowerShell**:
-
-    ```powershell
-    docker-machine env give-it-a-name-here | Invoke-Expression
-    code
-    ```
+Without the Docker extension, Remote-Containers will use the current context.
 
 ### Converting an existing or pre-defined devcontainer.json
 
