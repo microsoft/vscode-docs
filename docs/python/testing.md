@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Python testing in Visual Studio Code
 
-The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/).
+The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/).
 
 ## A little background on unit testing
 
@@ -88,12 +88,12 @@ With this code, you can experience working with tests in VS Code as described in
 
 ## Configure tests
 
-Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar - that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted to select a test framework and a folder containing the tests. If you're using unittest, you will also be asked to select the pattern used to identify your test files.
+Once you install the Python extension, a test beaker icon will be available on the VS Code activity bar - that's the **Test Explorer**. When opening the test explorer, you will see a "Configure Tests" button if you don't have a test framework enabled. Once you click this button, you will be prompted to select a test framework and a folder containing the tests. If you're using unittest, you will also be asked to select the file glob pattern used to identify your test files.
 
 ![Configure Python Tests button displayed in the test explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
 
-You can configure your tests anytime by using the **Python: Configure Tests** command from the Command Palette. You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If both frameworks are enabled, then the Python extension will only run `pytest`.
 
@@ -146,7 +146,7 @@ By default, the Python extension attempts to discover tests once you enable a fr
 [comment]: <TODO: add screenshot>
 
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you, add, delete, or update any python file in the workspace. To disable this feature, set the value to `false`.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you, add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -158,11 +158,11 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 [comment]: <TODO: update text below>
 
-If discovery succeeds, you will see tests displayed in the test explorer:
+If discovery succeeds, you will see tests listed in the test explorer:
 
 ![The VS Code Test Explorer for Python tests](images/testing/test-explorer.png)
 
-If discovery fails (for example, the test framework isn't installed), you will see an error message displayed on the test explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
+If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you will see an error message displayed in the test explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
 
 ![Discovery failure error messaged displayed in the test explorer](images/testing/test-discovery-error.png)
 
@@ -172,7 +172,7 @@ Once VS Code recognizes tests, it provides several ways to run those tests as de
 
 You can run tests using any of the following actions:
 
-- With a test file open, click on the green run icon that is displayed on the gutter next to the test definition line, as shown in the previous section. This command runs only that one method.
+- With a test file open, click on the green run icon that is displayed in the gutter next to the test definition line, as shown in the previous section. This command runs only that one method.
 
     ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
@@ -194,7 +194,7 @@ You can run tests using any of the following actions:
   - You can also run a selection of tests through the test explorer. To do that,  Ctrl + click on the tests you wish to run, right-click on one of them and then select **Run Test**.
 
 
-After a test run, VS Code displays results directly in the editor on the gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
+After a test run, VS Code displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
 
 In the **Test Explorer**, results are shown for individual tests as well as any classes and files containing those tests.
 
@@ -265,9 +265,9 @@ You can use the following commands from the Command Palette to debug tests:
 - **Test: Debug Tests in Current File** - launches the debugger for the tests you have defined in the file you have open in the editor.
 - **Test: Debug Test at Cursor** - launches the debugger only for the method where you have your cursor focused on the editor.  You can also use the "Debug Test" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
-You can also change the default behaviour of clicking on the gutter decoration to debug tests instead of run, by changing the `testing.defaultGutterClickAction` setting value to `debug` in your `settings.json` file.
+You can also change the default behavior of clicking on the gutter decoration to debug tests instead of run, by changing the `testing.defaultGutterClickAction` setting value to `debug` in your `settings.json` file.
 
-The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify ```"purpose": ["debug-test"]``` in the `launch.json` file in the ```.vscode``` folder from your workspace. This configuration will be used when you run **Test: Debug All Tests**, **Test: Debug Tests in Current File** and **Test: Debug Test at Cursor** commands.
+The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify `"purpose": ["debug-test"]` in the `launch.json` file in the `.vscode` folder from your workspace. This configuration will be used when you run **Test: Debug All Tests**, **Test: Debug Tests in Current File** and **Test: Debug Test at Cursor** commands.
 
 For example, the configuration below in the ```launch.json``` file disables the ```justMyCode``` setting for debugging tests:
 
@@ -283,7 +283,7 @@ For example, the configuration below in the ```launch.json``` file disables the 
 }
 ```
 
-If you have more than one configuration entry with ```"purpose": ["debug-test"]```, the first definition will be used since we currently don't support multiple definitions for this request type.
+If you have more than one configuration entry with `"purpose": ["debug-test"]`, the first definition will be used since we currently don't support multiple definitions for this request type.
 
 For more information on debugging, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
