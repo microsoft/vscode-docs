@@ -19,7 +19,9 @@ A web extension is [structured like a regular extension](/api/get-started/extens
 
 For web extensions, the [main entry file](#web-extension-main-file) is defined by the `browser` property, and not by the `main` property as with regular extensions.
 
-The `contributes` property works the same way for both web and regular extensions. The example below shows the `package.json` for a simple hello world extension, that runs in the web only (it only has a `browser` entry point):
+The `contributes` property works the same way for both web and regular extensions.
+
+The example below shows the `package.json` for a simple hello world extension, that runs in the web only (it only has a `browser` entry point):
 
 ```json
 {
@@ -67,7 +69,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in VS Code Web without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
-Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes.
+Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update_existing_extensions_to_web_extensions) section shows how to migrate an extension to work in both runtimes.
 
 The [web extension enablement](#web-extension-enablement) section lists the rules used to decide whether an extension can be loaded in a web extension host.
 
@@ -126,7 +128,7 @@ module.exports = /** @type WebpackConfig */ {
     'test/suite/index': './src/web/test/suite/index.ts'
   },
   resolve: {
-    mainFields: ['browser', 'module', 'main'], // look for `browser` entry points in imported node modules
+    mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
     extensions: ['.ts', '.js'], // support ts-files and js-files
     alias: {
       // provides alternate implementation for node module and source files
@@ -176,7 +178,7 @@ Some important fields of `web-extension.webpack.config.js` are:
 * The `output` field indicates where the compiled file will be located.
   * `[name]` will be replaced by the key used in `entry`. So in the generated config file, it will produce `dist/web/extension.js` and `dist/web/test/suite/index.js`.
 * The `target` field indicates which type of environment the compiled JavaScript file will run. For web extensions, you want this to be `webworker`.
-* The `resolve` field contains the ability to add fallbacks for node libraries that don't work in the browser with the `fallback` field.
+* The `resolve` field contains the ability to add aliases and fallbacks for node libraries that don't work in the browser.
   * If you're using a library like `path`, you can specify how to resolve `path` in a web compiled context. For instance, you can point to a file in the project that defines `path` with `path: path.resolve(__dirname, 'src/my-path-implementation-for-web.js')`. Or you can use the Browserify node packaged version of the library called `path-browserify` and specify `path: require.resolve('path-browserify')`.
   * See [webpack resolve.fallback](https://webpack.js.org/configuration/resolve/#resolvefallback) for the list of Node.js core module polyfills.
 * The `plugins` section uses the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin/) to polyfill globals such as the `process` Node.js global.
@@ -324,6 +326,38 @@ The test runner script is running on the web extension host with the same restri
 * Only `require('vscode')` is supported.
 
 The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
+```ts
+require('mocha/mocha'); // import the moch web build
+
+export function run(): Promise<void> {
+
+	return new Promise((c, e) => {
+		mocha.setup({
+			ui: 'tdd',
+			reporter: undefined
+		});
+
+		// bundles all files in the current directory matching `*.test`
+		const importAll = (r: __WebpackModuleApi.RequireContext) => r.keys().forEach(r);
+		importAll(require.context('.', true, /\.test$/));
+
+		try {
+			// Run the mocha test
+			mocha.run(failures => {
+				if (failures > 0) {
+					e(new Error(`${failures} tests failed.`));
+				} else {
+					c();
+				}
+			});
+		} catch (err) {
+			console.error(err);
+			e(err);
+		}
+	});
+}
+```
+
 
 To run the web test from the command line, run the following command in the extension folder:
 
@@ -368,7 +402,9 @@ Web extensions are hosted on the [Marketplace](https://marketplace.visualstudio.
 
 ### Extension without code
 
-Extensions that have no code, but only contribution points (for example, themes, snippets, and basic language extensions) don't need any modification. They can run in a web extension host and can be installed from the Extensions view. Republishing is not necessary, but when publishing a new version of the extension, make sure to use the most current version of `vsce`.
+Extensions that have no code, but only contribution points (for example, themes, snippets, and basic language extensions) don't need any modification. They can run in a web extension host and can be installed from the Extensions view.
+
+Republishing is not necessary, but when publishing a new version of the extension, make sure to use the most current version of `vsce`.
 
 ### Migrate extension with code
 
@@ -378,7 +414,7 @@ Use this steps to recompile your extension code for the browser environment:
 
 * Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section at add a new item to your existing webpack file.
 * Add the `launch.json` and `tasks.json` files as shown above.
-* In web pack config file set the input file to the existing Node.js main file or create a new main file for the web extension.
+* In webpack config file set the input file to the existing Node.js main file or create a new main file for the web extension.
 * In `package.js` add a `browser` property with the output path specified in the webpack config file and the scripts to run web as shown in the [Web extension anatomy](#web_extension_anatomy) section.
 * run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
 
@@ -388,9 +424,9 @@ To make sure as much source code as possible can be reused, here are a few techn
 
  * To provide a Node.js global such as `process` use the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin/)
 
- * To provide and alternate implementation for a node module or source file, use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias)
+ * To provide an alternate implementation for a node module or source file, use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias)
 
- * Some node modules have separate `browser` and `main` entry points and can be used in both environments. Webpack will automatically select the correct one. Examples for that are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
+ * Some node modules have separate `browser` and `main` entry points so the node module can be used in both runtimes. Webpack will automatically package the correct one. Examples of node modules that so this are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
 
  * Separate your code in a browser part, Node.js part, and common part. In common, only use code that works in both the browser and Node.js runtime. Create abstractions for functionality that has different implementations in Node.js and the browser.
 
@@ -409,7 +445,7 @@ It is fine to provide less functionality when your extension is running in the w
 WebWorkers can be used as an alternative to forking processes. We have updated several language servers to run as web extensions, including the built-in [JSON](https://github.com/microsoft/vscode/tree/main/extensions/json-language-features), [CSS](https://github.com/microsoft/vscode/tree/main/extensions/css-language-features) and [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) language servers. The [Language Server Protocol](#language-server-protocol-in-web-extensions) section below gives more details.
 
 
-The browser runtime environment limits the use of libraries written in programming languages other than JavaScript. Some libraries can be compiled to [WebAssembly](https://webassembly.org/). The [vscode-anycode](https://github.com/microsoft/vscode-anycode) extension is an example.
+The browser runtime environment limits the use of libraries written in programming languages other than JavaScript. Some libraries can be compiled to [WebAssembly](https://webassembly.org/). Have a look at the [vscode-anycode](https://github.com/microsoft/vscode-anycode) extension is an example. It uses the tree sitter library originally implemented in c.
 
 
 ### Language Server Protocol in web extensions
