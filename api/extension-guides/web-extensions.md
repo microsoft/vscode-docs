@@ -412,11 +412,11 @@ Extensions with source code (defined by the `main` property) need to provide a [
 
 Use this steps to recompile your extension code for the browser environment:
 
-* Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section at add a new item to your existing webpack file.
-* Add the `launch.json` and `tasks.json` files as shown above.
+* Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section.
+* Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension] section.
 * In webpack config file set the input file to the existing Node.js main file or create a new main file for the web extension.
-* In `package.js` add a `browser` property with the output path specified in the webpack config file and the scripts to run web as shown in the [Web extension anatomy](#web_extension_anatomy) section.
-* run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
+* In `package.js` add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web_extension_anatomy) section.
+* Run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
 
 To make sure as much source code as possible can be reused, here are a few techniques:
 
@@ -424,9 +424,9 @@ To make sure as much source code as possible can be reused, here are a few techn
 
  * To provide a Node.js global such as `process` use the [DefinePlugin plugin](https://webpack.js.org/plugins/define-plugin/)
 
- * To provide an alternate implementation for a node module or source file, use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias)
+ * Use node modules that work in both browser and node runtime. Node modules can do that by defining both `browser` and `main` entry points. Webpack will automatically use the one matching its target. Examples of node modules that do this are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
 
- * Some node modules have separate `browser` and `main` entry points so the node module can be used in both runtimes. Webpack will automatically package the correct one. Examples of node modules that so this are [request-light](https://github.com/microsoft/node-request-light) and [vscode-nls](https://github.com/Microsoft/vscode-nls).
+ * To provide an alternate implementation for a node module or source file, use [resolve.alias](https://webpack.js.org/configuration/resolve/#resolvealias)
 
  * Separate your code in a browser part, Node.js part, and common part. In common, only use code that works in both the browser and Node.js runtime. Create abstractions for functionality that has different implementations in Node.js and the browser.
 
