@@ -302,7 +302,7 @@ Finally, in VS Code Web, run the command **Developer: Install Web Extension...**
 
 Web extension tests are supported as well and can be implemented similar to regular extension tests. See the [Testing Extensions](/api/working-with-extensions/testing-extension) article to learn the basic structure of extension tests.
 
-The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module is the equivalent to [@vscode/test-web](https://github.com/microsoft/vscode-test) (previously named `vscode-test`). It allows you to run extension tests from the command line on Chromium, Firefox, and Safari. The utility
+The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module is the equivalent to [@vscode/test-electron](https://github.com/microsoft/vscode-test) (previously named `vscode-test`). It allows you to run extension tests from the command line on Chromium, Firefox, and Safari. The utility
  1. starts the VS Code Web editor from a local web server
  2. opens the specified browser
  3. runs the provided test runner script.
