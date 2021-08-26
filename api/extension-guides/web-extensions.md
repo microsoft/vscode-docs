@@ -444,8 +444,7 @@ It is fine to provide less functionality when your extension is running in the w
 
 WebWorkers can be used as an alternative to forking processes. We have updated several language servers to run as web extensions, including the built-in [JSON](https://github.com/microsoft/vscode/tree/main/extensions/json-language-features), [CSS](https://github.com/microsoft/vscode/tree/main/extensions/css-language-features) and [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) language servers. The [Language Server Protocol](#language-server-protocol-in-web-extensions) section below gives more details.
 
-
-The browser runtime environment limits the use of libraries written in programming languages other than JavaScript. Some libraries can be compiled to [WebAssembly](https://webassembly.org/). Have a look at the [vscode-anycode](https://github.com/microsoft/vscode-anycode) extension is an example. It uses the tree sitter library originally implemented in c.
+The browser runtime environment only supports the execution of JavaScript and [WebAssembly](https://webassembly.org/). Libraries written in other programming languages need to be cross-compiled, for instance there is tooling to compile [C/C++](https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm) and [Rust](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm) to WebAssembly. The [vscode-anycode](https://github.com/microsoft/vscode-anycode)-extension, for example, uses tree-sitter which is C/C++ code compiled to WebAssembly.
 
 
 ### Language Server Protocol in web extensions
