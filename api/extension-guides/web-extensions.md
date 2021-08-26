@@ -52,7 +52,6 @@ The example below shows the `package.json` for a simple hello world extension, t
     "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
   },
   "devDependencies": {
-    "@types/node": "14.x",
     "@types/vscode": "^1.59.0",
     "ts-loader": "^9.2.2",
     "webpack": "^5.38.1",
@@ -106,6 +105,7 @@ The extension that is created consists of the extension's source code (a command
 * `.vscode/launch.json` contains the launch configurations that run the web extension and the tests in the VS Code desktop with a web extension host (setting `extensions.webWorker` is no longer needed).
 * `.vscode/task.json` contains the build task used by the launch configuration. It uses `npm run watch-web` and depends on the webpack specific `ts-webpack-watch` problem matcher.
 * `.vscode/extensions.json` contains the extensions that provides the problem matchers. These extensions need to be installed for the launch configurations to work.
+* `tsconfig.json` defines the compile options matching the `webworker` runtime.
 
 The source code in the [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample) is very similar to what's created by the generator.
 
@@ -396,7 +396,10 @@ To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Exten
 
 ## Publish a web extension
 
-Web extensions are hosted on the [Marketplace](https://marketplace.visualstudio.com/vscode) along with other extensions. Make sure to use the latest version of `vsce` to publish your extension. `vsce` tags all web extensions using the [rules](#web-extension-enablement) that define if an extension can run on a web extension host.
+Web extensions are hosted on the [Marketplace](https://marketplace.visualstudio.com/vscode) along with other extensions.
+
+Make sure to use the latest version of `vsce` to publish your extension. `vsce` tags all extensions that are web extension. For that is is using the rules listed in the [web extension enablement](#web-extension-enablement) section.
+
 
 ## Update existing extensions to Web extensions
 
@@ -463,7 +466,7 @@ The server at `vscode-languageserver/browser`.
 
 The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample) shows how this works.
 
-### Web extension enablement
+## Web extension enablement
 
 Here are the complete rules used internally to decide if an extension can be enabled on a web extension host. If at least one of the conditions is fulfilled, the extension can run on the web extension host. The same rules are used in the Extensions view to decide whether an extension can be installed in VS Code Web.
 
@@ -476,3 +479,7 @@ Extensions that have only a `main` entry point, but no `browser` are not conside
 The `localizations`, `debuggers`, `terminal`, or `typescriptServerPlugins` contributions are used as an indication that an extension is not suited for running in the web extension host. Developers can override this behavior by adding a `browser` entry point or by adding `web` to `extensionKind`.
 
 The `extensionKind` property is optional for web. If undefined, or if it contains other values (typically an array with either `ui` and `workspace` or both), `web` is internally added based on the `main`, `browser` and `contributes` properties. If an extension is both a web and a regular extension, then the `extensionKind` property defines the order of preference if multiple extension hosts are available. It is best to leave `extensionKind` undefined unless you fully understand how `extensionKind` works.
+
+## Samples
+ * [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample)
+ * [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample
