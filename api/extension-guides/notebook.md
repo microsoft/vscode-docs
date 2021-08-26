@@ -523,7 +523,7 @@ In the `package.json` of the renderer extension specify the value for `requiresM
 The possible values for `requiresMessaging` include:
 
 * `always`  : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
-* `optional`: The renderer is better with messaging the extension host is available, but it's not required to install and run the renderer.
+* `optional`: The renderer is better with messaging when the extension host is available, but it's not required to install and run the renderer.
 * `never`   : The renderer does not require messaging.
 
 The last two options are preferred, as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
