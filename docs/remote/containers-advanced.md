@@ -915,17 +915,13 @@ If you'd prefer not to use `settings.json`, you can set **environment variables*
 
 ### Connect using Docker Contexts
 
-Docker Contexts allow you to interact with different hosts - you can set up contexts for each host and switch between them.
+[Docker Contexts](https://docs.docker.com/engine/context/working-with-contexts/) allow you to interact with different hosts - you can set up contexts for each host and switch between them.
 
-You create new contexts with `docker context create`, specifying a name and endpoint configuration (cluster or single nodes): `docker context create my-context`.
-
-The current context can be changed using `docker context use <context>`.
+You create new contexts with `docker context create`. The current context can be changed using `docker context use <context>`.
 
 The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with `docker.host` (same as `DOCKER_HOST` env variable) and `docker.context` (same as `DOCKER_CONTEXT` env variable) user settings that are also honored by the Remote-Containers extension.
 
 > **Note:** The above settings are only visible when the Docker extension is installed. Without the Docker extension, Remote-Containers will use the current context.
-
-Without the Docker extension, Remote-Containers will use the current context.
 
 ### Converting an existing or pre-defined devcontainer.json
 
