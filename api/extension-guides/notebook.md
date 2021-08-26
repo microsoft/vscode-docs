@@ -567,7 +567,7 @@ messageChannel.onDidReceiveMessage((e) => {
 
 Note:
 
-* It's possible for the extension in the extension host to activate after a message has been sent by the renderer, hence messages sent by a renderer might not be received by the extension since it wasn't activated yet. To mitigate this, the extension can use the `onRenderer` activation event to ensure the extension is activated when the renderer has been activated.
+* To ensure your extension is running in the extension host before messages are delivered, add `onRenderer:<your renderer id>` to your `activationEvents` and set up communication in your extension's `activate` function.
 * Not all messages sent by the renderer extension to the extension host are guaranteed to be delivered. A user could close the notebook before messages from the renderer are delivered.
 
 
