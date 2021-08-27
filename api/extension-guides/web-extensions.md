@@ -290,7 +290,7 @@ The test runner script is running on the web extension host with the same restri
 
 The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
 ```ts
-require('mocha/mocha'); // import the moch web build
+require('mocha/mocha'); // import the mocha web build
 
 export function run(): Promise<void> {
 
