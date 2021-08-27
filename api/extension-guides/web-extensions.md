@@ -379,9 +379,9 @@ Extensions with source code (defined by the `main` property) need to provide a [
 Use this steps to recompile your extension code for the browser environment:
 
 * Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section.
-* Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension] section.
+* Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension) section.
 * In webpack config file set the input file to the existing Node.js main file or create a new main file for the web extension.
-* In `package.js` add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web_extension_anatomy) section.
+* In `package.js` add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web-extension-anatomy) section.
 * Run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
 
 To make sure as much source code as possible can be reused, here are a few techniques:
@@ -446,4 +446,4 @@ The `extensionKind` property is optional for web. If undefined, or if it contain
 
 ## Samples
  * [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample)
- * [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample
+ * [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample)
