@@ -1,6 +1,15 @@
+---
+Order: 13
+Area: languages
+TOCTitle: Julia
+ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
+PageTitle: Julia in Visual Studio Code
+DateApproved: 08/27/2021
+MetaDescription: Learn about working with the Julia programming language in Visual Studio Code.
+---
 # Julia in Visual Studio Code
 
-The [Julia Programming language](https://julialang.org) is a high level and dynamic language built for speed and simplicity. Julia is commonly used in areas such as data science, machine learning, scientific computing, but is still a general purpose language that can handle most programming use cases.
+The [Julia programming language](https://julialang.org) is a high level and dynamic language built for speed and simplicity. Julia is commonly used in areas such as data science, machine learning, scientific computing, but is still a general purpose language that can handle most programming use cases.
 
 The [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) for Visual Studio Code includes built-in dynamic autocompletion, inline results, plot pane, integrated REPL, variable view, code navigation, and many other advanced language features.
 
@@ -12,13 +21,13 @@ Most of these features work out of the box, while some may require basic configu
 
 1. Install Julia for your platform: [https://julialang.org/downloads](https://julialang.org/downloads).
 2. Install VS Code for your platform: [https://code.visualstudio.com/download](https://code.visualstudio.com/download).
-3. Open the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
+3. Open the Julia extension on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) and press **Install**; or manually install by doing the following steps:
     1. Start VS Code.
     2. Inside VS Code, go to the Extensions view by clicking **View** on the top menu bar and then selecting **Extensions**.
     3. In the Extensions view, search for the term "julia" in the Marketplace search box, then select the Julia extension (julialang.language-julia) and select the **Install** button.
     4. Restart VS Code.
 
-If you run into any issues installing the Julia VS Code extension, check out [installing an extension](/docs/editor/extension-marketplace.md), which should help clarify any issues.
+If you run into any issues installing the Julia VS Code extension, check out [install an extension](/docs/editor/extension-marketplace.md#install-an-extension), which should help clarify any issues.
 
 ![Julia in the VS Code Marketplace](images/julia/julia-extension-marketplace.png)
 
@@ -62,15 +71,15 @@ By default, on the left side of the window in the Activity bar, you will see the
 
 ![Julia icon in the Activity bar](images/julia/julia-tab1.png)
 
-If you select the Julia icon, the Julia view will open that displays sections for your Workspace, Documentation, and the Plot Navigator. The workspace is a collection of source code that is loaded into your active Julia session. By default, it will be blank since you have not yet run any code, but after you run something, you will be able to see the state of the workspace.
+If you select the Julia icon, the Julia view will open that displays sections for **Workspace**, **Documentation**, and the **Plot Navigator**. The **Workspace** section displays a collection of source code that is loaded into your active Julia session. By default, it will be blank since you have not yet run any code, but after you run something, you will be able to see the state of the workspace.
 
 ![Julia Workspace](images/julia/julia-tab2.png)
 
-The built-in Documentation section lets you review details about specific Julia functions without needing to open a separate browser window. You can search the documentation of any Julia package you have loaded into your active session (by doing `using some_package`), but by default, the search bar will only display results from the core Julia documentation.
+The **Documentation** section lets you review details about specific Julia functions without needing to open a separate browser window. You can search the documentation of any Julia package you have loaded into your active session (by doing `using some_package`), but by default, the search bar will only display results from the core Julia documentation.
 
 ![Julia Documentation](images/julia/julia-tab3.png)
 
-There is also a built-in Plot Navigator, which can be very helpful when you are working on projects with visualization components. You can set the plots to render by default in VS Code and then conveniently navigate back and forth through them.
+There is also a built-in **Plot Navigator**, which can be very helpful when you are working on projects with visualization components. You can set the plots to render by default in VS Code and then conveniently navigate back and forth through them.
 
 ## Next steps
 
