@@ -521,11 +521,11 @@ In the `package.json` of the renderer extension specify the value for `requiresM
 ```
 
 The possible values for `requiresMessaging` include:
-* `always`  : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
-* `optional`: The renderer is better with messaging available, but it's not requried.
 * `never`   : The renderer does not require messaging.
+* `optional`: The renderer is better with messaging available, but it's not requried.
+* `always`  : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
 
-The last two options are preferred, as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
+`optional` is the recommended approach as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
 
 The renderer script file can setup communications as follows:
 
@@ -563,11 +563,6 @@ messageChannel.onDidReceiveMessage((e) => {
   }
 });
 ```
-
-Note:
-* Its possible for the extension in the extnesion host to activate after a message has been sent by the renderer, hence messages sent by a renderer might not be received at the other end as it has been activated yet.
-* All messages sent by the extensions in the extension host to the renderer extension are guaranteed to be delievered even if the renderer has not yet been activated.
-
 
 ## Supporting debugging
 
