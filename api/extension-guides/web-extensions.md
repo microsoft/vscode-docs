@@ -290,7 +290,7 @@ The test runner script is running on the web extension host with the same restri
 
 The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
 ```ts
-require('mocha/mocha'); // import the moch web build
+require('mocha/mocha'); // import the mocha web build
 
 export function run(): Promise<void> {
 
@@ -361,7 +361,7 @@ To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Exten
 
 Web extensions are hosted on the [Marketplace](https://marketplace.visualstudio.com/vscode) along with other extensions.
 
-Make sure to use the latest version of `vsce` to publish your extension. `vsce` tags all extensions that are web extension. For that is is using the rules listed in the [web extension enablement](#web-extension-enablement) section.
+Make sure to use the latest version of `vsce` to publish your extension. `vsce` tags all extensions that are web extension. For that `vsce` is using the rules listed in the [web extension enablement](#web-extension-enablement) section.
 
 
 ## Update existing extensions to Web extensions
@@ -376,12 +376,12 @@ Republishing is not necessary, but when publishing a new version of the extensio
 
 Extensions with source code (defined by the `main` property) need to provide a [web extension main file](#web-extension-main-file) and set the `browser` property in `package.json`.
 
-Use this steps to recompile your extension code for the browser environment:
+Use these steps to recompile your extension code for the browser environment:
 
 * Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section.
-* Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension] section.
+* Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension) section.
 * In webpack config file set the input file to the existing Node.js main file or create a new main file for the web extension.
-* In `package.js` add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web_extension_anatomy) section.
+* In `package.js` add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web-extension-anatomy) section.
 * Run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
 
 To make sure as much source code as possible can be reused, here are a few techniques:
@@ -446,4 +446,4 @@ The `extensionKind` property is optional for web. If undefined, or if it contain
 
 ## Samples
  * [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample)
- * [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample
+ * [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample)
