@@ -293,24 +293,24 @@ For more information on debugging, see [Python debugging configurations](/docs/p
 Below are all the supported commands for testing with the Python extension in VS Code:
 | Command Name | Description |
 | ------------ | ------------|
-| Python: Configure Tests | Command to configure  the test framework to be used with the Python extension.  |
-|  Test: Clear All Results | Clear all tests status, as the UI persists test results across sessions. |  Test: Debug All Tests | Debug all discovered tests. Equivalent to "Python: Debug All Tests" on versions before 2021.9.   |
-|  Test: Debug Failed Tests |Debug tests that failed in the most recent test run. |
-|  Test: Debug Last Run | Debug tests that were executed in the most recent test run. |
-|  Test: Debug Test at Cursor | Debug the test method where you have your cursor focused on the editor. Similar to  "Python: Debug Test Method..." on version before 2021.9. |
-|  Test: Debug Tests in Current File | Debug tests in the file that is currently in focus on the editor. |
-|  Test: Go to Next Test Failure | If the error peek view is open, this command opens and moves to the peek view of the next test in the explorer that has failed. |
-|  Test: Go to Previous Test Failure | If the error peek view is open, this command opens and moves to the peek view of the previous test in the explorer that has failed. |
-|  Test: Peek Output | Opens the error peek view for a test method that has failed. |
-|  Test: Refresh Tests | Perform test discovery and updates the test explorer to reflect any test changes, addition or deletion. Similar to "Python: Discover Tests" on versions before 2021.9. |
-|  Test: Rerun Failed Tests | Run tests that failed in the most recent test run. Similar to "Python: Run Failed Tests" on versions before 2021.9.  |
-|  Test: Rerun Last Run | Debug tests that were executed in the most recent test run.  |
-|  Test: Run All Tests |  Run all discovered tests. Equivalent to "Python: Run All Tests" on versions before 2021.9.  |
-|  Test: Run Test at Cursor |  Run the test method where you have your cursor focused on the editor.  Similar to "Python: Run Test Method..." on versions before 2021.9. |
-|  Test: Run Test in Current File | Run tests in the file that is currently in focus on the editor. Equivalent to "Python: Run Current Test File" on versions before 2021.9. |
-|  Test: Show Output | Open the output with details of all the test runs.  Similar to "Python: Show Test Output" on versions before 2021.9. |
-|  Testing: Focus on Test Explorer View | Open the test explorer view. Similar to "Testing: Focus on Python View" on versions before 2021.9.
-|  Test: Stop Refreshing Tests | Cancel test discovery. |
+| **Python: Configure Tests** | Command to configure  the test framework to be used with the Python extension.  |
+|  **Test: Clear All Results** | Clear all tests status, as the UI persists test results across sessions. |  Test: Debug All Tests | Debug all discovered tests. Equivalent to "Python: Debug All Tests" on versions before 2021.9.   |
+|  **Test: Debug Failed Tests** |Debug tests that failed in the most recent test run. |
+|  **Test: Debug Last Run** | Debug tests that were executed in the most recent test run. |
+|  **Test: Debug Test at Cursor** | Debug the test method where you have your cursor focused on the editor. Similar to  "Python: Debug Test Method..." on version before 2021.9. |
+|  **Test: Debug Tests in Current File** | Debug tests in the file that is currently in focus on the editor. |
+|  **Test: Go to Next Test Failure** | If the error peek view is open, this command opens and moves to the peek view of the next test in the explorer that has failed. |
+|  **Test: Go to Previous Test Failure** | If the error peek view is open, this command opens and moves to the peek view of the previous test in the explorer that has failed. |
+|  **Test: Peek Output** | Opens the error peek view for a test method that has failed. |
+|  **Test: Refresh Tests** | Perform test discovery and updates the test explorer to reflect any test changes, addition or deletion. Similar to **Python: Discover Tests** on versions before 2021.9. |
+|  **Test: Rerun Failed Tests** | Run tests that failed in the most recent test run. Similar to **Python: Run Failed Tests** on versions before 2021.9.  |
+|  **Test: Rerun Last Run** | Debug tests that were executed in the most recent test run.  |
+|  **Test: Run All Tests** |  Run all discovered tests. Equivalent to **Python: Run All Tests** on versions before 2021.9.  |
+|  **Test: Run Test at Cursor** |  Run the test method where you have your cursor focused on the editor.  Similar to **Python: Run Test Method...** on versions before 2021.9. |
+|  **Test: Run Test in Current File** | Run tests in the file that is currently in focus on the editor. Equivalent to **Python: Run Current Test File** on versions before 2021.9. |
+|  **Test: Show Output** | Open the output with details of all the test runs.  Similar to **Python: Show Test Output** on versions before 2021.9. |
+|  **Testing: Focus on Test Explorer View** | Open the test explorer view. Similar to **Testing: Focus on Python View** on versions before 2021.9.
+|  **Test: Stop Refreshing Tests** | Cancel test discovery. |
 
 ## Test configuration settings
 
