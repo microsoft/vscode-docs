@@ -113,7 +113,7 @@ If you choose one of the suggestions from another file or module, VS Code will a
 
 ![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
 
-You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
 
 ## Formatting
 
