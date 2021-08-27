@@ -185,6 +185,10 @@ Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Sinc
 
 These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
+You can also start the debugger by clicking on the down-arrow next to the run button on the editor, and selecting **Debug Python File in Terminal**.
+
+![Using the debug Python file in terminal button](images/tutorial/debug-python-file-in-terminal-button.png)
+
 The debugger will stop at the first line of the file breakpoint. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you will see now defined `msg` variable appears in the **Local** pane.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
