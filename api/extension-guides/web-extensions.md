@@ -361,7 +361,7 @@ To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Exten
 
 Web extensions are hosted on the [Marketplace](https://marketplace.visualstudio.com/vscode) along with other extensions.
 
-Make sure to use the latest version of `vsce` to publish your extension. `vsce` tags all extensions that are web extension. For that is is using the rules listed in the [web extension enablement](#web-extension-enablement) section.
+Make sure to use the latest version of `vsce` to publish your extension. `vsce` tags all extensions that are web extension. For that `vsce` is using the rules listed in the [web extension enablement](#web-extension-enablement) section.
 
 
 ## Update existing extensions to Web extensions
