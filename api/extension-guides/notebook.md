@@ -499,7 +499,7 @@ Imagine we want to add the ability to open the output item within a separate edi
 
 This would be useful in scenarios where the renderer and controller are two seprate extensions.
 
-In the `package.json` of the renderer extension specify the value for `requiresMessaging` as `always`.
+In the `package.json` of the renderer extension specify the value for `requiresMessaging` as `optional` which allows your renderer to work in both situations when it has and doesn't have access to the extension host.
 
 
 ```json
@@ -513,7 +513,7 @@ In the `package.json` of the renderer extension specify the value for `requiresM
         "displayName": "Output Editor Renderer",
         "entrypoint": "./out/renderer.js",
         "mimeTypes": [...],
-        "requiresMessaging": "always"
+        "requiresMessaging": "optional"
       }
     ]
   }
@@ -521,8 +521,9 @@ In the `package.json` of the renderer extension specify the value for `requiresM
 ```
 
 The possible values for `requiresMessaging` include:
+
 * `always`  : Messaging is required. The renderer will only be used when it's part of an extension that can be run in an extension host.
-* `optional`: The renderer is better with messaging available, but it's not requried.
+* `optional`: The renderer is better with messaging when the extension host is available, but it's not required to install and run the renderer.
 * `never`   : The renderer does not require messaging.
 
 The last two options are preferred, as this ensures the portability of renderer extensions to other contexts where the extension host might not necessarily be available.
@@ -565,8 +566,9 @@ messageChannel.onDidReceiveMessage((e) => {
 ```
 
 Note:
-* Its possible for the extension in the extnesion host to activate after a message has been sent by the renderer, hence messages sent by a renderer might not be received at the other end as it has been activated yet.
-* All messages sent by the extensions in the extension host to the renderer extension are guaranteed to be delievered even if the renderer has not yet been activated.
+
+* To ensure your extension is running in the extension host before messages are delivered, add `onRenderer:<your renderer id>` to your `activationEvents` and set up communication in your extension's `activate` function.
+* Not all messages sent by the renderer extension to the extension host are guaranteed to be delivered. A user could close the notebook before messages from the renderer are delivered.
 
 
 ## Supporting debugging
