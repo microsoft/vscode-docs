@@ -57,6 +57,22 @@ The Julia VS Code extension comes with Code completion thanks to IntelliSense. T
 
 You can read more in the [VS Code Docs section on IntelliSense](https://code.visualstudio.com/docs/editor/intellisense).
 
+## Julia Tab
+
+By default, on the left side of the window, you will see the Julia three dots logo as shown below:
+
+![Julia Tab on the Left side](images/julia/julia-tab1.png)
+
+If you select the three dots logo, the Julia tab will open which displays your Workspace, Documentation, and the Plot Navigator. The workspace is a collection of code that is loaded into you active Julia session. Note that by default, it will be blank since you have not run any code yet, but after you run something, you will be able to see the state of the workspace.
+
+![Julia Workspace](images/julia/julia-tab2.png)
+
+The built-in Documnetation section can be quite helpful and enables you to avoid having to open up multiple browser windows in addition to your editor, in search of details on how to use specific Julia functions. You can search the documentation of any Julia package you have loaded into your active session (by doing `using some_package`), but by default, the search bar will only display results from the core Julia documentation.
+
+![Julia Workspace](images/julia/julia-tab3.png)
+
+There is also a built in Plot Navigator which can be very helpful when you are working on projects with visulization components. You can set the plots to render by default in VS Code and then conveniently navigate back and forth through them.
+
 ## Next steps
 
 This has been a brief overview showing the Julia extension features within VS Code. For more information, see the details provided in the Julia extension [README](https://github.com/julia-vscode/julia-vscode#julia).
