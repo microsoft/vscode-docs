@@ -185,11 +185,10 @@ Some important fields of `web-extension.webpack.config.js` are:
 
 ## Test your web extension
 
-There are currently three ways to test a web extension before publishing it to the Marketplace.
+There are currently two ways to test a web extension before publishing it to the Marketplace.
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code Web including your extension, served from a local server.
-* Sideload your extension in a running VS Code Web instance.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -269,42 +268,6 @@ Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-w
 ```
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
-
-### Sideloading your web extension in a running VS Code Web instance
-
-For this scenario, you need to make the bits of the extension accessible to the service that runs VS Code.
-
-Note: Sideloading is not supported on github.dev.
-
-From your extension's path, start an HTTP server by running `npx serve --cors`:
-
-```bash
-$ npx serve --cors -l 5000
-npx: installed 78 in 2.196s
-
-   ┌───────────────────────────────────────────────────┐
-   │                                                   │
-   │   Serving!                                        │
-   │                                                   │
-   │   - Local:            http://localhost:5000       │
-   │   - On Your Network:  http://172.19.255.26:5000   │
-   │                                                   │
-   │   Copied local address to clipboard!              │
-   │                                                   │
-   └───────────────────────────────────────────────────┘
-```
-
-Then, in another terminal:
-
-```bash
-$ npx localtunnel -p 5000
-npx: installed 22 in 1.048s
-your url is: https://dangerous-cat-40.loca.lt
-```
-
-Click the link returned by `localtunnel` and accept the usage terms.
-
-Finally, in VS Code Web, run the command **Developer: Install Web Extension...** and paste the URL from above, for example, `https://dangerous-cat-40.loca.lt`.
 
 ## Web extension tests
 
@@ -471,6 +434,7 @@ The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-sam
 Here are the complete rules used internally to decide if an extension can be enabled on a web extension host. If at least one of the conditions is fulfilled, the extension can run on the web extension host. The same rules are used in the Extensions view to decide whether an extension can be installed in VS Code Web.
 
 * The extension manifest (`package.json`) has a `browser` entry point.
+* The extension manifest does not define `extensionPack` and `extensionDependencies`.
 * The extension manifest has neither a `main` and `browser` entry point and does not define one of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
 * The extension manifest has neither a `main` and `browser` entry point, but it has `web` listed in the `extensionKind` property.
 
