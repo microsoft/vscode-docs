@@ -376,7 +376,7 @@ Republishing is not necessary, but when publishing a new version of the extensio
 
 Extensions with source code (defined by the `main` property) need to provide a [web extension main file](#web-extension-main-file) and set the `browser` property in `package.json`.
 
-Use this steps to recompile your extension code for the browser environment:
+Use these steps to recompile your extension code for the browser environment:
 
 * Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section.
 * Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension) section.
