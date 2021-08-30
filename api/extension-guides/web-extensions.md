@@ -9,7 +9,7 @@ MetaDescription: Learn how to run extensions in Visual Studio Code for the web a
 
 # Web Extensions
 
-Visual Studio Code can run as an editor in the browser ('VS Code Web'). One example is the `github.dev` user interface reached by pressing `.` (the period key) in the GitHub **<> Code** tab. When VS Code Web runs, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
+Visual Studio Code can run as an editor in the browser ('VS Code for the Web'). One example is the `github.dev` user interface reached by pressing `.` (the period key) in the GitHub **<> Code** tab. In VS Code for the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
 
 Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web_extension_main_file) compared to normal extensions.
 
@@ -66,7 +66,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 ![Extensions view](images/web-extensions/extensions-view-item-disabled.png)
 
-Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in VS Code Web without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
+Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in VS Code for the Web without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
 Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update_existing_extensions_to_web_extensions) section shows how to migrate an extension to work in both runtimes.
 
@@ -188,7 +188,7 @@ Some important fields of `web-extension.webpack.config.js` are:
 There are currently two ways to test a web extension before publishing it to the Marketplace.
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
-* Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code Web including your extension, served from a local server.
+* Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -277,7 +277,7 @@ The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module
 
 The utility does the following steps:
 
-1. Starts the VS Code Web editor from a local web server.
+1. Starts a VS Code for the Web editor from a local web server.
 2. Opens the specified browser.
 3. Runs the provided test runner script.
 
@@ -396,7 +396,7 @@ To make sure as much source code as possible can be reused, here are a few techn
 
  * Separate your code in a browser part, Node.js part, and common part. In common, only use code that works in both the browser and Node.js runtime. Create abstractions for functionality that has different implementations in Node.js and the browser.
 
- * Look out for usages of `path`, `URI.file`, `context.extensionPath`, `rootPath`. `uri.fsPath`. These will not work with virtual workspaces (non-file system) as they are used in VS Code Web. Instead use URIs with `URI.parse`, `context.extensionUri`. The [vscode-uri](https://www.npmjs.com/package/vscode-uri) node modules provides `joinPath`, `dirName`, `baseName`, `extName`, `resolvePath`.
+ * Look out for usages of `path`, `URI.file`, `context.extensionPath`, `rootPath`. `uri.fsPath`. These will not work with virtual workspaces (non-file system) as they are used in VS Code for the Web. Instead use URIs with `URI.parse`, `context.extensionUri`. The [vscode-uri](https://www.npmjs.com/package/vscode-uri) node modules provides `joinPath`, `dirName`, `baseName`, `extName`, `resolvePath`.
 
  * Look out for usages of `fs`. Replace by using vscode `workspace.fs`
 
@@ -431,7 +431,7 @@ The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-sam
 
 ## Web extension enablement
 
-Here are the complete rules used internally to decide if an extension can be enabled on a web extension host. If at least one of the conditions is fulfilled, the extension can run on the web extension host. The same rules are used in the Extensions view to decide whether an extension can be installed in VS Code Web.
+Here are the complete rules used internally to decide if an extension can be enabled on a web extension host. If at least one of the conditions is fulfilled, the extension can run on the web extension host. The same rules are used in the Extensions view to decide whether an extension can be installed in VS Code for the Web.
 
 * The extension manifest (`package.json`) has a `browser` entry point.
 * The extension manifest has neither a `main` and `browser` entry point and does not define one of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins` and does not not define `extensionPack` and `extensionDependencies`.
