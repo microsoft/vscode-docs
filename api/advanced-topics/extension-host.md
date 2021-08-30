@@ -11,15 +11,15 @@ MetaDescription: The Visual Studio Code Extension Host is responsible for managi
 
 The **Extension Host** is responsible for running extensions.
 
-When running VS Code for Windows, Mac and Linux there's normally a single extension host running on the local process. It runs along the user interface renderer and the location of the edited file resources.
+When running VS Code for Windows, Mac and Linux there's normally a single extension host running on the local machine. It runs along the user interface and the location of the workspace.
 
 With [remote development](/api/advanced-topics/remote-extensions), multiple extension hosts are run:
- * A the remote site, in the VS Code Server, running extensions in the remote environment on the remote file system
+ * A the remote site, in the VS Code Server, running extensions in the remote environment along with the remote workspace.
  * On the local machine along with the user interface.
 
-We call the extension host that runs with the workspace the `workspace` extension host, running 'workspace extensions', and the extension host that runs with the UI the `ui` extension host, running 'UI extensions'.
+We call the extension host that runs with the workspace the 'workspace extension host', running 'workspace extensions', and the extension host that runs with the UI the 'UI extension host', running 'UI extensions'.
 
-When VS Code [runs in the browser](/api/extension-guides/web-extensions.md), an extension host runs in the browser the `web` extension host, running 'web extensions'.
+When VS Code [runs in the browser](/api/extension-guides/web-extensions.md), a 'web extension host' host runs in the browser, running 'web extensions'.
 
 - **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
 
@@ -28,9 +28,9 @@ When VS Code [runs in the browser](/api/extension-guides/web-extensions.md), an 
 - **Web Extensions**: These extensions run in a extension host in the browser. They are restricted by the browser sandbox and therefore have [limitations](/api/extension-guides/web-extensions.md#web-extension-main-file) compared to normal extensions.
 
 
-When VS Code starts, it will decide based on the workspace location and the installed extensions which extension hosts are needed.
+When VS Code starts, it decides, based on the workspace location and the installed extensions, which extension hosts are needed.
 
-For each installed extension, VS Code automatically activates it to the correct location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation.
+For each installed extension, VS Code automatically activates it at the location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation.
 
 The **Developer: Show Running Extensions** command shows a list of activated extension and the location where it is run.
 
