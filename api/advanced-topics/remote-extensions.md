@@ -141,26 +141,9 @@ VS Code's APIs are designed to automatically run in the right location regardles
 
 If your extension is not functioning as expected, it may be running in the wrong location. Most commonly, this shows up as an extension running remotely when you expect it to only be run locally. You can use the **Developer: Show Running Extensions** command from the Command Palette (`kbstyle(F1)`) to see where an extension is running.
 
-If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest):
+If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest) as described in the [Extension Kinds section](/api/advanced-topics/extension-host#extension-kinds).
 
-As of VS Code 1.40, this value is an array, which means extensions can specify more than one kind. For example:
-
-```json
-{
-    "extensionKind": ["ui", "workspace"]
-}
-```
-
-**Note:** Prior releases allowed an extension to specify single location as a string and it is deprecated in favor of multiple location support (array).
-
-Following combination of locations are supported:
-
-- `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run in VS Code Server when connected to a remote workspace or codespace. Most extensions fall into this category.
-- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally and means the user does not have to install the extension on the remote. Otherwise, the extension will run in VS Code's workspace extension host if it exists there. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
-- `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available).
-- `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in the Codespaces browser-based editor (as there is no local extension host available). **Note** Do not use this `extensionKind` if you want the extension to be used without having to install it on the remote, to support this case, use `"extensionKind": ["ui", "workspace"]`.
-
-You can also quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) to be a workspace extension (instead of its UI default), you would set:
+You can quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) to be a workspace extension (instead of its UI default), you would set:
 
 ```json
 {
