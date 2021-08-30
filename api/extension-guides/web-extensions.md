@@ -436,7 +436,7 @@ VS Code automatically treats an extension as a web extension if
 * The extension manifest (`package.json`) has `browser` entry point.
 * The extension manifest has no `main` entry point and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
 
-The second rule can be overruled by adding `web` to the `extensionKind` property in the `package.json` manifest. When doing so, other valid extension execution locations need to be listed as well (`workbench`, `ui` or both) and `web` should be added at the end of the list. See [here](https://code.visualstudio.com/api/advanced-topics/remote-extensions#incorrect-execution-location) for more information on `extensionKind`.
+The second rule can be overruled by adding `web` to the `extensionKind` property in the `package.json` manifest. When doing so, other valid extension execution locations need to be listed as well (`workbench`, `ui` or both) and `web` should be added at the end of the list. See the [Extension Kinds](/api/advanced-topics/extension-host#extension-kinds) documentation for more information on `extensionKind`.
 
 We recommend to leave `extensionKind` undefined and rely on the default rules.
 
