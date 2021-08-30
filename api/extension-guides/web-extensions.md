@@ -9,7 +9,7 @@ MetaDescription: Learn how to run extensions in Visual Studio Code for the web a
 
 # Web Extensions
 
-Visual Studio Code can run as an editor in the browser ('VS Code for the Web'). One example is the `github.dev` user interface reached by pressing `.` (the period key) in the GitHub **<> Code** tab. In VS Code for the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
+Visual Studio Code can run as an editor in the browser. One example is the `github.dev` user interface reached by pressing `.` (the period key) in the GitHub **<> Code** tab. When VS Code is used in the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
 
 Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web_extension_main_file) compared to normal extensions.
 
