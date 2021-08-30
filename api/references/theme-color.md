@@ -743,12 +743,8 @@ The following customizations are available:
 - `testing.peekHeaderBackground`: Color of the peek view borders and arrow.
 - `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
 - `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
-- `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
-- `testing.message.warning.lineBackground`: Margin color beside warning messages shown inline in the editor.
 - `testing.message.info.decorationForeground`: Text color of test info messages shown inline in the editor.
 - `testing.message.info.lineBackground`: Margin color beside info messages shown inline in the editor.
-- `testing.message.hint.decorationForeground`: Text color of test hint messages shown inline in the editor.
-- `testing.message.hint.lineBackground`: Margin color beside hint messages shown inline in the editor.
 
 ## Welcome page colors
 
