@@ -397,6 +397,13 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+- `editorBracketHighlight.foreground1`: Foreground color of brackets (1). Requires enabling bracket pair colorization.
+- `editorBracketHighlight.foreground2`: Foreground color of brackets (2). Requires enabling bracket pair colorization.
+- `editorBracketHighlight.foreground3`: Foreground color of brackets (3). Requires enabling bracket pair colorization.
+- `editorBracketHighlight.foreground4`: Foreground color of brackets (4). Requires enabling bracket pair colorization.
+- `editorBracketHighlight.foreground5`: Foreground color of brackets (5). Requires enabling bracket pair colorization.
+- `editorBracketHighlight.foreground6`: Foreground color of brackets (6). Requires enabling bracket pair colorization.
+- `editorBracketHighlight.unexpectedBracket.foreground`: Foreground color of unexpected brackets.
 
 Folding:
 
@@ -500,6 +507,9 @@ The editor marker view shows when navigating to errors and warnings in the edito
 - `editorMarkerNavigationError.background`: Editor marker navigation widget error color.
 - `editorMarkerNavigationWarning.background`: Editor marker navigation widget warning color.
 - `editorMarkerNavigationInfo.background`: Editor marker navigation widget info color.
+- `editorMarkerNavigationError.headerBackground`: Editor marker navigation widget error heading background.
+- `editorMarkerNavigationWarning.headerBackground`: Editor marker navigation widget warning heading background.
+- `editorMarkerNavigationInfo.headerBackground`: Editor marker navigation widget info heading background.
 
 ## Peek view colors
 
@@ -730,6 +740,7 @@ The following customizations are available:
 - `testing.iconUnset`: Color for the 'Unset' icon in the test explorer.
 - `testing.iconSkipped`: Color for the 'Skipped' icon in the test explorer.
 - `testing.peekBorder`: Color of the peek view borders and arrow.
+- `testing.peekHeaderBackground`: Color of the peek view borders and arrow.
 - `testing.message.error.decorationForeground`: Text color of test error messages shown inline in the editor.
 - `testing.message.error.lineBackground`: Margin color beside error messages shown inline in the editor.
 - `testing.message.warning.decorationForeground`: Text color of test warning messages shown inline in the editor.
