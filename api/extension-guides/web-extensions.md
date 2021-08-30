@@ -434,7 +434,7 @@ The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-sam
 VS Code automatically treats an extension as a web extension if
 
 * The extension manifest (`package.json`) has `browser` entry point.
-* The package.json does not have any code (no `main` entry point) and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
+* The extension manifest has no `main` entry point and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
 
 The second rule can overruled be by adding `web` to the `extensionKind` property. When doings so, other valid locations need to be listed as well (`workbench`, `ui` or both) and `web` should be added at the end of the list. See [here](https://code.visualstudio.com/api/advanced-topics/remote-extensions#incorrect-execution-location) for more information on `extensionKind`.
 
