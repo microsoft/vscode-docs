@@ -405,7 +405,7 @@ It is fine to provide less functionality when your extension is running in the w
 * Use the `virtualWorkspace` context variable to find out if the current workspace is a non-file system workspace.
 * Use `resourceScheme` to check if the current resource is a `file` resource.
 * Use `shellExecutionSupported` if there is a platform shell present.
-* Implement alternative command handles that show a dialog to explain why the command is not applicable.
+* Implement alternative command handlers that show a dialog to explain why the command is not applicable.
 
 
 WebWorkers can be used as an alternative to forking processes. We have updated several language servers to run as web extensions, including the built-in [JSON](https://github.com/microsoft/vscode/tree/main/extensions/json-language-features), [CSS](https://github.com/microsoft/vscode/tree/main/extensions/css-language-features) and [HTML](https://github.com/microsoft/vscode/tree/main/extensions/html-language-features) language servers. The [Language Server Protocol](#language-server-protocol-in-web-extensions) section below gives more details.
@@ -436,7 +436,7 @@ VS Code automatically treats an extension as a web extension if
 * The extension manifest (`package.json`) has `browser` entry point.
 * The extension manifest has no `main` entry point and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
 
-The second rule can overruled be by adding `web` to the `extensionKind` property. When doings so, other valid locations need to be listed as well (`workbench`, `ui` or both) and `web` should be added at the end of the list. See [here](https://code.visualstudio.com/api/advanced-topics/remote-extensions#incorrect-execution-location) for more information on `extensionKind`.
+The second rule can overruled by adding `web` to the `extensionKind` property. When doings so, other valid locations need to be listed as well (`workbench`, `ui` or both) and `web` should be added at the end of the list. See [here](https://code.visualstudio.com/api/advanced-topics/remote-extensions#incorrect-execution-location) for more information on `extensionKind`.
 
 We recommend to leave `extensionKind` undefined and rely on the default rules.
 
