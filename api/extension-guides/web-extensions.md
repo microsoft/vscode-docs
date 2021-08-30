@@ -434,13 +434,12 @@ The [lsp-web-extension-sample](https://github.com/microsoft/vscode-extension-sam
 Here are the complete rules used internally to decide if an extension can be enabled on a web extension host. If at least one of the conditions is fulfilled, the extension can run on the web extension host. The same rules are used in the Extensions view to decide whether an extension can be installed in VS Code Web.
 
 * The extension manifest (`package.json`) has a `browser` entry point.
-* The extension manifest does not define `extensionPack` and `extensionDependencies`.
-* The extension manifest has neither a `main` and `browser` entry point and does not define one of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
+* The extension manifest has neither a `main` and `browser` entry point and does not define one of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins` and does not not define `extensionPack` and `extensionDependencies`.
 * The extension manifest has neither a `main` and `browser` entry point, but it has `web` listed in the `extensionKind` property.
 
 Extensions that have only a `main` entry point, but no `browser` are not considered web extensions and are ignored by the web extension host.
 
-The `localizations`, `debuggers`, `terminal`, or `typescriptServerPlugins` contributions are used as an indication that an extension is not suited for running in the web extension host. Developers can override this behavior by adding a `browser` entry point or by adding `web` to `extensionKind`.
+The `localizations`, `debuggers`, `terminal`, or `typescriptServerPlugins` contributions and the existance of `extensionPack` and `extensionDependencies` are used as an indication that an extension is not suited for running in the web extension host. Developers can override this behavior by adding a `browser` entry point or by adding `web` to `extensionKind`.
 
 The `extensionKind` property is optional for web. If undefined, or if it contains other values (typically an array with either `ui` and `workspace` or both), `web` is internally added based on the `main`, `browser` and `contributes` properties. If an extension is both a web and a regular extension, then the `extensionKind` property defines the order of preference if multiple extension hosts are available. It is best to leave `extensionKind` undefined unless you fully understand how `extensionKind` works.
 
