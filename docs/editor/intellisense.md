@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 4 
 Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
