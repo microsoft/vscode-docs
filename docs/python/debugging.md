@@ -37,7 +37,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
 
-   > **Note** Starting a debugging session through the Debug Panel, **F5** or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+   > **Note** Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
 
 1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
@@ -395,8 +395,8 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 
 ### `purpose`
  If set to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
- If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the  **Debug Python File in Terminal** button on the top-right of the editor.
- Note that the `purpose` option can't be used to start the debugger through F5 or Run > Start Debugging.
+ If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the **Debug Python File in Terminal** button on the top-right of the editor.
+ Note that the `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
 
 
 ### `autoReload`
@@ -495,7 +495,7 @@ The configuration dropdown provides a variety of different options for general a
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
-| Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
+| Scrapy | Specifies `"module": "scrapy"` and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests, see [Testing](/docs/python/testing.md).
