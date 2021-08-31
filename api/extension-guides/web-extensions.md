@@ -11,7 +11,7 @@ MetaDescription: Learn how to run extensions in Visual Studio Code for the web a
 
 Visual Studio Code can run as an editor in the browser. One example is the `github.dev` user interface reached by pressing `.` (the period key) in the GitHub **<> Code** tab. When VS Code is used in the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
 
-Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web_extension_main_file) compared to normal extensions.
+Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web-extension-main-file) compared to normal extensions.
 
 ## Web extension anatomy
 
@@ -68,7 +68,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in VS Code for the Web without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
-Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update_existing_extensions_to_web_extensions) section shows how to migrate an extension to work in both runtimes.
+Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update-existing-extensions-to-web-extensions) section shows how to migrate an extension to work in both runtimes.
 
 The [web extension enablement](#web-extension-enablement) section lists the rules used to decide whether an extension can be loaded in a web extension host.
 
