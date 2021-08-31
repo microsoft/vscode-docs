@@ -132,7 +132,7 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings UI or by editing the JSON settings file directly.
+Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the settings UI or by editing the JSON settings file directly.
 
 ### Configuration example
 
@@ -191,7 +191,7 @@ The title should be the exact name of your extension. Words like "Extension", "C
 
 The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
 
-In the Settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
+In the settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
 
 > Blame: **Date Format**
 
@@ -245,7 +245,7 @@ If you use `markdownDescription` instead of `description`, your setting descript
 
 **type**
 
-Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the Settings UI.
+Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the settings UI.
 
 ```json
 {
@@ -256,6 +256,8 @@ Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be e
   }
 }
 ```
+
+A string setting can be rendered with a multiline text input if it sets `"editPresentation": "multilineText"` on the configuration entry.
 
 For `boolean` entries, the `description` (or `markdownDescription`) will be used as the label for the checkbox.
 
@@ -268,7 +270,9 @@ For `boolean` entries, the `description` (or `markdownDescription`) will be used
 }
 ```
 
-Other types, such as `object` and `array`, aren't exposed directly in the settings UI, and can only be modified by editing the JSON directly. Instead of controls for editing them, users will see a link to `Edit in settings.json` as shown in the screenshot above. 8️⃣
+Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number` and `string` will be rendered as editable lists. Objects that have properties of type `number`, `string`, and `boolean` will be rendered as editable grids of keys and values. The `object` type setting must set `"additionalProperties": false` to get this support.
+
+If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to `Edit in settings.json` as shown in the screenshot above. 8️⃣
 
 **enum** / **enumDescriptions**
 
