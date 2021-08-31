@@ -146,7 +146,7 @@ By default, the Python extension attempts to discover tests once you enable a fr
 [comment]: <TODO: add screenshot>
 
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you, add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you, add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`. You will need to reload the window for this setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -177,7 +177,7 @@ You can run tests using any of the following actions:
     ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
 - From the **Command Palette**, by running any of the following commands:
-    - **Test: Run All Tests** -  runs all tests that have been discovered.
+    - **Test: Run All Tests** - runs all tests that have been discovered.
     - **Test: Run Tests in Current File** - runs all tests in a file that that is open in the editor.
     - **Test: Run Test at Cursor** - runs only the test method where you have your cursor focused on the editor.
 
@@ -191,7 +191,7 @@ You can run tests using any of the following actions:
 
       ![Running tests at specific scopes through Test Explorer](images/testing/test-explorer-run-scoped-tests.png)
 
-  - You can also run a selection of tests through the test explorer. To do that,  `kbstyle(Ctrl+Click)` (or `kbstyle(Cmd+Click)` on macOS) on the tests you wish to run, right-click on one of them and then select **Run Test**.
+  - You can also run a selection of tests through the test explorer. To do that, `kbstyle(Ctrl+Click)` (or `kbstyle(Cmd+Click)` on macOS) on the tests you wish to run, right-click on one of them and then select **Run Test**.
 
 
 After a test run, VS Code displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `escape` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
@@ -263,7 +263,7 @@ For example, the `test_decrement` functions given earlier are failing because th
 You can use the following commands from the Command Palette to debug tests:
 - **Test: Debug All Tests** - launches the debugger for all tests in your workspace.
 - **Test: Debug Tests in Current File** - launches the debugger for the tests you have defined in the file you have open in the editor.
-- **Test: Debug Test at Cursor** - launches the debugger only for the method where you have your cursor focused on the editor.  You can also use the "Debug Test" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
+- **Test: Debug Test at Cursor** - launches the debugger only for the method where you have your cursor focused on the editor. You can also use the "Debug Test" icons in **Test Explorer** to launch the debugger for all tests in a selected scope as well as all discovered tests.
 
 You can also change the default behavior of clicking on the gutter decoration to debug tests instead of run, by changing the `testing.defaultGutterClickAction` setting value to `debug` in your `settings.json` file.
 
@@ -293,23 +293,23 @@ For more information on debugging, see [Python debugging configurations](/docs/p
 Below are all the supported commands for testing with the Python extension in VS Code:
 | Command Name | Description |
 | ------------ | ------------|
-| **Python: Configure Tests** | Command to configure  the test framework to be used with the Python extension.  |
-|  **Test: Clear All Results** | Clear all tests status, as the UI persists test results across sessions. |  Test: Debug All Tests | Debug all discovered tests. Equivalent to "Python: Debug All Tests" on versions before 2021.9.   |
+| **Python: Configure Tests** | Configure the test framework to be used with the Python extension.  |
+|  **Test: Clear All Results** | Clear all tests statuses, as the UI persists test results across sessions. |  Test: Debug All Tests | Debug all discovered tests. Equivalent to "Python: Debug All Tests" on versions prior to 2021.9. |
 |  **Test: Debug Failed Tests** |Debug tests that failed in the most recent test run. |
 |  **Test: Debug Last Run** | Debug tests that were executed in the most recent test run. |
-|  **Test: Debug Test at Cursor** | Debug the test method where you have your cursor focused on the editor. Similar to  "Python: Debug Test Method..." on version before 2021.9. |
+|  **Test: Debug Test at Cursor** | Debug the test method where you have your cursor focused on the editor. Similar to "Python: Debug Test Method..." on version before 2021.9. |
 |  **Test: Debug Tests in Current File** | Debug tests in the file that is currently in focus on the editor. |
-|  **Test: Go to Next Test Failure** | If the error peek view is open, this command opens and moves to the peek view of the next test in the explorer that has failed. |
-|  **Test: Go to Previous Test Failure** | If the error peek view is open, this command opens and moves to the peek view of the previous test in the explorer that has failed. |
+|  **Test: Go to Next Test Failure** | If the error peek view is open, open and move to the peek view of the next test in the explorer that has failed. |
+|  **Test: Go to Previous Test Failure** | If the error peek view is open, open and move to the peek view of the previous test in the explorer that has failed. |
 |  **Test: Peek Output** | Opens the error peek view for a test method that has failed. |
-|  **Test: Refresh Tests** | Perform test discovery and updates the test explorer to reflect any test changes, addition or deletion. Similar to **Python: Discover Tests** on versions before 2021.9. |
-|  **Test: Rerun Failed Tests** | Run tests that failed in the most recent test run. Similar to **Python: Run Failed Tests** on versions before 2021.9.  |
+|  **Test: Refresh Tests** | Perform test discovery and updates the test explorer to reflect any test changes, addition or deletion. Similar to **Python: Discover Tests** on versions prior to 2021.9. |
+|  **Test: Rerun Failed Tests** | Run tests that failed in the most recent test run. Similar to **Python: Run Failed Tests** on versions prior to 2021.9.  |
 |  **Test: Rerun Last Run** | Debug tests that were executed in the most recent test run.  |
-|  **Test: Run All Tests** |  Run all discovered tests. Equivalent to **Python: Run All Tests** on versions before 2021.9.  |
-|  **Test: Run Test at Cursor** |  Run the test method where you have your cursor focused on the editor.  Similar to **Python: Run Test Method...** on versions before 2021.9. |
-|  **Test: Run Test in Current File** | Run tests in the file that is currently in focus on the editor. Equivalent to **Python: Run Current Test File** on versions before 2021.9. |
-|  **Test: Show Output** | Open the output with details of all the test runs.  Similar to **Python: Show Test Output** on versions before 2021.9. |
-|  **Testing: Focus on Test Explorer View** | Open the test explorer view. Similar to **Testing: Focus on Python View** on versions before 2021.9.
+|  **Test: Run All Tests** |  Run all discovered tests. Equivalent to **Python: Run All Tests** on versions prior to 2021.9.  |
+|  **Test: Run Test at Cursor** |  Run the test method where you have your cursor focused on the editor.  Similar to **Python: Run Test Method...** on versions prior to 2021.9. |
+|  **Test: Run Test in Current File** | Run tests in the file that is currently in focus on the editor. Equivalent to **Python: Run Current Test File** on versions prior to 2021.9. |
+|  **Test: Show Output** | Open the output with details of all the test runs. Similar to **Python: Show Test Output** on versions prior to 2021.9. |
+|  **Testing: Focus on Test Explorer View** | Open the test explorer view. Similar to **Testing: Focus on Python View** on versions prior to 2021.9.
 |  **Test: Stop Refreshing Tests** | Cancel test discovery. |
 
 ## Test configuration settings
@@ -324,7 +324,7 @@ The settings that affect the UI of the testing features are provided by VS Code 
 
 | Setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
-| autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. You may need to reload the window after making changes to this setting for it to be applied.  |
+| autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a test file. You may need to reload the window after making changes to this setting for it to be applied. |
 | cwd | null | Specifies an optional working directory for tests. |
 | debugPort | `3000` | Port number used for debugging of unittest tests. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
@@ -357,7 +357,7 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 You can also configure pytest using a `pytest.ini` file as described on [pytest Configuration](https://docs.pytest.org/en/latest/reference/customize.html).
 
 > **Note**
-> If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests, for example by adding `"env": {"PYTEST_ADDOPTS": "--no-cov"}` to your debug configuration.  (See [Debug Tests](#debug-tests) above about how to set up that launch configuration.) (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
+> If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the source code being run. To prevent this behavior, include `--no-cov` in `pytestArgs` when debugging tests, for example by adding `"env": {"PYTEST_ADDOPTS": "--no-cov"}` to your debug configuration. (See [Debug Tests](#debug-tests) above about how to set up that launch configuration.) (For more information, see [Debuggers and PyCharm](https://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
 
 ## See also
 
