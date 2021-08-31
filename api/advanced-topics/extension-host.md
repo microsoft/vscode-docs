@@ -14,18 +14,20 @@ The **Extension Host** is responsible for running extensions.
 When running VS Code for Windows, Mac and Linux there's normally a single extension host running on the local machine. It runs along the user interface and the location of the workspace.
 
 With [remote development](/api/advanced-topics/remote-extensions), multiple extension hosts are run:
- * A the remote site, in the VS Code Server, running extensions in the remote environment along with the remote workspace.
- * On the local machine along with the user interface.
+ * a 'workspace extension host' runs on the remote machine or container
+ * a 'UI extension host' runs on the local machine
 
-We call the extension host that runs with the workspace the 'workspace extension host', running 'workspace extensions', and the extension host that runs with the UI the 'UI extension host', running 'UI extensions'.
+When VS Code [runs in the browser](/api/extension-guides/web-extensions.md), a 'web extension host' host runs in the browser.
 
-When VS Code [runs in the browser](/api/extension-guides/web-extensions.md), a 'web extension host' host runs in the browser, running 'web extensions'.
+When VS Code [runs in the browser](/api/extension-guides/web-extensions.md) connected to a backend (e.g. Codespaces in the browser) a 'web extension host' host runs in the browser and a 'workspace extension host' runs on the remote machine or container.
 
-- **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. Example UI Extensions include: themes, snippets, language grammars, and keymaps.
+UI and workspace extension hosts run in a Node.js runtime, while web extension hosts run in a Webworker in the browser.
+
+- **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. xample UI Extensions include: themes, snippets, language grammars, and keymaps.
 
 - **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using Codespaces, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
 
-- **Web Extensions**: These extensions run in a extension host in the browser. They are restricted by the browser sandbox and therefore have [limitations](/api/extension-guides/web-extensions.md#web-extension-main-file) compared to normal extensions.
+- **Web Extensions**: These extensions run in a web extension host in the browser. They are restricted by the browser sandbox and therefore have [limitations](/api/extension-guides/web-extensions.md#web-extension-main-file) compared to normal extensions.
 
 
 When VS Code starts, it decides, based on the workspace location and the installed extensions, which extension hosts are needed.
