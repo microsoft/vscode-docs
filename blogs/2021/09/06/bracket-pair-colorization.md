@@ -12,7 +12,7 @@ Author: Henning Dieterichs
 September 06, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hediet_dev)
 
 The famous [open source](https://github.com/CoenraadS/Bracket-Pair-Colorizer-2) extension [Bracket Pair Colorization 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) by [CoenraadS](https://github.com/CoenraadS) assigns each bracket pair a color to indicate its nesting level.
-It's an awesome extension with over 3 million installs (plus 6 million installs of version 1) and a prime example of VS Code's customizability.
+It's an awesome extension with over 3 million installs (plus 6 million installs of its [predecessor](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)) and a prime example of VS Code's customizability.
 
 <img src="./on-off-comparison.drawio.svg" alt="Comparing Colorization On vs. Off" width="1000"/>
 
@@ -40,7 +40,7 @@ Thus, a lower bound on the time complexity of querying the nesting levels of bra
 The bracket pair colorizer extension processes the entire document again whenever a bracket is inserted or removed and then sends the location of all bracket pairs to the renderer.
 As demonstrated by the earlier example, this is unfeasable for large documents.
 
-Our goal is to have a time complexity of at most $\mathcal{O}(R + \mathrm{log}^2 N)$ for querying all brackets in a given range of size $R$. However, we allow an initialization time of $\mathcal{O}(N)$ for opening a document for the first time (which is unavoidable due to the lower bound) and an update time of $\mathcal{O}(E + \mathrm{log}^3 N)$ when $E$ many characters are modified or inserted. We also assume that the nesting level of a bracket pair is limited by $\mathcal{O}(\mathrm{log} N)$ and that the number of closing brackets without an opening counterpart is negligible. Thus, our goal is to have at most (cubic) logarithmic time complexity in the dominating size for all operations, except for initialization where we cannot do any better than linear time anyways.
+Our goal is to have a time complexity of at most $\mathcal{O}(R + \mathrm{log}^2 N)$ for querying all brackets in a given range of size $R$. However, we allow an initialization time of $\mathcal{O}(N)$ for opening a document for the first time (which is unavoidable due to the lower bound) and an update time of $\mathcal{O}(E + \mathrm{log}^3 N)$ when $E$ many characters are modified or inserted. We also assume that the nesting level of a bracket pair is not too deep and at most $\mathcal{O}(\mathrm{log} N)$ and that the number of closing brackets without an opening counterpart is negligible. Thus, our goal is to have at most (cubic) logarithmic time complexity in the dominating size for all operations, except for initialization where we cannot do any better than linear time anyways.
 
 ### Language Semantics Make our Life Hard
 
@@ -70,7 +70,7 @@ As it turns out, just ignoring brackets in comments and strings as identified by
 
 VS Code already has an efficient and synchronous mechanism to maintain token information used for syntax highlighting and we can reuse that to identify opening and closing brackets.
 
-This is the another performance culprit of the Bracket Pair Colorization extension: It does not have access to these tokens and has to recompute them on its own. We thought long about how we could efficiently and reliably expose token information to extensions, but came to the conclusion that we cannot do this without a lot of implementation details leaking into the extension API. Because the extension still has to send over a list of all bracket pairs in the document, such an API alone would not even solve the problem.
+This is the another performance culprit of the Bracket Pair Colorization extension: It does not have access to these tokens and has to recompute them on its own. We thought long about how we could efficiently and reliably expose token information to extensions, but came to the conclusion that we cannot do this without a lot of implementation details leaking into the extension API. Because the extension still has to send over a list of all bracket pairs in the document, such an API alone would not even solve the performance problem.
 
 When applying an edit at the beginning of a document that changes all following tokens (such as inserting `/*`), VS Code does not retokenize long documents all at once, but in chunks over time. This ensures that the UI does not freeze.
 
@@ -183,7 +183,7 @@ Given the current (balanced) AST and a text edit that replaces a range of size l
 
 The idea is to reuse the recursive decent parser used for initialization and add a caching strategy, so that nodes which aren't affected by the text edit can be reused and skipped. When the recursive decent parser parses a list of bracket pairs at position $p$ and the next edit is at position $e$, it first checks if the previous AST has a node with a length of at most $e - p$ at the position where $p$ used to be before the text change. If this is the case, this node does not need to be reparsed and the underlying tokenizer can be advanced by the length of the node. After consuming the node, parsing continues. Note that this node can both be a single bracket pair or an entire list!
 
-The following example shows which nodes can be reused when a single opening bracket is inserted (not showing individual bracket nodes):
+The following example shows which nodes can be reused when a single opening bracket is inserted (omitting individual bracket nodes):
 
 ![Reusable Nodes in AST](./long-lists-tree-reuse.dio.svg)
 
@@ -199,7 +199,7 @@ Because nodes have at most 3 children, we can construct the new AST from $\mathc
 ### How do we rebalance the AST?
 
 Unfortunately, the tree in the last example is not balanced anymore.
-When combining a reused list node with a newly parsed node, we have to do some work to maintain the (2,3)-tree property. We know that both reused and newly parsed nodes are already (2,3)-trees, but they might have different heights - so we cannot just create parent nodes, since all children of (2,3)-trees have to have same height.
+When combining a reused list node with a newly parsed node, we have to do some work to maintain the (2,3)-tree property. We know that both reused and newly parsed nodes are already (2,3)-trees, but they might have different heights - so we cannot just create parent nodes, since all children of a (2,3)-tree node have to have same height.
 
 How can we efficiently concatenize all these nodes of mixed heights into a single (2,3)-tree?
 This can easily be reduced to the problem of prepending or appending a smaller tree to a larger tree.
@@ -222,7 +222,9 @@ We have two data structures for this task: The *before edit position mapper* and
 The [position mapper](https://github.com/microsoft/vscode/blob/f8e9f87b6554b527c61ba963d0c96c7687cbaae9/src/vs/editor/common/model/bracketPairColorizer/beforeEditPositionMapper.ts#L17) maps a position in the new document (after applying the edit) to the old document (before applying the edit), if possible. It also tells us the length between the current position and the next edit (or 0, if we are in an edit). This is done in $\mathcal{O}(1)$.
 When processing a text edit and parsing a node, this component gives us the position of a node that we can potentially reuse and the maximum length this node can have - clearly, the node we want to reuse must be shorter than the distance to the next edit.
 
-The [node reader](https://github.com/microsoft/vscode/blob/f8e9f87b6554b527c61ba963d0c96c7687cbaae9/src/vs/editor/common/model/bracketPairColorizer/nodeReader.ts#L13) allows to quickly find the longest node that satisfies a given predicate at a given position in an AST. To find a node we can reuse, we use the position mapper to look up its old position and its maximum allowed length and then use the node reader to find this node. If we found such a node, we know that it did not change and can reuse it and skip its length. Because the node reader is queried with monotonously increasing positions, it does not have to start searching from scratch every time, but can do so from the end of the last reused node. Key to this is a recursion-free tree-traversal algorithm that can dive into nodes, but also skip them or go back to parent nodes. When a reusable node is found, traversal stops and continues with the next request to the node reader.
+The [node reader](https://github.com/microsoft/vscode/blob/f8e9f87b6554b527c61ba963d0c96c7687cbaae9/src/vs/editor/common/model/bracketPairColorizer/nodeReader.ts#L13) allows to quickly find the longest node that satisfies a given predicate at a given position in an AST. To find a node we can reuse, we use the position mapper to look up its old position and its maximum allowed length and then use the node reader to find this node. If we found such a node, we know that it did not change and can reuse it and skip its length.
+
+Because the node reader is queried with monotonously increasing positions, it does not have to start searching from scratch every time, but can do so from the end of the last reused node. Key to this is a recursion-free tree-traversal algorithm that can dive into nodes, but also skip them or go back to parent nodes. When a reusable node is found, traversal stops and continues with the next request to the node reader.
 
 The complexity of querying the node reader a single time is up to $\mathcal{O}(\mathrm{log}^2 N)$,
 but we are very sure the amortized complexity for all requests issued by a single update operation is also $\mathcal{O}(\mathrm{log}^2 N)$.
@@ -231,8 +233,8 @@ After all, the node reader is only queried for positions unaffected by the text 
 ## Token Updates
 
 When inserting `/*` at the beginning of long C-style documents that don't contain the text `*/`, the entire document becomes a single comment and all tokens change.
-Because tokens are computed synchronously in the renderer, retokenization cannot happen at once without freezing the UI.
-Instead, tokens are updated in batches over time, so that the JavaScript event loop is not blocked for too long. While this approach does not reduce the total blocking time, it improves the responsiveness of the UI during the update. The same mechanism is also used when initially tokenizing the document.
+Because tokens are computed synchronously in the renderer process, retokenization cannot happen at once without freezing the UI.
+Instead, tokens are updated in batches over time, so that the JavaScript event loop is not blocked for too long. While this approach does not reduce the total blocking time, it improves the responsiveness of the UI during the update. The same mechanism is also used when initially tokenizing a document.
 
 Fortunately, due to the incremental update mechanism of the bracket pair AST, we can immediately apply such a batched token update by treating the update as a single text edit that replaces the range that got retokenized with itself. Once all token updates came in, the bracket pair AST is guaranteed to be in the same state as if it had been created from scratch - even if the user edits the document while retokenization is in progress!
 
@@ -240,7 +242,7 @@ That way, not only tokenization is performant even if all tokens in the document
 
 However, when a document contains a lot of unbalanced brackets in comments, the color of brackets at the end of the document might flicker as the bracket pair parsers learns that these brackets should be treated as plain text.
 To avoid flickering of bracket pair colors when opening a document and navigating to its end, we maintain two bracket pair ASTs until the initial tokenization process completes.
-The first AST is built without token information and does receive token updates. The second one initially is a clone of the first AST, but diverges more and more as tokenization progresses and token updates are applied.
+The first AST is built without token information and does not receive token updates. The second one initially is a clone of the first AST, but receives token updates and diverges more and more as tokenization progresses and token updates are applied. Initially, the first AST is used to query brackets, but the second one takes over once the document is fully tokenized.
 
 Because deep cloning is almost as expensive as reparsing the document, we implemented copy-on-write, enabling cloning in $\mathcal{O}(1)$.
 
@@ -257,7 +259,7 @@ Adding two such lengths is easy, but requires a case distinction: While the line
 Surprisingly, most of the code does not need to be aware of how lengths are represented. Only the position mapper got significantly more complex, since care had to be taken that a single line can contain multiple text edits.
 
 As an implementation detail, we encode such lengths in a single number to reduce memory pressure. JavaScript supports integers up to $2^{53} - 1$, so we can use up to 26 bits each for the number of lines and columns.
-Unfortunately, v8 stores numbers larger than $2^{31}$ [in the heap](https://v8.dev/blog/react-cliff#smi-heapnumber-mutableheapnumber), so this encoding trick did not turn out as effective as we thought.
+Unfortunately, v8 stores numbers larger than $2^{31}$ [on the heap](https://v8.dev/blog/react-cliff#smi-heapnumber-mutableheapnumber), so this encoding trick did not turn out as effective as we thought.
 
 ## The Devil Is In The Details: Unclosed Bracket Pairs
 
@@ -294,7 +296,7 @@ Otherwise, opening a parenthesis could change the nesting-level of unrelated fol
 To support this kind of error recovery, anchor sets can be used to track the set of expected tokens the caller can continue with. At position @1 in the previous example, the anchor set would be $\{$ `}` $\}$. Thus, when parsing the bracket pair at @1 finds the unexpected bracket `}` at @2, it does not consume it and returns an unclosed bracket pair.
 In the very first example, the anchor set at @2 is $\{$ `)` $\}$, but the unexpected character is `}`. Because it is not part of the anchor set, it is reported as unopened bracked.
 
-This needs to be considered when reusing nodes: The pair `( } )` cannot be reused when prepending it with `{`! We use bit-sets to encode anchor sets and compute the set of unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
+This needs to be considered when reusing nodes: The pair `( } )` cannot be reused when prepending it with `{`! We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
 
 ## Outlook
 
