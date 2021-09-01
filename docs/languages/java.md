@@ -36,7 +36,7 @@ To help you set up quickly, we recommend you use the **Coding Pack for Java**, w
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
-If you have already installed VS Code and want to add Java support to it, we recommend to use the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
+If you have already installed VS Code and want to add Java support to it, we recommend to use the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -45,7 +45,7 @@ If you have already installed VS Code and want to add Java support to it, we rec
 5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 Alternatively, you can add Java language support to VS Code by installing the popular Java extensions by yourself.
 
@@ -79,7 +79,7 @@ This document describes some of the key features included in those Java extensio
 
 Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the VS Code for Java extension, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For how to configure, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
-For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open the Getting Started experience from within VS Code with the **Java: Getting Started** command from the Command Palette.  Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
+For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open the Getting Started experience from within VS Code with the **Java: Getting Started** command from the Command Palette.  Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
 
 ![Java Getting Started](images/java/getting-started.png)
 
