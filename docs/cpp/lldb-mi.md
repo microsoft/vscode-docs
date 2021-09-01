@@ -71,13 +71,13 @@ sudo DevToolsSecurity --enable
 
 If you want to use an LLDB.framework that is not installed with Xcode, you need to:
 
-1. Copy the `lldb-mi` executable in `~/.vscode/extensions/ms.vscode-cpptools-<version>/debugAdapters/lldb-mi/bin` to the folder where the `LLDB.framework` is located.
+1. Copy the `lldb-mi` executable in `~/.vscode/extensions/ms-vscode.cpptools-<version>/debugAdapters/lldb-mi/bin` to the folder where the `LLDB.framework` is located.
 
 2. Add the full path of `lldb-mi` to `miDebuggerPath` in your `launch.json` configuration.
 
 For example, if you have the `LLDB.framework` folder located at `/Users/default/example/`, you would:
 
-1. Copy `~/.vscode/extensions/ms.vscode-cpptools-<version>/debugAdapters/lldb-mi/bin/lldb-mi` into  `/Users/default/example/`.
+1. Copy `~/.vscode/extensions/ms-vscode.cpptools-<version>/debugAdapters/lldb-mi/bin/lldb-mi` into  `/Users/default/example/`.
 
 2. Add the following to your existing configuration:
 
