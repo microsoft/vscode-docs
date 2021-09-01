@@ -124,8 +124,13 @@ module.exports = /** @type WebpackConfig */ {
   mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
   target: 'webworker', // extensions run in a webworker context
   entry: {
-    'extension': './src/web/extension.ts',
-    'test/suite/index': './src/web/test/suite/index.ts'
+    'extension': './src/web/extension.ts', // source of the web extension main file
+    'test/suite/index': './src/web/test/suite/index.ts' // source of the web extension test runner
+  },
+  output: {
+    filename: '[name].js',
+    path: path.join(__dirname, '../dist/web'),
+    libraryTarget: 'commonjs'
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
@@ -160,11 +165,6 @@ module.exports = /** @type WebpackConfig */ {
   performance: {
     hints: false
   },
-  output: {
-    filename: '[name].js',
-    path: path.join(__dirname, '../dist/web'),
-    libraryTarget: 'commonjs'
-  },
   devtool: 'nosources-source-map' // create a source map that points to the original source file
 };
 ```
@@ -173,7 +173,7 @@ Some important fields of `web-extension.webpack.config.js` are:
 
 * The `entry` field contains the main entry point into your extension and test suite.
   * You may need to adjust this path to appropriately point to the entry point of your extension.
-  * You do not have to create another entry point if you have an existing extension, you can just point this path to the file you're using currently for `main` of your `package.json`.
+  * For an existing extension, you can start by pointing this path to the file you're using currently for `main` of your `package.json`.
   * If you do not want to package your tests, you can omit the test suite field.
 * The `output` field indicates where the compiled file will be located.
   * `[name]` will be replaced by the key used in `entry`. So in the generated config file, it will produce `dist/web/extension.js` and `dist/web/test/suite/index.js`.
@@ -436,9 +436,7 @@ VS Code automatically treats an extension as a web extension if
 * The extension manifest (`package.json`) has `browser` entry point.
 * The extension manifest has no `main` entry point and none of the following contribution points: `localizations`, `debuggers`, `terminal`, `typescriptServerPlugins`.
 
-The second rule can be overruled by adding `web` to the `extensionKind` property in the `package.json` manifest. When doing so, other valid extension execution locations need to be listed as well (`workbench`, `ui` or both) and `web` should be added at the end of the list. See the [Extension Kinds](/api/advanced-topics/extension-host#extension-kinds) documentation for more information on `extensionKind`.
-
-We recommend to leave `extensionKind` undefined and rely on the default rules.
+If an extension wants to provide a debugger or terminal that also work in the web extension host, a `browser` entry point needs to be defined.
 
 ## Samples
  * [helloworld-web-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-web-sample)
