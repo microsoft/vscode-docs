@@ -13,7 +13,7 @@ The **Extension Host** is responsible for running extensions.
 
 Depending on the configuration of VS Code, there are multiple extension hosts running, with different runtimes, at different locations.
 
- * local – a Node.js extension host run locally, on the same machine as the user interface
+ * local – a Node.js extension host running locally, on the same machine as the user interface
  * web – a web extension host running in the browser or locally, on the same machine as the user interface
  * remote – a Node.js extension host running remotely in a container or a remote location
 
@@ -30,15 +30,17 @@ The following table shows which extension hosts are available in the various con
 
 ### Extension Host runtimes:
 
- * Node.js: Extensions run in a Node.js runtime. Used by the local and remote extension hosts. Extensions need a `main` entry file to run in it.
- * Browser: Extensions in [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it.  See the [Web extensions guide](/api/extension-guides/web-extensions.md) for more details.
+ * Node.js: Extensions are running in a Node.js runtime. Used by the local and remote extension hosts. Extensions need a `main` entry file to run in it.
+ * Browser: Extensions are running in [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it. See the [Web extensions guide](/api/extension-guides/web-extensions.md) for more details.
+
+
 
 
 ### Preferred extension location
 
-In which extension host an extension is loaded is chosen based on the available extension hosts and the capabilities of the extension. 
+In which extension host an extension is loaded is chosen based on the available extension hosts and the capabilities of the extension.
 
-In general, if an extension can run both on Node and in the browser, a node extension host is selected if available. One exception is explained later.
+If an extension can run on Node.js and in the browser, a node extension host will selected if available. One exception is explained later.
 
 Extensions can influence the location with `extensionKind` property:
 
