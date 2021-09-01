@@ -11,59 +11,45 @@ MetaDescription: The Visual Studio Code Extension Host is responsible for managi
 
 The **Extension Host** is responsible for running extensions.
 
-When running VS Code for Windows, Mac and Linux there's normally a single extension host running on the local machine. It runs along the user interface and the location of the workspace.
+Depending on the configuration of VS Code, there are multiple extension hosts running, with different runtimes, at different locations.
 
-With [remote development](/api/advanced-topics/remote-extensions), multiple extension hosts are run:
- * a 'workspace extension host' runs on the remote machine or container
- * a 'UI extension host' runs on the local machine
-
-When VS Code [runs in the browser](/api/extension-guides/web-extensions.md), a 'web extension host' host runs in the browser.
-
-When VS Code [runs in the browser](/api/extension-guides/web-extensions.md) connected to a backend (e.g. Codespaces in the browser) a 'web extension host' host runs in the browser and a 'workspace extension host' runs on the remote machine or container.
-
-UI and workspace extension hosts run in a Node.js runtime, while web extension hosts run in a Webworker in the browser.
-
-- **UI Extensions**: These extensions contribute to the VS Code user interface and are always run on the user's local machine. UI Extensions cannot directly access files in the remote workspace, or run scripts/tools installed in that workspace or on the machine. xample UI Extensions include: themes, snippets, language grammars, and keymaps.
-
-- **Workspace Extensions**: These extensions are run on the same machine as where the workspace is located. When in a local workspace, Workspace Extensions run on the local machine. When in a remote workspace or when using Codespaces, Workspace Extensions run on the remote machine / environment. Workspace Extensions can access files in the workspace to provide rich, multi-file language services, debugger support, or perform complex operations on multiple files in the workspace (either directly or by invoking scripts/tools). While Workspace Extensions do not focus on modifying the UI, they can contribute explorers, views, and other UI elements as well.
-
-- **Web Extensions**: These extensions run in a web extension host in the browser. They are restricted by the browser sandbox and therefore have [limitations](/api/extension-guides/web-extensions.md#web-extension-main-file) compared to normal extensions.
+ * local – a Node.js extension host run locally, on the same machine as the user interface
+ * web – a web extension host running in the browser or locally, on the same machine as the user interface
+ * remote – a Node.js extension host running remotely in a container or a remote location
 
 
-When VS Code starts, it decides, based on the workspace location and the installed extensions, which extension hosts are needed.
+The following table shows which extension hosts are available in the various configurations of VS Code
 
-For each installed extension, VS Code automatically activates it at the location based on its kind. If an extension can run as either kind, VS Code will attempt to choose the optimal one for the situation.
-
-The **Developer: Show Running Extensions** command shows a list of activated extension and the location where it is run.
-
-
-## Extension Kinds
-
-Whether an extension can run as `ui`, `workspace` and `web` extension is defined in the [package.json manifest](https://code.visualstudio.com/api/references/extension-manifest) by the `extensionKind` property, the main entry file (`main` and/or `browser`) as well the contributions in `contributes` property.
+| Configuration | local extension host  | web extension host | remote extension host |
+--- | --- | --- | ---
+| VS Code on the desktop | x | x |  |
+| VS Code with remote (container, ssh, codespace) | x | x | x |
+| VS Code for the web (github.dev) |  | x |   |
+| Codespaces in the Browser  |  | x | x |
 
 
-`extensionKind` is an array and defines the supported locations as well as the preference order in the case that there are multiple compatible extension hosts running.
+### Extension Host runtimes:
 
-```
-{
-  "extensionKind": ["ui", "workspace"]
-}
-```
-
-If `extensionKind` is not defined, it is computed by VS Code by looking it at the manifests main entry file(s) and the extensions contributions.
+ * Node.js: Extensions run in a Node.js runtime. Used by the local and remote extension hosts. Extensions need a `main` entry file to run in it.
+ * Browser: Extensions in [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it.  See the [Web extensions guide](/api/extension-guides/web-extensions.md) for more details.
 
 
-Following combination of locations are supported:
+### Preferred extension location
+
+In which extension host an extension is loaded is chosen based on the available extension hosts and the capabilities of the extension. 
+
+In general, if an extension can run both on Node and in the browser, a node extension host is selected if available. One exception is explained later.
+
+Extensions can influence the location with `extensionKind` property:
 
 - `"extensionKind": ["workspace"]` — Indicates the extension requires access to workspace contents and therefore will run where the workspace is located. That can be on the local machine or or on the remote machine or codespace. Most extensions fall into this category.
-- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally and means the user does not have to install the extension on the remote. Otherwise, the extension will run in VS Code's workspace extension host if it exists there. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available). The old  `"ui"`  value (as a string) maps to this type for backwards compatibility, but is considered deprecated.
+- `"extensionKind": ["ui", "workspace"]` — Indicates the extension **prefers** to run as a UI extension, but does not have any hard requirements on local assets, devices, or capabilities. When using VS Code, the extension will run in VS Code's local extension host if it exists locally and means the user does not have to install the extension on the remote. Otherwise, the extension will run in VS Code's workspace extension host if it exists there. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available).
 - `"extensionKind": ["workspace", "ui"]` — Indicates the extension **prefers** to run as a workspace extension, but does not have any hard requirements on accessing workspace contents. When using VS Code, the extension will run in VS Code's workspace extension host if it exists in remote workspace, otherwise will run in VS Code's local extension host if it exists locally. When using the Codespaces browser-based editor, it will run in the remote extension host always (as no local extension host is available).
-- `"extensionKind": ["ui"]` — Indicates the extension **must** run as a UI extension because it requires access to local assets, devices, or capabilities. Therefore, it can only run in VS Code's local extension host and will not work in the Codespaces browser-based editor (as there is no local extension host available). **Note** Do not use this `extensionKind` if you want the extension to be used without having to install it on the remote, to support this case, use `"extensionKind": ["ui", "workspace"]`.
-
-- `web` is always optional. It is automatically added to the end of the list based on the [Web Extension Enablement](/api/extension-guides/web-extensions.md#web-extension-enablement) rules. The manual addition of `web` is only necessary to override the enablement rules. In that case always list `ui` first e.g. `[“ui”, “web”]` instead of `[“web”, “ui”`]. That is because VS Code for desktop can skip launching the web worker extension host and avoid spending CPU cycles maintaining the web worker extension host.
+- `"extensionKind": ["ui"]` — Indicates the extension **must** run close to the UI because it requires access to local assets, devices, or capabilities or because low latency is required. In a Codespaces in the Browser where no local extension host is available, such an extension can not load, unless it is also a web extension. It will the be loaded in the web extension host.
 
 **Note:** Prior releases (<  1.40) allowed an extension to specify single location as a string and it is deprecated in favor of multiple location support (array).
 
+If an extension is web-only, it will always run on the web extension host, regardless of the `extensionKind` setting.
 
 ## Stability and Performance
 
