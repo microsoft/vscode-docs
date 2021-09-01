@@ -13,9 +13,7 @@ MetaSocialImage:
 
 This document will give you an overview of how to manage your Java project in Visual Studio Code.
 
-If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
-
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
+If you run into any problems when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Project management
 

@@ -32,9 +32,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-test">Install the Java Test Runner</a>
 
-If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
-
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'testing')" href="javascript:void(0)">Report an issue</a>
+If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Requirements
 

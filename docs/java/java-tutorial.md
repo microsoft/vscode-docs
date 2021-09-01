@@ -14,9 +14,7 @@ This tutorial shows you how to write and run Hello World program in Java with Vi
 
 For an overview of the features available for Java in VS Code, see [Java Language Overview](/docs/languages/java.md).
 
-If you run into any issues when following this tutorial, you can contact us by clicking the **Report an issue** button below.
-
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'getting-started')" href="javascript:void(0)">Report an issue</a>
+If you run into any issues when following this tutorial, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Setting up VS Code for Java development
 

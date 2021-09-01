@@ -32,9 +32,7 @@ The Java debugger is an open-source project, which welcomes contributors to coll
 - [Debugger for Java Extension](https://github.com/microsoft/vscode-java-debug)
 - [Java Debugger Server for Visual Studio Code](https://github.com/microsoft/java-debug)
 
-If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
-
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'debugging')" href="javascript:void(0)">Report an issue</a>
+If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Install
 
