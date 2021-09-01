@@ -31,7 +31,7 @@ Sure. [Keymap extensions](/docs/getstarted/keybindings.md#keymap-extensions) in 
 
 You can follow us on the [Java at Microsoft](https://devblogs.microsoft.com/java/) blog, which will keep you updated on our progress.
 
-While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
+While you're using Java within VS Code, you may also see a **Release Notes** section after you update the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). The notes will give you an overview on the notable updates included in the extensions.
 
 ## How can I use Visual Studio Code with new Java versions?
 
