@@ -17,7 +17,7 @@ For Java developers on Visual Studio Code, the [Language Support for Java(TM) by
 
 >**Note**: Both the **Java Debugger for Visual Studio Code** and **Java Debug Server** will be open sourced shortly after the initial release.
 
-To help Java developers to get started with VS Code quickly, we also created a [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes both the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions so you won't need to search for them individually. This is just the start to creating a modern workflow for Java and we'll be adding more features and extensions to the **Extension Pack for Java** in the future.
+To help Java developers to get started with VS Code quickly, we also created an [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes both the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions so you won't need to search for them individually. This is just the start to creating a modern workflow for Java and we'll be adding more features and extensions to the **Extension Pack for Java** in the future.
 
 ## Getting started
 

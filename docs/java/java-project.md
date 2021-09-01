@@ -23,7 +23,7 @@ Managing a project in VS Code requires the [Project Manager for Java](https://ma
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-For details on how to get started with the extension pack, please see [Getting Started](java-tutorial.md)
+For details on how to get started with the extension pack, please see [Getting Started](/docs/java/java-tutorial.md)
 
 ### Project view
 
