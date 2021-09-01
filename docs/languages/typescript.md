@@ -279,23 +279,63 @@ VS Code automatically suggests some common code simplifications such as converti
 
 Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
 
+### Inlay hints
+
+Inlay hints add additional inline information to source code to help you understand what the code does.
+
+**Parameter name inlay hints** show the names of parameters in function calls:
+
+![Parameter name inlay hints](images/typescript/inlay-parameters.png)
+
+This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
+
+To enable parameter name hints, set `typescript.inlayHints.parameterNames`. There are three possible values:
+
+* `none` — Disable parameter inlay hints.
+* `literals` — Only show inlay hints for literals (string, number, Boolean).
+* `all` — Show inlay hints for all arguments.
+
+**Variable type inlay hints** show the types of variables that don't have explicit type annotations.
+
+Setting: `typescript.inlayHints.variableTypes.enabled`
+
+![Variable type inlay hints](images/typescript/inlay-var-types.png)
+
+**Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
+
+Setting: `typescript.inlayHints.propertyDeclarationTypes.enabled`
+
+![Property type inlay hints](images/typescript/inlay-property-types.png)
+
+**Parameter type hints**  show the types of implicitly typed parameters.
+
+Setting: `typescript.inlayHints.parameterTypes.enabled`
+
+![Parameter type inlay hints](images/typescript/inlay-parameter-types.png)
+
+**Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
+
+Setting: `typescript.inlayHints.functionLikeReturnTypes.enabled`
+
+![Return type inlay hints](images/typescript/inlay-return-type.png)
+
 ## References CodeLens
 
 The TypeScript references CodeLens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
 
-![TypeScript references CodeLens](images/typescript/ts-references-code-lens.png)
+![TypeScript references CodeLens](images/typescript/references-code-lens.png)
 
 You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
-![TypeScript references CodeLens peek](images/typescript/ts-references-code-lens-peek.png)
+![TypeScript references CodeLens peek](images/typescript/references-code-lens-peek.png)
 
 ## Implementations CodeLens
 
 The TypeScript implementations CodeLens displays the number of implementors of an interface:
 
-![TypeScript implementations CodeLens](images/typescript/ts-implementations-code-lens.png)
+![TypeScript implementations CodeLens](images/typescript/implementations-code-lens.png)
 
 You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
 
