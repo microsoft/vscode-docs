@@ -268,10 +268,10 @@ vscode.commands.registerCommand('myExtension.loadTestResultFile', async file => 
 });
 ```
 
-## Menu
+## Additional Contribution Points
 
-The `testing/item/context` [menu contribution point](/api/references/contribution-points#contributes.menus) may be used to add menu items to Tests in the Test Explorer view.
+The `testing/item/context` [menu contribution point](/api/references/contribution-points#contributes.menus) may be used to add menu items to Tests in the Test Explorer view. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click.
 
-Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click.
+Additional [context keys](/api/references/when-clause-contexts) are available in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-conditional-operator).
 
-You can use the following [context keys](/api/references/when-clause-contexts) in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-conditional-operator).
+If want to reveal a test in the explorer, you can pass it running the command `vscode.commands.runCommand('vscode.revealTestInExplorer', testId)`.
