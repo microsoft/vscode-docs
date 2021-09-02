@@ -110,12 +110,12 @@ VS Code can integrate with Sass and Less transpilers through our integrated [tas
 
 ### Step 1: Install a Sass or Less transpiler
 
-For this walkthrough, let's use either the [node-sass](https://www.npmjs.com/package/node-sass) or [less](https://www.npmjs.com/package/less) Node.js module.
+For this walkthrough, let's use either the [sass](https://www.npmjs.com/package/sass) or [less](https://www.npmjs.com/package/less) Node.js module.
 
 >**Note:** If you don't have [Node.js](https://nodejs.org) and the [npm](https://www.npmjs.com/) package manager already installed, you'll need to do so for this walkthrough. [Install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager (npm) is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for `npm` to be on your PATH.
 
 ```bash
-npm install -g node-sass less
+npm install -g sass less
 ```
 
 ### Step 2: Create a simple Sass or Less file
@@ -148,7 +148,7 @@ For the Less version of the above file, just change `$padding` to `@padding`.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration. To do this, run **Terminal** > **Configure Tasks** and click **Create tasks.json file from templates**. In the selection dialog that shows up, select **Others**.
+The next step is to set up the task configuration. To do this, run **Terminal** > **Configure Tasks** and click **Create tasks.json file from template**. In the selection dialog that shows up, select **Others**.
 
 This will create a sample `tasks.json` file in the workspace `.vscode` folder. The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Sass/Less instead:
 
@@ -162,7 +162,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder. T
         {
             "label": "Sass Compile",
             "type": "shell",
-            "command": "node-sass styles.scss styles.css",
+            "command": "sass styles.scss styles.css",
             "group": "build"
         }
     ]
@@ -196,7 +196,7 @@ At this point, you should see an additional file show up in the file list `style
 
 If you want to make the task the default build task to run execute **Configure Default Build Task** from the global **Terminal** menu and select the corresponding **Sass** or **Less** task from the presented list.
 
->**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `node-sass styles.scss styles.css` from the command line.
+>**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `sass styles.scss styles.css` from the command line.
 
 ## Automating Sass/Less compilation
 
@@ -213,9 +213,9 @@ npm install -g gulp
 npm install gulp gulp-sass gulp-less
 ```
 
-> **Note:** `gulp-sass` and `gulp-less` are Gulp plug-ins for the `node-sass` and `lessc` modules we were using before. There are many other Gulp Sass and Less plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** `gulp-sass` and `gulp-less` are Gulp plug-ins for the `sass` and `lessc` modules we were using before. There are many other Gulp Sass and Less plug-ins you can use, as well as plug-ins for Grunt.
 
-You can test that your gulp installation was successful by typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
+You can test that your gulp installation was successful by typing `gulp -v` in the terminal. You should see a version displayed for both the global (CLI) and local installations.
 
 ### Step 2: Create a simple Gulp task
 
@@ -226,7 +226,7 @@ Place the following code in the `gulpfile.js` file:
 ```javascript
 // Sass configuration
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 
 gulp.task('sass', function(cb) {
     gulp.src('*.scss')

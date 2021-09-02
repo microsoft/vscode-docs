@@ -9,6 +9,8 @@ Topics submitted here will be published to the [Visual Studio Code](https://code
 
 If you are looking for the VS Code product GitHub repository, you can find it [here](https://github.com/microsoft/vscode).
 
+>**Note**: The vscode-docs repository uses [Git LFS](https://git-lfs.github.com/) (Large File Storage) for storing binary files such as images and `.gif`s. If you are contributing or updating images, please enable Git LFS per the instructions in the [Contributing](#cloning) section below.
+
 ## Index
 
 - [Index](#index)

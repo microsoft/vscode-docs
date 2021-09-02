@@ -32,15 +32,13 @@ The Java debugger is an open-source project, which welcomes contributors to coll
 - [Debugger for Java Extension](https://github.com/microsoft/vscode-java-debug)
 - [Java Debugger Server for Visual Studio Code](https://github.com/microsoft/java-debug)
 
-If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
-
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'debugging')" href="javascript:void(0)">Report an issue</a>
+If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Install
 
-For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension installed. To make it easier, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which bundles the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
+For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension installed. To make it easier, there is an [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which bundles the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
 
-You can manually install the extension pack from the Extensions view (`kb(workbench.view.extensions)`) by typing `vscode-java-pack` in the search box. You will also be prompted to install the Java Extension Pack when you edit a Java file in VS Code for the first time.
+You can manually install the extension pack from the Extensions view (`kb(workbench.view.extensions)`) by typing `vscode-java-pack` in the search box. You will also be prompted to install the Extension Pack for Java when you edit a Java file in VS Code for the first time.
 
 For more details, please read [Java tutorial](/docs/java/java-tutorial.md).
 
@@ -172,19 +170,19 @@ You can have the debugger break when a variable change its value. Note that the 
 
 ![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 
-### Hot Code replacement
+### Hot Code Replace
 
-Another advanced feature the debugger supports is 'Hot Code' replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
+Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
 </video>
 
-You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code replacement. The possible setting values are:
+You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code Replace. The possible setting values are:
 
 * `manual` - Click the toolbar to apply the changes (default).
 * `auto` - Automatically apply the changes after compilation.
-* `never` - Disable Hot Code replacement.
+* `never` - Disable Hot Code Replace.
 
 ### Logpoints
 
@@ -262,7 +260,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
   - manual - Click the toolbar to apply the changes.
   - auto - Automatically apply the changes after compilation.
   - never - Never apply the changes.
-- `java.debug.settings.enableHotCodeReplace`: Enable hot code replace for Java code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.settings.enableHotCodeReplace`: Enable Hot Code Replace for Java code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 - `java.debug.settings.enableRunDebugCodeLens`: Enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: Force building the workspace before launching java program, defaults to `true`.
 - `java.debug.settings.console`: The specified console to launch a Java program, defaults to `integratedTerminal`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
@@ -281,7 +279,7 @@ Common issues explained include:
 * *.java isn't on the classpath. Only syntax errors will be reported.
 * Program Error: Could not find or load main class X.
 * Program throws ClassNotFoundException.
-* Failed to complete hot code replace.
+* Failed to complete Hot Code Replace.
 * Please specify the host name and the port of the remote debuggee in the launch.json.
 * Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
 * Cannot find a class with the main method.

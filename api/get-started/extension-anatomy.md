@@ -13,9 +13,9 @@ In the last topic, you were able to get a basic extension running. How does it w
 
 The `Hello World` extension does 3 things:
 
-- Registers the [`onCommand`](/api/references/activation-events#onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:extension.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
-- Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello World` available in the Command Palette, and bind it to a command ID `extension.helloWorld`.
-- Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `extension.helloWorld`.
+- Registers the [`onCommand`](/api/references/activation-events#onCommand) [**Activation Event**](/api/references/activation-events): `onCommand:helloworld.helloWorld`, so the extension becomes activated when user runs the `Hello World` command.
+- Uses the [`contributes.commands`](/api/references/contribution-points#contributes.commands) [**Contribution Point**](/api/references/contribution-points) to make the command `Hello World` available in the Command Palette, and bind it to a command ID `helloworld.helloWorld`.
+- Uses the [`commands.registerCommand`](/api/references/vscode-api#commands.registerCommand) [**VS Code API**](/api/references/vscode-api) to bind a function to the registered command ID `helloworld.helloWorld`.
 
 Understanding these three concepts is crucial to writing extensions in VS Code:
 
@@ -71,12 +71,12 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "vscode": "^1.51.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:extension.helloWorld"],
+  "activationEvents": ["onCommand:helloworld.helloWorld"],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
+        "command": "helloworld.helloWorld",
         "title": "Hello World"
       }
     ]
@@ -116,7 +116,7 @@ export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
-  let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
+  let disposable = vscode.commands.registerCommand('helloworld.helloWorld', () => {
     // The code you place here will be executed every time your command is executed
 
     // Display a message box to the user

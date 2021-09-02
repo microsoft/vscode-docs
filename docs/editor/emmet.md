@@ -207,7 +207,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.includeLanguages`
 
-    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language ids for both sides of the mapping.
+    Use this setting to add mapping between the language of your choice and one of the Emmet supported languages to enable Emmet in the former using the syntax of the latter. Make sure to use language IDs for both sides of the mapping.
 
     For example:
 
@@ -220,7 +220,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.excludeLanguages`
 
-    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language id strings.
+    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language ID strings.
 
 * `emmet.syntaxProfiles`
 

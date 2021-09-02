@@ -73,7 +73,7 @@ To connect to a remote host for the first time, follow these steps:
     ssh user@domain@hostname
     ```
 
-2. In VS Code, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and use the same `user@hostname` as in step 1.
+2. In VS Code, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) and use the same `user@hostname` as in step 1.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
@@ -113,7 +113,7 @@ If you have a set of hosts you use frequently or you need to connect to a host u
 
 To make setup easy, the extension can guide you through adding a host without having to hand edit this file.
 
-Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`) or clicking on the **Add New** icon in the SSH **Remote Explorer** in the Activity Bar.
+Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or clicking on the **Add New** icon in the SSH **Remote Explorer** in the Activity Bar.
 
 ![Remote Explorer Add New item](images/ssh/ssh-explorer-add-new.png)
 
@@ -138,7 +138,7 @@ Host remotehost.yourcompany.com
 
 See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details on generating the key shown here. You can manually edit this file with anything the [SSH config file format](https://man7.org/linux/man-pages/man5/ssh_config.5.html) supports, so this is just one example.
 
-From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) or in the **SSH Targets** section of the **Remote Explorer**.
+From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or in the **SSH Targets** section of the **Remote Explorer**.
 
 ![SSH targets in the Remote Explorer](images/ssh/ssh-explorer-connect.png)
 
@@ -200,7 +200,7 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
 
 ![Remote Explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
 
@@ -254,7 +254,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## SSH host-specific settings
 
-VS Code's local User settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the Settings editor. These will override any User settings you have in place whenever you connect to the host. And Workspace settings will override Remote and User settings.
+VS Code's local User settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or by selecting on the **Remote** tab in the Settings editor. These will override any User settings you have in place whenever you connect to the host. And Workspace settings will override Remote and User settings.
 
 ![Host-specific settings tab](images/ssh/ssh-settings.png)
 

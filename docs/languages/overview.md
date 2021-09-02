@@ -23,7 +23,7 @@ Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use the 
 
 ## Language specific documentation
 
-Learn about programming languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dart](https://dart.dev/tools/vs-code) - [Dockerfile](/docs/azure/docker.md) - [F&#35;](/docs/languages/dotnet.md#create-an-f-hello-world-app) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
+Learn about programming languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dart](https://dart.dev/tools/vs-code) - [Dockerfile](/docs/azure/docker.md) - [F&#35;](/docs/languages/dotnet.md#create-an-f-hello-world-app) - [Go](/docs/languages/go.md) - [HTML](/docs/languages/html.md) - [Java](/docs/languages/java.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Julia](/docs/languages/julia.md) - [Less](/docs/languages/css.md) -
 [Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [PowerShell](/docs/languages/powershell.md) - [Python](/docs/languages/python.md) - [SCSS](/docs/languages/css.md) - [T-SQL](/docs/languages/tsql.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language. Most language extensions also contain a summary of their core features in their README.
@@ -47,7 +47,7 @@ In VS Code, we default the language support for a file based on its filename ext
 
 **Tip**: You can get the same dropdown by running the **Change Language Mode** command (`kb(workbench.action.editor.changeLanguageMode)`).
 
-## Language Id
+## Language identifier
 
 VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
 
@@ -73,7 +73,7 @@ For example, the setting below adds the `.myphp` file extension to the `php` lan
 
 IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available language identifiers.
 
-![language id IntelliSense](images/overview/language-id-intellisense.png)
+![Language ID IntelliSense](images/overview/language-id-intellisense.png)
 
 ## Next steps
 

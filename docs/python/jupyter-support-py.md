@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
 PageTitle: Working with Jupyter code cells in the Python Interactive window
-DateApproved: 10/02/2019
+DateApproved: 8/6/2021
 MetaDescription: Working with Jupyter code cells in the Python Interactive window
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -15,7 +15,7 @@ MetaSocialImage: images/tutorial/social.png
 
 - Work with Jupyter-like code cells
 - Run code in the Python Interactive Window
-- View, inspect, and filter variables using the Variable explorer and data viewer
+- View, inspect, and filter variables using the Variables Explorer and Data Viewer
 - Connect to a remote Jupyter server
 - Debug a Jupyter notebook
 - Export a Jupyter notebook
@@ -93,30 +93,45 @@ The Python Interactive window has full IntelliSense – code completions, member
 The Plot Viewer gives you the ability to work more deeply with your plots. In the viewer you can pan, zoom, and navigate plots in the current session. You can also export plots to PDF, SVG, and PNG formats.
 
 Within the Python Interactive window, double-click any plot to open it in the viewer, or select the expand button on the upper left corner of the plot.
+<!--
+```
+#%%
+import matplotlib.pyplot as plt
+
+#%%
+cat = ["bored", "happy", "bored"]
+dog = ["happy", "bored", "happy"]
+activity = ["combing", "drinking", "feeding"]
+
+fig = ax = plt.subplot()
+ax.plot(activity, dog, label="dog")
+ax.plot(activity, cat, label="cat")
+ax.legend()
+
+plt.show()
+``` -->
 
 ![Plot Viewer with the Python Interactive window](images/jupyter/plot-viewer.gif)
 
 > **Note:** The Python Interactive window supports rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
-### Live Share for Python Interactive
+<!-- ### Live Share for Python Interactive
 
 The Python Interactive window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) for real-time collaboration. Live Share lets you co-edit and co-debug while sharing audio, servers, terminals, diffs, comments, and more.
 
 ![Live Share for the Python Interactive window](images/jupyter/live-share-and-interactive.gif)
 
-This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to be installed on both host and guest machines.
+This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to be installed on both host and guest machines. -->
 
-## Variable explorer and data viewer
+## Variables Explorer and Data Viewer
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. Select the **Variables** button in the interactive window toolbar to open the Variables explorer after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
-![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
+![Variables Explorer](images/jupyter/jupyter-variable-explorer.png)
 
 For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
 
 ![Data Viewer](images/jupyter/jupyter-data-viewer.png)
-
-> **Note:** Variable explorer is enabled by default, but can be turned off in settings (Python > Data Science: Show Jupyter Variable Explorer).
 
 ## Connect to a remote Jupyter server
 

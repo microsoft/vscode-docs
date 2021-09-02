@@ -14,7 +14,7 @@ August 05, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 Notebooks—documents that contain text, executable code, as well as the output of that code—are an interesting and exciting new way to do development.
 
-![An image of a notebook that analyzes data from the Titanic shipwreck](notebook.png)
+[![An image of a notebook that analyzes data from the Titanic shipwreck](notebook.png)](/assets/blogs/2021/08/05/notebook.png)
 
 Ok, it's not totally new. Donald Knuth introduced the concept of [Literate Programming](https://en.wikipedia.org/wiki/Literate_programming) in 1984 and Wolfram Mathematica introduced the [Notebook UI powered by Kernels](https://en.wikipedia.org/wiki/Wolfram_Mathematica) in 1988.
 

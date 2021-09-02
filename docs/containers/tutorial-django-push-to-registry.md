@@ -29,7 +29,7 @@ Make sure that the registry endpoint you created is visible under **Registries**
     ]
     ```
 
-    Without this entry, you'll see a "DisallowedHost" message after deployment that instructs to you add the website domain to `ALLOWED_HOSTS`. This will require you to rebuild, push, and redeploy the image once again.
+    Without this entry, you'll see a "DisallowedHost" message after deployment that instructs you to add the website domain to `ALLOWED_HOSTS`. This will require you to rebuild, push, and redeploy the image once again.
 
 1. On the **Command Palette** (`kb(workbench.action.showCommands)`), select **Docker: Build Image** to rebuild image with new settings.
 

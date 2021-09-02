@@ -50,6 +50,16 @@ There are getting started topics for both GitHub Codespaces clients. These will 
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work in GitHub Codespaces environments without any modification. However, we recommend that you test your extension in a codespace to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions.md) for details.
 
+## Browser-based editor
+
+You also have a free, lightweight Visual Studio Code experience entirely in the browser. The web-based editor lets you browse source code repositories from GitHub safely and quickly and make lightweight code changes. You can open any repository, fork, or pull request in the editor, which has many of the features of VS Code, including search and syntax highlighting. If you want to run or debug your code, you can switch to the cloud-hosted environment or the VS Code desktop.
+
+To access this browser-based editor, you can go to your repo on github.com and press `kbstyle(.)` (period key) or change the URL of your repository to `github.dev/org/repo`, replacing `github.com` with `github.dev`.
+
+Limitation: You may not be able to use the web-based editor if you are running your browser with Incognito mode or have ad blockers enabled.
+
+>**Note**: This editor is currently in Technical Preview. You can try it out today and provide feedback at [https://github.co/browser-editor-feedback](https://github.co/browser-editor-feedback).
+
 ## Known limitations and adaptations
 
 While working with Codespaces and specifically VS Code in the web, there are certain limitations to keep in mind. Some of these limitations have workarounds or adaptations in place to provide a consistent development experience.

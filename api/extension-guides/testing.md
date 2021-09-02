@@ -1,4 +1,8 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 4ced0b2a-3f5a-44e6-a8b0-66b9012af8c0
+DateApproved: 8/5/2021
+
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Testing APIs in VS Code allow users to discover and run unit tests in their workspace
 ---
@@ -6,6 +10,8 @@ MetaDescription: Testing APIs in VS Code allow users to discover and run unit te
 # Testing API
 
 The Testing API allows Visual Studio Code extensions to discover tests in the workspace and publish results. Users can execute tests in the Test Explorer view, from decorations, and inside commands. With these new APIs, Visual Studio Code supports richer displays of outputs and diffs than was previously possible.
+
+>**Note**: The Testing API is available in VS Code version 1.59 and higher.
 
 ## Examples
 
@@ -22,7 +28,7 @@ Tests are provided by the `TestController`, which requires a globally unique ID 
 const controller = vscode.tests.createTestController('helloWorldTests', 'Hello World Tests');
 ```
 
-To publish tests, you add `TestITem`s as children to the controller's `items` collection. `TestItem`s are the foundation of the test API in the `TestItem` interface, and are a generic type that can describe a test case, suite, or tree item as it exists in code. They can, in turn, have `children` themselves, forming a hierarchy. For example, here's a simplified version of how the sample test extension creates tests:
+To publish tests, you add `TestItem`s as children to the controller's `items` collection. `TestItem`s are the foundation of the test API in the `TestItem` interface, and are a generic type that can describe a test case, suite, or tree item as it exists in code. They can, in turn, have `children` themselves, forming a hierarchy. For example, here's a simplified version of how the sample test extension creates tests:
 
 ```ts
 parseMarkdown(content, {
@@ -275,3 +281,11 @@ In summary, the general steps are:
 1. To load tests initially, instead of waiting for a `testAdapter.load()` method call, set `controller.resolveHandler = () => { /* discover tests */ }`. See more information around how test discovery works in [Discovering Tests](#discovering-tests).
 
 1. To run tests, you should create a [Run Profile](#running-tests) with a handler function that calls `const run = controller.createTestRun(request)`. Instead of firing a `testStates` event, pass `TestItem`s to methods on the `run` to update their state.
+
+## Additional Contribution Points
+
+The `testing/item/context` [menu contribution point](/api/references/contribution-points#contributes.menus) may be used to add menu items to Tests in the Test Explorer view. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click.
+
+Additional [context keys](/api/references/when-clause-contexts) are available in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-conditional-operator).
+
+If want to reveal a test in the explorer, you can pass it running the command `vscode.commands.runCommand('vscode.revealTestInExplorer', testId)`.

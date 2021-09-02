@@ -1,16 +1,11 @@
 ---
-Order: 16
+Order: 17
 Area: languages
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code
 DateApproved: 3/6/2019
 MetaDescription: Get started writing and debugging .NET Core apps with Visual Studio Code.
-MetaTags:
-- .NET Core
-- ASP.NET Core
-- C#
-- F#
 ---
 # Using .NET Core in Visual Studio Code
 

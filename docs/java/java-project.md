@@ -3,7 +3,7 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
+PageTitle: Java project management in Visual Studio Code
 DateApproved: 6/10/2021
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
@@ -13,15 +13,15 @@ MetaSocialImage:
 
 This document will give you an overview of how to manage your Java project in Visual Studio Code.
 
-If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
-
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
+If you run into any problems when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Project management
 
 Managing a project in VS Code requires the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. The extension helps manage class paths and dependencies, and create new projects, packages, and classes.
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Project Manager for Java</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+
+For details on how to get started with the extension pack, please see [Getting Started](/docs/java/java-tutorial.md).
 
 ### Project view
 

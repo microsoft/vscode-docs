@@ -802,7 +802,7 @@ mouse, positioning the hover, keeping the hover stable etc. is taken care of by 
     }
 });
 </code></pre>
-<p>Registration is done using a <a href="#DocumentSelector">document selector</a> which is either a language id, like <code>javascript</code> or
+<p>Registration is done using a <a href="#DocumentSelector">document selector</a> which is either a language ID, like <code>javascript</code> or
 a more complex <a href="#DocumentFilter">filter</a> like <code>{ language: &#39;typescript&#39;, scheme: &#39;file&#39; }</code>. Matching a document against such
 a selector will result in a <a href="#languages.match">score</a> that is used to determine if and how a provider shall be used. When
 scores are equal the provider that came last wins. For features that allow full arity, like <a href="#languages.registerHoverProvider">hover</a>,
@@ -3031,7 +3031,7 @@ when the <a href="#TextDocument.getText">contents</a> changes but also when othe
 
 <a name="workspace.onDidCloseTextDocument"></a><span class="ts" id=2970 data-target="#details-2970" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-2970">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is disposed or when the language id
+<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is disposed or when the language ID
 of a text document <a href="#languages.setTextDocumentLanguage">has been changed</a>.</p>
 <p><em>Note 1:</em> There is no guarantee that this event fires when an editor tab is closed, use the
 <a href="#window.onDidChangeVisibleTextEditors"><code>onDidChangeVisibleTextEditors</code></a>-event to know when editors change.</p>
@@ -3069,7 +3069,7 @@ files change on disk, e.g triggered by another application, or when using the
 
 <a name="workspace.onDidOpenTextDocument"></a><span class="ts" id=2969 data-target="#details-2969" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-2969">
-<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is opened or when the language id
+<div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is opened or when the language ID
 of a text document <a href="#languages.setTextDocumentLanguage">has been changed</a>.</p>
 <p>To add an event listener when a visible text document is opened, use the <a href="#TextEditor">TextEditor</a> events in the
 <a href="#window">window</a> namespace. Note that:</p>
@@ -8566,7 +8566,7 @@ its resource, or a glob-pattern that is applied to the <a href="#TextDocument.fi
 
 <a name="DocumentFilter.language"></a><span class="ts" id=557 data-target="#details-557" data-toggle="collapse"><span class="ident">language</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
 <div class="details collapse" id="details-557">
-<div class="comment"><p>A language id, like <code>typescript</code>.</p>
+<div class="comment"><p>A language ID, like <code>typescript</code>.</p>
 </div>
 </div>
 
@@ -20907,7 +20907,7 @@ const values = config.get(&#39;configurations&#39;);
 often consists of a <em>default</em> value, a global or installation-wide value,
 a workspace-specific value, folder-specific value
 and language-specific values (if <a href="#WorkspaceConfiguration">WorkspaceConfiguration</a> is scoped to a language).</p>
-<p>Also provides all language ids under which the given configuration setting is defined.</p>
+<p>Also provides all language IDs under which the given configuration setting is defined.</p>
 <p><em>Note:</em> The configuration name must denote a leaf in the configuration tree
 (<code>editor.fontSize</code> vs <code>editor</code>) otherwise no result is returned.</p>
 </div>

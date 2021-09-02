@@ -106,6 +106,16 @@ VS Code keeps track of the machines synchronizing your preferences and provides 
 
 You can open this view using **Settings Sync: Show Synced Data** command from the Command Palette.
 
+## Extension authors
+
+If you are an extension author, you should make sure your extension behaves appropriately when users enable Setting Sync. For example, you probably don't want your extension to display the same dismissed notifications or welcome pages on multiple machines.
+
+### Sync user global state between machines
+
+If your extension needs to preserve some user state across different machines then provide the state to Settings Sync using `vscode.ExtensionContext.globalState.setKeysForSync`. Sharing state such as UI dismissed or viewed flags across machines can provide a better user experience.
+
+There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities.md#data-storage) topic.
+
 ## Reporting issues
 
 Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.

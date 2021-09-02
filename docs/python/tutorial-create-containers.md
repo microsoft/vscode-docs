@@ -161,7 +161,7 @@ The following steps summarize the configuration used in the [python-sample-vscod
     ]
     ```
 
-    Without this entry, you'll eventually get all the way through the deployment only to see a "DisallowedHost" message that instructs to you add the domain to `ALLOWED_HOSTS`, which requires that you rebuild, push, and redeploy the image all over again!
+    Without this entry, you'll eventually get all the way through the deployment only to see a "DisallowedHost" message that instructs you to add the domain to `ALLOWED_HOSTS`, which requires that you rebuild, push, and redeploy the image all over again!
 
 1. Create a `uwsgi.ini` file in the Django project folder (alongside `manage.py`) that contains startup arguments for the uwsgi server. In the sample, the Django project is in a folder called `web_project`, which is where the `wsgi.py` and `setting.py` files live.
 
