@@ -114,7 +114,7 @@ Using either method, Notebook Editor or a Python file, you can also connect to a
 
 ## Testing
 
-The Python extension supports [testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
+The Python extension supports [testing](/docs/python/testing.md) with unittest and pytest.
 
 To run tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 
