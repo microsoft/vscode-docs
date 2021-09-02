@@ -22,6 +22,7 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onUri`](/api/references/activation-events#onUri)
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
+- [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
 - [`*`](/api/references/activation-events#Start-up)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
 
@@ -183,7 +184,7 @@ For example, the declaration of onCustomEditor below:
 ]
 ```
 
-will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`. The `providerId` is set in the [`customEditors` contribution point](/api/extension-guides/custom-editors#contribution-point) and bound to a provider with `registerCustomEditorProvider`.
+will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`.
 
 ## Start up
 
