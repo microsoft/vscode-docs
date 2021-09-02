@@ -4,7 +4,7 @@ Area: tutorials
 TOCTitle: Python
 ContentId: 59d1a188-1d81-4bb5-82de-372d114d7103
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 6/10/2021
+DateApproved:
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 ---
 # Getting Started with Python in VS Code

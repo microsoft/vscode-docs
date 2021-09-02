@@ -3,7 +3,7 @@ Order:
 TOCTitle: Error Codes
 ContentId: 343B5C4D-3473-4454-AD22-084F405D6905
 PageTitle: Visual Studio Code workarounds for errors you might hit in the product.
-DateApproved: 8/5/2021
+DateApproved: 9/2/2021
 MetaDescription: Several error conditions can easily be resolved by the user this page is designed to help un-block you.
 ---
 # Common Error Cases

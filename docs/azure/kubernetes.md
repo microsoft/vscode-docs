@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Kubernetes
 ContentId: d0ece2e4-8dd2-4c0d-a773-604542651c9e
 PageTitle: Working with Kubernetes in Visual Studio Code
-DateApproved: 8/5/2021
+DateApproved: 9/2/2021
 MetaDescription: Working with Kubernetes in Visual Studio Code
 ---
 # Working with Kubernetes in VS Code
