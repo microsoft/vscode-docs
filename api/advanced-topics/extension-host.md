@@ -11,7 +11,7 @@ MetaDescription: The Visual Studio Code Extension Host is responsible for managi
 
 The **Extension Host** is responsible for running extensions.
 
-## Extension Host Configurations
+## Extension Host configurations
 
 Depending on the configuration of VS Code, there are multiple extension hosts running, with different runtimes, at different locations.
 
@@ -24,7 +24,7 @@ The following table shows which extension hosts are available in the various con
 | Configuration | local extension host  | web extension host | remote extension host |
 --- | --- | --- | ---
 | VS Code on the desktop | x | x |  |
-| VS Code with remote (Container, SSH, GitHub Codespace) | x | x | x |
+| [VS Code with remote](/docs/remote/remote-overview) (Container, SSH, WSL, GitHub Codespace) | x | x | x |
 | VS Code for the Web (github.dev) |  | x |   |
 | VS Code for the Web with Codespaces |  | x | x |
 
@@ -52,7 +52,7 @@ The extension host where an extension is loaded depends on
 
 If an extension can run on Node.js and in the browser, a Node.js extension host will be selected if available. There's one exception, when the configuration is VS Code for the Web with Codespaces and the `extensionKind` is set to `ui`, then the web extension host is preferred over the remote extension host.
 
-If an extension is web-only, it will always run on the web extension host, regardless of the `extensionKind` setting. We recommend not to define `extensionKind` in that case.
+If an extension is web-only, it will always run on the web extension host, regardless of the `extensionKind` setting. We recommend to not define `extensionKind` in that case.
 
 ## Stability and Performance
 
