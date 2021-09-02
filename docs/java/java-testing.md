@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 PageTitle: Java Unit Tests in Visual Studio Code
-DateApproved: 8/6/2021
+DateApproved: 9/1/2021
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
@@ -30,7 +30,7 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 - View test report
 - View tests in Test Explorer
 
-We recommend installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes the features above to get the complete Java development experience
+We recommend installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the features above, to get the complete Java development experience.
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
