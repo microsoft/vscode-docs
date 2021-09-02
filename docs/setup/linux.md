@@ -165,7 +165,7 @@ sudo update-alternatives --set editor /usr/bin/code
 If Visual Studio Code doesn't show up as an alternative to `editor`, you need to register it:
 
 ```bash
-sudo update-alternatives --install editor /usr/bin/editor $(which code)
+sudo update-alternatives --install /usr/bin/editor editor $(which code) 10
 ```
 
 ## Windows as a Linux developer machine
