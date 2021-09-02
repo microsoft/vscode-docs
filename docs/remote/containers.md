@@ -295,7 +295,7 @@ For example, the setting below will force the Docker extension to run locally an
 }
 ```
 
-A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+A value of `"ui"` instead of `"workspace"` will force the extension to run on the local UI/client side instead. Typically, this should only be used for testing unless otherwise noted in the extension's documentation since it **can break extensions**. See the section on [preferred extension location](/api/advanced-topics/extension-host#preferred-extension-location) for details.
 
 ## Forwarding or publishing a port
 
