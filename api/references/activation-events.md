@@ -171,6 +171,20 @@ For example, the declaration of onCustomEditor below:
 
 will cause the extension to be activated when VS Code needs to restore a custom editor with the viewType: `catCustoms.pawDraw`. The viewType is set in the [`customEditors` contribution point](/api/extension-guides/custom-editors#contribution-point) and bound to a provider with `registerCustomEditorProvider`.
 
+## onAuthenticationRequest
+
+This activation event is emitted and interested extensions will be activated whenever an extension requests an authentication session (via the `authentication.getSession()` API) with the matching `providerId`.
+
+For example, the declaration of onCustomEditor below:
+
+```json
+"activationEvents": [
+    "onAuthenticationRequest:github"
+]
+```
+
+will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`. The `providerId` is set in the [`customEditors` contribution point](/api/extension-guides/custom-editors#contribution-point) and bound to a provider with `registerCustomEditorProvider`.
+
 ## Start up
 
 The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
