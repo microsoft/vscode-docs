@@ -141,8 +141,6 @@ def test_decrement():
 
 By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command.
 
-<!-- TODO: add screenshot -->
-
 `python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`. You will need to reload the window for this setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
@@ -152,8 +150,6 @@ Test discovery applies the discovery patterns for the current framework (which c
 - `python.testing.pytestArgs`: Looks for any Python (`.py`) file whose name begins with "test\_" or ends with "\_test", located anywhere within the current folder and all subfolders.
 
 > **Tip**: Sometimes tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
-
-<!--TODO: update text below-->
 
 If discovery succeeds, you will see tests listed in the Test Explorer:
 
@@ -292,7 +288,7 @@ Below are all the supported commands for testing with the Python extension in VS
 |  **Test: Clear All Results** | Clear all tests statuses, as the UI persists test results across sessions. |  Test: Debug All Tests | Debug all discovered tests. Equivalent to **Python: Debug All Tests** on versions prior to 2021.9. |
 |  **Test: Debug Failed Tests** | Debug tests that failed in the most recent test run. |
 |  **Test: Debug Last Run** | Debug tests that were executed in the most recent test run. |
-|  **Test: Debug Test at Cursor** | Debug the test method where you have your cursor focused on the editor. Similar to **Python: Debug Test Method...** on version before 2021.9. |
+|  **Test: Debug Test at Cursor** | Debug the test method where you have your cursor focused on the editor. Similar to **Python: Debug Test Method...** on versions prior to 2021.9. |
 |  **Test: Debug Tests in Current File** | Debug tests in the file that is currently in focus on the editor. |
 |  **Test: Go to Next Test Failure** | If the error peek view is open, open and move to the peek view of the next test in the explorer that has failed. |
 |  **Test: Go to Previous Test Failure** | If the error peek view is open, open and move to the peek view of the previous test in the explorer that has failed. |
