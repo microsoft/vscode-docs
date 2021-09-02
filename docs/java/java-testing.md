@@ -30,7 +30,9 @@ The [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscja
 - View test report
 - View tests in Test Explorer
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-test">Install the Java Test Runner</a>
+We recommend installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes the features above to get the complete Java development experience
+
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
