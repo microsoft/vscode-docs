@@ -279,7 +279,7 @@ VS Code automatically suggests some common code simplifications such as converti
 
 Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
 
-### Inlay hints
+## Inlay hints
 
 Inlay hints add additional inline information to source code to help you understand what the code does.
 
