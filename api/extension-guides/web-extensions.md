@@ -218,7 +218,7 @@ Use the `pwa-extensionhost` launch configuration provided by the **New Web Exten
 }
 ```
 
-It uses the task `npm: watch-web"` to compile the extension by calling `npm run watch-web`. That task is expected in `tasks.json`:
+It uses the task `npm: watch-web` to compile the extension by calling `npm run watch-web`. That task is expected in `tasks.json`:
 
 ```json
 {
@@ -377,10 +377,10 @@ Extensions with source code (defined by the `main` property) need to provide a [
 
 Use these steps to recompile your extension code for the browser environment:
 
-* Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section.
+* Add a webpack config file as shown in the [webpack configuration](#webpack-configuration) section. If you already have a webpack file for your Node.js extension code, you can add a new section for web. Check out the [vscode-css-formatter](https://github.com/aeschli/vscode-css-formatter/blob/master/webpack.config.js) as an example.
 * Add the `launch.json` and `tasks.json` files as shown in the [Test your web extension](#test-your-web-extension) section.
 * In the webpack config file, set the input file to the existing Node.js main file or create a new main file for the web extension.
-* In `package.js`, add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web-extension-anatomy) section.
+* In `package.json`, add a `browser` and the `scripts` properties as shown in the [Web extension anatomy](#web-extension-anatomy) section.
 * Run `npm run compile-web` to invoke webpack and see where work is needed to make your extension run in the web.
 
 To make sure as much source code as possible can be reused, here are a few techniques:
