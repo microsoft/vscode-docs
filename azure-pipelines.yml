@@ -17,7 +17,7 @@ resources:
     type: github
     endpoint: Monaco
     name: microsoft/vscode-website-dist
-    ref: main
+    ref: $(Build.SourceBranchName)
 jobs:
 - job:
   displayName: Build
