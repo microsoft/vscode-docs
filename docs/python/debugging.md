@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 7/20/2021
+DateApproved: 9/1/2021
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -37,7 +37,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
 
-   > **Note** Starting a debugging session through the Debug Panel, **F5** or **Run > Start Debugging**, when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+   > **Note** Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
 
 1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
@@ -64,15 +64,23 @@ By default, the debugger uses the same interpreter selected for your workspace, 
 
 ## Basic debugging
 
-The simplest way to begin debugging a Python file is to use the **Run** view and click the **Run and Debug** button. When no configuration has been previously set, you will be presented with a list of debugging options. Select the appropriate option to quickly begin debugging your code.
+If you're only interested in debugging a Python script, the simplest way is to click on the down-arrow next to the run button on the editor and select **Debug Python File in Terminal**.
+
+![Debug button on the top-right of the editor](images/debugging/debug-button-editor.png)
+
+But if you're looking to debug a module or a web application for example, you can start the debugger through the **Run** view by clicking on the **Run and Debug** button.
 
 ![Run the debugger](images/debugging/debug-run.png)
+
+When no configuration has been previously set, you will be presented with a list of debugging options. Select the appropriate option to quickly begin debugging your code.
 
 Two common options are to use the **Python File** configuration to run the currently open Python file or to use the **Attach using Process ID** configuration to attach the debugger to a process that is already running.
 
 For information about creating and using debugging configurations see the [Initialize configurations](#initialize-configurations) and [Additional configurations](#additional-configurations) sections. Once a configuration is added, it can be selected from the dropdown list and started using the **Start Debugging** button.
 
 ![Start debugging](images/debugging/debug-start-button.png)
+
+
 
 ## Command line debugging
 
@@ -383,7 +391,13 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 |----------------------------------|--------------------------------------------------------------------|
 | `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                 |
 | `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
-| `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console.                                            |
+| `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console. |
+
+### `purpose`
+ If set to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
+ If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the **Debug Python File in Terminal** button on the top-right of the editor.
+ Note that the `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
+
 
 ### `autoReload`
 
@@ -481,10 +495,10 @@ The configuration dropdown provides a variety of different options for general a
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
-| Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
+| Scrapy | Specifies `"module": "scrapy"` and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]`. |
 
-Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests (including nosetest), see [Testing](/docs/python/testing.md).
+Specific steps are also needed for remote debugging and Google App Engine. For details on debugging tests, see [Testing](/docs/python/testing.md).
 
 To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and `"sudo": "True"`.
 

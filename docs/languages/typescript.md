@@ -279,7 +279,7 @@ VS Code automatically suggests some common code simplifications such as converti
 
 Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
 
-### Inlay hints
+## Inlay hints
 
 Inlay hints add additional inline information to source code to help you understand what the code does.
 
@@ -323,19 +323,19 @@ Setting: `typescript.inlayHints.functionLikeReturnTypes.enabled`
 
 The TypeScript references CodeLens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
 
-![TypeScript references CodeLens](images/typescript/references-code-lens.png)
+![TypeScript references CodeLens](images/typescript/ts-references-code-lens.png)
 
 You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
-![TypeScript references CodeLens peek](images/typescript/references-code-lens-peek.png)
+![TypeScript references CodeLens peek](images/typescript/ts-references-code-lens-peek.png)
 
 ## Implementations CodeLens
 
 The TypeScript implementations CodeLens displays the number of implementors of an interface:
 
-![TypeScript implementations CodeLens](images/typescript/implementations-code-lens.png)
+![TypeScript implementations CodeLens](images/typescript/ts-implementations-code-lens.png)
 
 You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
 

@@ -31,12 +31,15 @@ jobs:
     clean: true
     path: vscode-website
     persistCredentials: true
+    fetchDepth: 1
   - checkout: self
     path: vscode-website/vscode-docs
     lfs: true
+    fetchDepth: 1
     persistCredentials: true
   - checkout: dist
     path: vscode-website/dist
+    fetchDepth: 1
     persistCredentials: true
   - task: NodeTool@0
     displayName: Use Node 12.18.0
