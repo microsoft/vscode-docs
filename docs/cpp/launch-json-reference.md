@@ -99,7 +99,7 @@ Sets the working directory of the application launched by the debugger.
 
 ### environment
 
-Environment variables to add to the environment for the program. Example: `[ { "name": "config", "value": "Debug" } ]`, not `[ { "config": "Debug" } ]`.
+Environment variables to add to the environment for the program. Example: `[ { "config": "Debug" } ]`.
 
 **Example:**
 
@@ -110,7 +110,9 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "request": "launch",
    "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
-   "environment": [{"name": "config", "value": "Debug"}],
+   "env": {
+      "config": "Debug"
+   },
    "cwd": "${workspaceFolder}"
 }
 ```
