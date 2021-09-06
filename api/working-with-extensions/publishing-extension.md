@@ -182,6 +182,35 @@ You can use the `engines.vscode` field to make sure the extension only gets inst
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version that benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
 
+## Platform specific extensions
+
+Extensions can now publish different packages for each platform VS Code is running on. This is very useful if your extension has platform specific dependencies, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`. VS Code client makes sure to download the corresponding package based on the platform the user is running on.
+
+You need to publish a package for each and every platform that your extension supports, since we do not support installing platform specific extensions on platforms for which a package has not been published. We are thus providing tooling to help with this potentially repetitive process.
+
+### Automatic publishing platform specific extensions using GitHub actions (recommended)
+
+We highly recommend using [this example platform-specific VS Code extension](https://github.com/microsoft/vscode-platform-specific-sample) as a starting point. It exposes a single command `Get Ripgrep version`, which pops up a notification containing the version of the bundled [ripgrep](https://github.com/BurntSushi/ripgrep) executable. It bundles the ripgrep executable by depending on [vscode-ripgrep](https://github.com/microsoft/vscode-ripgrep), which contains the platform-specific ripgrep executable.
+
+The [CI script](https://github.com/joaomoreno/vscode-platform-specific-sample/actions/workflows/ci.yml) makes sure VSIXs for all supported VS Code targets are built in an automated fashion. [Once built](https://github.com/joaomoreno/vscode-platform-specific-sample/actions/runs/1059108370), each VSIX should be available as a build artifact. Furthermore, if a tag (eg `v1.0.0`) is pushed to the repo, an additional build stage will collect all built VSIX files and publish them accordingly to the VS Marketplace using the new `--target` [vsce](https://github.com/microsoft/vscode-vsce) flag.
+
+Same as in the example, we recommend that your extension uses [GitHub Actions](https://github.com/features/actions) and automatic publishing to streamline the process of platform specific publishing.
+
+### Manual publishing of platform specific extensions (not recommended)
+
+[vsce](https://github.com/microsoft/vscode-vsce) from version `1.96.3` supports a `--target` parameter that allows you to specify a target platform while publishing. Here's an example of one such command:
+
+`vsce publish --packagePath PATH_TO_WINDOWS_64_SPECIFIC_VSIX --target win32-x64`
+
+Since this process needs to be manually done for each platform we highly recommend automating this as in the example above.
+
+### Web platform specific extension
+
+Visual Studio Code can run as an editor in the browser and one example is [`github.dev`](https://github.com/github/dev). When VS Code is used in the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. Given the different runtime, web extensions don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web-extension-main-file) compared to normal extensions. More about web extensions can be found [here](https://code.visualstudio.com/api/extension-guides/web-extensions).
+
+If a platform specific extension wants to also be a web extension it **must** support the **`web`** platform when publishing. For example, a platform specific extension could publish its `web` version with a limited set of functionality that does not depend on the Node.js runtime.
+
+
 ## Advanced usage
 
 ### Marketplace integration
