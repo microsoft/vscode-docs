@@ -184,9 +184,9 @@ For example, imagine that the latest Stable version of VS Code is `1.8.0` and th
 
 ## Platform specific extensions
 
-Extensions can now publish different packages for each platform VS Code is running on. This is very useful if your extension has platform specific dependencies, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`. VS Code client makes sure to download the corresponding package based on the platform the user is running on.
+Extensions can now publish different packages for each platform VS Code is running on. This is very useful if your extension has platform specific dependencies, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`.
 
-You need to publish a package for each and every platform that your extension supports, since we do not support installing platform specific extensions on platforms for which a package has not been published. We are thus providing tooling to help with this potentially repetitive process.
+VS Code client makes sure to download the corresponding package based on the platform the user is running on. If the corresponding package is not published the extension will appear as disabled and VS Code will not allow users to download it. Thus you need to publish a package for each and every platform that your extension supports. Due to this we are providing tooling to help with this potentially repetitive process.
 
 ### Automatic publishing platform specific extensions using GitHub actions (recommended)
 
@@ -194,7 +194,7 @@ We highly recommend using [this example platform-specific VS Code extension](htt
 
 The [CI script](https://github.com/joaomoreno/vscode-platform-specific-sample/actions/workflows/ci.yml) makes sure VSIXs for all supported VS Code targets are built in an automated fashion. [Once built](https://github.com/joaomoreno/vscode-platform-specific-sample/actions/runs/1059108370), each VSIX should be available as a build artifact. Furthermore, if a tag (eg `v1.0.0`) is pushed to the repo, an additional build stage will collect all built VSIX files and publish them accordingly to the VS Marketplace using the new `--target` [vsce](https://github.com/microsoft/vscode-vsce) flag.
 
-Same as in the example, we recommend that your extension uses [GitHub Actions](https://github.com/features/actions) and automatic publishing to streamline the process of platform specific publishing.
+Same as in the [example](https://github.com/microsoft/vscode-platform-specific-sample), we recommend that your extension uses [GitHub Actions](https://github.com/features/actions) and automatic publishing to streamline the process of platform specific publishing.
 
 ### Manual publishing of platform specific extensions (not recommended)
 
@@ -202,7 +202,7 @@ Same as in the example, we recommend that your extension uses [GitHub Actions](h
 
 `vsce publish --packagePath PATH_TO_WINDOWS_64_SPECIFIC_VSIX --target win32-x64`
 
-Since this process needs to be manually done for each platform we highly recommend automating this as in the example above.
+Since this process needs to be manually done for each platform we highly recommend automating this as in the previous section.
 
 ### Web platform specific extension
 
