@@ -244,7 +244,7 @@ Starting with VS Code version `1.61.0` when installing *platform specific extens
 
 #### Publishing
 
-[vsce](https://github.com/microsoft/vscode-vsce) starting from version `1.96.3` supports a `--target` parameter that allows you to specify target platforms while publishing.
+Starting from version `1.96.3` [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify target platforms while publishing.
 
 For example if your *platform specific extension* has a `Windows` specific package and has the same package for all the other platforms you would have to run the following commands when publishing:
 
