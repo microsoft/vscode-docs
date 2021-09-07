@@ -39,7 +39,6 @@ jobs:
     persistCredentials: true
   - checkout: dist
     path: vscode-website/dist
-    fetchDepth: 1
     persistCredentials: true
   - task: NodeTool@0
     displayName: Use Node 12.18.0
