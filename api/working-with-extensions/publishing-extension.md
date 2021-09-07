@@ -240,7 +240,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 Extensions can publish different packages for each platform VS Code is running on. This is very useful if your extension has platform specific dependencies, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`. If an extension decides to publish a package for at least one of these platforms we call it a *platform specific extension*.
 
-Starting with VS Code version `1.61.0` when installing *platform specific extensions* VS Code client makes sure to download the corresponding package based on the platform the user is running on. If the corresponding package is not published the *platform specific extension* will appear as disabled and VS Code will not allow users to download it. Thus you need to publish a package for each and every platform that your *platform specific extension* supports. Due to this we are providing tooling to help with this potentially repetitive process.
+Starting with VS Code version `1.61.0`, when installing *platform specific extensions*, VS Code client makes sure to download the corresponding package based on the platform the user is running on. If the corresponding package is not published, the *platform specific extension* will appear as disabled and VS Code will not allow users to download it. Thus you need to publish a package for each and every platform that your *platform specific extension* supports. Due to this we are providing tooling to help with this potentially repetitive process.
 
 #### Publishing
 
