@@ -250,7 +250,7 @@ For example, if your *platform specific extension* has a `Windows` specific pack
 
 ```
 vsce publish --packagePath PATH_TO_WINDOWS_SPECIFIC_VSIX --target "win32-x64 win32-ia32 win32-arm64"
-vsce publish --packagePath PATH_TO_OTHER_PLATFORMS_VSIX --target "linux-x64 linux-arm64 linux-armhf alpine-x64 darwin-x64 darwin-arm64 web"
+vsce publish --packagePath PATH_TO_GENERIC_VSIX --target "linux-x64 linux-arm64 linux-armhf alpine-x64 darwin-x64 darwin-arm64 web"
 ```
 
 If your extension does not work on a particular platform you would simply omit it from the list of targets.
