@@ -236,30 +236,43 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
-### Platform specific extensions
+### Platform-specific extensions
 
-Extensions can publish different packages for each platform VS Code is running on. This is useful if your extension has platform specific libaries, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`. If an extension decides to publish a package for at least one of these platforms we call it a *platform specific extension*.
+Extensions can publish different packages for each platform (Windows, Linux, macOS) VS Code is running on. This is useful if your extension has platform-specific libraries, so you can control the exact binaries that are included in a platform package.
 
-When installing a *platform specific extension*, VS Code looks for the extension package that matches its platform. If no package has been published for the current platform, the extension will appear as disabled and can not be installed and run. Thus you need to publish a package for each and every platform that your *platform specific extension* supports. Due to this we are providing tooling to help with this potentially repetitive process.
+The currently supported platforms are:
 
-#### Publishing
+- `win32-x64` - Windows 64-bit
+- `win32-ia32` - Windows 32-bit
+- `win32-arm64` - Windows ARM64
+- `linux-x64` - Linux 64-bit
+- `linux-arm64` - Linux ARM64
+- `linux-armhf` - Linux ARMhf
+- `alpine-x64` - Linux Alpine
+- `darwin-x64` - macOS 64-bit
+- `darwin-arm64` - macOS ARM64
+- `web` - VS Code for the web
 
-Starting from version `1.96.3` [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify target platforms while publishing.
+If an extension decides to publish a package for at least one of these platforms, we call it a **platform-specific extension**.
 
-For example, if your *platform specific extension* has a `Windows` specific package but has the same package for all the other platforms you would have to run the following commands when publishing:
+When installing a platform-specific extension, VS Code looks for the extension package that matches the current platform. If no package has been published for the platform, the extension will appear as disabled and can not be installed. Therefore, you need to publish a package for each and every platform that your extension supports. To meet this requirement, we are providing tooling to help make this potentially repetitive process easier.
 
-```
+**Publishing**
+
+Starting from version `1.96.3`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify target platforms while publishing.
+
+For example, if your platform-specific extension has a `Windows` specific package but has the same package for all the other platforms, you would run the following commands when publishing:
+
+```bash
 vsce publish --packagePath PATH_TO_WINDOWS_SPECIFIC_VSIX --target "win32-x64 win32-ia32 win32-arm64"
 vsce publish --packagePath PATH_TO_GENERIC_VSIX --target "linux-x64 linux-arm64 linux-armhf alpine-x64 darwin-x64 darwin-arm64 web"
 ```
 
-If your extension does not work on a particular platform you would simply omit it from the list of targets.
+If your extension does not work on a particular platform, you would simply omit it from the list of targets.
 
-Since this process is manual and prone to errors we highly recommend using [this platform specific VS Code extension sample](https://github.com/microsoft/vscode-platform-specific-sample) as a starting point for automating this. Same as in the [workflow example](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml), your extension can use [GitHub Actions](https://github.com/features/actions) and automatic publishing to streamline the process of platform specific publishing.
+Since this process is manual and potentially error-prone, we recommend using the [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) as a starting point for automating this. Same as in the [workflow example](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml), your extension can use [GitHub Actions](https://github.com/features/actions) to automate the process of platform-specific publishing.
 
-
-If a *platform specific extension* wants to also be a [web extension](https://code.visualstudio.com/api/extension-guides/web-extensions) it **must** support the **`web`** platform when publishing. For example, a platform specific extension could publish its `web` version with a limited set of functionality that does not depend on the Node.js runtime.
-
+If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. For example, a platform-specific extension could publish its `web` version with a limited set of functionality that does not depend on the Node.js runtime.
 
 ## Next steps
 
