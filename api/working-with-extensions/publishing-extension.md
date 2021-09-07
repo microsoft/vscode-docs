@@ -238,7 +238,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ### Platform specific extensions
 
-Extensions can publish different packages for each platform VS Code is running on. This is very useful if your extension has platform specific libaries, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`. If an extension decides to publish a package for at least one of these platforms we call it a *platform specific extension*.
+Extensions can publish different packages for each platform VS Code is running on. This is useful if your extension has platform specific libaries, so you can control which exact binaries are a part of a platform package. The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64`, `darwin-arm64` and `web`. If an extension decides to publish a package for at least one of these platforms we call it a *platform specific extension*.
 
 When installing a *platform specific extension*, VS Code looks for the extension package that matches its platform. If no package has been published for the current platform, the extension will appear as disabled and can not be installed and run. Thus you need to publish a package for each and every platform that your *platform specific extension* supports. Due to this we are providing tooling to help with this potentially repetitive process.
 
@@ -246,7 +246,7 @@ When installing a *platform specific extension*, VS Code looks for the extension
 
 Starting from version `1.96.3` [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify target platforms while publishing.
 
-For example if your *platform specific extension* has a `Windows` specific package and has the same package for all the other platforms you would have to run the following commands when publishing:
+For example, if your *platform specific extension* has a `Windows` specific package but has the same package for all the other platforms you would have to run the following commands when publishing:
 
 ```
 vsce publish --packagePath PATH_TO_WINDOWS_SPECIFIC_VSIX --target "win32-x64 win32-ia32 win32-arm64"
