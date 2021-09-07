@@ -14,9 +14,9 @@ The Visual Studio Code editor has built-in debugging support for the [Node.js](h
 
 There are a few ways you can debug your Node.js programs in VS Code:
 
-* Use [auto attach](#auto-attach) to debug processes you run in VS Code's integrated terminal,
-* Use the [JavaScript debug terminal](#javascript-debug-terminal), in a similar way
-* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code
+* Use [auto attach](#auto-attach) to debug processes you run in VS Code's integrated terminal.
+* Use the [JavaScript debug terminal](#javascript-debug-terminal), similar to using the integrated terminal.
+* Use a [launch config](#launch-configuration) to start your program, or [attach to a process](#attaching-to-nodejs) launched outside of VS Code.
 
 ## Auto Attach
 
