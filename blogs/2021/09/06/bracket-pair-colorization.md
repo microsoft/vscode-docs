@@ -11,78 +11,102 @@ Author: Henning Dieterichs
 
 September 06, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hediet_dev)
 
-The famous [open source](https://github.com/CoenraadS/Bracket-Pair-Colorizer-2) extension [Bracket Pair Colorization 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) by [CoenraadS](https://github.com/CoenraadS) assigns each bracket pair a color to indicate its nesting level.
-It's an awesome extension with over 3 million installs (plus 6 million installs of its [predecessor](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)) and a prime example of VS Code's customizability.
+When dealing with deeply nested brackets in VS Code, it can be painful to figure out which brackets match and which do not.
 
-<img src="./on-off-comparison.drawio.svg" alt="Comparing Colorization On vs. Off" width="1000"/>
+To solve this problem, the popular extension [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) by [CoenraadS](https://github.com/CoenraadS) assigns each bracket pair a color to indicate its nesting level.
+It has over 3 million installs (plus 6 million installs of its [predecessor](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)) and is a prime example of VS Code's customizability.
 
-Unfortunately, it has a serious performance problem: When inserting a single bracket at the beginning of the infamous [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file, it takes about 10 seconds until the colors of the bracket pairs update.
-During these 10 seconds of processing the text change, the extension host becomes unresponsive and all features that are powered by extensions, such as auto-completion or diagnostics, stop functioning.
+We are pleased to see that the Visual Studio Code Marketplace offers many more such community-provided extensions, all of which help identify matching bracket pairs in very creative ways (such as [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets), [Subtle Match Brackets](https://marketplace.visualstudio.com/items?itemName=rafamel.subtle-brackets), [Bracket Highlighter](https://marketplace.visualstudio.com/items?itemName=Durzn.brackethighlighter), [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) or [Bracket Lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens))!
 
-<img src="./checker_ts-extension.gif" alt="Extension needs more than 10 seconds to process text changes in checker.ts" width="500"/>
+![Comparing Colorization On vs. Off](./on-off-comparison.drawio.svg)
 
-We reimplemented the extension in the core of VS Code and brought this time down to less than a millisecond.
+Unfortunately, the original Bracket Pair Colorizer extension has a serious performance problem: When inserting a single bracket at the beginning of the infamous [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file, it takes about 10 seconds until the colors of the bracket pairs update.
+During these 10 seconds of processing, the extension host process burns at 100% CPU and all features that are powered by extensions, such as auto-completion or diagnostics, stop functioning. Thanks to VS Code's architecture however, the UI remains responsive!
+
+Notice how long it takes until the colors reflect the new nesting levels after inserting `{` at the beginning:
+
+![Extension needs more than 10 seconds to process text changes in checker.ts](./checker_ts-extension.gif)
+
+We reimplemented the extension in the core of VS Code and brought this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster!
+
+While we would have loved to just improve the performance of the extension instead, [we don't think the asynchronous communication between the renderer and the extension-host would have allowed that kind of speedup](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
+
+Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs! Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
+
+![Native implementation needs less than a millisecond to process text changes in checker.ts](./checker_ts-native.gif)
 
 By leveraging (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques,
-we reduced the update complexity from $\mathcal{O}(E + N)$ to $\mathcal{O}(E + \mathrm{log}^3 N)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
-By reusing the existing tokens from the renderer and its incremental token update mechanism, we gain another massive (constant) speedup. Updates are no longer noticable, even for files with hundreds of thousands of bracket pairs:
-
-<img src="./checker_ts-native.gif" alt="Native implementation needs less than a millisecond to process text changes in checker.ts" width="500"/>
+we reduced the extension's update complexity (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
+By reusing the existing tokens from the renderer and its incremental token update mechanism, we gain another massive (but constant) speedup.
 
 ## The Challenge Of Bracket Pair Colorization
 
-Bracket pair colorization is all about quickly computing all brackets and their nesting level in the viewport (i.e. a given range in the document).
-Unfortunately, the nesting level of a bracket depends on all characters preceding it: Replacing any character with the open bracket `{` usually increases the nesting level of all following brackets.
-Thus, a lower bound on the time complexity of querying the nesting levels of brackets at the end of a document of size $N$ is $\mathcal{O}(N)$: We have to look at every character at least once.
+Bracket pair colorization is all about quickly determining all brackets and their (global) nesting level in the viewport. The viewport can be described as a range in the document in terms of line and column numbers and is usually a tiny fraction of the entire document.
+
+Unfortunately, the nesting level of a bracket depends on *all* characters preceding it: Replacing any character with the opening bracket "`{`" usually increases the nesting level of all following brackets.
+Thus, when initially colorizing brackets at the very end of a document, every single character of the entire document has to be processed.
 
 ![Changing a single character influences the nesting level of all subsequent brackets](./level-depends-on-all-previous-characters.dio.svg)
 
-The bracket pair colorizer extension processes the entire document again whenever a bracket is inserted or removed and then sends the location of all bracket pairs to the renderer.
-As demonstrated by the earlier example, this is unfeasable for large documents.
+The bracket pair colorizer extension also processes the entire document again whenever a single bracket is inserted or removed and then sends a color decoration for each bracket pair to the renderer by using VS Code's decoration API.
+As demonstrated by the earlier demo, this is slow for large documents with hundreds of thousands of bracket pairs and thus equally many color decorations. Because extensions cannot update decorations incrementally and have to replace them all at once, the bracket pair colorizer extension cannot even do much better. Still, the renderer organizes all these decorations in a very clever way, so rendering is always fast after all (potentially hundreds of thousands of) decorations have been received.
 
-Our goal is to have a time complexity of at most $\mathcal{O}(R + \mathrm{log}^2 N)$ for querying all brackets in a given range of size $R$. However, we allow an initialization time of $\mathcal{O}(N)$ for opening a document for the first time (which is unavoidable due to the lower bound) and an update time of $\mathcal{O}(E + \mathrm{log}^3 N)$ when $E$ many characters are modified or inserted. We also assume that the nesting level of a bracket pair is not too deep and at most $\mathcal{O}(\mathrm{log} N)$ and that the number of closing brackets without an opening counterpart is negligible. Thus, our goal is to have at most (cubic) logarithmic time complexity in the dominating size for all operations, except for initialization where we cannot do any better than linear time anyways.
+Our goal is not having to reprocess the entire document on each key-stroke. Instead, the time required to process a single text edit should only grow ([poly](https://en.wikipedia.org/wiki/Polylogarithmic_function)) logarithmically with the document length.
+However, we still want to be able to query all brackets and their nesting level in the viewport in (poly) logarithmic time, as it would be the case when using VS Code's decoration API!
 
-### Language Semantics Make our Life Hard
+### In Terms of Algorithmic Complexities
+In the following, $N$ refers to the length of the document.
+More formally, our goal is to have a time complexity of at most $\mathcal{O}(\mathrm{log}^k N + R)$ for querying all brackets in a given range of size $R$ and a reasonable small $k$ (we aim for $k = 2$). Brackets are queried when rendering the viewport and thus querying them has to be really fast.
+
+However, we allow an initialization time complexity of $\mathcal{O}(N)$ when a document is opened the first time (which is unavoidable due to the lower bound) and an update time of $\mathcal{O}(\mathrm{log}^j N + E)$ when $E$ many characters are modified or inserted, again for a reasonable small $j$ (we aim for $j = 3$). We also assume that the nesting level of a bracket pair is not too deep and at most $\mathcal{O}(\mathrm{log} N)$ and that the number of closing brackets without an opening counterpart is negligible.
+
+### Language Semantics Make Bracket Pair Colorization Hard
 
 What makes bracket pair colorization really difficult is the detection of actual brackets as defined by the document language.
 In particular, we don't want to detect opening or closing brackets in comments or strings, as the following C example demonstrates:
 ```cpp
 { /* } */ char str[] = "}"; }
 ```
-Only the third occurence of `}` closes the bracket pair!
+Only the third occurence of "`}`" closes the bracket pair!
 
 This gets even harder for languages where the token language is not regular, such as TypeScript with JSX:
-```tsx
-function test() { @1
-    const str = `
-        ${(() => { if (true) { /* ` // */ } })()}
-} @2 // `;
-} @3
-```
+![](./tokens-example.dio.svg)
 
-Does the bracket at @1 close the bracket at @2 or at @3? This depends on the length of the template literal expression, which only a tokenizer with unbounded state (i.e. a non-regular tokenizer) can determine correctly!
+Does the bracket at [1] match the bracket at [2] or at [3]? This depends on the length of the template literal expression, which only a tokenizer with unbounded state (i.e. a non-regular tokenizer) can determine correctly!
 
 ### Tokens for the Rescue
 
-Luckily, syntax highlighting has to solve a similar problem: Should the bracket at @2 in the previous code snippet be rendered as string or as plain text?
+Luckily, syntax highlighting has to solve a similar problem: Should the bracket at [2] in the previous code snippet be rendered as string or as plain text?
 As it turns out, just ignoring brackets in comments and strings as identified by syntax highlighting works well enough for most bracket pairs! `<` ... `>` is the only problematic pair we found so far, as these brackets are usually both used for comparisons and as pair for generic types, while having the same token type.
 
 
 VS Code already has an efficient and synchronous mechanism to maintain token information used for syntax highlighting and we can reuse that to identify opening and closing brackets.
 
-This is the another performance culprit of the Bracket Pair Colorization extension: It does not have access to these tokens and has to recompute them on its own. We thought long about how we could efficiently and reliably expose token information to extensions, but came to the conclusion that we cannot do this without a lot of implementation details leaking into the extension API. Because the extension still has to send over a list of all bracket pairs in the document, such an API alone would not even solve the performance problem.
+This is the another performance culprit of the Bracket Pair Colorization extension: It does not have access to these tokens and has to recompute them on its own. [We thought long](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188) about how we could efficiently and reliably expose token information to extensions, but came to the conclusion that we cannot do this without a lot of implementation details leaking into the extension API. Because the extension still has to send over a list of all bracket pairs in the document, such an API alone would not even solve the performance problem.
 
 When applying an edit at the beginning of a document that changes all following tokens (such as inserting `/*`), VS Code does not retokenize long documents all at once, but in chunks over time. This ensures that the UI does not freeze.
 
 ## The Basic Algorithm
 
 The idea is simple: Use a [recursive decent parser](https://en.wikipedia.org/wiki/Recursive_descent_parser) to build an [abstract syntax tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) that describes the structure of all bracket pairs. When a bracket is found, check the token information and skip the bracket if it is in a comment or string. A tokenizer allows the parser to peek and read such bracket or text tokens.
-Add a length property to every node (and also include text-nodes for everything that is not a bracket to cover the gaps), so a bracket node can be located in the document as the AST is traversed.
+
+The trick is now to only store the length of every node (and also to include text-nodes for everything that is not a bracket to cover the gaps), instead of storing absolute start/end positions.
+With only lengths available, a bracket node at a given position can still be located efficiently in the AST!
+
 The following diagram shows an examplary AST with length annotations:
 
-![Abstract Syntax Tree of Bracket Pairs](./ast.dio.svg)
+![Abstract Syntax Tree of Bracket Pairs With Relative Lengths](./ast.dio.svg)
 
-This is how the AST could be defined in TypeScript:
+Compare this with the classical AST representation using absolute start/end positions:
+
+![Abstract Syntax Tree of Bracket Pairs With Absolute Positions](./ast2.dio.svg)
+
+Both ASTs describe the same document, but when traversing the first AST, the absolute positions have to be computed on the fly (which is cheap to do), while they are already precomputed in the second one.
+However, when inserting a single character, only the lengths of all parent nodes must be updated. In case of absolute positions, *every* node later in the document must be updated!
+
+Also, by not storing absolute offsets, leaf nodes having the same length can be shared to avoid allocations!
+
+This is how the AST with length annotations could be defined in TypeScript:
 ```ts
 type Length = ...;
 
@@ -119,8 +143,6 @@ class TextAST {
 }
 
 ```
-
-By not storing absolute offsets, leaf nodes having the same length can be shared to avoid allocations. Even better, when inserting nodes, only the length of all parent nodes need to be updated (and not some absolute positions of *all* later nodes)!
 
 Querying such an AST to list all brackets and their nesting level in the viewport is easy:
 Do a depth first traversal, compute the absolute position of the current node on the fly (by adding the length of earlier nodes) and skip children of nodes that are entirely before or after the requested range.
@@ -160,13 +182,13 @@ In the worst-case, a document of size $N$ has $\mathcal{O}(\mathrm{log} N)$ many
         {}{}{}{}{}{}{}{}... O(N / log N) many
         {
             ... O(log N) many nested bracket pairs
-            @1
+            [1]
             ...
         }
     }
 }
 ```
-To find the node at @1, we have to traverse $\mathcal{O}(\mathrm{log} N)$ many balanced trees of height $\mathcal{O}(\mathrm{log} \frac{N}{\mathrm{log} N}) = \mathcal{O}(\mathrm{log} N - \mathrm{log}\;\mathrm{log} N ) \subseteq \mathcal{O}(\mathrm{log} N)$. Once we found the node and want to collect all brackets in a range of size $R$, we have to read at most $\mathcal{O}(R)$ more adjacent leaf nodes connected by at most $\mathcal{O}(R + \mathrm{log}^2 N)$ internal nodes.
+To find the node at [1], we have to traverse $\mathcal{O}(\mathrm{log} N)$ many balanced trees of height $\mathcal{O}(\mathrm{log} \frac{N}{\mathrm{log} N}) = \mathcal{O}(\mathrm{log} N - \mathrm{log}\;\mathrm{log} N ) \subseteq \mathcal{O}(\mathrm{log} N)$. Once we found the node and want to collect all brackets in a range of size $R$, we have to read at most $\mathcal{O}(R)$ more adjacent leaf nodes connected by at most $\mathcal{O}(R + \mathrm{log}^2 N)$ internal nodes.
 Thus, the worst-case time-complexity is $\mathcal{O}(R + \mathrm{log}^2 N)$.
 
 We use (2,3)-trees to enforce that these lists are balanced: Every list must have at least 2 and at most 3 children and all children of a list must have the same height in the balanced tree.
@@ -268,33 +290,33 @@ The beauty of a recursive-decent parser is that we can use anchor sets to improv
 
 Consider the following example:
 ```
-( @1
-} @2
-) @3
+( [1]
+} [2]
+) [3]
 ```
 
-Clearly `}` at @2 does not close any bracket pair and represents an unopened bracket. The brackets at @1 and @3 match nicely.
+Clearly `}` at [2] does not close any bracket pair and represents an unopened bracket. The brackets at [1] and [3] match nicely.
 However, when inserting `{` at the beginning of the document, the situation changes:
 ```
-{ @0
-( @1
-} @2
-) @3
+{ [0]
+( [1]
+} [2]
+) [3]
 ```
-Now, @0 and @2 should be matched, while @1 is an unclosed bracket and @3 an unopened bracket.
+Now, [0] and [2] should be matched, while [1] is an unclosed bracket and [3] an unopened bracket.
 
-In particular, @1 should be an unclosed bracket terminating before @2 in the following example:
+In particular, [1] should be an unclosed bracket terminating before [2] in the following example:
 ```
 {
-    ( @1
-} @2
+    ( [1]
+} [2]
 {}
 ```
 
 Otherwise, opening a parenthesis could change the nesting-level of unrelated following bracket pairs.
 
-To support this kind of error recovery, anchor sets can be used to track the set of expected tokens the caller can continue with. At position @1 in the previous example, the anchor set would be $\{$ `}` $\}$. Thus, when parsing the bracket pair at @1 finds the unexpected bracket `}` at @2, it does not consume it and returns an unclosed bracket pair.
-In the very first example, the anchor set at @2 is $\{$ `)` $\}$, but the unexpected character is `}`. Because it is not part of the anchor set, it is reported as unopened bracked.
+To support this kind of error recovery, anchor sets can be used to track the set of expected tokens the caller can continue with. At position [1] in the previous example, the anchor set would be $\{$ `}` $\}$. Thus, when parsing the bracket pair at [1] finds the unexpected bracket `}` at [2], it does not consume it and returns an unclosed bracket pair.
+In the very first example, the anchor set at [2] is $\{$ `)` $\}$, but the unexpected character is `}`. Because it is not part of the anchor set, it is reported as unopened bracked.
 
 This needs to be considered when reusing nodes: The pair `( } )` cannot be reused when prepending it with `{`! We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
 
