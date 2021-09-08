@@ -288,4 +288,4 @@ The `testing/item/context` [menu contribution point](/api/references/contributio
 
 Additional [context keys](/api/references/when-clause-contexts) are available in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios, where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-conditional-operator).
 
-If want to reveal a test in the explorer, you can pass the test ID to the command `vscode.commands.executeCommand('vscode.revealTestInExplorer', testId)`.
+If want to reveal a test in the explorer, you can pass the test to the command `vscode.commands.executeCommand('vscode.revealTestInExplorer', testItem)`.
