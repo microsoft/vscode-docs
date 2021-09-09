@@ -90,7 +90,7 @@ When applying an edit at the beginning of a document that changes all following 
 
 The idea is simple: Use a [recursive decent parser](https://en.wikipedia.org/wiki/Recursive_descent_parser) to build an [abstract syntax tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) that describes the structure of all bracket pairs. When a bracket is found, check the token information and skip the bracket if it is in a comment or string. A tokenizer allows the parser to peek and read such bracket or text tokens.
 
-The trick is now to only store the length of every node (and also to include text-nodes for everything that is not a bracket to cover the gaps), instead of storing absolute start/end positions.
+The trick is now to only store the length of each node (and also to have text-nodes for everything that is not a bracket to cover the gaps), instead of storing absolute start/end positions.
 With only lengths available, a bracket node at a given position can still be located efficiently in the AST!
 
 The following diagram shows an examplary AST with length annotations:
@@ -148,17 +148,17 @@ Querying such an AST to list all brackets and their nesting level in the viewpor
 Do a depth first traversal, compute the absolute position of the current node on the fly (by adding the length of earlier nodes) and skip children of nodes that are entirely before or after the requested range.
 
 This basic algorithm is correct, but has some open questions:
-1) How do we ensure that querying all brackets in a given range has the desired logarithmic performance?
+1) How do we make sure that querying all brackets in a given range has the desired logarithmic performance?
 2) When typing, how do we avoid constructing a new AST from scratch?
 3) How do we handle token chunk updates? When opening a large document, tokens are not available initially, but come in chunk by chunk.
 
 ## Ensuring that Query-Time is Logarithmic
 
-What ruins performance when querying brackets in a given range are really long lists: We cannot do a binary search on their children to skip all non-intersecting nodes, as we need to sum their length to compute the absolute position on the fly. In the worst-case, we need to iterate over all of them. In the following example we have to look at 7 nodes until we find the bracket pair at position 15:
+What ruins performance when querying brackets in a given range are really long lists: We cannot do a binary search on their children to skip all non-intersecting nodes, as we need to sum each node's length to compute the absolute position on the fly. In the worst-case, we need to iterate over all of them. In the following example we have to look at 10 nodes (in blue) until we find the bracket that contains position 15:
 
 ![Long list in Abstract Syntax Tree](./long-lists.dio.svg)
 
-While we could compute and cache these length sums, we would need to recompute all of them every time a single node grows or shrinks (which could happen during updates).
+While we could compute and cache these length sums to enable binary search (and end up with absolute offsets again), we would need to recompute all of them every time a single node grows or shrinks, which is also costly for very long lists.
 Instead, we allow lists to have other lists as children:
 
 ```ts
@@ -170,9 +170,31 @@ class ListAST {
 }
 ```
 
-If we can make sure that a list resembles a balanced tree of logarithmic height with lists as internal nodes and non-list nodes as leaves, we get the desired logarithmic performance for querying brackets! Note that the bracket pair is a leaf in the balanced tree, but not in the full AST.
+If we can ensure that each list only has a bounded amount of children and resembles a balanced tree of logarithmic height, with lists as internal nodes and non-list nodes as leaves, it turns out that this is sufficient to get the desired logarithmic performance for querying brackets!
+Note that a bracket pair is a leaf in a balanced tree, but not in the full AST.
 
-In the worst-case, a document of size $N$ has $\mathcal{O}(\mathrm{log} N)$ many nested bracket pairs, each spanning a total of $\mathcal{O}(\frac{N}{\mathrm{log} N})$ many nodes:
+
+### Keeping List Trees Balanced
+
+We use [(2,3)-trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree) to enforce that these lists are balanced: Every list must have at least 2 and at most 3 children and all children of a list must have the same height in the balanced tree.
+When constructing the AST from scratch during initialization, we first collect all children and then convert them to such a balanced tree. This is easy to do in linear time!
+
+A possible (2,3)-tree of the example before could look like the following. Note that we only need to look at 8 nodes (in blue) to find the bracket pair at position 15:
+
+![Balanced tree to describe lists in the AST](./long-lists-tree.dio.svg)
+
+
+### Worst-Case Analysis
+
+// TODO: From here, Alex feedback is not incorporated yet
+
+For now, we assume that every list resembles a balanced tree and has at most 3 children.
+
+To maximize the query-time, we have a look at a document of size $N$ that has $\mathcal{O}(\mathrm{log} N)$ () many nested bracket pairs:
+
+
+
+In the worst-case, a document of size $N$ has $\mathcal{O}(\mathrm{log} N)$ many nested bracket pairs that each again contain $\mathcal{O}(\frac{N}{\mathrm{log} N})$ many bracket pairs:
 
 ```
 {}{}{}{}{}{}{}{}... O(N / log N) many
@@ -190,13 +212,6 @@ In the worst-case, a document of size $N$ has $\mathcal{O}(\mathrm{log} N)$ many
 ```
 To find the node at [1], we have to traverse $\mathcal{O}(\mathrm{log} N)$ many balanced trees of height $\mathcal{O}(\mathrm{log} \frac{N}{\mathrm{log} N}) = \mathcal{O}(\mathrm{log} N - \mathrm{log}\;\mathrm{log} N ) \subseteq \mathcal{O}(\mathrm{log} N)$. Once we found the node and want to collect all brackets in a range of size $R$, we have to read at most $\mathcal{O}(R)$ more adjacent leaf nodes connected by at most $\mathcal{O}(R + \mathrm{log}^2 N)$ internal nodes.
 Thus, the worst-case time-complexity is $\mathcal{O}(R + \mathrm{log}^2 N)$.
-
-We use (2,3)-trees to enforce that these lists are balanced: Every list must have at least 2 and at most 3 children and all children of a list must have the same height in the balanced tree.
-When constructing the AST from scratch during initialization, we first collect all children and then convert them to such a balanced tree. This is easy to do in linear time!
-
-A possible (2,3)-tree of the example before could look like the following. Note that we only need to look at 5 nodes to find the bracket pair at position 15:
-
-![Balanced tree to describe lists in the AST](./long-lists-tree.dio.svg)
 
 ## Incremental Updates
 
@@ -283,7 +298,7 @@ Surprisingly, most of the code does not need to be aware of how lengths are repr
 As an implementation detail, we encode such lengths in a single number to reduce memory pressure. JavaScript supports integers up to $2^{53} - 1$, so we can use up to 26 bits each for the number of lines and columns.
 Unfortunately, v8 stores numbers larger than $2^{31}$ [on the heap](https://v8.dev/blog/react-cliff#smi-heapnumber-mutableheapnumber), so this encoding trick did not turn out as effective as we thought.
 
-## The Devil Is In The Details: Unclosed Bracket Pairs
+## Further Difficulties: Unclosed Bracket Pairs
 
 So far, we assumed that all bracket pairs are balanced. However, we also want to support unclosed and unopened bracket pairs.
 The beauty of a recursive-decent parser is that we can use anchor sets to improve error recovery.
