@@ -259,7 +259,7 @@ Alternatively, you can also use the `--target` option when packaging to simply c
 
 ```bash
 vsce package --target win32-x64
-vsce publish PATH_TO_WIN32X64_VSIX
+vsce publish -i PATH_TO_WIN32X64_VSIX
 ```
 
 #### **Continuous Integration**
