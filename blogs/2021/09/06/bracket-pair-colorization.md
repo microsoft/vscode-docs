@@ -5,7 +5,9 @@ PageTitle: How We Made Bracket Pair Colorization 10,000x Faster
 MetaDescription: How we made bracket pair colorization in Visual Studio Code up to 10,000 times faster.
 Date: 2021-09-06
 Author: Henning Dieterichs
+HasLaTeX: true
 ---
+
 
 # How We Made Bracket Pair Colorization 10,000x Faster
 
@@ -13,23 +15,27 @@ September 06, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hedi
 
 When dealing with deeply nested brackets in VS Code, it can be painful to figure out which brackets match and which do not.
 
-To solve this problem, the popular extension [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) by [CoenraadS](https://github.com/CoenraadS) assigns each bracket pair a color to indicate its nesting level.
-It has over 3 million installs (plus 6 million installs of its [predecessor](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)) and is a prime example of VS Code's customizability.
+To solve this problem, [ConraadS](https://github.com/CoenraadS) developed the [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension and published it in 2016 to the VS Code Marketplace. This extension became very popular and now has over 6 million installs. To address performance and accuracy problems ConraadS followed up with a [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) which now also has over 3 millions of installs.
 
-We are pleased to see that the Visual Studio Code Marketplace offers many more such community-provided extensions, all of which help identify matching bracket pairs in very creative ways (such as [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets), [Subtle Match Brackets](https://marketplace.visualstudio.com/items?itemName=rafamel.subtle-brackets), [Bracket Highlighter](https://marketplace.visualstudio.com/items?itemName=Durzn.brackethighlighter), [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) or [Bracket Lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens))!
+The bracket pair colorizer is a good example of the power of VS Code's extensibility and makes heavy use of the VS Code [Decoration API](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations) to colorize the brackets and to show the scope lines.
 
 ![Comparing Colorization On vs. Off](./on-off-comparison.drawio.svg)
 
-Unfortunately, the original Bracket Pair Colorizer extension has a serious performance problem: When inserting a single bracket at the beginning of the infamous [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file, it takes about 10 seconds until the colors of the bracket pairs update.
-During these 10 seconds of processing, the extension host process burns at 100% CPU and all features that are powered by extensions, such as auto-completion or diagnostics, stop functioning. Thanks to VS Code's architecture however, the UI remains responsive!
+We are pleased to see that the VS Code Marketplace offers many more such community-provided extensions, all of which help identify matching bracket pairs in very creative ways (such as [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets), [Subtle Match Brackets](https://marketplace.visualstudio.com/items?itemName=rafamel.subtle-brackets), [Bracket Highlighter](https://marketplace.visualstudio.com/items?itemName=Durzn.brackethighlighter), [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman) or [Bracket Lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens))!
+This variety of extensions shows that there is a real desire by VS Code users to get better support for brackets.
+
+Unfortunately, the original Bracket Pair Colorizer extension has a serious performance problem with large files: When inserting a single bracket at the beginning of the infamous [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file (which has about 42k lines and a size of 2.5 MB), it takes about 10 seconds until the colors of the bracket pairs update.
+During these 10 seconds of processing, the extension host process burns at 100% CPU and all features that are powered by extensions, such as auto-completion or diagnostics, stop functioning. [Thanks to VS Code's architecture however](https://code.visualstudio.com/api/advanced-topics/extension-host#stability-and-performance), the UI remains responsive!
+
+CoenraadS was aware of this and to increase speed and accuracy the version 2 of the extension reused the token and bracket parsing engine from VS Code. However, the performance problem stayed.
 
 Notice how long it takes until the colors reflect the new nesting levels after inserting `{` at the beginning:
 
 ![Extension needs more than 10 seconds to process text changes in checker.ts](./checker_ts-extension.gif)
 
-We reimplemented the extension in the core of VS Code and brought this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster!
+While we would have loved to just improve the performance of the existing extension, the asynchronous communication between the renderer and the extension-host severly limits how fast bracket bair colorization can be. In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering. A more detailed analysis of the advantages and disadvantages of each approach can be found [here](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
 
-While we would have loved to just improve the performance of the extension instead, [we don't think the asynchronous communication between the renderer and the extension-host would have allowed that kind of speedup](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
+Instead, we reimplemented the extension in the core of VS Code and brought this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster!
 
 Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs! Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
 
@@ -38,6 +44,9 @@ Now, updates are no longer noticeable, even for files with hundreds of thousands
 By leveraging (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques,
 we reduced the extension's update complexity (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
 By reusing the existing tokens from the renderer and its incremental token update mechanism, we gain another massive (but constant) speedup.
+
+Another benefit of the new implementation is that bracket pair colorization is now also supported in VS Code for the Web, which you can see in action on [GitHub](https://docs.github.com/en/codespaces/developing-in-codespaces/web-based-editor). The way version 2 of the bracket pair colorizer has reused the VS Code Token engine cannot be supported in VS Code for the Web and it was not possible to migrate the extension to what we now call a ['web extension'](https://code.visualstudio.com/api/extension-guides/web-extensions).
+The new implementation does not only work in VS Code for the Web, but also directly in the [monaco editor](https://microsoft.github.io/monaco-editor/)!
 
 ## The Challenge Of Bracket Pair Colorization
 
@@ -48,13 +57,15 @@ Thus, when initially colorizing brackets at the very end of a document, every si
 
 ![Changing a single character influences the nesting level of all subsequent brackets](./level-depends-on-all-previous-characters.dio.svg)
 
-The bracket pair colorizer extension also processes the entire document again whenever a single bracket is inserted or removed and then sends a color decoration for each bracket pair to the renderer by using VS Code's decoration API.
-As demonstrated by the earlier demo, this is slow for large documents with hundreds of thousands of bracket pairs and thus equally many color decorations. Because extensions cannot update decorations incrementally and have to replace them all at once, the bracket pair colorizer extension cannot even do much better. Still, the renderer organizes all these decorations in a very clever way, so rendering is always fast after all (potentially hundreds of thousands of) decorations have been received.
+The implementation in the bracket pair colorizer extension addresses this challenge by processing the entire document again whenever a single bracket is inserted or removed. The colors then have to be removed and reapplied using the VS Code [Decoration API](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations), which sends all color decorations to the renderer.
+
+As demonstrated by the earlier demo, this is slow for large documents with hundreds of thousands of bracket pairs and thus equally many color decorations. Because extensions cannot update decorations incrementally and have to replace them all at once, the bracket pair colorizer extension cannot even do much better. Still, the renderer organizes all these decorations in a very clever way (by using a so called [interval tree](https://github.com/microsoft/vscode/blob/534c529c292a96eb775c74dfcee2d733380ed629/src/vs/editor/common/model/intervalTree.ts)), so rendering is always fast after all (potentially hundreds of thousands of) decorations have been received.
 
 Our goal is not having to reprocess the entire document on each key-stroke. Instead, the time required to process a single text edit should only grow ([poly](https://en.wikipedia.org/wiki/Polylogarithmic_function)) logarithmically with the document length.
 However, we still want to be able to query all brackets and their nesting level in the viewport in (poly) logarithmic time, as it would be the case when using VS Code's decoration API!
 
-### In Terms of Algorithmic Complexities
+### Algorithmic Complexities
+*Feel free to skip all chapters talking about algorithmic complexity.*
 In the following, $N$ refers to the length of the document.
 More formally, our goal is to have a time complexity of at most $\mathcal{O}(\mathrm{log}^k N + R)$ for querying all brackets in a given range of size $R$ and a reasonable small $k$ (we aim for $k = 2$). Brackets are queried when rendering the viewport and thus querying them has to be really fast.
 
@@ -144,7 +155,7 @@ class TextAST {
 
 ```
 
-Querying such an AST to list all brackets and their nesting level in the viewport is easy:
+Querying such an AST to list all brackets and their nesting level in the viewport is straightforward:
 Do a depth first traversal, compute the absolute position of the current node on the fly (by adding the length of earlier nodes) and skip children of nodes that are entirely before or after the requested range.
 
 This basic algorithm is correct, but has some open questions:
