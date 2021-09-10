@@ -236,6 +236,35 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
+### Platform-specific extensions
+
+Extensions can publish different VSIXs for each platform (Windows, Linux, macOS) VS Code is running on. This is useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
+
+The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64` and `darwin-arm64`. If an extension decides to publish a package for at least one of these platforms, we call it a **platform-specific extension**.
+
+When installing a platform-specific extension, VS Code (starting from version `1.61.0`) looks for the extension package that matches the current platform. If no package has been published for the platform, the extension will appear as disabled and can not be installed. Therefore, you need to publish a package for each and every platform that your extension supports. To meet this requirement, we are providing tooling to help make this potentially repetitive process easier.
+
+#### Publishing
+
+Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify the target platform while packaging and publishing a VSIX.
+
+Here's how you can publish a VSIX for the `win32-x64` platform:
+
+```bash
+vsce publish --target win32-x64
+```
+
+Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual:
+
+```bash
+vsce package --target win32-x64
+vsce publish --packagePath PATH_TO_WIN32X64_VSIX
+```
+
+#### Continuous Integration
+
+Managing multiple platform-specific VSIXs might get overwhelming, so we suggest to automate your extension's build process in Continuous Integration. Using [GitHub Actions](https://github.com/features/actions) is a good approach. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a learning resource; its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
+
 ## Next steps
 
 - [Extension Marketplace](/docs/editor/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
