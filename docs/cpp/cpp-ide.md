@@ -110,7 +110,7 @@ To go to a symbol's definition, place your cursor on the symbol anywhere it is u
 Read on to find out about:
 
 * [Configure VS Code for Windows Subsystem for Linux](/docs/cpp/config-wsl.md)
-* [Configure VS Code for MSVC](/docs/cpp/config-mingw.md)
+* [Configure VS Code for MSVC](/docs/cpp/config-msvc.md)
 * [Configure VS Code for Mingw-w64 and GCC](/docs/cpp/config-mingw.md)
 * [Configure VS Code for macOS](/docs/cpp/config-clang-mac.md)
 * [Configure IntelliSense for cross-compiling](configure-intellisense-crosscompilation.md)

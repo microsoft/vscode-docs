@@ -24,7 +24,7 @@ Tutorial | Description
 [Deploy using the App Service extension](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-app-service-node-01) | Manage Azure resources directly in VS Code with the Azure App Service extension.
 [Deploy using Docker](https://docs.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container.
 [Deploy using the Azure CLI](https://docs.microsoft.com/azure/javascript/tutorial-vscode-azure-cli-node-01) | Create, deploy, and update a website using a terminal and the Azure CLI.
-[Deploy a static website](https://docs.microsoft.com/azure/javascript/tutorial-vscode-static-website-node-01) | Create, deploy, and update a static website on Azure Storage.
+[Deploy a static website](https://docs.microsoft.com/azure/static-web-apps/getting-started) | Create, deploy, and update a static website.
 
 You can find additional tutorials and walkthroughs on the
 [Azure Developer Center](https://docs.microsoft.com/azure/developer), including language-specific articles for JavaScript and Node.js, Python, Java, and .NET.

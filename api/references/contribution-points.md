@@ -270,7 +270,7 @@ For `boolean` entries, the `description` (or `markdownDescription`) will be used
 }
 ```
 
-Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number` and `string` will be rendered as editable lists. Objects that have properties of type `number`, `string`, and `boolean` will be rendered as editable grids of keys and values. The `object` type setting must set `"additionalProperties": false` to get this support.
+Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number` and `string` will be rendered as editable lists. Objects that have properties of type `string` and/or `boolean` will be rendered as editable grids of keys and values. The `object` type setting must set `"additionalProperties": false` to get this support.
 
 If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to **Edit in settings.json** as shown in the screenshot above. 8️⃣
 
