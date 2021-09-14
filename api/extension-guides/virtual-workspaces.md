@@ -9,7 +9,7 @@ MetaDescription: Learn how to support virtual workspaces in extensions
 
 # Virtual Workspaces
 
-Extensions like the [Github Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension open VS Code on a folder backed by a virtual file system. The resources shown in the explorer are not on the local disk, but located on a server or the cloud and directly edited there.
+Extensions like the [Github Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension open VS Code on one or more folders backed by a [file system provider](/api/extension-guides/virtual-documents#file-system-api). In that setup, workspace resources are not on the local disk, but **virtual**, located on a server or the cloud and directly edited there.
 
 We call this a __virtual workspace__.  When a virtual workspace is open in a VS Code window, this is shown by a label in the remote indicator in the lower left corner, similar to remote windows.
 
@@ -19,9 +19,9 @@ Not all extensions are able to work with virtual resources the same way as with 
 
 Still, we want to make sure as many extensions as possible work in that setup and that we have a good user experience with when VS Code is used to browse and edit remote resources.
 
-This guide shows how extensions can test against virtual workspaces, helps adopting and introduces the new `virtualWorkspaces` capability property.
+This guide shows how extensions can test against virtual workspaces, helps adopting and introduces the `virtualWorkspaces` capability property.
 
-Adopting your extension to work with virtual resources is also an important step to have it work in VS Code for the Web. There, VS Code runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extension](/api/extension-guides/web-extensions) adoption guide for more details.
+Adopting an extension to work with virtual workspaces is also an important step to have it work in VS Code for the Web. There, VS Code runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extension](/api/extension-guides/web-extensions) adoption guide for more details.
 
 ## Is my extension affected?
 
