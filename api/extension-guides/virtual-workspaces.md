@@ -21,7 +21,7 @@ Still, we want to make sure as many extensions as possible work in that setup an
 
 This guide shows how extensions can test against virtual workspaces, helps adopting and introduces the new `virtualWorkspaces` capability property.
 
-Adopting your extension to work with virtual resources is also helps bringing an extension to VS Code for the browser. In the browser workspaces are always virtual given the browser sandbox. See the [Web Extension](api/extension-guides/web-extensions) adoption guide for more details.
+Adopting your extension to work with virtual resources is also an important step to have it work in VS Code for the Web. There, VS Code runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extension](api/extension-guides/web-extensions) adoption guide for more details.
 
 ## Is my extension affected?
 
