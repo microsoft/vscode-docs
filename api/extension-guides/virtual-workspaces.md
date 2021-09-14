@@ -7,10 +7,7 @@ DateApproved:
 MetaDescription: Learn how to support virtual workspaces in extensions
 ---
 
-# Extension Author Guide for Supporting Virtual Workspaces
-
-
-
+# Virtual Workspaces
 
 Extensions like the [Github Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension open VS Code on a folder backed by a virtual file system. The resources shown in the explorer are not on the local disk, but located on a server or the cloud and directly edited there.
 
