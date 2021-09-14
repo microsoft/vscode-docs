@@ -21,7 +21,7 @@ Still, we want to make sure as many extensions as possible work in that setup an
 
 This guide shows how extensions can test against virtual workspaces, helps adopting and introduces the new `virtualWorkspaces` capability property.
 
-Adopting your extension to work with virtual resources is also an important step to have it work in VS Code for the Web. There, VS Code runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extension](api/extension-guides/web-extensions) adoption guide for more details.
+Adopting your extension to work with virtual resources is also an important step to have it work in VS Code for the Web. There, VS Code runs entirely inside a browser and workspaces are virtual due to the browser sandbox. See the [Web Extension](/api/extension-guides/web-extensions) adoption guide for more details.
 
 ## Is my extension affected?
 
@@ -109,7 +109,7 @@ Of course, extension authors are in a better position to make this decision. The
 
 ### Disable commands and view contributions
 
-The availability of commands and views and many other contributions can be controlled through context keys in [`when` clauses](https://code.visualstudio.com/api/references/when-clause-contexts).
+The availability of commands and views and many other contributions can be controlled through context keys in [`when` clauses](/api/references/when-clause-contexts).
 
 The `virtualWorkspace` context key is set when all workspace folders are located on virtual file systems. The example below shows the command `npm.publish` in the command palette only when not in a virtual workspace:
 ```json
@@ -175,9 +175,6 @@ C. Cross-file, Workspace Aware Language Support
 
 The rich language extensions that ship with VS Code (TypeScript, JSON, CSS, HTML, Markdown) are limited to Single-File Language Support when working on virtual resources.
 
-We are working on a UI for VS Code to indicate that the Window runs in a restricted mode.
-
-
 ### Disabling a language extension
 
 If working on a single file is not option, language extensions can also decide to disable the extension when in a virtual workspaces.
@@ -188,7 +185,7 @@ If your extension provides both grammars and rich language support and have to d
 
 You can see this with the built-in language extensions, such as JSON, which consists of a JSON extension and a JSON language feature extension.
 
-This separation has also helps with [untrusted workspaces](https://github.com/microsoft/vscode/issues/120251).
+This separation has also helps with [untrusted workspaces](api/extension-guides/workspace-trust). Rich language extension often require trust while basic language features can run in any setup.
 
 
 ### Language selectors
