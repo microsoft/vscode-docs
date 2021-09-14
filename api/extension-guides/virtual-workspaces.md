@@ -37,7 +37,9 @@ This opens a VSCode window for a virtual workspace where all resources are virtu
 
 ## Review that the code is ready for virtual resources
 
-The API support for virtual file system has already been around for quite a while. You can check out the [file system provider API](https://github.com/microsoft/vscode/blob/dc8bd9cd7e5231745549ac6218266c63271f48cd/src/vs/vscode.d.ts#L7038). A file system provider is registered for a new URI scheme (e.g. `vscode-vfs`) and resources on that file system will be represented by URIs using that schema (e.g. `vscode-vfs://github/microsoft/vscode/pacakge.json`)
+The API support for virtual file system has already been around for quite a while. You can check out the [file system provider API](/api/extension-guides/virtual-documents#file-system-api).
+
+A file system provider is registered for a new URI scheme (e.g. `vscode-vfs`) and resources on that file system will be represented by URIs using that schema (e.g. `vscode-vfs://github/microsoft/vscode/pacakge.json`)
 
 Check how your extension deals with URIs it gets from the VSCode APIs:
 
