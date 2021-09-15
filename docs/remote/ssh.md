@@ -37,6 +37,8 @@ Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l
 
 While ARMv7l (AArch32) and ARMv8l (AArch64) support is available, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
+> **Note:** 1 GB of RAM or more is necessary as [VS Code Server](/docs/remote/faq.md#how-do-the-remote-development-extensions-work) has similar disk requirements to [standard VS Code](docs/supporting/requirements.md).
+
 ### Installation
 
 To get started, you need to:
