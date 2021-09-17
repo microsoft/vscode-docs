@@ -16,7 +16,7 @@ By default, stylistic and syntactical code detection is enabled by the Language 
 
 ## Enable linters
 
-To enable linters other than the default PyLint, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting.<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
+To enable linters, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting.<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
 
 Enabling a linter prompts you to install the required packages in your selected environment for the chosen linter.
 
@@ -60,11 +60,11 @@ When enabling `lintOnSave`, you might also want to enable the generic `files.aut
 
 ## Specific linters
 
-The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default. For descriptions of individual settings, see the [Linter settings reference](/docs/python/settings-reference.md#linting-settings).
+The following table provides a summary of available Python linters and their basic settings. For descriptions of individual settings, see the [Linter settings reference](/docs/python/settings-reference.md#linting-settings).
 
 | Linter | Package name for `pip install` command | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- | --- | --- |
-| [Pylint](#pylint) (default) | [pylint](https://pypi.org/project/pylint/) | Enabled | pylintEnabled | pylintArgs | pylintPath |
+| [Pylint](#pylint) | [pylint](https://pypi.org/project/pylint/) | Disabled | pylintEnabled | pylintArgs | pylintPath |
 | [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
 | [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
@@ -100,33 +100,6 @@ Pylint messages fall into the categories in the following table with the indicat
 | Warning (W) | Python-specific problems | Warning | pylintCategorySeverity.warning |
 | Error (E) | Likely code bugs | Error (red underline) | pylintCategorySeverity.error |
 | Fatal (F) | An error prevented further Pylint processing | Error | pylintCategorySeverity.fatal |
-
-### Default Pylint rules
-
-Python in Visual Studio code is configured by default to use a set of linting rules that are friendly to the largest number of  Python developers:
-
-- Enable all Error (E) and Fatal (F) messages.
-- Disable all Convention (C) and Refactor (R) messages.
-- Disable all Warning (W) messages except the following:
-  - unreachable (W0101): Unreachable code
-  - duplicate-key (W0109): Duplicate key %r in dictionary
-  - unnecessary-semicolon (W0301): Unnecessary semicolon
-  - global-variable-not-assigned (W0602): Using global for %r but no assignment is done
-  - unused-variable (W0612): Unused variable %r
-  - binary-op-exception (W0711): Exception to catch is the result of a binary "%s" operation
-  - bad-format-string (W1302): Invalid format string
-  - anomalous-backslash-in-string (W1401): Anomalous backslash in string
-  - bad-open-mode (W1501): "%s" is not a valid mode for open
-
-These rules are applied through the following default arguments passed to Pylint:
-
-```bash
---disable=all --enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode
-```
-
-These arguments are passed whenever the `python.linting.pylintUseMinimalCheckers` is set to `true` (the default). If you specify a value in `pylintArgs` or use a Pylint configuration file (see the next section), then `pylintUseMinimalCheckers` is implicitly set to `false`.
-
-For the complete list of Pylint messages, see [readable-pylint-messages](https://github.com/janjur/readable-pylint-messages/blob/master/README.md) (GitHub).
 
 ### Command-line arguments and configuration files
 

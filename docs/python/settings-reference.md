@@ -229,7 +229,6 @@ To suppress the "undefined-variable" messages, for example, use the setting `"py
 | --- | --- | --- | --- |
 | pylintEnabled | `true` | Specifies whether to enable Pylint. | [Linting](/docs/python/linting.md) |
 | pylintArgs | `[]` | Additional arguments for Pylint, where each top-level element that's separated by a space is a separate item in the list. | [Linting](/docs/python/linting.md) |
-| pylintUseMinimalCheckers | `true` | Specifies whether to use the default value for pylintArgs. | [Linting](/docs/python/linting.md) |
 | pylintPath | `"pylint"` | The path to Pylint. | [Linting](/docs/python/linting.md) |
 | pylintCategorySeverity.convention | `"Information"` | Mapping for Pylint convention message to VS Code type. | [Linting](/docs/python/linting.md) |
 | pylintCategorySeverity.refactor | `"Hint"` | Mapping for Pylint refactor message to VS Code type. | [Linting](/docs/python/linting.md) |
