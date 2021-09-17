@@ -40,7 +40,9 @@ While we would have loved to just improve the performance of the extension, the 
 
 ### What We Did
 
-Instead, we re-implemented the extension in the core of VS Code and could bring this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster!
+Instead, [in the 1.60 update](https://code.visualstudio.com/updates/v1_60#_high-performance-bracket-pair-colorization), we re-implemented the extension in the core of VS Code and could bring this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster!
+
+The feature can be enabled by adding the setting `"editor.bracketPairColorization.enabled": true`.
 
 Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs! Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
 
