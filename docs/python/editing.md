@@ -157,29 +157,23 @@ If formatting fails, check the following possible causes:
 
 ## Refactoring
 
-The Python extension adds the following refactoring commands: **Extract Variable**, **Extract Method**, and **Sort Imports**.
+The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method**, and **Sort Imports**.
 
 ### Extract Variable
 
-Extracts all similar occurrences of the selected text within the current scope, and replaces it with a variable. The new method is given the name `newvariableNNN` where NNN is a random number.
+Extracts all similar occurrences of the selected text within the current scope, and replaces it with a new variable called `new_var` by default.
 
-Invoked by:
-
-- Context Menu: right-click a selection and select **Extract Variable**.
-- Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Extract Variable**.
-- Assign a keyboard shortcut to the `python.refactorExtractVariable` command.
+You can invoke this command by selecting the line of code you wish to extract as a variable and then clicking on the light-bulb that is displayed next to it.
 
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
 
+> **Tip: You can create a shortcut to the `pylance.extractVariable` command to trigger this action with the keyboard.
+
 ### Extract Method
 
-Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call. The new method is given the name `newmethodNNN` where NNN is a random number.
+Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call. The new method is given the name `new_func` by default.
 
-Invoked by:
-
-- Context Menu: right-click a selection and select **Extract Method**.
-- Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Extract Method**.
-- Assign a keyboard shortcut to the `python.refactorExtractMethod` command.
+You can invoke this command by selecting the lines of code you wish to extract as a method and then clicking on the light-bulb that is displayed next to it.
 
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
 
