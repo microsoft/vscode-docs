@@ -13,10 +13,10 @@ HasLaTeX: true
 
 September 06, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hediet_dev)
 
-When dealing with deeply nested brackets in VS Code, it can be painful to figure out which brackets match and which do not.
+When dealing with deeply nested brackets in VS Code, it can be hard to figure out which brackets match and which do not.
 
 
-To solve this problem, [CoenraadS](https://github.com/CoenraadS) developed the [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension to colorize matching brackets and published it in 2016 to the VS Code Marketplace. This extension became very popular and now has over 6 million installs. To address performance and accuracy problems, CoenraadS followed up with [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) which now also has over 3 millions of installs.
+To make this easier, [CoenraadS](https://github.com/CoenraadS) developed the [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension to colorize matching brackets and published it in 2016 to the VS Code Marketplace. This extension became very popular and now has over 6 million installs. To address performance and accuracy problems, CoenraadS followed up with [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) which now also has over 3 millions of installs.
 
 The Bracket Pair Colorizer extension is a good example of the power of VS Code's extensibility and makes heavy use of the VS Code [Decoration API](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations) to colorize brackets.
 
@@ -27,17 +27,16 @@ This variety of extensions shows that there is a real desire by VS Code users to
 
 ### The Performance Problem
 
-Unfortunately, the Bracket Pair Colorizer extension has a serious performance problem with large files: When inserting a single bracket at the beginning of the infamous [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file, which has more than 42k lines of code, it takes about 10 seconds until the colors of all bracket pairs update.
+Unfortunately, the Bracket Pair Colorizer extension has a serious performance problem with large files: When inserting a single bracket at the beginning of the infamous [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file of the TypeScript project, which has more than 42k lines of code, it takes about 10 seconds until the colors of all bracket pairs update.
 During these 10 seconds of processing, the extension host process burns at 100% CPU and all features that are powered by extensions, such as auto-completion or diagnostics, stop functioning. Luckily, [VS Code's architecture](https://code.visualstudio.com/api/advanced-topics/extension-host#stability-and-performance)
 ensures that the UI remains responsive and documents can still be saved to disk!
 
 CoenraadS was aware of this performance issue and to increase speed and accuracy, the version 2 of the extension reuses the token and bracket parsing engine from VS Code. However, the performance problem stayed.
-
 Even in Bracket Pair Colorizer 2, it takes some time until the colors reflect the new nesting levels after inserting `{` at the beginning of the file:
 
 ![Extension needs more than 10 seconds to process text changes in checker.ts](./checker_ts-extension.gif)
 
-While we would have loved to just improve the performance of the extension, the asynchronous communication between the renderer and the extension-host severly limits how fast bracket bair colorization can be. In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering. A discussion of this can be found [here](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
+While we would have loved to just improve the performance of the extension, the asynchronous communication between the renderer and the extension-host severely limits how fast bracket pair colorization can be. In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering. A discussion of this can be found [here](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
 
 ### What We Did
 
@@ -49,16 +48,16 @@ Now, updates are no longer noticeable, even for files with hundreds of thousands
 
 By leveraging (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques,
 we reduced the extension's update complexity (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
-By reusing the existing tokens from the renderer and its incremental token update mechanism, we gain another massive (but constant) speedup.
+By reusing the existing tokens from the renderer and its incremental token update mechanism, we gained another massive (but constant) speedup.
 
 ### VS Code for the Web
 
-Another benefit of the new implementation is that bracket pair colorization is now also supported in VS Code for the Web, which you can see in action on [GitHub](https://docs.github.com/en/codespaces/developing-in-codespaces/web-based-editor). Due to the way Bracket Pair Colorizer 2 reuses the VS Code token engine, it was not possible to migrate the extension to what we now call a *[web extension](https://code.visualstudio.com/api/extension-guides/web-extensions)*.
+Besides being more performant, the new implementation is also supported in VS Code for the Web, which you can see in action on [GitHub](https://docs.github.com/en/codespaces/developing-in-codespaces/web-based-editor). Due to the way Bracket Pair Colorizer 2 reuses the VS Code token engine, it was not possible to migrate the extension to what we now call a *[web extension](https://code.visualstudio.com/api/extension-guides/web-extensions)*.
 Not only does our new implementation work in VS Code for the Web, but also directly in the [monaco editor](https://microsoft.github.io/monaco-editor/)!
 
 ## The Challenge Of Bracket Pair Colorization
 
-Bracket pair colorization is all about quickly determining all brackets and their (global) nesting level in the viewport. The viewport can be described as a range in the document in terms of line and column numbers and is usually a tiny fraction of the entire document.
+Bracket pair colorization is all about quickly determining all brackets and their (absolute) nesting level in the viewport. The viewport can be described as a range in the document in terms of line and column numbers and is usually a tiny fraction of the entire document.
 
 Unfortunately, the nesting level of a bracket depends on *all* characters preceding it: Replacing any character with the opening bracket "`{`" usually increases the nesting level of all following brackets.
 Thus, when initially colorizing brackets at the very end of a document, every single character of the entire document has to be processed.
@@ -73,7 +72,7 @@ Our goal is not having to reprocess the entire document on each key-stroke. Inst
 However, we still want to be able to query all brackets and their nesting level in the viewport in (poly) logarithmic time, as it would be the case when using VS Code's decoration API (which uses the mentioned interval tree)!
 
 ### Algorithmic Complexities
-*Feel free to skip this section.*
+*Feel free to skip the sections on algorithmic complexities.*
 In the following, $N$ refers to the length of the document.
 More formally, our goal is to have a time complexity of at most $\mathcal{O}(\mathrm{log}^k N + R)$ for querying all brackets in a given range of size $R$ and a reasonable small $k$ (we aim for $k = 2$). Brackets are queried when rendering the viewport and thus querying them has to be really fast.
 
@@ -86,7 +85,7 @@ In particular, we don't want to detect opening or closing brackets in comments o
 ```cpp
 { /* } */ char str[] = "}"; }
 ```
-Only the third occurence of "`}`" closes the bracket pair!
+Only the third occurrence of "`}`" closes the bracket pair!
 
 This gets even harder for languages where the token language is not regular, such as TypeScript with JSX:
 ![](./tokens-example.dio.svg)
@@ -206,7 +205,7 @@ A possible (2,3)-tree of the example before could look like the following. Note 
 
 ### Worst-Case Complexity Analysis
 
-*Feel free to skip this section.* For now, we assume that every list resembles a (2,3)-tree and thus has at most 3 children.
+*Feel free to skip the sections on algorithmic complexities.* For now, we assume that every list resembles a (2,3)-tree and thus has at most 3 children.
 
 To maximize query-time, we have a look at a document that has $\mathcal{O}(\mathrm{log} N)$ many nested bracket pairs:
 
@@ -235,7 +234,7 @@ by inserting additional $\mathcal{O}(\frac{N}{\mathrm{log} N})$ many bracket pai
         ... O(log N) many nested bracket pairs
             {
                 {}{}{}{}{}{}{}{}... O(N / log N) many
-                {}[1]
+                {} [1]
             }
         ...
     }
@@ -267,7 +266,7 @@ As demonstrated by this example, balanced lists do not only make querying fast, 
 
 ### Algorithmic Complexity
 
-*Feel free to skip this section.* Let's assume that the text edit replaces a range of size up to $E$ with up to $E$ many new characters.
+*Feel free to skip the sections on algorithmic complexities.* Let's assume that the text edit replaces a range of size up to $E$ with up to $E$ many new characters.
 We also ignore the rare case of closing brackets that have no opening counterpart for now.
 
 We only have to reparse nodes that intersect the edit range. Thus, at most $\mathcal{O}(\mathrm{log}^2 N + E)$ many nodes need to be reparsed (with the same reasoning as for the time-complexity of querying brackets) - all other nodes can be reused.
@@ -275,7 +274,6 @@ We only have to reparse nodes that intersect the edit range. Thus, at most $\mat
 Clearly, if a node does not intersect with the edit range, then neither does any of its children. Thus, we only need to consider reusing nodes that don't intersect with the edit range, but whose parent nodes do (this will implicitly reuse all nodes where both the node and its parent do not intersect with the edit range). Also, such parent nodes cannot be fully covered by the edit range, otherwise all of their children will intersect the edit range. However, every level in the AST only has at most two nodes that partially intersect the edit range. Since an AST has at most $\mathcal{O}(\mathrm{log}^2 N)$ many levels (limited by the height of the AST) and every node has at most 3 children, all reusable nodes can be covered by consuming at most $\mathcal{O}(2 \cdot 3 \cdot \mathrm{log}^2 N) = \mathcal{O}(\mathrm{log}^2 N)$ nodes.
 
 Thus, to construct the updated tree, we need to reparse at most $\mathcal{O}(\mathrm{log}^2 N + E)$ many nodes and can reuse $\mathcal{O}(\mathrm{log}^2 N)$ many nodes.
-
 This would also determine the time complexity of the update operation, but there is a caveat.
 
 ### How do we rebalance the AST?
@@ -283,12 +281,12 @@ This would also determine the time complexity of the update operation, but there
 Unfortunately, the tree in the last example is not balanced anymore.
 When combining a reused list node with a newly parsed node, we have to do some work to maintain the (2,3)-tree property. We know that both reused and newly parsed nodes are already (2,3)-trees, but they might have different heights - so we cannot just create parent nodes, since all children of a (2,3)-tree node have to have same height.
 
-How can we efficiently concatenize all these nodes of mixed heights into a single (2,3)-tree?
+How can we efficiently concatenate all these nodes of mixed heights into a single (2,3)-tree?
 This can easily be reduced to the problem of prepending or appending a smaller tree to a larger tree:
 If two trees have the same height, it is sufficient to create a list that contains both children.
 Otherwise, we insert the smaller tree of height $h_1$ into the larger tree of height $h_2$ and potentially break up nodes if they end up having more than 3 children (similar to how the insert operation of (2,3)-trees works).
 
-Because this has runtime $\mathcal{O}(h_2 - h_1)$, we take 3 adjacent nodes ($a$, $b$ and $c$) that we want to concatenize and concatenize either $a$ and $b$ or $b$ and $c$ first (potentially increasing the height of the tree), depending on which pair has the smaller height difference. This is repeated until all nodes are concatenized. As an additional optimization, we look for sequences of nodes that have the same height and create parent lists for them in linear time.
+Because this has runtime $\mathcal{O}(h_2 - h_1)$, we take 3 adjacent nodes ($a$, $b$ and $c$) that we want to concatenate and concatenate either $a$ and $b$ or $b$ and $c$ first (potentially increasing the height of the tree), depending on which pair has the smaller height difference. This is repeated until all nodes are concatenated. As an additional optimization, we look for sequences of nodes that have the same height and create parent lists for them in linear time.
 
 To balance the lists α and γ of the previous example, we perform the concat operation on their children
 (lists in red violate the (2,3)-tree property, nodes in orange have unexpected height and nodes in green are recreated while rebalancing):
@@ -303,7 +301,7 @@ Considering the internal AST height of β when balancing the parent list could i
 
 ### Algorithmic Complexity
 
-*Feel free to skip this section.* We have to concatenate at most $\mathcal{O}(\mathrm{log}^2 N)$ many nodes with a maximum list-height of $\mathcal{O}(\mathrm{log} N)$ (those we reused) and additional $\mathcal{O}(\mathrm{log}^2 N + E)$ many nodes of list-height 0 (those we reparsed). Because concatenating two nodes of different height has time-complexity $\mathcal{O}(\mathrm{log} N)$ and all reparsed nodes in a list are adjacent and have list-height 0, the time-complexity of the entire update operation is at most $\mathcal{O}(\mathrm{log}^3 N + E)$, given that finding a reusable node can be done fast enough.
+*Feel free to skip the sections on algorithmic complexities.* We have to concatenate at most $\mathcal{O}(\mathrm{log}^2 N)$ many nodes with a maximum list-height of $\mathcal{O}(\mathrm{log} N)$ (those we reused) and additional $\mathcal{O}(\mathrm{log}^2 N + E)$ many nodes of list-height 0 (those we reparsed). Because concatenating two nodes of different height has time-complexity $\mathcal{O}(\mathrm{log} N)$ and all reparsed nodes in a list are adjacent and have list-height 0, the time-complexity of the entire update operation is at most $\mathcal{O}(\mathrm{log}^3 N + E)$, given that finding a reusable node can be done fast enough.
 
 ### How do we find reusable nodes efficiently?
 
@@ -330,7 +328,7 @@ Fortunately, due to the incremental update mechanism of the bracket pair AST, we
 
 That way, not only tokenization is performant even if all tokens in the document change, but also bracket pair colorization.
 
-However, when a document contains a lot of unbalanced brackets in comments, the color of brackets at the end of the document might flicker as the bracket pair parsers learns that these brackets should be treated as plain text.
+However, when a document contains a lot of unbalanced brackets in comments, the color of brackets at the end of the document might flicker as the bracket pair parser learns that these brackets should be ignored.
 To avoid flickering of bracket pair colors when opening a document and navigating to its end, we maintain two bracket pair ASTs until the initial tokenization process completes.
 The first AST is built without token information and does not receive token updates. The second one initially is a clone of the first AST, but receives token updates and diverges more and more as tokenization progresses and token updates are applied. Initially, the first AST is used to query brackets, but the second one takes over once the document is fully tokenized.
 
@@ -349,7 +347,7 @@ Adding two such lengths is easy, but requires a case distinction: While the line
 Surprisingly, most of the code does not need to be aware of how lengths are represented. Only the position mapper got significantly more complex, since care had to be taken that a single line can contain multiple text edits.
 
 As an implementation detail, we encode such lengths in a single number to reduce memory pressure. JavaScript supports integers up to $2^{53} - 1$, so we can use up to 26 bits each for the number of lines and columns.
-Unfortunately, v8 stores numbers larger than $2^{31}$ [on the heap](https://v8.dev/blog/react-cliff#smi-heapnumber-mutableheapnumber), so this encoding trick did not turn out as effective as we thought.
+Unfortunately, v8 stores numbers larger than $2^{31}$ [in the heap](https://v8.dev/blog/react-cliff#smi-heapnumber-mutableheapnumber), so this encoding trick did not turn out as effective as we thought.
 
 ## Further Difficulties: Unclosed Bracket Pairs
 
