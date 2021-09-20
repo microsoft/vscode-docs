@@ -240,9 +240,11 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 Extensions can publish different VSIXs for each platform (Windows, Linux, macOS) VS Code is running on. We call such extensions  **platform-specific extensions**.
 
-This is useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
+Starting with version 1.61.0, VS Code looks for the extension package that matches the current platform.
 
-For platform-specific extensions, a separate package needs to be published for each and every platform that an extension supports. If no package has been published for a platform, the user will see the extension appear as disabled and it can not be installed.
+Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
+
+When publishing platform-specific extensions, a separate package needs to be published for each and every platform that an extension supports. If no package has been published for a platform, the user will see the extension appear as disabled and it can not be installed.
 
 The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64` and `darwin-arm64`.
 
