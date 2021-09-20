@@ -172,6 +172,8 @@ class Controller {
 }
 ```
 
+If you're publishing a `NotebookController`-providing extension separately from its serializer, then add an entry like `notebookKernel<ViewTypeUpperCamelCased>` to the `keywords` in its `package.json`. For example, if you published an alternative kernel for the `github-issues` notebook type, you should add a keyword `notebookKernelGithubIssues` keyword to your extension.
+
 Samples:
 
 * [GitHub Issues Notebook](https://github.com/microsoft/vscode-github-issue-notebooks/blob/93359d842cd01dfaef0a78b620c5a3b4cf5c2e38/src/extension/notebookProvider.ts#L29): Controller to execute queries for GitHub Issues
@@ -264,6 +266,8 @@ npm install -g yo generator-code
 ```
 
 Then, run `yo code` and choose `New Notebook Renderer (TypeScript)`.
+
+If you don't use this template, you'll just want to make sure that you add `notebookRenderer` to the `keywords` in your extension's `package.json`, and mention its mimetype somewhere in the extension name or description, so that users can find your renderer.
 
 ### A Simple, Non-Interactive Renderer
 

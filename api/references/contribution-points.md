@@ -641,7 +641,7 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 
 ## contributes.languages
 
-Contribute definition of a language. This will introduce a new language or enrich the knowledge VS Code has about a language.
+Contribute definition of a programming language. This will introduce a new language or enrich the knowledge VS Code has about a language.
 
 The main effects of `contributes.languages` are:
 
