@@ -37,6 +37,8 @@ Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l
 
 While ARMv7l (AArch32) and ARMv8l (AArch64) support is available, some extensions installed on these devices may not work due to the use of x86 native code in the extension.
 
+> **Note:** While 1 GB RAM is required (similar to the [hardware requirements](https://code.visualstudio.com/docs/supporting/requirements) for VS Code), at least 2 GB RAM and a 2-core CPU is recommended.
+
 ### Installation
 
 To get started, you need to:
