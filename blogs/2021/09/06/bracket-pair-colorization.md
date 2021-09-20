@@ -47,8 +47,7 @@ Now, updates are no longer noticeable, even for files with hundreds of thousands
 
 ![Native implementation needs less than a millisecond to process text changes in checker.ts](./checker_ts-native.gif)
 
-By leveraging (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques,
-we reduced the extension's update complexity (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
+Without being limited by public API design, we could use (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques to reduce the extension's worst-case update complexity (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
 By reusing the existing tokens from the renderer and its incremental token update mechanism, we gained another massive (but constant) speedup.
 
 ### VS Code for the Web
