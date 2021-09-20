@@ -242,7 +242,13 @@ Extensions can publish different VSIXs for each platform (Windows, Linux, macOS)
 
 The currently supported platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64` and `darwin-arm64`. If an extension decides to publish a package for at least one of these platforms, we call it a **platform-specific extension**.
 
-When installing a platform-specific extension, VS Code (starting from version `1.61.0`) looks for the extension package that matches the current platform. If no package has been published for the platform, the extension will appear as disabled and can not be installed. Therefore, you need to publish a package for each and every platform that your extension supports. To meet this requirement, we are providing tooling to help make this potentially repetitive process easier.
+Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
+
+When publishing platform-specific extensions, a separate package needs to be published for each and every platform that an extension supports. If no package has been published for a platform, the user will see the extension appear as disabled and it can not be installed.
+
+The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `darwin-x64` and `darwin-arm64`.
+
+If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. The extension capabilites that are not supported in the `web` should use `when` clauses in the `package.json` to make sure that they are disabled. We do not recommend that extensions ship a different `package.json` for the web platform or to remove parts of the VSIX that do not work in the `web`.
 
 #### Publishing
 
