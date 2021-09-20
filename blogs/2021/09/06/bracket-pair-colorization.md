@@ -133,32 +133,32 @@ type AST = BracketAST | BracketPairAST | ListAST | TextAST;
 
 /** Describes a single bracket, such as `{`, `}` or `begin` */
 class BracketAST {
-    readonly length: Length;
+    constructor(public length: Length) {}
 }
 
 /** Describes a matching bracket pair and the node in between, e.g. `{...}` */
 class BracketPairAST {
-    openingBracket: BracketAST;
-    child: BracketPairAST | ListAST | TextAST;
-    closingBracket: BracketAST;
+    constructor(
+        public openingBracket: BracketAST;
+        public child: BracketPairAST | ListAST | TextAST;
+        public closingBracket: BracketAST;
+    ) {}
 
-    @cached
-    get length() {
-        return openingBracket.length + child.length + closingBracket.length;
-    }
+    length = openingBracket.length + child.length + closingBracket.length;
 }
 
 /** Describes a list of bracket pairs or text nodes, e.g. `()...()` */
 class ListAST {
-    items: Array<BracketPairAST | TextAST>;
+    constructor(
+        public items: Array<BracketPairAST | TextAST>
+    ) {}
 
-    @cached
-    get length() { return items.sum(item => item.length); }
+    length = items.sum(item => item.length);
 }
 
 /** Describes text that has no brackets in it. */
 class TextAST {
-    readonly length: Length;
+    constructor(public length: Length) {}
 }
 ```
 
@@ -184,10 +184,11 @@ Instead, we allow lists to have other lists as children:
 
 ```ts
 class ListAST {
-    items: Array<ListAST | BracketPairAST | TextAST>;
+    constructor(
+        public items: Array<ListAST | BracketPairAST | TextAST>
+    ) {}
 
-    @cached
-    get length() { return items.sum(item => item.length); }
+    length = items.sum(item => item.length);
 }
 ```
 How does that improve the situation?
