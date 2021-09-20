@@ -15,7 +15,7 @@ September 06, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hedi
 
 When dealing with deeply nested brackets in VS Code, it can be hard to figure out which brackets match and which do not.
 
-To make this easier, [CoenraadS](https://github.com/CoenraadS) developed the awesome [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension to colorize matching brackets and published it in 2016 to the VS Code Marketplace. This extension became very popular and now is one of the top 10 most downloaded extensions on the marketplace, with over 6 million installs.
+To make this easier, CoenraadS developed the awesome [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension to colorize matching brackets and published it in 2016 to the VS Code Marketplace. This extension became very popular and now is one of the top 10 most downloaded extensions on the marketplace, with over 6 million installs.
 To address performance and accuracy problems, CoenraadS followed up with [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) which now also has over 3 millions of installs.
 
 The Bracket Pair Colorizer extension is a good example of the power of VS Code's extensibility and makes heavy use of the VS Code [Decoration API](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations) to colorize brackets.
