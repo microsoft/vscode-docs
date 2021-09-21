@@ -62,7 +62,7 @@ Not only does our new implementation work in VS Code for the Web, but also direc
 
 Bracket pair colorization is all about quickly determining all brackets and their (absolute) nesting level in the viewport. The viewport can be described as a range in the document in terms of line and column numbers and is usually a tiny fraction of the entire document.
 
-Unfortunately, the nesting level of a bracket depends on *all* characters preceding it: Replacing any character with the opening bracket "`{`" usually increases the nesting level of all following brackets.
+Unfortunately, the nesting level of a bracket depends on *all* characters preceding it: replacing any character with the opening bracket "`{`" usually increases the nesting level of all following brackets.
 
 Thus, when initially colorizing brackets at the very end of a document, every single character of the entire document has to be processed.
 
@@ -104,13 +104,13 @@ Does the bracket at [1] match the bracket at [2] or at [3]? This depends on the 
 
 ### Tokens for the Rescue
 
-Luckily, syntax highlighting has to solve a similar problem: Should the bracket at [2] in the previous code snippet be rendered as string or as plain text?
+Luckily, syntax highlighting has to solve a similar problem: should the bracket at [2] in the previous code snippet be rendered as string or as plain text?
 
 As it turns out, just ignoring brackets in comments and strings as identified by syntax highlighting works well enough for most bracket pairs! `<` ... `>` is the only problematic pair we found so far, as these brackets are usually both used for comparisons and as pair for generic types, while having the same token type.
 
 VS Code already has an efficient and synchronous mechanism to maintain token information used for syntax highlighting and we can reuse that to identify opening and closing brackets.
 
-This is the another challenge of the Bracket Pair Colorization extension that affects performance negatively: It does not have access to these tokens and has to recompute them on its own. [We thought long](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188) about how we could efficiently and reliably expose token information to extensions, but came to the conclusion that we cannot do this without a lot of implementation details leaking into the extension API. Because the extension still has to send over a list of color decorations for each bracket in the document, such an API alone would not even solve the performance problem.
+This is the another challenge of the Bracket Pair Colorization extension that affects performance negatively: it does not have access to these tokens and has to recompute them on its own. [We thought long](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188) about how we could efficiently and reliably expose token information to extensions, but came to the conclusion that we cannot do this without a lot of implementation details leaking into the extension API. Because the extension still has to send over a list of color decorations for each bracket in the document, such an API alone would not even solve the performance problem.
 
 As a side note, when applying an edit at the beginning of a document that changes all following tokens (such as inserting `/*` for C-like languages), VS Code does not re-tokenize long documents all at once, but in chunks over time. This ensures that the UI does not freeze, even though tokenization happens synchronously in the renderer.
 
@@ -331,7 +331,7 @@ Because concatenating two nodes of different height has time-complexity $\mathca
 
 ### How do we find reusable nodes efficiently?
 
-We have two data structures for this task: The *before edit position mapper* and the *node reader*.
+We have two data structures for this task: the *before edit position mapper* and the *node reader*.
 
 The [position mapper](https://github.com/microsoft/vscode/blob/f8e9f87b6554b527c61ba963d0c96c7687cbaae9/src/vs/editor/common/model/bracketPairColorizer/beforeEditPositionMapper.ts#L17) maps a position in the new document (after applying the edit) to the old document (before applying the edit), if possible. It also tells us the length between the current position and the next edit (or 0, if we are in an edit). This is done in $\mathcal{O}(1)$.
 
@@ -371,7 +371,7 @@ we use line/column based lengths for the AST too.
 
 Note that this approach is significantly different from data structures that are directly indexed by lines (such as using a string array to describe the line contents of a document). In particular, this approach allows to do a single binary search across and within lines.
 
-Adding two such lengths is easy, but requires a case distinction: While the line counts are added directly, the column count of the first length is only included if the second length spans zero lines.
+Adding two such lengths is easy, but requires a case distinction: while the line counts are added directly, the column count of the first length is only included if the second length spans zero lines.
 
 Surprisingly, most of the code does not need to be aware of how lengths are represented. Only the position mapper got significantly more complex, since care had to be taken that a single line can contain multiple text edits.
 
@@ -417,7 +417,7 @@ To support this kind of error recovery, anchor sets can be used to track the set
 
 In the very first example, the anchor set at [2] is $\{$ `)` $\}$, but the unexpected character is `}`. Because it is not part of the anchor set, it is reported as unopened bracked.
 
-This needs to be considered when reusing nodes: The pair `( } )` cannot be reused when prepending it with `{`! We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
+This needs to be considered when reusing nodes: the pair `( } )` cannot be reused when prepending it with `{`! We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
 
 ## Outlook
 
