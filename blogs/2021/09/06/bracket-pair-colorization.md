@@ -426,3 +426,5 @@ Efficient bracket pair colorization was a fun challenge. With the new data struc
 Even though JavaScript might not be the best language to write high performant code, a lot of speed can be gained by reducing asymptotic algorithmic complexity, especially when dealing with large inputs!
 
 Happy Coding!
+
+Henning Dieterichs, VS Code Team member [@hediet_dev](https://twitter.com/hediet_dev)
