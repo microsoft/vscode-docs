@@ -9,9 +9,9 @@ DateApproved: 9/20/2021
 ---
 # Environment variables
 
-You can set environment variables in your container without altering the container image by using one of the options below. However, you should verify **Terminal > Integrated: Inherit Env** is checked in settings or the variables you set may not appear in the Integrated Terminal.
+You can set environment variables in your container without altering the container image by using one of the options below.
 
-![Inherit env setting](images/environment-variables/inherit-env.png)
+> You should verify **Terminal > Integrated: Inherit Env** is checked in settings or the variables you set may not appear in the Integrated Terminal. This setting is checked by default.
 
 ## Option 1: Add individual variables
 
@@ -89,3 +89,16 @@ Next, depending on what you reference in `devcontainer.json`:
   ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+## Example Solutions
+
+<div class="list-group">
+    <details>
+        <summary class="list-group-item" role="button">Modify the PATH variable</summary>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vEb7hKlagAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </details>
+    <details>
+        <summary class="list-group-item" role="button">Load variables from a .env file</summary>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qTU7w3bWrOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </details>
+</div>

@@ -78,4 +78,19 @@ Anything you execute in this file will then fire each time the container starts.
 
 Finally, if you are using Docker Compose, be sure that neither the [entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) nor [command](https://docs.docker.com/compose/compose-file/compose-file-v3/#command) properties are set for your container.
 
-That's it!
+## Example Solutions
+
+<div class="list-group">
+    <details>
+        <summary class="list-group-item" role="button">Run npm install when a container is created</summary>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9qRy_kxVCK8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </details>
+    <details>
+        <summary class="list-group-item" role="button">Run a project whenever the container is started</summary>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zFzPnWgBx_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </details>
+    <details>
+        <summary class="list-group-item" role="button">Start SSH service</summary>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/KuSNpZgDYDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </details>
+</div>
