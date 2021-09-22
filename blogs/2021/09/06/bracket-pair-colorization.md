@@ -21,7 +21,7 @@ To address performance and accuracy problems, in 2018 CoenraadS followed up with
 
 The Bracket Pair Colorizer extension is a good example of the power of VS Code's extensibility and makes heavy use of the our [Decoration API](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations) to colorize brackets.
 
-![Comparing Colorization On vs. Off](./on-off-comparison.drawio.svg)
+![Two screenshots of the same code opened in VS Code. In the first screenshot, bracket pair colorization is disabled, in the second screenshot, it is enabled](./on-off-comparison.drawio.svg)
 
 We are pleased to see that the VS Code Marketplace offers many more such community-provided extensions, all of which help identify matching bracket pairs in very creative ways, including: [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets), [Subtle Match Brackets](https://marketplace.visualstudio.com/items?itemName=rafamel.subtle-brackets), [Bracket Highlighter](https://marketplace.visualstudio.com/items?itemName=Durzn.brackethighlighter), [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman), and [Bracket Lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens)!
 This variety of extensions shows that there is a real desire by VS Code users to get better support for brackets.
@@ -34,7 +34,7 @@ ensures that the UI remains responsive and documents can still be saved to disk!
 
 CoenraadS was aware of this performance issue and spent a great amount of effort on increasing speed and accuracy in version 2 of the extension, by reusing the token and bracket parsing engine from VS Code. However, VS Code's API and extension architecture was not designed to allow for high performance bracket pair colorization when hundreds of thousands of bracket pairs are involved. Thus, even in Bracket Pair Colorizer 2, it takes some time until the colors reflect the new nesting levels after inserting `{` at the beginning of the file:
 
-![Extension needs more than 10 seconds to process text changes in checker.ts](./checker_ts-extension.gif)
+![A video of VS Code showing that the extension needs more than 10 seconds to process the text change in checker.ts](./checker_ts-extension.gif)
 
 While we would have loved to just improve the performance of the extension (which certainly would have required introducing more advanced APIs, optimized for high-performance scenarios), the asynchronous communication between the renderer and the extension-host severely limits how fast bracket pair colorization can be. In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering. A discussion of this can be found [here](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
 
@@ -46,7 +46,7 @@ The feature can be enabled by adding the setting `"editor.bracketPairColorizatio
 
 Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs! Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
 
-![Native implementation needs less than a millisecond to process text changes in checker.ts](./checker_ts-native.gif)
+![A video of VS Code showing that the native implementation needs less than a millisecond to process the text change in checker.ts](./checker_ts-native.gif)
 
 Without being limited by public API design, we could use (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques to reduce the extension's worst-case update [time-complexity](https://en.wikipedia.org/wiki/Time_complexity) (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
 
@@ -66,7 +66,7 @@ Unfortunately, the nesting level of a bracket depends on *all* characters preced
 
 Thus, when initially colorizing brackets at the very end of a document, every single character of the entire document has to be processed.
 
-![Changing a single character influences the nesting level of all subsequent brackets](./level-depends-on-all-previous-characters.dio.svg)
+![A diagram that indicates that changing a single character influences the nesting level of all subsequent brackets](./level-depends-on-all-previous-characters.dio.svg)
 
 The implementation in the bracket pair colorizer extension addresses this challenge by processing the entire document again whenever a single bracket is inserted or removed (which is very reasonable to do for small documents). The colors then have to be removed and reapplied using the VS Code [Decoration API](https://code.visualstudio.com/api/references/vscode-api#TextEditor.setDecorations), which sends all color decorations to the renderer.
 
@@ -98,7 +98,7 @@ Only the third occurrence of "`}`" closes the bracket pair!
 
 This gets even harder for languages where the token language is not regular, such as TypeScript with JSX:
 
-![](./tokens-example.dio.svg)
+![Screenshot of TypeScript code, showing a function that contains a template literal with nested expressions. The template literal also contains a closing bracket at position 2. The function starts with the bracket at 1 and ends with the bracket at 3.](./tokens-example.dio.svg)
 
 Does the bracket at [1] match the bracket at [2] or at [3]? This depends on the length of the template literal expression, which only a tokenizer with unbounded state (i.e. a non-regular tokenizer) can determine correctly!
 
@@ -126,7 +126,7 @@ The following diagram shows an exemplary AST with length annotations:
 
 Compare this with the classical AST representation using absolute start/end positions:
 
-![Abstract Syntax Tree of Bracket Pairs With Absolute Positions](./ast2.dio.svg)
+![Abstract Syntax Tree of Bracket Pairs With Absolute Start/End Positions](./ast2.dio.svg)
 
 Both ASTs describe the same document, but when traversing the first AST, the absolute positions have to be computed on the fly (which is cheap to do), while they are already precomputed in the second one.
 
