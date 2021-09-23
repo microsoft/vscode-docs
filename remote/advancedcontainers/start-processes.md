@@ -15,11 +15,19 @@ When you are working in a development container, you may want to execute a comma
 "postStartCommand": "yarn install"
 ```
 
+## Video: Run npm install when a container is created
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9qRy_kxVCK8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 In other cases, you may want to start up a process and leave it running. This can be accomplished by using `nohup` and putting the process into the background using `&`.  For example:
 
 ```json
 "postStartCommand": "nohup bash -c 'your-command-here &'"
 ```
+
+## Video: Run 'npm start' whenever the container is started
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zFzPnWgBx_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Those familiar with Linux may expect to be able to use the `systemctl` command to start and stop background services managed by something called `systemd`. Unfortunately, `systemd` has overhead and is generally not used in containers as a result.
 
@@ -34,6 +42,10 @@ These systems also include a `service` command that will use `systemctl` or `/et
 ```json
 "postStartCommand": "service ssh start"
 ```
+
+## Video: Start SSH service in a container
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KuSNpZgDYDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Adding startup commands to the Docker image instead
 
@@ -77,20 +89,3 @@ exec "$@"
 Anything you execute in this file will then fire each time the container starts. However, it's important to include the last `exec "$@"` line since this is what will cause the command `sleep infinity` in our example to fire.
 
 Finally, if you are using Docker Compose, be sure that neither the [entrypoint](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) nor [command](https://docs.docker.com/compose/compose-file/compose-file-v3/#command) properties are set for your container.
-
-## Example Solutions
-
-<div class="list-group">
-    <details>
-        <summary class="list-group-item" role="button">Run npm install when a container is created</summary>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9qRy_kxVCK8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </details>
-    <details>
-        <summary class="list-group-item" role="button">Run a project whenever the container is started</summary>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zFzPnWgBx_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </details>
-    <details>
-        <summary class="list-group-item" role="button">Start SSH service</summary>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/KuSNpZgDYDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </details>
-</div>

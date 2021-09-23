@@ -33,7 +33,7 @@ Depending on what you reference in `devcontainer.json`:
 
     As this example illustrates, `containerEnv` can reference local variables and `remoteEnv` can reference both local and existing container variables.
 
-## Video : Modify PATH in a dev container
+## Video: Modify PATH in a dev container
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vEb7hKlagAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
