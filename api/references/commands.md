@@ -26,12 +26,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
-* _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
+* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
 
 `vscode.executeDocumentSymbolProvider` - Execute document symbol provider.
 
 * _uri_ - Uri of a text document
-* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
+* _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
 
 `vscode.executeFormatDocumentProvider` - Execute document format provider.
 
