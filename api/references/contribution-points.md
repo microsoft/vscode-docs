@@ -98,6 +98,9 @@ hand, shows disabled items but doesn't show the category label.
 
 > **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
 
+> **Note:** When using icons form [product icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing), setting `light` and `dark` will disable the icon. 
+ntax is `"icon": "$(book)"`
+
 ### command example
 
 ```json
