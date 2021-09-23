@@ -230,6 +230,12 @@ By default, the debugger will use the Python interpreter you have selected with 
 
 For more details on debug configuration, see [Debugging configurations](/docs/python/debugging.md).
 
+### Limited support for Python 2.7
+
+The Python extension no longer offers IntelliSense support for Python 2.7 with [Jedi](https://pypi.org/project/jedi/), as its latest version no longer supports Python 2.7. When using Python 2.7 with the Python extension you can customize the [language server setting](/docs/python/settings-reference#_intellisense-engine-settings) to either turn off auto-completions or select Pylance as your language server, as it may provide a good experience if the code is compatible enough with Python 3.
+
+We will continue to support selecting Python 2.7 as an interpreter in your workspace. For tools that keep support for Python 2.7 in their actively maintained version, we will continue to support using them with Python 2.7. However, because [Python 2.7 is no longer maintained since January 2020](https://www.python.org/doc/sunset-python-2/), we strongly suggest you to upgrade your code to Python 3 as soon as you can. You can follow [this guide](https://docs.python.org/3/howto/pyporting.html) to learn how you can port your Python 2 code to Python 3.
+
 ## Environment variables
 
 ### Environment variable definitions file
