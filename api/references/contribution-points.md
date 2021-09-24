@@ -132,7 +132,9 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the settings UI or by editing the JSON settings file directly.
+Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings editor or by editing the JSON settings file directly.
+
+This section can either be a single object, representing a single category of settings, or an array of objects, representing multiple categories of settings. If there are multiple categories of settings, the Settings editor will show a submenu in the table of contents for that extension, and the title keys will be used for the submenu entry names.
 
 ### Configuration example
 
