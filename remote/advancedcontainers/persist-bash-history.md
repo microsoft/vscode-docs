@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: advancedcontainers
 TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers

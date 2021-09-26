@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: advancedcontainers
 TOCTitle: Avoid extension reinstalls
 PageTitle: Avoid Visual Studio Code extension reinstalls in containers

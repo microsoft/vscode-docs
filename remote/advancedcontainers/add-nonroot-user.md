@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: advancedcontainers
 TOCTitle: Add non-root user
 PageTitle: Add non-root user to a container
