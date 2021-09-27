@@ -131,7 +131,8 @@ const webExtensionConfig = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, './dist/web'),
-    libraryTarget: 'commonjs'
+    libraryTarget: 'commonjs',
+    devtoolModuleFilenameTemplate: '../../[resource-path]'
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
@@ -259,15 +260,15 @@ npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=.
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
 
-```bash
---browserType 'chromium' | 'firefox' | 'webkit' : The browser to launch.
---extensionDevelopmentPath {path} : A path pointing to a extension to include. (Optional)
---extensionTestsPath {path} : A path to a test module to run. (Optional)
---folder-uri {path} : The folder to open VS Code on. (Optional)
---version 'insiders' (Default) | 'stable' | 'sources' : (Optional)
---open-devtools : Opens the developer tools.  (Optional)
---headless : Whether to show the browser. Defaults to true when an extensionTestsPath is provided, otherwise false. (Optional)
-```
+|Option|Argument Description|
+|-----|-----|
+| --browserType | The browser to launch: `chromium` (default), `firefox` or `webkit` |
+| --extensionDevelopmentPath | A path pointing to an extension under development to include. |
+| --extensionTestsPath |  A path to a test module to run. |
+| --permission|  Permission granted to the opened browser: e.g. `clipboard-read`, `clipboard-write`.  See [full list of options](https://playwright.dev/docs/api/class-browsercontext#browser-context-grant-permissions). Argument can be provided multiple times.  |
+| --folder-uri | URI of the workspace to open VS Code on. Ignored when `folderPath` is provided |
+| --extensionPath | A path pointing to a folder containing additional extensions to include. Argument can be provided multiple times. |
+| folderPath |  A local folder to open VS Code on. The folder content will be available as a virtual file system and opened as workspace. |
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
 
