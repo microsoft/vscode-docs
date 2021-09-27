@@ -19,6 +19,8 @@ See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#o
 
 ### Update the mount consistency to 'delegated' for macOS
 
+> **Note:** This tweak doesn't apply to newer Docker versions, where gRPC FUSE is used by default for file sharing
+
 By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
 
 When using a **Dockerfile or image**, update the **Remote > Containers: Workspace Mount Consistency** property in settings to `delegated`:
