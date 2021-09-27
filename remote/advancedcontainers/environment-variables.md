@@ -33,9 +33,11 @@ Depending on what you reference in `devcontainer.json`:
 
     As this example illustrates, `containerEnv` can reference local variables and `remoteEnv` can reference both local and existing container variables.
 
-## Video: Modify PATH in a dev container
+### Video: Modify PATH in a dev container
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vEb7hKlagAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<br>
 
 * **Docker Compose**: Since Docker Compose has built-in support for updating container-wide variables, only `remoteEnv` is supported in `devcontainer.json`:
 
@@ -94,6 +96,6 @@ Next, depending on what you reference in `devcontainer.json`:
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
-## Video: Load variables from an .env file
+### Video: Load variables from an .env file
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qTU7w3bWrOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
