@@ -173,6 +173,8 @@ There are also extensions available that give more options such as [Terminal Her
 
 Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
 
+We've added an experimental setting `terminal.integrated.persistentSessionReviveProcess`, which determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shutdown (eg. on window or application close). Restoring of the process current working directory depends on whether it is supported by the shell.
+
 ## Links
 
 The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as "low confidence" links, which only show an underline when is held. These low confidence links will search the workspace for the term, opening the match if one is found.
