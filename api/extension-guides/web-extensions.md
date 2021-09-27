@@ -255,7 +255,7 @@ The `vscode-test-web` utility downloads the web bits of VS Code, starts a local 
 If you have `@vscode/test-web` installed as a development dependency, you can test the web extension in a browser from the command line.
 
 ```bash
-npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=.
+npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ./test-data
 ```
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
@@ -328,12 +328,12 @@ export function run(): Promise<void> {
 To run the web test from the command line, run the following command in the extension folder:
 
 ```bash
-npx vscode-test-web --browserType=webkit --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js
+npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js
 ```
 
 (or use `npm test`)
 
-Supported values for `browserType` are `chromium`, `firefox`, and `webkit`.
+To open VS Code on a folder with test data, pass a local folder path (`folderPath`) as the last parameter.
 
 To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Extension Tests in VS Code` launch configuration:
 
