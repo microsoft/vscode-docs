@@ -9,7 +9,7 @@ DateApproved: 9/20/2021
 ---
 # Add another local file mount
 
-> **Note:** Mounting the local file system is not supported in GitHub Codespaces. See [developing inside a container on a remote Docker host](#developing-inside-a-container-on-a-remote-docker-host) for information on mounting remote folders in this scenario.
+> **Note:** Mounting the local file system is not supported in GitHub Codespaces. See [developing inside a container on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) for information on mounting remote folders in this scenario.
 
 You can add a volume bound to any local folder by using the following appropriate steps, based on what you reference in `devcontainer.json`:
 

@@ -822,7 +822,7 @@ Let's set up a container for use with all of the Python projects in the `./Repos
 
     ![Container explorer with multiple folders under python container](images/containers/containers-explorer-python.png)
 
-> **Tip:** Instead of mounting the local filesystem, you can use a similar flow to set up a container with an isolated, more performant volume that you clone your source code into. See the [Advanced Containers](/docs/remote/containers-advanced.md#use-a-named-volume-for-your-entire-source-tree) article for details.
+> **Tip:** Instead of mounting the local filesystem, you can use a similar flow to set up a container with an isolated, more performant volume that you clone your source code into. See the [advanced disk configuration](#use-a-named-volume-for-your-entire-source-tree) section for details.
 
 ## Developing inside a container on a remote Docker host
 
