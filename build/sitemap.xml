@@ -786,11 +786,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/remote/containers-advanced</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/remote/devcontainer-cli</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -907,6 +902,88 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/other/office</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- /remote -->
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/change-default-source-mount</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/configure-separate-containers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/environment-variables</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/improve-performance</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/persist-bash-history</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/questions-feedback</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/reduce-docker-warnings</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/set-docker-compose-project-name</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/start-processes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
