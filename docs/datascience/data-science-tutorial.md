@@ -247,7 +247,7 @@ A neural network is a model that uses weights and activation functions, modeling
 1. With the model built and trained its now time to see how it performs against the test data.
 
    ```python
-   y_pred = model.predict_classes(X_test)
+   y_pred = np.argmax(model.predict(X_test), axis=-1)
    print(metrics.accuracy_score(y_test, y_pred))
    ```
 
