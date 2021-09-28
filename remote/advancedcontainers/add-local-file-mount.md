@@ -30,6 +30,12 @@ You can add a volume bound to any local folder by using the following appropriat
     ]
     ```
 
+### Video: Add additional folders from your local machine to a dev container
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L1-dx-ZD0Ao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><br>
+
 * **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yaml
