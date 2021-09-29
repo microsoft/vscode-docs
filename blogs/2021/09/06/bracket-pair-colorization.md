@@ -36,7 +36,8 @@ CoenraadS was aware of this performance issue and spent a great amount of effort
 
 ![A video of VS Code showing that the extension needs more than 10 seconds to process the text change in checker.ts](./checker_ts-extension.gif)
 
-While we would have loved to just improve the performance of the extension (which certainly would have required introducing more advanced APIs, optimized for high-performance scenarios), the asynchronous communication between the renderer and the extension-host severely limits how fast bracket pair colorization can be. In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering. A discussion of this can be found [here](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
+While we would have loved to just improve the performance of the extension (which certainly would have required introducing more advanced APIs, optimized for high-performance scenarios), the asynchronous communication between the renderer and the extension-host severely limits how fast bracket pair colorization can be when implemented as an extension. This limit cannot be overcome.
+In particular, bracket pair colors should not be requested asynchronously as soon as they appear in the viewport, as this would have caused visible flickering when scrolling through large files. A discussion of this can be found [here](https://github.com/microsoft/vscode/issues/128465#issuecomment-879089188).
 
 ### What We Did
 
@@ -47,6 +48,8 @@ The feature can be enabled by adding the setting `"editor.bracketPairColorizatio
 Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs. Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
 
 ![A video of VS Code showing that the native implementation needs less than a millisecond to process the text change in checker.ts](./checker_ts-native.gif)
+
+Once we decided we move it into core, we also took the opportunity to look into how to make it as fast as we can. Who wouldn’t love an algorithmic challenge?
 
 Without being limited by public API design, we could use (2,3)-trees, recursion-free tree-traversal, bit-arithmetic, incremental parsing and other techniques to reduce the extension's worst-case update [time-complexity](https://en.wikipedia.org/wiki/Time_complexity) (i.e. the time required to process user-input when a document already has been opened) from $\mathcal{O}(N + E)$ to $\mathcal{O}(\mathrm{log}^3 N + E)$ with $N$ being the document size and $E$ the edit size, assuming the nesting level of bracket pairs is bounded by $\mathcal{O}(\mathrm{log} N)$.
 
