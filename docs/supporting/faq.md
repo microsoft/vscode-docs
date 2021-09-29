@@ -244,13 +244,14 @@ To work around this, when launched via a UI gesture, VS Code will start a small 
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-If the error indicates that resolving your shell environment takes long, the easiest way to investigate this is to:
+If the error message indicates that resolving your shell environment took too long, the easiest way to investigate this is to:
 
-* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in quick open).
+* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open).
 * Selectively comment out potentially long running operations.
-* Save and fully restart VS Code until the warning or error disappears.
+* Save and fully restart VS Code.
+* Continue commenting out operations until the error disappears.
 
-If you see other errors, please create an issue over at https://github.com/microsoft/vscode/issues to get help.
+If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
 
 ## Technical Support
 

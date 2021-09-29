@@ -309,19 +309,17 @@ To disable JavaScript/TypeScript support, go to the Extensions view (`kb(workben
 
 ![TypeScript and JavaScript Language Features extension](images/working-with-javascript/disable-TS-language.png)
 
-## Partial IntelliSense Mode
+## Partial IntelliSense mode
 
-VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what make features such as auto-imports and `go to definition` possible. However there are some cases where VS Code is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
+VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what make features such as auto-imports and **Go to Definition** possible. However, there are some cases where VS Code is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
 
 This can happen in a few instances:
 
-- You are working with JavaScript or TypeScript code on `github.dev`.
-
-- You open a file from a virtual file system (such using [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub)).
-
+- You are working with JavaScript or TypeScript code on [github.dev](https://docs.github.com/codespaces/developing-in-codespaces/web-based-editor) and VS Code is running in the browser.
+- You open a file from a virtual file system (such as when using the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension).
 - The project is currently loading. Once loading completes, you will start getting project-wide IntelliSense for it.
 
-In these cases, VS Code's IntelliSense will operate in 'partial mode'. Partial mode tries its best to provide IntelliSense for any JavaScript or TypeScript files have you open, but is limited and is not able to offer any cross-file IntelliSense features.
+In these cases, VS Code's IntelliSense will operate in **partial mode**. Partial mode tries its best to provide IntelliSense for any JavaScript or TypeScript files you have open, but is limited and is not able to offer any cross-file IntelliSense features.
 
 ### Which features are impacted?
 
@@ -330,9 +328,9 @@ Here's an incomplete list of features that are either disabled or have more limi
 - All opened files are treated as part of a single project.
 - Configuration options from your `jsconfig` or `tsconfig` (such as `target`) are not respected.
 - Only syntax errors are reported. Semantic errors — such as accessing an unknown property or passing the wrong type to a function — are not reported.
-- Quick fixes for semantic errors are disabled.
+- Quick Fixes for semantic errors are disabled.
 - Symbols can only be resolved within the current file. Any symbols imported from other files will be treated as being of the `any` type.
-- Commands such as `Go to definition` and `find all references` will only work for opened files instead of across the entire entire project. This also means that symbol from any packages you install under `node_module` will not be resolved.
+- Commands such as **Go to Definition** and **Find All References** will only work for opened files instead of across the entire entire project. This also means that symbol from any packages you install under `node_module` will not be resolved.
 - Workspace symbol search will only include symbols from currently opened files.
 - Auto imports are disabled.
 - Renaming is disabled.
@@ -340,7 +338,7 @@ Here's an incomplete list of features that are either disabled or have more limi
 
 Some additional features are disabled on `github.dev`:
 
-- [Automatic type acquisition](/docs/nodejs/working-with-javascript#typings-and-automatic-type-acquisition)) is currently not supported.
+- [Automatic type acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) is currently not supported.
 
 ### Checking if you are in partial mode
 
