@@ -1,7 +1,7 @@
 ---
 Order: 67
 TOCTitle: Bracket Pair Colorization
-PageTitle: How We Made Bracket Pair Colorization 10,000x Faster In VS Code
+PageTitle: How We Made Bracket Pair Colorization 10,000x Faster In Visual Studio Code
 MetaDescription: How we made bracket pair colorization in Visual Studio Code up to 10,000 times faster.
 Date: 2021-09-29
 Author: Henning Dieterichs
@@ -11,7 +11,7 @@ HasLaTeX: true
 
 September 29, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hediet_dev)
 
-When dealing with deeply nested brackets in VS Code, it can be hard to figure out which brackets match and which do not.
+When dealing with deeply nested brackets in Visual Studio Code, it can be hard to figure out which brackets match and which do not.
 
 To make this easier, in 2016, a user named CoenraadS developed the awesome [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension to colorize matching brackets and published it to the VS Code Marketplace. This extension became very popular and now is one of the 10 most downloaded extensions on the Marketplace, with over 6 million installs.
 
