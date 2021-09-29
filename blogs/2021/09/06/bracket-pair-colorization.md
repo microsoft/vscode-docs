@@ -23,14 +23,14 @@ The Bracket Pair Colorizer extension is a good example of the power of VS Code's
 
 ![Two screenshots of the same code opened in VS Code. In the first screenshot, bracket pair colorization is disabled, in the second screenshot, it is enabled](./on-off-comparison.drawio.svg)
 
-We are pleased to see that the VS Code Marketplace offers many more such community-provided extensions, all of which help identify matching bracket pairs in very creative ways, including: [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets), [Subtle Match Brackets](https://marketplace.visualstudio.com/items?itemName=rafamel.subtle-brackets), [Bracket Highlighter](https://marketplace.visualstudio.com/items?itemName=Durzn.brackethighlighter), [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman), and [Bracket Lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens)!
+We are pleased to see that the VS Code Marketplace offers many more such community-provided extensions, all of which help identify matching bracket pairs in very creative ways, including: [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets), [Subtle Match Brackets](https://marketplace.visualstudio.com/items?itemName=rafamel.subtle-brackets), [Bracket Highlighter](https://marketplace.visualstudio.com/items?itemName=Durzn.brackethighlighter), [Blockman](https://marketplace.visualstudio.com/items?itemName=leodevbro.blockman), and [Bracket Lens](https://marketplace.visualstudio.com/items?itemName=wraith13.bracket-lens).
 This variety of extensions shows that there is a real desire by VS Code users to get better support for brackets.
 
 ### The Performance Problem
 
 Unfortunately, the non-incremental nature of the Decoration API and missing access to VS Code's token information causes the Bracket Pair Colorizer extension to be slow on large files: when inserting a single bracket at the beginning of the [checker.ts](https://github.com/microsoft/TypeScript/blob/8362a0f929d74ff46828016ec67c05744a8dbb3c/src/compiler/checker.ts) file of the TypeScript project, which has more than 42k lines of code, it takes about 10 seconds until the colors of all bracket pairs update.
 During these 10 seconds of processing, the extension host process burns at 100% CPU and all features that are powered by extensions, such as auto-completion or diagnostics, stop functioning. Luckily, [VS Code's architecture](https://code.visualstudio.com/api/advanced-topics/extension-host#stability-and-performance)
-ensures that the UI remains responsive and documents can still be saved to disk!
+ensures that the UI remains responsive and documents can still be saved to disk.
 
 CoenraadS was aware of this performance issue and spent a great amount of effort on increasing speed and accuracy in version 2 of the extension, by reusing the token and bracket parsing engine from VS Code. However, VS Code's API and extension architecture was not designed to allow for high performance bracket pair colorization when hundreds of thousands of bracket pairs are involved. Thus, even in Bracket Pair Colorizer 2, it takes some time until the colors reflect the new nesting levels after inserting `{` at the beginning of the file:
 
@@ -40,11 +40,11 @@ While we would have loved to just improve the performance of the extension (whic
 
 ### What We Did
 
-Instead, [in the 1.60 update](https://code.visualstudio.com/updates/v1_60#_high-performance-bracket-pair-colorization), we re-implemented the extension in the core of VS Code and could bring this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster!
+Instead, [in the 1.60 update](https://code.visualstudio.com/updates/v1_60#_high-performance-bracket-pair-colorization), we re-implemented the extension in the core of VS Code and could bring this time down to less than a millisecond - in this particular example, that is more than 10,000 times faster.
 
 The feature can be enabled by adding the setting `"editor.bracketPairColorization.enabled": true`.
 
-Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs! Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
+Now, updates are no longer noticeable, even for files with hundreds of thousands of bracket pairs. Notice how the bracket-color in line 42,788 reflects the new nesting level immediately after typing `{` in line 2:
 
 ![A video of VS Code showing that the native implementation needs less than a millisecond to process the text change in checker.ts](./checker_ts-native.gif)
 
@@ -74,7 +74,7 @@ As demonstrated earlier, this is slow for large documents with hundreds of thous
 
 Our goal is not having to reprocess the entire document on each key-stroke. Instead, the time required to process a single text edit should only grow ([poly](https://en.wikipedia.org/wiki/Polylogarithmic_function)) logarithmically with the document length.
 
-However, we still want to be able to query all brackets and their nesting level in the viewport in (poly) logarithmic time, as it would be the case when using VS Code's decoration API (which uses the mentioned interval tree)!
+However, we still want to be able to query all brackets and their nesting level in the viewport in (poly) logarithmic time, as it would be the case when using VS Code's decoration API (which uses the mentioned interval tree).
 
 ### Algorithmic Complexities
 
@@ -94,19 +94,20 @@ In particular, we don't want to detect opening or closing brackets in comments o
 { /* } */ char str[] = "}"; }
 ```
 
-Only the third occurrence of "`}`" closes the bracket pair!
+Only the third occurrence of "`}`" closes the bracket pair.
 
 This gets even harder for languages where the token language is not regular, such as TypeScript with JSX:
 
 ![Screenshot of TypeScript code, showing a function that contains a template literal with nested expressions. The template literal also contains a closing bracket at position 2. The function starts with the bracket at 1 and ends with the bracket at 3.](./tokens-example.dio.svg)
 
-Does the bracket at [1] match the bracket at [2] or at [3]? This depends on the length of the template literal expression, which only a tokenizer with unbounded state (i.e. a non-regular tokenizer) can determine correctly!
+Does the bracket at [1] match the bracket at [2] or at [3]? This depends on the length of the template literal expression, which only a tokenizer with unbounded state (i.e. a non-regular tokenizer) can determine correctly.
 
 ### Tokens for the Rescue
 
 Luckily, syntax highlighting has to solve a similar problem: should the bracket at [2] in the previous code snippet be rendered as string or as plain text?
 
-As it turns out, just ignoring brackets in comments and strings as identified by syntax highlighting works well enough for most bracket pairs! `<` ... `>` is the only problematic pair we found so far, as these brackets are usually both used for comparisons and as pair for generic types, while having the same token type.
+As it turns out, just ignoring brackets in comments and strings as identified by syntax highlighting works well enough for most bracket pairs.
+`<` ... `>` is the only problematic pair we found so far, as these brackets are usually both used for comparisons and as pair for generic types, while having the same token type.
 
 VS Code already has an efficient and synchronous mechanism to maintain token information used for syntax highlighting and we can reuse that to identify opening and closing brackets.
 
@@ -118,7 +119,7 @@ As a side note, when applying an edit at the beginning of a document that change
 
 The core idea is to use a [recursive decent parser](https://en.wikipedia.org/wiki/Recursive_descent_parser) to build an [abstract syntax tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree) that describes the structure of all bracket pairs. When a bracket is found, check the token information and skip the bracket if it is in a comment or string. A tokenizer allows the parser to peek and read such bracket or text tokens.
 
-The trick is now to only store the length of each node (and also to have text-nodes for everything that is not a bracket to cover the gaps), instead of storing absolute start/end positions. With only lengths available, a bracket node at a given position can still be located efficiently in the AST!
+The trick is now to only store the length of each node (and also to have text-nodes for everything that is not a bracket to cover the gaps), instead of storing absolute start/end positions. With only lengths available, a bracket node at a given position can still be located efficiently in the AST.
 
 The following diagram shows an exemplary AST with length annotations:
 
@@ -132,7 +133,7 @@ Both ASTs describe the same document, but when traversing the first AST, the abs
 
 However, when inserting a single character into the first tree, only the lengths of the node itself and all its parent nodes must be updated - all other lengths stay the same.
 
-When absolute positions are stored as in the second tree, the position of *every* node later in the document must be incremented!
+When absolute positions are stored as in the second tree, the position of *every* node later in the document must be incremented.
 
 Also, by not storing absolute offsets, leaf nodes having the same length can be shared to avoid allocations.
 
@@ -206,13 +207,13 @@ class ListAST {
 
 How does that improve the situation?
 
-If we can ensure that each list only has a bounded amount of children and resembles a balanced tree of logarithmic height, it turns out that this is sufficient to get the desired logarithmic performance for querying brackets!
+If we can ensure that each list only has a bounded amount of children and resembles a balanced tree of logarithmic height, it turns out that this is sufficient to get the desired logarithmic performance for querying brackets.
 
 ### Keeping List Trees Balanced
 
 We use [(2,3)-trees](https://en.wikipedia.org/wiki/2%E2%80%933_tree) to enforce that these lists are balanced: every list must have at least 2 and at most 3 children, and all children of a list must have the same height in the balanced list tree. Note that a bracket pair is considered a leaf of height 0 in the balanced tree, but it might have children in the AST.
 
-When constructing the AST from scratch during initialization, we first collect all children and then convert them to such a balanced tree. This can be done in linear time!
+When constructing the AST from scratch during initialization, we first collect all children and then convert them to such a balanced tree. This can be done in linear time.
 
 A possible (2,3)-tree of the example before could look like the following. Note that we now only need to look at 8 nodes (in blue) to find the bracket pair at position 24 and that there is some freedom whether a list has 2 or 3 children:
 
@@ -271,7 +272,7 @@ The most interesting question of performant bracket pair colorization remains op
 
 The idea is to reuse the recursive decent parser used for initialization and add a caching strategy, so that nodes which aren't affected by the text edit can be reused and skipped.
 
-When the recursive decent parser parses a list of bracket pairs at position $p$ and the next edit is at position $e$, it first checks if the previous AST has a node with a length of at most $e - p$ at the position where $p$ used to be before the text change. If this is the case, this node does not need to be reparsed and the underlying tokenizer can just be advanced by the length of the node! After consuming the node, parsing continues. Note that this node can both be a single bracket pair or an entire list! Also, if there are multiple such reusable nodes, the longest one should be taken.
+When the recursive decent parser parses a list of bracket pairs at position $p$ and the next edit is at position $e$, it first checks if the previous AST has a node with a length of at most $e - p$ at the position where $p$ used to be before the text change. If this is the case, this node does not need to be reparsed and the underlying tokenizer can just be advanced by the length of the node. After consuming the node, parsing continues. Note that this node can both be a single bracket pair or an entire list. Also, if there are multiple such reusable nodes, the longest one should be taken.
 
 The following example shows which nodes can be reused (in green) when a single opening bracket is inserted (omitting individual bracket nodes):
 
@@ -351,7 +352,7 @@ Because tokens are computed synchronously in the renderer process, retokenizatio
 
 Instead, tokens are updated in batches over time, so that the JavaScript event loop is not blocked for too long. While this approach does not reduce the total blocking time, it improves the responsiveness of the UI during the update. The same mechanism is also used when initially tokenizing a document.
 
-Fortunately, due to the incremental update mechanism of the bracket pair AST, we can immediately apply such a batched token update by treating the update as a single text edit that replaces the range that got retokenized with itself. Once all token updates came in, the bracket pair AST is guaranteed to be in the same state as if it had been created from scratch - even if the user edits the document while retokenization is in progress!
+Fortunately, due to the incremental update mechanism of the bracket pair AST, we can immediately apply such a batched token update by treating the update as a single text edit that replaces the range that got retokenized with itself. Once all token updates came in, the bracket pair AST is guaranteed to be in the same state as if it had been created from scratch - even if the user edits the document while retokenization is in progress.
 
 That way, not only tokenization is performant even if all tokens in the document change, but also bracket pair colorization.
 
@@ -417,13 +418,13 @@ To support this kind of error recovery, anchor sets can be used to track the set
 
 In the very first example, the anchor set at [2] is $\{$ `)` $\}$, but the unexpected character is `}`. Because it is not part of the anchor set, it is reported as unopened bracked.
 
-This needs to be considered when reusing nodes: the pair `( } )` cannot be reused when prepending it with `{`! We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
+This needs to be considered when reusing nodes: the pair `( } )` cannot be reused when prepending it with `{`. We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
 
 ## Outlook
 
 Efficient bracket pair colorization was a fun challenge. With the new data structures, we can also solve other problems related to bracket pairs more efficiently, such as [general bracket matching](https://code.visualstudio.com/docs/editor/editingevolved#_bracket-matching) or [showing colored line scopes](https://github.com/microsoft/vscode/issues/131001).
 
-Even though JavaScript might not be the best language to write high performant code, a lot of speed can be gained by reducing asymptotic algorithmic complexity, especially when dealing with large inputs!
+Even though JavaScript might not be the best language to write high performant code, a lot of speed can be gained by reducing asymptotic algorithmic complexity, especially when dealing with large inputs.
 
 Happy Coding!
 
