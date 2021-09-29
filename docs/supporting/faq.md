@@ -250,6 +250,8 @@ If the error indicates that resolving your shell environment takes long, the eas
 * Selectively comment out potentially long running operations.
 * Save and fully restart VS Code until the warning or error disappears.
 
+If you see other errors, please create an issue over at https://github.com/microsoft/vscode/issues to get help.
+
 ## Technical Support
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md).
