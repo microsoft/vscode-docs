@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: advancedcontainers
 TOCTitle: Start processes
 PageTitle: Start a processes when a container starts
@@ -15,9 +15,11 @@ When you are working in a development container, you may want to execute a comma
 "postStartCommand": "yarn install"
 ```
 
-## Video: Run npm install when a container is created
+### Video: Run npm install when a container is created
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9qRy_kxVCK8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><br>
 
 In other cases, you may want to start up a process and leave it running. This can be accomplished by using `nohup` and putting the process into the background using `&`.  For example:
 
@@ -25,9 +27,11 @@ In other cases, you may want to start up a process and leave it running. This ca
 "postStartCommand": "nohup bash -c 'your-command-here &'"
 ```
 
-## Video: Run 'npm start' whenever the container is started
+### Video: Run 'npm start' whenever the container is started
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zFzPnWgBx_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><br>
 
 Those familiar with Linux may expect to be able to use the `systemctl` command to start and stop background services managed by something called `systemd`. Unfortunately, `systemd` has overhead and is generally not used in containers as a result.
 
@@ -43,7 +47,7 @@ These systems also include a `service` command that will use `systemctl` or `/et
 "postStartCommand": "service ssh start"
 ```
 
-## Video: Start SSH service in a container
+### Video: Start SSH service in a container
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KuSNpZgDYDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

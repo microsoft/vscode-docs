@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: advancedcontainers
 TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers
@@ -20,7 +20,7 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
     && echo $SNIPPET >> "/root/.bashrc"
 ```
 
-If you have a non-root user, update your `Dockerfile` with the following. Replace `user-name-goes-here` with the name of a [non-root user](#adding-a-nonroot-user-to-your-dev-container) in the container.
+If you have a non-root user, update your `Dockerfile` with the following. Replace `user-name-goes-here` with the name of a [non-root user](/remote/advancedcontainers/add-nonroot-user.md) in the container.
 
 ```Dockerfile
 ARG USERNAME=user-name-goes-here
