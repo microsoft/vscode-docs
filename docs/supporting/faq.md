@@ -232,7 +232,7 @@ VS Code does a background check to detect if the installation has been changed o
 
 You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
-## Resolving Shell Environment is Slow (Error, Warning)
+## Resolving Shell Environment fails
 
 *This section applies to macOS and Linux environments only.*
 
@@ -240,11 +240,11 @@ When VS Code is launched from a terminal (for example, via `code .`), it has acc
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after 10 seconds, the shell environment has still not been resolved, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see the following error:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after 10 seconds, the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-The easiest way to investigate delays in your startup file is to:
+If the error indicates that resolving your shell environment takes long, the easiest way to investigate this is to:
 
 * Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in quick open).
 * Selectively comment out potentially long running operations.
