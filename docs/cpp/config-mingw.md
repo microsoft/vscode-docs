@@ -43,7 +43,7 @@ g++ --version
 gdb --version
 ```
 
-If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compilers are located.
+If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compilers are located. If the compilers do not exist at that PATH entry, make sure you followed the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
 
 ## Create Hello World
 
@@ -341,6 +341,12 @@ The `compilerPath` search order is:
 * Then g++ for Mingw-w64.
 
 If you have Visual Studio or WSL installed, you may need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed Mingw-w64 version 8.1.0 using the i686 architecture, Win32 threading, and sjlj exception handling install options, the path would look like this: `C:\Program Files (x86)\mingw-w64\i686-8.1.0-win32-sjlj-rt_v6-rev0\mingw64\bin\g++.exe`.
+
+## Troubleshooting
+
+### MSYS2 is installed, but g++ and gdb are still not found
+
+You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install Mingw-w64, which contains those tools.
 
 ## Next steps
 
