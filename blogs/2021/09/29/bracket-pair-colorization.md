@@ -7,7 +7,7 @@ Date: 2021-09-29
 Author: Henning Dieterichs
 HasLaTeX: true
 ---
-# How we made bracket pair colorization 10,000x faster
+# Bracket pair colorization 10,000x faster
 
 September 29, 2021 by Henning Dieterichs, [@hediet_dev](https://twitter.com/hediet_dev)
 
@@ -59,7 +59,7 @@ Besides being more performant, the new implementation is also supported in VS Co
 
 Not only does our new implementation work in VS Code for the Web, but also directly in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)!
 
-## The challenge Of bracket pair colorization
+## The challenge of bracket pair colorization
 
 Bracket pair colorization is all about quickly determining all brackets and their (absolute) nesting level in the viewport. The viewport can be described as a range in the document in terms of line and column numbers and is usually a tiny fraction of the entire document.
 
@@ -420,7 +420,7 @@ In the first example, the anchor set at [2] is $\{$ `)` $\}$, but the unexpected
 
 This needs to be considered when reusing nodes: the pair `( } )` cannot be reused when prepending it with `{`. We use bit-sets to encode anchor sets and compute the set of containing unopened brackets for every node. If they intersect, we cannot reuse the node. Luckily, there are only a few bracket types, so this does not affect performance too much.
 
-## Outlook
+## Going forward
 
 Efficient bracket pair colorization was a fun challenge. With the new data structures, we can also solve other problems related to bracket pairs more efficiently, such as [general bracket matching](https://code.visualstudio.com/docs/editor/editingevolved#_bracket-matching) or [showing colored line scopes](https://github.com/microsoft/vscode/issues/131001).
 
