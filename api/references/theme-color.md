@@ -277,6 +277,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
 - `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
 - `editorPane.background`: Background color of the editor pane visible on the left and right side of the centered editor layout.
+- `sideBySideEditor.border`: Color to separate two editors from each other when shown side by side in an editor group.
 
 ## Editor colors
 
