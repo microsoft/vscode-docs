@@ -43,7 +43,7 @@ You can alter your configuration to do things such as:
 * Forward or publish additional ports.
 * Set runtime arguments.
 * Reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
-* Add more [advanced container configurations](/docs/remote/containers-advanced.md).
+* Add more [Advanced container configuration](/remote/advancedcontainers/overview.md).
 
 For this example, if you'd like to install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
 
@@ -71,11 +71,11 @@ Through a `devcontainer.json` file, you can:
 
 * Spin up a stand-alone container to isolate your toolchain or speed up setup.
 * Work with a container deployed application defined by an image, [Dockerfile](#dockerfile), or [Docker Compose](#use-docker-compose).
-* [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
+* [Use Docker or Kubernetes](/remote/advancedcontainers/use-docker-kubernetes.md) from inside a dev container to build and deploy your app.
 
 If `devcontainer.json`'s supported workflows do not meet your needs, you can also [attach to an already running container instead](/docs/remote/attach-container.md).
 
-> **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
+> **Tip:** Want to use a remote Docker host? See the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for details on setup.
 
 ## Install additional software
 
@@ -93,7 +93,7 @@ apt-get update
 apt-get install <package>
 ```
 
-If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article can help you set this up for your own containers. Regardless, if you install and configure `sudo`, you'll be able to use it when running as any user including root.
+If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Add a non-root user to a container](/remote/advancedcontainers/add-nonroot-user.md) article can help you set this up for your own containers. Regardless, if you install and configure `sudo`, you'll be able to use it when running as any user including root.
 
 ```bash
 # If sudo is installed and configured
@@ -217,7 +217,7 @@ You can either:
 1. Work with a service defined in an existing, unmodified `docker-compose.yml`.
 2. Create a new `docker-compose.yml` (or make a copy of an existing one) that you use to develop a service.
 3. [Extend your existing Docker Compose configuration](#extend-your-docker-compose-file-for-development) to develop the service.
-4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) at once.
+4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/remote/advancedcontainers/connect-multiple-containers.md) at once.
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
@@ -284,7 +284,7 @@ volumes:
   - ..:/workspace:cached
 ```
 
-However, on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
+However, on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/remote/advancedcontainers/add-nonroot-user.md) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
 
 ```json
 "remoteUser": "your-user-name-here"
@@ -455,5 +455,5 @@ Once in place, the configuration will be automatically picked up when using any 
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Advanced Containers](/docs/remote/containers-advanced.md) - Find solutions to advanced container scenarios.
+* [Advanced Containers](/emote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.

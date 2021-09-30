@@ -31,15 +31,16 @@ The following table shows which extension hosts are available in the various con
 ### Extension Host runtimes
 
 * Node.js - Extensions are running in a Node.js runtime. Used by the local and remote extension hosts. Extensions need a `main` entry file to run in it.
-* Browser - Extensions are running in [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it. See the [Web extensions guide](/api/extension-guides/web-extensions.md) for more details.
+* Browser - Extensions are running in [Browser WebWorker](https://developer.mozilla.org/docs/Web/API/Web_Workers_API) runtime. Used by the web extension host. Extensions need a `browser` entry file to run in it. See the [Web extensions guide](/api/extension-guides/web-extensions) for more details.
 
 ### Preferred extension location
 
-The extension host where an extension is loaded depends on
- * the available extension hosts given by the configuration of VS Code
- * the capabilities of the extension: Can it run in Node.js, and/or the web, if none, what contributions does it make
- * where is the extension installed. On the local machine, on the remote machine or both
- * the location the extension prefers: the `extensionKind` property
+The extension host where an extension is loaded depends on:
+
+* The available extension hosts given by the configuration of VS Code.
+* The capabilities of the extension: Can it run in Node.js, and/or the web, or if not indicated, what contributions does it provide?
+* Where is the extension installed: On the local machine, on the remote machine, or both.
+* The location the extension prefers: the `extensionKind` property.
 
 `extensionKind` is a property in the [extension manifest](/api/references/extension-manifest). It allows extensions to specify a preferred running location. That can be the machine that has the workspace (`workspace`) or the user interface (`ui`). If an extension can run on both, it can specify an order of preference.
 

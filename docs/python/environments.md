@@ -125,7 +125,7 @@ The **Python: Select Interpreter** command displays a list of available global e
 
 If you have a folder or a workspace open in VS Code and you select an interpreter from the list, the Python extension will store that information internally so that the same interpreter will be used once you reopen the workspace.
 
-The Python extension uses the selected environment for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Integrated Terminal** command. In the latter case, VS Code automatically activated the selected environment.
+The Python extension uses the selected environment for running Python code (using the **Python: Run Python File in Terminal** command), providing language services (auto-complete, syntax checking, linting, formatting, etc.) when you have a `.py` file open in the editor, and opening a terminal with the **Terminal: Create New Terminal** command. In the latter case, VS Code automatically activated the selected environment.
 
 > **Tip**: To prevent automatic activation of a selected environment, add  `"python.terminal.activateEnvironment": false` to your `settings.json` file (it can be placed anywhere as a sibling to the existing settings).
 
@@ -214,9 +214,9 @@ By using an environment variable, you can easily transfer a project between oper
 
 ### Environments and Terminal windows
 
-After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. The environment is also activated automatically when you use the **Terminal: Create New Integrated Terminal** command unless you change the `python.terminal.activateEnvironment` setting to `false`.
+After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. The environment is also activated automatically when you use the **Terminal: Create New Terminal** command unless you change the `python.terminal.activateEnvironment` setting to `false`.
 
-However, launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Integrated Terminal. Use the **Terminal: Create New Integrated Terminal** command after VS Code is running.
+However, launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Integrated Terminal. Use the **Terminal: Create New Terminal** command after VS Code is running.
 
 > **Note:** conda environments cannot be automatically activated in the integrated terminal if PowerShell is set as the integrated shell. See [Integrated terminal - Configuration](/docs/editor/integrated-terminal.md#configuration) for how to change the shell.
 

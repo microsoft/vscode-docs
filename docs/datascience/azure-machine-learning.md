@@ -23,7 +23,7 @@ The [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName
 
 The Azure Machine Learning VS Code extension makes it easy to connect to and access resources in compute instances in real-time. For more information, see [connect to an Azure Machine Learning compute instance](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-vs-code-remote?tabs=extension).
 
-## Azure Machine Learning 2.0 CLI support
+## Azure Machine Learning 2.0 CLI support (preview)
 
 The Azure Machine Learning 2.0 CLI enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 

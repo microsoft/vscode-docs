@@ -795,9 +795,51 @@ function getWebviewContent() {
 
 For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global scope.
 
+### Using Web Workers
+
+[Web Workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers) are supported inside of webviews but there are a few important restrictions to be aware of.
+
+First off, workers can only be loaded using either a `data:` or `blob:` URI. You cannot directly load a worker from your extension's folder.
+
+If you do need to load worker code from a JavaScript file in your extension, try using `fetch`:
+
+```js
+const workerSource = 'absolute/path/to/worker.js';
+
+fetch(workerSource)
+  .then(result => result.blob())
+  .then(blob => {
+    const blobUrl = URL.createObjectURL(blob)
+    new Worker(blobUrl);
+  });
+```
+
+Worker scripts also do not support importing source code using `importScripts` or `import(...)`. If your worker loads code dynamically, try using a bundler such as [webpack](https://webpack.js.org) to package the worker script into a single file.
+
+With `webpack`, you can use `LimitChunkCountPlugin` to force the compiled worker JavaScript to be a single file:
+
+```js
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+  target: 'webworker',
+  entry: './worker/src/index.js',
+  output: {
+    filename: 'worker.js',
+    path: path.resolve(__dirname, 'media'),
+  },
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
+  ],
+};
+```
+
 ## Security
 
-As with any webpage, when creating a webview you must follow some basic security best practices.
+As with any webpage, when creating a webview, you must follow some basic security best practices.
 
 ### Limit capabilities
 

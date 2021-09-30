@@ -200,7 +200,7 @@ The `*` activation event is emitted and interested extensions will be activated 
 
 ## onStartupFinished
 
-This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup.
+This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup. Currently, this event is emitted after all the `*` activated extensions have finished activating.
 
 ```json
 ...
