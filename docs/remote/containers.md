@@ -253,6 +253,18 @@ When you rebuild and reopen in your container, the features you selected will be
 
 The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library) in the vscode-dev-containers repo.
 
+## Pre-building
+
+You can pre-build images with the tools you need rather than newly creating and building images for each project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
+
+You can use the [devcontainer CLI](/remote/devcontainer-cli.md) to facilitate pre-builds.
+
+The process could be as follows:
+* Create a source code repository
+* Create a dev container configuration, customizing as you wish (including [features](#Dev-container-features))
+* Use the `devcontainer CLI` to build your image (the `devcontainer CLI` supports building images with features)
+* Push your image: `docker push <your_image_name>`
+
 ## Inspecting volumes
 
 Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Explore a Volume in a Development Container...** from the Command Palette (`kbstyle(F1)`).
