@@ -63,6 +63,7 @@ You may need different commands to be run at different points in the container's
 | `onCreateCommand` | string,<br>array | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `userEnvProbe` | enum | Indicates the type of shell VS Code should use to "probe" for user environment variables to use by default while debugging or running a task: `none` (default), `interactiveShell`, `loginShell`, or `loginInteractiveShell`. Interactive shells will typically include variables set in `/etc/bash.bashrc` and `.bashrc` while login shells usually include variables from these "rc" files, `/etc/profile`, and `.profile`. The default is `none`, since the other modes can slow startup. |
 | `devPort` | integer | Allows you to force a specific port that the VS Code Server should use in the container. Defaults to a random, available port. |
+| `features` | object | Scripts to install in the dev container when the container is built. |
 
 If you've already built the container and connected to it, be sure to run **Remote-Containers: Rebuild Container** or **Codespaces: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change.
 
