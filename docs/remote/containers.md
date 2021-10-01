@@ -98,7 +98,11 @@ This quick start covers how to set up a dev container for an existing project to
 
     ![Select a node dev container definition](images/containers/select-dev-container-def.png)
 
-    The list will be automatically sorted based on the contents of the folder you open. Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+    The list will be automatically sorted based on the contents of the folder you open.
+
+    You will also be able to customize your dev container with additional features, which [you can read more about below](#Dev-container-features).
+
+    Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
 3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
 
@@ -230,6 +234,24 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
+
+## Dev container features
+
+Dev container features provide a smooth path for customizizing your container definitions.
+
+When you use **Remote-Containers: Add Development Container Configuration Files**, you'll be presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
+
+![Dev container features in Command Palette](images/containers/container-features.png)
+
+When you rebuild and reopen in your container, the features you added will be available in your `devcontainer.json`:
+
+```json
+"features": {
+		"github-cli": "latest"
+	}
+```
+
+The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library) in the vscode-dev-containers repo.
 
 ## Inspecting volumes
 
