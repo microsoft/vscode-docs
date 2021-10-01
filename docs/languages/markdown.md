@@ -37,7 +37,7 @@ By default, Markdown previews automatically update to preview the currently acti
 
 You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **[Preview]** in the title:
 
-![A locked markdown preview](images/Markdown/locked-preview-title.png)
+![A locked Markdown preview](images/Markdown/locked-preview-title.png)
 
 ### Editor and preview synchronization
 
@@ -102,11 +102,11 @@ For security reasons, VS Code restricts the content displayed in the Markdown pr
 
 When the Markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
 
-![markdown security alert](images/Markdown/security-alert.png)
+![Markdown security alert](images/Markdown/security-alert.png)
 
 You can change what content is allowed in the Markdown preview by clicking on this popup or running the **Markdown: Change preview security settings** command in any Markdown file:
 
-![markdown security selector](images/Markdown/security-selector.png)
+![Markdown security selector](images/Markdown/security-selector.png)
 
 The Markdown preview security settings apply to all files in the workspace.
 
@@ -116,7 +116,7 @@ Here are the details about each of these security levels:
 
 This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images.
 
-It is strongly recommended that you keep `Strict` security enabled unless you have a very good reason to change it AND you trust all markdown files in the workspace.
+It is strongly recommended that you keep `Strict` security enabled unless you have a very good reason to change it AND you trust all Markdown files in the workspace.
 
 ### Allow insecure content
 
@@ -284,7 +284,7 @@ gulp.task('default', function() {
 What is happening here?
 
 1. We are watching for changes to any Markdown file in our workspace, i.e. the current folder open in VS Code.
-2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, i.e. `gulp-markdown-it`.
+2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, `gulp-markdown-it`.
 3. We now have a set of HTML files, each named respectively after their original Markdown file. We then put these files in the same directory.
 
 ### Step 3: Run the gulp default Task
