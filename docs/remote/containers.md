@@ -237,13 +237,13 @@ To learn more about creating `devcontainer.json` files, see [Create a Developmen
 
 ## Dev container features
 
-Dev container features provide a smooth path for customizizing your container definitions.
+Dev container features provide a smooth path for customizing your container definitions.
 
-When you use **Remote-Containers: Add Development Container Configuration Files**, you'll be presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
+When you use **Remote-Containers: Add Development Container Configuration Files**, you're presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
 
 ![Dev container features in Command Palette](images/containers/container-features.png)
 
-When you rebuild and reopen in your container, the features you added will be available in your `devcontainer.json`:
+When you rebuild and reopen in your container, the features you selected will be available in your `devcontainer.json`:
 
 ```json
 "features": {
