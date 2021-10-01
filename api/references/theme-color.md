@@ -895,6 +895,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
 - `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.outputContainerBorderColor`: The border color of the notebook output container.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell
