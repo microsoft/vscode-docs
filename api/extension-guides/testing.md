@@ -173,11 +173,11 @@ function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token:
   // todo
 }
 
-controller.createRunProfile('Run', vscode.TestRunProfileKind.Run, (request, token) => {
+const runProfile = controller.createRunProfile('Run', vscode.TestRunProfileKind.Run, (request, token) => {
   runHandler(false, request, token);
 });
 
-controller.createRunProfile('Debug', vscode.TestRunProfileKind.Debug, (request, token) => {
+const debugProfile = controller.createRunProfile('Debug', vscode.TestRunProfileKind.Debug, (request, token) => {
   runHandler(true, request, token);
 });
 ```
@@ -238,6 +238,25 @@ async function runHandler(request: vscode.TestRunRequest, token: vscode.Cancella
 In addition to the `runHandler`, you can set a `configureHandler` on the `TestRunProfile`. If present, VS Code will have UI to allow the user to configure the test run, and call the handler when they do so. From here, you can open files, show a Quick Pick, or do whatever is appropriate for your test framework.
 
 > VS Code intentionally handles test configuration differently than debug or task configuration. These are traditionally editor or IDE-centric features, and are configured in special files in the `.vscode` folder. However, tests have traditionally been executed from the command line, and most test frameworks have existing configuration strategies. Therefore, in VS Code, we avoid duplication of configuration and instead leave it up to extensions to handle.
+
+#### Test Tags
+
+Sometime tests can only be run under certain configurations, or not at all. For these use cases, you can use Test Tags. `TestRunProfile`s can optionally have a tag associated with them and, if they do, only tests that have that tag can be run under the profile. Once again, if there is no eligible profile to run, debug, or gather coverage from a specific test, those options will not be shown in the UI.
+
+```ts
+// Create a new tag with an ID of "runnable"
+const runnableTag = new TestTag('runnable');
+
+// Assign it to a profile. Now this profile can only execute tests with that tag.
+runProfile.tag = runnableTag;
+
+// Add the "runnable" tag to all applicable tests.
+for (const test of getAllRunnableTests()) {
+  test.tags = [...test.tags, runnableTag];
+}
+```
+
+Users can also filter by tags in the Test Explorer UI.
 
 ### Publish-only controllers
 
