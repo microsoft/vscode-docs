@@ -74,6 +74,7 @@ If you prefer, you can configure JDK settings using the VS Code Settings editor 
 
 If you need to install a JDK, we recommend you to consider installing from one of these sources:
 
+* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [AdoptOpenJDK](https://adoptopenjdk.net/)
 * [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
