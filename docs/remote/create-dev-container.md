@@ -110,6 +110,16 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
+You may also leverage the `"features"` property in the `devcontainer.json` to install tools and languages from a set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library).
+
+For intance, you could install the latest version of the Azure CLI with the following:
+
+```json
+"features": {
+		"azure-cli": "latest"
+	}
+```
+
 ### Rebuild
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
@@ -175,6 +185,10 @@ The command lets you pick a pre-defined container configuration from a list base
 ![Add a dev container definition](images/containers/select-dev-container-def-all.png)
 
 All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
+
+At the end of using **Remote-Containers: Add Development Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Remote-Containers: Configure Container Features** allows you to update an existing configuration.
+
+![Dev container features in Command Palette](images/containers/container-features.png)
 
 You can also reuse an existing Dockerfile:
 
