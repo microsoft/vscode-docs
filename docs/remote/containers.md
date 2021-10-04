@@ -251,19 +251,32 @@ When you rebuild and reopen in your container, the features you selected will be
 	}
 ```
 
+You'll get IntelliSense when editing the `"features"` property in the `devcontainer.json` directly:
+
+![Intellisense when modifying terraform feature](images/containers/features-intellisense.png)
+
 The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) in the vscode-dev-containers repo.
 
-## Pre-building
+The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
+
+## Pre-building dev container images
 
 You can pre-build images with the tools you need rather than newly creating and building images for each project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
 
 You can use the [devcontainer CLI](/remote/devcontainer-cli.md) to facilitate pre-builds.
 
 The process could be as follows:
-* Create a source code repository
+* [Create](/docs/editor/versioncontrol.md/#_initialize-a-repository) a source code repository
 * Create a dev container configuration, customizing as you wish (including [features](#Dev-container-features))
-* Use the `devcontainer CLI` to build your image (the `devcontainer CLI` supports building images with features)
-* Push your image: `docker push <your_image_name>`
+* Use the [`devcontainer CLI`](/docs/remote/devcontainer-cli.md) to build your image (the `devcontainer CLI` supports building images with features)
+* [Push](https://docs.docker.com/engine/reference/commandline/push/) your image
+
+```
+$ devcontainer build --image-name your-registry.azurecr.io/your-image-name
+$ docker push your-registry.azurecr.io/your-image-name
+```
+
+You can push your image to a container registry, like the [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli) or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images).
 
 ## Inspecting volumes
 
