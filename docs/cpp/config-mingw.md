@@ -25,13 +25,13 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Get the latest version of Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  [Click here](https://github.com/msys2/msys2-installer/releases/download/2021-06-04/msys2-x86_64-20210604.exe) to download the MSYS2 installer. Then follow the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
+1. Get the latest version of Mingw-w64 via [nuwen.net](https://nuwen.net/mingw.html), which provides native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  [Click here](https://nuwen.net/files/mingw/mingw-17.1-without-git.exe) to download the Mingw installer. Then follow the instructions on the [nuwen.net website](https://nuwen.net/mingw.html) to install Mingw-w64.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
    1. Choose the `Path` variable and then select **Edit**.
-   1. Select **New** and add the Mingw-w64 destination folder path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\msys64\mingw64\bin`.
+   1. Select **New** and add the Mingw-w64 destination folder path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\MinGW\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
 ### Check your MinGW installation
