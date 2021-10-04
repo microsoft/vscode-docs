@@ -13,7 +13,9 @@ The [Remote-Containers extension](https://marketplace.visualstudio.com/items?ite
 
 ## Installing the devcontainer CLI
 
-To install the devcontainer CLI:
+You can install the dev container CLI within VS Code or independent of it.
+
+### Install devcontainer CLI within VS Code
 
 1. Ensure you have the latest version of the [Remote-Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed (must be at least `v0.188.0`).
 
@@ -36,6 +38,21 @@ To install the devcontainer CLI:
     Options:
       -h, --help  Show help  [boolean]
     ```
+
+### Install devcontainer CLI outside VS Code
+
+You may install the CLI from the command line:
+
+```bash
+npm install @microsoft/dev-container-cli@0.2.0
+```
+
+Or via package.json:
+
+```bash
+"@microsoft/dev-container-cli": "0.2.0"
+```
+
 
 ## Opening a folder directly within a dev container
 

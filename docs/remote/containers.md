@@ -269,7 +269,7 @@ The process could be as follows:
 * [Create](/docs/editor/versioncontrol.md/#_initialize-a-repository) a source code repository
 * Create a dev container configuration, customizing as you wish (including [features](#Dev-container-features))
 * Use the [`devcontainer CLI`](/docs/remote/devcontainer-cli.md) to build your image (the `devcontainer CLI` supports building images with features)
-* [Push](https://docs.docker.com/engine/reference/commandline/push/) your image
+* [Push](https://docs.docker.com/engine/reference/commandline/push/) your image. You can then change the dev container in your source repository to reference the image directly.
 
 ```
 $ devcontainer build --image-name your-registry.azurecr.io/your-image-name
