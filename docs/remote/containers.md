@@ -251,7 +251,7 @@ When you rebuild and reopen in your container, the features you selected will be
 	}
 ```
 
-The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library) in the vscode-dev-containers repo.
+The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) in the vscode-dev-containers repo.
 
 ## Pre-building
 
