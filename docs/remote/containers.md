@@ -100,7 +100,7 @@ This quick start covers how to set up a dev container for an existing project to
 
     The list will be automatically sorted based on the contents of the folder you open.
 
-    You will also be able to customize your dev container with additional features, which [you can read more about below](#Dev-container-features).
+    You may be able to customize your dev container with additional features, which [you can read more about below](#Dev-container-features).
 
     Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
