@@ -423,6 +423,9 @@ Get-Service ssh-agent
 
 **Linux:**
 
+* On **WSL**:
+  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
+
 First, start the SSH Agent in the background by running the following in a terminal:
 
 ```bash
