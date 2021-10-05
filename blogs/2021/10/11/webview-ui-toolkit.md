@@ -6,7 +6,6 @@ MetaDescription: Announcing the public preview of the Webview UI Toolkit for Vis
 Date: 2021-10-11
 Author: David Dossett
 ---
-
 # Webview UI Toolkit for Visual Studio Code
 
 October 11, 2021 by David Dossett, [@david_dossett](https://twitter.com/david_dossett) and Hawk Ticehurst [@hawkticehurst](https://twitter.com/hawkticehurst)
