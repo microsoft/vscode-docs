@@ -6,17 +6,18 @@ MetaDescription: Announcing the public preview of the Webview UI Toolkit for Vis
 Date: 2021-10-11
 Author: David Dossett
 ---
+
 # Webview UI Toolkit for Visual Studio Code
 
 October 11, 2021 by David Dossett, [@david_dossett](https://twitter.com/david_dossett) and Hawk Ticehurst [@hawkticehurst](https://twitter.com/hawkticehurst)
 
-We're so excited to announce the public preview of the [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit). With this, extensions developers can quickly and easily create webview-based extensions in Visual Studio Code that look, feel, and act like the editor itself.
+We're so excited to announce the public preview of the [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit). With this, extensions developers can quickly and easily create [webview-based extensions](https://code.visualstudio.com/api/extension-guides/webview) in Visual Studio Code that look, feel, and act like the editor itself.
 
 ![Webview UI Toolkit for Visual Studio Code: gallery view of components](webview-ui-toolkit-artwork.png)
 
 ## What is the Webview UI Toolkit?
 
-At its core, the toolkit is a library of components that developers can use to build user interfaces inside extension webviews.
+At its core, the toolkit is a library of components that developers can use to build user interfaces inside extension webviews. It's important to understand that webviews should only be used if you absolutely need them. Take a look at the [webview guidelines](https://code.visualstudio.com/api/references/extension-guidelines#webviews) to learn more about when it is appropriate to use a webview.
 
 Features of the library include:
 
@@ -29,7 +30,7 @@ Features of the library include:
 
 We wanted to ensure that extensions that use webviews are predictable, consistent, and accessible for their users.
 
-Anytime an extension leverages the Webview API, the responsibility of creating UI that adheres to the [Visual Studio Code Webview Guidelines](https://code.visualstudio.com/api/references/extension-guidelines#webviews) lies with the extension author. As a result, webviews run the risk of appearing and behaving differently than the rest of Visual Studio Code. In the worst cases, users must navigate inaccessible extension UIs that look nothing like the rest of the editor.
+Anytime an extension leverages the [Webview API](https://code.visualstudio.com/api/extension-guides/webview), the responsibility of creating UI that adheres to the webview guidelines lies with the extension author. As a result, webviews run the risk of appearing and behaving differently than the rest of Visual Studio Code. In the worst cases, users must navigate inaccessible extension UIs that look nothing like the rest of the editor.
 
 With the Webview UI Toolkit, we now share some of that responsibility with extension authors. We get to worry about the nitty gritty details of theming, accessibility, and behavioral/styling implementation of core UI components so you don't have to. It means improved ease of development, improved developer velocity, and ultimately more time to work on the parts of your extension that make it unique!
 
