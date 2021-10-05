@@ -62,12 +62,12 @@ When enabling `lintOnSave`, you might also want to enable the generic `files.aut
 
 The following table provides a summary of available Python linters and their basic settings. For descriptions of individual settings, see the [Linter settings reference](/docs/python/settings-reference.md#linting-settings).
 
-| Linter | Package name for `pip install` command | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
-| --- | --- | --- | --- | --- | --- |
-| [Pylint](#pylint) | [pylint](https://pypi.org/project/pylint/) | Disabled | pylintEnabled | pylintArgs | pylintPath |
-| [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
-| [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
-| [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
+| Linter | Package name for `pip install` command | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
+| --- | --- | --- | --- | --- |
+| [Pylint](#pylint) | [pylint](https://pypi.org/project/pylint/) | pylintEnabled | pylintArgs | pylintPath |
+| [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | flake8Enabled | flake8Args | flake8Path |
+| [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | mypyEnabled | mypyArgs | mypyPath |
+| [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | [pycodestyle (pep8)](#pycodestyle-pep8) | [pycodestyle](https://pypi.org/project/pycodestyle/) | Disabled | pycodestyleEnabled | pycodestyleArgs | pycodestylePath |
 | [prospector](#prospector) | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |

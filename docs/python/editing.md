@@ -161,7 +161,7 @@ The Python extension adds the following refactoring functionalities: **Extract V
 
 ### Extract Variable
 
-Extracts all similar occurrences of the selected text within the current scope, and replaces it with a new variable called `new_var` by default.
+Extracts all similar occurrences of the selected text within the current scope, and replaces it with a new variable.
 
 You can invoke this command by selecting the line of code you wish to extract as a variable and then clicking on the light-bulb that is displayed next to it.
 
@@ -171,7 +171,7 @@ You can invoke this command by selecting the line of code you wish to extract as
 
 ### Extract Method
 
-Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call. The new method is given the name `new_func` by default.
+Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call.
 
 You can invoke this command by selecting the lines of code you wish to extract as a method and then clicking on the light-bulb that is displayed next to it.
 
