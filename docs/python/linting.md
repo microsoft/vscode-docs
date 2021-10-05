@@ -67,11 +67,10 @@ The following table provides a summary of available Python linters and their bas
 | [Pylint](#pylint) | [pylint](https://pypi.org/project/pylint/) | pylintEnabled | pylintArgs | pylintPath |
 | [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | flake8Enabled | flake8Args | flake8Path |
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | mypyEnabled | mypyArgs | mypyPath |
-| [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | [pycodestyle (pep8)](#pycodestyle-pep8) | [pycodestyle](https://pypi.org/project/pycodestyle/) | pycodestyleEnabled | pycodestyleArgs | pycodestylePath |
 | [prospector](#prospector) | [prospector](https://pypi.org/project/prospector/) | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | pylamaEnabled | pylamaArgs | pylamaPath |
-| bandit | [bandit](https://pypi.org/project/bandit/) | Disabled | banditEnabled | banditArgs | banditPath |
+| bandit | [bandit](https://pypi.org/project/bandit/) | banditEnabled | banditArgs | banditPath  |
 
 To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
 
