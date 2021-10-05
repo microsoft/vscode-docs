@@ -259,6 +259,8 @@ The features are sourced from the [script library](https://github.com/microsoft/
 
 The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
 
+    > **Note:** Features support for GitHub Codespaces is coming soon.
+
 ## Pre-building dev container images
 
 You can pre-build images with the tools you need rather than newly creating and building images for each project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.

@@ -120,6 +120,8 @@ For intance, you could install the latest version of the Azure CLI with the foll
 	}
 ```
 
+    > **Note:** Features support for GitHub Codespaces is coming soon.
+
 ### Rebuild
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
