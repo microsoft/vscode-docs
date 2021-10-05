@@ -72,7 +72,7 @@ In `smart` Auto Attach mode, VS Code will try to attach to your code, and not at
 
 ## JavaScript Debug Terminal
 
-In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
+In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
 
 ![Create Debug Terminal](images/nodejs-debugging/create-debug-terminal.png)
 
