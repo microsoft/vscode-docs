@@ -167,8 +167,6 @@ You can invoke this command by selecting the line of code you wish to extract as
 
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
 
-> **Tip: You can create a shortcut to the `pylance.extractVariable` command to trigger this action with the keyboard.
-
 ### Extract Method
 
 Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call.
