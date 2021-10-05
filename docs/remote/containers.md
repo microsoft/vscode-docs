@@ -263,7 +263,7 @@ The **Remote-Containers: Configure Container Features** command allows you to up
 
 ## Pre-building dev container images
 
-You can pre-build images with the tools you need rather than newly creating and building images for each project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
+You can pre-build images with the tools you need rather than creating and building the image each time you create a container for a project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
 
 You can use the [devcontainer CLI](/remote/devcontainer-cli.md) to facilitate pre-builds.
 
