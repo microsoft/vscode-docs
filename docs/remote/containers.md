@@ -235,7 +235,7 @@ Selecting the **Remote-Containers: Add Development Container Configuration Files
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
 
-## Dev container features
+## Dev container features (preview)
 
 Dev container features provide a smooth path for customizing your container definitions.
 
