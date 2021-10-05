@@ -122,6 +122,10 @@ Sometimes browsers will, as a security precaution, block VS Code from opening ne
 
 ![Allow pop-up window in browser](images/codespaces/allow-new-tab.png)
 
+### How do I allow VS Code in a browser to access local files and folders?
+
+Opening local files and folders in VS Code from a browser requires the browser to support the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API). As of today both [Microsoft Edge](https://www.microsoft.com/en-us/edge) and Google Chrome offer this level of support. If you want to access local files and folders when using VS Code in a browser, please consider to switch to one of these two browsers.
+
 ## Questions or feedback
 
 If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Discussions](https://github.com/github/feedback/discussions/categories/codespaces-feedback).
