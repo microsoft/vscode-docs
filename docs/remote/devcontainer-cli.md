@@ -53,7 +53,7 @@ $ devcontainer --help
 Local install:
 
 ```bash
-$ npm install https://github.com/microsoft/vscode-remote-release/releases/latest/download/dev-container-cli.tgz
+$ npm install https://aka.ms/dev-container-cli
 $ npx @microsoft/dev-container-cli --help
 ```
 
