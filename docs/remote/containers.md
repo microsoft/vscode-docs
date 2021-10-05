@@ -278,7 +278,7 @@ $ devcontainer build --image-name your-registry.azurecr.io/your-image-name
 $ docker push your-registry.azurecr.io/your-image-name
 ```
 
-You can push your image to a container registry, like the [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli) or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images).
+You can push your image to a container registry, like [Docker Hub](https://docs.docker.com/engine/reference/commandline/push), the [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images).
 
 ## Inspecting volumes
 
