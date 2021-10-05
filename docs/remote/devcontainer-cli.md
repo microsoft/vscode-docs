@@ -41,18 +41,21 @@ You can install the dev container CLI within VS Code or from the command line.
 
 ### Install from the command line
 
-You may install the CLI from the command line:
+You may also install the CLI from the command line.
+
+Global install:
 
 ```bash
-npm install @microsoft/dev-container-cli@0.2.0
+$ npm install -g https://aka.ms/dev-container-cli
+$ devcontainer --help
 ```
 
-Or via package.json:
+Local install:
 
 ```bash
-"@microsoft/dev-container-cli": "0.2.0"
+$ npm install https://github.com/microsoft/vscode-remote-release/releases/latest/download/dev-container-cli.tgz
+$ npx @microsoft/dev-container-cli --help
 ```
-
 
 ## Opening a folder directly within a dev container
 
