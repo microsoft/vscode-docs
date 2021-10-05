@@ -17,7 +17,7 @@ We're so excited to announce the public preview of the [Webview UI Toolkit for V
 
 ## What is the Webview UI Toolkit?
 
-At its core, the toolkit is a library of components that developers can use to build user interfaces inside extension webviews. It's important to understand that webviews should only be used if you absolutely need them. Take a look at the [webview guidelines](https://code.visualstudio.com/api/references/extension-guidelines#webviews) to learn more about when it is appropriate to use a webview.
+At its core, the toolkit is a library of components that developers can use to build user interfaces inside extension webviews. Note that this doesn't change our recommendation around [avoiding the use of webviews](https://code.visualstudio.com/api/references/extension-guidelines#webviews) in extensions unless you absolutely need them.
 
 Features of the library include:
 
