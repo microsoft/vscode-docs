@@ -109,6 +109,22 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 > **Tip:** You can jump to the matching bracket with `kb(editor.action.jumpToBracket)`
 
+### Bracket Pair Colorization
+
+Matching bracket pairs can also be colorized by setting `editor.bracketPairColorization.enabled` to `true`.
+
+![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
+
+All colors are themeable and up to six colors can be configured.
+You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
+```json
+"workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#FFD700",
+    "editorBracketHighlight.foreground2": "#DA70D6",
+    "editorBracketHighlight.foreground3": "#179fff",
+},
+```
+
 ## Reference information
 
 Some languages like C# support inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
