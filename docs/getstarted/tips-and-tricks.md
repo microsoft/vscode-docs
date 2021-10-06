@@ -19,13 +19,15 @@ Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code 
 
 ### Getting started
 
-Open the **Welcome** page to get started with the basics of VS Code. **Help** > **Welcome**.
+The best way of exploring VS Code hands-on is to open the **Get Started** page. You will get an overview of VS Code's customizations and features. **Help** > **Get Started**.
 
-![welcome page](images/tips-and-tricks/welcome_page.png)
+![Get Started page](images/tips-and-tricks/getstarted_page.png)
 
-In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features. **Help** > **Interactive Playground**.
+Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
 
-![interactive playground](images/tips-and-tricks/interactive_playground.png)
+If you are looking to improve your code editing skills open the **Interactive Editor playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](docs/editor/intellisense.md), Snippets, [Emmet](docs/editor/emmet.md), and many more. **Help** > **Interactive Editor Playground**.
+
+![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
 
 ### Command Palette
 
