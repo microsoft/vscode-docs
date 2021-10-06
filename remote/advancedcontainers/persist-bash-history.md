@@ -56,3 +56,7 @@ Next, add a local volume to store the command history. This step varies dependin
     ```
 
 Finally, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Video: How to make your bash history persist in a dev container
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/12nZz-TjoZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
