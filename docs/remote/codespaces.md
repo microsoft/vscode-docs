@@ -5,7 +5,7 @@ TOCTitle: GitHub Codespaces
 PageTitle: Developing with GitHub Codespaces
 ContentId: 8d30ed21-208f-4b4e-8510-5a4a33c42618
 MetaDescription: Using GitHub Codespaces
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 ---
 # GitHub Codespaces
 
@@ -121,6 +121,10 @@ Once you have granted VS Code access to the clipboard, you can retry the operati
 Sometimes browsers will, as a security precaution, block VS Code from opening new tabs or windows. If this happens, VS Code will detect the blocking action and explicitly prompt the user. However, you can allow VS Code to always open new windows and tabs by opening the site settings via the context menu in the browser navigation bar and by allowing to **Pop-up Windows**.
 
 ![Allow pop-up window in browser](images/codespaces/allow-new-tab.png)
+
+### How do I allow VS Code in a browser to access local files and folders?
+
+Opening local files and folders in VS Code from a browser requires the browser to support the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API). As of today both [Microsoft Edge](https://www.microsoft.com/en-us/edge) and Google Chrome offer this level of support. If you want to access local files and folders when using VS Code in a browser, please consider to switch to one of these two browsers.
 
 ## Questions or feedback
 

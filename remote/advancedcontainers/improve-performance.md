@@ -5,7 +5,7 @@ TOCTitle: Improve performance
 PageTitle: Improve container performance
 ContentId: 0956602e-d7a7-4071-8345-86075fd81374
 MetaDescription: Improve container performance
-DateApproved: 9/20/2021
+DateApproved: 10/7/2021
 ---
 # Improve disk performance
 
