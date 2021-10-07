@@ -41,7 +41,7 @@ A notebook serializer is declared in `package.json` under the `contributes.noteb
 ```json
 {
     ...
-    "activationEvents": ["onNotebook:my-notebook-provider"],
+    "activationEvents": ["onNotebook:my-notebook"],
     "contributes": {
         ...
         "notebooks": [
@@ -63,6 +63,7 @@ A notebook serializer is declared in `package.json` under the `contributes.noteb
 The notebook serializer is then registered in the extension's activation event:
 
 ```ts
+import { TextDecoder, TextEncoder } from "util";
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -110,7 +111,7 @@ class SampleSerializer implements vscode.NotebookSerializer {
             });
         }
 
-        return new TextEncoder().encode(stringify(contents));
+        return new TextEncoder().encode(JSON.stringify(contents));
     }
 }
 ```
