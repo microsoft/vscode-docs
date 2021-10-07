@@ -177,6 +177,8 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 
    ![C++ build output in terminal](images/msvc/build-output-in-terminal.png)
 
+If the build fails due to not finding `cl.exe`, or lacking an include path, make sure you have started VS Code from the **Developer Command Prompt for Visual Studio**.
+
 1. Create a new terminal using the **+** button and you'll have a new terminal (running PowerShell) with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld.exe` along with various intermediate C++ output and debugging files (`helloworld.obj`, `helloworld.pdb`).
 
     ![Hello World in PowerShell terminal](images/msvc/helloworld-in-terminal.png)
@@ -385,7 +387,13 @@ In certain circumstances, it isn't possible to run VS Code from **Developer Comm
 
 If you see the error "The term 'cl.exe' is not recognized as the name of a cmdlet, function, script file, or operable program.", this usually means you are running VS Code outside of a **Developer Command Prompt for Visual Studio** and VS Code doesn't know the path to the `cl.exe` compiler.
 
+VS Code must either be started from the Developer Command Prompt for Visual Studio, or the task must be configured to [run outside a Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt).
+
 You can always check that you are running VS Code in the context of the Developer Command Prompt by opening a new Terminal (`kb(workbench.action.terminal.new)`) and typing 'cl' to verify `cl.exe` is available to VS Code.
+
+### fatal error C1034: assert.h: no include path set
+
+In this case, `cl.exe` is available to VS Code through the `PATH` environment variable, but VS Code still needs to either be started from the **Developer Command Prompt for Visual Studio**, or be configured to [run outside the Developer Command Prompt](#run-vs-code-outside-the-developer-command-prompt). Otherwise, `cl.exe` does not have access to important environment variables such as `INCLUDE`.
 
 ## Next steps
 
