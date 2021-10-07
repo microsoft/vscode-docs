@@ -116,7 +116,9 @@ Matching bracket pairs can also be colorized by setting `editor.bracketPairColor
 ![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
 
 All colors are themeable and up to six colors can be configured.
+
 You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
+
 ```json
 "workbench.colorCustomizations": {
     "editorBracketHighlight.foreground1": "#FFD700",
