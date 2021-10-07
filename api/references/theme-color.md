@@ -216,6 +216,8 @@ The Minimap shows a minified version of the current file.
 - `minimap.errorHighlight`: Highlight color for errors within the editor.
 - `minimap.warningHighlight`: Highlight color for warnings within the editor.
 - `minimap.background`: Minimap background color.
+- `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
+- `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -374,6 +376,10 @@ To see the editor inline hints, set `"editor.inlineSuggest.enabled": true`.
 
 - `editorInlayHint.background`: Background color of inline hints.
 - `editorInlayHint.foreground`: Foreground color of inline hints.
+- `editorInlayHint.typeForeground`: Foreground color of inline hints for types
+- `editorInlayHint.typeBackground`: Background color of inline hints for types
+- `editorInlayHint.parameterForeground`: Foreground color of inline hints for parameters
+- `editorInlayHint.parameterBackground`: Background color of inline hints for parameters
 
 To see editor rulers, define their location with `"editor.rulers"`
 
