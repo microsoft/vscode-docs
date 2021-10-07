@@ -46,15 +46,15 @@ You may also install the CLI from the command line.
 Global install:
 
 ```bash
-$ npm install -g https://aka.ms/dev-container-cli
+$ npm install -g @vscode/dev-container-cli
 $ devcontainer --help
 ```
 
 Local install:
 
 ```bash
-$ npm install https://aka.ms/dev-container-cli
-$ npx @microsoft/dev-container-cli --help
+$ npm install @vscode/dev-container-cli
+$ npx @vscode/dev-container-cli --help
 ```
 
 ## Opening a folder directly within a dev container
