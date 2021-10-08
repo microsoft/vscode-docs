@@ -15,7 +15,7 @@ Visual Studio Code collects telemetry data, which is used to help understand how
 
 If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `error` if you want to only send error events or `off` if you don't want to send any telemetry.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to off. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
 
 ![disable telemetry](images/telemetry/disable-telemetry.png)
 
@@ -29,7 +29,7 @@ If you use the JSON editor for your settings, add the following line:
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services.
 
-This is directly linked to your telemetry setting, to disable crash reporting `telemetry.telemetryLevel` must be set to "off". Follow the instructions above to configure that setting.
+This is directly linked to your telemetry setting, to disable crash reporting `telemetry.telemetryLevel` must be set to `off`. Follow the instructions above to configure that setting.
 
 ## Extensions and telemetry
 
