@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 7/20/2021
+DateApproved: 10/05/2021
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -157,29 +157,21 @@ If formatting fails, check the following possible causes:
 
 ## Refactoring
 
-The Python extension adds the following refactoring commands: **Extract Variable**, **Extract Method**, and **Sort Imports**.
+The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method**, and **Sort Imports**.
 
 ### Extract Variable
 
-Extracts all similar occurrences of the selected text within the current scope, and replaces it with a variable. The new method is given the name `newvariableNNN` where NNN is a random number.
+Extracts all similar occurrences of the selected text within the current scope, and replaces it with a new variable.
 
-Invoked by:
-
-- Context Menu: right-click a selection and select **Extract Variable**.
-- Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Extract Variable**.
-- Assign a keyboard shortcut to the `python.refactorExtractVariable` command.
+You can invoke this command by selecting the line of code you wish to extract as a variable and then clicking on the light-bulb that is displayed next to it.
 
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
 
 ### Extract Method
 
-Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call. The new method is given the name `newmethodNNN` where NNN is a random number.
+Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call.
 
-Invoked by:
-
-- Context Menu: right-click a selection and select **Extract Method**.
-- Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Extract Method**.
-- Assign a keyboard shortcut to the `python.refactorExtractMethod` command.
+You can invoke this command by selecting the lines of code you wish to extract as a method and then clicking on the light-bulb that is displayed next to it.
 
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
 

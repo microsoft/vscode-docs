@@ -5,7 +5,7 @@ TOCTitle: Reduce Docker warnings
 PageTitle: Reduce Docker container build warnings
 ContentId: 19d0127f-c27b-4bee-9a19-68c93dc63922
 MetaDescription: Reduce Docker container build warnings
-DateApproved: 9/20/2021
+DateApproved: 10/7/2021
 ---
 # Reduce Docker build warnings
 
