@@ -13,37 +13,31 @@ Visual Studio Code collects telemetry data, which is used to help understand how
 
 ## Disable telemetry reporting
 
-If you don't want to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `error` if you want to only send error events or `off` if you don't want to send any telemetry.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and uncheck the **Telemetry: Enable Telemetry** setting. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to off. This will silence all telemetry events from VS Code going forward. Telemetry information may have been collected and sent up until the point when you disable the setting.
 
 ![disable telemetry](images/telemetry/disable-telemetry.png)
 
 If you use the JSON editor for your settings, add the following line:
 
 ```json
-    "telemetry.enableTelemetry": false
+    "telemetry.telemetryLevel": "off"
 ```
 
 ## Disable crash reporting
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services.
 
-If you don't want to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
-
-* Open the Command Palette (`kb(workbench.action.showCommands)`).
-* Run the **Preferences: Configure Runtime Arguments** command.
-* This command will open a `argv.json` file to configure runtime arguments.
-* Edit `"enable-crash-reporter": false`.
-* Restart VS Code.
+This is directly linked to your telemetry setting, to disable crash reporting `telemetry.telemetryLevel` must be set to "off". Follow the instructions above to configure that setting.
 
 ## Extensions and telemetry
 
-VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
+VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
 
 For example, the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) has a setting to disable its telemetry collection:
 
-![GitHub Pule Request extension disable telemetry](images/telemetry/GHPR-disable-telemetry.png)
+![GitHub Pull Request extension disable telemetry](images/telemetry/GHPR-disable-telemetry.png)
 
 ## Output channel for telemetry events
 
@@ -73,7 +67,7 @@ To ensure GDPR compliance, we made several updates to VS Code, these include:
 
 In short, we have worked hard to do the right thing, for all users, as these practices apply to all geographies, not just Europe.
 
-One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have a 'sign-in' experience that would uniquely identify a user.  We do send information that helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC) but this is not guaranteed to be unique. For example, virtual machines (VMs) often rotate NIC IDs or allocate from a pool. This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
+One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have a 'sign-in' experience that would uniquely identify a user.  We do send information that helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC on the desktop and a randomly assigned UUID on the web) but this is not guaranteed to be unique. For example, virtual machines (VMs) often rotate NIC IDs or allocate from a pool. This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
 
 We expect our approach to evolve as we learn more about GDPR and the expectations of our users. We greatly appreciate the data users do send to us, as it is very valuable and VS Code is a better product for everyone because of it. And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described in [disable telemetry reporting](/docs/getstarted/telemetry.md#disable-telemetry-reporting).
 
