@@ -98,7 +98,11 @@ This quick start covers how to set up a dev container for an existing project to
 
     ![Select a node dev container definition](images/containers/select-dev-container-def.png)
 
-    The list will be automatically sorted based on the contents of the folder you open. Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+    The list will be automatically sorted based on the contents of the folder you open.
+
+    You may be able to customize your dev container with additional features, which [you can read more about below](#Dev-container-features).
+
+    Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
 3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
 
@@ -230,6 +234,51 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
+
+## Dev container features (preview)
+
+Dev container features provide a smooth path for customizing your container definitions.
+
+When you use **Remote-Containers: Add Development Container Configuration Files**, you're presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
+
+![Dev container features in Command Palette](images/containers/container-features.png)
+
+When you rebuild and reopen in your container, the features you selected will be available in your `devcontainer.json`:
+
+```json
+"features": {
+		"github-cli": "latest"
+	}
+```
+
+You'll get IntelliSense when editing the `"features"` property in the `devcontainer.json` directly:
+
+![Intellisense when modifying terraform feature](images/containers/features-intellisense.png)
+
+The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) in the vscode-dev-containers repo.
+
+The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
+
+    > **Note:** Features support for GitHub Codespaces is coming soon.
+
+## Pre-building dev container images
+
+You can pre-build images with the tools you need rather than creating and building the image each time you create a container for a project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
+
+You can use the [devcontainer CLI](/remote/devcontainer-cli.md) to facilitate pre-builds.
+
+The process could be as follows:
+* [Create](/docs/editor/versioncontrol.md/#_initialize-a-repository) a source code repository
+* Create a dev container configuration, customizing as you wish (including [features](#Dev-container-features))
+* Use the [`devcontainer CLI`](/docs/remote/devcontainer-cli.md) to build your image (the `devcontainer CLI` supports building images with features)
+* [Push](https://docs.docker.com/engine/reference/commandline/push/) your image. You can then change the dev container in your source repository to reference the image directly.
+
+```
+$ devcontainer build --image-name your-registry.azurecr.io/your-image-name
+$ docker push your-registry.azurecr.io/your-image-name
+```
+
+You can push your image to a container registry, like [Docker Hub](https://docs.docker.com/engine/reference/commandline/push), the [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images).
 
 ## Inspecting volumes
 
