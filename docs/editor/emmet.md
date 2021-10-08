@@ -332,7 +332,7 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 * [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
 * [CSS](/docs/languages/css.md) - We offer rich support for CSS, SCSS and Less.
 
-## Common questions
+## Troubleshooting
 
 ### Custom tags do not get expanded in the suggestion list
 
@@ -344,11 +344,19 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 "emmet.triggerExpansionOnTab": true
 ```
 
-### My HTML snippets ending with `+` do not work?
+### My HTML snippets ending with `+` do not work
 
-HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
+HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). A workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 
-### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)
+### Abbreviations are failing to expand
+
+First, check if you're using custom snippets (i.e. if there is a `snippets.json` file being picked up by the `emmet.extensionsPath` setting). The format of custom snippets changed in 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
+
+If abbreviations are still failing to expand:
+- Check the [builtin extensions](/docs/editor/extension-marketplace#_extensions-view-filters) to see if Emmet has been disabled.
+- Try restarting the extension host by running the `workbench.action.restartExtensionHost` command in the [Command Palette](/docs/editor/getstarted/userinterface#_command-palette).
+
+### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?
 
 You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
 
