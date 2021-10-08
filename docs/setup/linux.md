@@ -15,24 +15,6 @@ See the [Download Visual Studio Code](/download) page for a complete list of ava
 
 By downloading and using Visual Studio Code, you agree to the [license terms](https://code.visualstudio.com/license) and [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409).
 
-### Snap
-
-Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
-
-[![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
-
-You can install it by running:
-
-```bash
-sudo snap install --classic code # or code-insiders
-```
-
-Once installed, the Snap daemon will take care of automatically updating VS Code in the background. You will get an in-product update notification whenever a new update is available.
-
-**Note:** If `snap` isn't available in your Linux distribution, please check the following [Installing snapd guide](https://docs.snapcraft.io/installing-snapd), which can help you get that set up.
-
-Learn more about snaps from the [official Snap Documentation](https://docs.snapcraft.io).
-
 ### Debian and Ubuntu based distributions
 
 The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868), either through the graphical software center if it's available, or through the command line with:
@@ -88,6 +70,24 @@ sudo yum install code
 ```
 
 Due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.
+
+### Snap
+
+Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
+
+[![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
+
+You can install it by running:
+
+```bash
+sudo snap install --classic code # or code-insiders
+```
+
+Once installed, the Snap daemon will take care of automatically updating VS Code in the background. You will get an in-product update notification whenever a new update is available.
+
+**Note:** If `snap` isn't available in your Linux distribution, please check the following [Installing snapd guide](https://docs.snapcraft.io/installing-snapd), which can help you get that set up.
+
+Learn more about snaps from the [official Snap Documentation](https://docs.snapcraft.io).
 
 ### openSUSE and SLE-based distributions
 
