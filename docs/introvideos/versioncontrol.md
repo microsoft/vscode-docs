@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Version control in Visual Studio Code
-DateApproved: 1/20/2021
+DateApproved: 10/11/2021
 MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
