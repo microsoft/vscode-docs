@@ -239,6 +239,12 @@ In addition to the `runHandler`, you can set a `configureHandler` on the `TestRu
 
 > VS Code intentionally handles test configuration differently than debug or task configuration. These are traditionally editor or IDE-centric features, and are configured in special files in the `.vscode` folder. However, tests have traditionally been executed from the command line, and most test frameworks have existing configuration strategies. Therefore, in VS Code, we avoid duplication of configuration and instead leave it up to extensions to handle.
 
+#### Test Output
+
+In addition to the messages passed to `TestRun.failed` or `TestRun.errored`, you can append generic output using `run.appendOutput(str)`. This output can be displayed in a terminal using the **Test: Show Output** and through various buttons in the UI, such as the terminal icon in the Test Explorer view.
+
+Because the string is rendered in a terminal, you can use the full set of [ANSI codes](https://en.wikipedia.org/wiki/ANSI_escape_code), including the styles available in the [ansi-styles](https://www.npmjs.com/package/ansi-styles) npm pakage. Bear in mind that, because it is in a terminal, lines must be wrapped using CRLF (`\r\n`), not just LF (`\n`) which may be the default output from some tools.
+
 #### Test Tags
 
 Sometime tests can only be run under certain configurations, or not at all. For these use cases, you can use Test Tags. `TestRunProfile`s can optionally have a tag associated with them and, if they do, only tests that have that tag can be run under the profile. Once again, if there is no eligible profile to run, debug, or gather coverage from a specific test, those options will not be shown in the UI.
