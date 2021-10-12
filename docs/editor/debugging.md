@@ -160,6 +160,8 @@ Breakpoints can be toggled by clicking on the **editor margin** or using `kb(edi
 * Disabled breakpoints have a filled gray circle.
 * When a debugging session starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
 
+If the debugger supports breaking on different kinds of errors or exceptions, those will also be available in the **BREAKPOINTS** view.
+
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 
 ![Breakpoints](images/debugging/breakpoints.png)
