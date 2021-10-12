@@ -110,17 +110,17 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
-You may also leverage the `"features"` property in the `devcontainer.json` to install tools and languages from a set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs).
+You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs).
 
-For intance, you could install the latest version of the Azure CLI with the following:
+For example, you could install the latest version of the Azure CLI with the following:
 
 ```json
 "features": {
-		"azure-cli": "latest"
-	}
+    "azure-cli": "latest"
+  }
 ```
 
-    > **Note:** Features support for GitHub Codespaces is coming soon.
+  > **Note:** Features support for GitHub Codespaces is coming soon.
 
 ### Rebuild
 
