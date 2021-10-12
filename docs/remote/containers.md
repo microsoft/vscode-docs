@@ -495,13 +495,13 @@ fi
 
 ### Sharing GPG Keys
 
-If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
+If you want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
 If you do not have GPG set up, you can configure it for your platform:
 
 * On **Windows**, you can install [Gpg4win](https://www.gpg4win.org/).
 * On **macOS**, you can install [GPG Tools](https://gpgtools.org/).
-* On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+* On **Linux**, **locally** install the `gnupg2` package using your system's package manager.
 * On **WSL**:
   * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side.
   * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
