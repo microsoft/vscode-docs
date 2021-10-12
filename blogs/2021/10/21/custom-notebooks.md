@@ -59,7 +59,7 @@ Inspired by the querying experience in the GitHub Issues Notebook, I created [RE
 
 For both of these Notebooks, it was great to leverage the VS Code Notebook UI to create these REPL-like experiences. We didn't have to mess around with creating and then having to maintain a UI; we could focus on just the functionality.
 
-### Livestream tutorial
+### Make your own custom notebook extension
 
 We recorded a livestream a couple months back about Custom Notebooks and I have a live demo of creating one. You can watch it here on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
 
