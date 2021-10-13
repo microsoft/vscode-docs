@@ -229,7 +229,7 @@ In this tutorial, we used the `create-react-app` generator to create a simple Re
 
 ### VS Code React Sample
 
-This is a [sample](https://github.com/microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/Events/Build/2016/B887) at the 2016 //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
+This is a [sample](https://github.com/microsoft/vscode-react-sample) React application, which creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
 
 ### TypeScript React
 
