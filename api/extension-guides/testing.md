@@ -122,7 +122,7 @@ async function discoverAllFilesInWorkspace() {
     // When files change, re-parse them. Note that you could optimize this so
     // that you only re-parse children that have been resolved in the past.
     watcher.onDidChange(uri => parseTestsInFileContents(getOrCreateFile(uri)));
-    // And, finally, delete TestItems fro removed files. This is simple, since
+    // And, finally, delete TestItems for removed files. This is simple, since
     // we use the URI as the TestItem's ID.
     watcher.onDidDelete(uri => controller.items.delete(uri.toString()));
 
@@ -185,7 +185,7 @@ const debugProfile = controller.createRunProfile('Debug', vscode.TestRunProfileK
 The `runHandler` should call `controller.createTestRun` at least once, passing through the original request. The request contains the tests to `include` in the test run (which is omitted if the user asked to run all tests) and possibly tests to `exclude` from the run. The extension should use the resulting `TestRun` object to update the state of tests involved in the run. For example:
 
 ```ts
-async function runHandler(request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token: vscode.CancellationToken) {
   const run = controller.createTestRun(request);
   const queue: vscode.TestItem[] = [];
 
