@@ -11,10 +11,6 @@ Author: Chris Dias
 
 May 10, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-## Watch the video
-
-[Visual Studio Code: Conquering the Cloud with an Editor and a CLI](https://channel9.msdn.com/Events/Build/2017/B8094)
-
 Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk.
 
 ## Samples
