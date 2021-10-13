@@ -25,7 +25,7 @@ The best way of exploring VS Code hands-on is to open the **Get Started** page. 
 
 Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
 
-If you are looking to improve your code editing skills open the **Interactive Editor playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](docs/editor/intellisense.md), Snippets, [Emmet](docs/editor/emmet.md), and many more. **Help** > **Interactive Editor Playground**.
+If you are looking to improve your code editing skills open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](docs/editor/intellisense.md), Snippets, [Emmet](docs/editor/emmet.md), and many more. **Help** > **Editor Playground**.
 
 ![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
 
