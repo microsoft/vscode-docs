@@ -561,6 +561,6 @@ Unfortunately some issues cannot be automatically detected, if you experience is
 
 This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when using VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can workaround this by adding the following to your `~/.bashrc` or `~/.bash-profile`:
 
-```
+```bash
 export PROMPT_COMMAND='history -a'
 ```
