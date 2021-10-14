@@ -19,7 +19,7 @@ VS Code and this page refer to three different types of data with respect to tel
 
 **Error Telemetry** - Error telemetry collects information about errors that do not crash the application but are unexpected.
 
-**Usage Data** - Usage data collects information about how features are used in VS Code which helps us prioritize future product improvements.
+**Usage Data** - Usage data collects information about how features are used and perform in VS Code which helps us prioritize future product improvements.
 
 ## Disable telemetry reporting
 
