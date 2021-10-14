@@ -252,13 +252,28 @@ Open the **Running Extensions** view (command: **Developer: Show Running Extensi
 
 The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module offers a CLI and API to test a web extension in a browser of choice.
 
-The `vscode-test-web` utility downloads the web bits of VS Code, starts a local server, and opens a browser (Chromium, Firefox, or Webkit) with VS Code.
+The node module contributes an npm binary `vscode-test-web` that can open VS Code for the Web from the command line:
+* It downloads the web bits of VS Code into `.vscode-test-web`
+* starts a local server on `localhost:3000`
+* opens a browser (Chromium, Firefox, or Webkit)
 
-If you have `@vscode/test-web` installed as a development dependency, you can test the web extension in a browser from the command line.
-
+You can run it from command line:
 ```bash
-npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ./test-data
+npx @vscode/test-web --extensionDevelopmentPath=$extensionFolderPath $testDataPath
 ```
+
+Or better, add `@vscode/test-web` as a development dependency to your extension and invoke it in a script:
+
+```json
+  "devDependencies": {
+    "@vscode/test-web": "*"
+  },
+  "scripts": {
+    "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
+  }
+```
+
+
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
 
@@ -327,13 +342,17 @@ export function run(): Promise<void> {
 }
 ```
 
-To run the web test from the command line, run the following command in the extension folder:
+To run the web test from the command line, add the following to your `package.json` and run it with `npm test`.
 
-```bash
-npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js
+```json
+  "devDependencies": {
+    "@vscode/test-web": "*"
+  },
+  "scripts": {
+    "test": "vscode-test-web --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js"
+  }
 ```
 
-(or use `npm test`)
 
 To open VS Code on a folder with test data, pass a local folder path (`folderPath`) as the last parameter.
 
