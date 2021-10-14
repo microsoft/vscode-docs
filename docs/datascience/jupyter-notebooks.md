@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 7/22/2021
+DateApproved: 10/7/2021
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -216,9 +216,26 @@ Within a Python Notebook, it's possible to view, inspect, sort, and filter the v
 
 ![Variable Explorer](images/jupyter/variable-explorer-02.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable for a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+### Data Viewer
+
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable for a more detailed view of a variable in the Data Viewer.
 
 ![Data Viewer](images/jupyter/data-viewer.png)
+
+### Filtering rows
+
+Filtering rows in the data viewer can be done by typing in the textbox at the top of each column. Type a string you want to search for and any row that has that string in the column will be found:
+
+![Data Viewer](images/jupyter/filter-default.png)
+
+If you want to find an exact match, prefix your filter with '=':
+
+![Data Viewer](images/jupyter/filter-exact.png)
+
+More complex filtering can be done by typing a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions):
+
+![Data Viewer](images/jupyter/filter-regex.png)
+
 
 ## Saving plots
 
