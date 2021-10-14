@@ -556,3 +556,11 @@ Unfortunately some issues cannot be automatically detected, if you experience is
     "terminal.integrated.gpuAcceleration": "off"
 }
 ```
+
+### Git Bash isn't saving history when I close the terminal
+
+This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when using VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can workaround this by adding the following to your `~/.bashrc` or `~/.bash-profile`:
+
+```
+export PROMPT_COMMAND='history -a'
+```
