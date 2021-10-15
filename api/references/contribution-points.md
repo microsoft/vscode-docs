@@ -711,6 +711,11 @@ Currently extension writers can contribute to:
 - The Timeline view item context menu - `timeline/item/context`
 - The Extensions view context menu - `extension/context`
 - The Test Explorer item context menu - `testing/item/context`
+- The notebook toolbar - `notebook/toolbar`
+- The notebook cell title menu bar - `notebook/cell/title`
+- The notebook cell execution menu - `notebook/cell/execute`
+- The interactive toolbar - `interactive/toolbar`
+- The interactive cell title menu bar - `interactive/cell/title`
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
