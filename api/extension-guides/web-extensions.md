@@ -190,10 +190,11 @@ Some important fields of `webpack.config.js` are:
 
 ## Test your web extension
 
-There are currently two ways to test a web extension before publishing it to the Marketplace.
+There are three ways to test a web extension before publishing it to the Marketplace.
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
+* Sideload your extension in a running VS Code Web instance.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -288,6 +289,42 @@ Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-w
 | folderPath |  A local folder to open VS Code on.<br>The folder content will be available as a virtual file system and opened as workspace. |
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
+
+### Sideloading your web extension in a running VS Code for the Web instance
+
+For this scenario, you need to make the bits of the extension accessible to the service that runs VS Code.
+
+Note: Sideloading is not supported on github.dev.
+
+From your extension's path, start an HTTP server by running `npx serve --cors`:
+
+```bash
+$ npx serve --cors -l 5000
+npx: installed 78 in 2.196s
+
+   ┌───────────────────────────────────────────────────┐
+   │                                                   │
+   │   Serving!                                        │
+   │                                                   │
+   │   - Local:            http://localhost:5000       │
+   │   - On Your Network:  http://172.19.255.26:5000   │
+   │                                                   │
+   │   Copied local address to clipboard!              │
+   │                                                   │
+   └───────────────────────────────────────────────────┘
+```
+
+Then, in another terminal:
+
+```bash
+$ npx localtunnel -p 5000
+npx: installed 22 in 1.048s
+your url is: https://dangerous-cat-40.loca.lt
+```
+
+Click the link returned by `localtunnel` and accept the usage terms.
+
+Finally, in VS Code Web, run the command **Developer: Install Web Extension...** and paste the URL from above, for example, `https://dangerous-cat-40.loca.lt`.
 
 ## Web extension tests
 
