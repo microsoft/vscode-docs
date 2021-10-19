@@ -17,24 +17,6 @@ Windows 10 2004 and up includes an improved version of the Windows Subsystem for
 
 See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl-2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
 
-### Update the mount consistency to 'delegated' for macOS
-
-By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
-
-When using a **Dockerfile or image**, update the **Remote > Containers: Workspace Mount Consistency** property in settings to `delegated`:
-
-![Workspace Mount setting](images/improve-performance/workspace-mount-setting.png)
-
-When using **Docker Compose**, update your local bind mount in `docker-compose.yml` as follows:
-
-```yaml
-    volumes:
-      # Update this to wherever you want VS Code to mount the folder of your project
-      - .:/workspace:delegated
-```
-
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
-
 ## Use Clone Repository in Container Volume
 
 The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead of binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
