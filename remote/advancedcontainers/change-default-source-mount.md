@@ -18,7 +18,7 @@ You can use the `workspaceMount` property in `devcontainer.json` to change the a
 For example:
 
 ```json
-"workspaceMount": "source=${localWorkspaceFolder}/sub-folder,target=/workspace,type=bind,consistency=delegated",
+"workspaceMount": "source=${localWorkspaceFolder}/sub-folder,target=/workspace,type=bind",
 "workspaceFolder": "/workspace"
 ```
 
