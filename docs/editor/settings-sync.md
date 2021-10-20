@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 13
 Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
