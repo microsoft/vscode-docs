@@ -315,7 +315,7 @@ VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript
 
 This can happen in a few instances:
 
-- You are working with JavaScript or TypeScript code on [github.dev](https://docs.github.com/codespaces/developing-in-codespaces/web-based-editor) and VS Code is running in the browser.
+- You are working with JavaScript or TypeScript code on [vscode.dev](https://vscode.dev) or [github.dev](https://docs.github.com/codespaces/developing-in-codespaces/web-based-editor) and VS Code is running in the browser.
 - You open a file from a virtual file system (such as when using the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension).
 - The project is currently loading. Once loading completes, you will start getting project-wide IntelliSense for it.
 
@@ -336,7 +336,7 @@ Here's an incomplete list of features that are either disabled or have more limi
 - Renaming is disabled.
 - Many refactorings are disabled.
 
-Some additional features are disabled on `github.dev`:
+Some additional features are disabled on `vscode.dev` and `github.dev`:
 
 - [Automatic type acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) is currently not supported.
 

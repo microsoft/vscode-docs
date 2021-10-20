@@ -25,7 +25,7 @@ The following table shows which extension hosts are available in the various con
 --- | --- | --- | ---
 | VS Code on the desktop | x | x |  |
 | [VS Code with remote](/docs/remote/remote-overview) (Container, SSH, WSL, GitHub Codespace) | x | x | x |
-| VS Code for the Web (github.dev) |  | x |   |
+| VS Code for the Web (vscode.dev, github.dev) |  | x |   |
 | VS Code for the Web with Codespaces |  | x | x |
 
 ### Extension Host runtimes
