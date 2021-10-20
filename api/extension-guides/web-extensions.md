@@ -194,7 +194,7 @@ There are currently three ways to test a web extension before publishing it to t
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
-* Sideload your extension onto [vscode.dev](https://vscode.dev/) to see your extension in the actual environment.
+* Sideload your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -277,7 +277,7 @@ The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want 
 
 ### Test your web extension in on vscode.dev
 
-Before you publish your extension for everyone to use on VS Code for the web, you can verify how your extension behaves in the actual [vscode.dev](https://vscode.dev/) environment.
+Before you publish your extension for everyone to use on VS Code for the Web, you can verify how your extension behaves in the actual [vscode.dev](https://vscode.dev) environment.
 
 To see your extension on vscode.dev, you first need to host it from your machine for vscode.dev to download and run.
 
@@ -300,7 +300,7 @@ npx: installed 78 in 2.196s
 
 ```
 
-Then, in another shell run `npx localtunnel -p 5000`:
+Then, in another terminal, run `npx localtunnel -p 5000`:
 
 ```bash
 $ npx localtunnel -p 5000
@@ -309,15 +309,15 @@ your url is: https://hungry-mole-48.loca.lt/
 
 ```
 
-**Important:** Then click on the generated URL (`https://hungry-mole-48.loca.lt/` in this case) and click continue.
+**Important:** Now click on the generated URL (`https://hungry-mole-48.loca.lt/` in this case) and select **Click to Continue**.
 
 ![Screenshot showing button with the text "Click to Continue" highlighted to click.](images/web-extensions/localtunnel.png)
 
-Finally, open [vscode.dev](https://vscode.dev/), run `Developer: Install Web Extension...` from the command palette and paste the URL from above, eg https://hungry-mole-48.loca.lt/, and click `Install`.
+Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
 
 You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
 
-You may see other logs from vscode.dev itself. You also can't easily set breakpoints and see the source code of your extension. All this makes debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
+You may see other logs from vscode.dev itself. In addition, you can't easily set breakpoints nor see the source code of your extension. These limitations make debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
 
 ## Web extension tests
 
