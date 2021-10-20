@@ -11,7 +11,7 @@ Author: Chris Dias
 
 October 20, 2021 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-Back in 2019, when the `.dev` top-level domain opened, we picked up `vscode.dev` and quickly parked it, pointing at [https://code.visualstudio.com](https://code.visualstudio.com) (or, if you are from the Boston area like me, we "pahked it"). Like a lot of people who buy a `.dev` domain, we had no idea what we were going to do with it. And we certainly didn't anticipate that it would end up being the fulfillment of a mission over a decade in the making.
+Back in 2019, when the `.dev` top-level domain opened, we picked up `vscode.dev` and quickly parked it, pointing at our website `code.visualstudio.com` (or, if you are from the Boston area like me, we "pahked it"). Like a lot of people who buy a `.dev` domain, we had no idea what we were going to do with it. And we certainly didn't anticipate that it would end up being the fulfillment of a mission over a decade in the making.
 
 ## Bringing VS Code to the browser
 
