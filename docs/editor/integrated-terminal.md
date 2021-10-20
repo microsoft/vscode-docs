@@ -56,11 +56,11 @@ Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** comman
 
 Change the terminal's name, icon, and tab color via the right-click context menu or by triggering the following commands:
 
-Command|Command ID
----|---|
-Terminal: Rename | `workbench.action.terminal.rename` |
-Terminal: Change Icon | `workbench.action.terminal.changeIcon` |
-Terminal: Change Color | `workbench.action.terminal.changeColor` |
+| Command                | Command ID                              |
+| ---------------------- | --------------------------------------- |
+| Terminal: Rename       | `workbench.action.terminal.rename`      |
+| Terminal: Change Icon  | `workbench.action.terminal.changeIcon`  |
+| Terminal: Change Color | `workbench.action.terminal.changeColor` |
 
 >**Tip:** Go back to the old version by setting `terminal.integrated.tabs.enabled:false`
 
@@ -68,7 +68,25 @@ Terminal: Change Color | `workbench.action.terminal.changeColor` |
 
 ## Terminal profiles
 
-Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations.
+Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations. To see the variables that can be used, review this [guide](https://code.visualstudio.com/docs/editor/variables-reference).
+
+Example profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "My PowerShell": {
+      "path": "pwsh.exe"
+      "args": [
+         "-noexit",
+         "-file",
+         "${env:APPDATA}\PowerShell\my-init-script.ps1"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "My PowerShell"
+}
+```
 
 Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal dropdown.
 
