@@ -27,7 +27,7 @@ So, what can you do on VS Code for the Web? Quite a bit actually…
 
 ## Local development with cloud tools
 
-[!["The Cat said No" application source code in vscode.dev](the-cat-said-no-vscode-dev.png)](/assets/blogs/2021/10/20/the-cat-said-no-vscode-dev.png))
+[!["The Cat said No" application source code in vscode.dev](the-cat-said-no-vscode-dev.png)](/assets/blogs/2021/10/20/the-cat-said-no-vscode-dev.png)
 
 Modern browsers that support the [File System Access API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API) (Edge and Chrome today) allow web pages to access the local file system (with your permission). This simple gateway to the local machine quickly opens some interesting scenarios for using VS Code for the Web as a zero-installation local development tool, such as:
 
