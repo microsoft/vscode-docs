@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Docker development troubleshooting Tips and Tricks
 ContentId: 79bb60fd-5248-43d2-8801-34b9fc2ec543
 MetaDescription: Visual Studio Code Docker development troubleshooting tips and tricks
-DateApproved: 07/12/2021
+DateApproved: 07/16/2021
 ---
 # Docker Tools Tips and Tricks
 

@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Overview
 ContentId: 4B462667-8915-4BE0-B8D0-EDE51CB2D273
 PageTitle: Container tools extension for Visual Studio Code
-DateApproved: 07/31/2020
+DateApproved: 07/16/2021
 MetaDescription: Tools for developing and debugging with Docker containers, using Visual Studio Code.
 ---
 # Working with containers

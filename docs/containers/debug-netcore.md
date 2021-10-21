@@ -2,7 +2,7 @@
 Area: containers
 ContentId: B1DF33C0-400C-413D-B60B-D1AA278F6DE3
 PageTitle: Debug a .NET Core app running in a Docker container
-DateApproved: 01/29/2020
+DateApproved: 04/15/2021
 MetaDescription: Debug a .NET Core app running in a Docker container, using Visual Studio Code.
 ---
 # Debug .NET Core within a container

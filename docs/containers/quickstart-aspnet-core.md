@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
 PageTitle: Build and run an ASP.NET Core app in a container
-DateApproved: 01/29/2020
+DateApproved: 10/28/2020
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
 # ASP.NET Core in a container
