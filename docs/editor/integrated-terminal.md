@@ -68,7 +68,7 @@ Change the terminal's name, icon, and tab color via the right-click context menu
 
 ## Terminal profiles
 
-Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations. To see the variables that can be used, review this [guide](https://code.visualstudio.com/docs/editor/variables-reference).
+Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations.
 
 Example profile:
 
@@ -87,6 +87,8 @@ Example profile:
   "terminal.integrated.defaultProfile.windows": "My PowerShell"
 }
 ```
+
+You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. You can find a list of available variables in the [Variables Reference](/docs/editor/variables-reference.md) topic.
 
 Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal dropdown.
 

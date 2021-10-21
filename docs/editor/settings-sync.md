@@ -158,32 +158,31 @@ If the error is "Writing login information to the keychain failed with error 'Un
 
 If the error is "Writing login information to the keychain failed with error 'Cannot create an item in a locked collection'.", you need to:
 
-1. add this to your `~/.xinitrc`
+1. Add the following lines to your `~/.xinitrc`:
 
-```sh
-# see https://unix.stackexchange.com/a/295652/332452
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+   ```sh
+   # see https://unix.stackexchange.com/a/295652/332452
+   source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
-# see https://wiki.archlinux.org/title/GNOME/Keyring#xinitrc
-eval $(/usr/bin/gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
+   # see https://wiki.archlinux.org/title/GNOME/Keyring#xinitrc
+   eval $(/usr/bin/gnome-keyring-daemon --start)
+   export SSH_AUTH_SOCK
 
-# see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
-mkdir -p "$HOME"/.local/share/keyrings
-```
+   # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
+   mkdir -p "$HOME"/.local/share/keyrings
+   ```
 
-2. re-login
+2. Login again.
 
-3. have the following programs installed (installation assumes arch/pacman, should be similar to other distros)
+3. Have the following programs installed (installation assumes arch/pacman, should be similar to other distros):
 
-```sh
-sudo pacman -S gnome-keyring libsecret libgnome-keyring
-```
+   ```sh
+   sudo pacman -S gnome-keyring libsecret libgnome-keyring
+   ```
 
-4. launch `seahorse`, unlock the default password keyring or create a new one and keep it unlocked
+4. Launch `seahorse`, unlock the default password keyring or create a new one, and keep it unlocked.
 
-5. restart the login procedure
-
+5. Restart the login procedure.
 
 ## Can I share settings between VS Code Stable and Insiders?
 
