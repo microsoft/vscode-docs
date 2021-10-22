@@ -21,6 +21,8 @@ VS Code for the Web provides a browser-based experience for navigating files and
 
 When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code desktop experience with a few clicks.
 
+You can also switch between the Stable and Insiders versions of VS Code for the Web by selecting the gear icon, then `Switch to Insiders Version...`, or by navigating directly to [https://insiders.vscode.dev/](https://insiders.vscode.dev/).
+
 ## Opening a project
 
 By navigating to [https://vscode.dev](https://vscode.dev/), you can create a new local file or project, work on an existing local project, or access source code repositories hosted elsewhere, such as on GitHub and Azure Repos (part of Azure DevOps).
@@ -158,6 +160,10 @@ Certain keybindings may also work differently in the web.
 | Issue | Reason |
 |-|-|
 | `kbstyle(Ctrl+Shift+P)` won't launch the Command Palette in Firefox. | `kbstyle(Ctrl+Shift+P)` is reserved in Firefox. <br> As a workaround, use `kbstyle(F1)` to launch the Command Palette. |
-| `kbstyle(Ctrl+N)` for new file doesn't work in web. | `kbstyle(Ctrl+N)` opens a new window instead. |
-| `kbstyle(Ctrl+W)` for closing an editor doesn't work in web. | `kbstyle(Ctrl+W)` closes the current tab in browsers. |
+| `kbstyle(Ctrl+N)` for new file doesn't work in web. | `kbstyle(Ctrl+N)` opens a new window instead. <br> As a workaround, use `kbstyle(Ctrl+Alt+N)`. |
+| `kbstyle(Ctrl+W)` for closing an editor doesn't work in web. | `kbstyle(Ctrl+W)` closes the current tab in browsers. <br> As a workaround, use `kbstyle(Ctrl+Shift+Alt+N)`. |
 | `kbstyle(Ctrl+Shift+B)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
+
+### Mobile support
+
+You can use VS Code for the Web on mobile devices, but smaller screens may have certain limitations.
