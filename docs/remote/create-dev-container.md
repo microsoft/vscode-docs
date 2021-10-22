@@ -128,7 +128,7 @@ When editing the contents of the `.devcontainer` folder, you'll need to rebuild 
 
 However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
 
-The `postCreateCommand` is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
+The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
