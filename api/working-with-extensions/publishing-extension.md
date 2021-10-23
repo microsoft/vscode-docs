@@ -254,13 +254,13 @@ If you want a platform-specific extension to also support running in the browser
 
 Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify the target platform while packaging and publishing a VSIX.
 
-Here's how you can publish a VSIX for the `win32-x64` platform:
+Here's how you can publish a VSIX for the `win32-x64` and `win32-ia32` platforms:
 
 ```bash
-vsce publish --target win32-x64
+vsce publish --target win32-x64 win32-ia32
 ```
 
-Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual:
+Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual. Here's how to do it for the `win32-x64` platform:
 
 ```bash
 vsce package --target win32-x64
