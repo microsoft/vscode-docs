@@ -53,8 +53,8 @@ You can use the following pattern:
 
 ```TypeScript
 // on activate
-const versionKey = context.extension.id + '.version';
-context.globalState.setKeysForSync([versionKey]);
+const versionKey = 'shown.version';
+context.globalState.setKeysForSync([version]);
 
 // later on show page
 const currentVersion = context.extension.packageJSON.version;
@@ -62,7 +62,7 @@ const lastVersionShown = context.globalState.get(versionKey);
 if (!isHigher(currentVersion, lastVersionShown)) {
     return;
 }
-context.globalState.set(versionKey, currentVersion);
+context.globalState.update(versionKey, currentVersion);
 // show page
 ```
 
