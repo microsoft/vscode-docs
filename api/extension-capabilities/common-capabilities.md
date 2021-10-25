@@ -54,7 +54,7 @@ You can use the following pattern:
 ```TypeScript
 // on activate
 const versionKey = 'shown.version';
-context.globalState.setKeysForSync([version]);
+context.globalState.setKeysForSync([versionKey]);
 
 // later on show page
 const currentVersion = context.extension.packageJSON.version;
