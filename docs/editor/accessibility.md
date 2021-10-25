@@ -102,6 +102,10 @@ The setting `terminal.integrated.minimumContrastRatio` can be set to a number be
 
 Once a focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
 
+### Diff editor accessibility
+
+There is a review pane in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`kb(editor.action.diffReview.next)`) and **Go to Previous Difference** (`kb(editor.action.diffReview.prev)`). Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the Diff editor and the selected line.
+
 ## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
