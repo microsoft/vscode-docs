@@ -74,12 +74,12 @@ If you prefer, you can configure JDK settings using the VS Code Settings editor 
 
 If you need to install a JDK, we recommend you to consider installing from one of these sources:
 
-* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
-* [Eclipse Adoptium's Temurin](https://adoptium.net/)
-* [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
-* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
-* [SapMachine](https://sapmachine.io)
 * [Amazon Corretto](https://aws.amazon.com/corretto)
+* [Eclipse Adoptium's Temurin](https://adoptium.net/)
+* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
+* [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
+* [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
+* [SapMachine](https://sapmachine.io)
 
 ## Creating a source code file
 
