@@ -23,7 +23,7 @@ For web extensions, the [main entry file](#web-extension-main-file) is defined b
 
 The `contributes` property works the same way for both web and regular extensions.
 
-The example below shows the `package.json` for a simple hello world extension, that runs in the web only (it only has a `browser` entry point):
+The example below shows the `package.json` for a simple hello world extension, that runs in the web extension host only (it only has a `browser` entry point):
 
 ```json
 {
