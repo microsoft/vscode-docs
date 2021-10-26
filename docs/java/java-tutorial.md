@@ -45,7 +45,7 @@ The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemNam
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
-You can also install extensions separately. The **Extension Guide** is provided to help you. You can launch the guide with the **Java: Extension Guide** command.
+You can also install extensions separately. The **Extensions Guide** is provided to help you. You can launch the guide with the **Java: Extensions Guide** command.
 
 For this tutorial, the only required extensions are:
 
