@@ -37,7 +37,7 @@ Tells GDB or LLDB what paths to search for .so files. Separate multiple paths wi
 
 ### externalConsole
 
-Used only when launching the debuggee. For `attach`, this parameter does not change the debuggee's behavior.
+Used only when launching the debugger. For `attach`, this parameter does not change the debuggee's behavior.
 
 - **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
 - **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
