@@ -77,7 +77,7 @@ This document describes some of the key features included in those Java extensio
 
 **NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).
 
-Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the VS Code for Java extension itself, Java SE 11 or above version is required; for projects, VS Code for Java supports version 1.5 or above. For how to configure these versions, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the Java Language Support (redhat.java) extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For how to configure these versions, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open the Getting Started experience from within VS Code with the **Java: Getting Started** command from the Command Palette.  Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
 
