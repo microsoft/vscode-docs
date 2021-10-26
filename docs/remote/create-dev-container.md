@@ -471,5 +471,5 @@ Once in place, the configuration will be automatically picked up when using any 
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Advanced Containers](/emote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
+* [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
