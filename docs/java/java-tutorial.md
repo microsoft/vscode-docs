@@ -56,7 +56,7 @@ For this tutorial, the only required extensions are:
 
 ### Supported Java versions
 
-The supported version for running the VS Code for Java extension and the supported version for your projects are two separate runtimes. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+The supported version for running the VS Code for Java extension and the supported version for your projects are two separate requirements. To run VS Code for Java itself, Java SE 11 or above version is required; for projects, VS Code for Java supports version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 ### Using the Java runtime configuration wizard
 
