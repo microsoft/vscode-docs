@@ -112,13 +112,13 @@ There are two ways to generate a Maven project:
 
 1. From the Maven explore, click **+**.
 
-![Create Maven Project](images/java-build/create-maven-project.png)
+   ![Create Maven Project](images/java-build/create-maven-project.png)
 
 2. Right-click on a folder and select **Generate from Maven Archetype**.
 
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-build/maven-archetype.mp4" type="video/mp4">
-</video>
+   <video autoplay loop muted playsinline controls>
+     <source src="/docs/java/java-build/maven-archetype.mp4" type="video/mp4">
+   </video>
 
 ## Gradle
 
