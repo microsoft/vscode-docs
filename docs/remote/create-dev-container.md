@@ -414,20 +414,6 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-For example:
-
-```json
-{
-    "name": "[Optional] Your project name here",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "workspaceFolder": "/default/workspace/path/in/container/to/open",
-    "shutdownAction": "stopCompose"
-}
-```
-
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
-
 ### Docker Compose dev container definitions
 
 The following are dev container definitions that use Docker Compose:
