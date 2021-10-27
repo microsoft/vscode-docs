@@ -77,7 +77,7 @@ The Notebook Editor makes it easy to create, edit, and run code cells within you
 
 ### Create a code cell
 
-By default, a blank Notebook will have an empty code cell for you to start with.
+By default, a blank Notebook will have an empty code cell for you to start with and an existing Notebook will place one at the bottom. Add your code to the empty code cell to get started.
 
 ```python
 msg = "Hello world"

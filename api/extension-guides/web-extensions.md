@@ -13,7 +13,7 @@ Visual Studio Code can run as an editor in the browser. One example is the `gith
 
 Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web-extension-main-file) compared to normal extensions.
 
-The web extension runtime is supported on VS Code desktop too. If you decide to create your extension as a web extension, it will be supported on VS Code for the Web (including `github.dev`) as well as on the desktop and in services like [GitHub Codespaces](/docs/remote/codespaces).
+The web extension runtime is supported on VS Code desktop too. If you decide to create your extension as a web extension, it will be supported on [VS Code for the Web](/docs/editor/vscode-web) (including `vscode.dev` and `github.dev`) as well as on the desktop and in services like [GitHub Codespaces](/docs/remote/codespaces).
 
 ## Web extension anatomy
 
@@ -68,7 +68,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 ![Extensions view](images/web-extensions/extensions-view-item-disabled.png)
 
-Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in VS Code for the Web without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
+Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in [VS Code for the Web](/docs/editor/vscode-web) without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
 Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update-existing-extensions-to-web-extensions) section shows how to migrate an extension to work in both runtimes.
 
@@ -190,11 +190,11 @@ Some important fields of `webpack.config.js` are:
 
 ## Test your web extension
 
-There are three ways to test a web extension before publishing it to the Marketplace.
+There are currently three ways to test a web extension before publishing it to the Marketplace.
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
-* Sideload your extension in a running VS Code Web instance.
+* Sideload your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -290,13 +290,13 @@ Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-w
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
 
-### Sideloading your web extension in a running VS Code for the Web instance
+### Test your web extension in on vscode.dev
 
-For this scenario, you need to make the bits of the extension accessible to the service that runs VS Code.
+Before you publish your extension for everyone to use on VS Code for the Web, you can verify how your extension behaves in the actual [vscode.dev](https://vscode.dev) environment.
 
-Note: Sideloading is not supported on github.dev.
+To see your extension on vscode.dev, you first need to host it from your machine for vscode.dev to download and run.
 
-From your extension's path, start an HTTP server by running `npx serve --cors`:
+From your extension's path, start an HTTP server by running `npx serve --cors -l 5000`:
 
 ```bash
 $ npx serve --cors -l 5000
@@ -312,19 +312,27 @@ npx: installed 78 in 2.196s
    │   Copied local address to clipboard!              │
    │                                                   │
    └───────────────────────────────────────────────────┘
+
 ```
 
-Then, in another terminal:
+Then, in another terminal, run `npx localtunnel -p 5000`:
 
 ```bash
 $ npx localtunnel -p 5000
 npx: installed 22 in 1.048s
-your url is: https://dangerous-cat-40.loca.lt
+your url is: https://hungry-mole-48.loca.lt/
+
 ```
 
-Click the link returned by `localtunnel` and accept the usage terms.
+**Important:** Now click on the generated URL (`https://hungry-mole-48.loca.lt/` in this case) and select **Click to Continue**.
 
-Finally, in VS Code Web, run the command **Developer: Install Web Extension...** and paste the URL from above, for example, `https://dangerous-cat-40.loca.lt`.
+![Screenshot showing button with the text "Click to Continue" highlighted to click.](images/web-extensions/localtunnel.png)
+
+Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
+
+You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
+
+You may see other logs from vscode.dev itself. In addition, you can't easily set breakpoints nor see the source code of your extension. These limitations make debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
 
 ## Web extension tests
 

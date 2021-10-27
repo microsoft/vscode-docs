@@ -32,7 +32,7 @@ To help you set up quickly, you can install the **Coding Pack for Java**, which 
 
 If you are an existing VS Code user, you can also add Java support by installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
-* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+* [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 * [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
@@ -49,7 +49,7 @@ You can also install extensions separately. The **Extension Guide** is provided 
 
 For this tutorial, the only required extensions are:
 
-* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+* [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 ## Settings for the JDK
@@ -74,9 +74,12 @@ If you prefer, you can configure JDK settings using the VS Code Settings editor 
 
 If you need to install a JDK, we recommend you to consider installing from one of these sources:
 
+* [Amazon Corretto](https://aws.amazon.com/corretto)
+* [Eclipse Adoptium's Temurin](https://adoptium.net/)
+* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
-* [AdoptOpenJDK](https://adoptopenjdk.net/)
-* [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
+* [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
+* [SapMachine](https://sapmachine.io)
 
 ## Creating a source code file
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 7/20/2021
+DateApproved: 10/05/2021
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -229,6 +229,12 @@ Changing interpreters with the **Python: Select Interpreter** command doesn't af
 By default, the debugger will use the Python interpreter you have selected with the Python extension. However, if you have a `python` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code will give precedence to the `python` property of the selected debug configuration in `launch.json`. If it's not defined, then it will use the path to the Python interpreter you have selected for your workspace.
 
 For more details on debug configuration, see [Debugging configurations](/docs/python/debugging.md).
+
+### Limited support for Python 2.7
+
+The Python extension no longer offers IntelliSense support for Python 2.7 with [Jedi](https://pypi.org/project/jedi/) as it only supports Python 3 at this point. When using Python 2.7 with the Python extension you can customize the [language server setting](/docs/python/settings-reference#_intellisense-engine-settings) to either turn off auto-completions or select Pylance as your language server, as it may provide a good experience if the code is compatible enough with Python 3.
+
+We currently support selecting Python 2.7 as an interpreter in your workspace. Because [Python 2.7 is no longer maintained as of January 2020](https://www.python.org/doc/sunset-python-2/), we strongly suggest you to upgrade your code to Python 3 as soon as you can. You can [learn how to port your code to Python 3](https://docs.python.org/3/howto/pyporting.html) if you need help.
 
 ## Environment variables
 

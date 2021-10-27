@@ -122,7 +122,7 @@ async function discoverAllFilesInWorkspace() {
     // When files change, re-parse them. Note that you could optimize this so
     // that you only re-parse children that have been resolved in the past.
     watcher.onDidChange(uri => parseTestsInFileContents(getOrCreateFile(uri)));
-    // And, finally, delete TestItems fro removed files. This is simple, since
+    // And, finally, delete TestItems for removed files. This is simple, since
     // we use the URI as the TestItem's ID.
     watcher.onDidDelete(uri => controller.items.delete(uri.toString()));
 
@@ -185,7 +185,7 @@ const debugProfile = controller.createRunProfile('Debug', vscode.TestRunProfileK
 The `runHandler` should call `controller.createTestRun` at least once, passing through the original request. The request contains the tests to `include` in the test run (which is omitted if the user asked to run all tests) and possibly tests to `exclude` from the run. The extension should use the resulting `TestRun` object to update the state of tests involved in the run. For example:
 
 ```ts
-async function runHandler(request: vscode.TestRunRequest, token: vscode.CancellationToken) {
+async function runHandler(shouldDebug: boolean, request: vscode.TestRunRequest, token: vscode.CancellationToken) {
   const run = controller.createTestRun(request);
   const queue: vscode.TestItem[] = [];
 
@@ -239,7 +239,13 @@ In addition to the `runHandler`, you can set a `configureHandler` on the `TestRu
 
 > VS Code intentionally handles test configuration differently than debug or task configuration. These are traditionally editor or IDE-centric features, and are configured in special files in the `.vscode` folder. However, tests have traditionally been executed from the command line, and most test frameworks have existing configuration strategies. Therefore, in VS Code, we avoid duplication of configuration and instead leave it up to extensions to handle.
 
-#### Test Tags
+### Test Output
+
+In addition to the messages passed to `TestRun.failed` or `TestRun.errored`, you can append generic output using `run.appendOutput(str)`. This output can be displayed in a terminal using the **Test: Show Output** and through various buttons in the UI, such as the terminal icon in the Test Explorer view.
+
+Because the string is rendered in a terminal, you can use the full set of [ANSI codes](https://en.wikipedia.org/wiki/ANSI_escape_code), including the styles available in the [ansi-styles](https://www.npmjs.com/package/ansi-styles) npm package. Bear in mind that, because it is in a terminal, lines must be wrapped using CRLF (`\r\n`), not just LF (`\n`), which may be the default output from some tools.
+
+### Test Tags
 
 Sometime tests can only be run under certain configurations, or not at all. For these use cases, you can use Test Tags. `TestRunProfile`s can optionally have a tag associated with them and, if they do, only tests that have that tag can be run under the profile. Once again, if there is no eligible profile to run, debug, or gather coverage from a specific test, those options will not be shown in the UI.
 
@@ -307,4 +313,4 @@ The `testing/item/context` [menu contribution point](/api/references/contributio
 
 Additional [context keys](/api/references/when-clause-contexts) are available in the `when` clauses of your menu items: `testId`, `controllerId`, and `testItemHasUri`. For more complex `when` scenarios, where you want actions to be optionally available for different Test Items, consider using the [`in` conditional operator](/api/references/when-clause-contexts#in-conditional-operator).
 
-If want to reveal a test in the explorer, you can pass the test to the command `vscode.commands.executeCommand('vscode.revealTestInExplorer', testItem)`.
+If you want to reveal a test in the Explorer, you can pass the test to the command `vscode.commands.executeCommand('vscode.revealTestInExplorer', testItem)`.

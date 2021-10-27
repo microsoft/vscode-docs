@@ -41,6 +41,16 @@ You can search for themes in the Extensions view (`kb(workbench.view.extensions)
 
 ![Searching for themes in the Extensions view](images/themes/category-themes.png)
 
+## Auto switch based on OS color scheme
+
+Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
+
+To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes with the settings:
+
+* `workbench.preferredLightColorTheme` - defaults to "Default Light+"
+* `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
+* `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
+
 ## Customizing a Color Theme
 
 ### Workbench colors

@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 15
 Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
@@ -198,8 +198,8 @@ Do not use `:` in the snippet name. `:` is used to separate property name and va
 
 The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets).
 
-- Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
-- Previously, `|` or `${cursor}` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead.
+* Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
+* Previously, `|` or `${cursor}` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead.
 
 ## Emmet configuration
 
@@ -227,6 +227,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     See [Emmet Customization of output profile](https://docs.emmet.io/customization/syntax-profiles/#create-your-own-profile) to learn how you can customize the output of your HTML abbreviations.
 
     For example:
+
     ```json
     "emmet.syntaxProfiles": {
         "html": {
@@ -243,6 +244,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     Customize variables used by Emmet snippets.
 
     For example:
+
     ```json
     "emmet.variables": {
         "lang": "de",
@@ -286,24 +288,25 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 * `emmet.preferences`
 
     You can use this setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The below customizations are currently supported:
-    - `css.propertyEnd`
-    - `css.valueSeparator`
-    - `sass.propertyEnd`
-    - `sass.valueSeparator`
-    - `stylus.propertyEnd`
-    - `stylus.valueSeparator`
-    - `css.unitAliases`
-    - `css.intUnit`
-    - `css.floatUnit`
-    - `bem.elementSeparator`
-    - `bem.modifierSeparator`
-    - `filter.commentBefore`
-    - `filter.commentTrigger`
-    - `filter.commentAfter`
-    - `format.noIndentTags`
-    - `format.forceIndentationForTags`
-    - `profile.allowCompactBoolean`
-    - `css.fuzzySearchMinScore`
+
+  * `css.propertyEnd`
+  * `css.valueSeparator`
+  * `sass.propertyEnd`
+  * `sass.valueSeparator`
+  * `stylus.propertyEnd`
+  * `stylus.valueSeparator`
+  * `css.unitAliases`
+  * `css.intUnit`
+  * `css.floatUnit`
+  * `bem.elementSeparator`
+  * `bem.modifierSeparator`
+  * `filter.commentBefore`
+  * `filter.commentTrigger`
+  * `filter.commentAfter`
+  * `format.noIndentTags`
+  * `format.forceIndentationForTags`
+  * `profile.allowCompactBoolean`
+  * `css.fuzzySearchMinScore`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
@@ -332,7 +335,7 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 * [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
 * [CSS](/docs/languages/css.md) - We offer rich support for CSS, SCSS and Less.
 
-## Common questions
+## Troubleshooting
 
 ### Custom tags do not get expanded in the suggestion list
 
@@ -344,11 +347,20 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 "emmet.triggerExpansionOnTab": true
 ```
 
-### My HTML snippets ending with `+` do not work?
+### My HTML snippets ending with `+` do not work
 
-HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
+HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). A workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 
-### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)
+### Abbreviations are failing to expand
+
+First, check if you're using custom snippets (if there is a `snippets.json` file being picked up by the `emmet.extensionsPath` setting). The format of custom snippets changed in VS Code release 1.53. Instead of using `|` to indicate where the cursor position is, use tokens such as `${1}`, `${2}`, etc. instead. The [default CSS snippets file](https://github.com/emmetio/emmet/blob/master/snippets/css.json) from the `emmetio/emmet` repository shows examples of the new cursor position format.
+
+If abbreviations are still failing to expand:
+
+* Check the [builtin extensions](/docs/editor/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
+* Try restarting the extension host by running the **Developer: Restert Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/getstarted/userinterface.md#command-palette).
+
+### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?
 
 You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
 
@@ -356,6 +368,6 @@ You can set the preferences using the setting `emmet.preferences`. Only a subset
 
 Of course!
 
-- In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
-- Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
-- Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).
+* In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
+* Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
+* Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).
