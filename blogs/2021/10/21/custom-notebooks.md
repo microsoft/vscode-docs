@@ -53,7 +53,7 @@ You can find the Notebooks we use for triaging in the [VS Code repo under `.vsco
 
 ### REST Book
 
-Inspired by the querying experience in the GitHub Issues Notebook, I created [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) on my first week on the VS Code team. REST Book allows you to make HTTP calls in a Notebook. I found this Notebook useful to iterate on my projects with a server by being able to make multiple calls over time and compare the results easily on one page. I also used the Notebbok to set up some manual testing of my project with some documentation around the testcases.
+Inspired by the querying experience in the GitHub Issues Notebook, I created [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) on my first week on the VS Code team. REST Book allows you to make HTTP calls in a Notebook. I found this Notebook useful to iterate on my projects with a server by being able to make multiple calls over time and compare the results easily on one page. I also used the Notebook to set up some manual testing of my project with some documentation around the test cases.
 
 ![A preview of the REST Book being used in a project with an Express App](rest-book.png)
 
