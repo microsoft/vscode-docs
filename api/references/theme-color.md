@@ -251,7 +251,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
   ![editorGroupHeader.tabsBorder](images/theme-color/editorgroupheader-tabsborder.gif)
 
-- `editorGroupHeader.border`: Border color between editor group header and editor (below breadrcumbs if enabled).
+- `editorGroupHeader.border`: Border color between editor group header and editor (below breadcrumbs if enabled).
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
 - `tab.activeBackground`: Active Tab background color in an active group.
