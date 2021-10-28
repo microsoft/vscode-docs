@@ -442,7 +442,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.gotoLocation.multipleTypeDefinitions": "peek",
 
     // Controls whether bracket pair guides are enabled or not.
+    //  - true: Enables bracket pair guides.
+    //  - active: Enables bracket pair guides only for the active bracket pair.
+    //  - false: Disables bracket pair guides.
     "editor.guides.bracketPairs": false,
+
+    // Controls whether horizontal bracket pair guides are enabled or not.
+    //  - true: Enables horizontal guides as addition to vertical bracket pair guides.
+    //  - active: Enables horizontal guides only for the active bracket pair.
+    //  - false: Disables horizontal bracket pair guides.
+    "editor.guides.bracketPairsHorizontal": "active",
+
+    // Controls whether bracket pair guides are enabled or not.
+    "editor.guides.highlightActiveBracketPair": true,
 
     // Controls whether the editor should highlight the active indent guide.
     "editor.guides.highlightActiveIndentation": true,
@@ -452,6 +464,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the cursor should be hidden in the overview ruler.
     "editor.hideCursorInOverviewRuler": false,
+
+    // Prefer showing hovers above the line, if there's space.
+    "editor.hover.above": true,
 
     // Controls the delay in milliseconds after which the hover is shown.
     "editor.hover.delay": 300,
@@ -476,6 +491,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Insert spaces when pressing `Tab`. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
     "editor.insertSpaces": true,
+
+    // Defines the bracket symbols that increase or decrease the indentation.
+    "editor.language.brackets": false,
+
+    // Defines the bracket pairs that are colorized by their nesting level if bracket pair colorization is enabled.
+    "editor.language.colorizedBracketPairs": false,
 
     // Controls the letter spacing in pixels.
     "editor.letterSpacing": 0,
@@ -1007,7 +1028,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the behavior of empty editor groups when the last tab in the group is closed. When enabled, empty groups will automatically close. When disabled, empty groups will remain part of the grid.
     "workbench.editor.closeEmptyGroups": true,
 
-    // Controls whether editors showing a file that was opened during the session should close automatically when getting deleted or renamed by some other process. Disabling this will keep the editor open  on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
+    // Controls whether editors showing a file that was opened during the session should close automatically when getting deleted or renamed by some other process. Disabling this will keep the editor open  on such an event. Note that deleting from within the application will always close the editor and that editors with unsaved changes will never close to preserve your data.
     "workbench.editor.closeOnFileDelete": false,
 
     // Controls whether editor file decorations should use badges.
@@ -1028,7 +1049,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether tabs are closed in most recently used order or from left to right.
     "workbench.editor.focusRecentEditorAfterClose": true,
 
-    // Controls whether a top border is drawn on modified (dirty) editor tabs or not. This value is ignored when `workbench.editor.showTabs` is disabled.
+    // Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `workbench.editor.showTabs` is disabled.
     "workbench.editor.highlightModifiedTabs": false,
 
     // Controls the format of the label for an editor.
@@ -1041,7 +1062,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the language in a text editor is automatically detected unless the language has been explicitly set by the language picker. This can also be scoped by language so you can specify which languages you do not want to be switched off. This is useful for languages like Markdown that often contain other languages that might trick language detection into thinking it's the embedded language and not Markdown.
     "workbench.editor.languageDetection": true,
 
-    // Controls if the number of opened editors should be limited or not. When enabled, less recently used editors that are not dirty will close to make space for newly opening editors.
+    // Controls if the number of opened editors should be limited or not. When enabled, less recently used editors will close to make space for newly opening editors.
     "workbench.editor.limit.enabled": false,
 
     // Controls if the limit of maximum opened editors should apply per editor group or across all editor groups.
@@ -1084,6 +1105,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.editor.showTabs": true,
 
     // Controls the layout for when an editor is split in an editor group to be either vertical or horizontal.
+    //  - vertical: Editors are positioned from top to bottom.
+    //  - horizontal: Editors are positioned from left to right.
     "workbench.editor.splitInGroupLayout": "horizontal",
 
     // Controls if editor groups can be split from drag and drop operations by dropping an editor or file on the edges of the editor area.
@@ -1355,7 +1378,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // - `${rootPath}`: file path of the opened workspace or folder (e.g. /Users/Development/myWorkspace).
     // - `${appName}`: e.g. VS Code.
     // - `${remoteName}`: e.g. SSH
-    // - `${dirty}`: a dirty indicator if the active editor is dirty.
+    // - `${dirty}`: an indicator for when the active editor has unsaved changes.
     // - `${separator}`: a conditional separator (" - ") that only shows when surrounded by variables with values or static text.
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
 
@@ -1376,14 +1399,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, the editor will attempt to guess the character set encoding when opening files. This setting can also be configured per language. Note, this setting is not respected by text search. Only `files.encoding` is respected.
     "files.autoGuessEncoding": false,
 
-    // Controls auto save of dirty editors.
-    //  - off: A dirty editor is never automatically saved.
-    //  - afterDelay: A dirty editor is automatically saved after the configured `files.autoSaveDelay`.
-    //  - onFocusChange: A dirty editor is automatically saved when the editor loses focus.
-    //  - onWindowChange: A dirty editor is automatically saved when the window loses focus.
+    // Controls auto save of editors that have unsaved changes.
+    //  - off: An editor with changes is never automatically saved.
+    //  - afterDelay: An editor with changes is automatically saved after the configured `files.autoSaveDelay`.
+    //  - onFocusChange: An editor with changes is automatically saved when the editor loses focus.
+    //  - onWindowChange: An editor with changes is automatically saved when the window loses focus.
     "files.autoSave": "off",
 
-    // Controls the delay in ms after which a dirty editor is saved automatically. Only applies when `files.autoSave` is set to `afterDelay`.
+    // Controls the delay in milliseconds after which an editor with unsaved changes is saved automatically. Only applies when `files.autoSave` is set to `afterDelay`.
     "files.autoSaveDelay": 1000,
 
     // The default language mode that is assigned to new files. If configured to `${activeEditorLanguage}`, will use the language mode of the currently active text editor if any.
@@ -1412,7 +1435,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     },
 
     // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
-    //  - off: Disable hot exit. A prompt will show when attempting to close a window with dirty files.
+    //  - off: Disable hot exit. A prompt will show when attempting to close a window with editors that have unsaved changes.
     //  - onExit: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu). All windows without folders opened will be restored upon next launch. A list of previously opened windows with unsaved files can be accessed via `File > Open Recent > More...`
     //  - onExitAndWindowClose: Hot exit will be triggered when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), and also for any window with a folder opened regardless of whether it's the last window. All windows without folders opened will be restored upon next launch. A list of previously opened windows with unsaved files can be accessed via `File > Open Recent > More...`
     "files.hotExit": "onExit",
@@ -1443,7 +1466,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, will trim trailing whitespace when saving a file.
     "files.trimTrailingWhitespace": false,
 
-    // Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths, i.e. prefix with `**/` or the full path to match properly and suffix with `/**` to match files within a path (for example `**/build/output/**` or `/Users/name/workspaces/project/build/output/**`). When you experience Code consuming lots of CPU time on startup, you can exclude large folders to reduce the initial load.
+    // Configure paths or glob patterns to exclude from file watching.
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
@@ -1451,7 +1474,7 @@ Below are the Visual Studio Code default settings and their values. You can also
         "**/.hg/store/**": true
     },
 
-    // Configure extra paths to watch for changes inside the workspace. By default, all workspace folders will be watched recursively, except for folders that are symbolic links. You can explicitly add absolute or relative paths to support watching folders that are symbolic links. Relative paths will be resolved against the workspace folder to form an absolute path.
+    // Configure extra paths to watch for changes inside the workspace.
     "files.watcherInclude": [],
 
 // Screencast Mode
@@ -1531,6 +1554,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the explorer should allow to move files and folders via drag and drop. This setting only effects drag and drop from inside the explorer.
     "explorer.enableDragAndDrop": true,
+
+    // Controls whether the Explorer should expand multi-root workspaces containing only one folder during initilization
+    "explorer.expandSingleFolderWorkspaces": true,
 
     // Controls what naming strategy to use when a giving a new name to a duplicated explorer item on paste.
     //  - simple: Appends the word "copy" at the end of the duplicated name potentially followed by a number
@@ -1642,7 +1668,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - countAscending: Results are sorted by count per file, in ascending order.
     "search.sortOrder": "default",
 
-    // Controls whether to use global `.gitignore` and `.ignore` files when searching for files.
+    // Controls whether to use global `.gitignore` and `.ignore` files when searching for files. Requires `search.useIgnoreFiles` to be enabled.
     "search.useGlobalIgnoreFiles": false,
 
     // Controls whether to use `.gitignore` and `.ignore` files when searching for files.
@@ -1797,6 +1823,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable autoclosing of HTML tags.
     "html.autoClosingTags": true,
+
+    // Controls the default value for attributes when completion is accepted.
+    //  - doublequotes: Attribute value is set to "".
+    //  - singlequotes: Attribute value is set to ''.
+    //  - empty: Attribute value is not set.
+    "html.completion.attributeDefaultValue": "doublequotes",
 
     // A list of relative file paths pointing to JSON files following the custom data format.
     // VS Code loads custom data on startup to enhance its HTML support for the custom HTML tags, attributes and attribute values you specify in the JSON files.
@@ -2008,6 +2040,27 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - remove: Remove unnecessary semicolons.
     "javascript.format.semicolons": "ignore",
 
+    // Enable/disable inlay hints for member values in enum declarations:
+    "javascript.inlayHints.enumMemberValues.enabled": false,
+
+    // Enable/disable inlay hints for implicit return types on function signatures:
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+
+    // Enable/disable inlay hints for parameter names:
+    "javascript.inlayHints.parameterNames.enabled": "none",
+
+    // Suppress parameter name hints on arguments whose text is identical to the parameter name.
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+
+    // Enable/disable inlay hints for implicit parameter types:
+    "javascript.inlayHints.parameterTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit types on property declarations:
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit variable types:
+    "javascript.inlayHints.variableTypes.enabled": false,
+
     // Preferred path style for auto imports.
     //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
     //  - relative: Prefers a relative path to the imported file location.
@@ -2015,7 +2068,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - project-relative: Prefers a non-relative import only if the relative import path would leave the package or project directory. Requires using TypeScript 4.2+ in the workspace.
     "javascript.preferences.importModuleSpecifier": "shortest",
 
-    // Preferred path ending for auto imports.
+    // Preferred path ending for auto imports. Requires using TypeScript 4.5+ in the workspace.
     //  - auto: Use project settings to select a default.
     //  - minimal: Shorten `./component/index.js` to `./component`.
     //  - index: Shorten `./component/index.js` to `./component/index`.
@@ -2164,6 +2217,26 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable implementations CodeLens. This CodeLens shows the implementers of an interface.
     "typescript.implementationsCodeLens.enabled": false,
 
+    // Enable/disable inlay hints for member values in enum declarations:
+    "typescript.inlayHints.enumMemberValues.enabled": false,
+
+    // Enable/disable inlay hints for implicit return types on function signatures:
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+
+    // Enable/disable inlay hints for parameter names:
+    "typescript.inlayHints.parameterNames.enabled": "none",
+
+    // Suppress parameter name hints on arguments whose text is identical to the parameter name.
+    "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+
+    // Enable/disable inlay hints for implicit parameter types:
+    "typescript.inlayHints.parameterTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit types on property declarations:
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
+
+    // Enable/disable inlay hints for implicit variable types:
+    "typescript.inlayHints.variableTypes.enabled": false,
 
     // Sets the locale used to report JavaScript and TypeScript errors. Defaults to use VS Code's locale.
     "typescript.locale": "",
@@ -2738,7 +2811,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - hasChildProcesses: Confirm if there are any terminals that have child processes.
     "terminal.integrated.confirmOnExit": "never",
 
-    // Controls whether to confirm killing terminals when they have child processes. When set to editor, terminals in the editor area will be marked as dirty when they have child processes. Note that child process detection may not work well for shells like Git Bash which don't run their processes as child processes of the shell.
+    // Controls whether to confirm killing terminals when they have child processes. When set to editor, terminals in the editor area will be marked as changed when they have child processes. Note that child process detection may not work well for shells like Git Bash which don't run their processes as child processes of the shell.
     //  - never: Never confirm.
     //  - editor: Confirm if the terminal is in the editor.
     //  - panel: Confirm if the terminal is in the panel.
@@ -2835,6 +2908,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - canvas: Use the fallback canvas renderer within the terminal. This uses a 2d context instead of webgl and may be better on some systems.
     "terminal.integrated.gpuAcceleration": "auto",
 
+    // Configurable to provide a custom setting to ignore processes
+    "terminal.integrated.ignoreProcessNames": [],
+
     // Whether new shells should inherit their environment from VS Code, which may source a login shell to ensure $PATH and other development variables are initialized. This has no effect on Windows.
     "terminal.integrated.inheritEnv": true,
 
@@ -2865,7 +2941,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - onExit: Revive the processes after the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu).
     //  - onExitAndWindowClose: Revive the processes after the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), or when the window is closed.
     //  - never: Never restore the terminal buffers or recreate the process.
-    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.persistentSessionReviveProcess": "onExit",
 
     // Controls the maximum amount of lines that will be restored when reconnecting to a persistent terminal session. Increasing this will restore more lines of scrollback at the cost of more memory and increase the time it takes to connect to terminals on start up. This setting requires a restart to take effect and should be set to a value less than or equal to `terminal.integrated.scrollback`.
     "terminal.integrated.persistentSessionScrollback": 100,
@@ -2977,7 +3053,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.windowsEnableConpty": true,
 
     // A string containing all characters to be considered word separators by the double click to select word feature.
-    "terminal.integrated.wordSeparators": " ()[]{}',\"`─",
+    "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’",
 
 // Tasks
 
@@ -3125,20 +3201,20 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Telemetry
 
-    // Deprecated due to being combined into the `telemetry.telemetryLevel` setting.
-    // Enable crash reports to be collected. This helps us improve stability.
-    // This option requires restart to take effect.
+    // If this setting is false, no telemetry will be sent regardless of the new setting's value. Deprecated due to being combined into the `telemetry.telemetryLevel` setting.
+    // Enable crash reports to be collected.
     "telemetry.enableCrashReporter": true,
 
-    // Deprecated in favor of the `telemetry.telemetryLevel` setting.
-    // Enable diagnostic data to be collected. This helps us to better understand how Visual Studio Code is performing and where improvements need to be made.
+    // If this setting is false, no telemetry will be sent regardless of the new setting's value. Deprecated in favor of the `telemetry.telemetryLevel` setting.
+    // Enable diagnostic data to be collected.
     "telemetry.enableTelemetry": true,
 
-    // Enable diagnostic data to be collected. This helps us to better understand how Visual Studio Code is performing and where improvements need to be made.
-    //  - on: Enables all telemetry data to be collected.
-    //  - error: Enables only error telemetry data and not general usage data.
+    // Controls all core and first party extension telemetry.
+    //  - all: Sends usage data, errors, and crash reports.
+    //  - error: Sends general error telemetry and crash reports.
+    //  - crash: Sends OS level crash reports.
     //  - off: Disables all product telemetry.
-    "telemetry.telemetryLevel": "on",
+    "telemetry.telemetryLevel": "all",
 
 // Outline
 
@@ -3773,7 +3849,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.runSilent": false,
 
     // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
-    "npm.scriptExplorerAction": "open",
+    "npm.scriptExplorerAction": "open"
 }
 ```
 
