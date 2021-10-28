@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
 
-Visual Studio Code for the Web provides a free, zero-install Microsoft Visual Studio Code experience running entirely in your browser, allowing you to quickly and safely browse source code repositories and make lightweight code changes. To get started, go to **[https://vscode.dev](https://vscode.dev/)** in your browser.
+Visual Studio Code for the Web provides a free, zero-install Microsoft Visual Studio Code experience running entirely in your browser, allowing you to quickly and safely browse source code repositories and make lightweight code changes. To get started, go to **[https://vscode.dev](https://vscode.dev)** in your browser.
 
 VS Code for the Web has many of the features of VS Code desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos (in preview), you can also work with code that is stored on your local machine.
 
@@ -21,9 +21,11 @@ VS Code for the Web provides a browser-based experience for navigating files and
 
 When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code desktop experience with a few clicks.
 
+You can also switch between the Stable and Insiders versions of VS Code for the Web by selecting the gear icon, then **Switch to Insiders Version...**, or by navigating directly to [https://insiders.vscode.dev](https://insiders.vscode.dev).
+
 ## Opening a project
 
-By navigating to [https://vscode.dev](https://vscode.dev/), you can create a new local file or project, work on an existing local project, or access source code repositories hosted elsewhere, such as on GitHub and Azure Repos (part of Azure DevOps).
+By navigating to [https://vscode.dev](https://vscode.dev), you can create a new local file or project, work on an existing local project, or access source code repositories hosted elsewhere, such as on GitHub and Azure Repos (part of Azure DevOps).
 
 You can navigate to a project repository directly from a URL, following the scheme: `https://vscode.dev/SOURCE/ORG/REPO`. Using the [VS Code repo](https://github.com/microsoft/vscode) as an example, this would look like: `https://vscode.dev/github/microsoft/vscode`.
 
@@ -33,7 +35,7 @@ GitHub: `https://vscode.dev/github/organization/repo`
 
 Azure Repos: `https://vscode.dev/azurerepos/organization/project/repo`
 
-If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev/), you can alternatively navigate to different repos via the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
+If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev), you can alternatively navigate to different repos via the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
 
 ![GitHub Repositories](images/vscode-web/remote-repositories.png)
 
@@ -111,7 +113,7 @@ Language support is a bit more nuanced on the web, including code editing, navig
 
 Generally, experiences fall into the following categories:
 
-* **Good:** For most programming languages, VS Code for the Web gives you code syntax colorization, text-based completions, and bracket pair colorization. Using a [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) syntax tree through the [anycode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.anycode), we're able to provide additional experiences such as **Outline/Go to Symbol** and **Symbol Search** for popular languages such as C/C++, C#, Java, PHP, Rust, and Go.
+* **Good:** For most programming languages, VS Code for the Web gives you code syntax colorization, text-based completions, and bracket pair colorization. Using a [Tree-sitter](https://tree-sitter.github.io/tree-sitter) syntax tree through the [anycode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.anycode), we're able to provide additional experiences such as **Outline/Go to Symbol** and **Symbol Search** for popular languages such as C/C++, C#, Java, PHP, Rust, and Go.
 * **Better:** The TypeScript, JavaScript, and Python experiences are all powered by language services that run natively in the browser. With these programming languages, you'll get the "**Good**" experience plus rich single file completions, semantic highlighting, syntax errors, and more.
 * **Best:** For many "webby" languages, such as JSON, HTML, CSS, and LESS, etc., the coding experience in vscode.dev is nearly identical to the desktop (including Markdown preview!).
 
@@ -158,6 +160,10 @@ Certain keybindings may also work differently in the web.
 | Issue | Reason |
 |-|-|
 | `kbstyle(Ctrl+Shift+P)` won't launch the Command Palette in Firefox. | `kbstyle(Ctrl+Shift+P)` is reserved in Firefox. <br> As a workaround, use `kbstyle(F1)` to launch the Command Palette. |
-| `kbstyle(Ctrl+N)` for new file doesn't work in web. | `kbstyle(Ctrl+N)` opens a new window instead. |
-| `kbstyle(Ctrl+W)` for closing an editor doesn't work in web. | `kbstyle(Ctrl+W)` closes the current tab in browsers. |
+| `kbstyle(Ctrl+N)` for new file doesn't work in web. | `kbstyle(Ctrl+N)` opens a new window instead. <br> As a workaround, you can use `kbstyle(Ctrl+Alt+N)`. |
+| `kbstyle(Ctrl+W)` for closing an editor doesn't work in web. | `kbstyle(Ctrl+W)` closes the current tab in browsers. <br> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)`. |
 | `kbstyle(Ctrl+Shift+B)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
+
+### Mobile support
+
+You can use VS Code for the Web on mobile devices, but smaller screens may have certain limitations.

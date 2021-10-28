@@ -128,7 +128,7 @@ When editing the contents of the `.devcontainer` folder, you'll need to rebuild 
 
 However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
 
-The `postCreateCommand` is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
+The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
@@ -414,20 +414,6 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-For example:
-
-```json
-{
-    "name": "[Optional] Your project name here",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "workspaceFolder": "/default/workspace/path/in/container/to/open",
-    "shutdownAction": "stopCompose"
-}
-```
-
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
-
 ### Docker Compose dev container definitions
 
 The following are dev container definitions that use Docker Compose:
@@ -471,5 +457,5 @@ Once in place, the configuration will be automatically picked up when using any 
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Advanced Containers](/emote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
+* [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.

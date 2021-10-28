@@ -38,7 +38,7 @@ To help you set up quickly, we recommend you use the **Coding Pack for Java**, w
 
 If you have already installed VS Code and want to add Java support to it, we recommend to use the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
 
-1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+1. [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
@@ -77,7 +77,7 @@ This document describes some of the key features included in those Java extensio
 
 **NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).
 
-Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the VS Code for Java extension, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For how to configure, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the Java Language Support (redhat.java) extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For how to configure these versions, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open the Getting Started experience from within VS Code with the **Java: Getting Started** command from the Command Palette.  Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
 
@@ -107,7 +107,7 @@ A "multi-root workspace" can refer to multiple folders (directories) from dispar
 
 In contrast to IDEs such as IntelliJ IDEA, NetBeans, or Eclipse, the concept of a "Java project" is provided entirely by extensions, and is not a core concept in the base VS Code. When working with "Java projects" in VS Code, you must have the necessary extensions installed to work with those project files.
 
-For example, Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
+For example, Maven, Eclipse, and Gradle Java projects are supported through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/), which provides Maven support, and [Buildship](https://github.com/eclipse/buildship), which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
 With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
@@ -133,7 +133,7 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
 
 ### Code Completion
 
-[IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
+[IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
@@ -143,7 +143,7 @@ For more details, see [Java Code Navigation and Editing](/docs/java/java-editing
 
 ## Debugging
 
-[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/microsoft/java-debug). It works with [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users to debug Java code within Visual Studio Code.
+[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/microsoft/java-debug). It works with [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users to debug Java code within Visual Studio Code.
 
 Starting a debugging session is easy: click on the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
@@ -185,18 +185,18 @@ You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-stu
 
 Learn more about Java in VS Code:
 
-* [Java Tutorial with VS Code](/docs/java/java-tutorial.md)
-* [Code Editing and Navigation](/docs/java/java-editing.md)
-* [Java Debugging](/docs/java/java-debugging.md)
-* [Java Testing](/docs/java/java-testing.md)
-* [Java Project Management](/docs/java/java-project.md)
-* [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
-* [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md)
-* [Azure with VS Code](/docs/java/java-on-azure.md)
+- [Java Tutorial with VS Code](/docs/java/java-tutorial.md)
+- [Code Editing and Navigation](/docs/java/java-editing.md)
+- [Java Debugging](/docs/java/java-debugging.md)
+- [Java Testing](/docs/java/java-testing.md)
+- [Java Project Management](/docs/java/java-project.md)
+- [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
+- [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md)
+- [Azure with VS Code](/docs/java/java-on-azure.md)
 
 Read on to find out more about Visual Studio Code:
 
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+- [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project

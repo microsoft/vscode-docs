@@ -71,7 +71,7 @@ tasks.withType(Test) {
 
 ## How can I use it behind a corporate proxy?
 
-When using the Java extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
+When using the Java Language Support (redhat.java) extension behind a corporate proxy, you might need to let the Java Language server know how to connect to the Internet, in order to download build runtimes, Java dependencies, and their sources through that proxy.
 
 This is done by configuring the `java.jdt.ls.vmargs` setting in VS Code preferences (all on one line):
 

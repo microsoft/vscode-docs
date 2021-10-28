@@ -23,7 +23,7 @@ For web extensions, the [main entry file](#web-extension-main-file) is defined b
 
 The `contributes` property works the same way for both web and regular extensions.
 
-The example below shows the `package.json` for a simple hello world extension, that runs in the web only (it only has a `browser` entry point):
+The example below shows the `package.json` for a simple hello world extension, that runs in the web extension host only (it only has a `browser` entry point):
 
 ```json
 {
@@ -190,10 +190,11 @@ Some important fields of `webpack.config.js` are:
 
 ## Test your web extension
 
-There are currently two ways to test a web extension before publishing it to the Marketplace.
+There are currently three ways to test a web extension before publishing it to the Marketplace.
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
+* Sideload your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -273,6 +274,50 @@ Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-w
 | folderPath |  A local folder to open VS Code on.<br>The folder content will be available as a virtual file system and opened as workspace. |
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
+
+### Test your web extension in on vscode.dev
+
+Before you publish your extension for everyone to use on VS Code for the Web, you can verify how your extension behaves in the actual [vscode.dev](https://vscode.dev) environment.
+
+To see your extension on vscode.dev, you first need to host it from your machine for vscode.dev to download and run.
+
+From your extension's path, start an HTTP server by running `npx serve --cors -l 5000`:
+
+```bash
+$ npx serve --cors -l 5000
+npx: installed 78 in 2.196s
+
+   ┌───────────────────────────────────────────────────┐
+   │                                                   │
+   │   Serving!                                        │
+   │                                                   │
+   │   - Local:            http://localhost:5000       │
+   │   - On Your Network:  http://172.19.255.26:5000   │
+   │                                                   │
+   │   Copied local address to clipboard!              │
+   │                                                   │
+   └───────────────────────────────────────────────────┘
+
+```
+
+Then, in another terminal, run `npx localtunnel -p 5000`:
+
+```bash
+$ npx localtunnel -p 5000
+npx: installed 22 in 1.048s
+your url is: https://hungry-mole-48.loca.lt/
+
+```
+
+**Important:** Now click on the generated URL (`https://hungry-mole-48.loca.lt/` in this case) and select **Click to Continue**.
+
+![Screenshot showing button with the text "Click to Continue" highlighted to click.](images/web-extensions/localtunnel.png)
+
+Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
+
+You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
+
+You may see other logs from vscode.dev itself. In addition, you can't easily set breakpoints nor see the source code of your extension. These limitations make debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
 
 ## Web extension tests
 

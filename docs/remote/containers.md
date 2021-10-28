@@ -46,7 +46,7 @@ To get started, follow these steps:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. If you are using WSL 2 on Windows, to enable the [Windows WSL 2 back-end](https:/*/aka.ms/vscode-remote/containers/docker-wsl2): Right-click on the Docker taskbar item and select **Settings**. Check **Use the WSL 2 based engine** and verify your distribution is enabled under **Resources > WSL Integration**.
+    2. If you are using WSL 2 on Windows, to enable the [WSL 2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2): Right-click on the Docker taskbar item and select **Settings**. Check **Use the WSL 2 based engine** and verify your distribution is enabled under **Resources > WSL Integration**.
 
     3. Right-click on the Docker task bar item, select **Settings** and update **Resources > File Sharing** with any locations your source code is kept. See [tips and tricks](/docs/remote/troubleshooting.md#container-tips) for troubleshooting. This option is not available if you have enabled the WSL 2 back-end in the step above.
 
@@ -473,6 +473,9 @@ Get-Service ssh-agent
 
 **Linux:**
 
+* On **WSL**:
+  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
+
 First, start the SSH Agent in the background by running the following in a terminal:
 
 ```bash
@@ -626,7 +629,7 @@ Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore genera
 
 ![Docker Path setting](images/containers/docker-path-setting.png)
 
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
+However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Development Container Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
 Docker Compose is also not supported by Podman.
 
