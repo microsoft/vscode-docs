@@ -73,6 +73,19 @@ To customize a specific theme only, use the following syntax:
 }
 ```
 
+If a customization applies to more than one themes, you can name multiple themes or use `*` as wildcard at the beginning and the end of the name:
+```json
+"workbench.colorCustomizations": {
+    "[Abyss][Red]": {
+        "activityBar.background": "#ff0000"
+    },
+    "[Monokai*]": {
+        "activityBar.background": "#ff0000"
+    }
+},
+```
+
+
 ### Editor syntax highlighting
 
 To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
@@ -85,12 +98,18 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 >**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go to the [Color Theme guide](/api/extension-guides/color-theme.md) for more information.
 
-Again, to customize a specific theme only, use the following syntax:
+Again, to customize specific themes, you can do this in one of the following ways:
 
 ```json
 "editor.tokenColorCustomizations": {
     "[Monokai]": {
         "comments": "#229977"
+    },
+    "[*Dark*]": {
+        "variables": "#229977"
+    },
+    "[Abyss][Red]": {
+        "keywords": "#f00"
     }
 },
 ```
