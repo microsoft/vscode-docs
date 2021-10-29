@@ -37,18 +37,21 @@ In this section, you create a virtual environment in which Django is installed. 
 
 1. On your file system, create a project folder for this tutorial, such as `hello_django`.
 
-1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
+1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `.venv` based on your current interpreter:
 
     ```bash
     # Linux
     sudo apt-get install python3-venv    # If needed
-    python3 -m venv env
+    python3 -m venv .venv
+    source .venv/bin/activate
 
     # macOS
-    python3 -m venv env
+    python3 -m venv .venv
+    source .venv/bin/activate
 
     # Windows
-    python -m venv env
+    py -3 -m venv .venv
+    .venv\scripts\activate
     ```
 
     > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
@@ -59,7 +62,7 @@ In this section, you create a virtual environment in which Django is installed. 
 
     ![Django tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
-1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./env` or `.\env`:
+1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./.venv` or `.\.venv`:
 
     ![Django tutorial: Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
