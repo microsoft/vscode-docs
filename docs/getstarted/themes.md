@@ -82,7 +82,7 @@ If a customization applies to more than one themes, you can name multiple themes
     "[Monokai*]": {
         "activityBar.background": "#ff0000"
     }
-},
+}
 ```
 
 
@@ -111,7 +111,7 @@ Again, to customize specific themes, you can do this in one of the following way
     "[Abyss][Red]": {
         "keywords": "#f00"
     }
-},
+}
 ```
 
 ### Editor semantic highlighting
@@ -144,7 +144,7 @@ Users can override the theme setting by:
     "[Rouge]": {
         "enabled": true
     }
-},
+}
 ```
 
 When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether and how semantic tokens are colored. Some semantic tokens are standardized and map to well-established TextMate scopes. If the theme has a coloring rule for these TextMate scopes, the semantic token will be rendered with that color, without the need for any additional coloring rules.
@@ -159,7 +159,7 @@ Additional styling rules can be configured by the user in `editor.semanticTokenC
             "*.declaration": { "bold": true }
         }
     }
-},
+}
 ```
 
 To see what semantic tokens are computed and how they are styled, users can use the scope inspector (**Developer: Inspect Editor Tokens and Scopes**), which displays information for the text at the current cursor position.
