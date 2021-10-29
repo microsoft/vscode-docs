@@ -40,18 +40,21 @@ In this section, you create a virtual environment in which Flask is installed. U
 
 1. On your file system, create a project folder for this tutorial, such as `hello_flask`.
 
-1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
+1. In that folder, use the following command (as appropriate to your computer) to create and activate a virtual environment named `.venv` based on your current interpreter:
 
     ```bash
     # Linux
     sudo apt-get install python3-venv    # If needed
-    python3 -m venv env
+    python3 -m venv .venv
+    source .venv/bin/activate
 
     # macOS
-    python3 -m venv env
+    python3 -m venv .venv
+    source .venv/bin/activate
 
     # Windows
-    python -m venv env
+    py -3 -m venv .venv
+    .venv\scripts\activate
     ```
 
     > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
@@ -62,7 +65,7 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     ![Flask tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
-1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./env` or `.\env`:
+1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./.venv` or `.\.venv`:
 
     ![Flask tutorial: selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
@@ -198,9 +201,9 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. 1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the dropdown and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the dropdown and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
-1. Scroll down to and examine the configuration, which is named "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
+1. Scroll down to and examine the configuration, which is named "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `.venv` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
 
     ```json
     {
@@ -222,7 +225,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     },
     ```
 
-    > **Note**: If the `env` entry in your configuration contains `"FLASK_APP": "${workspaceFolder}/app.py"`, change it to `"FLASK_APP": "app.py"` as shown above. Otherwise you may encounter error messages like "Cannot import module C" where C is the drive letter where your project folder resides.
+    > **Note**: If the `.venv` entry in your configuration contains `"FLASK_APP": "${workspaceFolder}/app.py"`, change it to `"FLASK_APP": "app.py"` as shown above. Otherwise you may encounter error messages like "Cannot import module C" where C is the drive letter where your project folder resides.
 
     > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Run** > **Add Configuration** menu command does the same action.).
 
@@ -655,7 +658,7 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
     from . import views  # For import side-effects of setting up routes.
     ```
 
-1. Open the debug configuration file `launch.json` and update the `env` property as follows to point to the startup object:
+1. Open the debug configuration file `launch.json` and update the `.venv` property as follows to point to the startup object:
 
     ```json
     "env": {
