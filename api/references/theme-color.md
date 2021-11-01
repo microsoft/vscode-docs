@@ -405,6 +405,9 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+
+Bracket pair colorization:
+
 - `editorBracketHighlight.foreground1`: Foreground color of brackets (1). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.foreground2`: Foreground color of brackets (2). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.foreground3`: Foreground color of brackets (3). Requires enabling bracket pair colorization.
@@ -412,6 +415,24 @@ Bracket matches:
 - `editorBracketHighlight.foreground5`: Foreground color of brackets (5). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.foreground6`: Foreground color of brackets (6). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.unexpectedBracket.foreground`: Foreground color of unexpected brackets.
+
+Bracket pair guides:
+
+- `editorBracketPairGuide.activeBackground1`: Background color of active bracket pair guides (1). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground2`: Background color of active bracket pair guides (2). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground3`: Background color of active bracket pair guides (3). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground4`: Background color of active bracket pair guides (4). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground5`: Background color of active bracket pair guides (5). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground6`: Background color of active bracket pair guides (6). Requires enabling bracket pair guides.
+
+- `editorBracketPairGuide.background1`: Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background2`: Background color of inactive bracket pair guides (2). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background3`: Background color of inactive bracket pair guides (3). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background4`: Background color of inactive bracket pair guides (4). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background5`: Background color of inactive bracket pair guides (5). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background6`: Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background1`: Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides.
+
 
 Folding:
 
