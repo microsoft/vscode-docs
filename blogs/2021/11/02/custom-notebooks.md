@@ -1,9 +1,9 @@
 ---
-Order: 69
+Order: 70
 TOCTitle: Custom Notebooks
 PageTitle: Notebooks, Visual Studio Code style
 MetaDescription: Bringing Custom Notebook Experiences to the Visual Studio Code Extension Marketplace.
-Date: 2021-10-21
+Date: 2021-11-02
 Author: Tanha Kabir
 ---
 
