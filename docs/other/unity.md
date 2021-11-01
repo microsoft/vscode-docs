@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 5/2/2017
+DateApproved: 11/1/2021
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
@@ -41,7 +41,7 @@ Open up **Unity Preferences**, **External Tools**, then browse for the Visual St
 
 ## Unity version 2019.2 or above
 
-[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the Visual Studio Code editor package. The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
+[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the [Visual Studio Code Editor package](https://docs.unity3d.com/Manual/com.unity.ide.vscode.html). The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
 
 ## Editing Evolved
 
@@ -76,7 +76,7 @@ If you are installing VS Code for the first time, you might be missing targeting
 
 Targeting pack download links:
 
-* [Windows: .NET Framework 4.6 Targeting Pack](https://www.microsoft.com/download/details.aspx?id=48136)
+* [Windows: .NET Framework 4.7.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 * [macOS: Download .NET SDK](https://dotnet.microsoft.com/download)
 
 Steps:

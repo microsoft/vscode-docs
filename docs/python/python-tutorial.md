@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 9/1/2021
+DateApproved: 10/20/2021
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -45,7 +45,7 @@ Along with the Python extension, you need to install a Python interpreter. Which
 
 Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
->**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p), [Python 3.8](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l), and [Python 3.9](https://www.microsoft.com/en-au/p/python-39/9p7qfqmjrfp7). Be aware that you might have compatibility issues with some packages using this method.
+>**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/p/python-37/9nj46sx7x90p), [Python 3.8](https://www.microsoft.com/p/python-38/9mssztt1n39l), [Python 3.9](https://www.microsoft.com/p/python-39/9p7qfqmjrfp7), and [Python 3.10](https://www.microsoft.com/p/python-310/9pjpw5ldxlz5). Be aware that you might have compatibility issues with some packages using this method.
 
 For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.9/using/windows.html)
 

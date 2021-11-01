@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
 PageTitle: Edit and run code in Visual Studio Code
-DateApproved: 1/12/2021
+DateApproved: 10/12/2021
 MetaDescription: Learn the basics of editing and running code in VS Code.
 MetaSocialImage:
 ---

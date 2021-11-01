@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -27,11 +27,11 @@ Yes, VS Code is free for private or commercial use. See the [product license](ht
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't want to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and uncheck the **Telemetry: Enable Telemetry** setting. This will silence all telemetry events from VS Code going forward.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward.
 
-> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
+> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
 
 ### How to disable experiments
 
@@ -232,7 +232,7 @@ VS Code does a background check to detect if the installation has been changed o
 
 You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
-## Resolving Shell Environment is Slow (Error, Warning)
+## Resolving Shell Environment fails
 
 *This section applies to macOS and Linux environments only.*
 
@@ -240,19 +240,18 @@ When VS Code is launched from a terminal (for example, via `code .`), it has acc
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If your startup file takes a long time to process (more than 3 seconds), you will see the following warning:
-
-![Shell environment startup warning](images/faq/shell-env-warning.png)
-
-If, after 10 seconds, the shell environment has still not been resolved, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see the following error:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after 10 seconds, the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-The easiest way to investigate delays in your startup file is to:
+If the error message indicates that resolving your shell environment took too long, the easiest way to investigate this is to:
 
-* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in quick open).
+* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open).
 * Selectively comment out potentially long running operations.
-* Save and fully restart VS Code until the warning or error disappears.
+* Save and fully restart VS Code.
+* Continue commenting out operations until the error disappears.
+
+If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
 
 ## Technical Support
 

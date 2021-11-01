@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code when clause context reference.
 
 Visual Studio Code sets various context keys and specific values depending on what elements are visible and active in the VS Code UI. These contexts can be used to selectively enable or disable extension commands and UI elements, such as menus and views.
 
-For example, VS Codes uses when clauses to enable or disable command keybindings, which you can see in the Default Keybindings JSON (**Preferences: Open Default Keyboard Shortcuts (JSON)**):
+For example, VS Code uses when clauses to enable or disable command keybindings, which you can see in the Default Keybindings JSON (**Preferences: Open Default Keyboard Shortcuts (JSON)**):
 
 ```json
 { "key": "f5",  "command": "workbench.action.debug.start",

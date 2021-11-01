@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Overview
 ContentId: 23ce059e-95ec-4eaa-975c-d4cf76159516
 PageTitle: Doing Data Science in Visual Studio Code
-DateApproved: 6/15/2021
+DateApproved: 10/7/2021
 MetaDescription: Doing Data Science in Visual Studio Code.
 ---
 
@@ -22,7 +22,7 @@ The VS Code Marketplace offers a family of extensions that provide a first-class
 
 ## What else can you use notebooks for?
 
-The support for mixing executable code, equations, visualizations and rich markdown makes notebooks useful for breaking down new concepts in a story telling form. This makes notebooks an exceptional tool for educators and students!
+The support for mixing executable code, equations, visualizations, and rich Markdown makes notebooks useful for breaking down new concepts in a story telling form. This makes notebooks an exceptional tool for educators and students!
 
 Learn C#, F#, and Powershell with the [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
 

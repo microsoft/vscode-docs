@@ -64,7 +64,7 @@ Within these folders, you'll find the Markdown files used for the content. Each 
 
 ### Branches
 
-We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline work flow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline workflow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new topic (and associated images).
 * Spelling and grammar edits on a topic.

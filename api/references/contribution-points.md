@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -98,6 +98,9 @@ hand, shows disabled items but doesn't show the category label.
 
 > **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
 
+> **Note:** When using icons form [product icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing), setting `light` and `dark` will disable the icon. 
+> The correct syntax is `"icon": "$(book)"`
+
 ### command example
 
 ```json
@@ -132,7 +135,9 @@ See the [Commands Extension Guide](https://code.visualstudio.com/api/extension-g
 
 ## contributes.configuration
 
-Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the settings UI or by editing the JSON settings file directly.
+Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options as User Settings or as Workspace Settings, either by using the Settings editor or by editing the JSON settings file directly.
+
+This section can either be a single object, representing a single category of settings, or an array of objects, representing multiple categories of settings. If there are multiple categories of settings, the Settings editor will show a submenu in the table of contents for that extension, and the title keys will be used for the submenu entry names.
 
 ### Configuration example
 
@@ -342,7 +347,7 @@ For more details on these and other features, see the [JSON Schema Reference](ht
 A configuration setting can have one of the following possible scopes:
 
 - `application` - Settings that apply to all instances of VS Code and can only be configured in user settings.
-- `machine` - Machine specific settings that can be set in user or remote settings. For example, an installation path which shouldn't be shared across machines.
+- `machine` - Machine specific settings that can be set only in user settings or only in remote settings. For example, an installation path which shouldn't be shared across machines.
 - `machine-overridable` - Machine specific settings that can be overridden by workspace or folder settings.
 - `window` - Windows (instance) specific settings which can be configured in user, workspace, or remote settings.
 - `resource` - Resource settings, which apply to files and folders, and can be configured in all settings levels, even folder settings.
@@ -709,6 +714,11 @@ Currently extension writers can contribute to:
 - The Timeline view item context menu - `timeline/item/context`
 - The Extensions view context menu - `extension/context`
 - The Test Explorer item context menu - `testing/item/context`
+- The notebook toolbar - `notebook/toolbar`
+- The notebook cell title menu bar - `notebook/cell/title`
+- The notebook cell execution menu - `notebook/cell/execute`
+- The interactive toolbar - `interactive/toolbar`
+- The interactive cell title menu bar - `interactive/cell/title`
 - Any [contributed submenu](/api/references/contribution-points#contributes.submenus)
 
 > **Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.

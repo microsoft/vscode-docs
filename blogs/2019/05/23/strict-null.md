@@ -150,7 +150,7 @@ Fixing isolated lines of code or adding tests was a reactive solution that only 
 
 The problem was that we couldn't just enable a compiler flag and everything would be magically fixed. The core VS Code codebase has some 1800 TypeScript files, comprising more than half a million lines. Compiling it with `"strictNullChecks": true` produced some 4500 errors. Ugh!
 
-Furthermore, VS Code is made of a small core team and we like moving fast. Branching off the code to fix those 4500 strict null errors would have added a huge amount of engineering overhead. And where do you even start? Go through the list of errors top to bottom? In addition, changes in a branch would not help master, where the majority of the team would still be working.
+Furthermore, VS Code is made of a small core team and we like moving fast. Branching off the code to fix those 4500 strict null errors would have added a huge amount of engineering overhead. And where do you even start? Go through the list of errors top to bottom? In addition, changes in a branch would not help main, where the majority of the team would still be working.
 
 We wanted a plan that would incrementally bring the benefits of strict null checking to all engineers on the team, starting right away. That way, we could break the work into manageable changes with each small change making the code a little bit safer.
 

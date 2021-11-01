@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -56,11 +56,11 @@ Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** comman
 
 Change the terminal's name, icon, and tab color via the right-click context menu or by triggering the following commands:
 
-Command|Command ID
----|---|
-Terminal: Rename | `workbench.action.terminal.rename` |
-Terminal: Change Icon | `workbench.action.terminal.changeIcon` |
-Terminal: Change Color | `workbench.action.terminal.changeColor` |
+| Command                | Command ID                              |
+| ---------------------- | --------------------------------------- |
+| Terminal: Rename       | `workbench.action.terminal.rename`      |
+| Terminal: Change Icon  | `workbench.action.terminal.changeIcon`  |
+| Terminal: Change Color | `workbench.action.terminal.changeColor` |
 
 >**Tip:** Go back to the old version by setting `terminal.integrated.tabs.enabled:false`
 
@@ -69,6 +69,26 @@ Terminal: Change Color | `workbench.action.terminal.changeColor` |
 ## Terminal profiles
 
 Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations.
+
+Example profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "My PowerShell": {
+      "path": "pwsh.exe"
+      "args": [
+         "-noexit",
+         "-file",
+         "${env:APPDATA}\PowerShell\my-init-script.ps1"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "My PowerShell"
+}
+```
+
+You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. You can find a list of available variables in the [Variables Reference](/docs/editor/variables-reference.md) topic.
 
 Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal dropdown.
 
@@ -172,6 +192,8 @@ There are also extensions available that give more options such as [Terminal Her
 ## Terminal process reconnection
 
 Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
+
+We've added an experimental setting `terminal.integrated.persistentSessionReviveProcess`, which determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shutdown (eg. on window or application close). Restoring of the process current working directory depends on whether it is supported by the shell.
 
 ## Links
 
@@ -553,4 +575,12 @@ Unfortunately some issues cannot be automatically detected, if you experience is
 {
     "terminal.integrated.gpuAcceleration": "off"
 }
+```
+
+### Git Bash isn't saving history when I close the terminal
+
+This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when using VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can workaround this by adding the following to your `~/.bashrc` or `~/.bash-profile`:
+
+```bash
+export PROMPT_COMMAND='history -a'
 ```

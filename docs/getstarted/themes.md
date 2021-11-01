@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -40,6 +40,16 @@ Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs
 You can search for themes in the Extensions view (`kb(workbench.view.extensions)`) search box using the `@category:"themes"` filter.
 
 ![Searching for themes in the Extensions view](images/themes/category-themes.png)
+
+## Auto switch based on OS color scheme
+
+Windows and macOS support light and dark color schemes. There is a setting, `window.autoDetectColorScheme`, that instructs VS Code to listen to changes to the OS's color scheme and switch to a matching theme accordingly.
+
+To customize the themes that are used when a color scheme changes, you can set the preferred light, dark, and high contrast themes with the settings:
+
+* `workbench.preferredLightColorTheme` - defaults to "Default Light+"
+* `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
+* `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
 
 ## Customizing a Color Theme
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -216,6 +216,8 @@ The Minimap shows a minified version of the current file.
 - `minimap.errorHighlight`: Highlight color for errors within the editor.
 - `minimap.warningHighlight`: Highlight color for warnings within the editor.
 - `minimap.background`: Minimap background color.
+- `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
+- `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -249,7 +251,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 
   ![editorGroupHeader.tabsBorder](images/theme-color/editorgroupheader-tabsborder.gif)
 
-- `editorGroupHeader.border`: Border color between editor group header and editor (below breadrcumbs if enabled).
+- `editorGroupHeader.border`: Border color between editor group header and editor (below breadcrumbs if enabled).
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
 - `tab.activeBackground`: Active Tab background color in an active group.
@@ -277,6 +279,7 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
 - `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
 - `editorPane.background`: Background color of the editor pane visible on the left and right side of the centered editor layout.
+- `sideBySideEditor.border`: Color to separate two editors from each other when shown side by side in an editor group.
 
 ## Editor colors
 
@@ -373,6 +376,10 @@ To see the editor inline hints, set `"editor.inlineSuggest.enabled": true`.
 
 - `editorInlayHint.background`: Background color of inline hints.
 - `editorInlayHint.foreground`: Foreground color of inline hints.
+- `editorInlayHint.typeForeground`: Foreground color of inline hints for types
+- `editorInlayHint.typeBackground`: Background color of inline hints for types
+- `editorInlayHint.parameterForeground`: Foreground color of inline hints for parameters
+- `editorInlayHint.parameterBackground`: Background color of inline hints for parameters
 
 To see editor rulers, define their location with `"editor.rulers"`
 
@@ -894,6 +901,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
 - `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
 - `notebook.outputContainerBackgroundColor`: The Color of the notebook output container background.
+- `notebook.outputContainerBorderColor`: The border color of the notebook output container.
 - `notebook.selectedCellBackground`: The background color of a cell when the cell is selected.
 - `notebook.selectedCellBorder`: The color of the cell's top and bottom border when the cell is selected but not focused.
 - `notebook.symbolHighlightBackground`: Background color of highlighted cell

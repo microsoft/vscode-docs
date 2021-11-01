@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 535b4d05-c2c8-424a-b075-2cd91566b8da
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Notebook API to create rich Notebook experiences within Visual Studio Code.
@@ -41,7 +41,7 @@ A notebook serializer is declared in `package.json` under the `contributes.noteb
 ```json
 {
     ...
-    "activationEvents": ["onNotebook:my-notebook-provider"],
+    "activationEvents": ["onNotebook:my-notebook"],
     "contributes": {
         ...
         "notebooks": [
@@ -63,6 +63,7 @@ A notebook serializer is declared in `package.json` under the `contributes.noteb
 The notebook serializer is then registered in the extension's activation event:
 
 ```ts
+import { TextDecoder, TextEncoder } from "util";
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -110,7 +111,7 @@ class SampleSerializer implements vscode.NotebookSerializer {
             });
         }
 
-        return new TextEncoder().encode(stringify(contents));
+        return new TextEncoder().encode(JSON.stringify(contents));
     }
 }
 ```

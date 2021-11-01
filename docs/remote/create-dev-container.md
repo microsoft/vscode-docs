@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 ---
 # Create a development container
 
@@ -110,13 +110,25 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
+You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs).
+
+For example, you could install the latest version of the Azure CLI with the following:
+
+```json
+"features": {
+    "azure-cli": "latest"
+  }
+```
+
+  > **Note:** Features support for GitHub Codespaces is coming soon.
+
 ### Rebuild
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
 
 However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
 
-The `postCreateCommand` is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
+The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
@@ -175,6 +187,10 @@ The command lets you pick a pre-defined container configuration from a list base
 ![Add a dev container definition](images/containers/select-dev-container-def-all.png)
 
 All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
+
+At the end of using **Remote-Containers: Add Development Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Remote-Containers: Configure Container Features** allows you to update an existing configuration.
+
+![Dev container features in Command Palette](images/containers/container-features.png)
 
 You can also reuse an existing Dockerfile:
 
@@ -398,20 +414,6 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-For example:
-
-```json
-{
-    "name": "[Optional] Your project name here",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "workspaceFolder": "/default/workspace/path/in/container/to/open",
-    "shutdownAction": "stopCompose"
-}
-```
-
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
-
 ### Docker Compose dev container definitions
 
 The following are dev container definitions that use Docker Compose:
@@ -455,5 +457,5 @@ Once in place, the configuration will be automatically picked up when using any 
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Advanced Containers](/emote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
+* [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -108,6 +108,24 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 ![Bracket Matching](images/editingevolved/brackets.png)
 
 > **Tip:** You can jump to the matching bracket with `kb(editor.action.jumpToBracket)`
+
+### Bracket Pair Colorization
+
+Matching bracket pairs can also be colorized by setting `editor.bracketPairColorization.enabled` to `true`.
+
+![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
+
+All colors are themeable and up to six colors can be configured.
+
+You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
+
+```json
+"workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#FFD700",
+    "editorBracketHighlight.foreground2": "#DA70D6",
+    "editorBracketHighlight.foreground3": "#179fff",
+},
+```
 
 ## Reference information
 

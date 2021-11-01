@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 282670bb-cc72-4b01-9b51-08bf8f5a13a1
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to run extensions in Visual Studio Code for the web and the web extension host.
@@ -9,9 +9,11 @@ MetaDescription: Learn how to run extensions in Visual Studio Code for the web a
 
 # Web Extensions
 
-Visual Studio Code can run as an editor in the browser. One example is the `github.dev` user interface reached by pressing `.` (the period key) in the GitHub **<> Code** tab. When VS Code is used in the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
+Visual Studio Code can run as an editor in the browser. One example is the `github.dev` user interface reached by pressing `.` (the period key) when browsing a repository or Pull Request in GitHub. When VS Code is used in the Web, installed extensions are run in an extension host in the browser, called the 'web extension host'. An extension that can run in a web extension host is called a 'web extension'.
 
 Web extensions share the same structure as regular extensions, but given the different runtime, don't run with the same code as extensions written for a Node.js runtime. Web extensions still have access to the full VS Code API, but no longer to the Node.js APIs and module loading. Instead, web extensions are restricted by the browser sandbox and therefore have [limitations](#web-extension-main-file) compared to normal extensions.
+
+The web extension runtime is supported on VS Code desktop too. If you decide to create your extension as a web extension, it will be supported on [VS Code for the Web](/docs/editor/vscode-web) (including `vscode.dev` and `github.dev`) as well as on the desktop and in services like [GitHub Codespaces](/docs/remote/codespaces).
 
 ## Web extension anatomy
 
@@ -21,7 +23,7 @@ For web extensions, the [main entry file](#web-extension-main-file) is defined b
 
 The `contributes` property works the same way for both web and regular extensions.
 
-The example below shows the `package.json` for a simple hello world extension, that runs in the web only (it only has a `browser` entry point):
+The example below shows the `package.json` for a simple hello world extension, that runs in the web extension host only (it only has a `browser` entry point):
 
 ```json
 {
@@ -47,9 +49,9 @@ The example below shows the `package.json` for a simple hello world extension, t
   },
   "scripts": {
     "vscode:prepublish": "npm run package-web",
-    "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
-    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
-    "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
+    "compile-web": "webpack",
+    "watch-web": "webpack --watch",
+    "package-web": "webpack --mode production --devtool hidden-source-map",
   },
   "devDependencies": {
     "@types/vscode": "^1.59.0",
@@ -66,7 +68,7 @@ Extensions that have only a `main` entry point, but no `browser` are not web ext
 
 ![Extensions view](images/web-extensions/extensions-view-item-disabled.png)
 
-Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in VS Code for the Web without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
+Extensions with only declarative contributions (only `contributes`, no `main` or `browser`) can be web extensions. They can be installed and run in [VS Code for the Web](/docs/editor/vscode-web) without any modifications by the extension author. Examples of extensions with declarative contributions include themes, grammars, and snippets.
 
 Extensions can have both `browser` and `main` entry points in order to run in browser and in Node.js runtimes. The [Update existing extensions to Web extensions](#update-existing-extensions-to-web-extensions) section shows how to migrate an extension to work in both runtimes.
 
@@ -101,7 +103,7 @@ The extension that is created consists of the extension's source code (a command
 * `package.json` is the extension manifest.
   * It points to the entry file using the `browser` property.
   * It provides scripts: `compile-web`, `watch-web` and `package-web` to compile, watch, and package.
-* `build/web-extension.webpack.config.js` is the webpack config file that compiles and bundles the extension sources into a single file.
+* `webpack.config.js` is the webpack config file that compiles and bundles the extension sources into a single file.
 * `.vscode/launch.json` contains the launch configurations that run the web extension and the tests in the VS Code desktop with a web extension host (setting `extensions.webWorker` is no longer needed).
 * `.vscode/task.json` contains the build task used by the launch configuration. It uses `npm run watch-web` and depends on the webpack specific `ts-webpack-watch` problem matcher.
 * `.vscode/extensions.json` contains the extensions that provide the problem matchers. These extensions need to be installed for the launch configurations to work.
@@ -113,14 +115,15 @@ The source code in the [helloworld-web-sample](https://github.com/microsoft/vsco
 
 The webpack configuration file is automatically generated by `yo code`. It bundles the source code from your extension into a single JavaScript file to be loaded in the web extension host.
 
-[web-extension.webpack.config.js](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js)
+[webpack.config.js](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/webpack.config.js)
 
 ```js
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = /** @type WebpackConfig */ {
-  context: path.dirname(__dirname),
+/** @typedef {import('webpack').Configuration} WebpackConfig **/
+/** @type WebpackConfig */
+const webExtensionConfig = {
   mode: 'none', // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
   target: 'webworker', // extensions run in a webworker context
   entry: {
@@ -129,8 +132,9 @@ module.exports = /** @type WebpackConfig */ {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, '../dist/web'),
-    libraryTarget: 'commonjs'
+    path: path.join(__dirname, './dist/web'),
+    libraryTarget: 'commonjs',
+    devtoolModuleFilenameTemplate: '../../[resource-path]'
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
@@ -167,9 +171,10 @@ module.exports = /** @type WebpackConfig */ {
   },
   devtool: 'nosources-source-map' // create a source map that points to the original source file
 };
+module.exports = [webExtensionConfig];
 ```
 
-Some important fields of `web-extension.webpack.config.js` are:
+Some important fields of `webpack.config.js` are:
 
 * The `entry` field contains the main entry point into your extension and test suite.
   * You may need to adjust this path to appropriately point to the entry point of your extension.
@@ -185,10 +190,11 @@ Some important fields of `web-extension.webpack.config.js` are:
 
 ## Test your web extension
 
-There are currently two ways to test a web extension before publishing it to the Marketplace.
+There are currently three ways to test a web extension before publishing it to the Marketplace.
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
+* Sideload your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -252,22 +258,66 @@ The `vscode-test-web` utility downloads the web bits of VS Code, starts a local 
 If you have `@vscode/test-web` installed as a development dependency, you can test the web extension in a browser from the command line.
 
 ```bash
-npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=.
+npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ./test-data
 ```
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
 
-```bash
---browserType 'chromium' | 'firefox' | 'webkit' : The browser to launch.
---extensionDevelopmentPath {path} : A path pointing to a extension to include. (Optional)
---extensionTestsPath {path} : A path to a test module to run. (Optional)
---folder-uri {path} : The folder to open VS Code on. (Optional)
---version 'insiders' (Default) | 'stable' | 'sources' : (Optional)
---open-devtools : Opens the developer tools.  (Optional)
---headless : Whether to show the browser. Defaults to true when an extensionTestsPath is provided, otherwise false. (Optional)
-```
+|Option|Argument Description|
+|-----|-----|
+| --browserType | The browser to launch: `chromium` (default), `firefox` or `webkit` |
+| --extensionDevelopmentPath | A path pointing to an extension under development to include. |
+| --extensionTestsPath |  A path to a test module to run. |
+| --permission|  Permission granted to the opened browser: e.g. `clipboard-read`, `clipboard-write`.<br>See [full list of options](https://playwright.dev/docs/api/class-browsercontext#browser-context-grant-permissions). Argument can be provided multiple times.  |
+| --folder-uri | URI of the workspace to open VS Code on. Ignored when `folderPath` is provided |
+| --extensionPath | A path pointing to a folder containing additional extensions to include.<br>Argument can be provided multiple times. |
+| folderPath |  A local folder to open VS Code on.<br>The folder content will be available as a virtual file system and opened as workspace. |
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
+
+### Test your web extension in on vscode.dev
+
+Before you publish your extension for everyone to use on VS Code for the Web, you can verify how your extension behaves in the actual [vscode.dev](https://vscode.dev) environment.
+
+To see your extension on vscode.dev, you first need to host it from your machine for vscode.dev to download and run.
+
+From your extension's path, start an HTTP server by running `npx serve --cors -l 5000`:
+
+```bash
+$ npx serve --cors -l 5000
+npx: installed 78 in 2.196s
+
+   ┌───────────────────────────────────────────────────┐
+   │                                                   │
+   │   Serving!                                        │
+   │                                                   │
+   │   - Local:            http://localhost:5000       │
+   │   - On Your Network:  http://172.19.255.26:5000   │
+   │                                                   │
+   │   Copied local address to clipboard!              │
+   │                                                   │
+   └───────────────────────────────────────────────────┘
+
+```
+
+Then, in another terminal, run `npx localtunnel -p 5000`:
+
+```bash
+$ npx localtunnel -p 5000
+npx: installed 22 in 1.048s
+your url is: https://hungry-mole-48.loca.lt/
+
+```
+
+**Important:** Now click on the generated URL (`https://hungry-mole-48.loca.lt/` in this case) and select **Click to Continue**.
+
+![Screenshot showing button with the text "Click to Continue" highlighted to click.](images/web-extensions/localtunnel.png)
+
+Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
+
+You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
+
+You may see other logs from vscode.dev itself. In addition, you can't easily set breakpoints nor see the source code of your extension. These limitations make debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
 
 ## Web extension tests
 
@@ -288,7 +338,7 @@ The test runner script is running on the web extension host with the same restri
 * All files are bundled into a single file. It should contain the test runner (for example, Mocha) and all tests (typically `*.test.ts`).
 * Only `require('vscode')` is supported.
 
-The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/build/web-extension.webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
+The [webpack config](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/webpack.config.js) that is created by the `yo code` web extension generator has a section for tests. It expects the test runner script at `./src/web/test/suite/index.ts`. The provided [test runner script](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-web-sample/src/web/test/suite/index.ts) uses the web version of Mocha and contains webpack-specific syntax to import all test files.
 
 ```ts
 require('mocha/mocha'); // import the mocha web build
@@ -325,12 +375,12 @@ export function run(): Promise<void> {
 To run the web test from the command line, run the following command in the extension folder:
 
 ```bash
-npx vscode-test-web --browserType=webkit --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js
+npx vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js
 ```
 
 (or use `npm test`)
 
-Supported values for `browserType` are `chromium`, `firefox`, and `webkit`.
+To open VS Code on a folder with test data, pass a local folder path (`folderPath`) as the last parameter.
 
 To run (and debug) extension tests in VS Code (Insiders) desktop, use the `Extension Tests in VS Code` launch configuration:
 

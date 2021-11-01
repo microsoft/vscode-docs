@@ -5,7 +5,7 @@ TOCTitle: Improve performance
 PageTitle: Improve container performance
 ContentId: 0956602e-d7a7-4071-8345-86075fd81374
 MetaDescription: Improve container performance
-DateApproved: 9/20/2021
+DateApproved: 10/7/2021
 ---
 # Improve disk performance
 
@@ -16,24 +16,6 @@ The Remote - Containers extension uses "bind mounts" to source code in your loca
 Windows 10 2004 and up includes an improved version of the Windows Subsystem for Linux (WSL 2) that provides a full Linux kernel and has significantly improved performance over WSL 1. Docker Desktop 2.3+ includes a new WSL 2 Engine that runs Docker in WSL rather than in a VM. Therefore, if you store your source code in the WSL 2 filesystem, you will see improved performance along with better compatibility for things like setting permissions.
 
 See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#open-a-wsl-2-folder-in-a-container-on-windows) for details on using this new engine from VS Code.
-
-### Update the mount consistency to 'delegated' for macOS
-
-By default, the Remote - Containers extension uses the Docker [cached mount consistency](https://docs.docker.com/docker-for-mac/osxfs-caching/) on macOS since this provides a good mix between performance and write guarantees on the host OS. However, you can opt to use the `delegated` consistency instead if you do not expect to be writing to the same file in both locations very often.
-
-When using a **Dockerfile or image**, update the **Remote > Containers: Workspace Mount Consistency** property in settings to `delegated`:
-
-![Workspace Mount setting](images/improve-performance/workspace-mount-setting.png)
-
-When using **Docker Compose**, update your local bind mount in `docker-compose.yml` as follows:
-
-```yaml
-    volumes:
-      # Update this to wherever you want VS Code to mount the folder of your project
-      - .:/workspace:delegated
-```
-
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
 ## Use Clone Repository in Container Volume
 

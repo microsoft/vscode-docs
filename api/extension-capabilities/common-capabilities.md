@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
@@ -53,7 +53,7 @@ You can use the following pattern:
 
 ```TypeScript
 // on activate
-const versionKey = context.extension.id + '.version';
+const versionKey = 'shown.version';
 context.globalState.setKeysForSync([versionKey]);
 
 // later on show page
@@ -62,7 +62,7 @@ const lastVersionShown = context.globalState.get(versionKey);
 if (!isHigher(currentVersion, lastVersionShown)) {
     return;
 }
-context.globalState.set(versionKey, currentVersion);
+context.globalState.update(versionKey, currentVersion);
 // show page
 ```
 

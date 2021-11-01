@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 ---
 # Developing inside a Container
 
@@ -46,7 +46,7 @@ To get started, follow these steps:
 
     1. Install [Docker Desktop for Windows/Mac](https://www.docker.com/products/docker-desktop).
 
-    2. If you are using WSL 2 on Windows, to enable the [Windows WSL 2 back-end](https:/*/aka.ms/vscode-remote/containers/docker-wsl2): Right-click on the Docker taskbar item and select **Settings**. Check **Use the WSL 2 based engine** and verify your distribution is enabled under **Resources > WSL Integration**.
+    2. If you are using WSL 2 on Windows, to enable the [WSL 2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2): Right-click on the Docker taskbar item and select **Settings**. Check **Use the WSL 2 based engine** and verify your distribution is enabled under **Resources > WSL Integration**.
 
     3. Right-click on the Docker task bar item, select **Settings** and update **Resources > File Sharing** with any locations your source code is kept. See [tips and tricks](/docs/remote/troubleshooting.md#container-tips) for troubleshooting. This option is not available if you have enabled the WSL 2 back-end in the step above.
 
@@ -98,7 +98,11 @@ This quick start covers how to set up a dev container for an existing project to
 
     ![Select a node dev container definition](images/containers/select-dev-container-def.png)
 
-    The list will be automatically sorted based on the contents of the folder you open. Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+    The list will be automatically sorted based on the contents of the folder you open.
+
+    You may be able to customize your dev container with additional features, which [you can read more about below](#dev-container-features-preview).
+
+    The dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
 3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
 
@@ -230,6 +234,52 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 Selecting the **Remote-Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
+
+## Dev container features (preview)
+
+Dev container features provide a smooth path for customizing your container definitions.
+
+When you use **Remote-Containers: Add Development Container Configuration Files**, you're presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
+
+![Dev container features in Command Palette](images/containers/container-features.png)
+
+When you rebuild and reopen in your container, the features you selected will be available in your `devcontainer.json`:
+
+```json
+"features": {
+        "github-cli": "latest"
+    }
+```
+
+You'll get IntelliSense when editing the `"features"` property in the `devcontainer.json` directly:
+
+![Intellisense when modifying terraform feature](images/containers/features-intellisense.png)
+
+The features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) in the vscode-dev-containers repo.
+
+The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
+
+> **Note:** Features support for GitHub Codespaces is coming soon.
+
+## Pre-building dev container images
+
+You can pre-build images with the tools you need rather than creating and building the image each time you create a container for a project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
+
+You can use the [devcontainer CLI](/remote/devcontainer-cli.md) to facilitate pre-builds.
+
+The process could be as follows:
+
+* [Create](/docs/editor/versioncontrol.md/#initialize-a-repository) a source code repository.
+* Create a dev container configuration, customizing as you wish (including [features](#dev-container-features-preview)).
+* Use the [`devcontainer CLI`](/docs/remote/devcontainer-cli.md) to build your image (the `devcontainer CLI` supports building images with features).
+* [Push](https://docs.docker.com/engine/reference/commandline/push/) your image. You can then change the dev container in your source repository to reference the image directly.
+
+```bash
+devcontainer build --image-name your-registry.azurecr.io/your-image-name
+docker push your-registry.azurecr.io/your-image-name
+```
+
+You can push your image to a container registry, like [Docker Hub](https://docs.docker.com/engine/reference/commandline/push), the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images).
 
 ## Inspecting volumes
 
@@ -423,6 +473,9 @@ Get-Service ssh-agent
 
 **Linux:**
 
+* On **WSL**:
+  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
+
 First, start the SSH Agent in the background by running the following in a terminal:
 
 ```bash
@@ -445,13 +498,13 @@ fi
 
 ### Sharing GPG Keys
 
-If want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
+If you want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
 
 If you do not have GPG set up, you can configure it for your platform:
 
 * On **Windows**, you can install [Gpg4win](https://www.gpg4win.org/).
 * On **macOS**, you can install [GPG Tools](https://gpgtools.org/).
-* On **Linux**, **locally** install the `gnupg2` package using your system's package manger.
+* On **Linux**, **locally** install the `gnupg2` package using your system's package manager.
 * On **WSL**:
   * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side.
   * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
@@ -576,7 +629,7 @@ Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore genera
 
 ![Docker Path setting](images/containers/docker-path-setting.png)
 
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
+However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Development Container Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
 Docker Compose is also not supported by Podman.
 

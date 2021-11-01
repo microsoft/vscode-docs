@@ -5,7 +5,7 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 ---
 # Remote development in Containers
 
@@ -64,7 +64,7 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Select **Remote-Containers: Try a Sample...** from the command list that appears and select the Node sample from the list.
+Select **Remote-Containers: Try a Development Container Sample...** from the command list that appears and select the Node sample from the list.
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
@@ -175,7 +175,7 @@ Or get them all by installing the
 
 ### Verify Docker context
 
-If you are not using a fresh Docker install and the **Remote-Containers: Try a Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
+If you are not using a fresh Docker install and the **Remote-Containers: Try a Development Container Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
 
 ```bash
 # Displays the list of contexts, '*' denotes the current context

@@ -1,10 +1,10 @@
 ---
-Order: 12
+Order: 13
 Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
@@ -155,6 +155,34 @@ If the keychain throws the error "The user name or passphrase you entered is not
 If the keychain throws the error "No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) to create a new keyring.
 
 If the error is "Writing login information to the keychain failed with error 'Unknown or unsupported transport “disabled” for address “disabled:”'", check that `dbus-launch` has been started by following the instructions in [issue #120392](https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643).
+
+If the error is "Writing login information to the keychain failed with error 'Cannot create an item in a locked collection'.", you need to:
+
+1. Add the following lines to your `~/.xinitrc`:
+
+   ```sh
+   # see https://unix.stackexchange.com/a/295652/332452
+   source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+   # see https://wiki.archlinux.org/title/GNOME/Keyring#xinitrc
+   eval $(/usr/bin/gnome-keyring-daemon --start)
+   export SSH_AUTH_SOCK
+
+   # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
+   mkdir -p "$HOME"/.local/share/keyrings
+   ```
+
+2. Login again.
+
+3. Have the following programs installed (installation assumes arch/pacman, should be similar to other distros):
+
+   ```sh
+   sudo pacman -S gnome-keyring libsecret libgnome-keyring
+   ```
+
+4. Launch `seahorse`, unlock the default password keyring or create a new one, and keep it unlocked.
+
+5. Restart the login procedure.
 
 ## Can I share settings between VS Code Stable and Insiders?
 

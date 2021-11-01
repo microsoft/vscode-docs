@@ -32,7 +32,7 @@ To help you set up quickly, you can install the **Coding Pack for Java**, which 
 
 If you are an existing VS Code user, you can also add Java support by installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes these extensions:
 
-* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+* [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 * [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 * [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
@@ -45,18 +45,18 @@ The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemNam
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
-You can also install extensions separately. The **Extension Guide** is provided to help you. You can launch the guide with the **Java: Extension Guide** command.
+You can also install extensions separately. The **Extensions Guide** is provided to help you. You can launch the guide with the **Java: Extensions Guide** command.
 
 For this tutorial, the only required extensions are:
 
-* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+* [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 ## Settings for the JDK
 
 ### Supported Java versions
 
-The supported version for running the VS Code for Java extension and the supported version for your projects are two separate runtimes. To run VS Code for Java, Java SE 11 or above version is required; for projects, VS Code for Java supports projects with version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+The supported version for running the Java Language Support (redhat.java) extension and the supported version for your projects are two separate requirements. To run the extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
 
 ### Using the Java runtime configuration wizard
 
@@ -74,9 +74,12 @@ If you prefer, you can configure JDK settings using the VS Code Settings editor 
 
 If you need to install a JDK, we recommend you to consider installing from one of these sources:
 
+* [Amazon Corretto](https://aws.amazon.com/corretto)
+* [Eclipse Adoptium's Temurin](https://adoptium.net/)
+* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
-* [AdoptOpenJDK](https://adoptopenjdk.net/)
-* [Azul Zulu for Azure - Enterprise Edition](https://www.azul.com/downloads/azure-only/zulu/)
+* [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
+* [SapMachine](https://sapmachine.io)
 
 ## Creating a source code file
 

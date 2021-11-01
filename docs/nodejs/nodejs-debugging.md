@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 9/2/2021
+DateApproved: 10/7/2021
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -72,7 +72,7 @@ In `smart` Auto Attach mode, VS Code will try to attach to your code, and not at
 
 ## JavaScript Debug Terminal
 
-In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the use the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
+In a similar way to [auto attach](#auto-attach), the JavaScript Debug Terminal will automatically debug any Node.js process you run in it. You can create a Debug Terminal by running the **Debug: Create JavaScript Debug Terminal** command from the Command Palette (`kbs(workbench.action.showCommands)`), or by selecting the **Create JavaScript Debug Terminal** from the terminal switcher dropdown.
 
 ![Create Debug Terminal](images/nodejs-debugging/create-debug-terminal.png)
 
