@@ -714,6 +714,11 @@ The following customizations are available:
 - `keybindingLabel.border`: Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
 - `keybindingLabel.bottomBorder`: Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
 
+## Keyboard shortcut table colors
+
+- `keybindingTable.headerBackground`: Background color for the keyboard shortcuts table header.
+- `keybindingTable.rowsBackground`: Background color for the keyboard shortcuts table alternating rows.
+
 ## Integrated Terminal colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
