@@ -499,6 +499,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
 - `editorHoverWidget.border`: Border color of the editor hover.
+- `editorHoverWidget.highlightForeground`: Foreground color of the active item in the parameter hint.
 - `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
 
 - `editorGhostText.border`: Border color of the ghost text shown by inline completion providers and the suggest preview.
@@ -660,6 +661,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 - `extensionIcon.starForeground`: The icon color for extension ratings.
+- `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 
 ## Quick picker colors
 
@@ -763,7 +765,7 @@ The following customizations are available:
 - `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
 - `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
 - `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
-- `welcomePage.tileShadow.`: Shadow color for the Welcome page walkthrough category buttons.
+- `welcomePage.tileShadow`: Shadow color for the Welcome page walkthrough category buttons.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
