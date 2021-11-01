@@ -41,7 +41,7 @@ For general information about working with settings in VS Code, refer to [User a
 
 | Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
-| languageServer | Default | Defines type of the language server (Default, [Pylance](https://devblogs.microsoft.com/python/announcing-pylance-fast-feature-rich-language-support-for-python-in-visual-studio-code/), Microsoft, Jedi, None).|
+| languageServer | Default | Defines type of the language server (Default, [Pylance](https://devblogs.microsoft.com/python/announcing-pylance-fast-feature-rich-language-support-for-python-in-visual-studio-code/), Jedi, and None).|
 
 ### Python Language Server settings
 
