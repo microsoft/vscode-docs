@@ -311,7 +311,7 @@ To disable JavaScript/TypeScript support, go to the Extensions view (`kb(workben
 
 ## Partial IntelliSense mode
 
-VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what make features such as auto-imports and **Go to Definition** possible. However, there are some cases where VS Code is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
+VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what makes features such as auto-imports and **Go to Definition** possible. However, there are some cases where VS Code is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
 
 This can happen in a few instances:
 
@@ -330,7 +330,7 @@ Here's an incomplete list of features that are either disabled or have more limi
 - Only syntax errors are reported. Semantic errors — such as accessing an unknown property or passing the wrong type to a function — are not reported.
 - Quick Fixes for semantic errors are disabled.
 - Symbols can only be resolved within the current file. Any symbols imported from other files will be treated as being of the `any` type.
-- Commands such as **Go to Definition** and **Find All References** will only work for opened files instead of across the entire entire project. This also means that symbol from any packages you install under `node_module` will not be resolved.
+- Commands such as **Go to Definition** and **Find All References** will only work for opened files instead of across the entire project. This also means that symbol from any packages you install under `node_module` will not be resolved.
 - Workspace symbol search will only include symbols from currently opened files.
 - Auto imports are disabled.
 - Renaming is disabled.
