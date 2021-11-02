@@ -658,7 +658,7 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
     from . import views  # For import side-effects of setting up routes.
     ```
 
-1. Open the debug configuration file `launch.json` and update the `.venv` property as follows to point to the startup object:
+1. Open the debug configuration file `launch.json` and update the `env` property as follows to point to the startup object:
 
     ```json
     "env": {
