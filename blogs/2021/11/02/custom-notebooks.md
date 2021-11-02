@@ -29,6 +29,8 @@ The markdown can be as rich as markdown elsewhere on VS Code, so you can have im
 
 All this makes for a really useful storytelling device to explain the full context of the code and analysis you intended to do. Which was the original motivations from Donald Knuth in 1984 when he introduced the term "Literate Programming" for Notebook-like experiences.
 
+Notebooks are the epitome of REPL-like experiences where a REPL is an interactive application where you can write a few lines of code and execute them immediately for some output.
+
 Notebooks are currently used heavily in Data Science to iterate on and share ideas.
 
 ### Then what does revamping mean for Notebooks?
@@ -71,8 +73,7 @@ This extension is also live on the marketplace today. You can install the [REST 
 
 Developing REST Book seemed complicated to me at first, but with the large number of VS Code APIs available, programming and creating REST Book was much easier than I expected. Most notably, I used the language APIs heavily for syntax highlight and auto-completions for my custom REST querying language. Then with the Notebook APIs, I just needed to fill in what should be done when the user of my extension wants to run a query.
 
-For both of these Notebooks, it was great to leverage the VS Code Notebook UI to create these REPL-like experiences. We didn't have to mess around with creating and then having to maintain a UI; we could focus on just the functionality.
-
+For both of these Notebooks, it was great to leverage the VS Code Notebook UI to create these REPL-like experiences. We didn't have to worry about creating and then having to maintain a UI; we could focus on just the functionality.
 ### Make your own custom notebook extension
 
 The VS Code team recorded a livestream several months back about Custom Notebooks and in it I showcased in a live demo what it's like to create a Custom Notebook extension. You can watch it here on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
