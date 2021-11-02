@@ -27,7 +27,7 @@ The markdown can be as rich as markdown elsewhere on VS Code, so you can have im
 
 <image>
 
-All this makes for a really useful storytelling device to explain the full context of the code and analysis you intended to do. Which was the original motivations from Donald Knuth in 1984 when he introduced the term "Literate Programming" for Notebook-like experiences.
+All this makes for a really useful storytelling device to explain the full context of your code and intended analysis. Which was the original motivation from Donald Knuth in 1984 when he introduced the term "Literate Programming" for Notebook-like experiences.
 
 Notebooks are the epitome of REPL-like experiences where a REPL is an interactive application where you can write a few lines of code and execute them immediately for some output.
 
