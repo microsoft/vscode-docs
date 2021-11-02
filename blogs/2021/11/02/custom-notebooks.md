@@ -39,7 +39,7 @@ Prior to these APIs, Jupyter Notebook support in VS Code was contributed soley f
 
 However, now with the core [Notebook APIs](api/extension-guides/notebook), the Notebook interface comes from VS Code and isn't in an isolated webview. This means Notebook interfaces can now interact with the rest of the VS Code experience. Editor extensions like [Rainbow Indent](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) will work in the code cells of your Notebooks.
 
-But we didn't want to limit these APIs to just Jupyter Notebook experiences. We believe that there's many other domains that can benefit from having a tool that's built to help you iterate and narrate your code. And so we made the new [Notebook APIs](api/extension-guides/notebook) public for any extension authors to use to craft their own Notebook experiences. We call these Custom Notebooks.
+But we didn't want to limit these APIs to just Jupyter Notebook experiences. We believe that there are many other domains that can benefit from having a tool that's built to help you iterate and narrate your code. And so we made the new [Notebook APIs](api/extension-guides/notebook) public for any extension authors to use to craft their own Notebook experiences. We call these Custom Notebooks.
 
 ## Beginnings of a Notebook Extension Ecosystem
 
