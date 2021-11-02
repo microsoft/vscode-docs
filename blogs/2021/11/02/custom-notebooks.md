@@ -45,7 +45,7 @@ But we didn't want to limit these APIs to just Jupyter Notebook experiences. We 
 
 ### GitHub Issues Notebook
 
-The first experience we created in the team is the [GitHub Issues Notebook](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks). A Notebook to help us triage and organize the thousands of issues we have in GitHub. With this Notebook we can query multiple repos at once to find issues like finding all the issues labeled `bug` and assigned to me.
+The first experience we created in the team is the [GitHub Issues Notebook](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks): a Notebook to help us triage and organize the thousands of issues we have in GitHub. With this Notebook we can query multiple repos at once to find issues like finding all the issues labeled `bug` and assigned to me.
 
 ![A preview of the GitHub Issues Notebook we use on the team that's available in the vscode repo](github-issues-notebook.png)
 
