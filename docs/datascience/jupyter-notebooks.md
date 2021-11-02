@@ -259,7 +259,7 @@ To learn more about Git integration within VS Code, visit [Version Control in VS
 
 We support two different ways to debug a Jupyter notebook: a simpler mode that we call "Run by Line", and full debugging mode.
 
-> **Note:** Both of these features require ipykernel 6+
+> **Note:** Both of these features require ipykernel 6+. See [this wiki page](https://github.com/microsoft/vscode-jupyter/wiki/Setting-Up-Run-by-Line-and-Debugging-for-Notebooks) for details about installing or upgrading ipykernel.
 
 ### Run by Line
 
