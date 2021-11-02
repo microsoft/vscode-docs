@@ -265,6 +265,8 @@ We support two different ways to debug a Jupyter notebook: a simpler mode that w
 
 Run by Line lets you execute a cell one line at a time, without being distracted by other VS Code debug features. To start, click the Run by Line button in the cell toolbar:
 
+(Insert screenshot with RBL button highlighted)
+
 Then, click the same button to advance by one statement. You can click the cell stop button to stop early, or the continue button in the toolbar to continue running to the end of the cell.
 
 ### Debug Cell
@@ -274,6 +276,8 @@ If you want to use the full set of debugging features supported in VS Code, such
 1. Start by setting any breakpoints that you need to set by clicking in the left margin of a notebook cell.
 2. Then click the "Debug Cell" button in the menu next to the run button. This will run the cell in a debug session, and will pause on your breakpoints in any code that runs, even if it is in a different cell or a .py file.
 3. You can use the Debug Viewlet, Debug Console, and all the buttons in the Debug Toolbar as you normally would in VS Code.
+
+(Insert screenshot with Debug Cell button highlighted)
 
 ## Connect to a remote Jupyter server
 
