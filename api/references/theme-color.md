@@ -785,8 +785,6 @@ The following customizations are available:
 ## Welcome page colors
 
 - `welcomePage.background`: Background color for the Welcome page.
-- `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
-- `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
 - `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
 - `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
