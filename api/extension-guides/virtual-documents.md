@@ -127,6 +127,6 @@ If you need more flexibility and power take a look at the [`FileSystemProvider`]
 You can find a sample extension with source code at: [https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample/README.md](https://github.com/microsoft/vscode-extension-samples/tree/main/fsprovider-sample/README.md).
 
 
-When VS Code is opened on a folder or workspace of a such a file system we call it a virtual workspace. When a virtual workspace is open in a VS Code window, this is shown by a label in the remote indicator in the lower left corner, similar to remote windows. See the [Virtual Workspace Guide](api/extension-guides/virtual-workspaces) how extensions can support that setup.
+When VS Code is opened on a folder or workspace of a such a file system we call it a virtual workspace. When a virtual workspace is open in a VS Code window, this is shown by a label in the remote indicator in the lower left corner, similar to remote windows. See the [Virtual Workspace Guide](/api/extension-guides/virtual-workspaces) how extensions can support that setup.
 
 
