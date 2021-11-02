@@ -33,9 +33,9 @@ Notebooks are the epitome of REPL-like experiences where a REPL is an interactiv
 
 Notebooks are currently used heavily in Data Science to iterate on and share ideas.
 
-### Then what does revamping mean for Notebooks?
+### Then what does revamping mean for Notebooks in VS Code?
 
-We made Notebooks a part of the core functionality of VS Code! This means there are now [Notebook APIs](api/extension-guides/notebook) available in the VS Code extension APIs to support extension authors to create Notebook experiences in VS Code.
+We made Notebooks a part of the core functionality of VS Code! This means there are now [Notebook APIs](api/extension-guides/notebook) available in the VS Code extension APIs to support extension authors to create Notebook experiences in VS Code. Anyone can make a executable Notebook for VS Code that can support custom languages and custom rich outputs.
 
 Prior to these APIs, Jupyter Notebook support in VS Code was contributed solely from the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The extension created its Notebook experience within an isolated webview, somewhat like an independent webpage within VS Code that doesn't talk with any of the other extensions you have installed.
 
