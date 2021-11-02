@@ -61,7 +61,7 @@ For both of these Notebooks, it was great to leverage the VS Code Notebook UI to
 
 ### Make your own custom notebook extension
 
-We recorded a livestream a couple months back about Custom Notebooks and I have a live demo of creating one. You can watch it here on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
+The VS Code team recorded a livestream several months back about Custom Notebooks and in it I showcased in a live demo what it's like to create a Custom Notebook extension. You can watch it here on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
 
 
 We hope this is just the beginning! We're excited to see what Custom Notebook experiences you all create!
