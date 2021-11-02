@@ -51,11 +51,25 @@ The first experience we created in the team is the [GitHub Issues Notebook](http
 
 You can find the Notebooks we use for triaging in the [VS Code repo under `.vscode/notebooks`](https://github.com/microsoft/vscode/tree/main/.vscode/notebooks).
 
+[GitHub Issues Notebook is avaliable in the marketplace]((https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks)) for anyone to use. You can try it out by installing the extension, creating a file for your Notebook with a `.github-issues` ending such as `my-notebook.github-issues`, and finally creating any query such as:
+
+```
+$repo=repo:microsoft/vscode-github-issue-notebooks
+$repo is:open no:assignee
+
+```
+
+The languge is the Notebook used to query is almost the same as the one your use to query issues on GitHub.com. This language in the GitHub Issues Notebook, however. allows you to make variables and use them in any other cell.
+
 ### REST Book
 
-Inspired by the querying experience in the GitHub Issues Notebook, I created [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) on my first week on the VS Code team. REST Book allows you to make HTTP calls in a Notebook. I found this Notebook useful to iterate on my projects with a server by being able to make multiple calls over time and compare the results easily on one page. I also used the Notebook to set up some manual testing of my project with some documentation around the test cases.
+Inspired by the querying experience in the GitHub Issues Notebook, I created [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) on my first week on the VS Code team. REST Book allows you to make HTTP calls in a Notebook. I found REST Book useful to iterate on my projects with a server by being able to make multiple calls over time and compare the results easily on one page. I also used REST Book Notebooks to set up some manual testing of my project with some documentation around the test cases.
 
 ![A preview of the REST Book being used in a project with an Express App](rest-book.png)
+
+This extension is also live on the marketplace today. You can install the [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) extension, create a file with a `.restbook` ending, and then perform any HTTP query like `GET github.com`.
+
+Developing REST Book seemed complicated to me at first, but with the large number of VS Code APIs available, programming and creating REST Book was much easier than I expected. Most notably, I used the language APIs heavily for syntax highlight and auto-completions for my custom REST querying language. Then with the Notebook APIs, I just needed to fill in what should be done when the user of my extension wants to run a query.
 
 For both of these Notebooks, it was great to leverage the VS Code Notebook UI to create these REPL-like experiences. We didn't have to mess around with creating and then having to maintain a UI; we could focus on just the functionality.
 
@@ -63,13 +77,14 @@ For both of these Notebooks, it was great to leverage the VS Code Notebook UI to
 
 The VS Code team recorded a livestream several months back about Custom Notebooks and in it I showcased in a live demo what it's like to create a Custom Notebook extension. You can watch it here on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/D-AXZZDTQhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 We hope this is just the beginning! We're excited to see what Custom Notebook experiences you all create!
 
 
 Happy Coding!
 
-Tanha Kabir ([@_tanhakabir](https://twitter.com/_tanhakabir)) , and the VS Code Team
+Tanha Kabir ([@_tanhakabir](https://twitter.com/_tanhakabir)) , and the VS Code Team ([@code](https://twitter.com/code))
 
 
 
