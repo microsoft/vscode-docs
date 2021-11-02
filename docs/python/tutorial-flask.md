@@ -89,7 +89,7 @@ In this section, you create a virtual environment in which Flask is installed. U
     python -m pip install flask
     ```
 
-You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
 
 ## Create and run a minimal Flask app
 
@@ -119,7 +119,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 1. In the Integrated Terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
     ```bash
-    (env) D:\py\\hello_flask>python -m flask run
+    (.venv) D:\py\\hello_flask>python -m flask run
      * Environment: production
        WARNING: Do not use the development server in a production environment.
        Use a production WSGI server instead.
