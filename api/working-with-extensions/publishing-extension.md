@@ -100,13 +100,13 @@ You can become a **verified publisher** by verifying ownership of an eligible do
 Verifying your publisher will:
 * Help users confirm your publisher's authenticity.
 * Add a verified publisher badge to your extensions.
-* Give users quick access your brand's landing page or professional portfolio.
+* Give users quick access your brand's landing page or your professional portfolio.
 
 ![Verified publisher indicators in VS Code](images/verified-publishers/verified-publishers.png)
 
 Eligible domains meet the following criteria:
 
-* Cannot be a subdomain (i.e. <subdomain>.github.io, <subdomain>.contoso.com, or similar).
+* Cannot be a subdomain (<subdomain>.github.io, <subdomain>.contoso.com, or similar).
 * You must be able to manage the DNS configuration settings and add a TXT record.
 * Your domain must use HTTPS protocol.
 
