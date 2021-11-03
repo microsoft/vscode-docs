@@ -74,13 +74,19 @@ This extension is also live on the marketplace today. You can install the [REST 
 Developing REST Book seemed complicated to me at first, but with the large number of VS Code APIs available, programming and creating REST Book was much easier than I expected. Most notably, I used the language APIs heavily for syntax highlight and auto-completions for my custom REST querying language. Then with the Notebook APIs, I just needed to fill in what should be done when the user of my extension wants to run a query.
 
 For both of these Notebooks, it was great to leverage the VS Code Notebook UI to create these REPL-like experiences. We didn't have to worry about creating and then having to maintain a UI; we could focus on just the functionality.
-### Make your own custom notebook extension
+## Make your own custom notebook extension
 
-The VS Code team recorded a livestream several months back about Custom Notebooks and in it I showcased in a live demo what it's like to create a Custom Notebook extension. You can watch it here on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
+### Watch a coding tutorial
+
+The VS Code team recorded a livestream several months back about Custom Notebooks and in it I showcased in a live coding demo of what it's like to create a Custom Notebook extension. You can watch it on Youtube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the exact code has changed since the video but the principles are still the same. For the most up to date code, you can look at the [Notebook API docs]((api/extension-guides/notebook)).
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/D-AXZZDTQhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-We hope this is just the beginning! We're excited to see what Custom Notebook experiences you all create!
+### Bring your ideas to the community
+
+If you aren't as interested in creating your own Notebook extension but have ideas you want to be made, we encourage you to tweet Notebook ideas at the VS Code Twitter account, [@code](https://twitter.com/code), or make issues in the [VS Code GitHub repository](https://github.com/microsoft/vscode) with your Notebook ideas. Then the VS Code community can read and chime in on your Notebook and eventually inspire folks to make your Notebook idea a reality!
+
+We hope the few Notebooks we covered in this blog is just the beginning! We're excited to see what Custom Notebook experiences you all will inspire and create!
 
 
 Happy Coding!
