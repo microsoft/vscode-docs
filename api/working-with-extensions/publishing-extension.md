@@ -93,9 +93,9 @@ Test your publisher's personal access token using [`vsce`](#vsce), while at the 
 vsce login <publisher name>
 ```
 
-#### Verify your publisher
+### Verify a publisher
 
-You can become a **verified publisher** by verifying ownership of a domain associated with your brand or identity.
+You can become a **verified publisher** by verifying ownership of an eligible domain associated with your brand or identity.
 
 Verifying your publisher will:
 * Help users confirm your publisher's authenticity.
@@ -104,7 +104,7 @@ Verifying your publisher will:
 
 ![Verified publisher indicators in VS Code](images/verified-publishers/verified-publishers.png)
 
-Eligible domains must meet the following criteria:
+Eligible domains meet the following criteria:
 
 * Cannot be a subdomain (i.e. <subdomain>.github.io, <subdomain>.contoso.com, or similar).
 * You must be able to manage the DNS configuration settings and add a TXT record.
