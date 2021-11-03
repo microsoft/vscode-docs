@@ -30,7 +30,7 @@ yo code
 # ? Bundle the source code with webpack? No
 # ? Which package manager to use? npm
 
-# ? Do you want to open new folder with Visual Studio Code? Open with `code`
+# ? Do you want to open the new folder with Visual Studio Code? Open with `code`
 
 ```
 
