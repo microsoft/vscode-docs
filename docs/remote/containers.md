@@ -281,27 +281,6 @@ docker push your-registry.azurecr.io/your-image-name
 
 You can push your image to a container registry, like [Docker Hub](https://docs.docker.com/engine/reference/commandline/push), the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), or [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images).
 
-In order for your dev container to build properly, it must be built by VS Code and the Remote - Containers extension rather than a manual user build with Docker. 
-
-You can promote pre-building and ensuring VS Code builds the container through something like the following in your Dockerfile:
-
-```bash
-ARG vscode
-RUN if [[ -z "$vscode" ]] ; then printf "\nERROR: This Dockerfile needs to be built with VS Code !" && exit 1; else printf "VS Code is detected: $vscode"; fi
-```
-
-And the following in your `devcontainer.json`:
-
-```bash
- "build": {
-      "dockerfile": "Dockerfile",
-      "args": {
-          // set vscode arg for Dockerfile
-          "vscode": "true"
-      },
-    },
-```
-
 ## Inspecting volumes
 
 Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Remote-Containers: Explore a Volume in a Development Container...** from the Command Palette (`kbstyle(F1)`).
