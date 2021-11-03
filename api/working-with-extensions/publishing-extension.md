@@ -93,6 +93,29 @@ Test your publisher's personal access token using [`vsce`](#vsce), while at the 
 vsce login <publisher name>
 ```
 
+#### Verify your publisher
+
+You can become a **verified publisher** by verifying ownership of a domain associated with your brand or identity.
+
+Verifying your publisher will:
+* Help users confirm your publisher's authenticity.
+* Add a verified publisher badge to your extensions.
+* Give users quick access your brand's landing page or professional portfolio.
+
+![Verified publisher indicators in VS Code](images/verified-publishers/verified-publishers.png)
+
+Eligible domains must meet the following criteria:
+
+* Cannot be a subdomain (i.e. <subdomain>.github.io, <subdomain>.contoso.com, or similar).
+* You must be able to manage the DNS configuration settings and add a TXT record.
+* Your domain must use HTTPS protocol.
+
+Already have an eligible domain in mind? Awesome!
+
+By November 15th 2021, we will introduce a streamlined workflow to verify your publisher domain directly through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
+
+If you would like to be notified by email as soon as the publisher verification workflow is available, [sign up here](https://aka.ms/verified-publisher-sign-up)!
+
 ### Publish an extension
 
 You can publish an extension using [`vsce`](#vsce) with the `publish` command:
