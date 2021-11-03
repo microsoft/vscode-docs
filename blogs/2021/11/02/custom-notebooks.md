@@ -47,11 +47,11 @@ But we didn't want to limit these APIs to just Jupyter Notebook experiences. We 
 
 ### GitHub Issues Notebook
 
-The first experience we created in the team is the [GitHub Issues Notebook](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks): a Notebook to help us triage and organize the thousands of issues we have in GitHub. With this Notebook we can query multiple repos at once to find issues like finding all the issues labeled `bug` and assigned to me.
+The first experience we created in the team is the [GitHub Issues Notebook](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks): a Notebook to help us triage and organize the thousands of issues we have in GitHub. With this Notebook we can query multiple repos at once to find issues like finding all the issues labeled `bug` and assigned to me. The VS Code team uses this Notebook on a daily basis to process all the issues across the many repos the team works on.
 
 ![A preview of the GitHub Issues Notebook we use on the team that's available in the vscode repo](github-issues-notebook.png)
 
-You can find the Notebooks we use for triaging in the [VS Code repo under `.vscode/notebooks`](https://github.com/microsoft/vscode/tree/main/.vscode/notebooks).
+You can find the Notebooks we use for triaging in the [VS Code repo under `.vscode/notebooks`](https://github.com/microsoft/vscode/tree/main/.vscode/notebooks). There's one called `inbox.github-issues` where a VS Code team member uses this Notebook to triage many newly filed issues to their appropriate area and assignee.
 
 [GitHub Issues Notebook is avaliable in the marketplace]((https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks)) for anyone to use. You can try it out by installing the extension, creating a file for your Notebook with a `.github-issues` ending such as `my-notebook.github-issues`, and finally creating any query such as:
 
@@ -63,6 +63,8 @@ $repo is:open no:assignee
 
 The languge is the Notebook used to query is almost the same as the one your use to query issues on GitHub.com. This language in the GitHub Issues Notebook, however. allows you to make variables and use them in any other cell.
 
+You can view the source code for the [GitHub Issues Notebook here on GitHub.com](https://github.com/microsoft/vscode-github-issue-notebooks).
+
 ### REST Book
 
 Inspired by the querying experience in the GitHub Issues Notebook, I created [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) on my first week on the VS Code team. REST Book allows you to make HTTP calls in a Notebook. I found REST Book useful to iterate on my projects with a server by being able to make multiple calls over time and compare the results easily on one page. I also used REST Book Notebooks to set up some manual testing of my project with some documentation around the test cases.
@@ -72,6 +74,8 @@ Inspired by the querying experience in the GitHub Issues Notebook, I created [RE
 This extension is also live on the marketplace today. You can install the [REST Book](https://marketplace.visualstudio.com/items?itemName=tanhakabir.rest-book) extension, create a file with a `.restbook` ending, and then perform any HTTP query like `GET github.com`.
 
 Developing REST Book seemed complicated to me at first, but with the large number of VS Code APIs available, programming and creating REST Book was much easier than I expected. Most notably, I used the language APIs heavily for syntax highlight and auto-completions for my custom REST querying language. Then with the Notebook APIs, I just needed to fill in what should be done when the user of my extension wants to run a query.
+
+You can view the source code for the [REST Book here](https://github.com/tanhakabir/rest-book).
 
 For both of these Notebooks, it was great to leverage the VS Code Notebook UI to create these REPL-like experiences. We didn't have to worry about creating and then having to maintain a UI; we could focus on just the functionality.
 ## Make your own custom notebook extension
