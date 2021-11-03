@@ -27,10 +27,11 @@ Verifying your publisher comes with the following benefits:
 Verification is open to any extension publisher, enterprise to individual, with an eligible domain to verify.
 
 Eligible domains must meet the following criteria:
-	• Cannot be a subdomain (i.e. <subdomain>.github.io, <subdomain>.azurewebsites.com, <subdomain>.contoso.com or similar).
-	• You must be able to manage the DNS configuration settings and add a TXT record.
-	• Your domain must use HTTPS protocol.
-	• Your domain URL cannot return a 404 error.
+
+* Cannot be a subdomain (i.e. <subdomain>.github.io, <subdomain>.azurewebsites.com, <subdomain>.contoso.com or similar).
+* You must be able to manage the DNS configuration settings and add a TXT record.
+* Your domain must use HTTPS protocol.
+* Your domain URL cannot return a 404 error.
 
 We recommend choosing the domain that best supports your publisher's authenticity and credibility. For organizations, that will likely be your brand's primary domain or landing page (i.e. "microsoft.com"). For individuals, it may be your professional or project website.
 
