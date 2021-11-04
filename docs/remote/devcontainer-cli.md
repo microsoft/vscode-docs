@@ -71,6 +71,29 @@ You can optionally specify the path to the folder to open, for example `devconta
 
 The `devcontainer build` command allows you to build the dev container image for a folder. As with the `open` command, `build` accepts a path to the folder to build the image for and defaults to the current working folder in your shell. For example, `devcontainer build` will build the dev container image for the current folder and `devcontainer build ~/source/my-folder` will build the container image for the `~/source/my-folder` folder.
 
+### [Optional] Avoiding problems with images built using Docker
+
+In order for your dev container to build properly, it may need to be built by the dev container CLI, the Remote - Containers extension, or GitHub Codespaces rather than a manual user build with Docker. To avoid this problem, you can add a build argument that is verified in your Dockerfile and only set in `devcontainer.json` or a dev container specific Docker Compose file.
+
+For example, you could add the following to your Dockerfile:
+
+```bash
+ARG vscode
+RUN if [[ -z "$vscode" ]] ; then printf "\nERROR: This Dockerfile needs to be built with VS Code !" && exit 1; else printf "VS Code is detected: $vscode"; fi
+```
+
+And the following in your `devcontainer.json`:
+
+```bash
+ "build": {
+      "dockerfile": "Dockerfile",
+      "args": {
+          // set vscode arg for Dockerfile
+          "vscode": "true"
+      },
+    },
+```
+
 ### devcontainer CLI build options
 
 The following options can be used with the `build` command:
