@@ -121,3 +121,5 @@ Stay tuned for more… 😉
 Happy Coding,
 
 Chris
+
+P.S. In case you missed it, you can watch our [VS Code for the Web](https://youtu.be/sy3TUb_iVJM) live stream.

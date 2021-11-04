@@ -180,9 +180,9 @@ Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Co
 
 You may use the debug setting `java.debug.settings.hotCodeReplace` to control how to trigger Hot Code Replace. The possible setting values are:
 
-* `manual` - Click the toolbar to apply the changes (default).
-* `auto` - Automatically apply the changes after compilation.
-* `never` - Disable Hot Code Replace.
+- `manual` - Click the toolbar to apply the changes (default).
+- `auto` - Automatically apply the changes after compilation.
+- `never` - Disable Hot Code Replace.
 
 ### Logpoints
 
@@ -256,7 +256,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `java.debug.settings.showLogicalStructure`: Show the logical structure for the Collection and Map classes in **Variables**, defaults to `true`.
 - `java.debug.settings.showToString`: Show 'toString()' value for all classes that override 'toString' method in **Variables**, defaults to `true`.
 - `java.debug.settings.maxStringLength`: The maximum length of strings displayed in **Variables** or **Debug Console**. Strings longer than this limit will be trimmed. The default is `0`, which means no trim is performed.
-- `java.debug.settings.hotCodeReplace`: Reload the changed Java classes during debugging, defaults to `manual`. Make sure `java.autobuild.enabled` is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.settings.hotCodeReplace`: Reload the changed Java classes during debugging, defaults to `manual`. Make sure `java.autobuild.enabled` is not disabled for the [Java Language Support extension](https://github.com/redhat-developer/vscode-java). See the [Hot Code Replace wiki page](https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
   - manual - Click the toolbar to apply the changes.
   - auto - Automatically apply the changes after compilation.
   - never - Never apply the changes.
@@ -274,18 +274,18 @@ If you encounter issues when using the debugger, a detailed troubleshooting guid
 
 Common issues explained include:
 
-* Java Language Support extension fails to start.
-* Build failed, do you want to continue?
-* *.java isn't on the classpath. Only syntax errors will be reported.
-* Program Error: Could not find or load main class X.
-* Program throws ClassNotFoundException.
-* Failed to complete Hot Code Replace.
-* Please specify the host name and the port of the remote debuggee in the launch.json.
-* Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
-* Cannot find a class with the main method.
-* No delegateCommandHandler for vscode.java.startDebugSession when starting Debugger.
-* Failed to resolve classpath.
-* Request type "X" is not supported. Only "launch" and "attach" are supported.
+- Java Language Support extension fails to start.
+- Build failed, do you want to continue?
+- *.java isn't on the classpath. Only syntax errors will be reported.
+- Program Error: Could not find or load main class X.
+- Program throws ClassNotFoundException.
+- Failed to complete Hot Code Replace.
+- Please specify the host name and the port of the remote debuggee in the launch.json.
+- Failed to evaluate. Reason: Cannot evaluate because the thread is resumed.
+- Cannot find a class with the main method.
+- No delegateCommandHandler for vscode.java.startDebugSession when starting Debugger.
+- Failed to resolve classpath.
+- Request type "X" is not supported. Only "launch" and "attach" are supported.
 
 ## Feedback and questions
 
@@ -295,9 +295,9 @@ You can find the full list of issues at [Issue Tracker](https://github.com/micro
 
 Read on to find out about:
 
-* [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
+- [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger in VS Code with your project for any language.
 
 And for Java:
 
-* [Java Testing](/docs/java/java-testing.md) - Test Java within VS Code with the Java Test Runner extension.
-* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java Testing](/docs/java/java-testing.md) - Test Java within VS Code with the Java Test Runner extension.
+- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

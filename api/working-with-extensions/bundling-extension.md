@@ -9,7 +9,9 @@ MetaDescription: Bundling Visual Studio Code extensions (plug-ins) with webpack.
 
 # Bundling Extensions
 
-Visual Studio Code extensions often grow quickly in size. They are authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are development best practices but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading one large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
+The first reason to bundle your Visual Studio Code extension is to make sure it works for everyone using VS Code on any platform. Only bundled extensions can be used in VS Code for Web environments like [github.dev](https://github.dev/) and [vscode.dev](https://vscode.dev/). When VS Code is running in the browser, it can only load one file for your extension so the extension code needs to be bundled into one single web-friendly JavaScript file. This also applies to [Notebook Output Renderers](/api/extension-guides/notebook#notebook-renderer), where VS Code will also only load one file for your renderer extension.
+
+In addition, extensions can quickly grow in size and complexity. They may be authored in multiple source files and depend on modules from [npm](https://www.npmjs.com). Decomposition and reuse are development best practices but they come at a cost when installing and running extensions. Loading 100 small files is much slower than loading one large file. That's why we recommend bundling. Bundling is the process of combining multiple small source files into a single file.
 
 For JavaScript, different bundlers are available. Popular ones are [rollup.js](https://rollupjs.org), [Parcel](https://parceljs.org), [esbuild](https://esbuild.github.io/), and [webpack](https://webpack.js.org/).
 
@@ -69,10 +71,11 @@ With all tools installed, webpack can now be configured. By convention, a `webpa
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 
 /**@type {import('webpack').Configuration}*/
 const config = {
-    target: 'node', // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
+    target: 'webworker', // vscode extensions run in webworker context for VS Code web 📖 -> https://webpack.js.org/configuration/target/#target
 
     entry: './src/extension.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
     output: { // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
@@ -86,7 +89,16 @@ const config = {
         vscode: "commonjs vscode" // the vscode-module is created on-the-fly and must be excluded. Add other modules that cannot be webpack'ed, 📖 -> https://webpack.js.org/configuration/externals/
     },
     resolve: { // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
-        extensions: ['.ts', '.js']
+        mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
+        extensions: ['.ts', '.js'],
+        alias: {
+            // provides alternate implementation for node module and source files
+        },
+        fallback: {
+            // Webpack 5 no longer polyfills Node.js core modules automatically.
+            // see https://webpack.js.org/configuration/resolve/#resolvefallback
+            // for the list of Node.js core module polyfills.
+        }
     },
     module: {
         rules: [{
@@ -105,7 +117,7 @@ The file is [available](https://github.com/microsoft/vscode-extension-samples/bl
 
 In the sample above, the following are defined:
 
-* The `target` is 'node' because extensions run in a Node.js context.
+* The `target` indicates which context your extension will run. We recommend using `webworker` so that your extension will work both in VS Code for web and VS Code desktop versions.
 * The entry point webpack should use. This is similar to the `main` property in `package.json` except that you provide webpack with a "source" entry point, usually `src/extension.ts`, and not an "output" entry point. The webpack bundler understands TypeScript, so a separate TypeScript compile step is redundant.
 * The `output` configuration tells webpack where to place the generated bundle file. By convention, that is the `dist` folder. In this sample, webpack will produce a `dist/extension.js` file.
 * The `resolve` and `module/rules` configurations are there to support TypeScript and JavaScript input files.
@@ -119,9 +131,10 @@ Merge these entries into the `scripts` section in `package.json`:
 
 ```json
 "scripts": {
-    "vscode:prepublish": "webpack --mode production",
+    "vscode:prepublish": "npm run package",
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
     "test-compile": "tsc -p ./"
 },
 ```

@@ -190,7 +190,7 @@ If your extension provides both grammars and rich language support that needs to
 
 You can see this approach with the built-in language extensions, such as JSON, which consists of a JSON extension and a JSON language feature extension.
 
-This separation also helps with [Untrusted Workspaces](api/extension-guides/workspace-trust) running in [Restricted Mode](/docs/editor/workspace-trust#restricted-mode). Rich language extensions often require trust while basic language features can run in any setup.
+This separation also helps with [Untrusted Workspaces](/api/extension-guides/workspace-trust) running in [Restricted Mode](/docs/editor/workspace-trust#restricted-mode). Rich language extensions often require trust while basic language features can run in any setup.
 
 ### Language selectors
 

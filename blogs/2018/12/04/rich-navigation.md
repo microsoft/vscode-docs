@@ -33,7 +33,7 @@ The rich code navigation experience we're building helps developers keep track o
 
 ![Navigating a Java PR](Java.gif)
 
-*Navigating a Java-based PR on macOS, without even having the Java extension installed.*
+*Navigating a Java-based PR on macOS, without even having the Java Language Support (redhat.java) extension installed.*
 
 ## Navigate all the things
 

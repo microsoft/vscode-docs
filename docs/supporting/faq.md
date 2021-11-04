@@ -246,7 +246,7 @@ To work around this, when launched via a UI gesture, VS Code will start a small 
 
 If the error message indicates that resolving your shell environment took too long, the easiest way to investigate this is to:
 
-* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open).
+* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open (`kb(workbench.action.quickOpen)`)).
 * Selectively comment out potentially long running operations (such as `nvm` if you find that).
 * Save and fully restart VS Code.
 * Continue commenting out operations until the error disappears.

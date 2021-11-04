@@ -41,7 +41,7 @@ For general information about working with settings in VS Code, refer to [User a
 
 | Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
-| languageServer | Default | Defines type of the language server (Default, [Pylance](https://devblogs.microsoft.com/python/announcing-pylance-fast-feature-rich-language-support-for-python-in-visual-studio-code/), Microsoft, Jedi, None).|
+| languageServer | Default | Defines type of the language server (Default, [Pylance](https://devblogs.microsoft.com/python/announcing-pylance-fast-feature-rich-language-support-for-python-in-visual-studio-code/), Jedi, and None).|
 
 ### Python Language Server settings
 
@@ -133,45 +133,6 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | --- | --- | --- |
 | jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
 | jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024 MB. -1 disables the memory limit check. |
-
-#### Microsoft Python Language Server
-
-The language server settings apply when `python.languageServer` is `Microsoft`. If you have any difficulties with the language server, see [Troubleshooting](https://github.com/microsoft/python-language-server/blob/master/TROUBLESHOOTING.md) in the language server repository.
-
-| Setting<br/>(python.analysis.) | Default | Description |
-| --- | --- | --- |
-| diagnosticPublishDelay | `1000` | The number of milliseconds to wait before transferring diagnostic messages to the problems list. |
-| disabled<br/>errors<br/>warnings<br/>information | `[]` | List of diagnostics messages to suppress or show as errors, warnings, or information. See below for applicable values. The classification of messages affects both what's shown in the Problems window and in the editor (such as the color of the underlining). |
-| logLevel | `"Error"` | Defines the types of log messages that language server writes into the Problems window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
-| openFilesOnly | `true` | When true, shows only errors and warnings for open files rather than for the entire workspace. |
-| symbolsHierarchyDepthLimit | `10` | Limits the depth of the symbol tree in the document outline. |
-| typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) on GitHub. |
-
-The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
-
-| Value | Default type | Description or message text |
-| --- | --- | --- |
-| inherit-non-class | Warning | Attempted to inherit something that is not a class. |
-| too-many-function-arguments | Warning | Too many arguments have been provided to a function call. |
-| too-many-positional-arguments-before-star | Warning | Too many arguments have been provided before a starred argument. |
-| no-cls-argument | Warning | First parameter in a class method must be cls. |
-| no-method-argument | Warning | Method has no arguments. |
-| no-self-argument | Warning | First parameter in a method must be self. |
-| parameter-already-specified | Warning | An argument with this name has already been specified. |
-| parameter-missing | Warning | A required positional argument is missing. |
-| positional-argument-after-keyword | Warning | A positional argument has been provided after a keyword argument. |
-| positional-only-named | Warning | A positional-only argument (3.8+) has been named in a function call. |
-| return-in-init | Warning | Encountered an explicit return in `__init__` function. |
-| typing-generic-arguments | Warning | An error occurred while constructing `Generic`. |
-| typing-typevar-arguments | Warning | An error occurred while constructing `TypeVar`. |
-| typing-newtype-arguments | Warning| An error occurred while constructing `NewType`. |
-| unknown-parameter-name | Warning | The keyword argument name provided is unknown. |
-| unresolved-import | Warning | An import cannot be resolved, and may be missing.|
-| undefined-variable | Warning | A variable has been used that has not yet been defined.|
-| variable-not-defined-globally | Warning | A variable is not defined in the global scope. |
-| variable-not-defined-nonlocal | Warning | A variable is not defined in non-local scopes. |
-
-To suppress the "undefined-variable" messages, for example, use the setting `"python.analysis.disabled": ["undefined-variable"]`. To suppress those messages and "too-many-function-arguments" messages as well, use the setting `"python.analysis.disabled": ["undefined-variable", "too-many-function-arguments"]`. You can similarly set `"python.analysis.errors"`, `"python.analysis.warnings"`, and `"python.analysis.information"` to control the visibility and severity of the diagnostics.
 
 ## AutoComplete settings
 

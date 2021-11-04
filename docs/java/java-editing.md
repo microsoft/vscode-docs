@@ -98,7 +98,7 @@ To enable semantic highlighting, you can toggle the `java.semanticHighlighting.e
 
 ![Semantic Highlighting Switch](images/java-editing/semantic-highlighting-switch.png)
 
-You can learn more about the details of Java semantic highlighting on the [Java extension wiki](https://github.com/redhat-developer/vscode-java/wiki/Semantic-Highlighting).
+You can learn more about the details of Java semantic highlighting on the [Java Language Support extension wiki](https://github.com/redhat-developer/vscode-java/wiki/Semantic-Highlighting).
 
 ### Navigating code with Spring Boot
 
