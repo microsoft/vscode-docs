@@ -102,7 +102,7 @@ Verifying your publisher will:
 * Add a verified publisher badge to your extensions.
 * Give users quick access your brand's landing page or your professional portfolio.
 
-![Verified publisher indicators in VS Code](images/verified-publishers/verified-publishers.png)
+![Verified publisher indicators in VS Code](images/publishing-extension/verified-publishers.png)
 
 Eligible domains meet the following criteria:
 
