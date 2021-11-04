@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -193,7 +193,7 @@ There are also extensions available that give more options such as [Terminal Her
 
 Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
 
-We've added an experimental setting `terminal.integrated.persistentSessionReviveProcess`, which determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shutdown (eg. on window or application close). Restoring of the process current working directory depends on whether it is supported by the shell.
+We've added an experimental setting `terminal.integrated.persistentSessionReviveProcess`, which determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shutdown (for example, on window or application close). Restoring of the process current working directory depends on whether it is supported by the shell.
 
 ## Links
 
