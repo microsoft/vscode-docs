@@ -73,18 +73,18 @@ The `devcontainer build` command allows you to build the dev container image for
 
 ### [Optional] Avoiding problems with images built using Docker
 
-In order for your dev container to build properly, it may need to be built by the dev container CLI, the Remote - Containers extension, or GitHub Codespaces rather than a manual user build with Docker. To avoid this problem, you can add a build argument that is verified in your Dockerfile and only set in `devcontainer.json` or a dev container specific Docker Compose file.
+In order for your dev container to build properly, it may need to be built by the dev container CLI, the Remote - Containers extension, or in a GitHub Codespace, rather than a manual user build with Docker. To avoid building with Docker, you can add a build argument that is verified in your Dockerfile and only set in `devcontainer.json` or a dev container specific Docker Compose file.
 
 For example, you could add the following to your Dockerfile:
 
-```bash
+```Dockerfile
 ARG vscode
 RUN if [[ -z "$vscode" ]] ; then printf "\nERROR: This Dockerfile needs to be built with VS Code !" && exit 1; else printf "VS Code is detected: $vscode"; fi
 ```
 
 And the following in your `devcontainer.json`:
 
-```bash
+```json
  "build": {
       "dockerfile": "Dockerfile",
       "args": {
