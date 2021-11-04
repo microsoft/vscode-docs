@@ -251,14 +251,16 @@ Open the **Running Extensions** view (command: **Developer: Show Running Extensi
 
 ### Test your web extension in a browser using @vscode/test-web
 
-The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module offers a CLI and API to test a web extension in a browser of choice.
+The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module offers a CLI and API to test a web extension in a browser.
 
 The node module contributes an npm binary `vscode-test-web` that can open VS Code for the Web from the command line:
-* It downloads the web bits of VS Code into `.vscode-test-web`
-* starts a local server on `localhost:3000`
-* opens a browser (Chromium, Firefox, or Webkit)
+
+* It downloads the web bits of VS Code into `.vscode-test-web`.
+* Starts a local server on `localhost:3000`.
+* Opens a browser (Chromium, Firefox, or Webkit).
 
 You can run it from command line:
+
 ```bash
 npx @vscode/test-web --extensionDevelopmentPath=$extensionFolderPath $testDataPath
 ```
@@ -273,8 +275,6 @@ Or better, add `@vscode/test-web` as a development dependency to your extension 
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
   }
 ```
-
-
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
 
@@ -397,7 +397,6 @@ To run the web test from the command line, add the following to your `package.js
     "test": "vscode-test-web --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js"
   }
 ```
-
 
 To open VS Code on a folder with test data, pass a local folder path (`folderPath`) as the last parameter.
 
