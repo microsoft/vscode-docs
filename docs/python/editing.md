@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 10/05/2021
+DateApproved: 11/05/2021
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -22,7 +22,7 @@ Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/datascie
 
 ## Autocomplete and IntelliSense
 
-Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations.
+Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
 While editing, you can right-click different identifiers to take advantage of several convenient commands
 
@@ -70,13 +70,13 @@ The `python.autoComplete.addBrackets` setting (default `false`) also determines 
   "python.autoComplete.addBrackets": true,
 ```
 
-and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
+Next, write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that autocomplete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
 ### Troubleshooting
 
-If autocomplete and IntelliSense are not working for a custom module, check the following causes:
+If autocomplete and IntelliSense aren't working for a custom module, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
@@ -85,7 +85,7 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Quick Fixes
 
-The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. Note that the functionality in the below examples is provided by the Pylance language server.
+The add imports Quick Fix allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. **Note:** The Functionality in the below examples is provided by the Pylance language server.
 
 ![Adding an import](images/editing/quickFix.gif)
 
@@ -93,7 +93,7 @@ The add imports Code Action also recognizes some of the popular abbreviations fo
 
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
-The import suggestions list is ordered with import statements for packages (or modules) at the top, followed by statements for additional modules and/or members (classes, objects, etc.) from specified packages.
+The import suggestions list is ordered with import statements for packages (or modules) at the top. It will also include statements for more modules and/or members (classes, objects, etc.) from specified packages.
 
 ## Run Selection/Line in Terminal (REPL)
 
@@ -109,7 +109,9 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Formatting
 
-Formatting makes code easier to read by human beings by applying specific rules and conventions for line spacing, indents, spacing around operators, and so on (see an example on the [autopep8](https://pypi.org/project/autopep8/) page). Formatting doesn't affect the functionality of the code itself. ([Linting](/docs/python/linting.md), on the other hand, analyzes code for common syntactical, stylistic, and functional errors as well as unconventional programming practices that can lead to errors. Although there is a little overlap between formatting and linting, the two capabilities are complementary.)
+Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Formatting doesn't affect the functionality of the code itself.
+
+[Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
 The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/python/black), or [yapf](https://github.com/google/yapf).
 
@@ -201,7 +203,7 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [i
 
 ## Next steps
 
-- [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
+- [Linting](/docs/python/linting.md) - Enable, configure, and apply various Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
