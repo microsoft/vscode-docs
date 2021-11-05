@@ -13,6 +13,7 @@ November 8, 2021 by Tanha Kabir, [@_tanhakabir](https://twitter.com/_tanhakabir)
 
 Notebooks are documents that contain a mix of rich markdown, executable code snippets, and accompanying rich output. These are all separated into distinct cells and can be interleaved in any order.
 
+![An example Notebook showing code cells, markdown, and a rich graph output](notebook.png)
 
 If you aren't familiar with Notebooks you might be familiar with REPLs? A REPL is an interactive application where you can write a few lines of code and execute them immediately for some output. And Notebooks are the epitome of REPLs; they're an easy to create an environment that let's you iterate and work on small chunks of code.
 
