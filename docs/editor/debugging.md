@@ -10,7 +10,7 @@ MetaSocialImage: images/debugging/Debugging.png
 ---
 # Debugging
 
-One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile and debug loop.
+One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile, and debug loop.
 
 ![Debugging diagram](images/debugging/debugging_hero.png)
 
@@ -121,7 +121,7 @@ VS Code also supports compound launch configurations for starting multiple confi
 
 In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the Run view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
-Alternatively you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
+Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
 
 As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed and shows debugging output, and the Status Bar changes color (orange for default color themes):
 
@@ -144,7 +144,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 * Restart `kb(workbench.action.debug.restart)`
 * Stop `kb(workbench.action.debug.stop)`
 
->**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can either be the default `floating`, `docked` to the Run view or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
+>**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the Run view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
 
 ### Run mode
 
@@ -166,7 +166,7 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
-Optionally breakpoints can be shown in the editor's overview ruler by enabling the setting `debug.showBreakpointsInOverviewRuler`:
+Optionally, breakpoints can be shown in the editor's overview ruler by enabling the setting `debug.showBreakpointsInOverviewRuler`:
 
 ![breakpoints in overview ruler](images/debugging/bpts-in-overview.png)
 
@@ -194,7 +194,7 @@ Variables and expressions can also be evaluated and watched in the Run view's **
 
 ![Debug Watch](images/debugging/watch.png)
 
-Variable names and values can be filtered by typing while the focus is on the **VARIABLES** section
+Variable names and values can be filtered by typing while the focus is on the **VARIABLES** section.
 
 ![Filtering in the Variables section](images/debugging/filtering-variables.png)
 
@@ -212,7 +212,7 @@ The following attributes are mandatory for every launch configuration:
 
 Here are some optional attributes available to all launch configurations:
 
-* `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
+* `presentation` - using the `order`, `group`, and `hidden` attributes in the `presentation` object, you can sort, group, and hide configurations and compounds in the Debug configuration dropdown and in the Debug quick pick.
 * `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the label of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder). Or, this can be set to `${defaultBuildTask}` to use your default build task.
 * `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (in the workspace's `.vscode` folder).
 * `internalConsoleOptions` - this attribute controls the visibility of the Debug Console panel during a debugging session.
@@ -269,11 +269,11 @@ Below is an example that passes `"args"` to the program differently on Windows:
 }
 ```
 
-Valid operating properties are `"windows"` for Windows, `"linux"` for Linux and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
+Valid operating properties are `"windows"` for Windows, `"linux"` for Linux, and `"osx"` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
 Please note that the `type` property cannot be placed inside a platform-specific section, because `type` indirectly determines the platform in remote debugging scenarios, and that would result in a cyclic dependency.
 
-In the example below debugging the program always **stops on entry** except on macOS:
+In the example below, debugging the program always **stops on entry** except on macOS:
 
 ```json
 {
@@ -323,7 +323,7 @@ You can add a condition and/or hit count when creating a source breakpoint (with
 ![HitCount](images/debugging/hitCount.gif)
 
 Condition and hit count editing support is also supported for **function** and **exception** breakpoints.
-You can initiate condition editing from the context menu, or the new inline **Edit Condition** action.
+You can initiate condition editing from the context menu or the new inline **Edit Condition** action.
 
 An example of condition editing in the **BREAKPOINTS** view:
 ![condition editing in breakpoint view](images/debugging/breakpoints.gif)
@@ -347,7 +347,7 @@ A function breakpoint is created by pressing the **+** button in the **BREAKPOIN
 
 ### Data breakpoints
 
-If a debugger supports data breakpoints they can be set from the **VARIABLES** view and will get hit when the value of the underlying variable changes. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
+If a debugger supports data breakpoints, they can be set from the **VARIABLES** view and will get hit when the value of the underlying variable changes. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 
@@ -366,7 +366,7 @@ Here are two approaches you might want to consider:
 
 1. Launch the program to debug ("debug target") manually in a terminal or command prompt and redirect input/output as needed. Make sure to pass the appropriate command line options to the debug target so that a debugger can attach to it. Create and run an "attach" debug configuration that attaches to the debug target.
 
-2. If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example "<" or ">") as arguments.
+2. If the debugger extension you are using can run the debug target in VS Code's Integrated Terminal (or an external terminal), you can try to pass the shell redirect syntax (for example, "<" or ">") as arguments.
 
 Here's an example `launch.json` configuration:
 
@@ -454,7 +454,7 @@ app.listen(3000, function () {
 });
 ```
 
-This application first installs a "Hello World" handler for the "/" URL and then starts to listen for HTTP connections on port 3000. The port is announced in the Debug Console and typically the developer would now type `http://localhost:3000` into their browser application.
+This application first installs a "Hello World" handler for the "/" URL and then starts to listen for HTTP connections on port 3000. The port is announced in the Debug Console, and typically, the developer would now type `http://localhost:3000` into their browser application.
 
 The **serverReadyAction** feature makes it possible to add a structured property `serverReadyAction` to any launch config and select an "action" to be performed:
 
@@ -491,7 +491,7 @@ To simplify things a bit, most properties are optional and we use the following 
 
 ### Triggering an Arbitrary Launch Config
 
-In some cases you may need to configure additional options for the browser debug session--or use a different debugger entirely. You can do this by setting `action` to `startDebugging`, with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
+In some cases, you may need to configure additional options for the browser debug session--or use a different debugger entirely. You can do this by setting `action` to `startDebugging` with a `name` property set to the name of the launch configuration to start when the `pattern` is matched.
 
 The named launch configuration must be in the same file or folder as the one with the `serverReadyAction`.
 
@@ -519,7 +519,7 @@ To learn about debugging support for other programming languages via VS Code ext
 
 To learn about VS Code's task running support, go to:
 
-* [Tasks](/docs/editor/tasks.md) - Describes how to run tasks with Gulp, Grunt and Jake, and how to show errors and warnings.
+* [Tasks](/docs/editor/tasks.md) - Describes how to run tasks with Gulp, Grunt, and Jake and how to show errors and warnings.
 
 To write your own debugger extension, visit:
 
