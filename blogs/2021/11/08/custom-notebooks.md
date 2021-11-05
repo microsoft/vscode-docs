@@ -3,39 +3,29 @@ Order: 70
 TOCTitle: Custom Notebooks
 PageTitle: Notebooks, Visual Studio Code style
 MetaDescription: Bringing Custom Notebook Experiences to the Visual Studio Code Extension Marketplace.
-Date: 2021-11-02
+Date: 2021-11-08
 Author: Tanha Kabir
 ---
 
 # Notebooks, Visual Studio Code style
 
-October 21, 2021 by Tanha Kabir, [@_tanhakabir](https://twitter.com/_tanhakabir)
+November 8, 2021 by Tanha Kabir, [@_tanhakabir](https://twitter.com/_tanhakabir)
 
-**We revamped Notebooks in Visual Studio Code!** [Link to announcement blog.](blogs/2021/08/05/notebooks)
+Notebooks are documents that contain a mix of rich markdown, executable code snippets, and accompanying rich output. These are all separated into distinct cells and can be interleaved in any order.
 
-### First, what is a Notebook?
 
-A Notebook is a code document that consists of Markdown cells, code cells, and corresponding output cells.
+If you aren't familiar with Notebooks you might be familiar with REPLs? A REPL is an interactive application where you can write a few lines of code and execute them immediately for some output. And Notebooks are the epitome of REPLs; they're an easy to create an environment that let's you iterate and work on small chunks of code.
 
-<image>
+But not only are they great REPLs, they're also great storytelling devices since they allow you to interleave rich Markdown that can have images, math equations, and everything else you're used to from rich Markdown in the rest of VS Code. Perfect for sharing your ideas with your coworkers or a public community.
 
-These output cells can be simple as plain text or complex like interactive graph visualizations.
+The most popular form of Notebooks today are Jupyter Notebooks, these are Notebooks that are geared towards the Data Science community with rich Python support. They also support other languages like Julia or R through Jupyter Kernels: executables that follow a certain protocol that are installed on your machine and run code for you from your Notebooks. VS Code had been supporting Jupyter Notebooks for several years now.
 
-<image>
+A couple months ago, the VS Code team published a blog post announcing tha Notebooks in VS Code got a huge revamp. [Link to announcement blog.](blogs/2021/08/05/notebooks).
 
-The markdown can be as rich as markdown elsewhere on VS Code, so you can have images, links, lists, and more.
 
-<image>
+### What does revamping mean for Notebooks in VS Code?
 
-All this makes for a really useful storytelling device to explain the full context of your code and intended analysis. Which was the original motivation from Donald Knuth in 1984 when he introduced the term "Literate Programming" for Notebook-like experiences.
-
-Notebooks are the epitome of REPL-like experiences where a REPL is an interactive application where you can write a few lines of code and execute them immediately for some output.
-
-Notebooks are currently used heavily in Data Science to iterate on and share ideas.
-
-### Then what does revamping mean for Notebooks in VS Code?
-
-We made Notebooks a part of the core functionality of VS Code! This means there are now [Notebook APIs](api/extension-guides/notebook) available in the VS Code extension APIs to support extension authors to create Notebook experiences in VS Code. Anyone can make a executable Notebook for VS Code that can support custom languages and custom rich outputs.
+We made Notebooks a part of the core functionality of VS Code! This means there are now [Notebook APIs](api/extension-guides/notebook) available in the VS Code extension APIs to support extension authors to create Notebook experiences in VS Code. Anyone can make a executable Notebook extension for VS Code that can support custom languages and custom rich outputs. The experience of creating these Notebooks for VS Code will be no different than creating any other extension.
 
 Prior to these APIs, Jupyter Notebook support in VS Code was contributed solely from the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The extension created its Notebook experience within an isolated webview, somewhat like an independent webpage within VS Code that doesn't talk with any of the other extensions you have installed.
 
