@@ -85,7 +85,7 @@ If autocomplete and IntelliSense aren't working for a custom module, check the f
 
 ## Quick Fixes
 
-The add imports Quick Fix allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. **Note:** The Functionality in the below examples is provided by the Pylance language server.
+The add imports Quick Fix allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. **Note:** The functionality in the below examples is provided by the Pylance language server.
 
 ![Adding an import](images/editing/quickFix.gif)
 
