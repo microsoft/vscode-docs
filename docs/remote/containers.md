@@ -265,11 +265,11 @@ The **Remote-Containers: Configure Container Features** command allows you to up
 
 You can pre-build images with the tools you need rather than creating and building the image each time you create a container for a project. Using pre-built images can be simpler and allows you to pin to a specific version of tools, avoiding potential breaks. Pre-building is especially valuable in CI processes.
 
-You can use the [devcontainer CLI](/remote/devcontainer-cli.md) to facilitate pre-builds.
+You can use the [devcontainer CLI](/docs/remote/devcontainer-cli.md) to facilitate pre-builds.
 
 The process could be as follows:
 
-* [Create](/docs/editor/versioncontrol.md/#initialize-a-repository) a source code repository.
+* [Create](/docs/editor/versioncontrol.md#initialize-a-repository) a source code repository.
 * Create a dev container configuration, customizing as you wish (including [features](#dev-container-features-preview)).
 * Use the [`devcontainer CLI`](/docs/remote/devcontainer-cli.md) to build your image (the `devcontainer CLI` supports building images with features).
 * [Push](https://docs.docker.com/engine/reference/commandline/push/) your image. You can then change the dev container in your source repository to reference the image directly.
