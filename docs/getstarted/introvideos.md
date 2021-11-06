@@ -12,6 +12,8 @@ MetaSocialImage: images/introvideos/opengraph_introvideos.png
 
 Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them.
 
+>**Note for Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to additionally install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
+
 <ul class="video-list">
 	<li class="video">
             <a href="/docs/introvideos/basics">

@@ -218,8 +218,6 @@ Eligible domains meet the following criteria:
 - You must be able to manage the DNS configuration settings and add a TXT record.
 - Your domain must use HTTPS protocol.
 
-Already have an eligible domain in mind? Awesome!
-
 By November 15th 2021, we will introduce a streamlined workflow to verify your publisher domain directly through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
 
 ### `.vscodeignore`

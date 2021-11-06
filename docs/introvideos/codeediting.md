@@ -12,6 +12,8 @@ MetaSocialImage:
 
 In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Learn More](/docs/introvideos/codeediting.md#learn-more) section to see more features.
 
+>**Note for Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to additionally install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
+
 <iframe src="https://www.microsoft.com/videoplayer/embed/RE4M6Vx" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Next video: [Personalize Visual Studio Code](/docs/introvideos/configure.md)
