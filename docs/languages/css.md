@@ -162,7 +162,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder. T
         {
             "label": "Sass Compile",
             "type": "shell",
-            "command": "sass styles.scss styles.css",
+            "command": "sass styles.scss:styles.css",
             "group": "build"
         }
     ]
