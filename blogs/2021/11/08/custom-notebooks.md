@@ -2,7 +2,7 @@
 Order: 70
 TOCTitle: Custom Notebooks
 PageTitle: Notebooks, Visual Studio Code style
-MetaDescription: Bringing Custom Notebook Experiences to the Visual Studio Code Extension Marketplace.
+MetaDescription: Bringing custom notebook experiences to the Visual Studio Code extension Marketplace.
 Date: 2021-11-08
 Author: Tanha Kabir
 ---
@@ -17,7 +17,7 @@ Notebooks are documents that contain a mix of rich Markdown, executable code sni
 
 If you aren't familiar with notebooks, you might be familiar with REPLs ([read-eval-print loop](https://wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop))? A REPL is an interactive application where you can write a few lines of code and execute the code immediately and see the output. Notebooks are the epitome of a REPL and let you quickly create an environment where you can iterate and work on small chunks of code.
 
-Notebooks are not only great REPLs, they are also great storytelling devices, allowing you to interleave rich Markdown elements like images, math equations, and explanatory text with your code. They can be a perfect way to share your ideas with coworkers or the public community.
+Notebooks are not only great REPLs, they are also great storytelling devices, allowing you to interleave Markdown elements like images, math equations, and explanatory text with your code. Notebooks can be a perfect way to share and explain your ideas with coworkers or the public community.
 
 The most popular form of notebooks today is the Jupyter Notebook, used extensively in the data science community with rich Python support. Jupyter Notebooks also support other languages like Julia or R through Jupyter kernels, executables that follow a specific protocol to run code in your notebook. Visual Studio Code has supported Jupyter Notebooks for several years but [recently added native notebook support](https://code.visualstudio.com/blogs/2021/08/05/notebooks) into the VS Code core.
 
@@ -25,9 +25,9 @@ The most popular form of notebooks today is the Jupyter Notebook, used extensive
 
 That's right, notebooks are now a part of the core functionality of VS Code! This means there are now [Notebook APIs](/api/extension-guides/notebook.md) available in VS Code to let extension authors create their own notebook experiences. Anyone can make a VS Code notebook extension that supports custom languages and rich output and creating a notebook is no different than creating any other extension.
 
-Prior to the Notebook APIs, Jupyter Notebook support in VS Code was contributed solely from the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The extension created its notebook experience within an isolated webview, somewhat like an independent webpage within VS Code that can't talk with any of the other extensions you have installed.
+Prior to the Notebook APIs, Jupyter Notebook support in VS Code was contributed solely from the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The extension created its notebook experience within an isolated webview, somewhat like an independent webpage within VS Code, that can't talk with any of the other extensions you have installed.
 
-However, now with the core [Notebook APIs](/api/extension-guides/notebook.md), the notebook interface comes from VS Code and isn't in an isolated webview. This means notebook extensions can interact with the rest of VS Code and other extensions. Editor extensions like [Rainbow Indent](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) will work in the code cells of your notebooks.
+However, now with the core [Notebook APIs](/api/extension-guides/notebook.md), the notebook support comes from VS Code and isn't in an isolated webview. This means notebook extensions can interact with the rest of VS Code and other extensions. For example, editor extensions like [Rainbow Indent](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) will work in the code cells of your notebooks.
 
 The Notebook APIs are not limited to Jupyter Notebooks, as we believe that there are many other domains that can benefit from having a tool to help you iterate and narrate your code. We made the new [Notebook APIs](/api/extension-guides/notebook.md) public for any extension author to craft their own custom notebooks.
 
@@ -43,12 +43,11 @@ The first notebook experience the VS Code team created was the [GitHub Issues No
 
 You can find the specific notebooks we use for triaging in the [VS Code repo under `.vscode/notebooks`](https://github.com/microsoft/vscode/tree/main/.vscode/notebooks). There's one called `inbox.github-issues` to triage new issues to their appropriate area and assignee.
 
-[GitHub Issues Notebook is available on the VS Code Marketplace]((https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks)) for anyone to use. You can try it out by installing the extension, creating a file for your notebook with a `.github-issues` file extension such as `my-notebook.github-issues`, and finally creating any query such as:
+[GitHub Issues Notebook is available on the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks) for anyone to use. You can try it out by installing the extension, creating a file for your notebook with a `.github-issues` file extension such as `my-notebook.github-issues`, and then creating queries such as:
 
 ```
 $repo=repo:microsoft/vscode-github-issue-notebooks
 $repo is:open no:assignee
-
 ```
 
 The notebook language, `github-issues`, used to create the queries is almost the same as the syntax used on GitHub.com. One addition in the GitHub Issues Notebook language is that it allows you to create variables and use them in any other cell.
@@ -73,7 +72,7 @@ For both of these notebooks, it was great to have the VS Code Notebook UI to cre
 
 ### Watch a coding tutorial
 
-The VS Code team recorded a livestream several months ago about custom notebooks and in it I showcased in a live coding demo of what it's like to create a custom notebook extension. You can watch it on YouTube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the Notebook APIs have changed since the video was published but the principles are still the same.
+The VS Code team recorded a livestream several months ago about custom notebooks and in it, I showcased in a live coding demo of what it's like to create a custom notebook extension. You can watch it on YouTube: [VS Code Notebooks: A Deep Dive](https://youtu.be/D-AXZZDTQhM). Some of the Notebook APIs have changed since the video was published but the principles are still the same.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/D-AXZZDTQhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
