@@ -265,9 +265,9 @@ The Python extension maps mypy message categories to VS Code categories through 
 
 | Error message | Cause | Solution |
 | --- | --- | --- |
-| ... unable to import \<module_name\> | The Python extension is using the wrong version of Pylint. | Ensure that the `pythonPath` setting points to a valid Python installation where Pylint is installed. Alternately, set the `python.linting.pylintPath` to an appropriate version of Pylint for the Python interpreter being used. |
-| Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Check the `pythonPath` setting (see [Environments](/docs/python/environments.md)). |
-| | The linter has not been installed in the current Python environment. | Open a command window, navigate to the location of the Python interpreter in the `pythonPath` setting, and run `pip install` for the linter. |
+| ... unable to import \<module_name\> | The Python extension is using the wrong version of Pylint. | Ensure that selected interpreter is a valid Python installation where Pylint is installed. Alternately, set the `python.linting.pylintPath` to an appropriate version of Pylint for the Python interpreter being used. |
+| Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the `Python: Select Interpreter` command (see [Environments](/docs/python/environments.md)). |
+| | The linter has not been installed in the current Python environment. | Open a command prompt, navigate to the location where your selecter interpreter is , and run `pip install` for the linter. |
 | | The path to the linter is incorrect. | Ensure that the appropriate `python.linting.<linter>Path` setting for the linter is correct. |
 | | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is a list of the argument elements that are separated by spaces. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |
 
