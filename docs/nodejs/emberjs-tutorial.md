@@ -91,4 +91,4 @@ The VS Code Marketplace has many community created extensions for Ember.js devel
 
 ### Can I debug Ember client side code with VS Code?
 
-You can use the [built-in browser debugger](/docs/nodejs/browser-debugging.md) for client side debugging. Unfortunately it is difficult to get the configuration correct due to the sourcemaps created by the Ember CLI default transpiler. See [issue #193](https://github.com/microsoft/vscode-chrome-debug/issues/193) for an explanation and partial workaround.
+You can use the [built-in browser debugger](/docs/nodejs/browser-debugging.md) for client side debugging. Unfortunately it is difficult to get the configuration correct due to the sourcemaps created by the Ember CLI default transpiler.
