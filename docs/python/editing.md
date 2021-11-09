@@ -80,7 +80,7 @@ If autocomplete and IntelliSense aren't working for a custom module, check the f
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the `Python: Select Interpreter` command (see [Environments](/docs/python/environments.md)). |
+| The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
 ## Quick Fixes
