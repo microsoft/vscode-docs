@@ -80,7 +80,7 @@ If autocomplete and IntelliSense aren't working for a custom module, check the f
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
+| The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
 ## Quick Fixes
@@ -123,7 +123,7 @@ The Python extension supports source code formatting using either [autopep8](htt
 
 ### Formatter-specific settings
 
-The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
+The following settings apply to the individual formatters. The Python extension looks for the formatter in the selected interpreter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
@@ -151,8 +151,8 @@ If formatting fails, check the following possible causes:
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect. | Check the `pythonPath` setting. |
-| The formatter is not installed in the current environment. | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
+| The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the `Python: Select Interpreter` command. |
+| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selecter interpreter is , and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`. |
 | Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
