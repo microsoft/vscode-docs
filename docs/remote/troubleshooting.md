@@ -745,16 +745,16 @@ Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close
 
 ### Persisting user profile
 
-You can use the `mounts` property to persist the user profile (i.e. shell history) in your dev container across rebuilds.
+You can use the `mounts` property to persist the user profile (to keep things like shell history) in your dev container across rebuilds.
 
 ```json
-	"mounts": [
-		"source=profile,target=/root,type=volume",
-		"target=/root/.vscode-server,type=volume"
-	],
+    "mounts": [
+        "source=profile,target=/root,type=volume",
+        "target=/root/.vscode-server,type=volume"
+    ],
 ```
 
-The above code first creates a named volume named `profile` mounted to `/root`, which will survive a rebuild. It next creates an anonymous volume mounted to `/root/.vscode-server` that gets destroyed on rebuild, which allows VS Code to reinstall extensions and dotfiles.
+The above code first creates a named volume called `profile` mounted to `/root`, which will survive a rebuild. It next creates an anonymous volume mounted to `/root/.vscode-server` that gets destroyed on rebuild, which allows VS Code to reinstall extensions and dotfiles.
 
 ### Advanced container configuration tips
 
