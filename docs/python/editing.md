@@ -151,7 +151,7 @@ If formatting fails, check the following possible causes:
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the `Python: Select Interpreter` command. |
+| The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
 | The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selecter interpreter is , and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`. |
