@@ -5,7 +5,7 @@ TOCTitle: devcontainer.json
 PageTitle: devcontainer.json reference
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 ---
 # devcontainer.json reference
 
@@ -117,9 +117,9 @@ When creating and working with a dev container, you may need different commands 
 | Property | Description |
 |----------|-------------|
 | `initializeCommand` | A command to run locally before anything else. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
-| `onCreateCommand` | A command to run when creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
-| `updateContentCommand` | Reserved for future scenarios where the source code may be updated sometime during the create process. |
-| `postCreateCommand` | A command to run after creating the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
+| `onCreateCommand` | This command is the first of three (along with `updateContentCommand` and `postCreateCommand`) that finalizes container setup when a dev container is created. It executes inside the container immediately after it has started for the first time.<br> GitHub Codespaces also use this command when generating prebuilt codespaces, but it executes before the container has been assigned to a specific user. It therefore can only take advantage of repository and org scoped secrets or permissions.<br>If the command is a single string, it will be run in a shell. If it is an array of strings, it will be run as a single command without one. |
+| `updateContentCommand` | This command is the second of three that finalizes container setup when a dev container is created. It executes inside the container after `onCreateCommand` whenever new content is available in the source tree during the creation process.<br>It will execute at least once, but GitHub Codespaces will also periodically execute the command to refresh available prebuilt codespaces. Like `onCreateCommand` in GitHub Codespaces, it can only take advantage of repository and org scoped secrets or permissions.<br>If the command is a single string, it will be run in a shell. If it is an array of strings, it will be run as a single command without one. |
+| `postCreateCommand` | This command is the last of three that finalizes container setup when a dev container is created. It happens after `updateContentCommand` and once the dev container has been assigned to a user for the first time. Unless `waitFor` has been set, VS Code does not wait for this command to complete before connecting.<br>In GitHub Codespaces, this command can always take advantage of user specific secrets and permissions.<br>If the command is a single string, it will be run in a shell. If it is an array of strings, it will be run as a single command without one. |
 | `postStartCommand` | A command to run after starting the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 | `postAttachCommand` | A command to run when attaching to the container. If this is a single string, it will be run in a shell. If this is an array of strings, it will be run as a single command without shell. |
 

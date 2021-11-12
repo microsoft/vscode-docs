@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
-DateApproved: 10/20/2021
+DateApproved: 11/4/2021
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
@@ -127,9 +127,11 @@ Since VS Code for the Web runs completely within the browser, some experiences w
 
 ### Extensions
 
-Only a subset of extensions can run in the browser. Those that cannot be installed will have a warning icon and **Learn Why** link in the Extensions view. We expect more extensions to become enabled over time.
+Only a subset of extensions can run in the browser. You can use the Extensions view to install extensions in the web, and extensions that cannot be installed will have a warning icon and **Learn Why** link. We expect more extensions to become enabled over time.
 
 ![Limited extension support](images/vscode-web/extension-limit.png)
+
+When you install an extension, it is saved in the browser's local storage. You can ensure your extensions are synced across VS Code instances, including different browsers and even the desktop, by enabling [Settings Sync](/docs/editor/settings-sync).
 
 When an Extension Pack contains extensions that do not run in the browser sandbox, you will get an informational message with the option to see the extensions included in the pack.
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 10/05/2021
+DateApproved: 11/05/2021
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -22,7 +22,7 @@ Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/datascie
 
 ## Autocomplete and IntelliSense
 
-Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations.
+Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
 While editing, you can right-click different identifiers to take advantage of several convenient commands
 
@@ -70,22 +70,22 @@ The `python.autoComplete.addBrackets` setting (default `false`) also determines 
   "python.autoComplete.addBrackets": true,
 ```
 
-and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
+Next, write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that autocomplete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
 ### Troubleshooting
 
-If autocomplete and IntelliSense are not working for a custom module, check the following causes:
+If autocomplete and IntelliSense aren't working for a custom module, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
+| The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
 ## Quick Fixes
 
-The add imports Quick Fix allows you to quickly complete import statements. Begin by typing a package name within the editor and you will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. Note that the functionality in the below examples is provided by the Pylance language server.
+The add imports Quick Fix allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. **Note:** The functionality in the below examples is provided by the Pylance language server.
 
 ![Adding an import](images/editing/quickFix.gif)
 
@@ -93,7 +93,7 @@ The add imports Code Action also recognizes some of the popular abbreviations fo
 
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
-The import suggestions list is ordered with import statements for packages (or modules) at the top, followed by statements for additional modules and/or members (classes, objects, etc.) from specified packages.
+The import suggestions list is ordered with import statements for packages (or modules) at the top. It will also include statements for more modules and/or members (classes, objects, etc.) from specified packages.
 
 ## Run Selection/Line in Terminal (REPL)
 
@@ -109,7 +109,9 @@ On first use of the **Python: Run Selection/Line in Python Terminal** command, V
 
 ## Formatting
 
-Formatting makes code easier to read by human beings by applying specific rules and conventions for line spacing, indents, spacing around operators, and so on (see an example on the [autopep8](https://pypi.org/project/autopep8/) page). Formatting doesn't affect the functionality of the code itself. ([Linting](/docs/python/linting.md), on the other hand, analyzes code for common syntactical, stylistic, and functional errors as well as unconventional programming practices that can lead to errors. Although there is a little overlap between formatting and linting, the two capabilities are complementary.)
+Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Formatting doesn't affect the functionality of the code itself.
+
+[Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
 The Python extension supports source code formatting using either [autopep8](https://pypi.org/project/autopep8/) (the default), [black](https://github.com/python/black), or [yapf](https://github.com/google/yapf).
 
@@ -121,7 +123,7 @@ The Python extension supports source code formatting using either [autopep8](htt
 
 ### Formatter-specific settings
 
-The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
+The following settings apply to the individual formatters. The Python extension looks for the formatter in the selected interpreter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
@@ -149,8 +151,8 @@ If formatting fails, check the following possible causes:
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect. | Check the `pythonPath` setting. |
-| The formatter is not installed in the current environment. | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
+| The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
+| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selecter interpreter is , and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`. |
 | Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
@@ -201,7 +203,7 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [i
 
 ## Next steps
 
-- [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
+- [Linting](/docs/python/linting.md) - Enable, configure, and apply various Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.

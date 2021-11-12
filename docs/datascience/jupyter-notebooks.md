@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 7/22/2021
+DateApproved: 11/4/2021
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -216,9 +216,26 @@ Within a Python Notebook, it's possible to view, inspect, sort, and filter the v
 
 ![Variable Explorer](images/jupyter/variable-explorer-02.png)
 
-For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable for a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
+### Data Viewer
+
+For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button next to the variable for a more detailed view of a variable in the Data Viewer.
 
 ![Data Viewer](images/jupyter/data-viewer.png)
+
+### Filtering rows
+
+Filtering rows in the data viewer can be done by typing in the textbox at the top of each column. Type a string you want to search for and any row that has that string in the column will be found:
+
+![Data Viewer](images/jupyter/filter-default.png)
+
+If you want to find an exact match, prefix your filter with '=':
+
+![Data Viewer](images/jupyter/filter-exact.png)
+
+More complex filtering can be done by typing a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions):
+
+![Data Viewer](images/jupyter/filter-regex.png)
+
 
 ## Saving plots
 
@@ -240,26 +257,27 @@ To learn more about Git integration within VS Code, visit [Version Control in VS
 
 ## Debug a Jupyter Notebook
 
-If you need additional debug support in order to diagnose an issue in your code cells, you can export it as a Python file. Once exported as a Python file, the VS Code debugger lets you step through your code, set breakpoints, examine state, and analyze problems. Using the debugger is a helpful way to find and correct issues in notebook code. To debug your Python file:
+There are two different ways to debug a Jupyter notebook: a simpler mode called "Run by Line", and full debugging mode.
 
-1. In VS Code, if you haven't already, activate a Python environment in which Jupyter is installed.
+> **Note:** Both of these features require ipykernel 6+. See [this wiki page](https://github.com/microsoft/vscode-jupyter/wiki/Setting-Up-Run-by-Line-and-Debugging-for-Notebooks) for details about installing or upgrading ipykernel.
 
-1. From your Jupyter Notebook (`.ipynb`), select the **Export** button in the main toolbar.
+### Run by Line
 
-   ![Convert Jupyter Notebook to Python file](images/jupyter/native-toolbar-export.png)
+Run by Line lets you execute a cell one line at a time, without being distracted by other VS Code debug features. To start, select the **Run by Line** button in the cell toolbar:
 
-   Once exported, you'll have a `.py` file with your code that you can use for debugging.
+![Run by line button](images/jupyter/run-by-line.png)
 
-1. After saving the `.py` file, to start the debugger, use one of the following options:
+Use the same button to advance by one statement. You can select the cell **Stop** button to stop early, or the **Continue** button in the toolbar to continue running to the end of the cell.
 
-    - For the whole Notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Python: Debug Current File in Python Interactive Window** command.
-    - For an individual cell, use the **Debug Cell** action that appears above the cell. The debugger specifically starts on the code in that cell. By default, **Debug Cell** steps into user code. If you want to step into non-user code, you need to uncheck **Data Science: Debug Just My Code** in the Python extension settings (`kb(workbench.action.openSettings)`).
+### Debug Cell
 
-1. To familiarize yourself with the general debugging features of VS Code, such as inspecting variables, setting breakpoints, and other activities, review [VS Code debugging](/docs/editor/debugging.md).
+If you want to use the full set of debugging features supported in VS Code, such as breakpoints and the ability to step in to other cells and modules, you can use the full VS Code debugger.
 
-1. As you find issues, stop the debugger, correct your code, save the file, and start the debugger again.
+1. Start by setting any breakpoints you need by clicking in the left margin of a notebook cell.
+2. Then select the **Debug Cell** button in the menu next to the **Run** button. This will run the cell in a debug session, and will pause on your breakpoints in any code that runs, even if it is in a different cell or a `.py` file.
+3. You can use the Debug view, Debug Console, and all the buttons in the Debug Toolbar as you normally would in VS Code.
 
-1. When you're satisfied that all your code is correct, use the Python Interactive window to export the Python file as a Jupyter Notebook (`.ipynb`).
+![Debug cell button](images/jupyter/debug-cell.png)
 
 ## Connect to a remote Jupyter server
 

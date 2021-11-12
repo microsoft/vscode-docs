@@ -147,7 +147,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `host` | The host for remote debugging. | |
 | `port` | The port for remote debugging. | `5678` |
 | `pathMappings` | Maps the project path between local machine and remote host.  | |
-| `projectType` | Type of Python app. | |
+| `projectType` | The type of your Python project, `flask` for Flask projects, `django` for Django, `fastapi` for FastAPI, and general for others. The project type will be used to set the port and commands used for debugging. |
 | `justMyCode` | Debug only user-written code. | |
 | `django` | Django debugging. | `false` |
 | `jinja` | Jinja template debugging (such as Flask). | `false` |

@@ -76,7 +76,7 @@ For Python-specific details, including setting up your `launch.json` configurati
 
 ## Environments
 
-The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md). You can also use the `python.pythonPath` setting to point to an interpreter anywhere on your computer.
+The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md).
 
 The current environment is shown on the left side of the VS Code Status Bar:
 

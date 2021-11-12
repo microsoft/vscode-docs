@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Additional Components
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
 PageTitle: Setting up additional components to use with Visual Studio Code
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools

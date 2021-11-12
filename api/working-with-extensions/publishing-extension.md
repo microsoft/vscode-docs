@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -200,6 +200,26 @@ Here are some tips for making your extension look great on the Marketplace:
 
 Also see [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
+### Verify a publisher
+
+You can become a **verified publisher** by verifying ownership of an eligible domain associated with your brand or identity.
+
+Verifying your publisher will:
+
+- Help users confirm your publisher's authenticity.
+- Add a verified publisher badge to your extensions.
+- Give users quick access your brand's landing page or your professional portfolio.
+
+![Verified publisher indicators in VS Code](images/publishing-extension/verified-publishers.png)
+
+Eligible domains meet the following criteria:
+
+- Cannot be a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
+- You must be able to manage the DNS configuration settings and add a TXT record.
+- Your domain must use HTTPS protocol.
+
+By November 15th 2021, we will introduce a streamlined workflow to verify your publisher domain directly through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
+
 ### `.vscodeignore`
 
 You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
@@ -254,13 +274,13 @@ If you want a platform-specific extension to also support running in the browser
 
 Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify the target platform while packaging and publishing a VSIX.
 
-Here's how you can publish a VSIX for the `win32-x64` platform:
+Here's how you can publish a VSIX for the `win32-x64` and `win32-ia32` platforms:
 
 ```bash
-vsce publish --target win32-x64
+vsce publish --target win32-x64 win32-ia32
 ```
 
-Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual:
+Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual. Here's how to do it for the `win32-x64` platform:
 
 ```bash
 vsce package --target win32-x64

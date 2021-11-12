@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 MetaDescription: Using Emmet abbreviations inside Visual Studio Code.
 ---
 # Emmet in Visual Studio Code
@@ -358,7 +358,7 @@ First, check if you're using custom snippets (if there is a `snippets.json` file
 If abbreviations are still failing to expand:
 
 * Check the [builtin extensions](/docs/editor/extension-marketplace.md#extensions-view-filters) to see if Emmet has been disabled.
-* Try restarting the extension host by running the **Developer: Restert Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/getstarted/userinterface.md#command-palette).
+* Try restarting the extension host by running the **Developer: Restart Extension Host** (`workbench.action.restartExtensionHost`) command in the [Command Palette](/docs/getstarted/userinterface.md#command-palette).
 
 ### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)?
 

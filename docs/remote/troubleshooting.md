@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 ---
 # Remote Development Tips and Tricks
 
@@ -136,9 +136,9 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 ### Improving security on multi-user servers
 
-By default, the "VS Code Server" is installed and maintained by the Remote - Containers extension when it connects to `localhost` on a random TCP port that is then forwarded to your local machine. This means only those users on the machine can access the port. However, if the host is being used by many users at once, you may want to further lock down access to reduce the chances of one user discovering the port number and attempting to access another user's VS Code Server instance.
+The Remote - SSH extension installs and maintains the "VS Code Server". The server is started with a randomly generated key, and any new connection to the server needs to provide the key. The key is stored on the remote's disk, readable only by the current user. There is one HTTP path that is available without authentication at `/version`.
 
-If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
+By default, the server listens to `localhost` on a random TCP port that is then forwarded to your local machine. If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
 
 > **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is strongly recommended.
 
@@ -742,6 +742,19 @@ Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close
 > 2. Add the setting  `AllowStreamLocalForwarding yes`.
 > 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 > 4. Retry.
+
+### Persisting user profile
+
+You can use the `mounts` property to persist the user profile (to keep things like shell history) in your dev container across rebuilds.
+
+```json
+    "mounts": [
+        "source=profile,target=/root,type=volume",
+        "target=/root/.vscode-server,type=volume"
+    ],
+```
+
+The above code first creates a named volume called `profile` mounted to `/root`, which will survive a rebuild. It next creates an anonymous volume mounted to `/root/.vscode-server` that gets destroyed on rebuild, which allows VS Code to reinstall extensions and dotfiles.
 
 ### Advanced container configuration tips
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 10/7/2021
+DateApproved: 11/4/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -279,7 +279,8 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `tab.unfocusedActiveModifiedBorder`: Border on the top of modified (dirty) active tabs in an unfocused group.
 - `tab.unfocusedInactiveModifiedBorder`: Border on the top of modified (dirty) inactive tabs in an unfocused group.
 - `editorPane.background`: Background color of the editor pane visible on the left and right side of the centered editor layout.
-- `sideBySideEditor.border`: Color to separate two editors from each other when shown side by side in an editor group.
+- `sideBySideEditor.horizontalBorder`: Color to separate two editors from each other when shown side by side in an editor group from top to bottom.
+- `sideBySideEditor.verticalBorder`: Color to separate two editors from each other when shown side by side in an editor group from left to right.
 
 ## Editor colors
 
@@ -404,6 +405,9 @@ Bracket matches:
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
+
+Bracket pair colorization:
+
 - `editorBracketHighlight.foreground1`: Foreground color of brackets (1). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.foreground2`: Foreground color of brackets (2). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.foreground3`: Foreground color of brackets (3). Requires enabling bracket pair colorization.
@@ -411,6 +415,24 @@ Bracket matches:
 - `editorBracketHighlight.foreground5`: Foreground color of brackets (5). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.foreground6`: Foreground color of brackets (6). Requires enabling bracket pair colorization.
 - `editorBracketHighlight.unexpectedBracket.foreground`: Foreground color of unexpected brackets.
+
+Bracket pair guides:
+
+- `editorBracketPairGuide.activeBackground1`: Background color of active bracket pair guides (1). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground2`: Background color of active bracket pair guides (2). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground3`: Background color of active bracket pair guides (3). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground4`: Background color of active bracket pair guides (4). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground5`: Background color of active bracket pair guides (5). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.activeBackground6`: Background color of active bracket pair guides (6). Requires enabling bracket pair guides.
+
+- `editorBracketPairGuide.background1`: Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background2`: Background color of inactive bracket pair guides (2). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background3`: Background color of inactive bracket pair guides (3). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background4`: Background color of inactive bracket pair guides (4). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background5`: Background color of inactive bracket pair guides (5). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background6`: Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.
+- `editorBracketPairGuide.background1`: Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides.
+
 
 Folding:
 
@@ -498,6 +520,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
 - `editorHoverWidget.border`: Border color of the editor hover.
+- `editorHoverWidget.highlightForeground`: Foreground color of the active item in the parameter hint.
 - `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
 
 - `editorGhostText.border`: Border color of the ghost text shown by inline completion providers and the suggest preview.
@@ -659,6 +682,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 - `extensionIcon.starForeground`: The icon color for extension ratings.
+- `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 
 ## Quick picker colors
 
@@ -689,6 +713,11 @@ The following customizations are available:
 - `keybindingLabel.foreground`: Keybinding label foreground color. The keybinding label is used to represent a keyboard shortcut.
 - `keybindingLabel.border`: Keybinding label border color. The keybinding label is used to represent a keyboard shortcut.
 - `keybindingLabel.bottomBorder`: Keybinding label border bottom color. The keybinding label is used to represent a keyboard shortcut.
+
+## Keyboard shortcut table colors
+
+- `keybindingTable.headerBackground`: Background color for the keyboard shortcuts table header.
+- `keybindingTable.rowsBackground`: Background color for the keyboard shortcuts table alternating rows.
 
 ## Integrated Terminal colors
 
@@ -756,13 +785,11 @@ The following customizations are available:
 ## Welcome page colors
 
 - `welcomePage.background`: Background color for the Welcome page.
-- `welcomePage.buttonBackground`: Background color for the buttons on the Welcome page.
-- `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `welcomePage.progress.background`: Foreground color for the Welcome page progress bars.
 - `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
 - `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
 - `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
-- `welcomePage.tileShadow.`: Shadow color for the Welcome page walkthrough category buttons.
+- `welcomePage.tileShadow`: Shadow color for the Welcome page walkthrough category buttons.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
