@@ -40,7 +40,13 @@ To uniquely identify a task in the system, an extension contributing a task need
 
 This contributes a task definition for `rake` tasks. The task definition has two attributes `task` and `file`. `task` is the name of the Rake task and `file` points to the `Rakefile` that contains the task. The `task` property is required, the `file` property is optional. If the `file` attribute is omitted, the `Rakefile` in the root of the workspace folder is used.
 
-A task definition may optional have a `when` property. The `when` property specifies the condition under which task of this type will be available. The `when` property functions in the same way [as other places in VS Code](/api/references/when-clause-contexts), where there is a `when` property.
+### When clause
+
+A task definition may optional have a `when` property. The `when` property specifies the condition under which task of this type will be available. The `when` property functions in the same way [as other places in VS Code](/api/references/when-clause-contexts), where there is a `when` property. The following contexts should always be considered when creating a task definition:
+
+- `shellExecutionSupported`: True when VS Code can run `ShellExecution` tasks, such as VS Code is run as a desktop application or when using one of the remote extensions, such as Remote Containers.
+- `processExecutionSupported`: True when VS Code can run `ProcessExecution` tasks, such as VS Code is run as a desktop application or when using one of the remote extensions, such as Remote Containers. Currently, it will always have the same value as `shellExecutionSupported`.
+- `customExecutionSupported`: True when VS Code can run `CustomExecution`. This is always true.
 
 ## Task provider
 

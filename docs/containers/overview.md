@@ -3,13 +3,13 @@ Order: 1
 Area: containers
 TOCTitle: Overview
 ContentId: 4B462667-8915-4BE0-B8D0-EDE51CB2D273
-PageTitle: Container tools extension for Visual Studio Code
-DateApproved: 07/16/2021
+PageTitle: Docker extension for Visual Studio Code
+DateApproved: 11/03/2021
 MetaDescription: Tools for developing and debugging with Docker containers, using Visual Studio Code.
 ---
-# Working with containers
+# Docker in Visual Studio Code
 
-The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension makes it easy to build, manage, and deploy containerized applications from Visual Studio Code.
+The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code.
 
 This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the [Docker tutorial](https://docs.microsoft.com/visualstudio/docker) first to understand key Docker concepts.
 
