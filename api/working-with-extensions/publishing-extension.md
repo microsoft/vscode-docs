@@ -202,7 +202,7 @@ Also see [Marketplace Presentation Tips](/api/references/extension-manifest#mark
 
 ### Verify a publisher
 
-You can become a **verified publisher** by verifying ownership of an eligible domain associated with your brand or identity.
+You can become a **verified publisher** by verifying ownership of a [eligible domain](#eligible-domains) associated with your brand or identity.
 
 Verifying your publisher will:
 
@@ -216,18 +216,20 @@ To verify a publisher:
 
 1. Visit the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
 2. Select or create a publisher you wish to verify.
-3. Input and save an eligible domain that affirms your identity or brand.
-4. Select verify.
+3. Input an [eligible domain](#eligible-domains) in the **Verified domain** field and save your changes.
+4. Select **Verify**.
+5. Follw the intructions in the dialogue to add a TXT record to your domain's DNS configuration.
+5. Select **Verify** to validate that the TXT record has been successfully added.
 
-#### Domain verification criteria
+Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+#### Eligible domains
 
 Eligible domains meet the following criteria:
 
 - Cannot be a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
 - You must be able to manage the DNS configuration settings and add a TXT record.
 - Your domain must use HTTPS protocol.
-
-#### How domain verification works
 
 ### `.vscodeignore`
 
