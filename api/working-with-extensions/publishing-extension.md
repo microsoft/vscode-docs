@@ -202,7 +202,7 @@ Also see [Marketplace Presentation Tips](/api/references/extension-manifest#mark
 
 ### Verify a publisher
 
-You can become a **verified publisher** by verifying ownership of a [eligible domain](#eligible-domains) associated with your brand or identity.
+You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Becoming a verified publisher will help show your authenticity, add a verified badge to your extensions, and make your brand's landing page easily accessible.
 
 Verifying your publisher will:
 
