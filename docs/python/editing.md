@@ -99,17 +99,17 @@ The import suggestions list is ordered with import statements for packages (or m
 
 The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
 
-VS Code automatically removes indents based on the first non-empty line of the selection, shifting all other lines left accordingly.
+VS Code automatically removes indents based on the first non-empty line of the selection, shifting all other lines left when needed.
 
 Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. (Initial startup might take a few moments especially if the first statement you run is an `import`.)
 
-On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again when the REPL has finished loading.
+On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line isn't run. If you come across this behavior, try the command again when the REPL has finished loading.
 
 ## Formatting
 
-Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Formatting doesn't affect the functionality of the code itself.
+Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Keep in mind, formatting doesn't affect the functionality of the code itself.
 
 [Linting](/docs/python/linting.md) helps to prevent errors by analyzing code for common syntactical, stylistic, and functional errors and unconventional programming practices. Although there is a little overlap between formatting and linting, the two capabilities are complementary.
 
@@ -152,7 +152,7 @@ If formatting fails, check the following possible causes:
 | Cause | Solution |
 | --- | --- |
 | The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
-| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selecter interpreter is , and run `pip install` for the formatter.
+| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selected interpreter is, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`. |
 | Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
@@ -165,7 +165,7 @@ The Python extension adds the following refactoring functionalities: **Extract V
 
 Extracts all similar occurrences of the selected text within the current scope, and replaces it with a new variable.
 
-You can invoke this command by selecting the line of code you wish to extract as a variable and then clicking on the light-bulb that is displayed next to it.
+You can invoke this command by selecting the line of code you wish to extract as a variable. Then select the light-bulb that is displayed next to it.
 
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
 
@@ -173,7 +173,7 @@ You can invoke this command by selecting the line of code you wish to extract as
 
 Extracts all similar occurrences of the selected expression or block within the current scope, and replaces it with a method call.
 
-You can invoke this command by selecting the lines of code you wish to extract as a method and then clicking on the light-bulb that is displayed next to it.
+You can invoke this command by selecting the lines of code you wish to extract as a method. Then select the light-bulb that is displayed next to it.
 
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
 
