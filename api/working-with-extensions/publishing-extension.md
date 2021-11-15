@@ -216,7 +216,7 @@ To verify a publisher:
 
 Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
 
-#### Eligible domains
+### Eligible domains
 
 Eligible domains meet the following criteria:
 
