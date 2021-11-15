@@ -10,17 +10,15 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Editing Python in Visual Studio Code
 
-The Python extension provides many features for editing Python source code in Visual Studio Code:
+Visual Studio Code is a powerful editing tool that allows you to streamline your code so that it is easy to read and comprehend. The editor includes various features you need in order to write highly productive code. For more information about editing in Visual Studio Code, see [Basic Editing](/docs/editor/codebasics.md) and [Code Navigation](/docs/editor/editingevolved.md).
 
-- [Autocomplete and IntelliSense](#autocomplete-and-intellisense)
-- [Quick Fixes](#quick-fixes)
-- [Run Selection/Line in Terminal (REPL)](#run-selectionline-in-terminal-repl)
-- [Formatting](#formatting)
-- [Refactoring](#refactoring)
-
-Also see [Linting](/docs/python/linting.md) and [Jupyter Support](/docs/datascience/jupyter-notebooks.md).
+In this overview, you will find some helpful Python editor features, including steps on how to customize these features for a desired outcome.
 
 ## Autocomplete and IntelliSense
+
+IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of option when the they begin to type the variable named, **greeting**.
+
+![Hello World Example for IntelliSense](images/editing/hello-world.gif)
 
 Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
@@ -209,3 +207,4 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [i
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.
+- [Jupyter Support](/docs/datascience/jupyter-notebooks.md) - Learn how to get started with Jupyter Notebooks.
