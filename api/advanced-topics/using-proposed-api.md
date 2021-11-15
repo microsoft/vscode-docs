@@ -18,15 +18,16 @@ Proposed API solves the problem for us. Proposed API is a set of unstable API th
 These are the steps for testing Proposed API in local extension development:
 
 - Use [Insiders](/insiders) release of VS Code.
-- Add `"enableProposedApi": true` to your `package.json`.
-- Copy the latest version of the [vscode.proposed.d.ts](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.proposed.d.ts) into your project's source location.
+- To your `package.json` add `"enabledApiProposals": ["<proposalName>"]`
+- Copy the corresponding [vscode.proposed.\<proposalName\>.d.ts](https://github.com/microsoft/vscode/blob/main/src/vscode-dts) files into your project's source location.
 
-The [vscode-dts](https://github.com/microsoft/vscode-dts) CLI utility allows you to quickly download latest `vscode.proposed.d.ts` for extension development.
+The [vscode-dts](https://github.com/microsoft/vscode-dts) CLI utility allows you to quickly download latest `vscode.proposed.<proposalName>.d.ts` for extension development. It downloads definition files by the proposals listed in your `package.json`-file.
 
 ```bash
 > npx vscode-dts dev
-Downloading vscode.proposed.d.ts to /Users/username/Code/vscode-docs/vscode.proposed.d.ts
-Please set "enableProposedApi": true in package.json.
+Downloading vscode.proposed.languageStatus.d.ts
+To:   /Users/Me/Code/MyExtension/vscode.proposed.languageStatus.d.ts
+From: https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.languageStatus.d.ts
 Read more about proposed API at: https://code.visualstudio.com/api/advanced-topics/using-proposed-api
 ```
 
@@ -34,12 +35,12 @@ Here is a pre-configured sample using proposed API: [proposed-api-sample](https:
 
 ## Proposed API incompatibility
 
-On the main branch, the `vscode.proposed.d.ts` is always compatible with `vscode.d.ts`. However, when you add `vscode.proposed.d.ts` to your project that uses `@types/vscode`, the latest `vscode.proposed.d.ts` might be incompatible with the version in `@types/vscode`.
+On the main branch, the `vscode.proposed.<proposalName>.d.ts` is always compatible with `vscode.d.ts`. However, when you add `vscode.proposed.<proposal>.d.ts` to your project that uses `@types/vscode`, the latest `vscode.proposed.<proposal>.d.ts` might be incompatible with the version in `@types/vscode`.
 
 You can solve this issue by either:
 
 - Remove dependency on `@types/vscode` and use `npx vscode-dts main` to download `vscode.d.ts` from `microsoft/vscode` main branch.
-- Use `@types/vscode@<version>` and also use `npx vscode-dts dev <version>` to download the `vscode.proposed.d.ts` from an old branch of `microsoft/vscode`. However, be careful the API might have changed in the latest version of VS Code Insiders.
+- Use `@types/vscode@<version>` and also use `npx vscode-dts dev <version>` to download the `vscode.proposed.<proposal>.d.ts` from an old branch of `microsoft/vscode`. However, be careful the API might have changed in the latest version of VS Code Insiders.
 
 ## Sharing extensions using the Proposed API
 
