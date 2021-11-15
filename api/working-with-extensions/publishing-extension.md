@@ -211,12 +211,12 @@ To verify a publisher:
 1. Visit the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
 2. Select or create a publisher you wish to verify.
 3. Input an [eligible domain](#eligible-domains) in the **Verified domain** field, save, and select **Verify**.
-4. Follw the intructions in the dialogue to add a TXT record to your domain's DNS configuration.
+4. Follow the instructions in the dialog to add a TXT record to your domain's DNS configuration.
 5. Select **Verify** to validate that the TXT record has been successfully added.
 
 Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
 
-#### Eligible domains
+**Eligible domains**
 
 Eligible domains meet the following criteria:
 
@@ -224,7 +224,7 @@ Eligible domains meet the following criteria:
 - You must be able to manage the DNS configuration settings and add a TXT record.
 - Your domain must use HTTPS protocol.
 
-### `.vscodeignore`
+### Using .vscodeignore
 
 You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
 
