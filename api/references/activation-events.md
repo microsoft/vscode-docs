@@ -23,8 +23,8 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 - [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
 - [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
 - [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
-- [`*`](/api/references/activation-events#Start-up)
 - [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
+- [`*`](/api/references/activation-events#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
@@ -186,18 +186,6 @@ For example, the declaration of onCustomEditor below:
 
 will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`.
 
-## Start up
-
-The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
-
-```json
-...
-"activationEvents": [
-    "*"
-]
-...
-```
-
 ## onStartupFinished
 
 This activation event is emitted and interested extensions will be activated **some time after** VS Code starts up. This is similar to the `*` activation event, but it will not slow down VS Code startup. Currently, this event is emitted after all the `*` activated extensions have finished activating.
@@ -206,6 +194,20 @@ This activation event is emitted and interested extensions will be activated **s
 ...
 "activationEvents": [
     "onStartupFinished"
+]
+...
+```
+
+## Start up
+
+The `*` activation event is emitted and interested extensions will be activated whenever VS Code starts up.
+
+> **Note:** To ensure a great user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+
+```json
+...
+"activationEvents": [
+    "*"
 ]
 ...
 ```
