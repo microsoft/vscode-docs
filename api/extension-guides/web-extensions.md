@@ -315,11 +315,15 @@ npx: installed 78 in 2.196s
 
 ```
 
-If you are using a Chromium based browser, open vscode.dev, run Developer: Install Web Extension... from the Command Palette and give "http://localhost:5000" as the address.
+**Chromium-based browsers**
 
-<details><summary>If you are not using a Chromium browser</summary>
+If you are using Edge, Chrome or any Chromium-based browser, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette, and give "http://localhost:5000" as the address.
 
-In another terminal, run `npx localtunnel -p 5000`:
+**Other browsers**
+
+If you are not using a Chromium browser, you can use the following steps:
+
+Open another terminal and run `npx localtunnel -p 5000`:
 
 ```bash
 $ npx localtunnel -p 5000
@@ -334,8 +338,8 @@ your url is: https://hungry-mole-48.loca.lt/
 
 Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
 
-</details>
-  
+**Check the logs**
+
 You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
 
 You may see other logs from vscode.dev itself. In addition, you can't easily set breakpoints nor see the source code of your extension. These limitations make debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
