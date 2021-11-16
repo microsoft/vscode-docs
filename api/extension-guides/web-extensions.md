@@ -194,7 +194,7 @@ There are currently three ways to test a web extension before publishing it to t
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
-* Sideload your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
+* [Sideload](#test-your-web-extension-in-on-vscode.dev) your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -315,7 +315,11 @@ npx: installed 78 in 2.196s
 
 ```
 
-Then, in another terminal, run `npx localtunnel -p 5000`:
+If you are using a Chromium based browser, open vscode.dev, run Developer: Install Web Extension... from the Command Palette and give "http://localhost:5000" as the address.
+
+<details><summary>If you are not using a Chromium browser</summary>
+
+In another terminal, run `npx localtunnel -p 5000`:
 
 ```bash
 $ npx localtunnel -p 5000
@@ -330,6 +334,8 @@ your url is: https://hungry-mole-48.loca.lt/
 
 Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
 
+</details>
+  
 You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
 
 You may see other logs from vscode.dev itself. In addition, you can't easily set breakpoints nor see the source code of your extension. These limitations make debugging in vscode.dev not the most pleasant experience so we recommend using the first two options for testing before sideloading onto vscode.dev. Sideloading is a good final sanity check before publishing your extension.
