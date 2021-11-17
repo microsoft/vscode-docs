@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
 PageTitle: Edit and run code in Visual Studio Code
-DateApproved: 10/12/2021
+DateApproved: 11/16/2021
 MetaDescription: Learn the basics of editing and running code in VS Code.
 MetaSocialImage:
 ---
@@ -20,13 +20,30 @@ Next video: [Personalize Visual Studio Code](/docs/introvideos/configure.md)
 
 ## Video outline
 
-* Open a folder
-* Create a new file
-* Create a simple "Hello world" console log using Node.js
-* Turn on Auto Save
-* Automatically format your code
-* Hover over elements to see IntelliSense in action
-* Run code in the Integrated Terminal
+* Open a folder.
+  * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+* Use File Explorer to view the folder's files and subfolders.
+  * **View** > **Explorer** (`kb(workbench.view.explorer)`)
+* Install the Node.js runtime to execute JavaScript code.
+  * Find Node.js for your platform at [https://nodejs.org](https://nodejs.org)
+* Check your Node.js installation.
+  * From a terminal or command prompt, type `node --version`
+* Create new file.
+  * **File** > **New File** (`kb(workbench.action.files.newUntitledFile)`)
+* Create a simple "Hello world" console application called `app.js`.
+* IntelliSense provides suggestions as you type.
+* Automatically format the source code.
+  * **Format Document** command (`kb(editor.action.formatDocument)`)
+* Turn on Auto Save.
+  * **File** > **Auto Save**
+* Display the Integrated Terminal.
+  * **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)`)
+* Split the terminal.
+  * **Split Terminal** (`kb(workbench.action.terminal.split)`)
+* Create new terminal.
+  * **Create New Terminal** (`kb(workbench.action.terminal.new)`)
+* Run the application.
+  * From the Integrated Terminal, type `node app.js`
 
 ## Next video
 
