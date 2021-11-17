@@ -34,12 +34,15 @@ Next video: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.m
   * **View** > **Extensions** (`kb(workbench.view.extensions)`)
 * Change your keyboard shortcuts and easily migrate from other editors using keymap extensions.
   * **File** > **Preferences** > **Migrate Keyboard Shortcuts from...**
+  * **Code** > **Preferences** > **Migrate Keyboard Shortcuts from...** on macOS
 * Open the Keyboard Shortcuts editor.
   * **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`)
+  * **Code** > **Preferences** > **Keyboard Shortcuts** on macOS
 * Printable keyboard cheat sheet.
   * **Help** >  **Keyboard Shortcuts Reference** (`kb(workbench.action.keybindingsReference)`)
 * Customize your editor with color themes.
   * **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`)
+  * **Code** > **Preferences** > **Color Theme** on macOS
 * Show all commands.
   * **Help** > **Show All Commands** (`kb(workbench.action.showCommands)`)
 * Explore VS Code features in the **Interactive Editor Playground**.
