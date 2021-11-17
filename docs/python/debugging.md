@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports debugging of several types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-**For general debugging features** such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
+For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
 
 This article mainly addresses Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
 
@@ -20,24 +20,24 @@ This article mainly addresses Python-specific debugging *configurations*, includ
 
 A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 
-> **Note** To change debugging configuration, your code must be stored in a folder.
+> **Note**: To change debugging configuration, your code must be stored in a folder.
 
-To initialize debug configurations, first select the Run view in the sidebar:
+To initialize debug configurations, first select the **Run** view in the sidebar:
 
 ![Run icon](images/debugging/debug-icon.png)
 
-If you don't yet have any configurations defined, you'll see a button to Run and Debug and a link to create a configuration (launch.json) file:
+If you don't yet have any configurations defined, you'll see a button to **Run and Debug** and a link to create a configuration (launch.json) file:
 
 ![Debug toolbar settings command](images/debugging/debug-start.png)
 
 To generate a `launch.json` file with Python configurations, do the following steps:
 
-1. Select the **create a launch.json file** link (circled in the image above) or use the **Run** > **Open configurations** menu command.
+1. Select the **create a launch.json file** link (outlined in the image above) or use the **Run** > **Open configurations** menu command.
 
 1. A configuration menu will open from the Command Palette allowing you to choose the type of debug configuration you want for the opened file. For now, in the **Select a debug configuration** menu that appears, select **Python File**.
 ![Debug configurations menu](images/debugging/debug-configurations.png)
 
-   > **Note** Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
+   > **Note**: Starting a debugging session through the Debug Panel, `kbstyle(F5)` or  **Run > Start Debugging** when no configuration exists will also bring up the debug configuration menu, but will not create a launch.json file.
 
 1. The Python extension then creates and opens a `launch.json` file that contains a pre-defined configuration based on what you previously selected, in this case, **Python File**. You can modify configurations (to add arguments, for example), and also add custom configurations.
 
@@ -72,7 +72,7 @@ But if you're looking to debug a module or a web application, you can start the 
 
 ![Run the debugger](images/debugging/debug-run.png)
 
-When no configuration has been set, you will be given a list of debugging options. Here, you can select the appropriate option to quickly debug your code.
+When no configuration has been set, you'll be given a list of debugging options. Here, you can select the appropriate option to quickly debug your code.
 
 Two common options are to use the **Python File** configuration to run the currently open Python file or to use the **Attach using Process ID** configuration to attach the debugger to a process that is already running.
 
@@ -416,7 +416,7 @@ Allows for the automatic reload of the debugger when changes are made to code af
 }
 ```
 
-> ***Note:** When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
+> ***Note**: When the debugger performs a reload, code that runs on import might be executed again. To avoid this situation, try to only use imports, constants, and definitions in your module, placing all code into functions. Alternatively, you can also use `if __name__=="__main__"` checks.
 
 ### `subProcess`
 
