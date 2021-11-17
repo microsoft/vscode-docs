@@ -76,7 +76,7 @@ Example profile:
 {
   "terminal.integrated.profiles.windows": {
     "My PowerShell": {
-      "path": "pwsh.exe"
+      "path": "pwsh.exe",
       "args": [
          "-noexit",
          "-file",
