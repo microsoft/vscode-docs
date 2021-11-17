@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Python
 ContentId: 3a9bc520-95e2-416e-a0ac-5be02a38c4c3
 PageTitle: Build and run a Python app in a container
-DateApproved: 06/15/2021
+DateApproved: 11/12/2021
 MetaDescription: Develop, build, and debug a Python app in a Docker container, using Visual Studio Code.
 ---
 # Python in a container
@@ -43,11 +43,11 @@ After verifying your app runs properly, you can now Dockerize your application.
 ## Add Docker files to the project
 
 1. Open the project folder in VS Code.
-1. Open the Command Palette (`kb(workbench.action.showCommands)`) and use the **Docker: Add Docker Files to Workspace...** command:
+1. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and use the **Docker: Add Docker Files to Workspace...** command:
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
-1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we will select **Python: Django**.
+1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we'll select **Python: Django**.
 
 1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
@@ -66,7 +66,7 @@ After verifying your app runs properly, you can now Dockerize your application.
     - If Docker Compose was selected, a `docker-compose.yml`  and `docker-compose.debug.yml` file.
 
     - If one does not already exist, a `requirements.txt` file for capturing all app dependencies.
-    > **Important note**: To use our setup, the Python framework (Django/Flask) and Gunicorn **must be included** in the `requirements.txt` file. If the virtual environment/host machine already has these prerequisites installed and is supposed to be identical to the container environment, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal. **This will overwrite your current `requirements.txt` file.**
+    > **Important Note**: To use our setup, the Python framework (Django/Flask) and Gunicorn **must be included** in the `requirements.txt` file. If the virtual environment/host machine already has these prerequisites installed and is supposed to be identical to the container environment, ensure app dependencies are ported over by running `pip freeze > requirements.txt` in the terminal. **This will overwrite your current `requirements.txt` file.**
 
 ### Add an environment variable to the image
 
