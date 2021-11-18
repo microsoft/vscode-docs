@@ -12,6 +12,8 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this Visual Studio Code tutorial, we describe Visual Studio Code features that help increase your coding productivity. Learning just a few tips can speed up your workflow and help you discover the full power of the VS Code editor.
 
+>**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
+
 <iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RWGSHk" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 Here's the next video we recommend: [Personalize Visual Studio Code](/docs/introvideos/configure.md)

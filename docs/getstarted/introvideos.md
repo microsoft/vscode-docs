@@ -96,3 +96,9 @@ Start your journey using Visual Studio Code with this set of introductory videos
 		</a>
     </li>
 </ul>
+
+## Troubleshooting
+
+### Videos won't play on Linux
+
+You may not have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
