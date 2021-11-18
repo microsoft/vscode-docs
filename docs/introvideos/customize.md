@@ -14,7 +14,7 @@ In this Visual Studio Code tutorial, we show you how to customize Visual Studio 
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RWBdEz" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [Productivity Tips](/docs/introvideos/productivity.md)
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -26,6 +26,10 @@ Next video: [Productivity Tips](/docs/introvideos/productivity.md)
 * Customize your settings using the settings editor
 * Use a JSON file to customize settings
 * Configure language specific settings
+
+## Next video
+
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

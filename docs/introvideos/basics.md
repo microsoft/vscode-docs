@@ -16,7 +16,9 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RWz32O" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
+Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -51,6 +53,7 @@ Next video: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.m
 ## Next video
 
 * [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

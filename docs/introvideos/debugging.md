@@ -16,7 +16,9 @@ Debugging is a core feature of Visual Studio Code. In this tutorial, we will sho
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RWAIIi" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [Version Control](/docs/introvideos/versioncontrol.md)
+Here's the next video we recommend: [Version Control](/docs/introvideos/versioncontrol.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -29,6 +31,7 @@ Next video: [Version Control](/docs/introvideos/versioncontrol.md)
 ## Next video
 
 * [Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

@@ -36,6 +36,16 @@ Start your journey using Visual Studio Code with this set of introductory videos
 		</a>
 	</li>
 	<li class="video">
+		<a href="/docs/introvideos/productivity">
+			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Productivity Tips</h2>
+				<p class="description">Become a VS Code power user with these productivity tips.</p>
+				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+    </li>
+	<li class="video">
 		<a href="/docs/introvideos/configure">
 			<img src="/assets/docs/getstarted/introvideos/personalize-themes.png" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
@@ -82,16 +92,6 @@ Start your journey using Visual Studio Code with this set of introductory videos
 				<h2 class="title faux-h3">Customize</h2>
 				<p class="description">Learn how to customize your settings and keyboard shortcuts in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-    </li>
-	<li class="video">
-		<a href="/docs/introvideos/productivity">
-			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Productivity Tips</h2>
-				<p class="description">Become a VS Code power user with these productivity tips.</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
     </li>

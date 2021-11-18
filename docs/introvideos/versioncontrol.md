@@ -14,7 +14,9 @@ In this tutorial, we will learn how to use the basics of Git version control in 
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [Customize](/docs/introvideos/customize.md)
+Here's the next video we recommend: [Customize](/docs/introvideos/customize.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -28,6 +30,7 @@ Next video: [Customize](/docs/introvideos/customize.md)
 ## Next video
 
 * [Customize](/docs/introvideos/customize.md) - Customize VS Code with settings and keyboard shortcuts.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

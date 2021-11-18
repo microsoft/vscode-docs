@@ -14,6 +14,10 @@ In this Visual Studio Code tutorial, we describe Visual Studio Code features tha
 
 <iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RWGSHk" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
+Here's the next video we recommend: [Personalize Visual Studio Code](/docs/introvideos/configure.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
+
 ## Video outline
 
 * Find features and keyboard shortcuts in the Command Palette
@@ -23,6 +27,11 @@ In this Visual Studio Code tutorial, we describe Visual Studio Code features tha
 * Auto Save changes
 * Format On Type and Format On Paste
 * IntelliSense smart code completions
+
+## Next video
+
+* [Personalize Visual Studio Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style with themes.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

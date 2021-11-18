@@ -14,7 +14,9 @@ In this Visual Studio Code tutorial, we show you how to personalize Visual Studi
 
 <iframe src="https://www.microsoft.com/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
+Here's the next video we recommend: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -25,6 +27,7 @@ Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
 ## Next video
 
 * [Extensions in Visual Studio Code](/docs/introvideos/extend.md) - Add features to VS Code through Extensions.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 
