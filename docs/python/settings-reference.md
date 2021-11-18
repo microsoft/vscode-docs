@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 10/05/2021
+DateApproved: 11/16/2021
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -57,7 +57,7 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | autoSearchPaths | true | Indicates whether to automatically add search paths based on some predefined names (like `src`). Available values are `true` and `false`. |
 | extraPaths | [] | Specifies extra search paths for import resolution. Paths should be specified as strings and must be separated by commas when there are multiple paths. `["path 1","path 2"]` |
 | completeFunctionParens | false | Adds parentheses to function completions. Accepted values are `true` and `false`. |
-| useLibraryCodeForTypes | true | Parses the source code for a package when a typestub is not found. Available values are `true` and `false`. |
+| useLibraryCodeForTypes | true | Parses the source code for a package when a type stub is not found. Available values are `true` and `false`. |
 | autoImportCompletions | true | Controls the offering of auto-imports in completions. Available values are `true` and `false`. |
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
 
