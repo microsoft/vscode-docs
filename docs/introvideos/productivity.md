@@ -23,12 +23,32 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 ## Video outline
 
 * Find features and keyboard shortcuts in the Command Palette
-* Quick open recent files or search by filename
-* Go to Line or Go to Symbol in a file
+  * **View** > **Command Palette...** (`kb(workbench.action.showCommands)`)
+* Quick Open recent files or search by filename
+  * `kb(workbench.action.quickOpen)`
+* Go to Line in a file
+  * type `filename:line number`
+* Go to Symbol in a file
+  * type `filename@symbol name`
+* View Quick Open options
+  * type `kbstyle(?)`
+* Quick Open multiple files
+  * press `kbstyle(Right Arrow)` to open the selected file but leave the dropdown available
 * Multi-cursor selection
+  * `kbstyle(Alt+Click)` on Windows and Linux, `kbstyle(Option+Click)` on macOS to add a new cursor
+  * `kb(editor.action.insertCursorAbove)` `kb(editor.action.insertCursorBelow)` to add a new cursor above or below the current position
+  * `kb(editor.action.selectHighlights)` to add cursors to all matches of the current selection
 * Auto Save changes
-* Format On Type and Format On Paste
+  * **File** > **Auto Save**
+* Open the Settings editor
+  * **File** > **Preferences** > **Settings** (`kb(workbench.action.openSettings)`)
+  * **Code** > **Preferences** > **Settings** on macOS
+* Set Format On Type
+  * check **Editor: Format on Type**
+* Set Format On Paste
+  * check **Editor: Format on Paste**
 * IntelliSense smart code completions
+  * trigger IntelliSense with `kb(editor.action.triggerSuggest)`
 
 ## Next video
 
