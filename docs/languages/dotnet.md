@@ -41,8 +41,6 @@ Install the following:
    dotnet run
    ```
 
-Watch a video tutorial for further C# setup help on [Windows](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows), [macOS](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-NET-Core-Mac), or [Linux](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-Csharp-dotnet-Core-Ubuntu).
-
 ## Create an F# "Hello World" app
 
 1. Initialize an F# project:
