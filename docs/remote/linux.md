@@ -15,7 +15,7 @@ The extensions are known to work when connecting to recent stable/LTS version of
 
 * **Ubuntu 64-bit x86, ARMv8l (AArch64)** (16.04+, IoT 18.04+)
 * **Debian 64-bit x86, ARMv8l (AArch64)** (Stretch/9+)
-* **Raspbian ARMv7l (AArch32) 32-bit** (Stretch/9+)
+* **Raspberry Pi OS ARMv7l (AArch32) 32-bit** (Stretch/9+) (previously called Raspbian)
 * **CentOS / RHEL 64-bit x86** (7+)
 * **Alpine Linux 64-bit x86 containers or WSL hosts** (3.9+) in Remote - Containers, Remote - WSL
 
@@ -46,7 +46,7 @@ You may encounter issues with certain extensions with native dependencies with *
 | Distribution | Base Requirements | Remote - SSH Requirements | Notes |
 |--------------|-------------------|------------------|-------|
 | General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
-| Ubuntu 16.04+, Debian 8+, Raspbian Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
+| Ubuntu 16.04+, Debian 8+, Raspberry Pi OS Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | Alpine Linux 3.9+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and Remote - WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 python ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 3.10, glibc, libstdc++6|
@@ -72,7 +72,7 @@ The following is a list of distributions and any base requirements that may be m
 | ✅ openSUSE Leap Server 42.3 (64-bit) |  `opensuse/leap:42.3` | Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
 | ✅ Oracle Linux 7 (64-bit) | `oraclelinux:7` | &lt;none&gt; | &lt;none&gt; |
 | 🛑️ Oracle Linux 6 (64-bit) | `oraclelinux:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18. Docker image is missing `tar`. |  [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| ⚠️ Raspbian Stretch/9 (ARMv7l 32-bit) | &lt;n/a&gt; | &lt;none&gt; | Some extensions may not work when installed on an ARMv7l host due to extension x86 native code. Remote - Containers **does** support connecting to containers on an ARM host. |
+| ⚠️ Raspberry Pi OS Stretch/9 (ARMv7l 32-bit) | &lt;n/a&gt; | &lt;none&gt; | Some extensions may not work when installed on an ARMv7l host due to extension x86 native code. Remote - Containers **does** support connecting to containers on an ARM host. |
 | ✅ RedHat Enterprise Linux 7 (64-bit) |  | &lt;none&gt; | &lt;none&gt; |
 | 🛑 RedHat Enterprise Linux 6 (64-bit) |  | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ SUSE Linux Enterprise Server 15 (64-bit) |  |  Docker image is missing `tar` and `gzip`. |  &lt;none&gt; |
