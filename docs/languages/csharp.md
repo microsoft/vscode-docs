@@ -127,4 +127,4 @@ VS Code supports tasks for build and natively understand the output of MSBuild, 
 
 ### I'm missing required assets to build and debug C# in VS Code. My debugger says "No Configuration"
 
-The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette**) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).
+The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette** `kb(workbench.action.showCommands)`) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).
