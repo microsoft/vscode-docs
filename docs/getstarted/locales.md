@@ -17,7 +17,7 @@ Visual Studio Code ships by default with English as the display language and oth
 
 After installing the Language Pack extension and following the prompt to restart, VS Code will use the Language Pack matching your operating system's UI language.
 
->**Note**: This topic explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refere to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
+>**Note**: This topic explains how to change the display language in the VS Code UI via Language Packs such as French or Chinese. If you want to add programming language support, for example for C++ or Java, refer to the [Programming Languages](/docs/languages/overview.md) section of the documentation.
 
 ## Changing the Display Language
 
@@ -89,3 +89,7 @@ This notification may mean that your `argv.json` file wasn't saved after a previ
 ### Can I contribute to a language pack's translations?
 
 Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vscodeloc) is open to anyone, where contributors can provide new translations, vote on existing translations, or suggest process improvements.
+
+### How can I enable a programming language like Python?
+
+Refer to the [Programming Language](/docs/languages/overview.md) section to learn how to install support for programming languages, such as PHP, Python, and Java.
