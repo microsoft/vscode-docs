@@ -92,4 +92,4 @@ Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vsco
 
 ### How can I enable a programming language like Python?
 
-Refer to the [Programming Language](/docs/languages/overview.md) section to learn how to install support for programming languages, such as PHP, Python, and Java.
+Refer to the [Programming Languages](/docs/languages/overview.md) section to learn how to install support for programming languages, such as PHP, Python, and Java.
