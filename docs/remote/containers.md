@@ -512,6 +512,23 @@ If you do not have GPG set up, you can configure it for your platform:
   * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
   * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
 
+Then, still on the host system, you need to enable loopback for `pinentry`.
+
+`~/gnupg/gpg.conf` should contain the lines:
+
+    use-agent
+    pinentry-mode loopback
+
+And `~/gnupg/gpg-agent.conf` should contain the line:
+
+    allow-loopback-pinentry
+    
+Then run the following command to restart the agent to make the changes take effect.
+
+```bash
+echo RELOADAGENT | gpg-connect-agent
+```
+
 Next, install `gnupg2` in your container by updating your Dockerfile.
 
 For example:
