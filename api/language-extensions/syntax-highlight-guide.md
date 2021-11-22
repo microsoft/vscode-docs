@@ -22,7 +22,7 @@ Before diving into the details, a good start is to play with the [scope inspecto
 
 The tokenization of text is about breaking the text into segments and to classify each segment with a token type.
 
-VS Code's tokenization engine is powered by [TextMate grammars][tm-grammars]. TextMate grammars are a structured collection of regular expressions and are written as a plist (XML) or JSON files. VS Code extensions can contribute grammars through the `grammar` contribution point.
+VS Code's tokenization engine is powered by [TextMate grammars][tm-grammars]. TextMate grammars are a structured collection of regular expressions and are written as a plist (XML) or JSON files. VS Code extensions can contribute grammars through the `grammars` contribution point.
 
 The TextMate tokenization engine runs in the same process as the renderer and tokens are updated as the user types. Tokens are used for syntax highlighting, but also to classify the source code into areas of comments, strings, regex.
 
