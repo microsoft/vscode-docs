@@ -156,7 +156,7 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
 
-To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
+To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).    
 
 ```json
     // Configure glob patterns for excluding files and folders.
@@ -183,7 +183,24 @@ As you can see below this will clean things up a lot...
 
 Before|After
 ------|-----
-![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
+![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)   
+
+To edit this directly within VS Code Settings, go to File > Preferences > Settings.  Type file:exclude into the Search Settings bar.  Add a glob pattern similar to the pattern shown below by clicking the Add Pattern button.  You will need to add each pattern separately.  
+
+```glob
+**/.git
+**/*.fbx
+**/*.FBX
+**/*.mat
+**/*.*.meta
+**/*.meta
+**/*.prefab
+**/*.unityproj
+**/Library
+**/Packages
+**/ProjectSettings
+**/Temp
+```
 
 ### How can I debug Unity?
 
