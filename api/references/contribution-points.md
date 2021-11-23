@@ -219,7 +219,7 @@ will appear in a single group like this:
 >
 > Blame › Heatmap: **Location**
 
-Otherwise, properties appear in alphabetical order (**not** the order in which they're listed in the manifest).
+Otherwise, properties without an explicit order field appear in alphabetical order (**not** the order in which they're listed in the manifest).
 
 ### Configuration property schema
 
@@ -275,9 +275,19 @@ For `boolean` entries, the `description` (or `markdownDescription`) will be used
 }
 ```
 
-Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number` and `string` will be rendered as editable lists. Objects that have properties of type `string` and/or `boolean` will be rendered as editable grids of keys and values. The `object` type setting must set `"additionalProperties": false` to get this support.
+Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number`, `string`, or `boolean` will be rendered as editable lists. Objects that have properties of type `string`, `number`, `integer`, and/or `boolean` will be rendered as editable grids of keys and values. Object settings should also have `additionalProperties` set to either `false`, or an object with an appropriate `type` property, to render in the UI.
 
 If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to **Edit in settings.json** as shown in the screenshot above. 8️⃣
+
+**order**
+
+Both categories and the settings within those categories can take an integer `order` type property, which gives a reference to how they should be sorted relative to other categories and/or settings.
+
+If two categories have `order` properties, the category with the lower order number comes first. If a category is not given an `order` property, it appears after categories that were given that property.
+
+If two settings within the same category have `order` properties, the setting with the lower order number comes first. If another setting within that same category is not given an `order` property, it will appear after settings in that category that were given that property.
+
+If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
 
 **enum** / **enumDescriptions**
 
