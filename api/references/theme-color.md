@@ -923,7 +923,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebook.cellToolbarSeparator`: The color of the separator in the cell bottom toolbar
 - `notebook.cellEditorBackground`: The color of the notebook cell editor background
 - `notebook.focusedCellBackground`: The background color of a cell when the cell is focused.
-- `notebook.focusedCellBorder`: The color of the cell's top and bottom border when the cell is focused.
+- `notebook.focusedCellBorder`: The color of the cell's focus indicator borders when the cell is focused..
 - `notebook.focusedEditorBorder`: The color of the notebook cell editor border.
 - `notebook.inactiveFocusedCellBorder`: The color of the cell's top and bottom border when a cell is focused while the primary focus is outside of the editor.
 - `notebook.inactiveSelectedCellBorder`: The color of the cell's borders when multiple cells are selected.
