@@ -9,6 +9,10 @@ MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch fail
 
 # Troubleshoot Terminal launch failures
 
+To start, we'd like to say we're sorry that you're here reading this document instead of having a good time using the Integrated Terminal in Visual Studio Code. The VS Code team works hard to make the terminal experience as seamless as possible but in some cases, there are issues with shell or terminal configurations that the VS Code editor can't work around. After having worked with hundreds of developers to diagnose their terminal launch failures, the VS Code team has put together this topic with the advice and troubleshooting tips that have helped people in the past. We hope you'll find an answer here for your shell or terminal issue and can get quickly back to work.
+
+## Integrated Terminal user guide
+
 If you are new to using the Visual Studio Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/editor/integrated-terminal.md) user guide. There you can read how to [configure](/docs/editor/integrated-terminal.md#configuration) the terminal, as well as review answers to [common questions](/docs/editor/integrated-terminal.md#common-questions).
 
 Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure. The troubleshooting steps, such as checking your settings and enabling logging, apply to all platforms that support VS Code; macOS, Linux, and Windows.
@@ -46,7 +50,9 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
 3. **Use the most recent version of VS Code.** Each VS Code monthly release has many updates and fixes and may include integrated terminal improvements. You can check your VS Code version via **Help** > **About** (on macOS **Code** > **About Visual Studio Code**). To find the latest version of VS Code, go to the VS Code [release notes](/updates). You may also want to check that you have installed the latest version of your shell.
 
-4. **Enable trace logging.** You can enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
+4. **Use the most recent version of your shell.** If your shell is installed separate from your platform, try installing the latest available version of the shell. The same advice applies if you are on an older build of your operating system. For example, some older versions of Windows 10 did not work well with the VS Code terminal.
+
+5. **Enable trace logging.** You can enable [trace logging](https://github.com/microsoft/vscode/wiki/Terminal-Issues#enabling-trace-logging) and capture a log when launching the terminal. Logging often reveals what is wrong as all arguments used to create the terminal process/pty are recorded. Bad shell names, arguments, or environment variables can cause the terminal to not launch. Keep this log for later if your problem isn't solved.
 
 ## Additional troubleshooting steps
 
