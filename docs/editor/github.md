@@ -102,15 +102,15 @@ Once you have committed changes to your fork or branch, you can use the **GitHub
 
 ![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
 
-A new view will be displayed where you can select the repository and branch you'd like your pull request to target as well as fill in details such as the title, description, and whether it is a draft PR. If your repository has a pull request template, this will automatically be used for the description.
+A new **Create Pull Request** view will be displayed where you can select the repository and branch you'd like your pull request to target as well as fill in details such as the title, description, and whether it is a draft PR. If your repository has a pull request template, this will automatically be used for the description.
 
 ![Create Pull Request view](images/github/create-pull-request-view.png)
 
 Once you select **Create**, if you have not already pushed your branch to a GitHub remote, the extension will ask if you'd like to publish the branch and provides a dropdown to select the specific remote.
 
-The Pull Request view now enters **Review Mode**, where you can review the details of the PR, add comments, reviewers, and labels, and merge the PR once it's ready.
+The **Create Pull Request** view now enters **Review Mode**, where you can review the details of the PR, add comments, reviewers, and labels, and merge the PR once it's ready.
 
-Further commits to the branch, while be added to the pull request, just as when working with the Git command line.
+After the PR is merged, you'll have the option to delete both the remote and local branch.
 
 ### Reviewing
 
@@ -118,7 +118,7 @@ Pull requests can be reviewed from the **Pull Requests** view. You can assign re
 
 ![Review Pull Request](images/github/review-pull-request.gif)
 
-From the description page, you can also easily checkout the pull request locally using the **Checkout** button. This will add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
+From the **Description** page, you can also easily checkout the pull request locally using the **Checkout** button. This will add a new **Changes in Pull Request** view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the **Open File** inline action.
 
 ![Changes in Pull Request](images/github/changes-view.png)
 
