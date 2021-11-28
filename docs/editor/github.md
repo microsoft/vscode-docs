@@ -9,7 +9,7 @@ MetaDescription: Working with GitHub in Visual Studio Code
 ---
 # Working with GitHub in VS Code
 
-[GitHub](https://github.com) is a cloud-based service for storing and sharing source code. Using GitHub with Visual Studio Code lets you share your source code and collaborate with others right within your editor. There are many ways to iteract with GitHub, for example, via their website at [https://github.com](https://github.com] or the [Git](https://git-scm.com) command-line interface (CLI), but in VS Code, the rich GitHub integration is provided by the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension.
+[GitHub](https://github.com) is a cloud-based service for storing and sharing source code. Using GitHub with Visual Studio Code lets you share your source code and collaborate with others right within your editor. There are many ways to iteract with GitHub, for example, via their website at [https://github.com](https://github.com) or the [Git](https://git-scm.com) command-line interface (CLI), but in VS Code, the rich GitHub integration is provided by the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension.
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/GitHub.vscode-pull-request-github">Install the GitHub Pull Requests and Issues extension</a>
 
@@ -31,7 +31,11 @@ If you are not redirected to VS Code, you can add your authorization token manua
 
 You can search for and clone a repository from GitHub using the **Git: Clone** command in the Command Palette (`kb(workbench.action.showCommands)`) or by using the **Clone Repository** button in the Source Control view (available when you have no folder open).
 
-![Clone From GitHub](images/github/clone-from-github.gif)
+![Clone Repository button in the Source Control view](images/github/git-clone-button.png)
+
+From the GitHub repository dropdown you can filter and pick the repository you want to clone locally.
+
+![GitHub repository dropdown filtered on microsoft/vscode](images/github/github-repo-dropdown.png)
 
 ### Authenticating with an existing repository
 
