@@ -98,9 +98,13 @@ The queries used to display pull requests can be configured with the **GitHub Pu
 
 ### Creating Pull Requests
 
-You can use the **GitHub Pull Requests: Create Pull Request** command or use the **+** button in the **Pull Requests** view to create a pull request. If you have not already pushed your branch to a remote, the extension will do this for you. You can use the last commit message, the branch name, or write a custom title for the pull request. If your repository has a pull request template, this will automatically be used for the description.
+Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request. If you have not already pushed your branch to a remote, the extension will ask if you'd like to push to a GitHub remote. You can use the last commit message, the branch name, or write a custom title for the pull request. If your repository has a pull request template, this will automatically be used for the description.
 
-![Creating a Pull Request](images/github/pull-request-create.gif)
+![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
+
+A new view will be displayed where you can select the remote and branch you'd like your pull request to target as well as details such as the title, description, and whether it is a draft PR.
+
+///![Create Pull Request view](https://link)
 
 ### Reviewing
 
