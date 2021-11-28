@@ -98,13 +98,19 @@ The queries used to display pull requests can be configured with the **GitHub Pu
 
 ### Creating Pull Requests
 
-Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request. If you have not already pushed your branch to a remote, the extension will ask if you'd like to push to a GitHub remote. You can use the last commit message, the branch name, or write a custom title for the pull request. If your repository has a pull request template, this will automatically be used for the description.
+Once you have committed changes to your fork or branch, you can use the **GitHub Pull Requests: Create Pull Request** command or the **Create Pull Request** button in the **Pull Requests** view to create a pull request.
 
 ![Create Pull Request button in the Pull Request view](images/github/create-pull-request-button.png)
 
-A new view will be displayed where you can select the remote and branch you'd like your pull request to target as well as details such as the title, description, and whether it is a draft PR.
+A new view will be displayed where you can select the repository and branch you'd like your pull request to target as well as fill in details such as the title, description, and whether it is a draft PR. If your repository has a pull request template, this will automatically be used for the description.
 
-///![Create Pull Request view](https://link)
+![Create Pull Request view](images/github/create-pull-request-view.png)
+
+Once you select **Create**, if you have not already pushed your branch to a GitHub remote, the extension will ask if you'd like to publish the branch and provides a dropdown to select the specific remote.
+
+The Pull Request view now enters **Review Mode**, where you can review the details of the PR, add comments, reviewers, and labels, and merge the PR once it's ready.
+
+Further commits to the branch, while be added to the pull request, just as when working with the Git command line.
 
 ### Reviewing
 
