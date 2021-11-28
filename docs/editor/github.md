@@ -104,7 +104,7 @@ Once you have committed changes to your fork or branch, you can use the **GitHub
 
 A new view will be displayed where you can select the remote and branch you'd like your pull request to target as well as details such as the title, description, and whether it is a draft PR.
 
-///![Create Pull Request view](https://link)
+![Create Pull Request view](images/github/create-pull-request-view.png)
 
 ### Reviewing
 
