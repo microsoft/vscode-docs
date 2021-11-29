@@ -28,16 +28,14 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 - View test report
 - View tests in Test Explorer
 
-We recommend installing the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) to get the complete Java development experience.
-
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
-
 ## Requirements
 
 - JDK (version 11 or later)
-- VS Code (version 1.59.0 or later)
-- [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-- [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+- Visual Studio Code (version 1.59.0 or later)
+- [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+
+
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 ## Project Setup
 (If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.)
@@ -69,7 +67,7 @@ dependencies {
 ```
 
 #### Unmanaged Folder
-If your project does not use any build tools. You need to download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`):
+If your project does not use any build tools. You need to download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
@@ -80,7 +78,7 @@ If your project does not use any build tools. You need to download the following
 The JUnit 5 team provides a collection of sample projects with different build tools. Check the [junit5-sample repository](https://github.com/junit-team/junit5-samples) if your project uses Maven or Gradle as your build tool.
 
 #### Unmanaged Folder
-If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`).
+If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information).
 
 ### TestNG
 #### Maven
@@ -109,7 +107,7 @@ dependencies {
 ```
 
 #### Unmanaged Folder
-If your project does not use any build tools. You need to download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`):
+If your project does not use any build tools. You need to download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
 - [jcommander.jar](https://search.maven.org/artifact/com.beust/jcommander/1.81/jar)
@@ -124,7 +122,7 @@ The extension will generate shortcuts (the green play button) on the left side o
 
 ### Test Explorer
 
-The Test Explorer shows all the test cases in your workspace. You can also run/debug your test cases and view their test results from there.
+The Test Explorer is a tree view to show all the test cases in your workspace. You can click the beaker-like button on the left-side activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
 ![Test Explorer](images/java-testing/test_explorer.png)
 
