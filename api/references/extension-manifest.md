@@ -213,7 +213,7 @@ The `yo code` generator lets you easily package TextMate themes, colorizers and 
 
 To combine extension contributions, edit an existing extension manifest `package.json` and add the new contributions and associated files.
 
-Below is an extension manifest which includes a LaTex language definition (language identifier and file extensions), colorization (`grammar`), and snippets.
+Below is an extension manifest which includes a LaTex language definition (language identifier and file extensions), colorization (`grammars`), and snippets.
 
 ```json
 {
@@ -252,7 +252,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
 
 Notice that the extension manifest `categories` attribute now includes both `Programming Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
 
-> **Tip:** Make sure your merged contributions are using the same identifiers. In the example above, all three contributions are using "latex" as the language identifier. This lets VS Code know that the colorizer (`grammar`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
+> **Tip:** Make sure your merged contributions are using the same identifiers. In the example above, all three contributions are using "latex" as the language identifier. This lets VS Code know that the colorizer (`grammars`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
 
 ## Extension Packs
 

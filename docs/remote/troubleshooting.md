@@ -743,6 +743,19 @@ Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close
 > 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
 > 4. Retry.
 
+### Persisting user profile
+
+You can use the `mounts` property to persist the user profile (to keep things like shell history) in your dev container across rebuilds.
+
+```json
+    "mounts": [
+        "source=profile,target=/root,type=volume",
+        "target=/root/.vscode-server,type=volume"
+    ],
+```
+
+The above code first creates a named volume called `profile` mounted to `/root`, which will survive a rebuild. It next creates an anonymous volume mounted to `/root/.vscode-server` that gets destroyed on rebuild, which allows VS Code to reinstall extensions and dotfiles.
+
 ### Advanced container configuration tips
 
 See the [Advanced container configuration](/remote/advancedcontainers/overview.md) articles for information on the following topics:

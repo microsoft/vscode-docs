@@ -12,6 +12,8 @@ MetaSocialImage: images/introvideos/opengraph_introvideos.png
 
 Start your journey using Visual Studio Code with this set of introductory videos! These videos are designed to give you an overview of VS Code's various features and quickly get you familiar with them.
 
+>**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
+
 <ul class="video-list">
 	<li class="video">
             <a href="/docs/introvideos/basics">
@@ -33,6 +35,16 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			</div>
 		</a>
 	</li>
+	<li class="video">
+		<a href="/docs/introvideos/productivity">
+			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Productivity Tips</h2>
+				<p class="description">Become a VS Code power user with these productivity tips.</p>
+				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+    </li>
 	<li class="video">
 		<a href="/docs/introvideos/configure">
 			<img src="/assets/docs/getstarted/introvideos/personalize-themes.png" alt aria-hidden="true" class="thumb"/>
@@ -83,14 +95,10 @@ Start your journey using Visual Studio Code with this set of introductory videos
 			</div>
 		</a>
     </li>
-	<li class="video">
-		<a href="/docs/introvideos/productivity">
-			<img src="/assets/docs/getstarted/introvideos/productivity-tips.png" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Productivity Tips</h2>
-				<p class="description">Become a VS Code power user with these productivity tips.</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-    </li>
 </ul>
+
+## Troubleshooting
+
+### Videos won't play on Linux
+
+You may not have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.

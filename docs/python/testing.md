@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 9/1/2021
+DateApproved: 11/17/2021
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/social.png
 ---
 # Python testing in Visual Studio Code
 
-The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/).
+The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) supports testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework and [pytest](https://docs.pytest.org/).
 
 ## A little background on unit testing
 
@@ -62,9 +62,9 @@ class Test_TestAccountValidator(test_framework.TestBaseClass):
     # ... tests for all other cases
 ```
 
-The exact structure of the code depends on the test framework you're using, and specific examples are provided later in this article. In any case, as you can see, each test is very simple: invoke the function with an argument and assert the expected return value.
+The exact structure of the code depends on the test framework you're using, and specific examples are provided later in this article. In any case, as you can see, each test is simple: invoke the function with an argument and assert the expected return value.
 
-The combined results of all the tests is your test report, which tells you whether the function (the unit), is behaving as expected across all test cases. That is, when a unit passes all of its tests, you can be confident that it's functioning properly. (The practice of **test-driven development** is where you actually write the tests first, then write the code to pass more and more tests until all of them pass.)
+The combined results of all the tests is your test report, which tells you whether the function (the unit), is behaving as expected across all test cases. That is, when a unit passes all of its tests, you can be confident that it's functioning properly. (The practice of **test-driven development** is where you actually write the tests first, then write the code to pass increasingly more tests until all of them pass.)
 
 Because unit tests are small, isolated piece of code (in unit testing you avoid external dependencies and use mock data or otherwise simulated inputs), they're quick and inexpensive to run. This characteristic means that you can run unit tests early and often. Developers typically run unit tests even before committing code to a repository; gated check-in systems can also run unit tests before merging a commit. Many continuous integration systems also run unit tests after every build. Running the unit test early and often means that you quickly catch **regressions,** which are unexpected changes in the behavior of code that previously passed all its unit tests. Because the test failure can easily be traced to a particular code change, it's easy to find and remedy the cause of the failure, which is undoubtedly better than discovering a problem much later in the process!
 
@@ -151,11 +151,11 @@ Test discovery applies the discovery patterns for the current framework (which c
 
 > **Tip**: Sometimes tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, create an empty file named `__init__.py` in that folder.
 
-If discovery succeeds, you will see tests listed in the Test Explorer:
+If the test discovery succeeds, you'll see tests listed in the Test Explorer:
 
 ![The VS Code Test Explorer for Python tests](images/testing/test-explorer.png)
 
-If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you will see an error message displayed in the Test Explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
+If discovery fails (for example, the test framework isn't installed or you have a syntax error in your test file), you'll see an error message displayed in the Test Explorer. You can check the **Python** output panel to see the entire error message (use the **View** > **Output** menu command to show the **Output** panel, then select **Python** from the dropdown on the right side).
 
 ![Discovery failure error messaged displayed in the Test Explorer](images/testing/test-discovery-error.png)
 
@@ -165,7 +165,7 @@ Once VS Code recognizes tests, it provides several ways to run those tests as de
 
 You can run tests using any of the following actions:
 
-- With a test file open, click on the green run icon that is displayed in the gutter next to the test definition line, as shown in the previous section. This command runs only that one method.
+- With a test file open, select the green run icon that is displayed in the gutter next to the test definition line, as shown in the previous section. This command runs only that one method.
 
   ![Run test icon displayed on the gutter when the test file is open in the editor](images/testing/run-tests-gutter.png)
 
@@ -186,9 +186,9 @@ You can run tests using any of the following actions:
 
   - You can also run a selection of tests through the Test Explorer. To do that, `kbstyle(Ctrl+Click)` (or `kbstyle(Cmd+Click)` on macOS) on the tests you wish to run, right-click on one of them and then select **Run Test**.
 
-After a test run, VS Code displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message along with a history of all of the tests' runs. You can press `kbstyle(Escape)` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
+After a test run, VS Code displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message and a history of all of the tests' runs. You can press `kbstyle(Escape)` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the `Testing: Automatically Open Peek View` setting to `never`.
 
-In the **Test Explorer**, results are shown for individual tests as well as any classes and files containing those tests.
+In the **Test Explorer**, results are shown for individual tests and any classes and files containing those tests.
 
 ![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
@@ -255,7 +255,7 @@ You can use the following commands from the Command Palette to debug tests:
 
 - **Test: Debug All Tests** - launches the debugger for all tests in your workspace.
 - **Test: Debug Tests in Current File** - launches the debugger for the tests you have defined in the file you have open in the editor.
-- **Test: Debug Test at Cursor** - launches the debugger only for the method where you have your cursor focused on the editor. You can also use the **Debug Test** icons in Test Explorer to launch the debugger for all tests in a selected scope as well as all discovered tests.
+- **Test: Debug Test at Cursor** - launches the debugger only for the method where you have your cursor focused on the editor. You can also use the **Debug Test** icons in Test Explorer to launch the debugger for all tests in a selected scope and all discovered tests.
 
 You can also change the default behavior of clicking on the gutter decoration to debug tests instead of run, by changing the `testing.defaultGutterClickAction` setting value to `debug` in your `settings.json` file.
 

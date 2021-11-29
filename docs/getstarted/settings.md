@@ -3861,8 +3861,12 @@ If you try to change a setting (for example turning on Auto Save or selecting a 
 
 ### How can I reset my user settings?
 
-The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file contents in the Settings editor. Delete everything between the two curly braces, save the file, and VS Code will go back to using the default values.
+The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces, save the file, and VS Code will go back to using the default values.
 
 ### When does it make sense to use workspace settings?
 
 If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+
+### Where can I find extension settings?
+
+In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)** - `kb(workbench.action.openSettings)`) or directly in the `settings.json` file (**Preferences: Open Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.

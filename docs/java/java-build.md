@@ -122,10 +122,13 @@ There are two ways to generate a Maven project:
 
 ## Gradle
 
-VS Code supports basic Gradle Java project (not including Android). There are also a couple third party extensions available for writing `.gradle` files as well as running Gradle tasks.
+VS Code supports basic Gradle Java project (not including Android) via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). Currently the extension supports the following features:
+* Gradle project and task management
+* Run Gradle tasks
+* Gradle file authoring (auto-completion, syntax highlighting, error reporting, etc)
+* Manage Gradle daemons
 
-* [Gradle Language Support](https://marketplace.visualstudio.com/items?itemName=naco-siren.gradle-language)
-* [Gradle Tasks](https://marketplace.visualstudio.com/items?itemName=richardwillis.vscode-gradle)
+See full feature list at the GitHub [repo](https://github.com/microsoft/vscode-gradle)
 
 ### Additional resources
 

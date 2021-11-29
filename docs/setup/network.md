@@ -33,6 +33,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
 * `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
 * `vscode-sync-insiders.trafficmanager.net` - Visual Studio Code Settings Sync service (Insiders)
+* `default.exp-tas.com` - Visual Studio Code Experiment Service, used to provide experimental user experiences
 
 ## Proxy server support
 

@@ -13,7 +13,7 @@ MetaDescription: Visual Studio Code Tips and Tricks for power users.
 
 > If you don't have Visual Studio Code installed, go to the [Download](/download) page. You can find platform specific setup instructions at [Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), and [Windows](/docs/setup/windows.md).
 
-Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code tips and tricks](https://aka.ms/Build2020AppDev-VSCodeTips), which describes 20 tips and tricks for working productively with VS Code.
+Prefer a video? You can watch a recent Microsoft Buildl talk [Visual Studio Code tips and tricks](https://aka.ms/Build2020AppDev-VSCodeTips), which describes 20 tips and tricks for working productively with VS Code.
 
 ## Basics
 
@@ -25,7 +25,7 @@ The best way of exploring VS Code hands-on is to open the **Get Started** page. 
 
 Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
 
-If you are looking to improve your code editing skills open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](docs/editor/intellisense.md), Snippets, [Emmet](docs/editor/emmet.md), and many more. **Help** > **Editor Playground**.
+If you are looking to improve your code editing skills open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and many more. **Help** > **Editor Playground**.
 
 ![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -490,7 +490,7 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
-To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+click)` on macOS).
+To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+Click)` on macOS).
 
 To set cursors above or below the current position use:
 

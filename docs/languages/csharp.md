@@ -29,8 +29,6 @@ Due to this focus, many standard C# project types are not recognized by VS Code.
 
 C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
-[Video Tutorial on Getting Started with C# in VS Code with .NET Core](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows)
-
 ## Roslyn and OmniSharp
 
 Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](https://www.omnisharp.net) to offer an enhanced C# experience. We offer support for:
@@ -129,4 +127,4 @@ VS Code supports tasks for build and natively understand the output of MSBuild, 
 
 ### I'm missing required assets to build and debug C# in VS Code. My debugger says "No Configuration"
 
-The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette**) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).
+The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette** `kb(workbench.action.showCommands)`) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).

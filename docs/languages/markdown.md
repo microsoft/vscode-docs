@@ -213,11 +213,11 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
 
 ### Step 4: Run the Build Task
 
-Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list.
+Since there can be more than one build task in more complex environments, we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML, select **Never scan the build output** from the presented list.
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
-If you want to make the **Compile Markdown** task the default build task to run execute **Configure Default Build Task** from the global **Terminal** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
+If you want to make the **Compile Markdown** task the default build task to run, execute **Configure Default Build Task** from the global **Terminal** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
 
 ```json
 {
@@ -289,9 +289,9 @@ What is happening here?
 
 ### Step 3: Run the gulp default Task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it, only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML, select **Never scan the build output** from the presented list. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
+If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)`, run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
 
 ```json
 {
@@ -314,7 +314,7 @@ If you want to make the **gulp: default** task the default build task executed w
 
 ### Step 4: Terminate the gulp default Task
 
-The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Task** from the global **Terminal** menu.
+The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use **Terminate Task** from the global **Terminal** menu.
 
 ## Next steps
 
@@ -330,7 +330,7 @@ Not installed with VS Code but there are spell checking extensions. Check the [V
 
 ### Does VS Code support GitHub Flavored Markdown?
 
-No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
+No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification, which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
 
 ### In the walkthrough above, I didn't find the Configure Task command in the Command Palette?
 

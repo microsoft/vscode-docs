@@ -194,7 +194,7 @@ There are currently three ways to test a web extension before publishing it to t
 
 * Use VS Code running on the desktop with the `--extensionDevelopmentKind=web` option to run your web extension in a web extension host running in VS Code.
 * Use the [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module to open a browser containing VS Code for the Web including your extension, served from a local server.
-* Sideload your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
+* [Sideload](#test-your-web-extension-in-on-vscode.dev) your extension onto [vscode.dev](https://vscode.dev) to see your extension in the actual environment.
 
 ### Test your web extension in VS Code running on desktop
 
@@ -251,14 +251,16 @@ Open the **Running Extensions** view (command: **Developer: Show Running Extensi
 
 ### Test your web extension in a browser using @vscode/test-web
 
-The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module offers a CLI and API to test a web extension in a browser of choice.
+The [@vscode/test-web](https://github.com/microsoft/vscode-test-web) node module offers a CLI and API to test a web extension in a browser.
 
 The node module contributes an npm binary `vscode-test-web` that can open VS Code for the Web from the command line:
-* It downloads the web bits of VS Code into `.vscode-test-web`
-* starts a local server on `localhost:3000`
-* opens a browser (Chromium, Firefox, or Webkit)
+
+* It downloads the web bits of VS Code into `.vscode-test-web`.
+* Starts a local server on `localhost:3000`.
+* Opens a browser (Chromium, Firefox, or Webkit).
 
 You can run it from command line:
+
 ```bash
 npx @vscode/test-web --extensionDevelopmentPath=$extensionFolderPath $testDataPath
 ```
@@ -273,8 +275,6 @@ Or better, add `@vscode/test-web` as a development dependency to your extension 
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
   }
 ```
-
-
 
 Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-web) for more CLI options:
 
@@ -315,7 +315,15 @@ npx: installed 78 in 2.196s
 
 ```
 
-Then, in another terminal, run `npx localtunnel -p 5000`:
+**Chromium-based browsers**
+
+If you are using Edge, Chrome or any Chromium-based browser, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette, and give "http://localhost:5000" as the address.
+
+**Other browsers**
+
+If you are not using a Chromium browser, you can use the following steps:
+
+Open another terminal and run `npx localtunnel -p 5000`:
 
 ```bash
 $ npx localtunnel -p 5000
@@ -329,6 +337,8 @@ your url is: https://hungry-mole-48.loca.lt/
 ![Screenshot showing button with the text "Click to Continue" highlighted to click.](images/web-extensions/localtunnel.png)
 
 Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
+
+**Check the logs**
 
 You can check the logs in the console of the Developer Tools of your browser to see any errors, status, and logs from your extension.
 
@@ -397,7 +407,6 @@ To run the web test from the command line, add the following to your `package.js
     "test": "vscode-test-web --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js"
   }
 ```
-
 
 To open VS Code on a folder with test data, pass a local folder path (`folderPath`) as the last parameter.
 

@@ -111,7 +111,7 @@ If you only work with source files and don't use a build tool, VS Code will appl
 
 ## Library configuration
 
-Behind the scene, there's a setting `java.project.referencedLibaries` in `settings.json`. Below are details on how to customize this setting.
+Behind the scene, there's a setting `java.project.referencedLibraries` in `settings.json`. Below are details on how to customize this setting.
 
 **Include libraries**
 
