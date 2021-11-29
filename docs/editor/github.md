@@ -155,7 +155,7 @@ From the **Issues** view, you can see your issues and work on them.
 
 ![Issue view with hover](images/github/issues-view.png)
 
-By default, when you start working on an issue, a branch will be created for you as shown in the Status bar.
+By default, when you start working on an issue (**Start Working on Issue** context menu item), a branch will be created for you, as shown in the Status bar in the image below.
 
 ![Work on Issue](images/github/working-on-issue.png)
 
