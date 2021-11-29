@@ -151,11 +151,17 @@ The default issue triggers are:
 
 ### Working on issues
 
-From the **Issues** view, you can see your issues and work on them. By default, when you start working on an issue, a branch will be created for you. You can configure the name of the branch using the **GitHub Issues: Working Issue Branch** (`githubIssues.workingIssueBranch`) setting. The commit message input box in the **Source Control** view will be populated with a commit message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`githubIssues.workingIssueFormatScm`).
+From the **Issues** view, you can see your issues and work on them.
 
-![Work on Issue](images/github/work-on-issue.gif)
+![Issue view with hover](images/github/issues-view.png)
 
-If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`githubIssues.useBranchForIssues`) setting.
+By default, when you start working on an issue, a branch will be created for you as shown in the Status bar.
+
+![Work on Issue](images/github/working-on-issue.png)
+
+You can configure the name of the branch using the **GitHub Issues: Working Issue Branch** (`githubIssues.workingIssueBranch`) setting. If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the **GitHub Issues: Use Branch For Issues** (`githubIssues.useBranchForIssues`) setting.
+
+Once you are done working on the issue and want to commit a change, the commit message input box in the **Source Control** view will be populated with a message, which can be configured with **GitHub Issues: Working Issue Format SCM** (`githubIssues.workingIssueFormatScm`).
 
 ## GitHub Repositories extension
 
