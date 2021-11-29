@@ -27,6 +27,14 @@ In the overflow button of the navigation bar, there are more options to use. For
 
 ![overflow button](images/java-project/overflow-button.png)
 
+You can find buttons next to the nodes in the explorer, which can be used as useful shortcuts for some functionalities.
+
+![inline button](images/java-project/inline-button.png)
+
+There are also many useful features in each node's context menu, you can right click on the node in explorer to toggle it out.
+
+![context menu](images/java-project/context-menu.png)
+
 ### Create Java project
 
 You can create a new Java project by clicking the **+** button in the navigation bar, or through the command: **Java: Create Java Project...** in Command Palette (`kb(workbench.action.showCommands)`). During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't installed.
