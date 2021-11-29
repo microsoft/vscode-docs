@@ -119,7 +119,7 @@ To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 ## Formatting
 
-VS Code's built-in JavaScript formatter providers basic code formatting with reasonable defaults.
+VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
 
 The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
