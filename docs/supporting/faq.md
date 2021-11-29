@@ -208,31 +208,13 @@ Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep 
 
 For bugs, feature requests or to contact an extension author, you should use the links available in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have [an email alias to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
-## VS Code gets unresponsive right after opening a folder
-
-When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
-
-```json
-    "files.exclude": {
-        "**/largeFolder": true
-    }
-```
-
-## VS Code is blank?
-
-The Electron shell used by Visual Studio Code has trouble with some GPU (graphics processing unit) hardware acceleration. If VS Code is displaying a blank (empty) main window, you can try disabling GPU acceleration when launching VS Code by adding the Electron `--disable-gpu` command-line switch.
-
-```bash
-code --disable-gpu
-```
-
 ## Installation appears to be corrupt [Unsupported]
 
 VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
 
 You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
 
-## Resolving Shell Environment fails
+## Resolving shell environment fails
 
 *This section applies to macOS and Linux environments only.*
 
@@ -244,7 +226,7 @@ To work around this, when launched via a UI gesture, VS Code will start a small 
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-If the error message indicates that resolving your shell environment took too long, the [steps below](#investigating-slow-shell-initialization) can help you investigate what might be causing slowness.
+If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness.
 
 If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
 
@@ -265,6 +247,24 @@ If modifying your shell environment isn't practical, you can avoid VS Code's res
 
 * Typing `code` from an open terminal will launch VS Code with your last workspace.
 * Typing `code .` will launch VS Code open to the current folder.
+
+## VS Code is blank?
+
+The Electron shell used by Visual Studio Code has trouble with some GPU (graphics processing unit) hardware acceleration. If VS Code is displaying a blank (empty) main window, you can try disabling GPU acceleration when launching VS Code by adding the Electron `--disable-gpu` command-line switch.
+
+```bash
+code --disable-gpu
+```
+
+## VS Code gets unresponsive right after opening a folder
+
+When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
+
+```json
+    "files.exclude": {
+        "**/largeFolder": true
+    }
+```
 
 ## Technical Support
 
