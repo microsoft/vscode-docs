@@ -244,14 +244,27 @@ To work around this, when launched via a UI gesture, VS Code will start a small 
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-If the error message indicates that resolving your shell environment took too long, the easiest way to investigate this is to:
+If the error message indicates that resolving your shell environment took too long, the [steps below](#investigating-slow-shell-initialization) can help you investigate what might be causing slowness.
+
+If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
+
+### Investigate slow shell initialization
+
+The process outlined below may help you identify which parts of your shell initialization are taking the most time:
 
 * Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open (`kb(workbench.action.quickOpen)`)).
 * Selectively comment out potentially long running operations (such as `nvm` if you find that).
 * Save and fully restart VS Code.
 * Continue commenting out operations until the error disappears.
 
-If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
+>**Note**: While `nvm` is a powerful and useful Node.js package manager, it can cause slow shell startup times, if being run during shell initialization. You might consider package manager alternatives such as [asdf](https://asdf-vm.com) or search on the internet for `nvm` performance suggestions.
+
+### Launch VS Code from a terminal
+
+If modifying your shell environment isn't practical, you can avoid VS Code's resolving shell environment phase by launching VS Code directly from a fully initialized terminal.
+
+* Typing `code` from an open terminal will launch VS Code with your last workspace.
+* Typing `code .` will launch VS Code open to the current folder.
 
 ## Technical Support
 
