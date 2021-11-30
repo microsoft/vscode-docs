@@ -175,7 +175,7 @@ Your configuration entry is used both to provide intellisense when editing your 
 
 **title**
 
-The `title` 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension.
+The `title` 1️⃣️ of a category is the heading used for that category.
 
 ```json
 {
@@ -185,7 +185,9 @@ The `title` 1️⃣️ is the main heading that will be used for your configurat
 }
 ```
 
-The title should be the exact name of your extension. Words like "Extension", "Configuration", and "Settings" are redundant.
+Note that if the extension has multiple categories of extensions, and the title of one of the categories is the same as the extension display name, then the settings for that category will be placed directly below the main extension heading, no matter what the `order` field is set to.
+
+For both the `title` and `displayName` fields, words like "Extension", "Configuration", and "Settings" are redundant.
 
 - ✔ `"title": "GitMagic"`
 - ❌ `"title": "GitMagic Extension"`
