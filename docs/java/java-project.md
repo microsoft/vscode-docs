@@ -9,7 +9,7 @@ MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Ma
 MetaSocialImage:
 ---
 
-# Manage Java Projects in VS Code
+# Managing Java Projects in VS Code
 
 The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension helps you to manage your Java projects and their dependencies. It also helps you to create new Java projects, packages, and classes. To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Project Manager for Java extension.
 
@@ -19,9 +19,11 @@ The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemNa
 
 ### Project view
 
-The project view helps you view your Java projects and their dependencies, and provides entry points for project management tasks. 
+The project view helps you view your Java projects and their dependencies, and provides entry points for project management tasks.
 
 ![project view](images/java-project/projectmanager-overview.png)
+
+> By default, the Java project view is displayed below the explorer view. If you cannot see it. Try clicking the `...` button next to the `EXPLORER` and select `Java Projects`.
 
 In the overflow button of the navigation bar, there are more options to use. For example, you can switch between hierarchical view and flat view.
 
@@ -35,7 +37,7 @@ There are also many useful features in each node's context menu, you can right c
 
 ![context menu](images/java-project/context-menu.png)
 
-### Create Java project
+### Create a new Java project
 
 You can create a new Java project by clicking the **+** button in the navigation bar, or through the command: **Java: Create Java Project...** in Command Palette (`kb(workbench.action.showCommands)`). During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't installed.
 
@@ -43,9 +45,9 @@ You can create a new Java project by clicking the **+** button in the navigation
 
 ### Import Java projects
 
-Projects will be imported to workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, i.e. `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
+You can directly import existing Java projects and modules to workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, i.e. `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
 
-When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to workspace.
+When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to workspace. This command helps to import new projects into the workspace without the need to reload window.
 
 ### Export to JAR
 
@@ -110,7 +112,8 @@ We provide a user interface to configure the classpath for unmanaged folder. The
 
 In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean Java Language Server Workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
-## Library configuration
+## Dependency Management
+
 ### Add a Maven dependency
 
 For Maven project, you can add a dependency by clicking the **+** icon next to **Maven Dependencies** node in project view.
@@ -190,7 +193,7 @@ In this way, `bar-src.jar` is attached to bar.jar as its source.
 
 ## Lightweight Mode
 
-VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
+VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a quick-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
 
 Lightweight mode doesn't resolve imported dependencies nor build the project, so it does not support running, debugging, refactoring, linting, or detecting semantic errors. For these features to be available, you need to switch your workspace from lightweight mode to standard mode.
 
