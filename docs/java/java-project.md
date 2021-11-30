@@ -23,7 +23,7 @@ The project view helps you view your Java projects and their dependencies, and p
 
 ![project view](images/java-project/projectmanager-overview.png)
 
-> By default, the Java project view is displayed below the explorer view. If you cannot see it. Try clicking the `...` button next to the `EXPLORER` and select `Java Projects`.
+> By default, the Java project view is displayed below the explorer view. If you cannot see it, please try clicking the `...` button next to the `EXPLORER` and select `Java Projects`.
 
 In the overflow button of the navigation bar, there are more options to use. For example, you can switch between hierarchical view and flat view.
 
