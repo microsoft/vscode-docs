@@ -280,7 +280,7 @@ If extension authors do not want their pre-release users to be updated to the re
 
 Pre-release extensions are supported from VS Code version `1.63.0` and because of that all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
 
-> Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team so we enable the migration of the outdated separate extension to the pre-release version of the main extension.
+> **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team so we enable the migration of the outdated separate extension to the pre-release version of the main extension.
 
 
 ### Platform-specific extensions
