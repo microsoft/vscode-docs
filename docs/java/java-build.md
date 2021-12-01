@@ -108,16 +108,22 @@ To debug Maven goals, right-click on a goal and start debugging. The Maven exten
 
 Another handy feature provided by this extension is to generate a Maven project from [Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). The extension loads archetypes listed in local/remote catalogs. After selection, the extension sends `mvn archetype:generate -D...` to the terminal.
 
-There are two ways to generate a Maven project:
+There are several ways to create a Maven project:
 
-1. From the Maven explore, click **+**.
+1. From the Maven explorer, click **+**.
 
    ![Create Maven Project](images/java-build/create-maven-project.png)
 
-2. Right-click on a folder and select **Generate from Maven Archetype**.
+2. Open the **Command Palette** (`kb(workbench.action.showCommands)`), search for **Create Java Project** command.
 
    <video autoplay loop muted playsinline controls>
-     <source src="/docs/java/java-build/maven-archetype.mp4" type="video/mp4">
+     <source src="/docs/java/java-build/maven-archetype-command.mp4" type="video/mp4">
+   </video>
+
+3. Right-click on a target folder and select **Create Maven Project**.
+
+   <video autoplay loop muted playsinline controls>
+     <source src="/docs/java/java-build/maven-archetype-folder.mp4" type="video/mp4">
    </video>
 
 ## Gradle

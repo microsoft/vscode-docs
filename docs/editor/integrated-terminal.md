@@ -16,20 +16,36 @@ To open the terminal:
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** > **Terminal** menu command.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
+* You can create a new terminal via the **Terminal** menu with **Termninal** > **New Terminal**.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
+## Terminal shells
+
+The integrated terminal can use various shells installed on your machine, with the defaults being:
+
+* PowerShell on Windows
+* bash on macOS and Linux
+
+You can select other available shells to use in terminal instances or as the default such as Command Prompt on Windows, and zsh on macOS and Linux.
+
+![Integrated terminal shell selection dropdown](images/integrated-terminal/select-shell-dropdown.png)
+
+You can learn more about configuring terminal shells in the [terminal profiles](#terminal-profiles) section below.
+
+>**Note**: If you're having trouble launching your preferred shell in the integrated terminal, it may be due to your shell's configuration or a VS Code terminal setting. There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) to help you with these sorts of problems.
+
 ## Managing terminals
 
-The terminal tabs view is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
+The terminal tabs UI is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
 ![Terminal tabs](images/integrated-terminal/tabs.png)
 
 > **Tip:** Change the tabs location using the `terminal.integrated.tabs.location` setting.
 
-Terminal instances can be added by clicking the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
+Terminal instances can be added by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
 Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `kbstyle(Delete)`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
 
@@ -193,7 +209,7 @@ There are also extensions available that give more options such as [Terminal Her
 
 Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
 
-We've added an experimental setting `terminal.integrated.persistentSessionReviveProcess`, which determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shutdown (for example, on window or application close). Restoring of the process current working directory depends on whether it is supported by the shell.
+We've added an experimental setting `terminal.integrated.persistentSessionReviveProcess`, which determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shut down (for example, on window or application close). Restoring of the process current working directory depends on whether it is supported by the shell.
 
 ## Links
 
@@ -296,7 +312,7 @@ Note that the command only works with the `\u0000` format for using characters v
 
 The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to add the following to your settings.json which will tell the terminal not to skip the shell for keybindings matching the `workbench.action.terminal.focusFind` command:
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to add the following to your `settings.json`, which will tell the terminal not to skip the shell for keybindings matching the `workbench.action.terminal.focusFind` command:
 
 ```json
 {
