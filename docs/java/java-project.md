@@ -63,7 +63,7 @@ As Java evolves, it's common that developers work with multiple versions of JDK.
 
 The easiest way for you to configure the JDK is to use the Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will bring up the configuration user interface shown below.
 
-![JDK Configuration](images/java-tutorial/jdk-configuration.png)
+![JDK Configuration](images/java-project/jdk-configuration.png)
 
 If you want to configure without the wizard, refer below for details.
 
