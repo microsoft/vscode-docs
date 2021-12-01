@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 PageTitle: Java Unit Tests in Visual Studio Code
-DateApproved: 9/1/2021
+DateApproved: 11/30/2021
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
@@ -34,14 +34,16 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 - Visual Studio Code (version 1.59.0 or later)
 - [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
-
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 ## Project Setup
-(If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.)
+
+**Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
 
 ### JUnit 4
+
 #### Maven
+
 Add following configuration into your `pom.xml`:
 
 ```xml
@@ -54,6 +56,7 @@ Add following configuration into your `pom.xml`:
 ```
 
 #### Gradle
+
 Make sure following lines are added in your `build.gradle`:
 
 ```groovy
@@ -66,22 +69,27 @@ dependencies {
 }
 ```
 
-#### Unmanaged Folder
-If your project does not use any build tools. You need to download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
+#### Unmanaged folder
+
+If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
 
-> You can check the [official wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to setup JUnit 4.
+> You can check the [official JUnit wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to setup JUnit 4.
 
 ### JUnit 5
+
 The JUnit 5 team provides a collection of sample projects with different build tools. Check the [junit5-sample repository](https://github.com/junit-team/junit5-samples) if your project uses Maven or Gradle as your build tool.
 
-#### Unmanaged Folder
+#### Unmanaged folder
+
 If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information).
 
 ### TestNG
+
 #### Maven
+
 Add following configuration into your `pom.xml`:
 
 ```xml
@@ -94,6 +102,7 @@ Add following configuration into your `pom.xml`:
 ```
 
 #### Gradle
+
 Make sure following lines are added in your `build.gradle`:
 
 ```groovy
@@ -106,8 +115,9 @@ dependencies {
 }
 ```
 
-#### Unmanaged Folder
-If your project does not use any build tools. You need to download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
+#### Unmanaged folder
+
+If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
 - [jcommander.jar](https://search.maven.org/artifact/com.beust/jcommander/1.81/jar)
@@ -116,13 +126,13 @@ If your project does not use any build tools. You need to download the following
 
 ### Run/Debug Test Cases
 
-The extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, click the green play button. You can also right-click on it to see more options.
+The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, click the green play button. You can also right-click on it to see more options.
 
 ![Run/Debug Test Cases](images/java-testing/editor-decoration.png)
 
 ### Test Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can click the beaker-like button on the left-side activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+The Test Explorer is a tree view to show all the test cases in your workspace. You can click the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
 ![Test Explorer](images/java-testing/test_explorer.png)
 
@@ -133,20 +143,22 @@ Sometimes you may want to customize the configuration to run your test cases. To
 ![Customize test configurations](images/java-testing/configuration.png)
 
 Currently the supported configurations are:
-- **args**: Specify the command line arguments which will be passed to the test runner.
+
+- **args**: Specify the command-line arguments that will be passed to the test runner.
 - **classPaths**: The classpaths defined in this setting will be appended to the resolved classpaths.
 - **env**: Specify the extra environment variables when running the tests via a key-value object.
 - **envFile**: Specify the absolute path to a file containing environment variable definitions.
 - **modulePaths**: The modulepaths defined in this setting will be appended to the resolved modulepaths.
-- **name**: Specify the name of the configuration item. You can set the default configuration name via setting `java.test.defaultConfig`
-- **preLaunchTask**: Specify the label of a task specified in tasks.json (in the workspace's .vscode folder). The task will be launched before the start of testing
-- **sourcePaths**: Specify the extra source paths when debugging the tests
-- **vmArgs**: Specify the extra options and system properties for the JVM
-- **workingDirectory**: Specify the working directory when running the tests	
+- **name**: Specify the name of the configuration item. You can set the default configuration name via setting `java.test.defaultConfig`.
+- **preLaunchTask**: Specify the label of a task specified in `tasks.json` (in the workspace's `.vscode` folder). The task will be launched before the start of testing.
+- **sourcePaths**: Specify the extra source paths when debugging the tests.
+- **vmArgs**: Specify the extra options and system properties for the JVM.
+- **workingDirectory**: Specify the working directory when running the tests.
 
 More details can be found on the [vscode-java-test Wiki](https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration).
 
 ### View test results
+
 After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Test Explorer.
 
 ![View test results](images/java-testing/test_report.png)
@@ -154,26 +166,28 @@ After running/debugging the test cases, the state of the related test items will
 You can trigger the command **Test: Peek Output** to peek the results view. You can select the links in the stack trace to navigate to the source location.
 
 ### Generate tests
-The extension provides features to help you scaffold test cases. You can find the entry in the editor context menu. Select `Source Action...` and then choose `Generate Tests...`.
 
-If you trigger this source action from your main source code (test subject), you will be asked the test class's fully qualified name and the methods you want to test, the extension will generate the test code for you:
+The extension provides features to help you scaffold test cases. You can find the entry in the editor context menu. Select **Source Action...** and then choose **Generate Tests...**.
+
+If you trigger this source action from your main source code (test subject), you will be asked the test class's fully qualified name and the methods you want to test. The extension will then generate the test code for you:
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/generate-tests-from-main.mp4" type="video/mp4">
 </video>
 
-If you trigger it from your test source code, you will be asked which kinds of test methods you want to add. Including the lifecycle methods and the test method:
+If you trigger the source action from your test source code, you will be asked which kinds of test methods you want to add. Including the lifecycle methods and the test method:
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/generate-tests-from-test.mp4" type="video/mp4">
 </video>
 
 ### Test navigation
-The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named `Go to Test` or `Go to Test Subject` in the editor context menu:
+
+The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named **Go to Test** or **Go to Test Subject** in the editor context menu:
 
 ![Go to tests](images/java-testing/goto-test.png)
 
-You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching `>Java: Go to Test`
+You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.
 
 ### VS Code testing commands
 
