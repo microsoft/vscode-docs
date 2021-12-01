@@ -264,7 +264,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 Users can choose to install pre-release versions of extensions in VS Code or VS Code Insiders in order to regularly get the latest extension version before the official extension release.
 
-![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/token1.png)
+![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/pre-release.png)
 
 For extensions to publish a pre-release version a `pre-release` flag needs to be passed in the publish step:
 
