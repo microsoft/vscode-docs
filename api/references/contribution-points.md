@@ -198,7 +198,7 @@ For both the `title` and `displayName` fields, words like "Extension", "Configur
 
 The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
 
-In the settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
+In the settings UI, your configuration key will be used to namespace and construct a title. Though an extension can contain multiple categories of settings, each setting of the extension must still have its own unique key. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
 
 > Blame: **Date Format**
 
