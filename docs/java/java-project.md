@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Java project management in Visual Studio Code
-DateApproved: 9/1/2021
+DateApproved: 12/1/2021
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
@@ -15,15 +15,15 @@ The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemNa
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-> For details on how to get started with the extension pack, please see [Getting Started](/docs/java/java-tutorial.md).
+> For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
-### Project view
+## Project view
 
 The project view helps you view your Java projects and their dependencies, and provides entry points for project management tasks.
 
 ![project view](images/java-project/projectmanager-overview.png)
 
-> By default, the Java project view is displayed below the explorer view. If you cannot see it, please try clicking the `...` button next to the `EXPLORER` and select `Java Projects`.
+> By default, the Java project view is displayed below the **Explorer** view. If you cannot see it, try clicking the `...` button in the **EXPLORER** title bar and select **Java Projects**.
 
 In the overflow button of the navigation bar, there are more options to use. For example, you can switch between hierarchical view and flat view.
 
@@ -45,7 +45,7 @@ You can create a new Java project by clicking the **+** button in the navigation
 
 ### Import Java projects
 
-You can directly import existing Java projects and modules to workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, i.e. `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
+You can directly import existing Java projects and modules to workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, for example, `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
 
 When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to workspace. This command helps to import new projects into the workspace without the need to reload window.
 
@@ -65,7 +65,7 @@ The easiest way for you to configure the JDK is to use the Java Runtime Configur
 
 ![JDK Configuration](images/java-tutorial/jdk-configuration.png)
 
-If you want to configure without the wizard, please refer below for details.
+If you want to configure without the wizard, refer below for details.
 
 ### JDK for projects
 
@@ -105,14 +105,15 @@ If you only work with source files and don't use a build tool, VS Code will appl
 
 ![jdk home](images/java-project/projectmanager-javahomeconf.png)
 
-## Configure classpath for unmanaged folder
-We provide a user interface to configure the classpath for unmanaged folder. The classpath can be set manually in the classpath configuration page. You can open it by executing the **Java: Configure Classpath** command from the Command Palette (`kb(workbench.action.showCommands)`).
+## Configure classpath for unmanaged folders
+
+The Project Management for Java extension provides a user interface to configure the classpath for unmanaged folders. The classpath can be set manually in the classpath configuration page. You can open it by executing the **Java: Configure Classpath** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![configure classpath](images/java-project/configure-classpath.png)
 
 In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean Java Language Server Workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
-## Dependency Management
+## Dependency management
 
 ### Add a Maven dependency
 
