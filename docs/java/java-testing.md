@@ -71,12 +71,12 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
+If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library configuration](/docs/java/java-project.md#library-configuration) for more information):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
 
-> You can check the [official JUnit wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to setup JUnit 4.
+> You can check the [official JUnit Wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to setup JUnit 4.
 
 ### JUnit 5
 
@@ -84,7 +84,7 @@ The JUnit 5 team provides a collection of sample projects with different build t
 
 #### Unmanaged folder
 
-If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information).
+If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Library configuration](/docs/java/java-project.md#library-configuration) for more information).
 
 ### TestNG
 
@@ -117,14 +117,14 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library Configuration](/docs/java/java-project.md#library-configuration) for more information):
+If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Library configuration](/docs/java/java-project.md#library-configuration) for more information):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
 - [jcommander.jar](https://search.maven.org/artifact/com.beust/jcommander/1.81/jar)
 
 ## Features
 
-### Run/Debug Test Cases
+### Run/Debug test cases
 
 The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, click the green play button. You can also right-click on it to see more options.
 
@@ -205,7 +205,7 @@ There are VS Code settings specific to testing that can be found by searching fo
 
 If you meet any problem when using the extension, you can review the [FAQ](https://github.com/microsoft/vscode-java-test/wiki/FAQ) and our [issue list](https://github.com/microsoft/vscode-java-test/issues) to check if there is an answer to your problem.
 
-## Contributing and Feedback
+## Contributing and feedback
 
 If you are interested in providing feedback or contributing directly to the code base, please read [Contributing to Test Runner for Java](https://github.com/Microsoft/vscode-java-test/blob/main/CONTRIBUTING.md), which covers the following:
 
