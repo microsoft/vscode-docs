@@ -260,6 +260,27 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
+### Pre-release extensions
+
+Users can choose to install pre-release versions of extensions in VS Code or VS Code Insiders in order to regularly get the latest extension version before the official extension release.
+
+![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/token1.png)
+
+For extensions to publish a pre-release version a `pre-release` flag needs to be passed in the publish step:
+
+```bash
+vsce publish --pre-release
+```
+
+We only support `major.minor.patch` for extension versions and semver pre-release tags are not supported. Support for this will arrive in the future.
+
+VS Code will auto update extensions to the highest version available, so even if a user opted into a pre-release version and there is an extension release with a higher version, that user will be updated to the released version.
+Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
+If extension authors do not want their pre-release users to be updated to the release version we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher.
+
+Pre-release extensions are supported from VS Code version `1.63.0` and because of that all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
+
+
 ### Platform-specific extensions
 
 Extensions can publish different VSIXs for each platform (Windows, Linux, macOS) VS Code is running on. We call such extensions  **platform-specific extensions**.
