@@ -16,14 +16,30 @@ To open the terminal:
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** > **Terminal** menu command.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
+* You can create a new terminal via the **Terminal** menu with **Termninal** > **New Terminal**.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
+## Terminal shells
+
+The integrated terminal can use various shells installed on your machine, with the defaults being:
+
+* PowerShell on Windows
+* bash on macOS and Linux
+
+You can select other available shells to use in terminal instances or as the default such as Command Prompt on Windows, and zsh on macOS and Linux.
+
+![Integrated terminal shell selection dropdown](images/integrated-terminal/select-shell-dropdown.png)
+
+You can learn more about configuring terminal shells in the [terminal profiles](#terminal-profiles) section below.
+
+>**Note**: If you're having trouble launching your preferred shell in the integrated terminal, it may be due to your shell's configuration or a VS Code terminal setting. There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) to help you with these sorts of problems.
+
 ## Managing terminals
 
-The terminal tabs view is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
+The terminal tabs UI is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
 ![Terminal tabs](images/integrated-terminal/tabs.png)
 
