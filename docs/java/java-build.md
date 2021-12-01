@@ -108,7 +108,7 @@ To debug Maven goals, right-click on a goal and start debugging. The Maven exten
 
 Another handy feature provided by this extension is to generate a Maven project from [Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). The extension loads archetypes listed in local/remote catalogs. After selection, the extension sends `mvn archetype:generate -D...` to the terminal.
 
-There are several entries to create a Maven project:
+There are several ways to create a Maven project:
 
 1. From the Maven explorer, click **+**.
 
