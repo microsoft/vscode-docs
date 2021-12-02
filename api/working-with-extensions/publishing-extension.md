@@ -271,6 +271,7 @@ For extensions to publish a pre-release version a `pre-release` flag needs to be
 ```bash
 vsce publish --pre-release
 ```
+Alternatively, the `pre-release` flag can also be passed in the `package` step.
 
 We only support `major.minor.patch` for extension versions and semver pre-release tags are not supported. Support for this will arrive in the future.
 
