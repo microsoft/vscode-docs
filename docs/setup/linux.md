@@ -32,8 +32,8 @@ Note that other binaries are also available on the [VS Code download page](/Down
 Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Alternatively, the repository and key can also be installed manually with the following script:
 
 ```bash
-wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo sh -c 'echo "deb https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo echo "deb https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
 ```
 
 Then update the package cache and install the package using:
