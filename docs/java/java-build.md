@@ -122,13 +122,64 @@ There are two ways to generate a Maven project:
 
 ## Gradle
 
-VS Code supports basic Gradle Java project (not including Android) via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). Currently the extension supports the following features:
-* Gradle project and task management
-* Run Gradle tasks
-* Gradle file authoring (auto-completion, syntax highlighting, error reporting, etc)
-* Manage Gradle daemons
+VS Code supports Gradle Java project (not including Android) via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. The extension provides a visual interface for your Gradle build, you can use this interface to view Gradle Tasks and Project dependencies, or run Gradle Tasks as VS Code Tasks. The extension also offers a better Gradle build file authoring experience including syntax highlighting, error reporting, and auto-completion.
 
-See full feature list at the GitHub [repo](https://github.com/microsoft/vscode-gradle)
+### Working with Gradle tasks
+
+When you open a Gradle project in VSCode, you can find some useful Gradle views by clicking the Gradle Side Bar item. `Gradle Projects` view lists all the Gradle projects found in the workspace. You can view, run or debug Gradle tasks here.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-tasks.mp4" type="video/mp4">
+</video>
+
+When there are a lot of Gradle tasks in the workspace, it would be a little hard to find a specific task, the extension offers `Pinned Tasks` view to help you pin your favorite tasks so that you can easily find them in a separate view. You can also see the recently run tasks in the `Recent Tasks` view.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-pinned-recent-tasks.mp4" type="video/mp4">
+</video>
+
+### Viewing Gradle Dependencies
+
+In the `Gradle Projects` view, you can find a `Dependencies` item under each Gradle project item. It includes all the dependencies in the specific configuration, you can easily check the dependency status of your project.
+
+![Gradle Dependencies](images/java-build/gradle-dependencies.png)
+
+### Managing Gradle Daemons
+
+The `Gradle Daemons` view shows the daemon status of the current workspace. It lists all the running Gradle daemons in the same version as the workspace. You can choose to stop a specific one or all the daemons in this view.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-daemons.mp4" type="video/mp4">
+</video>
+
+### Authoring build files
+
+The extension provides some useful authoring features on the Gradle build files.
+
+When opening a Groovy Gradle file, the extension will analyze the Gradle file and provide semantic tokens information, providing more precise highlighting results.
+
+![Gradle Highlighting](images/java-build/gradle-highlighting.png)
+
+In the `outline` view, the extension provides the document symbols of the opened Gradle file, which can help you to navigate to any part of the file easily.
+
+![Gradle Outline](images/java-build/gradle-outline.png)
+
+If there is any syntax error (missing characters, type not found, etc.) in the opened Gradle file, you can find them in the `Problems` view.
+
+![Gradle Problems](images/java-build/gradle-problems.png)
+
+The extension supports basic auto completions for a Gradle file, when you’re trying to type a Gradle closures or properties in a Gradle script, the extension will offer some available gradle closures or properties for you.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-auto-completion.mp4" type="video/mp4">
+</video>
+
+When you are trying to declare a new dependency, the extension will provide a dependency candidate list for you.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-dependency-completion.mp4" type="video/mp4">
+</video>
+
 
 ### Additional resources
 
