@@ -118,6 +118,7 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `inputOption.activeBackground`: Background color of activated options in input fields.
 - `inputOption.activeBorder`: Border color of activated options in input fields.
 - `inputOption.activeForeground`: Foreground color of activated options in input fields.
+- `inputOption.hoverBackground`: Background color of activated options in input fields.
 - `inputValidation.errorBackground`: Input validation background color for error severity.
 - `inputValidation.errorForeground`: Input validation foreground color for error severity.
 - `inputValidation.errorBorder`: Input validation border color for error severity.
@@ -177,6 +178,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
 - `tree.tableColumnsBorder`: Tree stroke color for the indentation guides.
+- `tree.tableOddRowsBackground`: Background color for odd table rows.
 
 ## Activity Bar
 
@@ -218,6 +220,7 @@ The Minimap shows a minified version of the current file.
 - `minimap.background`: Minimap background color.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
 - `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
+- `minimap.unicodeHighlight`: Minimap marker color for highlighted unicode characters.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -346,6 +349,11 @@ The current line is typically shown as either background highlight or a border (
 - `editor.lineHighlightBackground`: Background color for the highlight of line at the cursor position.
 - `editor.lineHighlightBorder`: Background color for the border around the line at the cursor position.
 
+The color for unicode highlights
+
+- `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
+
+
 The link color is visible when clicking on a link.
 
 ![Link](images/theme-color/link.png)
@@ -456,6 +464,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.warningForeground`: Overview ruler marker color for warnings.
 - `editorOverviewRuler.infoForeground`: Overview ruler marker color for infos.
 - `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
+- `editorOverviewRuler.unicodeForeground`: Overview ruler marker color for highlighted unicode characters. The color must not be opaque so as not to hide underlying decorations.
 
 Errors and warnings:
 
@@ -516,6 +525,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
 - `editorSuggestWidget.selectedForeground`: Foreground color of the selected entry in the suggest widget.
 - `editorSuggestWidget.selectedIconForeground`: Icon foreground color of the selected entry in the suggest widget.
+- `editorSuggestWidgetStatus.foreground`: Foreground color of the suggest widget status.
 
 - `editorHoverWidget.foreground`: Foreground color of the editor hover.
 - `editorHoverWidget.background`: Background color of the editor hover.
@@ -524,7 +534,9 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorHoverWidget.statusBarBackground`: Background color of the editor hover status bar.
 
 - `editorGhostText.border`: Border color of the ghost text shown by inline completion providers and the suggest preview.
+- `editorGhostText.background`: Background color of the ghost text in the editor.
 - `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
+
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
 
@@ -683,6 +695,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 - `extensionIcon.starForeground`: The icon color for extension ratings.
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
+- `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
 
 ## Quick picker colors
 
