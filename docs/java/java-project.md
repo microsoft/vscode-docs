@@ -55,21 +55,11 @@ You can export your build to JAR from the projects view or by running the comman
 
 ![Export jar from the project view](images/java-project/exportjar.gif)
 
-## Configure JDK
+## Configure Runtime for Projects
 
-As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you can use configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
+> **Note**: The Java language server requires JDK version 11 or above to launch it self, but this is **NOT** a requirement to your projects' runtime. Check [Settings for the JDK](/docs/java/java-tutorial.md#settings-for-the-jdk) for more information about how to set the JDK for the extension itself.
 
-> **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
-
-The easiest way for you to configure the JDK is to use the Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will bring up the configuration user interface shown below.
-
-![JDK Configuration](images/java-project/jdk-configuration.png)
-
-If you want to configure without the wizard, refer below for details.
-
-### JDK for projects
-
-VS Code will detect the runtime required for your project and choose the appropriate configuration from `java.configuration.runtimes`.
+As Java evolves, it's common that developers work with multiple versions of JDK. You can map them to your local installation paths via the setting: `java.configuration.runtimes`. The setting has following format:
 
 ```json
 "java.configuration.runtimes": [
@@ -95,15 +85,25 @@ VS Code will detect the runtime required for your project and choose the appropr
 ]
 ```
 
-Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.8", "JavaSE-9", "JavaSE-10", "JavaSE-11", "JavaSE-12", "JavaSE-13", "JavaSE-14", "JavaSE-15", "JavaSE-16", "JavaSE-17".
+> **Note**: You can set one of them to default by adding `"default":  true` to the entry. The default JDK will be used for your unmanaged folders (with out build tools).
+
+To see which JDKs are used for your projects, you can trigger the command **Java: Configure Java Runtime** in **Command Palette** (`kb(workbench.action.showCommands)`). This command opens a view displaying the runtime information for your projects:
+
+![Project runtime](images/java-project/configure-project-runtime.png)
+
+### Change JDK for Maven and Gradle projects
+
+If you want to change the JDK version for your Maven or Gradle projects, you need to update it in your build scripts (`pom.xml` or `build.gradle`). You can click <span class="codicon codicon-info"></span> to see how to make such changes. Click <span class="codicon codicon-edit"></span> will navigate to the build script file of the project.
+
+### Change JDK for unmanaged folders
+To change the JDK for unmanaged folders (with out any build tools), you can click the <span class="codicon codicon-edit"></span> button. It will list all the JDKs and you can select one for your unmanaged folders.
+
+### Download JDKs
+If you want to download a new JDK, you can click the `download` link, or trigger the command **Java: Install New JDK** in **Command Palette** (`kb(workbench.action.showCommands)`). It will open a new view guiding you to download JDKs.
+
+![Download-jdk](images/java-project/download-jdk.png)
 
 > **Note**: To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
-
-### JDK for source only
-
-If you only work with source files and don't use a build tool, VS Code will apply an appropriate runtime using the default configuration of `java.configuration.runtimes`. If a default isn't specified, VS Code will use the runtime used by the language server, which is determined by the order shown below:
-
-![jdk home](images/java-project/projectmanager-javahomeconf.png)
 
 ## Configure classpath for unmanaged folders
 
