@@ -15,49 +15,49 @@ The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemNa
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-> For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
+>For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
-## Project view
+## Projects view
 
-The project view helps you view your Java projects and their dependencies, and provides entry points for project management tasks.
+The **Java Projects** view helps you view your Java projects and their dependencies, and provides entry points for project management tasks.
 
 ![project view](images/java-project/projectmanager-overview.png)
 
-> By default, the Java project view is displayed below the **Explorer** view. If you cannot see it, try clicking the `...` button in the **EXPLORER** title bar and select **Java Projects**.
+>By default, the Java Projects view is displayed below the **Explorer** view. If you cannot see it, try clicking the `...` button in the **EXPLORER** title bar and select **Java Projects**.
 
 In the overflow button of the navigation bar, there are more options to use. For example, you can switch between hierarchical view and flat view.
 
 ![overflow button](images/java-project/overflow-button.png)
 
-You can find buttons next to the nodes in the explorer, which can be used as useful shortcuts for some functionalities.
+You can find buttons next to the nodes in the Explorer, which provide useful shortcuts for some actions.
 
 ![inline button](images/java-project/inline-button.png)
 
-There are also many useful features in each node's context menu, you can right click on the node in explorer to toggle it out.
+There are also many useful features in each node's context menu, you can right-click on the node in Explorer to toggle it out.
 
 ![context menu](images/java-project/context-menu.png)
 
 ### Create a new Java project
 
-You can create a new Java project by clicking the **+** button in the navigation bar, or through the command: **Java: Create Java Project...** in Command Palette (`kb(workbench.action.showCommands)`). During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't installed.
+You can create a new Java project by clicking the **+** button in the navigation bar, or through the command: **Java: Create Java Project...** in Command Palette (`kb(workbench.action.showCommands)`). During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't already installed.
 
 ![create project](images/java-project/projectmanager-createproject.png)
 
 ### Import Java projects
 
-You can directly import existing Java projects and modules to workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, for example, `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
+You can directly import existing Java projects and modules to your workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, for example, `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
 
-When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to workspace. This command helps to import new projects into the workspace without the need to reload window.
+When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to your workspace. This command helps to import new projects into the workspace without the need to reload the VS Code window.
 
 ### Export to JAR
 
-You can export your build to JAR from the project view or by running the command **Java: Export Jar...**.
+You can export your build to JAR from the projects view or by running the command **Java: Export Jar...**.
 
 ![Export jar from the project view](images/java-project/exportjar.gif)
 
 ## Configure JDK
 
-As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you have to know two configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
+As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you can use configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
 
 > **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
 

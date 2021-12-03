@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 8/18/2021
+DateApproved: 12/1/2021
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -56,7 +56,7 @@ For this tutorial, the only required extensions are:
 
 ### Supported Java versions
 
-The supported version for running the Language Support for Java™ (redhat.java) extension and the supported version for your projects are two separate requirements. 
+The supported version for running the Language Support for Java™ (redhat.java) extension and the supported version for your projects are two separate requirements.
 
 To run the extension itself, Java 11 or above version is required.
 
