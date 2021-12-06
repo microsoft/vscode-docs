@@ -140,7 +140,7 @@ When there are a lot of Gradle tasks in the workspace, it might be hard to find 
 
 ### Viewing Gradle Dependencies
 
-In the `Gradle Projects` view, you can find a `Dependencies` item under each Gradle project item. It includes all the dependencies in the specific configuration, you can easily check the dependency status of your project.
+In the `Gradle Projects` view, you can find a `Dependencies` item under each Gradle project item. It includes all the dependencies in your specified configuration, you can easily check the dependency status of your project.
 
 ![Gradle Dependencies](images/java-build/gradle-dependencies.png)
 
