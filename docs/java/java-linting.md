@@ -15,15 +15,15 @@ In addition, there are also the [Checkstyle for Java](https://marketplace.visual
 
 ## Formatter
 
-Basically, you can use `Format Document` command to format the current Java file. If you didn't specify a formatter profile before, your Java file will be formatted with default settings.
+Basically, you can use `Format Document` command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted with default settings.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-linting/formatting.mp4" type="video/mp4">
 </video>
 
-**Changing formatter settings**
+**Applying formatter settings**
 
-You can easily apply the formatter settings from an existing formatter profile in Eclipse scheme. For example, you should have an existing Eclipse formatter file like [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml), then set the following property:
+You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
 
 ```json
 "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
@@ -39,13 +39,13 @@ After setting the formatter profile, `Format Document` command will use the spec
 
 **Editing formatter settings**
 
-[Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a friendly UI to help the users edit the existing formatter profile. You can open it in command `Java: Open Java Formatter Settings with Preview`. In the editor, you can change the formatter settings and preview the effects. After saving the current editor, the changes will be saved to the formatter profile.
+[Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a friendly editor to help the users edit an existing formatter profile. You can open it in command `Java: Open Java Formatter Settings with Preview`. In the editor, you can change the formatter settings and preview the effects. After saving the current editor, the changes will be saved to the formatter profile.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-linting/formatting-editing.mp4" type="video/mp4">
 </video>
 
-> Note: the formatter settings editor supports only local formatter profile. If your workspace contains a remote formatter profile, it will help you download it in `.vscode` folder.
+> Note: the formatter settings editor supports only local formatter profile. If your workspace contains a remote formatter profile, it will guide you to download it in `.vscode` folder.
 
 When editing settings in the editor, you can preview the changes' effects in the right `Preview` panel.
 
