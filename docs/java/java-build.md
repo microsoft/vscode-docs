@@ -132,7 +132,7 @@ When you open a Gradle project in VSCode, you can find some useful Gradle views 
   <source src="/docs/java/java-build/gradle-tasks.mp4" type="video/mp4">
 </video>
 
-When there are a lot of Gradle tasks in the workspace, it would be a little hard to find a specific task, the extension offers `Pinned Tasks` view to help you pin your favorite tasks so that you can easily find them in a separate view. You can also see the recently run tasks in the `Recent Tasks` view.
+When there are a lot of Gradle tasks in the workspace, it might be hard to find a specific task, the extension offers `Pinned Tasks` view to help you pin your favorite tasks so that you can easily find them in a separate view. You can also see recent executed tasks in the `Recent Tasks` view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/gradle-pinned-recent-tasks.mp4" type="video/mp4">
