@@ -138,7 +138,7 @@ When there are a lot of Gradle tasks in the workspace, it might be hard to find 
   <source src="/docs/java/java-build/gradle-pinned-recent-tasks.mp4" type="video/mp4">
 </video>
 
-### Viewing Gradle Dependencies
+### Viewing Gradle dependencies
 
 In the `Gradle Projects` view, you can find a `Dependencies` item under each Gradle project item. It includes all the dependencies in your specified configuration, you can easily check the dependency status of your project.
 
