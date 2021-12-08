@@ -56,9 +56,9 @@ The `launch.json` file is located in a `.vscode` folder in your workspace (proje
 
 For more details on how to create the `launch.json`, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations); for more details on configuraiton options for Java, please read [Configuration options](/docs/java/java-debugging.md#configuration-options).
 
-## Use
+## Run and Debug
 
-To run and debug your Java application, there are several entry points for starting a debugging session.
+The debugger extension provides multiple ways to run and debug your Java application.
 
 ### Run from CodeLens
 
@@ -76,23 +76,15 @@ Another way to start debugging is to select **Run Java** or **Debug Java** menu 
 
 Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** viewlet from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
 
-### Debugging Maven/Gradle projects
+## Debugging single files
 
-VS Code can run and debug projects managed by build tools such as Maven and Gradle.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-debugging/maven-debugging.mp4" type="video/mp4">
-</video>
-
-### Debugging single files
-
-VS Code can run and debug single Java files without any project.
+In addition to support for debugging Java projects managed by buildtools, VS Code also supports for debugging single Java files without any project.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/single-file-debugging.mp4" type="video/mp4">
 </video>
 
-### Debug session inputs
+## Debug session inputs
 
 The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `"java.debug.settings.console"` to configure a global console for all Java debug sessions.
 
@@ -100,6 +92,8 @@ The default Debug Console in VS Code doesn't support inputs. If your program nee
   <source src="/docs/java/java-debugging/launch-in-terminal.mp4" type="video/mp4">
 </video>
 
+## Breakpoints
+The Debugger for Java supports various breakpoints, such as line breakpoints, conditional breakpoints, data breakpoints, logpoints.
 
 ### Breakpoint - Conditional breakpoint
 
@@ -124,7 +118,7 @@ You can have the debugger break when a variable change its value. Note that the 
 </video>
 
 
-### Expression evaluation
+## Expression evaluation
 
 The debugger also lets you evaluate expressions in the **WATCH** window as well as the Debug Console.
 
@@ -133,7 +127,7 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 </video>
 
 
-### Hot Code Replace
+## Hot Code Replace
 
 Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Debugger for Java transmits the class changes over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
@@ -147,7 +141,7 @@ You may use the debug setting `java.debug.settings.hotCodeReplace` to control ho
 - `auto` - Automatically apply the changes after compilation.
 - `never` - Disable Hot Code Replace.
 
-### Step filtering
+## Step filtering
 
 Step filter is supported by the extension to filter out types that you do not want to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they could be skipped when you step through.
 
