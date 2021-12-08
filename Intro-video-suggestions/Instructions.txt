@@ -1,0 +1,3 @@
+This portion of VS Code Docs is intended to allow users to help us keep the Introductory Videos up to date.
+
+When new features are added that make certain videos obsolete, you can create a new script for said video or upload your own video recording attempting to recreate the intro video with the correct information.

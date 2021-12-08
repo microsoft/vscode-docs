@@ -1,0 +1,2 @@
+Attempt to create a new Introductory Video for new users to learn a portion of VS Code:
+Intended to help keep these videos up to date when new updates change how VS Code operates.
