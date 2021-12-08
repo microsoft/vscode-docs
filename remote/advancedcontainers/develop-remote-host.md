@@ -13,8 +13,7 @@ Sometimes you may want to use the Remote - Containers extension to develop insid
 
 ## Connect using the Remote - SSH extension (recommended)
 
-As of VS Code 1.63, **you can use the [Remote - SSH](ssh.md) and Remote - Containers extensions together**! You do not even need to have a Docker client installed locally. To do so:
-
+You can use the [Remote - SSH](/docs/remote/ssh.md) and Remote - Containers extensions together. You do not even need to have a Docker client installed locally. To do so:
 
 1. Follow the [installation](/docs/remote/ssh.md#installation) and SSH [host setup](/docs/remote/ssh.md#ssh-host-setup) steps for the Remote - SSH extension.
 1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
@@ -22,7 +21,7 @@ As of VS Code 1.63, **you can use the [Remote - SSH](ssh.md) and Remote - Contai
 1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
 1. Use the **Remote-Containers: Reopen in Container** command.
 
-The rest of the Remote - Containers quick start applies as-is! You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
+The rest of the Remote - Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
 
 ## Connect using the Docker CLI
 
