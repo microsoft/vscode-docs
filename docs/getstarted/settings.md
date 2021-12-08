@@ -272,7 +272,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font family for CodeLens.
     "editor.codeLensFontFamily": "",
 
-    // Controls the font size in pixels for CodeLens. When set to `0`, the 90% of `editor.fontSize` is used.
+    // Controls the font size in pixels for CodeLens. When set to `0`, 90% of `editor.fontSize` is used.
     "editor.codeLensFontSize": 0,
 
     // Controls whether the editor should render the inline color decorators and color picker.
@@ -603,7 +603,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.rename.enablePreview": true,
 
     // Controls whether the editor should render control characters.
-    "editor.renderControlCharacters": false,
+    "editor.renderControlCharacters": true,
 
     // Render last line number when the file ends with a newline.
     "editor.renderFinalNewline": true,
@@ -856,6 +856,21 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether clicking on the empty content after a folded line will unfold the line.
     "editor.unfoldOnClickAfterEndOfLine": false,
 
+    // Defines allowed characters that are not being highlighted.
+    "editor.unicodeHighlight.allowedCharacters": {},
+
+    // Controls whether characters are highlighted that can be confused with basic ASCII characters, except those that are common in the current user locale.
+    "editor.unicodeHighlight.ambiguousCharacters": true,
+
+    // Controls whether characters in comments should also be subject to Unicode highlighting.
+    "editor.unicodeHighlight.includeComments": "inUntrustedWorkspace",
+
+    // Controls whether characters that just reserve space or have no width at all are highlighted.
+    "editor.unicodeHighlight.invisibleCharacters": true,
+
+    // Controls whether all non-basic ASCII characters are highlighted. Only characters between U+0020 and U+007E, tab, line-feed and carriage-return are considered basic ASCII.
+    "editor.unicodeHighlight.nonBasicASCII": "inUntrustedWorkspace",
+
     // Remove unusual line terminators that might cause problems.
     //  - auto: Unusual line terminators are automatically removed.
     //  - off: Unusual line terminators are ignored.
@@ -941,6 +956,12 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the width(px) of diff decorations in gutter (added & modified).
     "scm.diffDecorationsGutterWidth": 3,
+
+    // Controls whether leading and trailing whitespace is ignored in Source Control diff gutter decorations.
+    //  - true: Ignore leading and trailing whitespace.
+    //  - false: Do not ignore leading and trailing whitespace.
+    //  - inherit: Inherit from `diffEditor.ignoreTrimWhitespace`.
+    "scm.diffDecorationsIgnoreTrimWhitespace": "false",
 
     // Controls the font for the input message. Use `default` for the workbench user interface font family, `editor` for the `editor.fontFamily`'s value, or a custom font family.
     "scm.inputFontFamily": "default",
@@ -1485,6 +1506,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.
     "screencastMode.keyboardOverlayTimeout": 800,
 
+    // Controls what is displayed in the keyboard overlay when showing only shortcuts.
+    //  - keys: Keys.
+    //  - command: Command title.
+    //  - commandWithGroup: Command title prefixed by its group.
+    //  - commandAndKeys: Command title and keys.
+    //  - commandWithGroupAndKeys: Command title and keys, with the command prefixed by its group.
+    "screencastMode.keyboardShortcutsFormat": "commandAndKeys",
+
     // Controls the color in hex (#RGB, #RGBA, #RRGGBB or #RRGGBBAA) of the mouse indicator in screencast mode.
     "screencastMode.mouseIndicatorColor": "#FF0000",
 
@@ -1583,7 +1612,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - default: Uppercase and lowercase names are mixed together.
     //  - upper: Uppercase names are grouped together before lowercase names.
     //  - lower: Lowercase names are grouped together before uppercase names.
-    //  - unicode: Names are sorted in unicode order.
+    //  - unicode: Names are sorted in Unicode order.
     "explorer.sortOrderLexicographicOptions": "default",
 
 // Search
@@ -1878,7 +1907,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - preserve-aligned: Preserve wrapping of attributes but align.
     "html.format.wrapAttributes": "auto",
 
-    // Alignment size when using 'force aligned' and 'aligned multiple' in `html.format.wrapAttributes` or `null` to use the default indent size.
+    // Indent wrapped attributes to after N characters. Use `null` to use the default indent size. Ignored if `html.format.wrapAttributes` is set to 'aligned'.
     "html.format.wrapAttributesIndentSize": null,
 
     // Maximum amount of characters per line (0 = disable).
@@ -2100,6 +2129,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable auto import suggestions.
     "javascript.suggest.autoImports": true,
 
+    // Enable/disable snippet completions for class members.
+    "javascript.suggest.classMemberSnippets.enabled": true,
+
     // Complete functions with their parameter signature.
     "javascript.suggest.completeFunctionCalls": false,
 
@@ -2287,6 +2319,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable auto import suggestions.
     "typescript.suggest.autoImports": true,
+
+    // Enable/disable snippet completions for class members.
+    "typescript.suggest.classMemberSnippets.enabled": true,
 
     // Complete functions with their parameter signature.
     "typescript.suggest.completeFunctionCalls": false,
@@ -2726,7 +2761,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "notebook.globalToolbar": true,
 
     // Control whether the actions on the notebook toolbar should render label or not.
-    "notebook.globalToolbarShowLabel": true,
+    "notebook.globalToolbarShowLabel": "always",
 
     // Control where the insert cell actions should appear.
     //  - betweenCells: A toolbar that appears on hover between cells.
@@ -2737,6 +2772,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the display of line numbers in the cell editor.
     "notebook.lineNumbers": "off",
+
+    // Controls the font size of rendered markup in notebooks. When set to `0`, 120% of `editor.fontSize` is used.
+    "notebook.markup.fontSize": 0,
 
     // When enabled cursor can navigate to the next/previous cell when the current cursor in the cell editor is at the first/last line.
     "notebook.navigation.allowNavigateToSurroundingCells": true,
@@ -2790,14 +2828,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // If enabled, alt/option + click will reposition the prompt cursor to underneath the mouse when `editor.multiCursorModifier` is set to `'alt'` (the default value). This may not work reliably depending on your shell.
     "terminal.integrated.altClickMovesCursor": true,
 
-    // A path that when set will override `terminal.integrated.shell.linux` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
-    "terminal.integrated.automationShell.linux": null,
+    // The terminal profile to use on Linux for automation-related terminal usage like tasks and debug. This setting will currently be ignored if #terminal.integrated.automationShell.linux# is set.
+    "terminal.integrated.automationProfile.linux": null,
 
-    // A path that when set will override `terminal.integrated.shell.osx` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
-    "terminal.integrated.automationShell.osx": null,
+    // The terminal profile to use on macOS for automation-related terminal usage like tasks and debug. This setting will currently be ignored if #terminal.integrated.automationShell.osx# is set.
+    "terminal.integrated.automationProfile.osx": null,
 
-    // A path that when set will override `terminal.integrated.shell.windows` and ignore `shellArgs` values for automation-related terminal usage like tasks and debug.
-    "terminal.integrated.automationShell.windows": null,
+    // The terminal profile to use for automation-related terminal usage like tasks and debug. This setting will currently be ignored if #terminal.integrated.automationShell.windows# is set.
+    "terminal.integrated.automationProfile.windows": null,
 
     // The number of milliseconds to show the bell within a terminal tab when triggered.
     "terminal.integrated.bellDuration": 1000,
@@ -2937,7 +2975,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A multiplier to be used on the `deltaY` of mouse wheel scroll events.
     "terminal.integrated.mouseWheelScrollSensitivity": 1,
 
-    // When the terminal process must be shutdown (for example, on window or application close), this determines when the previous terminal session contents should be restored and processes be recreated when the workspace is next opened. Restoring of the process current working directory depends on whether it is supported by the shell.
+    // When the terminal process must be shutdown (for example, on window or application close), this determines when the previous terminal session contents should be restored and processes be recreated when the workspace is next opened.
     //  - onExit: Revive the processes after the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu).
     //  - onExitAndWindowClose: Revive the processes after the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), or when the window is closed.
     //  - never: Never restore the terminal buffers or recreate the process.
@@ -3041,9 +3079,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // - `${task}`: indicates this terminal is associated with a task
     "terminal.integrated.tabs.title": "${process}",
 
-    // Controls what version of unicode to use when evaluating the width of characters in the terminal. If you experience emoji or other wide characters not taking up the right amount of space or backspace either deleting too much or too little then you may want to try tweaking this setting.
-    //  - 6: Version 6 of unicode, this is an older version which should work better on older systems.
-    //  - 11: Version 11 of unicode, this version provides better support on modern systems that use modern versions of unicode.
+    // Controls what version of Unicode to use when evaluating the width of characters in the terminal. If you experience emoji or other wide characters not taking up the right amount of space or backspace either deleting too much or too little then you may want to try tweaking this setting.
+    //  - 6: Version 6 of Unicode, this is an older version which should work better on older systems.
+    //  - 11: Version 11 of Unicode, this version provides better support on modern systems that use modern versions of Unicode.
     "terminal.integrated.unicodeVersion": "11",
 
     // Controls whether or not WSL distros are shown in the terminal dropdown
@@ -3094,6 +3132,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // When enabled shows the current problem in the status bar.
     "problems.showCurrentInStatus": false,
+
+    // Controls the order in which problems are navigated.
+    //  - severity: Navigate problems ordered by severity
+    //  - position: Navigate problems ordered by position
+    "problems.sortOrder": "severity",
 
 // Breadcrumb Navigation
 
@@ -3365,6 +3408,11 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.suggest.insertMode": "replace"
     },
 
+    // Configure settings to be overridden for [javascript] language.
+    "[javascript]":  {
+        "editor.maxTokenizationLineLength": 2500
+    },
+
     // Configure settings to be overridden for [json] language.
     "[json]":  {
         "editor.quickSuggestions": {
@@ -3393,8 +3441,14 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Configure settings to be overridden for [markdown] language.
     "[markdown]":  {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
         "editor.wordWrap": "on",
         "editor.quickSuggestions": false
+    },
+
+    // Configure settings to be overridden for [plaintext] language.
+    "[plaintext]":  {
+        "editor.unicodeHighlight.ambiguousCharacters": false
     },
 
     // Configure settings to be overridden for [scss] language.
@@ -3849,7 +3903,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.runSilent": false,
 
     // The default click action used in the npm scripts explorer: `open` or `run`, the default is `open`.
-    "npm.scriptExplorerAction": "open"
+    "npm.scriptExplorerAction": "open",
+
+    // An array of regular expressions that indicate which scripts should be excluded from the NPM Scripts view.
+    "npm.scriptExplorerExclude": []
 }
 ```
 
