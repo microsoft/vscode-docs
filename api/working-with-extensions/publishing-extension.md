@@ -266,23 +266,24 @@ Users can choose to install pre-release versions of extensions in VS Code or VS 
 
 ![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/pre-release.png)
 
-For extensions to publish a pre-release version a `pre-release` flag needs to be passed in the publish step:
+For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the publish step:
 
 ```bash
 vsce publish --pre-release
 ```
+
 Alternatively, the `pre-release` flag can also be passed in the `package` step.
 
-We only support `major.minor.patch` for extension versions and semver pre-release tags are not supported. Support for this will arrive in the future.
+We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Support for this will arrive in the future.
 
 VS Code will auto update extensions to the highest version available, so even if a user opted into a pre-release version and there is an extension release with a higher version, that user will be updated to the released version.
 Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
-If extension authors do not want their pre-release users to be updated to the release version we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher.
 
-Pre-release extensions are supported from VS Code version `1.63.0` and because of that all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
+If extension authors do not want their pre-release users to be updated to the release version, we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher.
 
-> **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team so we enable the automatic uninstall of the outdated separate extension and install of the pre-release version of the main extension.
+Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
 
+> **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install of the pre-release version of the main extension.
 
 ### Platform-specific extensions
 
