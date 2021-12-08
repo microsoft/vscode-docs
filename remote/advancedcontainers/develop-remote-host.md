@@ -5,15 +5,30 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 11/4/2021
+DateApproved: 12/8/2021
 ---
 # Develop on a remote Docker host
 
-Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote container, so Visual Studio Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [attach to any running container](/docs/remote/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container.
+Sometimes you may want to use the Remote - Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote container, so Visual Studio Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [use the Remote - SSH extension](/docs/remote/ssh.md) to open a folder on a remote host in a container, [attach to any running container](/docs/remote/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container using a socket.
 
-However, note that the **Docker CLI still needs to be installed locally** (along with the Docker Compose CLI if you are using it).
+## Connect using the Remote - SSH extension (recommended)
 
-## A basic remote example
+As of VS Code 1.63, **you can use the [Remote - SSH](ssh.md) and Remote - Containers extensions together**! You do not even need to have a Docker client installed locally. To do so:
+
+
+1. Follow the [installation](/docs/remote/ssh.md#installation) and SSH [host setup](/docs/remote/ssh.md#ssh-host-setup) steps for the Remote - SSH extension.
+1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
+1. [Install Docker](/docs/remote/containers#installation) on your SSH host. You do not need to install Docker locally.
+1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
+1. Use the **Remote-Containers: Reopen in Container** command.
+
+The rest of the Remote - Containers quick start applies as-is! You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
+
+## Connect using the Docker CLI
+
+This model only requires that a Docker Engine be running on a remote host that your local Docker CLI can connect to. While using the Remote - SSH extension is easier and doesn't require the Docker CLI to even be installed locally, this model can be useful for situations where you already have a host you are connecting to from the command line. This approach is also useful if you are looking to attach to already running containers on this remote server.
+
+### A basic remote example
 
 Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` and restarting VS Code (or reloading the window).
 
