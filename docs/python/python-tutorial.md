@@ -67,23 +67,13 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 ## Verify the Python installation
 
-To verify that you've installed Python successfully on your machine, run one of the following commands (depending on your operating system):
-
-- Linux/macOS: open a Terminal Window and type the following command:
+To verify that you've installed Python successfully on your machine, open a Terminal, Command Prompt, or PowerShell window and type the following command:
 
     ```bash
     python3 --version
     ```
 
-- Windows: open a command prompt and run the following command:
-
-    ```ps
-    py -3 --version
-    ```
-
 If the installation was successful, the output window should show the version of Python that you installed.
-
-   > **Note** You can use the `py -0` command in the VS Code integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 
 ## Start VS Code in a project (workspace) folder
 
