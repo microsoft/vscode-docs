@@ -11,6 +11,45 @@ MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
 
 Visual Studio Code provide many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
 
+## List of Supported Code Actions
+- [Refactoring](#refactoring)
+  - [Assign to variable](#assign-to-variable)
+  - [Convert anonymous to nested class](#convert-anonymous-to-nested-class)
+  - [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
+  - [Convert to enhanced for loop](#convert-to-enhanced-for-loop)
+  - [Convert to lambda expression](#convert-to-lambda-expression)
+  - [Convert to static import](#convert-to-static-import)
+  - Extract refactorings
+    - [Extract to constant](#extract-to-constant)
+    - [Extract to field](#extract-to-field)
+    - [Extract to method](#extract-to-method)
+    - [Extract to local variable](#extract-to-local-variable)
+  - Inline refactorings
+    - [Inline constant](#inline-constant)
+    - [Inline local variable](#inline-local-variable)
+    - [Inline method](#inline-method)
+  - Invert boolean
+    - [Invert conditions](#invert-conditions)
+    - [Invert local variable](#invert-local-variable)
+  - [Move](#move)
+  - [Rename](#rename)
+  - Type change
+    - [Change resolved type to var type](#change-resolved-type-to-var-type)
+    - [Change var type to resolved type](#change-var-type-to-resolved-type)
+- [Source Actions](#source-actions)
+  - [Generate constructors](#generate-constructors)
+  - [Generate delegate methods](#generate-delegate-methods)
+  - [Override/implement methods](#overrideimplement-methods)
+  - [Organize imports](#organize-imports)
+  - [Generate getters and setters](#generate-getters-and-setters)
+  - [Generate `hashCode()` and `equals()`](#generate-hashcode-and-equals)
+  - [Generate `toString()`](#generate-tostring)
+  - [Change modifiers to final where possible](#change-modifiers-to-final-where-possible)
+- Other Code Actions supported
+  - [Fix non-accessible reference](#fix-nonaccessible-reference)
+  - [Create non-existing package](#create-non-existing-package)
+  - [More...](#other-code-actions-supported)
+
 ## Refactoring
 
 The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides a lot of easily accessible refactoring options.
@@ -22,33 +61,6 @@ Refactoring commands are available from the context menu of the editor. Select t
 ![Invoke Refactoring](images/java-refactoring/refactoring_menu.png)
 
 Then you will see all the available refactoring options.
-
-### List of Supported Code Actions
-
-- [Assign to variable](#assign-to-variable)
-- [Change modifiers to final](#change-modifiers-to-final)
-- [Convert anonymous to nested class](#convert-anonymous-to-nested-class)
-- [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
-- [Convert to enhanced for loop](#convert-to-enhanced-for-loop)
-- [Convert to lambda expression](#convert-to-lambda-expression)
-- [Convert to static import](#convert-to-static-import)
-- Extract refactorings
-  - [Extract to constant](#extract-to-constant)
-  - [Extract to field](#extract-to-field)
-  - [Extract to method](#extract-to-method)
-  - [Extract to local variable](#extract-to-local-variable)
-- Inline refactorings
-  - [Inline constant](#inline-constant)
-  - [Inline local variable](#inline-local-variable)
-  - [Inline method](#inline-method)
-- Invert boolean
-  - [Invert conditions](#invert-conditions)
-  - [Invert local variable](#invert-local-variable)
-- [Move](#move)
-- [Rename](#rename)
-- Type change
-  - [Change resolved type to var type](#change-resolved-type-to-var-type)
-  - [Change var type to resolved type](#change-var-type-to-resolved-type)
 
 ### Assign to variable
 
@@ -73,38 +85,6 @@ It can also be used to assigns a parameter to a new field for unused parameter(s
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/assign-to-field.mp4" type="video/mp4">
 </video>
-
-### Change modifiers to final
-
-Adds `final` modifier to all the variables and parameters in the current source file.
-
-#### Example
-
-##### Before
-
-```java
-public class Clazz {
-  public void method(int value) {
-    boolean notValid = value > 5;
-    if (notValid) {
-      // do something
-    }
-  }
-}
-```
-
-##### After
-
-```java
-public class Clazz {
-  public void method(final int value) {
-    final boolean notValid = value > 5;
-    if (notValid) {
-      // do something
-    }
-  }
-}
-```
 
 ### Convert anonymous to nested class
 
@@ -738,9 +718,9 @@ String s = "";
 
 Source Actions could be used to generate common code structures and recurring elements. Some of them are quick fixes which helps you fix your code issues on the fly.
 
-### Generate constructor from super class
+### Generate constructors
 
-Add a constructor from super class.
+Add a constructor for the class.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/generate-constructor.mp4" type="video/mp4">
@@ -798,6 +778,38 @@ There is a new Source Action to generate the `toString()` method. Customization 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/generate-tostring.mp4" type="video/mp4">
 </video>
+
+### Change modifiers to final where possible
+
+Adds `final` modifier to all the variables and parameters in the current source file.
+
+#### Example
+
+##### Before
+
+```java
+public class Clazz {
+  public void method(int value) {
+    boolean notValid = value > 5;
+    if (notValid) {
+      // do something
+    }
+  }
+}
+```
+
+##### After
+
+```java
+public class Clazz {
+  public void method(final int value) {
+    final boolean notValid = value > 5;
+    if (notValid) {
+      // do something
+    }
+  }
+}
+```
 
 ### Fix non-accessible reference
 
