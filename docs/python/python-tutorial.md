@@ -69,9 +69,9 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 To verify that you've installed Python successfully on your machine, open a Terminal, Command Prompt, or PowerShell window and type the following command:
 
-```bash
-python3 --version
-```
+    ```bash
+    python3 --version
+    ```
 
 If the installation was successful, the output window should show the version of Python that you installed.
 
@@ -245,17 +245,26 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 
-   ```bash
+   **For Windows**
+
+   ```cmd
    python3 -m venv .venv
-   source .venv/bin/activate
+   .venv\scripts\activate
    ```
 
-   >**Note**: If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
+   If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
    current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
    run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
 
    ```cmd
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+   ```
+
+   **For macOS/Linux**
+
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
    ```
 
 1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
