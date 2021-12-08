@@ -53,23 +53,18 @@ Alternatively, you can add Java language support to VS Code by installing the po
 
 There are also other popular Java extensions you can pick for your own needs, including:
 
-1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
-2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
-3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
-4. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-5. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-6. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
-7. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-8. [Extension Pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
-9. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-10. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+1. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack)
+2. [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
+3. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) (for Apache Felix, Karaf, Tomcat, Jetty, etc)
+4. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) (for Red Hat Servers, e.g. Wildfly)
+5. [Extension Pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+7. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".
-
-![Java Extensions](images/java/extensions.png)
 
 This document describes some of the key features included in those Java extensions.
 
@@ -77,11 +72,12 @@ This document describes some of the key features included in those Java extensio
 
 **NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).
 
-Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the Java Language Support (redhat.java) extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For how to configure these versions, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the Language Support for Java™ (redhat.java) extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For how to configure these versions, refer to [Configure JDK](/docs/java/java-project.md#configure-runtime-for-projects).
 
-For developers new to Java or new to VS Code, we provide a Getting Started experience. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can open the Getting Started experience from within VS Code with the **Java: Getting Started** command from the Command Palette.  Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
+For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code
+Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
 
-![Java Getting Started](images/java/getting-started.png)
+![Java Getting Started](images/java/beginner-tips.png)
 
 ## Working with Java source files
 
@@ -167,12 +163,6 @@ For more about testing, read [Testing Java](/docs/java/java-testing.md).
 
 To further improve your Java productivity in VS Code, there are extensions for most popular frameworks and tools, such as [Spring Boot](https://projects.spring.io/spring-boot/), [Tomcat](https://tomcat.apache.org/), and [Jetty](https://www.eclipse.org/jetty/), created by the community.
 
-The [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension includes an explorer to easily navigate and manage your Tomcat servers. You can create, start, debug, stop, and rename Tomcat servers with the extension.
-
-<video autoplay loop muted playsinline controls>
-  <source src="/docs/languages/java/tomcat.mp4" type="video/mp4">
-</video>
-
 See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about support for Tomcat and Jetty, as well as other application servers with VS Code.
 
 [Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also the [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions provided by Microsoft, to further improve your experience with Spring Boot in Visual Studio Code.
@@ -180,8 +170,6 @@ See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about s
 See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support in VS Code, and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spring Cloud](/docs/java/java-spring-cloud.md) to learn more about deploying Spring apps to Azure from VS Code.
 
 ## Next steps
-
-You may [Sign up](https://devblogs.microsoft.com/visualstudio/java-on-visual-studio-code-april-update#signup) to follow the latest of Java on Visual Studio Code.
 
 Learn more about Java in VS Code:
 
@@ -191,7 +179,7 @@ Learn more about Java in VS Code:
 - [Java Testing](/docs/java/java-testing.md)
 - [Java Project Management](/docs/java/java-project.md)
 - [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
-- [Tomcat and Jetty Support](/docs/java/java-tomcat-jetty.md)
+- [Application Servers](/docs/java/java-tomcat-jetty.md)
 - [Azure with VS Code](/docs/java/java-on-azure.md)
 
 Read on to find out more about Visual Studio Code:
