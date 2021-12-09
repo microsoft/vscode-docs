@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Run and Debug
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Run and Debug Java in Visual Studio Code
-DateApproved: 6/17/2019
+DateApproved: 12/9/2021
 MetaDescription: See how you can run and debug your Java source code locally, and in the cloud.
 MetaSocialImage:
 ---
@@ -42,19 +42,17 @@ To get the complete Java language support in Visual Studio Code, you can install
 
 >For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
-For more details, please read [Java tutorial](/docs/java/java-tutorial.md).
-
 ## Configure
 
 By default, the debugger will run out-of-box by automatically finding the main class and generating a default launch configuration in memory to launch your application.
 
-If you would like to customize and persist your launch configuration, you can click the **create a launch.json file** link in the <b>Run and Debug</b> viewlet.
+If you would like to customize and persist your launch configuration, you can select the **create a launch.json file** link in the **Run and Debug** view.
 
 ![Debug Menu](images/java-debugging/run-debug-button.png)
 
 The `launch.json` file is located in a `.vscode` folder in your workspace (project root folder).
 
-For more details on how to create the `launch.json`, please read [Launch configurations](/docs/editor/debugging.md#launch-configurations); for more details on configuraiton options for Java, please read [Configuration options](/docs/java/java-debugging.md#configuration-options).
+For more details on how to create the `launch.json`, read [Launch configurations](/docs/editor/debugging.md#launch-configurations); for more details on configuration options for Java, you can read [Configuration options](/docs/java/java-debugging.md#configuration-options).
 
 ## Run and Debug
 
@@ -66,19 +64,19 @@ You will find **Run|Debug** on the [CodeLens](/blogs/2017/02/12/code-lens-roundu
 
 ![CodeLens](images/java-debugging/java-codelens.png)
 
-### Run from Editor Menu
+### Run from Editor menu
 
 Another way to start debugging is to select **Run Java** or **Debug Java** menu from the top editor title bar.
 
 ![EditorMenu](images/java-debugging/run-menu.png)
 
-### Run from Pressing F5
+### Run from pressing F5
 
-Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** viewlet from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
+Pressing `kb(workbench.action.debug.start)`, the debugger will automatically find the entry point of your project and start debugging. You can also start a debugging session from the **Run and Debug** view from the side bar of VS Code. See more at [Debugging in VS Code](/docs/editor/debugging.md).
 
 ## Debugging single files
 
-In addition to support for debugging Java projects managed by buildtools, VS Code also supports for debugging single Java files without any project.
+In addition to support for debugging Java projects managed by build tools, VS Code also supports for debugging single Java files without any project.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/single-file-debugging.mp4" type="video/mp4">
@@ -86,13 +84,14 @@ In addition to support for debugging Java projects managed by buildtools, VS Cod
 
 ## Debug session inputs
 
-The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `"java.debug.settings.console"` to configure a global console for all Java debug sessions.
+The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `java.debug.settings.console` to configure a global console for all Java debug sessions.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/launch-in-terminal.mp4" type="video/mp4">
 </video>
 
 ## Breakpoints
+
 The Debugger for Java supports various breakpoints, such as line breakpoints, conditional breakpoints, data breakpoints, logpoints.
 
 ### Breakpoint - Conditional breakpoint
@@ -105,18 +104,17 @@ With the help of expression evaluation, the debugger also supports conditional b
 
 ### Breakpoint - Data breakpoint
 
-You can have the debugger break when a variable change its value. Note that the data breakpoint can only be set inside a debug session. This means you need to launch your application and break on a regular breakpoint first. You can then pick a field in the `VARIABLES` view and set a data breakpoint.
+You can have the debugger break when a variable changes its value. Note that the data breakpoint can only be set inside a debug session. This means you need to launch your application and break on a regular breakpoint first. You can then pick a field in the **VARIABLES** view and set a data breakpoint.
 
 ![Data Breakpoint](images/java-debugging/data-breakpoint.png)
 
 ### Breakpoint - Logpoints
 
-[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to debug console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
+[Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to Debug Console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/logpoints.mp4" type="video/mp4">
 </video>
-
 
 ## Expression evaluation
 
@@ -125,7 +123,6 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/expression-evaluation.mp4" type="video/mp4">
 </video>
-
 
 ## Hot Code Replace
 
@@ -151,7 +148,7 @@ Step filter is supported by the extension to filter out types that you do not wa
 
 ## Configuration options
 
-There are many options and settings available to configure the debugger. For example, configuring the jvm arguments and environment variables is easily done with launch options.
+There are many options and settings available to configure the debugger. For example, configuring the JVM arguments and environment variables is easily done with launch options.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-debugging/launch-configuration.mp4" type="video/mp4">
@@ -178,7 +175,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `envFile` - Absolute path to a file containing environment variable definitions.
 - `stopOnEntry` - Automatically pause the program after launching.
 - `console` - The specified console to launch the program. If not specified, use the console specified by the `java.debug.settings.console` user setting.
-  - `internalConsole` - VS Code debug console (input stream not supported).
+  - `internalConsole` - VS Code Debug Console (input stream not supported).
   - `integratedTerminal` - VS Code Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 - `shortenCommandLine` - When the project has long classpath or big VM arguments, the command line to launch the program may exceed the maximum command-line string limitation allowed by the OS. This configuration item provides multiple approaches to shorten the command line. Defaults to `auto`.
@@ -188,7 +185,7 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
   - `auto` - Automatically detect the command-line length and determine whether to shorten the command line via an appropriate approach.
 - `stepFilters` - Skip specified classes or methods when stepping.
   - `classNameFilters` - [**Deprecated** - replaced by `skipClasses`] Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
-  - `skipClasses` - Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, e.g. java.*, *.Foo
+  - `skipClasses` - Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, for example `java.*`, `*.Foo`.
   - `skipSynthetics` - Skip synthetic methods when stepping.
   - `skipStaticInitializers` - Skip static initializer methods when stepping.
   - `skipConstructors` - Skip constructor methods when stepping.
@@ -199,18 +196,18 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `port` (required) - The debug port of remote debuggee.
 - `processId` - Use process picker to select a process to attach, or Process ID as integer.
   - `${command:PickJavaProcess}` - Use process picker to select a process to attach.
-  - an integer pid - Attach to the specified local process.
+  - An integer PID - Attach to the specified local process.
 - `timeout` - Time out value before reconnecting, in milliseconds (default to 30000 ms).
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. It is required when the workspace has multiple Java projects, otherwise the expression evaluation and conditional breakpoint may not work.
 - `stepFilters` - Skip specified classes or methods when stepping.
   - `classNameFilters` - [**Deprecated** - replaced by `skipClasses`] Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
-  - `skipClasses` - Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, e.g. java.*, *.Foo
+  - `skipClasses` - Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, for example `java.*`, `*.Foo`.
   - `skipSynthetics` - Skip synthetic methods when stepping.
   - `skipStaticInitializers` - Skip static initializer methods when stepping.
   - `skipConstructors` - Skip constructor methods when stepping.
 
-### User Settings
+### User settings
 
 - `java.debug.logLevel`: Minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
 - `java.debug.settings.showHex`: Show numbers in hex format in **Variables**, defaults to `false`.
@@ -227,17 +224,17 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `java.debug.settings.enableRunDebugCodeLens`: Enable the CodeLens provider for the run and debug buttons over main entry points, defaults to `true`.
 - `java.debug.settings.forceBuildBeforeLaunch`: Force building the workspace before launching java program, defaults to `true`.
 - `java.debug.settings.console`: The specified console to launch a Java program, defaults to `integratedTerminal`. If you want to customize the console for a specific debug session, please modify the `console` configuration in `launch.json`.
-  - `internalConsole` - VS Code debug console (input stream not supported).
+  - `internalConsole` - VS Code Debug Console (input stream not supported).
   - `integratedTerminal` - VS Code Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
-- `java.debug.settings.exceptionBreakpoint.skipClasses`: Skip the specified classes when breaking on exception. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, e.g. java.*, *.Foo
-- `java.debug.settings.stepping.skipClasses`: Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, e.g. java.*, *.Foo
+- `java.debug.settings.exceptionBreakpoint.skipClasses`: Skip the specified classes when breaking on exception. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, for example `java.*`, `*.Foo`.
+- `java.debug.settings.stepping.skipClasses`: Skip the specified classes when stepping. You could use the built-in variables such as '$JDK' and '$Libraries' to skip a group of classes, or add a specific class name expression, for example `java.*`, `*.Foo`.
 - `java.debug.settings.stepping.skipSynthetics`: Skip synthetic methods when stepping.
 - `java.debug.settings.stepping.skipStaticInitializers`: Skip static initializer methods when stepping.
 - `java.debug.settings.stepping.skipConstructors`: Skip constructor methods when stepping.
 - `java.debug.settings.jdwp.limitOfVariablesPerJdwpRequest`: The maximum number of variables or fields that can be requested in one JDWP request. The higher the value, the less frequently debuggee will be requested when expanding the variable view. Also a large number can cause JDWP request timeout. Defaults to 100.
 - `java.debug.settings.jdwp.requestTimeout`: The timeout (ms) of JDWP request when the debugger communicates with the target JVM. Defaults to 3000.
-- `java.debug.settings.vmArgs`: The default VM arguments to launch the Java program. Eg. Use '-Xmx1G -ea' to increase the heap size to 1GB and enable assertions. If you want to customize the VM arguments for a specific debug session, please modify the 'vmArgs' config in launch.json.
+- `java.debug.settings.vmArgs`: The default VM arguments to launch the Java program. For example, use '-Xmx1G -ea' to increase the heap size to 1 GB and enable assertions. If you want to customize the VM arguments for a specific debug session, you can modify the 'vmArgs' config in `launch.json`.
 - `java.silentNotification`: Controls whether notifications can be used to report progress. If true, use status bar to report progress instead. Defaults to `false`.
 
 ## Troubleshooting

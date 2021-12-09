@@ -4,14 +4,15 @@ Area: java
 TOCTitle: Refactoring
 ContentId: 36ee3e12-9bcc-4f01-9672-857ad2733c2d
 PageTitle: Java code refactoring and Source Actions for Visual Studio Code
-DateApproved: 4/9/2020
+DateApproved: 12/9/2021
 MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
 ---
 # Java refactoring and Source Actions
 
-Visual Studio Code provide many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
+Visual Studio Code provides many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
 
 ## List of Supported Code Actions
+
 - [Refactoring](#refactoring)
   - [Assign to variable](#assign-to-variable)
   - [Convert anonymous to nested class](#convert-anonymous-to-nested-class)
@@ -52,11 +53,11 @@ Visual Studio Code provide many options to refactor your source code as well as 
 
 ## Refactoring
 
-The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides a lot of easily accessible refactoring options.
+The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides many easily accessible refactoring options.
 
 ### Invoke refactoring
 
-Refactoring commands are available from the context menu of the editor. Select the element you want to refactor, right-click to open the context menu and choose `Refactor...`:
+Refactoring commands are available from the context menu of the editor. Select the element you want to refactor, right-click to open the context menu, and choose **Refactor...**:
 
 ![Invoke Refactoring](images/java-refactoring/refactoring_menu.png)
 
@@ -80,7 +81,7 @@ Arrays.asList("apple", "lemon", "banana");
 List<String> fruits = Arrays.asList("apple", "lemon", "banana");
 ```
 
-It can also be used to assigns a parameter to a new field for unused parameter(s) in a constructor.
+It can also be used to assign a parameter to a new field for unused parameter(s) in a constructor.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/assign-to-field.mp4" type="video/mp4">
@@ -201,7 +202,7 @@ Converts an anonymous class creation to the lambda expression.
 
 #### Example
 
-Let's convert the anonymous class `Runnable(){...}` to a lamda expression.
+Let's convert the anonymous class `Runnable(){...}` to a lambda expression.
 
 ##### Before
 
@@ -334,7 +335,7 @@ When selecting a variable declaration, convert the variable to field.
 
 ### Extract to method
 
-Creates a new method containing the statements or expressions currently selected and replaces the selection with a reference to the new method. This feature is useful for cleaning up lengthy, cluttered, or overly-complicated methods.
+Creates a new method containing the statements or expressions currently selected and replaces the selection with a reference to the new method. This feature is useful for cleaning up lengthy, cluttered, or overly complicated methods.
 
 #### Examples
 
@@ -716,7 +717,7 @@ String s = "";
 
 ## Source Actions
 
-Source Actions could be used to generate common code structures and recurring elements. Some of them are quick fixes which helps you fix your code issues on the fly.
+Source Actions could be used to generate common code structures and recurring elements. Some of them are Quick Fixes that help you fix code issues on the fly.
 
 ### Generate constructors
 
