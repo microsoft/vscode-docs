@@ -75,7 +75,7 @@ Issues found in the opened file can also be reviewed through the Problems panel 
 
 **Rule documentation and remediation guidance**
 
-For any issue detected, SonarLint provides full documentation about the rule that was violated, and the coding best practice it relates to. This lets you understand why an issue is raised, and most importantly how to best fix it.
+For any issues detected, SonarLint provides full documentation about the rule that was violated, and the best coding practice it relates to. This allows you to understand why an issue is raised, and how to fix it
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-linting/sonarlint-description.mp4" type="video/mp4">
