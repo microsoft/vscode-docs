@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 11/4/2021
+DateApproved: 12/8/2021
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -16,7 +16,7 @@ To open the terminal:
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** > **Terminal** menu command.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
-* You can create a new terminal via the **Terminal** menu with **Termninal** > **New Terminal**.
+* You can create a new terminal via the **Terminal** menu with **Terminal** > **New Terminal**.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
