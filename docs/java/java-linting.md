@@ -23,7 +23,7 @@ You can use `Format Document` command to format a Java file. If you didn't speci
 
 **Applying formatter settings**
 
-You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
+You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, if you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
 
 ```json
 "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
