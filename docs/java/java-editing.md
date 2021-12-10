@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Navigate and Edit
 ContentId: 843e139a-9e3c-4b4f-95d1-32a9a7480e8e
 PageTitle: Navigate and edit Java Source Code in Visual Studio Code
-DateApproved: 7/6/2020
+DateApproved: 12/9/2021
 MetaDescription: Navigate and edit Java Source Code in Visual Studio Code
 ---
 # Navigate and edit Java source code
@@ -15,12 +15,14 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Code navigation
 
-With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate the members within the current file. [Project view](/docs/java/java-project.md#project-view) also provide a great overview of your project. As a Java editor, it also supports Call Hierarchy, Type Hierarchy, Definition Navigation, Search Types in Workspace, etc..
+With the [Outline view](/docs/getstarted/userinterface.md#outline-view), you can conveniently navigate the members within the current file. [Project view](/docs/java/java-project.md#project-view) also provide a great overview of your project. As a Java editor, it also supports Call Hierarchy, Type Hierarchy, Definition Navigation, Search Types in Workspace, etc.
 
 ## Search for symbols
+
 You can search for symbols in the current file or workspace to navigate your code more quickly.
 
 ### Search for symbols in the workspace
+
 To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location. Alternatively, you can also use  __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '#' command to search the current workspace. `kb(workbench.action.showAllSymbols)` is just the shortcut for the '#' commands, so everything works the same.
 
 <video autoplay loop muted playsinline controls>
@@ -96,7 +98,7 @@ With [Smart Selection](https://code.visualstudio.com/updates/v1_33#_smart-select
 
 ## Semantic Highlighting
 
-Syntax highlighting is a very important feature that allows you to read code more efficiently. With the help of [Semantic Highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview), VS Code can provide more accurate source code coloring based on symbol information from the Java language service.
+Syntax highlighting is an important feature that allows you to read code more efficiently. With the help of [Semantic Highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview), VS Code can provide more accurate source code coloring based on symbol information from the Java language service.
 
 Below is just one example, left is the behavior after enabling semantic highlighting and right is the one with only syntax highlighting.
 
@@ -137,7 +139,7 @@ For more details about refactoring and code actions, see [Refactoring and Source
 
 Code completion in Visual Studio Code for Java is provided by [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). The extension is powered by the same [Java development tools (JDT)](https://www.eclipse.org/jdt/) behind Eclipse, so you can expect the same level of support.
 
-In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it's trained on the most common usages from high quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
+In addition, there's also AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/). It saves you time by putting what you're most likely to use at the top of your completion list. IntelliCode recommendations are based on thousands of open-source projects on GitHub each with over 100 stars, so it's trained on the most common usages from high-quality projects. When combined with the context of your code, the completion list is tailored to promote those practices. Here's IntelliCode for Java in action.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-editing/intellicode.mp4" type="video/mp4">
@@ -155,6 +157,6 @@ VS Code supports applying templates when you create a Java source file. When you
 
 ## Code snippets
 
-Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Leveraging information from Java language server, it also provides a preview of the code snippet during the selection.
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
 
 ![Code Snippet](images/java-editing/code-snippet.png)

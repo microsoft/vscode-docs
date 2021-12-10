@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Overview
 ContentId: 23ce059e-95ec-4eaa-975c-d4cf76159516
 PageTitle: Doing Data Science in Visual Studio Code
-DateApproved: 11/4/2021
+DateApproved: 12/8/2021
 MetaDescription: Doing Data Science in Visual Studio Code.
 ---
 
