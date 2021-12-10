@@ -15,7 +15,7 @@ In addition, there are also the [Checkstyle for Java](https://marketplace.visual
 
 ## Formatter
 
-Basically, you can use `Format Document` command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted with default settings.
+You can use `Format Document` command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted using default settings.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-linting/formatting.mp4" type="video/mp4">
