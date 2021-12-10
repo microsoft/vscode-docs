@@ -61,7 +61,7 @@ You can also undo and redo changes.
 
 ## SonarLint
 
-The [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. Java is one of the languages supported, and the extension will run in the background and highlight source code that poses a quality or security concern.
+The [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. Java is one of the languages supported. The extension runs in the background and highlights source code that poses a quality or security concern.
 
 **Code Analysis on the fly**
 
