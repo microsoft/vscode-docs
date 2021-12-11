@@ -69,7 +69,7 @@ Furthermore, VS Code also supports showing dependencies in a tree view, which al
 
 ### Execute Maven commands and goals
 
-By right-clicking each Maven project in the explorer, you can conveniently run Maven goals.
+By right-clicking each Maven project in the Explorer, you can conveniently run Maven goals.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/maven-run.mp4" type="video/mp4">
@@ -110,7 +110,7 @@ Another handy feature provided by this extension is to generate a Maven project 
 
 There are several ways to create a Maven project:
 
-1. From the Maven Explorer, select **+**.
+1. From the Maven Explorer, select the **+** **Create Maven Project** button.
 
    ![Create Maven Project](images/java-build/create-maven-project.png)
 
@@ -196,7 +196,7 @@ In addition to Maven, there's also a [Bazel extension](https://marketplace.visua
 
 Read on to find out more about:
 
-* [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-* [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-* [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+* [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+* [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+* [Java testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
+* [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

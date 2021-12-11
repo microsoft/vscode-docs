@@ -30,7 +30,7 @@ A working Java environment with essential extensions installed is needed, includ
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
-For more details, refer to [Java Tutorial](/docs/java/java-tutorial.md#setting-up-vs-code-for-java-development)
+For more details, refer to the [Getting Started with Java](/docs/java/java-tutorial.md#setting-up-vs-code-for-java-development) tutorial.
 
 >**Note**: More information about JDK can be found at [supported Java versions](/docs/java/java-tutorial.md#supported-java-versions).
 
@@ -79,6 +79,6 @@ In addition to using `kb(workbench.action.debug.start)` to run your application,
 
 ## Next steps
 
-* To deploy your web app, see the [Deploy a Java Application to Azure](/docs/java/java-webapp.md) tutorial.
+* To deploy your web app, see [Java Web Apps with VS Code](/docs/java/java-webapp.md).
 * To containerize a web app and deploy as a Docker container, check out [Docker in VS Code](/docs/containers/overview.md).
-* To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md).
+* To learn more about Java debugging features, see [Running and debugging Java](/docs/java/java-debugging.md).
