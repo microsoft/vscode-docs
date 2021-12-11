@@ -4,14 +4,14 @@ Area: java
 TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
 PageTitle: Maven and Gradle support for Java in Visual Studio Code
-DateApproved: 12/1/2021
+DateApproved: 12/10/2021
 MetaDescription: Maven and Gradle support for Java in Visual Studio Code
 MetaSocialImage:
 ---
 
 # Java build tools in VS Code
 
-This document will give you an overview of how work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension as well as other tools.
+This document is an overview of how to work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extensions as well as other tools.
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -79,8 +79,8 @@ The extension also preserves the history of goals for each project, so you can q
 
 There are two ways to rerun a goal:
 
-1. Command Palette > Select **Maven: History** > Select a project > Select command from the history.
-2. Right-click a project > Click **History** > Select command from history.
+1. In the Command Palette, run **Maven: History**, then select a project and a command from its history.
+2. Right-click a project and select **History**. You can then select a previous command from history.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/maven-history.mp4" type="video/mp4">
@@ -110,7 +110,7 @@ Another handy feature provided by this extension is to generate a Maven project 
 
 There are several ways to create a Maven project:
 
-1. From the Maven explorer, click **+**.
+1. From the Maven Explorer, select **+**.
 
    ![Create Maven Project](images/java-build/create-maven-project.png)
 
@@ -132,13 +132,13 @@ VS Code supports Gradle Java project (not including Android) via the [Gradle for
 
 ### Working with Gradle tasks
 
-When you open a Gradle project in VSCode, you can find some useful Gradle views by clicking the Gradle Side Bar item. `Gradle Projects` view lists all the Gradle projects found in the workspace. You can view, run or debug Gradle tasks here.
+When you open a Gradle project in VSCode, you can find some useful Gradle views by clicking the Gradle Side Bar item. **Gradle Projects** view lists all the Gradle projects found in the workspace. You can view, run, or debug Gradle tasks here.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/gradle-tasks.mp4" type="video/mp4">
 </video>
 
-When there are a lot of Gradle tasks in the workspace, it might be hard to find a specific task, the extension offers `Pinned Tasks` view to help you pin your favorite tasks so that you can easily find them in a separate view. You can also see recent executed tasks in the `Recent Tasks` view.
+When there are many Gradle tasks in the workspace, it might be hard to find a specific task. The extension offers a **Pinned Tasks** view to help you pin your favorite tasks so that you can easily find them in a separate view. You can also see recently executed tasks in the **Recent Tasks** view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/gradle-pinned-recent-tasks.mp4" type="video/mp4">
@@ -146,13 +146,13 @@ When there are a lot of Gradle tasks in the workspace, it might be hard to find 
 
 ### Viewing Gradle dependencies
 
-In the `Gradle Projects` view, you can find a `Dependencies` item under each Gradle project item. It includes all the dependencies in your specified configuration, you can easily check the dependency status of your project.
+In the **Gradle Projects** view, you can find a **Dependencies** item under each Gradle project item. It includes all the dependencies in your specified configuration, you can easily check the dependency status of your project.
 
 ![Gradle Dependencies](images/java-build/gradle-dependencies.png)
 
 ### Managing Gradle Daemons
 
-The `Gradle Daemons` view shows the daemon status of the current workspace. It lists all the running Gradle daemons in the same version as the workspace. You can choose to stop a specific one or all the daemons in this view.
+The **Gradle Daemons** view shows the daemon status of the current workspace. It lists all the running Gradle daemons in the same version as the workspace. You can choose to stop a specific one or all the daemons in this view.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/gradle-daemons.mp4" type="video/mp4">
@@ -166,15 +166,15 @@ When opening a Groovy Gradle file, the extension will analyze the Gradle file an
 
 ![Gradle Highlighting](images/java-build/gradle-highlighting.png)
 
-In the `outline` view, the extension provides the document symbols of the opened Gradle file, which can help you to navigate to any part of the file easily.
+In the **Outline** view, the extension provides the document symbols of the opened Gradle file, which can help you to navigate to any part of the file easily.
 
 ![Gradle Outline](images/java-build/gradle-outline.png)
 
-If there is any syntax error (missing characters, type not found, etc.) in the opened Gradle file, you can find them in the `Problems` view.
+If there is any syntax error (missing characters, type not found, etc.) in the opened Gradle file, you can find them in the **Problems** view.
 
 ![Gradle Problems](images/java-build/gradle-problems.png)
 
-The extension supports basic auto completions for a Gradle file, when you’re trying to type a Gradle closures or properties in a Gradle script, the extension will offer some available gradle closures or properties for you.
+The extension supports basic auto completions for a Gradle file, when you're trying to type Gradle closures or properties in a Gradle script, the extension will suggest available closures or properties for you.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/gradle-auto-completion.mp4" type="video/mp4">
@@ -185,7 +185,6 @@ When you are trying to declare a new dependency, the extension will provide a de
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/gradle-dependency-completion.mp4" type="video/mp4">
 </video>
-
 
 ### Additional resources
 
