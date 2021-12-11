@@ -51,13 +51,13 @@ Remove terminal instances by hovering a tab and selecting the **Trash Can** butt
 
 Navigate between terminal groups using focus next `kb(workbench.action.terminal.focusNext)` and focus previous `kb(workbench.action.terminal.focusPrevious)`.
 
-Icons may appear to the right of the terminal title on the tab label when a terminal's status changes. Some examples are a bell (macOS) and for tasks, displaying a checkmark when there are no errors and an X otherwise. Hover the icon to read status information, which may contain actions.
+Icons may appear to the right of the terminal title on the tab label when a terminal's status changes. Some examples are a bell (macOS) and for tasks, displaying a check mark when there are no errors and an X otherwise. Hover the icon to read status information, which may contain actions.
 
 ### Grouping
 
 Split the terminal by:
 
-* On hover, select the inline split button.
+* On hover, selecting the inline split button.
 * Right-clicking the context menu and selecting the **Split** menu option.
 * `kbstyle(Alt)` click on a tab, the **+** button, or the single tab on the terminal panel.
 * Triggering the `kb(workbench.action.terminal.split)` command.
@@ -176,7 +176,7 @@ To remove entries from the terminal dropdown, set the name of the profile to `nu
 
 By default, the task/debug features will use the default profile. To override that, use the `terminal.integrated.automationShell.<platform>` setting:
 
-```json
+```jsonc
 {
     "terminal.integrated.defaultProfile.osx": "fish",
     // Use a fully POSIX-compatible shell and avoid running a complex ~/.config/fish/config.fish
@@ -234,7 +234,7 @@ To disable the feature, set `terminal.integrated.localEchoLatencyThreshold` to `
 Customize the terminal's appearance using the following [settings](https://code.visualstudio.com/docs/getstarted/settings):
 
 * Font: family, size, and weight
-* Spacing: line-height and letter spacing
+* Spacing: line height and letter spacing
 * Cursor: style, width, and blinking
 
 ## Copy & Paste
@@ -263,7 +263,7 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 ## Keybindings and the shell
 
-While the focus is on the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list and removed by adding the command name to the list prefixed with a `-`.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list and removed by adding the command name to the list prefixed with a `-`.
 
 ```json
 {
@@ -283,7 +283,7 @@ Look at the setting details to see the complete list of default commands.
 
 By default, when a chord keybinding is the highest priority keybinding, it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash, this cuts the line after the cursor). This can be disabled with the following setting:
 
-```jsonc
+```json
 {
   "terminal.integrated.allowChords": false
 }
