@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 11/4/2021
+DateApproved: 12/8/2021
 ---
 # Developing inside a Container
 
@@ -23,7 +23,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 ### System requirements
 
-**Local:**
+**Local / SSH Host:**
 
 * **Windows:** [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+ on Windows 10 Pro/Enterprise. Windows 10 Home (2004+) requires Docker Desktop 2.3+ and the [WSL 2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2). (Docker Toolbox is not supported. Windows container images are not supported.)
 * **macOS**:  [Docker Desktop](https://www.docker.com/products/docker-desktop) 2.0+.
@@ -114,7 +114,7 @@ This quick start covers how to set up a dev container for an existing project to
 
 You can now interact with your project in VS Code just as you could when opening the project locally. From now on, when you open the project folder, VS Code will automatically pick up and reuse your dev container configuration.
 
-> **Tip:** Want to use a remote Docker host? See the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for details on setup.
+> **Tip:** Want to use a remote Docker host? See the section on [opening a folder on a remote SSH host in a container](#open-a-folder-on-a-remote-ssh-host-in-a-container) for information.
 
 While using this approach to [bind mount](https://docs.docker.com/storage/bind-mounts/) the local filesystem into a container is convenient, it does have some performance overhead on Windows and macOS. There are [some techniques](/remote/advancedcontainers/improve-performance.md) that you can apply to improve disk performance, or you can [open a repository in a container using a isolated container volume](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) instead.
 
@@ -128,6 +128,18 @@ Once the WSL 2 engine is enabled, you can either:
 * Select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and choose a WSL folder using the local `\\wsl$` share (from the Windows side).
 
 The rest of the quick start applies as-is! You can learn more about the [Remote - WSL extension in its documentation](/docs/remote/wsl.md).
+
+### Open a folder on a remote SSH host in a container
+
+You can use the [Remote - SSH](/docs/remote/ssh.md) and Remote - Containers extensions together. You do not even need to have a Docker client installed locally. To do so:
+
+1. Follow the [installation](/docs/remote/ssh.md#installation) and SSH [host setup](/docs/remote/ssh.md#ssh-host-setup) steps for the Remote - SSH extension.
+1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
+1. [Install Docker](#installation) on your SSH host. You do not need to install Docker locally.
+1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
+1. Use the **Remote-Containers: Reopen in Container** command.
+
+The rest of the Remote - Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
 
 ### Open an existing workspace in a container
 
@@ -178,7 +190,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
 Note that if the container fails to come up due to something like a Docker build error, you can select **Reopen in Recovery Container** in the dialog that appears to go into a "recovery container" that allows you to edit your Dockerfile or other content. This opens the docker volume with the cloned repository in a minimal container and shows you the creation log. Once you are done fixing, use **Reopen in Container** to retry.
 
-> **Tip:** Want to use a remote Docker host? See the Advanced Containers [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for details on setup.
+> **Tip:** Want to use a remote Docker host? See the section on [opening a folder on a remote SSH host in a container](#open-a-folder-on-a-remote-ssh-host-in-a-container) for information.
 
 ## Trusting your Workspace
 
@@ -588,7 +600,6 @@ the file schema to help you customize your development containers and control ho
 ### Remote - Containers limitations
 
 * Windows container images are **not** yet supported.
-* Using a remote Docker Host is possible, but requires [additional setup steps](/remote/advancedcontainers/develop-remote-host.md).
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 * Docker Toolbox on Windows is not supported.
@@ -643,7 +654,7 @@ A VS Code window can only connect to one window currently, but you can open a ne
 
 ### Can I work with containers on a remote host?
 
-Yes, you can either attach to a container running on a remote host or create a specialized `devcontainer.json` to tell VS Code how to work with your remote environment. To access the host, you can either connect to a publicly exposed Docker daemon TCP port or use SSH to tunnel into a remote VM running Docker. See [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) for details.
+Yes, see the section on [opening a folder on a remote SSH host in a container](#open-a-folder-on-a-remote-ssh-host-in-a-container) for information.
 
 ### How can I build or deploy container images into my local Docker / Kubernetes install when working inside a container?
 

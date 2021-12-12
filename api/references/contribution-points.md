@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 11/4/2021
+DateApproved: 12/8/2021
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -175,7 +175,7 @@ Your configuration entry is used both to provide intellisense when editing your 
 
 **title**
 
-The `title` 1️⃣️ is the main heading that will be used for your configuration section. Normally you will only have one section for your extension.
+The `title` 1️⃣️ of a category is the heading used for that category.
 
 ```json
 {
@@ -185,7 +185,9 @@ The `title` 1️⃣️ is the main heading that will be used for your configurat
 }
 ```
 
-The title should be the exact name of your extension. Words like "Extension", "Configuration", and "Settings" are redundant.
+Note that if the extension has multiple categories of extensions, and the title of one of the categories is the same as the extension display name, then the settings for that category will be placed directly below the main extension heading, no matter what the `order` field is set to.
+
+For both the `title` and `displayName` fields, words like "Extension", "Configuration", and "Settings" are redundant.
 
 - ✔ `"title": "GitMagic"`
 - ❌ `"title": "GitMagic Extension"`
@@ -196,7 +198,7 @@ The title should be the exact name of your extension. Words like "Extension", "C
 
 The `properties` 2️⃣ in your configuration will be a dictionary of configuration properties.
 
-In the settings UI, your configuration key will be used to namespace and construct a title. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
+In the settings UI, your configuration key will be used to namespace and construct a title. Though an extension can contain multiple categories of settings, each setting of the extension must still have its own unique key. Capital letters in your key are used to indicate word breaks. For example, if your key is `gitMagic.blame.dateFormat`, the generated title for the setting will look like this:
 
 > Blame: **Date Format**
 
@@ -219,7 +221,7 @@ will appear in a single group like this:
 >
 > Blame › Heatmap: **Location**
 
-Otherwise, properties appear in alphabetical order (**not** the order in which they're listed in the manifest).
+Otherwise, properties without an explicit order field appear in alphabetical order (**not** the order in which they're listed in the manifest).
 
 ### Configuration property schema
 
@@ -275,9 +277,19 @@ For `boolean` entries, the `description` (or `markdownDescription`) will be used
 }
 ```
 
-Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number` and `string` will be rendered as editable lists. Objects that have properties of type `string` and/or `boolean` will be rendered as editable grids of keys and values. The `object` type setting must set `"additionalProperties": false` to get this support.
+Some `object` and `array` type settings will be rendered in the settings UI. Simple arrays of `number`, `string`, or `boolean` will be rendered as editable lists. Objects that have properties of type `string`, `number`, `integer`, and/or `boolean` will be rendered as editable grids of keys and values. Object settings should also have `additionalProperties` set to either `false`, or an object with an appropriate `type` property, to render in the UI.
 
 If an `object` or `array` type setting can also contain other types like nested objects, arrays, or null, then the value won't be rendered in the settings UI and can only be modified by editing the JSON directly. Users will see a link to **Edit in settings.json** as shown in the screenshot above. 8️⃣
+
+**order**
+
+Both categories and the settings within those categories can take an integer `order` type property, which gives a reference to how they should be sorted relative to other categories and/or settings.
+
+If two categories have `order` properties, the category with the lower order number comes first. If a category is not given an `order` property, it appears after categories that were given that property.
+
+If two settings within the same category have `order` properties, the setting with the lower order number comes first. If another setting within that same category is not given an `order` property, it will appear after settings in that category that were given that property.
+
+If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
 
 **enum** / **enumDescriptions**
 
