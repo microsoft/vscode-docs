@@ -20,7 +20,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 ## Tomcat
 
-With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your `war` package on Tomcat and link Tomcat into your workspace. You can also create a new Tomcat server from the explorer using the **Add** button and run a `war` package on it. You can also create the server during the deployment.
+With the [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension, you can manage all your local Tomcat servers within the editor and easily debug and run your `war` package on Tomcat and link Tomcat into your workspace. You can also create a new Tomcat server from the Explorer using the **Add** button and run a `war` package on it. You can also create the server during the deployment.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-tomcat-jetty/tomcat.mp4" type="video/mp4">
@@ -37,7 +37,7 @@ The extension includes the following features:
 * Add Jetty Server from download directory
 * Start/Restart/Stop/Delete Jetty Server
 * Run/Debug/Delete `war` package
-* Reveal `war` package in file explorer
+* Reveal `war` package in File Explorer
 * Open Server homepage
 * Open `war` package homepage
 

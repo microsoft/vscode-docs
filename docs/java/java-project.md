@@ -128,7 +128,7 @@ node or the items under it.
 
 ![manage referenced librares](images/java-project/manage-referenced-libraries.png)
 
-> You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folder)
+> You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
 
 Behind the scene, there's a setting `java.project.referencedLibraries` in `settings.json`. Below are details on how to customize this setting.
 
@@ -227,7 +227,8 @@ When you edit Java source code in Visual Studio Code, the Java language server i
 </video>
 
 ### Additional resources
-There are several Visual Studio Code extensions to support different build systems for Java. Check the following resources if you are interested.
+
+There are several Visual Studio Code extensions to support different build systems for Java. Below are extensions for several popular build systems.
 
 - [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 - [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
@@ -239,7 +240,7 @@ If you run into any problems when using the features above, you can contact us b
 
 Read on to find out more about:
 
-- [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-- [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-- [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+- [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+- [Java testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
+- [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

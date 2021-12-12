@@ -72,7 +72,7 @@ This document describes some of the key features included in those Java extensio
 
 **NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).
 
-Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the Language Support for Java™ (redhat.java) extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For how to configure these versions, refer to [Configure JDK](/docs/java/java-project.md#configure-runtime-for-projects).
+Before you start, you must have the Java SE Development Kit (JDK) on your local environment. To run the Language Support for Java™ (redhat.java) extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For how to configure these versions, refer to [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects).
 
 For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code
 Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
@@ -111,7 +111,7 @@ With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjav
   <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4">
 </video>
 
-Visual Studio Code also supports working with standalone Java files outside of a Java project, described in the [Java Tutorial with VS Code](/docs/java/java-tutorial.md).
+Visual Studio Code also supports working with standalone Java files outside of a Java project, described in the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
 ### VS Code Workspaces that contain Java projects
 
@@ -173,7 +173,7 @@ See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more abo
 
 Learn more about Java in VS Code:
 
-- [Java Tutorial with VS Code](/docs/java/java-tutorial.md)
+- [Getting Started with Java](/docs/java/java-tutorial.md)
 - [Code Editing and Navigation](/docs/java/java-editing.md)
 - [Java Debugging](/docs/java/java-debugging.md)
 - [Java Testing](/docs/java/java-testing.md)

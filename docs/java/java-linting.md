@@ -122,4 +122,4 @@ If the formatter XML file contains more than one profile, you can set the profil
 
 You can also define the formatting preferences in your project's [.settings/org.eclipse.jdt.core.prefs](https://gist.github.com/fbricon/30c5971f7e492c8a74ca2b2d7a7bb966). It will override the global formatting settings.
 
-We are working on a solution to allow editing your formatting preferences from within VS Code. For now, the best way to edit them is to use Eclipse. See [Formatter Settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings) for details.
+We are working on a solution to allow editing your formatting preferences from within VS Code. For now, the best way to edit them is to use Eclipse. See [Formatter settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings) for details.

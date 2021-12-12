@@ -258,7 +258,7 @@ Common issues explained include:
 
 ## Feedback and questions
 
-You can find the full list of issues at [Issue Tracker](https://github.com/microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/microsoft/vscode-java-debug/issues/new) and participate in the community driven [vscode-java-debug Gitter channel](https://gitter.im/Microsoft/vscode-java-debug).
+You can find the full list of issues at the [vscode-java-debug](https://github.com/microsoft/vscode-java-debug/issues) repository. You can submit a [bug or feature suggestion](https://github.com/microsoft/vscode-java-debug/issues/new) and participate in the community driven [vscode-java-debug Gitter channel](https://gitter.im/Microsoft/vscode-java-debug).
 
 ## Next steps
 
@@ -268,5 +268,5 @@ Read on to find out about:
 
 And for Java:
 
-- [Java Testing](/docs/java/java-testing.md) - Test Java within VS Code with the Java Test Runner extension.
-- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java testing](/docs/java/java-testing.md) - Test Java within VS Code with the Java Test Runner extension.
+- [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

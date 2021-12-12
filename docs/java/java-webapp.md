@@ -183,5 +183,5 @@ Alternatively, you can also use Maven to package and run your project as steps b
 
 ## Next steps
 
-- To containerize and deploy a web application, check out the [Docker Container Tutorial](/docs/azure/docker.md).
+- To containerize and deploy a web application, check out the [Docker in VS Code](/docs/containers/overview.md).
 - To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md).

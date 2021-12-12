@@ -617,7 +617,7 @@ Move refactoring on a static method if it is used more in another class than in
   <source src="/docs/java/java-refactoring/move-static-method.mp4" type="video/mp4">
 </video>
 
-Move a class to another package. Currently, move refactoring is not supported from file explorer.
+Move a class to another package. Currently, move refactoring is not supported from the File Explorer.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/move-class.mp4" type="video/mp4">
