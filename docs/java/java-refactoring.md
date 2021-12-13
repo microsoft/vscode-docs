@@ -611,7 +611,7 @@ public class Office {
 }
 ```
 
-Move refactoring on a static method if it is used more in another class than in its own class.
+Move refactoring on a static method if it is used more in another class than in its own class.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/move-static-method.mp4" type="video/mp4">
