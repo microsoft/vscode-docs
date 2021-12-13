@@ -217,7 +217,7 @@ Unused TypeScript code, such as the `else` block of an `if` statement that is al
 
 You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
 
-To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScriptScript by setting:
+To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScript by setting:
 
 ```json
 "[typescript]": {
