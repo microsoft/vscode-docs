@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java on Azure
 ContentId: 01210769-05be-4854-9482-13e342850ad7
 PageTitle: Deploy Java to Azure
-DateApproved: 04/01/2020
+DateApproved: 1/15/2021
 MetaDescription: How to deploy Java applications to Azure with Visual Studio Code
 ---
 # Deploy Java to Azure
