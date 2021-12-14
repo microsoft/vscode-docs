@@ -4,7 +4,7 @@ Area: java
 TOCTitle: FAQ
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
 PageTitle: Java on Visual Studio Code FAQ and Wiki
-DateApproved: 8/31/2019
+DateApproved: 8/31/2021
 MetaDescription: Java on Visual Studio Code Frequent Asked Questions and Troubleshooting Guide
 ---
 # Frequent Asked Questions

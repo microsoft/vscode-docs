@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
 PageTitle: Java extensions for Visual Studio Code
-DateApproved: 1/2/2019
+DateApproved: 8/31/2021
 MetaDescription: Popular Java extensions for Visual Studio Code
 ---
 # Java extensions for Visual Studio Code
@@ -73,7 +73,7 @@ We'd also like to recommend a couple of other extensions we believe are great to
 
 You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
 
-[Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
+[Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
 
 ## Recommended extensions for cloud (Azure) development
 

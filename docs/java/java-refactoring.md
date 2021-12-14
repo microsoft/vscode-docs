@@ -4,51 +4,64 @@ Area: java
 TOCTitle: Refactoring
 ContentId: 36ee3e12-9bcc-4f01-9672-857ad2733c2d
 PageTitle: Java code refactoring and Source Actions for Visual Studio Code
-DateApproved: 4/9/2020
+DateApproved: 12/9/2021
 MetaDescription: Java code refactoring and Source Actions for Visual Studio Code
 ---
 # Java refactoring and Source Actions
 
-Visual Studio Code provide many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
+Visual Studio Code provides many options to refactor your source code as well as Source Actions to generate code and fix issues while you're coding. To access them, click on the `light bulb` 💡 whenever you see it. Or right-click the editor view and pick **Source Action...**.
+
+## List of Supported Code Actions
+
+- [Refactoring](#refactoring)
+  - [Assign to variable](#assign-to-variable)
+  - [Convert anonymous to nested class](#convert-anonymous-to-nested-class)
+  - [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
+  - [Convert to enhanced for loop](#convert-to-enhanced-for-loop)
+  - [Convert to lambda expression](#convert-to-lambda-expression)
+  - [Convert to static import](#convert-to-static-import)
+  - Extract refactorings
+    - [Extract to constant](#extract-to-constant)
+    - [Extract to field](#extract-to-field)
+    - [Extract to method](#extract-to-method)
+    - [Extract to local variable](#extract-to-local-variable)
+  - Inline refactorings
+    - [Inline constant](#inline-constant)
+    - [Inline local variable](#inline-local-variable)
+    - [Inline method](#inline-method)
+  - Invert boolean
+    - [Invert conditions](#invert-conditions)
+    - [Invert local variable](#invert-local-variable)
+  - [Move](#move)
+  - [Rename](#rename)
+  - Type change
+    - [Change resolved type to var type](#change-resolved-type-to-var-type)
+    - [Change var type to resolved type](#change-var-type-to-resolved-type)
+- [Source Actions](#source-actions)
+  - [Generate constructors](#generate-constructors)
+  - [Generate delegate methods](#generate-delegate-methods)
+  - [Override/implement methods](#overrideimplement-methods)
+  - [Organize imports](#organize-imports)
+  - [Generate getters and setters](#generate-getters-and-setters)
+  - [Generate `hashCode()` and `equals()`](#generate-hashcode-and-equals)
+  - [Generate `toString()`](#generate-tostring)
+  - [Change modifiers to final where possible](#change-modifiers-to-final-where-possible)
+- Other Code Actions supported
+  - [Fix non-accessible reference](#fix-nonaccessible-reference)
+  - [Create non-existing package](#create-non-existing-package)
+  - [More...](#other-code-actions-supported)
 
 ## Refactoring
 
-The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides a lot of easily accessible refactoring options.
+The goal of the Java program refactoring is to make system-wide code changes without affecting behavior of the program. The Java Language Support for VS Code provides many easily accessible refactoring options.
 
 ### Invoke refactoring
 
-Refactoring commands are available from the context menu of the editor. Select the element you want to refactor, right-click to open the context menu and choose `Refactor...`:
+Refactoring commands are available from the context menu of the editor. Select the element you want to refactor, right-click to open the context menu, and choose **Refactor...**:
 
 ![Invoke Refactoring](images/java-refactoring/refactoring_menu.png)
 
 Then you will see all the available refactoring options.
-
-### List of Supported Code Actions
-
-- [Assign to variable](#assign-to-variable)
-- [Change modifiers to final](#change-modifiers-to-final)
-- [Convert anonymous to nested class](#convert-anonymous-to-nested-class)
-- [Convert to anonymous class creation](#convert-to-anonymous-class-creation)
-- [Convert to enhanced for loop](#convert-to-enhanced-for-loop)
-- [Convert to lambda expression](#convert-to-lambda-expression)
-- [Convert to static import](#convert-to-static-import)
-- Extract refactorings
-  - [Extract to constant](#extract-to-constant)
-  - [Extract to field](#extract-to-field)
-  - [Extract to method](#extract-to-method)
-  - [Extract to local variable](#extract-to-local-variable)
-- Inline refactorings
-  - [Inline constant](#inline-constant)
-  - [Inline local variable](#inline-local-variable)
-  - [Inline method](#inline-method)
-- Invert boolean
-  - [Invert conditions](#invert-conditions)
-  - [Invert local variable](#invert-local-variable)
-- [Move](#move)
-- [Rename](#rename)
-- Type change
-  - [Change resolved type to var type](#change-resolved-type-to-var-type)
-  - [Change var type to resolved type](#change-var-type-to-resolved-type)
 
 ### Assign to variable
 
@@ -68,43 +81,11 @@ Arrays.asList("apple", "lemon", "banana");
 List<String> fruits = Arrays.asList("apple", "lemon", "banana");
 ```
 
-It can also be used to assigns a parameter to a new field for unused parameter(s) in a constructor.
+It can also be used to assign a parameter to a new field for unused parameter(s) in a constructor.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/assign-to-field.mp4" type="video/mp4">
 </video>
-
-### Change modifiers to final
-
-Adds `final` modifier to all the variables and parameters in the current source file.
-
-#### Example
-
-##### Before
-
-```java
-public class Clazz {
-  public void method(int value) {
-    boolean notValid = value > 5;
-    if (notValid) {
-      // do something
-    }
-  }
-}
-```
-
-##### After
-
-```java
-public class Clazz {
-  public void method(final int value) {
-    final boolean notValid = value > 5;
-    if (notValid) {
-      // do something
-    }
-  }
-}
-```
 
 ### Convert anonymous to nested class
 
@@ -221,7 +202,7 @@ Converts an anonymous class creation to the lambda expression.
 
 #### Example
 
-Let's convert the anonymous class `Runnable(){...}` to a lamda expression.
+Let's convert the anonymous class `Runnable(){...}` to a lambda expression.
 
 ##### Before
 
@@ -354,7 +335,7 @@ When selecting a variable declaration, convert the variable to field.
 
 ### Extract to method
 
-Creates a new method containing the statements or expressions currently selected and replaces the selection with a reference to the new method. This feature is useful for cleaning up lengthy, cluttered, or overly-complicated methods.
+Creates a new method containing the statements or expressions currently selected and replaces the selection with a reference to the new method. This feature is useful for cleaning up lengthy, cluttered, or overly complicated methods.
 
 #### Examples
 
@@ -630,13 +611,13 @@ public class Office {
 }
 ```
 
-Move refactoring on a static method if it is used more in another class than in its own class.
+Move refactoring on a static method if it is used more in another class than in its own class.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/move-static-method.mp4" type="video/mp4">
 </video>
 
-Move a class to another package. Currently, move refactoring is not supported from file explorer.
+Move a class to another package. Currently, move refactoring is not supported from the File Explorer.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/move-class.mp4" type="video/mp4">
@@ -736,11 +717,11 @@ String s = "";
 
 ## Source Actions
 
-Source Actions could be used to generate common code structures and recurring elements. Some of them are quick fixes which helps you fix your code issues on the fly.
+Source Actions could be used to generate common code structures and recurring elements. Some of them are Quick Fixes that help you fix code issues on the fly.
 
-### Generate constructor from super class
+### Generate constructors
 
-Add a constructor from super class.
+Add a constructor for the class.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/generate-constructor.mp4" type="video/mp4">
@@ -798,6 +779,38 @@ There is a new Source Action to generate the `toString()` method. Customization 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-refactoring/generate-tostring.mp4" type="video/mp4">
 </video>
+
+### Change modifiers to final where possible
+
+Adds `final` modifier to all the variables and parameters in the current source file.
+
+#### Example
+
+##### Before
+
+```java
+public class Clazz {
+  public void method(int value) {
+    boolean notValid = value > 5;
+    if (notValid) {
+      // do something
+    }
+  }
+}
+```
+
+##### After
+
+```java
+public class Clazz {
+  public void method(final int value) {
+    final boolean notValid = value > 5;
+    if (notValid) {
+      // do something
+    }
+  }
+}
+```
 
 ### Fix non-accessible reference
 

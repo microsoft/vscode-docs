@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 8/18/2021
+DateApproved: 12/1/2021
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -41,7 +41,7 @@ If you are an existing VS Code user, you can also add Java support by installing
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Getting Started** from the Command Palette (`kb(workbench.action.showCommands)`) to launch the guide.
+The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides a Quick Start guide and tips for code editing and debugging. It also has a FAQ that answers some frequently asked questions. Use the command **Java: Tips for Beginners** from the Command Palette (`kb(workbench.action.showCommands)`) to launch the guide.
 
 ![Java Getting Started](images/java-tutorial/getting-started.png)
 
@@ -56,15 +56,20 @@ For this tutorial, the only required extensions are:
 
 ### Supported Java versions
 
-The supported version for running the Java Language Support (redhat.java) extension and the supported version for your projects are two separate requirements. To run the extension itself, Java SE 11 or above version is required; for projects, the extension supports version 1.5 or above. For more details, refer to [Configure JDK](/docs/java/java-project.md#configure-jdk).
+The supported version for running the Language Support for Java™ (redhat.java) extension and the supported version for your projects are two separate requirements.
+
+To run the extension itself, Java 11 or above version is required.
+
+To run your projects, the extension supports version 1.5 or above.
+
+> **Note**: To configure JDKs for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
 ### Using the Java runtime configuration wizard
 
-To help you configure VS Code for Java support, there is a runtime configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will display the configuration user interface below.
+If no valid Java runtime is detected, you can manually specify one with a runtime configuration wizard.
+You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**
 
-![JDK Configuration](images/java-tutorial/jdk-config-wizard-overview.png)
-
-> **Note**: To configure multiple JDKs, see [Configure JDK](/docs/java/java-project.md#configure-jdk). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
+![JDK Configuration](images/java-tutorial/invalid-jdk.png)
 
 ### Using VS Code settings
 

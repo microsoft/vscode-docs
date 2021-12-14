@@ -4,14 +4,14 @@ Area: java
 TOCTitle: Build Tools
 ContentId: 6ba93ee8-33d7-483a-a3b0-82241cedecbf
 PageTitle: Maven and Gradle support for Java in Visual Studio Code
-DateApproved: 9/1/2021
+DateApproved: 12/10/2021
 MetaDescription: Maven and Gradle support for Java in Visual Studio Code
 MetaSocialImage:
 ---
 
 # Java build tools in VS Code
 
-This document will give you an overview of how work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension as well as other tools.
+This document is an overview of how to work with your Java build tools in Visual Studio Code. It covers the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) and [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extensions as well as other tools.
 
 If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -69,7 +69,7 @@ Furthermore, VS Code also supports showing dependencies in a tree view, which al
 
 ### Execute Maven commands and goals
 
-By right-clicking each Maven project in the explorer, you can conveniently run Maven goals.
+By right-clicking each Maven project in the Explorer, you can conveniently run Maven goals.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/maven-run.mp4" type="video/mp4">
@@ -79,8 +79,8 @@ The extension also preserves the history of goals for each project, so you can q
 
 There are two ways to rerun a goal:
 
-1. Command Palette > Select **Maven: History** > Select a project > Select command from the history.
-2. Right-click a project > Click **History** > Select command from history.
+1. In the Command Palette, run **Maven: History**, then select a project and a command from its history.
+2. Right-click a project and select **History**. You can then select a previous command from history.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-build/maven-history.mp4" type="video/mp4">
@@ -108,27 +108,83 @@ To debug Maven goals, right-click on a goal and start debugging. The Maven exten
 
 Another handy feature provided by this extension is to generate a Maven project from [Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). The extension loads archetypes listed in local/remote catalogs. After selection, the extension sends `mvn archetype:generate -D...` to the terminal.
 
-There are two ways to generate a Maven project:
+There are several ways to create a Maven project:
 
-1. From the Maven explore, click **+**.
+1. From the Maven Explorer, select the **+** **Create Maven Project** button.
 
    ![Create Maven Project](images/java-build/create-maven-project.png)
 
-2. Right-click on a folder and select **Generate from Maven Archetype**.
+2. Open the **Command Palette** (`kb(workbench.action.showCommands)`), search for **Create Java Project** command.
 
    <video autoplay loop muted playsinline controls>
-     <source src="/docs/java/java-build/maven-archetype.mp4" type="video/mp4">
+     <source src="/docs/java/java-build/maven-archetype-command.mp4" type="video/mp4">
+   </video>
+
+3. Right-click on a target folder and select **Create Maven Project**.
+
+   <video autoplay loop muted playsinline controls>
+     <source src="/docs/java/java-build/maven-archetype-folder.mp4" type="video/mp4">
    </video>
 
 ## Gradle
 
-VS Code supports basic Gradle Java project (not including Android) via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). Currently the extension supports the following features:
-* Gradle project and task management
-* Run Gradle tasks
-* Gradle file authoring (auto-completion, syntax highlighting, error reporting, etc)
-* Manage Gradle daemons
+VS Code supports Gradle Java project (not including Android) via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension. The extension provides a visual interface for your Gradle build, you can use this interface to view Gradle Tasks and Project dependencies, or run Gradle Tasks as VS Code Tasks. The extension also offers a better Gradle build file authoring experience including syntax highlighting, error reporting, and auto-completion.
 
-See full feature list at the GitHub [repo](https://github.com/microsoft/vscode-gradle)
+### Working with Gradle tasks
+
+When you open a Gradle project in VSCode, you can find some useful Gradle views by clicking the Gradle Side Bar item. **Gradle Projects** view lists all the Gradle projects found in the workspace. You can view, run, or debug Gradle tasks here.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-tasks.mp4" type="video/mp4">
+</video>
+
+When there are many Gradle tasks in the workspace, it might be hard to find a specific task. The extension offers a **Pinned Tasks** view to help you pin your favorite tasks so that you can easily find them in a separate view. You can also see recently executed tasks in the **Recent Tasks** view.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-pinned-recent-tasks.mp4" type="video/mp4">
+</video>
+
+### Viewing Gradle dependencies
+
+In the **Gradle Projects** view, you can find a **Dependencies** item under each Gradle project item. It includes all the dependencies in your specified configuration, you can easily check the dependency status of your project.
+
+![Gradle Dependencies](images/java-build/gradle-dependencies.png)
+
+### Managing Gradle Daemons
+
+The **Gradle Daemons** view shows the daemon status of the current workspace. It lists all the running Gradle daemons in the same version as the workspace. You can choose to stop a specific one or all the daemons in this view.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-daemons.mp4" type="video/mp4">
+</video>
+
+### Authoring build files
+
+The extension provides some useful authoring features on the Gradle build files.
+
+When opening a Groovy Gradle file, the extension will analyze the Gradle file and provide semantic tokens information, providing more precise highlighting results.
+
+![Gradle Highlighting](images/java-build/gradle-highlighting.png)
+
+In the **Outline** view, the extension provides the document symbols of the opened Gradle file, which can help you to navigate to any part of the file easily.
+
+![Gradle Outline](images/java-build/gradle-outline.png)
+
+If there is any syntax error (missing characters, type not found, etc.) in the opened Gradle file, you can find them in the **Problems** view.
+
+![Gradle Problems](images/java-build/gradle-problems.png)
+
+The extension supports basic auto completions for a Gradle file, when you're trying to type Gradle closures or properties in a Gradle script, the extension will suggest available closures or properties for you.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-auto-completion.mp4" type="video/mp4">
+</video>
+
+When you are trying to declare a new dependency, the extension will provide a dependency candidate list for you.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-build/gradle-dependency-completion.mp4" type="video/mp4">
+</video>
 
 ### Additional resources
 
@@ -140,7 +196,7 @@ In addition to Maven, there's also a [Bazel extension](https://marketplace.visua
 
 Read on to find out more about:
 
-* [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-* [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-* [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+* [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+* [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+* [Java testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
+* [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

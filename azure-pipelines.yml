@@ -25,7 +25,7 @@ jobs:
     skipComponentGovernanceDetection: true
   cancelTimeoutInMinutes: 1
   pool:
-    name: Hosted macOS
+    vmImage: macOS-latest
   steps:
   - checkout: website
     clean: true
@@ -49,12 +49,11 @@ jobs:
     displayName: npm install yarn
     inputs:
       arguments: -g yarn
-  - task: CmdLine@1
+  - task: CmdLine@2
     displayName: yarn install
     inputs:
-      filename: yarn
-      arguments: install
-      workingFolder: ../vscode-website
+      script: 'yarn install'
+      workingDirectory: '../vscode-website'
   - task: Bash@3
     displayName: Build Dist Setup
     inputs:

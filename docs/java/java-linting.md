@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Formatting and Linting
 ContentId: dd4fa82e-0021-404c-87e4-3b69f1e12463
 PageTitle: Formatting, linting, and code analysis for Java in Visual Studio Code
-DateApproved: 2/26/2021
+DateApproved: 12/12/2021
 MetaDescription: Formatting, linting, and code analysis for Java in Visual Studio Code
 ---
 # Java formatting and linting
@@ -13,11 +13,89 @@ MetaDescription: Formatting, linting, and code analysis for Java in Visual Studi
 
 In addition, there are also the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) and [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extensions, which provide features for live linting and code analysis.
 
+## Formatter
+
+You can use **Format Document** command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted using default settings.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/formatting.mp4" type="video/mp4">
+</video>
+
+### Applying formatter settings
+
+You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, if you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
+
+```json
+"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+```
+
+The property can be set to a URL or a local file path. If the formatter XML file contains more than one profile, you can specify the profile name:
+
+```json
+"java.format.settings.profile": "GoogleStyle",
+```
+
+After setting the formatter profile, the **Format Document** command will use the specific profile to format your Java files.
+
+### Editing formatter settings
+
+The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides an editor to help users edit an existing formatter profile. You can open the editor with the command **Java: Open Java Formatter Settings with Preview**. In the editor, you can change the formatter settings and preview the effects. After saving the current editor, the changes will be saved to the formatter profile.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/formatting-editing.mp4" type="video/mp4">
+</video>
+
+> Note: the formatter settings editor supports only local formatter profile. If your workspace contains a remote formatter profile, it will guide you to download it in `.vscode` folder.
+
+When editing settings in the editor, you can preview the changes' effects in the right **Preview** panel.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/formatting-preview.mp4" type="video/mp4">
+</video>
+
+You can also undo and redo changes.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/formatting-undoredo.mp4" type="video/mp4">
+</video>
+
+## SonarLint
+
+The [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. Java is one of the languages supported. The extension runs in the background and highlights source code that poses a quality or security concern.
+
+### Code analysis on the fly
+
+Issues are highlighted directly in the editor with hovers to provide detailed explanations.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/sonarlint.mp4" type="video/mp4">
+</video>
+
+Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
+
+### Rule documentation and remediation guidance
+
+For any issues detected, SonarLint provides full documentation about the rule that was violated, and the best coding practice it relates to. This allows you to understand why an issue is raised, and how to fix it.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/sonarlint-description.mp4" type="video/mp4">
+</video>
+
+### Enabling more quality and security rules
+
+By default, SonarLint provides a wide array of rules to detect bugs and vulnerabilities. More checks can be enabled through the **SonarLint Rules** view.
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-linting/sonarlint-rules.mp4" type="video/mp4">
+</video>
+
+For more details about the [SonarLint for VS Code extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
+
 ## Checkstyle
 
 With the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension, you can use either existing `checkstyle` configurations (Google's or Sun's Check) or your own customized files for your project. When editing a Java file, the extension will check the file format and provide Quick Fixes if possible on the fly.
 
-Set Checkstyle configuration file.
+Set Checkstyle configuration file using the **Checkstyle: Set the Checkstyle Configuration File** command and selecting the Checkstyle file from the dropdown.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-linting/checkstyle.mp4" type="video/mp4">
@@ -37,17 +115,18 @@ And batch check.
 
 The Problems panel will open when you click the Checkstyle status icon in the Status bar.
 
-**Set Checkstyle configuration file**
+### Set Checkstyle configuration file
+
+To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
 
 ![Set Checkstyle configuration file](images/java-linting/set_config.png)
 
-* To set the configuration file, right-click the `.xml` file and select **Set the Checkstyle Configuration File**.
-* You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
+You can also trigger the command **Checkstyle: Set Checkstyle Configuration File** to choose the configuration file in the File Explorer. The extension looks for a `checkstyle.xml` file in your workspace to make Checkstyle configuration easier. You will also see the two built-in configurations:
 
-  * **Google's Check**
-  * **Sun's Check**
+* **Google's Check**
+* **Sun's Check**
 
-* Command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
+The command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-linting/checkstyle-configuration.mp4" type="video/mp4">
@@ -62,64 +141,16 @@ The command will:
 * List all the supported versions.
 * Mark the currently used version with a check symbol.
 
-In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to leverage those checks.
+In addition, you can also bring any 3rd-party modules for Checkstyle by configuring its path. For example, after using the configuration below, you can add `<module name="SingleBreakOrContinueCheck"/>` or `<module name="com.github.sevntu.checkstyle.checks.naming.SingleBreakOrContinueCheck"/>` to `checkstyle.xml` to use those checks.
 
 ```json
 "java.checkstyle.modules": [ "${workspaceFolder}/src/main/resources/sevntu-checks-1.35.0.jar" ]
 ```
 
-**Check the style and fix the violations**
+### Check the style and fix the violations
+
+When editing a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
 
 ![Fix style violation](images/java-linting/quick_fix.png)
 
-* When editing a Java file, the extension will check the file format and provide Quick Fixes if possible. You can click the lightbulb button in the editor to show the available Quick Fixes.
-
 For more details about [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle), visit its [GitHub Repository](https://github.com/jdneo/vscode-checkstyle).
-
-## SonarLint
-
-The [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension lets you detect bugs and vulnerabilities as you write code in VS Code. Java is one of the languages supported, and the extension will run in the background and highlight source code that poses a quality or security concern.
-
-**Code Analysis on the fly**
-
-Issues are highlighted directly in the editor with hovers to provide detailed explanations.
-
-![SonarLint Bug](images/java-linting/SonarLint.Bug.gif)
-
-Issues found in the opened file can also be reviewed through the Problems panel of VS Code. When applicable, secondary code locations are mentioned so you can understand where the issue originates from (for example, the code path that led to a bug).
-
-**Rule documentation and remediation guidance**
-
-For any issue detected, SonarLint provides full documentation about the rule that was violated, and the coding best practice it relates to. This lets you understand why an issue is raised, and most importantly how to best fix it.
-
-![SonarLint Rules](images/java-linting/SonarLint.Rule.Description.gif)
-
-**Enabling more quality and security rules**
-
-By default, SonarLint provides a wide array of rules to detect bugs and vulnerabilities. More checks can be enabled through the SonarLint Rules view.
-
-![SonarLint Activate-Deactivate Rules](images/java-linting/SonarLint.Activate-Deactivate.Rules.gif)
-
-For more details about the [SonarLint for VS Code extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode), visit the [SonarLint website](https://www.sonarlint.org/vscode/).
-
-## Formatter
-
-Currently, you need an Eclipse formatter file like [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml).
-
-Set the following property:
-
-```json
-"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-```
-
-The property can point to a URL or a local file path.
-
-If the formatter XML file contains more than one profile, you can set the profile name:
-
-```json
-"java.format.settings.profile": "GoogleStyle",
-```
-
-You can also define the formatting preferences in your project's [.settings/org.eclipse.jdt.core.prefs](https://gist.github.com/fbricon/30c5971f7e492c8a74ca2b2d7a7bb966). It will override the global formatting settings.
-
-We are working on a solution to allow editing your formatting preferences from within VS Code. For now, the best way to edit them is to use Eclipse. See [Formatter Settings](https://github.com/redhat-developer/vscode-java/wiki/Formatter-settings) for details.
