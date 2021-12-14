@@ -179,9 +179,9 @@ You can invoke this command by selecting the lines of code you wish to extract a
 
 ### Rename Module
 
-After a Python file/module is renamed, Pylance can find all instances that need to be updated and provide you with a preview of all the changes.
+After a Python file/module is renamed, Pylance can find all instances that may need to be updated and provide you with a preview of all the changes.
 
-To customize which references need to be updated, you can toggle the checkboxes at the line or from the file level in **Refactor Preview**. You can also discard all changes from the preview stage.
+To customize which references need to be updated, you can toggle the checkboxes at the line or from the file level in **Refactor Preview**. Once you've made your selections, you can select **Apply Refactoring** or **Discard Refactoring**.
 
 ![Renaming a module](images/editing/refactorRenameModule.gif)
 
