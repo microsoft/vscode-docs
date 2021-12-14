@@ -15,7 +15,7 @@ A `devcontainer.json` file in your project tells Visual Studio Code (and other s
 
 ## devcontainer.json properties
 
-> **Tip:** If you've already built a container and connected to it, be sure to run **Remote-Containers: Rebuild Container** or **Codespaces: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up any changes you make change.
+> **Tip:** If you've already built a container and connected to it, be sure to run **Remote-Containers: Rebuild Container** or **Codespaces: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up any changes you make.
 
 ### Scenario specific properties
 
