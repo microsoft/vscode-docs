@@ -167,7 +167,7 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | Setting<br/>(python.linting.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | enabled | `true` | Specifies whether to enable linting in general. | [Linting](/docs/python/linting.md) |
-| lintOnSave | `true` | Specifies whether to line when saving a file. | [Linting](/docs/python/linting.md) |
+| lintOnSave | `true` | Specifies whether to lint when saving a file. | [Linting](/docs/python/linting.md) |
 | maxNumberOfProblems | `100` | Limits the number of linting messages shown. | [Linting](/docs/python/linting.md) |
 | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]` | Exclude file and folder patterns. | [Linting](/docs/python/linting.md) |
 
