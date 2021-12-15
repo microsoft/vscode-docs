@@ -52,14 +52,6 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]
 ```
 
-The `python.autoComplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
-
-```json
-  "python.autoComplete.addBrackets": true,
-```
-
-Next, write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that autocomplete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
-
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
 ### Troubleshooting
