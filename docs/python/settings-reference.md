@@ -138,7 +138,6 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| addBrackets | `false` | Specifies whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 | extraPaths | `[]` | Specifies locations of additional packages for which to load autocomplete data. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 
 ## Formatting settings
