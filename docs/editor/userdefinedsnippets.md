@@ -137,12 +137,12 @@ For inserting the current date and time:
 * `CURRENT_MONTH` The month as two digits (example '02')
 * `CURRENT_MONTH_NAME` The full name of the month (example 'July')
 * `CURRENT_MONTH_NAME_SHORT` The short name of the month (example 'Jul')
-* `CURRENT_DATE` The day of the month
+* `CURRENT_DATE` The day of the month as two digits (example '08')
 * `CURRENT_DAY_NAME` The name of day (example 'Monday')
 * `CURRENT_DAY_NAME_SHORT` The short name of the day (example 'Mon')
 * `CURRENT_HOUR` The current hour in 24-hour clock format
-* `CURRENT_MINUTE` The current minute
-* `CURRENT_SECOND` The current second
+* `CURRENT_MINUTE` The current minute as two digits
+* `CURRENT_SECOND` The current second as two digits
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
 
 For inserting random values:
