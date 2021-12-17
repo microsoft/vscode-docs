@@ -57,8 +57,6 @@ You can export your build to JAR from the projects view or by running the comman
 
 ## Configure Runtime for Projects
 
-> **Note**: The Java language server requires JDK version 11 or above to launch it self, but this is **NOT** a requirement to your projects' runtime. Check [Settings for the JDK](/docs/java/java-tutorial.md#settings-for-the-jdk) for more information about how to set the JDK for the extension itself.
-
 As Java evolves, it's common that developers work with multiple versions of JDK. You can map them to your local installation paths via the setting: `java.configuration.runtimes`. The setting has following format:
 
 ```json
