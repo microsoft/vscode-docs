@@ -5,7 +5,7 @@ TOCTitle: devcontainer.json
 PageTitle: devcontainer.json reference
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
-DateApproved: 12/8/2021
+DateApproved: 12/16/2021
 ---
 # devcontainer.json reference
 
@@ -13,15 +13,13 @@ A `devcontainer.json` file in your project tells Visual Studio Code (and other s
 
 [Set up a folder to run in a container](/docs/remote/create-dev-container.md#set-up-a-folder-to-run-in-a-container) has more information on configuring a dev container or you can use the **Remote-Containers: Add Development Container Configuration Files...** or **Codespaces: Add Development Container Configuration Files...** commands from the Command Palette (`kbstyle(F1)`) to add a wide variety of base configurations from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/main/containers).
 
-## devcontainer.json properties
-
 > **Tip:** If you've already built a container and connected to it, be sure to run **Remote-Containers: Rebuild Container** or **Codespaces: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up any changes you make.
 
-### Scenario specific properties
+## Scenario specific properties
 
-While some `devcontainer.json` properties apply broadly, others are scenario specific. These properties vary depending on whether you want to set up your environment using an existing image, a Dockerfile, or a Docker Compose file.
+The focus of `devcontainer.json` is to describe how to enrich a container for the purposes of development rather than acting as a multi-container orchestrator format. Instead, orchestrator formats can be referenced when needed. Today, `devcontainer.json` includes scenario specific properties for working without a container orchestrator (by directly referencing an image or Dockerfile) and for using Docker Compose as a simple multi-container orchestrator.
 
-**Image or Dockerfile specific properties**
+### Image or Dockerfile specific properties
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -39,7 +37,7 @@ While some `devcontainer.json` properties apply broadly, others are scenario spe
 | `workspaceFolder` | string | Requires `workspaceMount` be set. Sets the default path that VS Code and other `devcontainer.json` supporting services / tools should open when connecting to the container. Defaults to the automatic source code mount location. <br /><br />⚠️ Not yet supported in Codespaces or when using Clone Repository in Container Volume. |
 | `runArgs` | array | An array of [Docker CLI arguments](https://docs.docker.com/engine/reference/commandline/run/) that should be used when running the container. Defaults to `[]`. For example, this allows ptrace based debuggers like C++ to work in the container:<br /> `"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ]` . |
 
-**Docker Compose specific properties**
+### Docker Compose specific properties
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -48,23 +46,23 @@ While some `devcontainer.json` properties apply broadly, others are scenario spe
 | `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code and other `devcontainer.json` supporting services / tools. These will also be stopped when you disconnect unless `"shutdownAction"` is `"none"`. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code and other `devcontainer.json` supporting services / tools should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 
-### General devcontainer.json properties
+## General devcontainer.json properties
 
 | Property | Type | Description |
 |----------|------|-------------|
 | `name` | string | A display name for the container. |
 | `forwardPorts` | array | An array of port numbers or `"host:port"` values  (e.g. `[3000, "db:5432"]`) that should always be forwarded from inside the primary container to the local machine (including on the web for Codespaces). The property is most useful for forwarding ports that cannot be auto-forwarded because the related process that starts before VS Code connects or for forwarding a service not in the primary container in Docker Compose scenarios (e.g. `"db:5432"`). Defaults to `[]`. <br /><br /> ⚠️ Codespaces does not yet support the `"host:port"` variation of this property. |
-| `portsAttributes` | object | Object that maps a port number, `"host:port"` value, range, or regular expression to a set of default options. See [port attributes](#port-attributes) for available options. For example: <br />`"portsAttributes": { "3000": { "label": "Application port" } }` <br /><br /> ⚠️ Codespaces does not yet support the `"host:port"` variation of this property.|
-| `otherPortsAttributes` | object | Default options for ports, port ranges, and hosts that aren't configured using `portsAttributes`. See [port attributes](#port-attributes) for available options. For example: <br /> `"otherPortsAttributes": { "onAutoForward": "silent" }` |
+| `portsAttributes` | object | Object that maps a port number, `"host:port"` value, range, or regular expression to a set of default options. See [port attributes](#port-attributes) for available options. For example: <br />`"portsAttributes": {"3000": {"label": "Application port"}}` <br /><br /> ⚠️ Codespaces does not yet support the `"host:port"` variation of this property.|
+| `otherPortsAttributes` | object | Default options for ports, port ranges, and hosts that aren't configured using `portsAttributes`. See [port attributes](#port-attributes) for available options. For example: <br /> `"otherPortsAttributes": {"onAutoForward": "silent"}` |
 | `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. Be sure **Terminal > Integrated: Inherit Env** is checked in settings or the variables will not appear in the terminal. For example: <br />`"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path", "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }`<br />Updates are applied when VS Code is restarted (or the window is reloaded) |
 | `remoteUser` | string | Overrides the user that VS Code and other `devcontainer.json` supporting services tools / runs as in the container (along with sub-processes like terminals, tasks, or debugging). Does not change the user the container as a whole runs as which can be set using `containerUser` for images and Dockerfiles or [in your Docker Compose file](https://docs.docker.com/compose/compose-file/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir) instead. Defaults to the user the container as a whole is running as (often `root`).<br>Updates are applied when VS Code is restarted (or the window is reloaded). |
 | `updateRemoteUserUID` | boolean | On Linux, if `containerUser` or `remoteUser` is specified, the container user's UID/GID will be updated to match the local user's UID/GID to avoid permission problems with bind mounts. Defaults to `true`.<br>Requires the container be recreated / rebuilt for updates to take effect. |
 | `userEnvProbe` | enum | Indicates the type of shell to use to "probe" for user environment variables to include in VS Code or other connected tool's processes: `none`, `interactiveShell`, `loginShell`, or `loginInteractiveShell` (default). The specific shell used is based on the default shell for the user (typically bash). For example, bash interactive shells will typically include variables set in `/etc/bash.bashrc` and `~/.bashrc` while login shells usually include variables from `/etc/profile` and `~/.profile`. Setting this property to `loginInteractiveShell` will get variables from all four files. |
 | `overrideCommand` | boolean | Tells VS Code and other `devcontainer.json` supporting services / tools whether they should run `/bin/sh -c "while sleep 1000; do :; done"` when starting the container instead of the container's default command (since the container can shut down if the default command fails). Set to `false` if the default command must run for the container to function properly. Defaults to `true` for when using an image Dockerfile and `false` when referencing a Docker Compose file. |
-| `features` | object | An object of [dev container features](/docs/remote/containers.md#dev-container-features-preview) and related options to be added into your primary container. The specific options  that are available varies by feature, so see its documentation for additional details. For example, `"features": { "github-cli": "latest" }` <br /><br /> ⚠️ Currently in preview. |
+| `features` | object | An object of [dev container features](/docs/remote/containers.md#dev-container-features-preview) and related options to be added into your primary container. The specific options  that are available varies by feature, so see its documentation for additional details. For example: <br />`"features": {"github-cli": "latest"}` <br /><br /> ⚠️ Currently in preview. |
 | `shutdownAction` | enum | Indicates whether VS Code and other `devcontainer.json` supporting tools should stop the containers when the related tool window is closed / shut down.<br>Values are  `none`, `stopContainer` (default for image or Dockerfile), and `stopCompose` (default for Docker Compose).<br /><br /> ⚠️ Does not apply to Codespaces. |
 
-### VS Code specific properties
+## VS Code specific properties
 
 While most properties apply to any `devcontainer.json` supporting tool or service, a few are specific to VS Code.
 
@@ -74,7 +72,7 @@ While most properties apply to any `devcontainer.json` supporting tool or servic
 | `settings` | object | Adds default `settings.json` values into a container/machine specific settings file. Defaults to `{}`. |
 | `devPort` | integer | Allows you to force a specific port that VS Code Server should use in the container. Defaults to a random, available port. |
 
-### Lifecycle scripts
+## Lifecycle scripts
 
 When creating or working with a dev container, you may need different commands to be run at different points in the container's lifecycle. The table below lists a set of command properties you can use to update what the container's contents in the order in which they are run (for example, `onCreateCommand` will run after `initializeCommand`). Each command property is an string or list of command arguments that should execute from the `workspaceFolder`.
 
@@ -90,7 +88,17 @@ When creating or working with a dev container, you may need different commands t
 
 For each command property, if the value is a single string, it will be run in `/bin/sh`. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. Each fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: `bash scripts/install-dev-tools.sh`
 
-### Port attributes
+## Minimum host requirements
+
+While devcontainer.json does not focus on hardware or VM provisioning, it can be useful to know your containers minimum RAM, CPU, and storage requirements. This is what `hostRequirements` property allows you to do. Cloud services like GitHub Codespaces use these properties to automatically default to the best compute option available, while in other cases you will be presented with a warning if the requirements are not met.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `hostRequirements.cpus` | integer | Indicates the minimum required number of CPUs / virtual CPUs / cores. For example: `"hostRequirements": {"cpus": 2}` |
+| `hostRequirements.memory` | string |  A string indicating minimum memory requirements with a `tb`, `gb`, `mb`, or `kb` suffix. For example, `"hostRequirements": {"memory": "4gb"}` |
+| `hostRequirements.storage` | string | A string indicating minimum storage requirements with a `tb`, `gb`, `mb`, or `kb` suffix. For example, `"hostRequirements": {"storage": "32gb"}` |
+
+## Port attributes
 
 The `portsAttributes` and `otherPortsAttributes` properties allow you to map default port options for one or more manually or automatically forwarded ports. The following is a list of options that can be set in the configuration object assigned to the property.
 
@@ -102,7 +110,7 @@ The `portsAttributes` and `otherPortsAttributes` properties allow you to map def
 | `requireLocalPort` | boolean | Dictates when port forwarding is required to map the port in the container to the same port locally or not. If set to `false`, VS Code and other `devcontainer.json` supporting services /  tools will attempt to use the specified port forward to `localhost`, and silently map to a different one if it is unavailable. If set to `true`, you will be notified if it is not possible to use the same port. Defaults to `false`. |
 | `elevateIfNeeded` | boolean | Forwarding low ports like 22, 80, or 443 to `localhost` on the same port from VS Code (client) may require elevated permissions on certain operating systems. Setting this property to `true` will automatically try to elevate VS Code's or another `devcontainer.json` supporting tool's permissions in this situation. Defaults to `false`. |
 
-### Formatting string vs. array properties
+## Formatting string vs. array properties
 
 The format of certain properties will vary depending on the involvement of a shell.
 
@@ -132,7 +140,7 @@ By contrast, the array format will keep the single quotes and write them to stan
 "postAttachCommand": ["echo", "foo='bar'"]
 ```
 
-### Variables in devcontainer.json
+## Variables in devcontainer.json
 
 Variables can be referenced in certain string values in `devcontainer.json` in the following format: **${variableName}**. The following is a list of available variables you can use.
 
