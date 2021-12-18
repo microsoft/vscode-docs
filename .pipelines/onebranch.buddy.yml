@@ -1,0 +1,25 @@
+trigger:
+  branches:
+    include:
+      - vnext
+      - main
+pr: none
+
+resources:
+  repositories:
+    - repository: website
+      type: github
+      endpoint: Monaco
+      name: microsoft/vscode-website
+      ref: main # switch to prod when merged
+    - repository: docs
+      type: github
+      endpoint: Monaco
+      name: microsoft/vscode-docs
+      ref: $(Build.SourceBranchName)
+
+variables:
+- template: .pipelines/templates/onebranch/variables.yml@website
+
+extends:
+  template: .pipelines/templates/onebranch/buddy.yml@website
