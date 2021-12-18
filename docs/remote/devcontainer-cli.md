@@ -9,13 +9,13 @@ DateApproved: 12/17/2021
 ---
 # devcontainer command line interface
 
-Given the growing number of use cases for dev containers, there is a companion `devcontainer` command line interface (CLI) that will include several features that can be useful outside of [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
+Given the growing number of use cases for dev containers, there is a companion `devcontainer` command line interface (CLI) that can be used independent of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
 
 ## System requirements
 
 To use the `devcontainer` CLI, you'll need the following on your system or CI/DevOps environment:
 
-1. [Node.js 14+](https://nodejs.org/en/).
+1. [Node.js 14+](https://nodejs.org).
 1. [The `docker` CLI](/docs/remote/containers#installation).
 
 ## Installation
@@ -76,17 +76,17 @@ You can optionally specify the path to the folder to open, for example `devconta
 
 ## Building a dev container image
 
-The `devcontainer build` command allows you to build quickly build dev container image following the same steps the Remote - Containers extension or GitHub Codespaces will. This is particularly useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
+The `devcontainer build` command allows you to quickly build dev container images following the same steps as the Remote - Containers extension or GitHub Codespaces. This is useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
 
-As with the `open` command, `build` accepts a path to the folder containing a `.devcontainer` folder or `.devcontainer.json` file. If omitted, the current working folder us used. For example, `devcontainer build` will build the dev container image for the current folder and `devcontainer build /source/my-folder` will build the container image for the `/source/my-folder` folder.
+As with the `open` command, `build` accepts a path to the folder containing a `.devcontainer` folder or `.devcontainer.json` file. If omitted, the current working folder is used. For example, `devcontainer build` will build the dev container image for the current folder and `devcontainer build /source/my-folder` will build the container image for the `/source/my-folder` folder.
 
 ### Example of building and publishing an image
 
-For example, you may want to pre-build a number of images that you then reuse across multiple projects or repositories. To do so, follow these steps:
+For example, you may want to pre-build several images that you then reuse across multiple projects or repositories. To do so, follow these steps:
 
 1. [Create](/docs/editor/versioncontrol.md#initialize-a-repository) a source code repository.
 
-1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container features](#dev-container-features-preview)). For example, consider this devcontainer.json file:
+1. Create a dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container features](/docs/remote/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
 
     ```json
     {
@@ -99,7 +99,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
     }
     ```
 
-1. Use the `devcontainer build` command to build the image. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
+1. Use the `devcontainer build` command to build the image. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
 
     ```bash
     devcontainer build \
@@ -113,7 +113,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
     docker push ghcr.io/your-org/your-image-name
     ```
 
-1. Finally, for each project or repository that will use your image, craft a simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container features you added in your pre-build configuration in step 2. For example:
+1. Finally, for each project or repository that will use your image, craft a simplified `devcontainer.json` file that either uses the `image` property or references it in a Docker Compose file. Include any dev container features you added in your pre-build configuration in step 2. For example:
 
     ```json
     {
@@ -127,7 +127,8 @@ For example, you may want to pre-build a number of images that you then reuse ac
 That's it!
 
 ### Adding automation
-Steps to automate pre-building your image will vary by CI/DevOps system, but here's an example GitHub Actions workflow that will automate the process for a sub-folder called `change-me` and push it to GitHub Container Registry once a month and whenever the dev container folder is modified in the `main` branch:
+
+Steps to automate pre-building your image will vary by CI/DevOps system, but here's an example GitHub Actions workflow that will automate the process for a subfolder called `change-me` and push it to GitHub Container Registry once a month and whenever the dev container folder is modified in the `main` branch:
 
 ```yaml
 name: Generate Dev Container Image
@@ -173,7 +174,7 @@ jobs:
 The following options can be used with the `build` command:
 
 * `--no-cache` : By default, building a Docker container image reuses layers from previous image builds. The `--no-cache` option prevents the cache being used and forces the image to be rebuilt.
-* `--image-name` : The Remote-Containers extension typically determines its own name for the images it builds. You can specify the name to use for the built image using the `--image-name` option.
+* `--image-name` : The Remote - Containers extension typically determines its own name for the images it builds. You can specify the name to use for the built image using the `--image-name` option.
 
 You can also type `devcontainer build --help` to see a full list of available options.
 

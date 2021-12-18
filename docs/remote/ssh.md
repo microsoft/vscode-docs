@@ -32,7 +32,7 @@ This lets VS Code provide a **local-quality development experience** - including
 - ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 - Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 - macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
-- 1 GB RAM is required for remote hosts, but at least 2 GB RAM and a 2-core CPU is strongly recommended.
+- 1 GB RAM is required for remote hosts, but at least 2 GB RAM and a 2-core CPU is recommended.
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
@@ -106,7 +106,9 @@ From here, [install any extensions](#managing-extensions) you want to use when c
 
 ### Open a folder on a remote SSH host in a container
 
-If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Remote - Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container! You do not even need to have a Docker client installed locally. To do so:
+If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Remote - Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+
+To do so:
 
 1. Follow the [installation](/docs/remote/containers.md#installation) steps for the Remote - Containers extension on your remote host.
 1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
@@ -283,7 +285,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 
 ### Remote - SSH limitations
 
-- Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
+- Using key based authentication is recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
@@ -294,7 +296,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 
 ### Docker Extension limitations
 
-If you are using the Docker or Kubernetes extension in a Remote - SSH window, you will not be able to use the right-click "Attach VS Code to Container" option. This will only work if you are using it from your local machine.
+If you are using the Docker or Kubernetes extension in a Remote - SSH window, you will not be able to use the right-click **Attach VS Code to Container** option. This will only work if you are using it from your local machine.
 
 ### Extension limitations
 

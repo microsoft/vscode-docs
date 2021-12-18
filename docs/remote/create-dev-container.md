@@ -110,7 +110,7 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
-You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a set pre-defined set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) or even your own.
+You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a pre-defined set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) or even your own.
 
 > **Note:** Features support is in preview.
 
