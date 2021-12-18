@@ -131,7 +131,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Adding a new Color Id
 
-Color ids can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
+Color IDs can also be contributed by extensions through the [color contribution point](/api/references/contribution-points#contributes.colors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-marketplace#_extension-details) tab.
 
 ## Further reading
 
