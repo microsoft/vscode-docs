@@ -2,23 +2,42 @@ trigger:
   branches:
     include:
       - main
+      - vnext
 pr: none
+
+variables:
+  LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
 
 resources:
   repositories:
-    - repository: website
-      type: github
-      endpoint: Monaco
-      name: microsoft/vscode-website
-      ref: main # switch to prod when merged
-    - repository: docs
-      type: github
-      endpoint: Monaco
-      name: microsoft/vscode-docs
-      ref: main
-
-variables:
-- template: .pipelines/templates/onebranch/variables.yml@website
+    - repository: templates
+      type: git
+      name: OneBranch.Pipelines/GovernedTemplates
+      ref: refs/heads/main
 
 extends:
-  template: .pipelines/templates/onebranch/official.yml@website
+  template: v2/OneBranch.Official.CrossPlat.yml@templates
+  parameters:
+    cloudvault:
+      enabled: false
+
+    globalSdl:
+      credscan:
+        suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
+      policheck:
+        break: true
+
+    stages:
+    - stage: Build
+
+      jobs:
+      - job: Linux
+        pool:
+          type: linux
+
+        variables:
+          ob_outputDirectory: '$(Build.SourcesDirectory)'
+
+        steps:
+        - script: |
+            echo "##vso[build.addbuildtag]$(Build.SourceBranchName)"
