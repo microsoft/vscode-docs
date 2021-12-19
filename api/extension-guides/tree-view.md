@@ -182,13 +182,13 @@ The third step is to register the above data provider to your view.
 
 This can be done in the following two ways:
 
-- `vscode.window.registerTreeDataProvider` - Register the tree data provider by providing the registered view id and above data provider.
+- `vscode.window.registerTreeDataProvider` - Register the tree data provider by providing the registered view ID and above data provider.
 
     ```typescript
     vscode.window.registerTreeDataProvider('nodeDependencies', new NodeDependenciesProvider(vscode.workspace.rootPath));
     ```
 
-- `vscode.window.createTreeView` - Create the Tree View by providing the registered view id and above data provider. This will give access to the [TreeView](/api/references/vscode-api#TreeView), which you can use for performing other view operations. Use `createTreeView`, if you need the `TreeView` API.
+- `vscode.window.createTreeView` - Create the Tree View by providing the registered view ID and above data provider. This will give access to the [TreeView](/api/references/vscode-api#TreeView), which you can use for performing other view operations. Use `createTreeView`, if you need the `TreeView` API.
 
     ```typescript
     vscode.window.createTreeView('nodeDependencies', { treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)});
