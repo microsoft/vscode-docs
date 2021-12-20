@@ -21,7 +21,6 @@ extends:
       enabled: false
 
     globalSdl:
-      runmode: buildtime
       credscan:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
       policheck:
