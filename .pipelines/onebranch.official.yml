@@ -4,15 +4,22 @@ trigger:
       - main
 pr: none
 
-variables:
-  LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
-
 resources:
   repositories:
     - repository: templates
       type: git
       name: OneBranch.Pipelines/GovernedTemplates
       ref: refs/heads/main
+
+  pipelines:
+    - pipeline: vscode-website
+      source: vscode-website (official)
+      trigger:
+        branches:
+          - prod
+
+variables:
+  LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
 
 extends:
   template: v2/OneBranch.Official.CrossPlat.yml@templates
@@ -22,9 +29,6 @@ extends:
       lfs: true
       retryCount: 3
 
-    cloudvault:
-      enabled: false
-
     globalSdl:
       credscan:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
@@ -32,14 +36,4 @@ extends:
         break: true
 
     stages:
-    - stage: Build
-
-      jobs:
-      - job: Linux
-        pool:
-          type: linux
-
-        variables:
-          ob_outputDirectory: '$(Build.SourcesDirectory)'
-
-        steps: []
+    - template: templates\stages\build-official.yml

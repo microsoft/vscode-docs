@@ -6,7 +6,7 @@ stages:
       jobDisplayName: vscode-ppe
       artifactName: vscode-website-main
 
-  # - template: ..\jobs\build.yml
-  #   parameters:
-  #     jobDisplayName: vscode-docs-vnext
-  #     artifactName: vscode-website-prod
+  - template: ..\jobs\build.yml
+    parameters:
+      jobDisplayName: vscode-docs-vnext
+      artifactName: vscode-website-prod

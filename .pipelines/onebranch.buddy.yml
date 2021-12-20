@@ -17,11 +17,11 @@ resources:
       trigger:
         branches:
           - main
-    # - pipeline: vscode-website-prod
-    #   source: vscode-website (official)
-    #   trigger:
-    #     branches:
-    #       - prod
+    - pipeline: vscode-website-prod
+      source: vscode-website (official)
+      trigger:
+        branches:
+          - prod
 
 
 variables:
