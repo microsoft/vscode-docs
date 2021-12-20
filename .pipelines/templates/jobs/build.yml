@@ -1,0 +1,48 @@
+parameters:
+  - name: jobDisplayName
+    type: string
+  - name: artifactName
+    type: string
+
+jobs:
+- job:
+  displayName: ${{ parameters.jobDisplayName }}
+  pool:
+    type: linux
+
+  variables:
+    ob_outputDirectory: '$(Build.SourcesDirectory)/dist'
+    ob_artifactSuffix: ${{ parameters.jobDisplayName }}
+    ob_git_path: vscode-docs
+
+  steps:
+  - download: ${{ parameters.artifactName }}
+    artifact: drop_Build_Linux
+    displayName: Download ${{ parameters.artifactName }}
+
+  - task: CopyFiles@2
+    inputs:
+      contents: '**'
+      sourceFolder: $(Pipeline.Workspace)/${{ parameters.artifactName }}/drop_Build_Linux
+      targetFolder: $(Build.SourcesDirectory)
+    displayName: Copy ${{ parameters.artifactName }}
+
+  - task: NodeTool@0
+    displayName: Use Node 12.18.0
+    inputs:
+      versionSpec: 12.18.0
+      checkLatest: true
+
+  - task: Npm@0
+    displayName: npm install yarn
+    inputs:
+      arguments: -g yarn
+
+  - script: yarn --frozen-lockfile
+    displayName: Install dependencies
+
+  - pwsh: $(Build.SourcesDirectory)/scripts/ci-build-dist-setup.ps1
+    displayName: Build Dist Setup
+
+  - pwsh: $(Build.SourcesDirectory)/scripts/ci-build-artifact-from-website.ps1
+    displayName: Rebuild Dist From Website
