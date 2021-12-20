@@ -17,6 +17,11 @@ resources:
 extends:
   template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates
   parameters:
+    git:
+      fetchDepth: 1
+      lfs: true
+      retryCount: 3
+
     globalSdl:
       credscan:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
