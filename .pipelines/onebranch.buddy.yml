@@ -17,6 +17,7 @@ resources:
       trigger:
         branches:
           - main
+
     - pipeline: vscode-website-prod
       source: vscode-website (official)
       trigger:

@@ -12,7 +12,7 @@ resources:
       ref: refs/heads/main
 
   pipelines:
-    - pipeline: vscode-website
+    - pipeline: vscode-website-prod
       source: vscode-website (official)
       trigger:
         branches:
