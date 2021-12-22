@@ -13,12 +13,11 @@ Thanks to the great Java community around Visual Studio Code, you can use a wide
 
 > **Tip:** To learn how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-marketplace.md).
 
+In this page, we will recommend a list of popular extensions that might help you for different scenarios.
+
 Thanks to the great Java community around VS Code, you can search for a large number of Java extensions easily within VS Code:
 
-1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extensions list by typing "java".
 
-![Java Extensions](images/extensions/extensions.png)
 
 ## Recommended extensions
 
@@ -92,3 +91,12 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 * The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
 
 Visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.
+
+## Search for other Java extensions
+
+If the extensions above do not meet your requirement, you can also search for other Java related extensions within Visual Studio Code. Here are the steps:
+
+1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
+2. Filter the extensions list by typing "java".
+
+![Java Extensions](images/extensions/extensions.png)
