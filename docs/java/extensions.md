@@ -15,8 +15,6 @@ Thanks to the great Java community around Visual Studio Code, you can use a wide
 
 On this page, we will recommend a list of popular extensions that might help you for different scenarios.
 
-## Recommended extensions
-
 ## Fundamental Java Development
 
 If you are looking for core Java development experience on Visual Studio Code (including Java code auto-completion, running / debugging / testing Java application, Java project management, etc), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
@@ -48,7 +46,9 @@ We recommend installing the [Spring Boot Extension Pack](https://marketplace.vis
 
 [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) is an excellent extension for application servers such as Tomcat, Jetty, etc.
 
-To learn more about how to work with Java application server on Visual Studio Code, please refer to the [Application Server](https://code.visualstudio.com/docs/java/java-tomcat-jetty) page.
+To learn more about how to work with Java application servers on Visual Studio Code, please refer to the [Application Server](https://code.visualstudio.com/docs/java/java-tomcat-jetty) page.
+
+
 
 ## Popular extensions from the community
 
@@ -73,7 +73,7 @@ Here are a few useful extensions:
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
-## Recommended extensions with great Java support
+## Remote development and collaboration
 
 We'd also like to recommend a couple of other extensions we believe are great to make VS Code even better for Java developers.
 
