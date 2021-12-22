@@ -9,7 +9,7 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 ---
 # Java extensions for Visual Studio Code
 
-Visual Studio Code provides many features as a Java language editor. You can also install VS Code extensions to add more features for Java development.
+Thanks to the great Java community around Visual Studio Code, you can use a wide range of various extensions to enhance your Java development experience
 
 > **Tip:** To learn how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-marketplace.md).
 
