@@ -9,19 +9,17 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 ---
 # Java extensions for Visual Studio Code
 
-Thanks to the great Java community around Visual Studio Code, you can use a wide range of various extensions to enhance your Java development experience
+Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience
 
 > **Tip:** To learn how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-marketplace.md).
 
-In this page, we will recommend a list of popular extensions that might help you for different scenarios.
-
-Thanks to the great Java community around VS Code, you can search for a large number of Java extensions easily within VS Code:
-
-
+On this page, we will recommend a list of popular extensions that might help you for different scenarios.
 
 ## Recommended extensions
 
-To help set up Java on VS Code, there is the Microsoft [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
+## Fundamental Java Development
+
+If you are looking for core Java development experience on Visual Studio Code (including Java code auto-completion, running / debugging / testing Java application, Java project management, etc), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
 
 1. [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -32,11 +30,25 @@ To help set up Java on VS Code, there is the Microsoft [Extension Pack for Java]
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-There are also great extensions provided by Pivotal and Microsoft for Spring Boot development, including:
+To get started with this extension pack, you can visit [Getting Started with Java](https://code.visualstudio.com/docs/java/java-tutorial) tutorial
+
+## Spring Boot extensions
+
+Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by Pivotal and Microsoft for Spring Boot development.
+
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack) which contains the following extensions:
 
 1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
+
+<a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Extension Pack for Java</a>
+
+## Application Servers (Tomcat / Jetty / etc)
+
+[Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) is an excellent extension for application servers such as Tomcat, Jetty, etc.
+
+To learn more about how to work with Java application server on Visual Studio Code, please refer to the [Application Server](https://code.visualstudio.com/docs/java/java-tomcat-jetty) page.
 
 ## Popular extensions from the community
 
