@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
 PageTitle: Spring Boot support in Visual Studio Code
-DateApproved: 12/10/2021
+DateApproved: 12/22/2021
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
 
@@ -16,7 +16,7 @@ Visual Studio Code is an ideal lightweight development environment for Spring Bo
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 * [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-We recommend installling the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack) which includes all the extensions above
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack) that includes all of the extensions above.
 
 If you run into any issues when using the features below, you can contact us by [opening an issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -24,7 +24,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 To develop a Spring Boot application in Visual Studio Code, you need to install the following:
 
-* [Java Development Kit (JDK)](https://www.microsoft.com/openjdk) 
+* [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 * [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack)
 
@@ -61,11 +61,12 @@ Navigate to your `pom.xml` file and right-click to select **Add starters...**. A
 The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
 
 The extension supports the following features:
-- Quickly navigate to a Spring element in your workspace
-- Smart code completion for Spring specific components
-- Quick access to running Spring apps
-- Live application information
-- Code templates
+
+* Quickly navigate to a Spring element in your workspace
+* Smart code completion for Spring specific components
+* Quick access to running Spring apps
+* Live application information
+* Code templates
 
 Similar code completion and validation features are also available for `.properties` and `.yml` files.
 
