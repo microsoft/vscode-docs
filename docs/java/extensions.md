@@ -72,19 +72,21 @@ Here are a few useful extensions:
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
-## Cloud-native development (Remote development and container support)
+## Remote development and container support
 
 We'd also like to recommend a couple of other extensions that are useful for remote and container development scenarios.
 
-1. The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
+- The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
 
-2. You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
+- You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
 
-3. [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
+- [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
 
-4. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
+- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
 
 ## Azure on Visual Studio Code
+
+The Azure extensions on Visual Studio Code provides seamless integration with Azure and cloud. There are a few Azure extensions we'd like to recommend.
 
 ### Team development
 
