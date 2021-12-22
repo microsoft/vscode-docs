@@ -9,13 +9,19 @@ MetaDescription: How to deploy Java applications to Azure with Visual Studio Cod
 ---
 # Deploy Java to Azure
 
-The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions for Visual Studio Code make it easy to deploy Java applications (including containers) to [Azure App Service](https://azure.microsoft.com/services/app-service), deploy Spring microservices to [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/), and deploy serverless code to [Azure Functions](https://azure.microsoft.com/services/functions).
+The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) contains a rich set of extensions that make it easy to discover and interact with the cloud services that power your Java applications.
+The extension pack supports the following:
+- Deploy Java applications (including containers) to [Azure App Service](https://azure.microsoft.com/services/app-service)
+- Deploy Spring microservices to [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/)
+- Deploy serverless code to [Azure Functions](https://azure.microsoft.com/services/functions).
 
 ![Azure Tools extension](images/azure/azure-tools.png)
 
+If you are interested in a specific Azure service, you can also directly search for it on the [Visual Studio Code marketplace](https://marketplace.visualstudio.com/VSCode) to see if there's an available extension.
+
 ## Deployment tutorials
 
-The following tutorials below walk you though the details.  Please also check the [Java Azure Developer's Center](https://docs.microsoft.com/azure/java) for all things on Azure for Java developers.
+The following tutorials below walk you through the details.  Please also check the [Java Azure Developer's Center](https://docs.microsoft.com/azure/java) for all things on Azure for Java developers.
 
 | Tutorial | Description |
 | --- | --- |
