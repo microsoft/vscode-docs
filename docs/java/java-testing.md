@@ -30,7 +30,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 ## Requirements
 
-- JDK (version 11 or later)
+- JDK (version 1.5 or later)
 - Visual Studio Code (version 1.59.0 or later)
 - [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
