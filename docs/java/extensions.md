@@ -32,10 +32,6 @@ To get started with this extension pack, you can visit [Getting Started with Jav
 
 You can also install the standalone [SonarLint extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) that detects quality and security issues in your code.
 
-## Gradle for Java
-
-Visual Studio Code offers support Gradle support via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section on Build Tools](https://code.visualstudio.com/docs/java/java-build#_gradle) page
-
 ## Spring Boot extensions
 
 Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by Pivotal and Microsoft for Spring Boot development.
@@ -47,6 +43,10 @@ We recommend installing the [Spring Boot Extension Pack](https://marketplace.vis
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Extension Pack for Java</a>
+
+## Gradle for Java
+
+Visual Studio Code offers support Gradle support via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section on Build Tools](https://code.visualstudio.com/docs/java/java-build#_gradle) page
 
 ## Application Servers (Tomcat / Jetty / etc)
 
@@ -67,8 +67,6 @@ There are some extensions from the community for developers who might be used to
 
 - [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
 - [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
-
-We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
 ## Remote development and container support
 
@@ -110,3 +108,5 @@ If the extensions above do not meet your requirement, you can also search for ot
 2. Filter the extensions list by typing "java".
 
 ![Java Extensions](images/extensions/extensions.png)
+
+We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace.
