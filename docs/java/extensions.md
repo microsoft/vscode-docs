@@ -28,7 +28,13 @@ If you are looking for core Java development experience on Visual Studio Code (i
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-To get started with this extension pack, you can visit [Getting Started with Java](https://code.visualstudio.com/docs/java/java-tutorial) tutorial
+To get started with this extension pack, you can visit [Getting Started with Java](https://code.visualstudio.com/docs/java/java-tutorial) tutorial.
+
+You can also install the standalone [SonarLint extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) that detects quality and security issues in your code.
+
+## Gradle for Java
+
+Visual Studio Code offers support Gradle support via the [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section on Build Tools](https://code.visualstudio.com/docs/java/java-build#_gradle) page
 
 ## Spring Boot extensions
 
@@ -48,27 +54,19 @@ We recommend installing the [Spring Boot Extension Pack](https://marketplace.vis
 
 To learn more about how to work with Java application servers on Visual Studio Code, please refer to the [Application Server](https://code.visualstudio.com/docs/java/java-tomcat-jetty) page.
 
+## MicroProfile / Quarkus
 
-## Popular extensions from the community
+Support for Eclipse MicroProfile and Quarkus are provided via the following extensions
 
-Thanks to the great Java community around VS Code, there are many great community-created extensions as well. You can search for more Java extensions easily within the VS Code:
+- [Extension pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+- [Quarkus](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus)
 
-1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extensions list by typing 'java'.
+## Keymaps for other Java IDEs
 
-Here are a few useful extensions:
+There are some extensions from the community for developers who might be used to key maps from other Java IDEs.
 
-1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-3. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-4. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
-5. [Extension Pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
-6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-7. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
-8. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
-9. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
-10. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
-11. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+- [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
+- [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
