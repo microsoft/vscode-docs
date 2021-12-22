@@ -28,7 +28,7 @@ If you are looking for core Java development experience on Visual Studio Code (i
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-To get started with this extension pack, you can visit [Getting Started with Java](https://code.visualstudio.com/docs/java/java-tutorial) tutorial.
+To get started with this extension pack, you can visit [Getting Started with Java](/docs/java/java-tutorial) tutorial.
 
 You can also install the standalone [SonarLint extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) that detects quality and security issues in your code.
 
@@ -44,15 +44,17 @@ We recommend installing the [Spring Boot Extension Pack](https://marketplace.vis
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Extension Pack for Java</a>
 
+More Spring Boot related information can be found at [Spring Boot](/docs/java/java-spring-boot) page.
+
 ## Gradle for Java
 
-Visual Studio Code offers support Gradle support via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section on Build Tools](https://code.visualstudio.com/docs/java/java-build#_gradle) page
+Visual Studio Code offers support Gradle support via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section on Build Tools](/docs/java/java-build#_gradle) page
 
 ## Application Servers (Tomcat / Jetty / etc)
 
 [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) is an excellent extension for application servers such as Tomcat and Jetty.
 
-To learn more about how to work with Java application servers on Visual Studio Code, please refer to the [Application Server](https://code.visualstudio.com/docs/java/java-tomcat-jetty) page.
+To learn more about how to work with Java application servers on Visual Studio Code, please refer to the [Application Server](/docs/java/java-tomcat-jetty) page.
 
 ## MicroProfile / Quarkus
 
