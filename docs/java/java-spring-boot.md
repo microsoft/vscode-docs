@@ -16,13 +16,15 @@ Visual Studio Code is an ideal lightweight development environment for Spring Bo
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 * [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-If you run into any issues when using the features below, you can contact us by entering an [issue](https://github.com/microsoft/vscode-java-pack/issues).
+We recommend installling the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack) which includes all the extensions above
+
+If you run into any issues when using the features below, you can contact us by [opening an issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Prerequisites
 
-A working Java environment with essential extensions installed is needed, including:
+To develop a Spring Boot application in Visual Studio Code, you need to install the following:
 
-* [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
+* [Java Development Kit (JDK)](https://www.microsoft.com/openjdk) 
 * [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 * [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack)
 
@@ -30,9 +32,7 @@ A working Java environment with essential extensions installed is needed, includ
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
-For more details, refer to the [Getting Started with Java](/docs/java/java-tutorial.md#setting-up-vs-code-for-java-development) tutorial.
-
->**Note**: More information about JDK can be found at [supported Java versions](/docs/java/java-tutorial.md#supported-java-versions).
+>**Note**: More information about how to get started can be found at [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
 ## Create the project
 
@@ -60,8 +60,16 @@ Navigate to your `pom.xml` file and right-click to select **Add starters...**. A
 
 The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
 
-The extension supports quick navigate through source code, smart code completions, quick access to running apps, live application information, and code templates. Similar code completion and validation features are also available for `.properties` and `.yml` files. You  can learn more
-in the [VS Code Language Server for Spring Boot README](https://github.com/spring-projects/sts4/tree/main/vscode-extensions/vscode-spring-boot#usage).
+The extension supports the following features:
+- Quickly navigate to a Spring element in your workspace
+- Smart code completion for Spring specific components
+- Quick access to running Spring apps
+- Live application information
+- Code templates
+
+Similar code completion and validation features are also available for `.properties` and `.yml` files.
+
+To learn how to use these features, you can visit this [detailed usage guide](https://github.com/spring-projects/sts4/tree/main/vscode-extensions/vscode-spring-boot#usage).
 
 Below is an example showing live application information.
 
