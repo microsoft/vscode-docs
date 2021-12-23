@@ -238,6 +238,14 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | pylamaArgs | `[]` | Additional arguments for pylama, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
 | pylamaPath | `"pylama"` | The path to pylama. | [Linting](/docs/python/linting.md) |
 
+### bandit
+
+| Setting<br/>(python.linting.) | Default | Description | See also |
+| --- | --- | --- | --- |
+| banditEnabled | `false` | Specifies whether to enable bandit. | [Linting](/docs/python/linting.md) |
+| banditArgs | `[]` | Additional arguments for bandit, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
+| banditPath | `"bandit"` | The path to bandit. | [Linting](/docs/python/linting.md) |
+
 ## Testing settings
 
 ### General settings
