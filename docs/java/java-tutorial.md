@@ -56,24 +56,9 @@ For this tutorial, the only required extensions are:
 
 ### Supported Java versions
 
-The supported version for running the Language Support for Java™ (redhat.java) extension and the supported version for your projects are two separate requirements.
-
-To run the extension itself, Java 11 or above version is required.
-
-To run your projects, the extension supports version 1.5 or above.
+To run your projects, you need to install a Java Development Kit (JDK) on your local environment. The extension supports Java version 1.5 or above.
 
 > **Note**: To configure JDKs for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
-
-### Using the Java runtime configuration wizard
-
-If no valid Java runtime is detected, you can manually specify one with a runtime configuration wizard.
-You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**
-
-![JDK Configuration](images/java-tutorial/invalid-jdk.png)
-
-### Using VS Code settings
-
-If you prefer, you can configure JDK settings using the VS Code Settings editor instead of the graphical configuration wizard. A common way to do this is [setting the value of the JAVA_HOME system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Alternatively, if you want to configure only VS Code to use the JDK, use the `java.home` setting in VS Code's [User or Workspace settings](/docs/getstarted/settings.md).
 
 ### Installing a Java Development Kit (JDK)
 
