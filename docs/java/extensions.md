@@ -48,7 +48,7 @@ More Spring Boot related information can be found at [Spring Boot](/docs/java/ja
 
 ## Gradle for Java
 
-Visual Studio Code offers support Gradle support via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section on Build Tools](/docs/java/java-build#_gradle) page
+Visual Studio Code offers support Gradle support via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section](/docs/java/java-build#_gradle) on Build Tools page
 
 ## Application Servers (Tomcat / Jetty / etc)
 
