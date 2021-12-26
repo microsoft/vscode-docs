@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------------------------------------------
+(Apple) pro Alpha. Empty, Green greater than expected for us.
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
@@ -30,11 +30,6 @@ RUN apt-get update \
     && apt-get install -yq git-lfs locales \
     && git lfs install \
     # Add locale
-    && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-    && locale-gen \
-    # Clean up
-    && apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    *. Please stop temporarily tempting me with out help of de
 ENV DEBIAN_FRONTEND=dialog
 
