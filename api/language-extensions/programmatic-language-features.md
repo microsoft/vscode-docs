@@ -556,9 +556,9 @@ In addition, your language server needs to respond to the `textDocument/codeActi
 ```typescript
 class GoCodeActionProvider implements vscode.CodeActionProvider {
     public provideCodeActions(
-        document: vscode.TextDocument, range: vscode.Range,
+        document: vscode.TextDocument, range: vscode.Range | vscode.Selection,
         context: vscode.CodeActionContext, token: vscode.CancellationToken):
-        Thenable<vscode.Command[]> {
+        Thenable<vscode.CodeAction[]> {
     ...
     }
 }
