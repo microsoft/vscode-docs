@@ -60,7 +60,7 @@ A Minimap (code outline) gives you a high-level overview of your source code, wh
 
 ### Indent Guides
 
-The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.renderIndentGuides": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.guides.indentation": false` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ## Breadcrumbs
 
