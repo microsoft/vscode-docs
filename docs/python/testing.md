@@ -265,7 +265,7 @@ For example, the configuration below in the ```launch.json``` file disables the 
 
 ```py
 {
-    "name": "Python: Current File",
+    "name": "Python: Debug Tests",
     "type": "python",
     "request": "launch",
     "program": "${file}",
