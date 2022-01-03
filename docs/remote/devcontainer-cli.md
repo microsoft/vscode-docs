@@ -154,7 +154,7 @@ jobs:
           # Update this based on your image name and the path of the .devcontainer folder in your repository
           FOLDER_WITH_DOT_DEVCONTAINER="change-me"
           IMAGE_NAME="your-image-name"
-          IMAGE_REPOSITORY="$(echo "ghcr.io/${{ github.repository_owner }}/${IMAGE_NAME}" | tr '[:upper:]' '[:lower:]')"
+          IMAGE_REPOSITORY="$(echo "ghcr.io/$\{{ github.repository_owner }}/${IMAGE_NAME}" | tr '[:upper:]' '[:lower:]')"
 
           # [Optional] Enable buildkit, set output to plain text for logging
           export DOCKER_BUILDKIT=1
@@ -165,7 +165,7 @@ jobs:
           devcontainer build --no-cache --image-name "${IMAGE_REPOSITORY}" "${FOLDER_WITH_DOT_DEVCONTAINER}"
 
           # Push image to GitHub Container Registry
-          echo "${{ github.token }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          echo "$\{{ github.token }}" | docker login ghcr.io -u "$\{{ github.actor }}" --password-stdin
           docker push "${IMAGE_REPOSITORY}"
 ```
 
