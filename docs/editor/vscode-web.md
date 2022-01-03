@@ -141,6 +141,10 @@ When extensions are executed in the browser sandbox, they are more restricted. E
 
 There are also extensions that run in the browser with partial support only. A good example is a language extension that [restricts its support](/docs/nodejs/working-with-javascript.md#partial-intellisense-mode) to single files or the currently opened files.
 
+### Browser support
+
+You can use VS Code for the Web in Chrome, Edge, Firefox, and Safari.
+
 ### File system API
 
 Edge and Chrome today support the [File System API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API), allowing web pages to access the local file system. If your browser does not support the File System API, you cannot open a folder locally, but you can open files instead.
