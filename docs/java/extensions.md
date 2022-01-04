@@ -9,20 +9,15 @@ MetaDescription: Popular Java extensions for Visual Studio Code
 ---
 # Java extensions for Visual Studio Code
 
-Visual Studio Code provides many features as a Java language editor. You can also install VS Code extensions to add more features for Java development.
+Thanks to the great Java community around Visual Studio Code, you can use a wide range of extensions to enhance your Java development experience
 
 > **Tip:** To learn how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-marketplace.md).
 
-Thanks to the great Java community around VS Code, you can search for a large number of Java extensions easily within VS Code:
+On this page, we will recommend a list of popular extensions that might help you for different scenarios.
 
-1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extensions list by typing "java".
+## Fundamental Java Development
 
-![Java Extensions](images/extensions/extensions.png)
-
-## Recommended extensions
-
-To help set up Java on VS Code, there is the Microsoft [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which contains these popular extensions:
+If you are looking for core Java development experience on Visual Studio Code (including Java code auto-completion, running / debugging / testing Java application, Java project management, etc), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
 
 1. [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -33,49 +28,63 @@ To help set up Java on VS Code, there is the Microsoft [Extension Pack for Java]
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-There are also great extensions provided by Pivotal and Microsoft for Spring Boot development, including:
+To get started with this extension pack, you can visit [Getting Started with Java](/docs/java/java-tutorial) tutorial.
+
+You can also install the standalone [SonarLint extension](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) that detects quality and security issues in your code.
+
+## Spring Boot extensions
+
+Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by Pivotal and Microsoft for Spring Boot development.
+
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack) which contains the following extensions:
 
 1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-## Popular extensions from the community
+<a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Extension Pack for Java</a>
 
-Thanks to the great Java community around VS Code, there are many great community-created extensions as well. You can search for more Java extensions easily within the VS Code:
+More Spring Boot related information can be found at [Spring Boot](/docs/java/java-spring-boot) page.
 
-1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extensions list by typing 'java'.
+## Gradle for Java
 
-Here are a few useful extensions:
+Visual Studio Code offers support Gradle support via the [Gradle for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle). To learn more how to use this extension, please visit the [Gradle section](/docs/java/java-build#_gradle) on Build Tools page
 
-1. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-2. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
-3. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector)
-4. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector)
-5. [Extension Pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
-6. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
-7. [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
-8. [Java Decompiler](https://marketplace.visualstudio.com/items?itemName=dgileadi.java-decompiler)
-9. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
-10. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
-11. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+## Application Servers (Tomcat / Jetty / etc)
 
-We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
+[Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) is an excellent extension for application servers such as Tomcat and Jetty.
 
-## Recommended extensions with great Java support
+To learn more about how to work with Java application servers on Visual Studio Code, please refer to the [Application Server](/docs/java/java-tomcat-jetty) page.
 
-We'd also like to recommend a couple of other extensions we believe are great to make VS Code even better for Java developers.
+## MicroProfile / Quarkus
 
-1. [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
-2. The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
+Support for Eclipse MicroProfile and Quarkus are provided via the following extensions
 
-## Extension for container development
+- [Extension pack for MicroProfile](https://marketplace.visualstudio.com/items?itemName=MicroProfile-Community.vscode-microprofile-pack)
+- [Quarkus](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-quarkus)
 
-You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
+## Keymaps for other Java IDEs
 
-[Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
+There are some extensions from the community for developers who might be used to key maps from other Java IDEs.
 
-## Recommended extensions for cloud (Azure) development
+- [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
+- [IntelliJ IDEA Keybindings](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings)
+
+## Remote development and container support
+
+We'd also like to recommend a couple of other extensions that are useful for remote and container development scenarios.
+
+- The [Remote Development](/docs/remote/remote-overview.md) extensions let you use VS Code to access a container, a remote machine, or the Windows Subsystem for Linux.
+
+- You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to build docker images and work with image registries.
+
+- [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension provides an Explorer view to manage clusters and the nodes inside. It also provides advanced syntax support for editing Kubernetes manifest files.
+
+- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) is a great tool to use when you need to collaborate with someone else on the same code base.
+
+## Azure on Visual Studio Code
+
+The Azure extensions on Visual Studio Code provides seamless integration with Azure and cloud. There are a few Azure extensions we'd like to recommend.
 
 ### Team development
 
@@ -92,3 +101,14 @@ You can use [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azur
 * The [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, Go to Definition, Peek Definition, and Peek References as well as Errors and Warnings, making it quick and easy to author Azure Resource Manager templates in VS Code.
 
 Visit [Azure Extensions](/docs/azure/extensions.md) to find more Azure extensions.
+
+## Search for other Java extensions
+
+If the extensions above do not meet your requirement, you can also search for other Java related extensions within Visual Studio Code. Here are the steps:
+
+1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
+2. Filter the extensions list by typing "java".
+
+![Java Extensions](images/extensions/extensions.png)
+
+We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace.
