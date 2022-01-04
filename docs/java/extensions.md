@@ -59,6 +59,7 @@ Here are a few useful extensions:
 9. [Lombok Annotations Support](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok)
 10. [Java Properties](https://marketplace.visualstudio.com/items?itemName=ithildir.java-properties)
 11. [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+12. [GraalVM Tools for Java] (https://marketplace.visualstudio.com/items?itemName=oracle-labs-graalvm.graalvm)
 
 We also appreciate contributions to any of our existing extensions and we hope you'll create new Java extensions if you don't find what you're looking for in the Marketplace. We're especially looking for help in areas such as support for Gradle and other Java application servers.
 
