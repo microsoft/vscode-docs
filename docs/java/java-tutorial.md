@@ -52,17 +52,19 @@ For this tutorial, the only required extensions are:
 * [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
-## Settings for the JDK
+## Installing and setting up Java development kit (JDK)
+
+To use Java within Visual Studio Code, you need to install a Java Development Kit (JDK) on your local environment. JDK is a software development environment used for developing Java applications. 
 
 ### Supported Java versions
 
-To run your projects, you need to install a Java Development Kit (JDK) on your local environment. The extension supports Java version 1.5 or above.
+The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.5 or above.
 
 > **Note**: To configure JDKs for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
 ### Installing a Java Development Kit (JDK)
 
-If you need to install a JDK, we recommend you to consider installing from one of these sources:
+If you have never installed a JDK before and need to install one, we recommend you to choose from one of these sources:
 
 * [Amazon Corretto](https://aws.amazon.com/corretto)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)
