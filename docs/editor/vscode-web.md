@@ -143,7 +143,7 @@ There are also extensions that run in the browser with partial support only. A g
 
 ### Browser support
 
-You can use VS Code for the Web in Chrome, Edge, Firefox, and Safari.
+You can use VS Code for the Web in Chrome, Edge, Firefox, and Safari. Webviews might appear differently or have some unexpected behavior in Firefox and Safari.
 
 ### File system API
 
