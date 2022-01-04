@@ -16,7 +16,7 @@ In this overview, we will describe the specific editing features provided by the
 
 ## Autocomplete and IntelliSense
 
-IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of option when the they begin to type the variable named, **greeting**.
+IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of options when they begin to type the variable named, **greeting**.
 
 ![Hello World Example for IntelliSense](images/editing/hello-world.gif)
 
