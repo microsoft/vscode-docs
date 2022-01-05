@@ -15,7 +15,7 @@ Thanks to the great Java community around Visual Studio Code, you can use a wide
 
 In this topic, we recommend a list of popular extensions helpful for different Java development scenarios.
 
-## Fundamental Java Development
+## Fundamental Java development
 
 If you are looking for core Java development experience on Visual Studio Code (including Java code auto-completion, running / debugging / testing Java applications, Java project management, etc.), we recommend the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack contains a list of popular Java extensions for fundamental Java development:
 
@@ -42,7 +42,7 @@ We recommend installing the [Spring Boot Extension Pack](https://marketplace.vis
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Extension Pack for Java</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
 More Spring Boot related information can be found at the [Spring Boot](/docs/java/java-spring-boot.md) page.
 
