@@ -16,7 +16,7 @@ In this overview, we will describe the specific editing features provided by the
 
 ## Autocomplete and IntelliSense
 
-IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of option when the they begin to type the variable named, **greeting**.
+IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of options when they begin to type the variable named, **greeting**.
 
 ![Hello World Example for IntelliSense](images/editing/hello-world.gif)
 
@@ -51,14 +51,6 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "~/.local/lib/Google/google_appengine",
     "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]
 ```
-
-The `python.autoComplete.addBrackets` setting (default `false`) also determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to `true`:
-
-```json
-  "python.autoComplete.addBrackets": true,
-```
-
-Next, write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that autocomplete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
@@ -159,7 +151,7 @@ If formatting fails, check the following possible causes:
 
 ## Refactoring
 
-The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method**, and **Sort Imports**.
+The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method**, **Rename Module**, and **Sort Imports**.
 
 ### Extract Variable
 
@@ -176,6 +168,14 @@ Extracts all similar occurrences of the selected expression or block within the 
 You can invoke this command by selecting the lines of code you wish to extract as a method. Then select the light-bulb that is displayed next to it.
 
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
+
+### Rename Module
+
+After a Python file/module is renamed, Pylance can find all instances that may need to be updated and provide you with a preview of all the changes.
+
+To customize which references need to be updated, you can toggle the checkboxes at the line or from the file level in **Refactor Preview**. Once you've made your selections, you can select **Apply Refactoring** or **Discard Refactoring**.
+
+![Renaming a module](images/editing/refactorRenameModule.gif)
 
 ### Sort Imports
 

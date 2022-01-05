@@ -140,7 +140,7 @@ The Remote - SSH extension installs and maintains the "VS Code Server". The serv
 
 By default, the server listens to `localhost` on a random TCP port that is then forwarded to your local machine. If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
 
-> **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is strongly recommended.
+> **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is recommended.
 
 To configure it:
 
@@ -352,7 +352,7 @@ On your local machine, make sure the following permissions are set:
 
 **Windows:**
 
-The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview).
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview).
 
 In this case, make sure that all of the files in the `.ssh` folder for your remote user on the SSH host is owned by you and no other user has permissions to access it. See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details.
 
@@ -465,7 +465,6 @@ To force that a folder is opened, add slash to the path or use:
 To force that a file is opened, add `--goto` or use:
 
 `code --file-uri vscode-remote://ssh-remote+remote_server/code/fileWithoutExtension`
-
 
 ### Using rsync to maintain a local copy of your source code
 

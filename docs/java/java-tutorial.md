@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Getting Started
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Getting Started with Java in Visual Studio Code
-DateApproved: 12/1/2021
+DateApproved: 1/4/2022
 MetaDescription: Java tutorial showing basic Java language support in the Visual Studio Code editor
 ---
 
@@ -52,32 +52,19 @@ For this tutorial, the only required extensions are:
 * [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 * [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
-## Settings for the JDK
+## Installing and setting up a Java Development Kit (JDK)
+
+To use Java within Visual Studio Code, you need to install a Java Development Kit (JDK) on your local environment. JDK is a software development environment used for developing Java applications.
 
 ### Supported Java versions
 
-The supported version for running the Language Support for Java™ (redhat.java) extension and the supported version for your projects are two separate requirements.
-
-To run the extension itself, Java 11 or above version is required.
-
-To run your projects, the extension supports version 1.5 or above.
+The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.5 or above.
 
 > **Note**: To configure JDKs for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
-### Using the Java runtime configuration wizard
-
-If no valid Java runtime is detected, you can manually specify one with a runtime configuration wizard.
-You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**
-
-![JDK Configuration](images/java-tutorial/invalid-jdk.png)
-
-### Using VS Code settings
-
-If you prefer, you can configure JDK settings using the VS Code Settings editor instead of the graphical configuration wizard. A common way to do this is [setting the value of the JAVA_HOME system environment variable](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html) to the install location of the JDK, for example, `C:\Program Files\Java\jdk-13.0.2`. Alternatively, if you want to configure only VS Code to use the JDK, use the `java.home` setting in VS Code's [User or Workspace settings](/docs/getstarted/settings.md).
-
 ### Installing a Java Development Kit (JDK)
 
-If you need to install a JDK, we recommend you to consider installing from one of these sources:
+If you have never installed a JDK before and need to install one, we recommend you to choose from one of these sources:
 
 * [Amazon Corretto](https://aws.amazon.com/corretto)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)

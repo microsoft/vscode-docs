@@ -315,14 +315,6 @@ npx: installed 78 in 2.196s
 
 ```
 
-**Chromium-based browsers**
-
-If you are using Edge, Chrome or any Chromium-based browser, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette, and give "http://localhost:5000" as the address.
-
-**Other browsers**
-
-If you are not using a Chromium browser, you can use the following steps:
-
 Open another terminal and run `npx localtunnel -p 5000`:
 
 ```bash

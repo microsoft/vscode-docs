@@ -138,7 +138,6 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
 | --- | --- | --- | --- |
-| addBrackets | `false` | Specifies whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 | extraPaths | `[]` | Specifies locations of additional packages for which to load autocomplete data. | [Editing](/docs/python/editing.md#autocomplete-and-intellisense) |
 
 ## Formatting settings
@@ -167,7 +166,7 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | Setting<br/>(python.linting.) | Default | Description | See also |
 | --- | --- | --- | --- |
 | enabled | `true` | Specifies whether to enable linting in general. | [Linting](/docs/python/linting.md) |
-| lintOnSave | `true` | Specifies whether to line when saving a file. | [Linting](/docs/python/linting.md) |
+| lintOnSave | `true` | Specifies whether to lint when saving a file. | [Linting](/docs/python/linting.md) |
 | maxNumberOfProblems | `100` | Limits the number of linting messages shown. | [Linting](/docs/python/linting.md) |
 | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]` | Exclude file and folder patterns. | [Linting](/docs/python/linting.md) |
 
@@ -238,6 +237,14 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | pylamaEnabled | `false` | Specifies whether to enable pylama. | [Linting](/docs/python/linting.md) |
 | pylamaArgs | `[]` | Additional arguments for pylama, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
 | pylamaPath | `"pylama"` | The path to pylama. | [Linting](/docs/python/linting.md) |
+
+### bandit
+
+| Setting<br/>(python.linting.) | Default | Description | See also |
+| --- | --- | --- | --- |
+| banditEnabled | `false` | Specifies whether to enable bandit. | [Linting](/docs/python/linting.md) |
+| banditArgs | `[]` | Additional arguments for bandit, where each top-level element that's separated by a space is a separate item in the list.  | [Linting](/docs/python/linting.md) |
+| banditPath | `"bandit"` | The path to bandit. | [Linting](/docs/python/linting.md) |
 
 ## Testing settings
 

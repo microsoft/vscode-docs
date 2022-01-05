@@ -163,7 +163,7 @@ To do this, we created a new TypeScript project file called `tsconfig.strictNull
         "noEmit": true, // Don't output any javascript
         "strictNullChecks": true
     },
-    "files: [
+    "files": [
         // Slowly growing list of strict null check files goes here
     ]
 }

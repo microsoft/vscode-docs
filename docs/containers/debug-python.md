@@ -351,4 +351,4 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 Learn more about:
 
-- [Configuring a non-root user in your container](/docs/containers/python-configure-containers.md)
+- [Configuring a non-root user in your container](/docs/containers/troubleshooting.md#running-as-a-non-root-user)

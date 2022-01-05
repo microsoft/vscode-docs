@@ -53,7 +53,7 @@ Now you can specify details of your VM, such as the name, the size, and the base
 
 ## Set up SSH
 
-There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We strongly recommend using key-based authentication (if you use a username/password, you'll be prompted to enter your credentials more than once by the extension). If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We recommend using key-based authentication (if you use a username/password, you'll be prompted to enter your credentials more than once by the extension). If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 ### Create an SSH key
 

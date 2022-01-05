@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 11/4/2021
+DateApproved: 12/23/2021
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -33,7 +33,7 @@ If you attempt to open a notebook when VS Code is in an untrusted workspace runn
 
 ## Create or open a Jupyter Notebook
 
-You can create a Jupyter Notebook by running the **Jupyter: Create Blank New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
+You can create a Jupyter Notebook by running the **Jupyter: Create New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
@@ -55,7 +55,7 @@ You can also use keyboard shortcuts to run code. When in command or edit mode, u
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
-You can run multiple cells by using **Run All**, **Run All Above**, or **Run All Below**.
+You can run multiple cells by selecting **Run All**, **Run All Above**, or **Run All Below**.
 
 ![Run Jupyter code cells](images/jupyter/native-code-runs.png)
 
@@ -142,7 +142,7 @@ Running multiple code cells can be accomplished in many ways. You can use the do
 
 ### Move a code cell
 
-Moving cells up or down within a Notebook can be accomplished via dragging and dropping. For code cells, the drag and drop area is to the left of the cell editor as indicated below. For rendered Markdown cells, you may click anywhere to drag and drop cells.
+Moving cells up or down within a notebook can be accomplished via dragging and dropping. For code cells, the drag and drop area is to the left of the cell editor as indicated below. For rendered Markdown cells, you may click anywhere to drag and drop cells.
 
 ![Move a code cell](images/jupyter/code-move.png)
 
@@ -162,7 +162,7 @@ You can use the `kbstyle(z)` key to undo your previous change, for example, if y
 
 ### Switch between code and Markdown
 
-The Notebook Editor allows you to easily change code cells between Markdown and code. Clicking the language picker in the bottom right of a cell will allow you to switch between Markdown and, if applicable, any other language supported by the selected kernel.
+The Notebook Editor allows you to easily change code cells between Markdown and code. Selecting the language picker in the bottom right of a cell will allow you to switch between Markdown and, if applicable, any other language supported by the selected kernel.
 
 ![Change language](images/jupyter/native-language-picker-01.png)
 
