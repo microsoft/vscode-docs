@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in Visual Studio Code
-DateApproved: 8/17/2021
+DateApproved: 1/4/2022
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in Visual Studio Code
@@ -19,12 +19,12 @@ This article will give you an overview of different capabilities of Visual Studi
 
 VS Code provides essential language features such as code completion, refactoring, linting, formatting, and code snippets along with convenient debugging and unit test support. VS Code also integrates with tooling and frameworks such as Maven, Tomcat, Jetty, and Spring Boot. Leveraging the power of Visual Studio Code, Java developers get an excellent tool for both quick code editing and also the full debugging and testing cycle. It's a great choice for your Java work if you're looking for a tool which:
 
-- Is fast, lightweight, free, and open source.
-- Supports many other languages, not just Java.
-- Helps start your Java journey without installing and learning a complex IDE.
-- Provides great microservices support including popular frameworks, container tooling, and cloud integration.
-- Offers team-based collaboration features such as [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share).
-- Improves your productivity through IntelliSense and other code-aware editing features.
+* Is fast, lightweight, free, and open source.
+* Supports many other languages, not just Java.
+* Helps start your Java journey without installing and learning a complex IDE.
+* Provides great microservices support including popular frameworks, container tooling, and cloud integration.
+* Offers team-based collaboration features such as [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share).
+* Improves your productivity through IntelliSense and other code-aware editing features.
 
 ## Install Visual Studio Code for Java
 
@@ -36,7 +36,7 @@ To help you set up quickly, we recommend you use the **Coding Pack for Java**, w
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
-If you have already installed VS Code and want to add Java support to it, we recommend to use the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
+If you have already installed VS Code and want to add Java support to it, we recommend using the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), a collection of extensions suggested by Microsoft:
 
 1. [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -72,9 +72,9 @@ This document describes some of the key features included in those Java extensio
 
 **NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).
 
-### Install a Java development kit (JDK)
+### Install a Java Development Kit (JDK)
 
-Java development kit (JDK) is a software development environment used for developing Java applications. In order to run Java within Visual Studio Code, you need to install a JDK. The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.5 or above.
+A Java Development Kit (JDK) is a software development environment used for developing Java applications. In order to run Java within Visual Studio Code, you need to install a JDK. The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) supports Java version 1.5 or above.
 
 We recommend you to consider installing the JDK from one of these sources:
 
@@ -94,7 +94,7 @@ Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: G
 
 ## Working with Java source files
 
-You can use VS Code to read, write, run, and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
+You can use VS Code to read, write, run, and debug Java source file(s) without creating a project. VS Code for Java supports two modes, lightweight and standard. Lightweight mode is ideal for scenarios that only deal with source file(s). If you want to work with a full-scale project, standard mode will be required. You can easily switch from lightweight mode to standard mode, when needed. To learn more, see [Lightweight Mode](/docs/java/java-project.md#lightweight-mode).
 
 ## Working with Java projects
 
@@ -154,7 +154,7 @@ For more details, see [Java Code Navigation and Editing](/docs/java/java-editing
 
 [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/microsoft/java-debug). It works with [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users to debug Java code within Visual Studio Code.
 
-Starting a debugging session is easy: click on the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
+Starting a debugging session is easy: click the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4">
@@ -186,18 +186,18 @@ See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more abo
 
 Learn more about Java in VS Code:
 
-- [Getting Started with Java](/docs/java/java-tutorial.md)
-- [Code Editing and Navigation](/docs/java/java-editing.md)
-- [Java Debugging](/docs/java/java-debugging.md)
-- [Java Testing](/docs/java/java-testing.md)
-- [Java Project Management](/docs/java/java-project.md)
-- [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
-- [Application Servers](/docs/java/java-tomcat-jetty.md)
-- [Azure with VS Code](/docs/java/java-on-azure.md)
+* [Getting Started with Java](/docs/java/java-tutorial.md)
+* [Code Editing and Navigation](/docs/java/java-editing.md)
+* [Java Debugging](/docs/java/java-debugging.md)
+* [Java Testing](/docs/java/java-testing.md)
+* [Java Project Management](/docs/java/java-project.md)
+* [Spring Boot with VS Code](/docs/java/java-spring-boot.md)
+* [Application Servers](/docs/java/java-tomcat-jetty.md)
+* [Azure with VS Code](/docs/java/java-on-azure.md)
 
 Read on to find out more about Visual Studio Code:
 
-- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-- [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
-- [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
