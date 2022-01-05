@@ -595,9 +595,9 @@ You must specify an id (used in the settings), a label and the path to the file 
   "contributes": {
     "iconThemes": [
       {
-        "id": "metro",
-        "label": "Metro File Icons",
-        "path": "./fileicons/metro-file-icon-theme.json"
+        "id": "my-cool-file-icons",
+        "label": "Cool File Icons",
+        "path": "./fileicons/cool-file-icon-theme.json"
       }
     ]
   }

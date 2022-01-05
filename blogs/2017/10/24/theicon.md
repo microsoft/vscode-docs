@@ -106,8 +106,6 @@ And then the issues and comments started rolling in.
 
 ![GitHub issue 35783](vscodenewlogoissue.png)
 
-(I must give credit to the author named "[badass-icon](https://github.com/badass-icon)", I see what you did there, well played.)
-
 Each day there were additional comments, each expressing a dislike of the new icon in new and interesting ways. After the first couple of days, we thought the feedback would slow and we would be able to address the individual issues. Turns out, we were wrong. The feedback just kept coming in. New issues were opened, comments came in faster than we could respond. Hacker News, Visual Studio Magazine. High School friends posted comments on FaceBook. Awesome.
 
 ## You're my boy, Blue!
