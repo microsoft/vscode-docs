@@ -21,8 +21,6 @@ See [Open a WSL 2 folder in a container on Windows](/docs/remote/containers.md#o
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MUsROtVmPJM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<br><br>
-
 ## Use Clone Repository in Container Volume
 
 The **Remote-Containers: Clone Repository in Container Volume...** command uses an isolated, local Docker named volume instead of binding to the local filesystem. In addition to not polluting your file tree, local volumes have the added benefit of improved performance on Windows and macOS.
@@ -104,6 +102,10 @@ While vscode-remote-try-node does not use Docker Compose, the steps are similar,
     ```
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+
+### Video: Speed up npm install in a dev container
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iDdJWIPRUx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Use a named volume for your entire source tree
 
