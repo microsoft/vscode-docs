@@ -43,7 +43,7 @@ Prerequisites:
 * Install Windows 10, version 2004.
     * To find out which version of Windows your device is running, press the **Windows logo** key + **R**, type **winver** in the **Open** box, and then select **OK**.
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
-* Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/wsl2-install).
+* Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/install).
 * Install Ubuntu (or your preferred Linux distribution) from the [Microsoft store](https://www.microsoft.com/p/ubuntu/9nblggh4msv6).
 * Install [Docker Desktop Stable 2.3.0.2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/#download).
 
