@@ -1100,7 +1100,7 @@ The Natvis schema is provided here for convenience:
   <xs:complexType name="LocalizedStringType">
     <xs:annotation>
       <xs:documentation>
-        Defines a localized string resource that can be referenced by natvis elements that accept strings (.g.e.g. DisplayString, Name attribute of Item element).
+        Defines a localized string resource that can be referenced by natvis elements that accept strings (e.g. DisplayString, Name attribute of Item element).
         Use @&lt;id&gt;; format to reference a localized string (e.g. @1001;)
       </xs:documentation>
     </xs:annotation>
