@@ -11,7 +11,7 @@ jobs:
     type: linux
 
   variables:
-    ob_outputDirectory: '$(Build.ArtifactStagingDirectory)'
+    ob_outputDirectory: '$(Pipeline.Workspace)/vscode-website/dist'
     ob_artifactSuffix: ${{ parameters.jobDisplayName }}
     ob_git_path: vscode-website/vscode-docs
 
@@ -49,11 +49,3 @@ jobs:
   - pwsh: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
-
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(Pipeline.Workspace)/vscode-website/dist'
-      includeRootFolder: false
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/website.zip'
-      replaceExistingArchive: true
