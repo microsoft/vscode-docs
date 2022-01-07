@@ -88,7 +88,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
 1. Before the data can be graphed, you need to make sure that there aren't any issues with it. If you look at the Titanic csv file, one thing you'll notice is that a question mark ("?") was used to identify cells where data wasn't available.
 
-   While Pandas can read this value into a DataFrame, the result for a column like *age* is that its data type will be set to *object* instead of a numeric data type, which is problematic for graphing.
+   While Pandas can read this value into a DataFrame, the result for a column like **age** is that its data type will be set to **object** instead of a numeric data type, which is problematic for graphing.
 
    This problem can be corrected by replacing the question mark with a missing value that pandas is able to understand. Add the following code to the next cell in your notebook to replace the question marks in the **age** and **fare** columns with the [numpy NaN](https://docs.scipy.org/doc/numpy/reference/constants.html?highlight=nan#numpy.nan) value. Notice that we also need to update the column's data type after replacing the values.
 
@@ -178,7 +178,7 @@ With the dataset ready, you can now begin creating a model. For this section, yo
    X_test = sc.transform(x_test)
    ```
 
-1. There are many different machine learning algorithms that you could choose from to model the data. Scikit-learn also provides support for many of [them](https://scikit-learn.org/stable/user_guide.html) and a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.html), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
+1. There are many different machine learning algorithms that you could choose from to model the data. The scikit-learn library also provides support for many of [them](https://scikit-learn.org/stable/user_guide.html) and a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.html), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
 
    ```python
    from sklearn.naive_bayes import GaussianNB
