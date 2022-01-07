@@ -2,6 +2,12 @@ trigger:
   branches:
     include:
       - vnext
+  paths:
+    exclude:
+    - .config
+    - .devcontainer
+    - .pipelines
+    - .vscode
 pr: none
 
 resources:
