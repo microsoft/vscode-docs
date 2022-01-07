@@ -711,6 +711,7 @@ The banner appears below the title bar and spans the entire width of the workben
 ## Keybinding label colors
 
 Keybinding labels are shown when there is a keybinding associated with a command. An example of the keybinding label can be seen in the Command Palette:
+
 ![Keybinding label](images/theme-color/keybinding-label.png)
 
 Usages of the keybinding label include (but are not limited to):
