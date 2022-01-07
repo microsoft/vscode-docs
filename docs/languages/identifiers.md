@@ -69,6 +69,7 @@ Coffeescript | `coffeescript`
 C | `c`
 C++ | `cpp`
 C# | `csharp`
+Cuda | `cuda-cpp`
 CSS | `css`
 Diff | `diff`
 Dockerfile | `dockerfile`
