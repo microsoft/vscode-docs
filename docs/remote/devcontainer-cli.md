@@ -48,7 +48,7 @@ To use the `devcontainer` CLI, you'll need the following on your system or CI/De
 
 ### Install from the command line
 
-You may also install the CLI from the command line.
+You may also install the CLI from the command line. Currently this doesn't support the command `devcontainer open [path]`.
 
 Global install:
 
