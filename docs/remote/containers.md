@@ -81,6 +81,8 @@ The Remote - Containers extension supports two primary operating models:
 
 As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize the Remote-Containers extension through its settings. You may review a list of all Remote - Containers settings by opening the extension in the Extension view, and navigating to "Feature Contributions."
 
+![List of settings in Feature Contributions](images/containers/feature-contributions.png)
+
 ## Quick start: Try a development container
 
 The easiest way to get started is to try one of the sample development containers. The [Containers tutorial](/docs/remote/containers-tutorial.md) will walk you through setting up Docker and the Remote - Containers extension and let you select a sample:
