@@ -233,7 +233,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
    ![Viewing a summary of the sequential neural network](images/data-science-tutorial/jupyter-cell-06.png)
 
-1. Once the model is created, it needs to be compiled. As part of this, you need to define what type of optimizer will be used, how loss will be calculated, and what metric should be optimized for. Add the following code to build and train the model. You'll notice that after training the accuracy is ~80%.
+1. Once the model is created, it needs to be compiled. As part of this, you need to define what type of optimizer will be used, how loss will be calculated, and what metric should be optimized for. Add the following code to build and train the model. You'll notice that after training the accuracy is ~61%.
 
    > **Note**: This step may take anywhere from a few seconds to a few minutes to run depending on your machine.
 
@@ -253,7 +253,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
    ![Evaluate the neural network](images/data-science-tutorial/jupyter-cell-08.png)
 
-   Similar to the training, you'll notice that you're now closer to 80% accuracy in predicting survival of passengers. This result was better than the 75% accuracy from the Naive Bayes Classifier tried previously.
+   Similar to the training, you'll notice that you're now closer to 61% accuracy in predicting survival of passengers. This result was better than the 75% accuracy from the Naive Bayes Classifier tried previously.
 
 ## Next steps
 
