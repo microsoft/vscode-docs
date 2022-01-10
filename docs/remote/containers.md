@@ -79,6 +79,8 @@ The Remote - Containers extension supports two primary operating models:
 * You can use a container as your [full-time development environment](/docs/remote/create-dev-container.md#create-a-devcontainerjson-file).
 * You can [attach to a running container](/docs/remote/attach-container.md) to inspect it.
 
+As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize the Remote-Containers extension through its settings. You may review a list of all Remote - Containers settings by opening the extension in the Extension view, and navigating to "Feature Contributions."
+
 ## Quick start: Try a development container
 
 The easiest way to get started is to try one of the sample development containers. The [Containers tutorial](/docs/remote/containers-tutorial.md) will walk you through setting up Docker and the Remote - Containers extension and let you select a sample:
