@@ -198,7 +198,7 @@ With the dataset ready, you can now begin creating a model. For this section, yo
 
    Looking at the result of the test data, you'll see that the trained algorithm had a ~75% success rate at estimating survival.
 
-## (Optional) Use a neural network to increase accuracy
+## (Optional) Use a neural network
 
 A neural network is a model that uses weights and activation functions, modeling aspects of human neurons, to determine an outcome based on provided inputs. Unlike the machine learning algorithm you looked at previously, neural networks are a form of deep learning wherein you don't need to know an ideal algorithm for your problem set ahead of time. It can be used for many different scenarios and classification is one of them. For this section, you'll use the [Keras](https://keras.io/) library with [TensorFlow](https://www.tensorflow.org/) to construct the neural network, and explore how it handles the Titanic dataset.
 
@@ -233,7 +233,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
    ![Viewing a summary of the sequential neural network](images/data-science-tutorial/jupyter-cell-06.png)
 
-1. Once the model is created, it needs to be compiled. As part of this, you need to define what type of optimizer will be used, how loss will be calculated, and what metric should be optimized for. Add the following code to build and train the model. You'll notice that after training the accuracy is ~61%.
+1. Once the model is created, it needs to be compiled. As part of this, you need to define what type of optimizer will be used, how loss will be calculated, and what metric should be optimized for. Add the following code to build and train the model. You'll notice that after training, the accuracy is ~61%.
 
    > **Note**: This step may take anywhere from a few seconds to a few minutes to run depending on your machine.
 
@@ -253,7 +253,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
    ![Evaluate the neural network](images/data-science-tutorial/jupyter-cell-08.png)
 
-   Similar to the training, you'll notice that you're now closer to 61% accuracy in predicting survival of passengers. This result was better than the 75% accuracy from the Naive Bayes Classifier tried previously.
+   Similar to the training, you'll notice that you now have 61% accuracy in predicting survival of passengers. In this case, the result is not better than the 75% accuracy from the Naive Bayes Classifier tried previously.
 
 ## Next steps
 
