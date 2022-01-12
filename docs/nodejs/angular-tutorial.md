@@ -3,14 +3,14 @@ Order: 6
 Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
-PageTitle: Angular JavaScript Tutorial in Visual Studio Code
+PageTitle: Angular TypeScript Tutorial in Visual Studio Code
 DateApproved: 12/8/2021
-MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+MetaDescription: Angular TypeScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/angular/Welcome-to-app.png
 ---
 # Using Angular in Visual Studio Code
 
-[Angular](https://angular.io/) is a popular JavaScript library developed by Google for building web application user interfaces. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
+[Angular](https://angular.io/) is a popular web development platform developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
