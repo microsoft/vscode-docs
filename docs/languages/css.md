@@ -331,7 +331,7 @@ Read on to find out about:
 
 ### Does VS Code provide a color picker?
 
-Yes, color picker has been added in version [1.15](https://code.visualstudio.com/updates/v1_15#_color-picker).
+Yes, hover over a CSS color reference and the color picker is displayed.
 
 ### Is there support for the indentation based Sass syntax (.sass)?
 

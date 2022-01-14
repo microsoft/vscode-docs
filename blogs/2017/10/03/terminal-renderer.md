@@ -17,7 +17,7 @@ The rendering engine of the Integrated Terminal has been completely re-written w
 
 It's somewhat surprising, but rendering an interactive terminal was possible in a system designed for displaying static documents. However, as time went on we found that certain functionality provided by the DOM needed to be overridden to fix several issues:
 
-**Selection**: There was a lot of working against the DOM's selection system to cover the terminal use case. Since we always rendered only what was visible to the DOM, you could not select multiple pages of content without reimplementing selection. Scrolling would also cause the selection to be dropped. In order to resolve these issues, custom selection logic was added in VS Code version [1.14](https://code.visualstudio.com/updates/v1_14#_selection-reimplemented).
+**Selection**: There was a lot of working against the DOM's selection system to cover the terminal use case. Since we always rendered only what was visible to the DOM, you could not select multiple pages of content without reimplementing selection. Scrolling would also cause the selection to be dropped. In order to resolve these issues, custom selection logic was added.
 
 **Misaligned characters**: Due to many monospace fonts not being strictly monospace for some Unicode characters, this could lead to situations like the one seen on the right-side of the image below:
 
