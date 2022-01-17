@@ -275,8 +275,6 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Wed, 31 Oct, 18 at 18:13:39'
     ```
 
-    > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
-
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
     ![Flask tutorial: result of the modified program](images/flask-tutorial/debug-run-result.png)
