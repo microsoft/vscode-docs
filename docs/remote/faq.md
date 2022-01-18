@@ -115,6 +115,12 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
 * [Remote - WSL](https://aka.ms/vscode-remote/download/wsl)
 
+## How can I review and configure extension settings?
+
+As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Remote - Containers as an example, you may review a list of all Remote - Containers settings by opening the extension in the Extensions view, and navigating to "Feature Contributions":
+
+![List of settings in Feature Contributions](images/containers/feature-contributions.png)
+
 ## Remote - WSL
 
 ### What is the advantage of the extension over using WSL as the terminal?
