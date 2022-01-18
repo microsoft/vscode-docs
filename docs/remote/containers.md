@@ -684,12 +684,6 @@ VS Code Server runs on a random port inside the container and VS Code itself use
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
 
-## How can I configure Remote - Containers settings?
-
-As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize the Remote - Containers extension through its settings. You may review a list of all Remote - Containers settings by opening the extension in the Extension view, and navigating to "Feature Contributions."
-
-![List of settings in Feature Contributions](images/containers/feature-contributions.png)
-
 ### What other resources are there that may be able to answer my question?
 
 The following articles may help answer your question:
