@@ -79,10 +79,6 @@ The Remote - Containers extension supports two primary operating models:
 * You can use a container as your [full-time development environment](/docs/remote/create-dev-container.md#create-a-devcontainerjson-file).
 * You can [attach to a running container](/docs/remote/attach-container.md) to inspect it.
 
-As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize the Remote-Containers extension through its settings. You may review a list of all Remote - Containers settings by opening the extension in the Extension view, and navigating to "Feature Contributions."
-
-![List of settings in Feature Contributions](images/containers/feature-contributions.png)
-
 ## Quick start: Try a development container
 
 The easiest way to get started is to try one of the sample development containers. The [Containers tutorial](/docs/remote/containers-tutorial.md) will walk you through setting up Docker and the Remote - Containers extension and let you select a sample:
@@ -687,6 +683,12 @@ VS Code Server runs on a random port inside the container and VS Code itself use
 ### As an extension author, what do I need to do to make sure my extension works?
 
 The VS Code extension API hides most of the implementation details of running remotely so many extensions will just work inside dev containers without any modification. However, we recommend that you test your extension in a dev container to be sure that all of its functionality works as expected. See the article on [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for details.
+
+## How can I configure Remote - Containers settings?
+
+As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize the Remote - Containers extension through its settings. You may review a list of all Remote - Containers settings by opening the extension in the Extension view, and navigating to "Feature Contributions."
+
+![List of settings in Feature Contributions](images/containers/feature-contributions.png)
 
 ### What other resources are there that may be able to answer my question?
 
