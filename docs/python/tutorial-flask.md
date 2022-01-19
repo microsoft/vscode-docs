@@ -275,11 +275,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Wed, 31 Oct, 18 at 18:13:39'
     ```
 
-    > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
-
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
     ![Flask tutorial: result of the modified program](images/flask-tutorial/debug-run-result.png)
+
+1.  Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Flask server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
