@@ -117,7 +117,7 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 
 ## How can I review and configure extension settings?
 
-As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Remote - Containers as an example, you may review a list of all Remote - Containers settings by opening the extension in the Extensions view, and navigating to "Feature Contributions":
+As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Remote - Containers as an example, you may review a list of all Remote - Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
 
 ![List of settings in Feature Contributions](images/containers/feature-contributions.png)
 
