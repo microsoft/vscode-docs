@@ -30,7 +30,7 @@ To successfully complete this tutorial, you must do the following steps:
 1. Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
-   1. Choose the `Path` variable and then select **Edit**.
+   1. Choose the `Path` variable in your **User variables** and then select **Edit**.
    1. Select **New** and add the Mingw-w64 destination folder path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\msys64\mingw64\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
