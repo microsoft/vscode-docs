@@ -33,35 +33,35 @@ To install an extension, select the **Install** button. Once the installation is
 
 ### Find and install an extension
 
-For example, let's install the popular [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) extension. This extension adds highlighted lines linking bracket characters like `[]`, `{}`, and `()` so you can quickly see your code's nested sections.
+For example, let's install the popular [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) extension. This extension highlights text like 'TODO:' and 'FIXME:' in your source code so you can quickly find undone sections.
 
-![Bracket Pair Colorizer extension highlighting in the editor](images/extension-marketplace/bracket-pair-colorizer.png)
+![TODO Highlight extension highlighting in the editor](images/extension-marketplace/todo-highlighting.png)
 
-In the Extensions view (`kb(workbench.view.extensions)`), type 'bracket' in the search box to filter the Marketplace offerings to extensions with 'bracket' in the title or metadata. You should see the **Bracket Pair Colorizer** in the list.
+In the Extensions view (`kb(workbench.view.extensions)`), type 'todo' in the search box to filter the Marketplace offerings to extensions with 'todo' in the title or metadata. You should see the **TODO Highlight** extension in the list.
 
-![Search for bracket in the Extensions view](images/extension-marketplace/search-for-bracket-extension.png)
+![Search for todo in the Extensions view](images/extension-marketplace/search-for-todo-extension.png)
 
-An extension is uniquely identified by its publisher and extension IDs. If you select the **Bracket Pair Colorizer** extension, you will see the Extension details page, where you can find the extension ID, in this case, `coenraads.bracket-pair-colorizer`. Knowing the extension ID can be helpful if there are several similarly named extensions.
+An extension is uniquely identified by its publisher and extension IDs. If you select the **TODO Highlight** extension, you will see the Extension details page, where you can find the extension ID, in this case, `wayou.vscode-todo-highlight`. Knowing the extension ID can be helpful if there are several similarly named extensions.
 
-![Bracket Pair Colorizer extension details with extension ID highlighted](images/extension-marketplace/bracket-pair-colorizer-details.png)
+![TODO Highlight extension details with extension ID highlighted](images/extension-marketplace/todo-highlight-details.png)
 
 Select the **Install** button, and VS Code will download and install the extension from the Marketplace. When the installation is complete, the **Install** button will be replaced with a **Manage** gear button.
 
 ![Manage gear button](images/extension-marketplace/manage-button.png)
 
-To see the Bracket Pair Colorizer extension in action, open any source code file with nested regions and you will see highlighting lines and distinct colors for matching bracket characters. As you move the cursor around the editor, the highlighted enclosing region will change.
+To see the TODO Highlight extension in action, open any source code file and add the text 'TODO:' and you will see the text highlighted.
 
-Besides visual editor highlighting, the Bracket Pair Colorizer extension also contributes several commands, **Expand Bracket Selection** and **Undo Bracket Selection**, that you can find in the Command Palette (`kb(workbench.action.showCommands)`). These commands let you quickly expand or reduce text selection in the editor.
+The TODO Highlight extension contributes the commands, **TODO-Highlight: List highlighted annotations** and **TODO-Highlight: Toggle highlight**, that you can find in the Command Palette (`kb(workbench.action.showCommands)`). The **TODO-Highlight: Toggle highlight** command lets you quickly disable or enable highlighting.
 
-![Bracket Pair Colorizer commands in the Command Palette](images/extension-marketplace/bracket-pair-colorizer-commands.png)
+![TODO Highlight commands in the Command Palette](images/extension-marketplace/todo-highlight-commands.png)
 
-The extension also provides settings for tuning its behavior, which you can find in the Settings editor (`kb(workbench.action.openSettings)`).
+The extension also provides settings for tuning its behavior, which you can find in the Settings editor (`kb(workbench.action.openSettings)`). For example, you might want the text search to be case insensitive and you can uncheck the **Todohighlight: Is Case Sensitive** setting.
 
-![Bracket Pair Colorizer settings in the Settings editor](images/extension-marketplace/bracket-pair-colorizer-settings.png)
+![TODO Highlight settings in the Settings editor](images/extension-marketplace/todo-highlight-settings.png)
 
 If an extension doesn't provide the functionality you want, you can always **Uninstall** the extension from the **Manage** button context menu.
 
-![Uninstall the Bracket Pair Colorizer extension](images/extension-marketplace/bracket-pair-colorizer-uninstall.png)
+![Uninstall the TODO Highlight extension](images/extension-marketplace/todo-highlight-uninstall.png)
 
 This has been just one example of how to install and use an extension. The VS Code Marketplace has thousands of extensions supporting hundreds of programming languages and tasks. Everything from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
 
@@ -69,7 +69,7 @@ This has been just one example of how to install and use an extension. The VS Co
 
 On the extension details page, you can read the extension's README and review the extension's:
 
-* **Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
+* **Feature Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
 * **Changelog** - The extension repository CHANGELOG if available.
 * **Dependencies** - Lists if the extension depends on any other extensions.
 
