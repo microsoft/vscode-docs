@@ -439,8 +439,6 @@ Bracket pair guides:
 - `editorBracketPairGuide.background4`: Background color of inactive bracket pair guides (4). Requires enabling bracket pair guides.
 - `editorBracketPairGuide.background5`: Background color of inactive bracket pair guides (5). Requires enabling bracket pair guides.
 - `editorBracketPairGuide.background6`: Background color of inactive bracket pair guides (6). Requires enabling bracket pair guides.
-- `editorBracketPairGuide.background1`: Background color of inactive bracket pair guides (1). Requires enabling bracket pair guides.
-
 
 Folding:
 

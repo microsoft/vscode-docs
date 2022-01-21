@@ -25,7 +25,9 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Get the latest version of Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  [Click here](https://github.com/msys2/msys2-installer/releases/download/2021-11-30/msys2-x86_64-20211130.exe) to download the MSYS2 installer. Then follow the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
+1. Get the latest version of Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries. You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe).
+
+1. Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command, especially Step 7, when you will install the actual Mingw-w64 toolset (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
@@ -57,7 +59,9 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+
+As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
@@ -347,6 +351,10 @@ If you have Visual Studio or WSL installed, you may need to change `compilerPath
 ### MSYS2 is installed, but g++ and gdb are still not found
 
 You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install Mingw-w64, which contains those tools.
+
+### MinGW 32-bit
+
+If you need a 32-bit version of the MinGW toolset, consult the [Downloading](https://www.msys2.org/wiki/MSYS2-installation/) section on the MSYS2 wiki. It includes links to both 32-bit and 64-bit installation options.
 
 ## Next steps
 
