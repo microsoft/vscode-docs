@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: students
 TOCTitle: Over the Moon Lessons
 ContentId: 59288bcc-97b7-411e-86da-c022a00e25ec
