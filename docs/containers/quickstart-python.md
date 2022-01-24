@@ -18,25 +18,16 @@ In this guide you will learn how to:
 ## Prerequisites
 
 - Docker Desktop and the VS Code Docker extension must be installed as described in the [overview](/docs/containers/overview.md#installation).
-- For Python development, complete all [Getting started with Python](/docs/python/python-tutorial.md) steps
-- A runnable Python application
 
 ### Create a Python project
 
-If you don't have a Python project already, follow these commands sequentially from the terminal:
+If you don't have a Python project already, follow the tutorial [Getting started with Python](/docs/python/python-tutorial.md).
 
-```bash
-pip install django
-django-admin startproject helloworld
-cd helloworld
-code .
-```
-
-If you want to containerize a complete Django or Flask web app, you can use one of the following samples:
-
-- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial/tree/tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md)
-
-- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial/tree/tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md)
+> **Note**: If you want to containerize a complete Django or Flask web app, you can use one of the following samples:
+>
+>- [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial/tree/tutorial), which is the result of following the [Django Tutorial](/docs/python/tutorial-django.md)
+>
+>- [python-sample-vscode-flask-tutorial](https://github.com/microsoft/python-sample-vscode-flask-tutorial/tree/tutorial), which is the result of following the [Flask Tutorial](/docs/python/tutorial-flask.md)
 
 After verifying your app runs properly, you can now Dockerize your application.
 
@@ -47,15 +38,17 @@ After verifying your app runs properly, you can now Dockerize your application.
 
     ![Add Dockerfile to a Python project](images/quickstarts/python-add-python.png)
 
-1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we'll focus on the **Python: General** case, but will also includes notes for Django and Flask.
+1. When the prompt appears, select **Python: Django**, **Python: Flask**, or **Python: General** as the app type. For this tutorial, we'll focus on the **Python: General** case, but will also include notes for Django and Flask.
 
-1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
+1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. If you created a python app with `hello.py` according to the Python tutorial, choose that.
+
+   >**Note**: According to [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project), this path is commonly `manage.py` (root folder) or `subfolder_name/manage.py`. According to [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/), this is the path to where you create your Flask instance.
 
     >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
 1. Select the port number. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/troubleshooting.md#running-as-a-non-root-user).
 
-   > **Note:** If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000, while Flask defaults to port 5000; however, any unused port will work.
+   >**Note:** If **Python: Django** or **Python: Flask** was selected, specify app port for local development. Django defaults to port 8000, while Flask defaults to port 5000; however, any unused port will work.
 
 1. Select either **Yes** or **No** when prompted to include [Docker Compose](/docs/containers/docker-compose.md) files. If you select **Yes**, you will need to [verify the path](/docs/containers/quickstart-python.md#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
 
