@@ -12,7 +12,7 @@ MetaDescription: A resume website tutorial using VS Code in the browser and GitH
 
 This recruiting season, make your resume stand out by hosting it on your very own webpage. This workshop will walk you through how to create a resume webpage entirely in the browser using HTML, CSS, github.dev, and GitHub Pages. Having an online resume will help recruiters notice your application, and you'll be able to learn a few new skills in the process. The best part is that you won't need to download any coding tools or languages to get started.
 
-<iframe src="https://www.youtube-nocookie.com/embed/pXkIIzihEYM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/M2IrPFMFwx8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 All you need to get started are a modern Browser, like [Microsoft Edge](https://www.microsoft.com/en-us/edge), and a [GitHub account](https://github.com/join).
 
