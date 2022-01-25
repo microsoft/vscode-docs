@@ -21,7 +21,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 ### Create a new JavaFX project
 
-Now you can simply create a new JavaFX application will very few steps in Visual Studio Code:
+Now you can simply create a new JavaFX application with just a few steps in Visual Studio Code:
 
 - Step 1: Install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 - Step 2: In Visual Studio Code, open the command palette **Command Palette**  (`kb(workbench.action.showCommands)`) and then select the command: **Java: Create Java Project**.
