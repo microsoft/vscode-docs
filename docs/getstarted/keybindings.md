@@ -269,7 +269,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
-Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
+Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 
 You can find the full list of when clause conditional operators in the [when clause contexts](/api/references/when-clause-contexts.md#conditional-operators) reference.
 

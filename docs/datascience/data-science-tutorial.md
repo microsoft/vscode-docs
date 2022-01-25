@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
 PageTitle: Python and Data Science Tutorial in Visual Studio Code
-DateApproved: 8/6/2021
+DateApproved: 12/31/2021
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -15,12 +15,12 @@ This tutorial demonstrates using Visual Studio Code and the Microsoft Python ext
 
 ## Prerequisites
 
-The following installations are required for the completion of the tutorial. If you do not have them already, install them prior to beginning.
+The following installations are required for the completion of this tutorial. Make sure to install them if you haven't already.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. Note that by default, the Python extension installs the Jupyter extension for you. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). Both extensions are published by Microsoft.
+- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. By default, the Python extension installs the Jupyter extension for you. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). Both extensions are published by Microsoft.
 
-- [Miniconda with Python 3.7](https://docs.conda.io/en/latest/miniconda.html)
+- [Miniconda with Python 3.9](https://docs.conda.io/en/latest/miniconda.html)
 
    > **Note**: If you already have the full Anaconda distribution installed, you don't need to install Miniconda. Alternatively, if you'd prefer not to use Anaconda or Miniconda, you can create a Python virtual environment and install the packages needed for the tutorial using pip. If you go this route, you will need to install the following packages: pandas, jupyter, seaborn, scikit-learn, keras, and tensorflow.
 
@@ -28,11 +28,11 @@ The following installations are required for the completion of the tutorial. If 
 
 Visual Studio Code and the Python extension provide a great editor for data science scenarios. With native support for Jupyter notebooks combined with Anaconda, it's easy to get started. In this section, you will create a workspace for the tutorial, create an Anaconda environment with the data science modules needed for the tutorial, and create a Jupyter notebook that you'll use for creating a machine learning model.
 
-1. Begin by creating an Anaconda environment for the data science tutorial. Open an Anaconda command prompt and run `conda create -n myenv python=3.7 pandas jupyter seaborn scikit-learn keras tensorflow` to create an environment named **myenv**. For additional information about creating and managing Anaconda environments, see the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+1. Begin by creating an Anaconda environment for the data science tutorial. Open an Anaconda command prompt and run `conda create -n myenv python=3.9 pandas jupyter seaborn scikit-learn keras tensorflow` to create an environment named **myenv**. For additional information about creating and managing Anaconda environments, see the [Anaconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 1. Next, create a folder in a convenient location to serve as your VS Code workspace for the tutorial, name it `hello_ds`.
-1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. Note that you can safely trust opening the folder, since you created it.
+1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. You can safely trust opening the folder, since you created it.
 
-1. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Jupyter: Create New Blank Jupyter Notebook**.
+1. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Jupyter: Create New Jupyter Notebook**.
 
    ![Creating a new Jupyter Notebook](images/data-science-tutorial/create-notebook.png)
 
@@ -54,11 +54,11 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
 ## Prepare the data
 
-This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.html) available on [OpenML.org](https://www.openml.org/d/40945), which is obtained from Vanderbilt University's Department of Biostatistics at [https://hbiostat.org/data](https://hbiostat.org/data/). The Titanic data provides information about the survival of passengers on the Titanic, as well as characteristics about the passengers such as age and ticket class. Using this data, the tutorial will establish a model for predicting whether a given passenger would have survived the sinking of the Titanic. This section shows how to load and manipulate data in your Jupyter notebook.
+This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.html) available on [OpenML.org](https://www.openml.org/d/40945), which is obtained from Vanderbilt University's Department of Biostatistics at [https://hbiostat.org/data](https://hbiostat.org/data/). The Titanic data provides information about the survival of passengers on the Titanic and characteristics about the passengers such as age and ticket class. Using this data, the tutorial will establish a model for predicting whether a given passenger would have survived the sinking of the Titanic. This section shows how to load and manipulate data in your Jupyter notebook.
 
 1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a CSV file (download links in the upper right) named `data.csv` and save it to the `hello_ds` folder that you created in the previous section.
 1. If you haven't already opened the file in VS Code, open the `hello_ds` folder and the Jupyter notebook (`hello.ipynb`), by going to **File** > **Open Folder**.
-1. Within your Jupyter notebook, begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the code below into the first cell of the notebook. For additional guidance about working with Jupyter notebooks in VS Code, see the [Working with Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) documentation.
+1. Within your Jupyter notebook, begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the code below into the first cell of the notebook. For more guidance about working with Jupyter notebooks in VS Code, see the [Working with Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) documentation.
 
    ```python
    import pandas as pd
@@ -78,7 +78,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Variables pane](images/data-science-tutorial/variable-explorer-2.png)
 
-1. To view the data in the Pandas DataFrame just loaded, select the Data Viewer icon to the left of the `data` variable.
+1. To view the data in the Pandas DataFrame previously loaded, select the Data Viewer icon to the left of the `data` variable.
 
    ![Select Data Viewer icon](images/data-science-tutorial/variable-explorer-3.png)
 
@@ -86,9 +86,9 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Data viewer and variable explorer](images/data-science-tutorial/dataviewer.png)
 
-1. Before the data can be graphed, you need to make sure that there aren't any issues with it. If you look at the Titanic csv file, one thing you'll notice is that a question mark ("?") was used to designate cells where data wasn't available.
+1. Before the data can be graphed, you need to make sure that there aren't any issues with it. If you look at the Titanic csv file, one thing you'll notice is that a question mark ("?") was used to identify cells where data wasn't available.
 
-   While Pandas can read this value into a DataFrame, the result for a column like Age is that its data type will be set to Object instead of a numeric data type, which is problematic for graphing.
+   While Pandas can read this value into a DataFrame, the result for a column like **age** is that its data type will be set to **object** instead of a numeric data type, which is problematic for graphing.
 
    This problem can be corrected by replacing the question mark with a missing value that pandas is able to understand. Add the following code to the next cell in your notebook to replace the question marks in the **age** and **fare** columns with the [numpy NaN](https://docs.scipy.org/doc/numpy/reference/constants.html?highlight=nan#numpy.nan) value. Notice that we also need to update the column's data type after replacing the values.
 
@@ -158,9 +158,9 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
 ## Train and evaluate a model
 
-With the dataset ready, you can now begin creating a model. For this section you'll use the [scikit-learn](https://scikit-learn.org/stable/) library (as it offers some useful helper functions) to do pre-processing of the dataset, train a classification model to determine survivability on the Titanic, and then use that model with test data to determine its accuracy.
+With the dataset ready, you can now begin creating a model. For this section, you'll use the [scikit-learn](https://scikit-learn.org/stable/) library (as it offers some useful helper functions) to do pre-processing of the dataset, train a classification model to determine survivability on the Titanic, and then use that model with test data to determine its accuracy.
 
-1. A common first step to training a model is to divide up the dataset into training and validation data. This allows you to use a portion of the data to train the model and a portion of the data to test the model. If you used all your data to train the model, you wouldn't have a way to estimate how well it would actually perform against data the model has not yet seen. A benefit of the scikit-learn library is that it provides a method specifically for splitting a dataset into training and test data.
+1. A common first step to training a model is to divide up the dataset into training and validation data. This allows you to use a portion of the data to train the model and a portion of the data to test the model. If you used all your data to train the model, you wouldn't have a way to estimate how well it would actually perform against data the model hasn't yet seen. A benefit of the scikit-learn library is that it provides a method specifically for splitting a dataset into training and test data.
 
    Add and run a cell with the following code to the notebook to split up the data.
 
@@ -178,7 +178,7 @@ With the dataset ready, you can now begin creating a model. For this section you
    X_test = sc.transform(x_test)
    ```
 
-1. There are a number of different machine learning algorithms that you could choose from to model the data and scikit-learn provides support for a number of [them](https://scikit-learn.org/stable/user_guide.html), as well as a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.html), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
+1. There are many different machine learning algorithms that you could choose from to model the data. The scikit-learn library also provides support for many of [them](https://scikit-learn.org/stable/user_guide.html) and a [chart](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html) to help select the one that's right for your scenario. For now, use the [Naïve Bayes algorithm](https://scikit-learn.org/stable/modules/naive_bayes.html), a common algorithm for classification problems. Add a cell with the following code to create and train the algorithm.
 
    ```python
    from sklearn.naive_bayes import GaussianNB
@@ -198,7 +198,7 @@ With the dataset ready, you can now begin creating a model. For this section you
 
    Looking at the result of the test data, you'll see that the trained algorithm had a ~75% success rate at estimating survival.
 
-## (Optional) Use a neural network to increase accuracy
+## (Optional) Use a neural network
 
 A neural network is a model that uses weights and activation functions, modeling aspects of human neurons, to determine an outcome based on provided inputs. Unlike the machine learning algorithm you looked at previously, neural networks are a form of deep learning wherein you don't need to know an ideal algorithm for your problem set ahead of time. It can be used for many different scenarios and classification is one of them. For this section, you'll use the [Keras](https://keras.io/) library with [TensorFlow](https://www.tensorflow.org/) to construct the neural network, and explore how it handles the Titanic dataset.
 
@@ -219,7 +219,7 @@ A neural network is a model that uses weights and activation functions, modeling
    model.add(Dense(1, kernel_initializer = 'uniform', activation = 'sigmoid'))
    ```
 
-   - The first layer will be set to have a dimension of 5, since you have 5 inputs: sex, pclass, age, relatives, and fare.
+   - The first layer will be set to have a dimension of 5, since you have five inputs: sex, pclass, age, relatives, and fare.
    - The last layer must output 1, since you want a 1-dimensional output indicating whether a passenger would survive.
    - The middle layer was kept at 5 for simplicity, although that value could have been different.
 
@@ -233,7 +233,7 @@ A neural network is a model that uses weights and activation functions, modeling
 
    ![Viewing a summary of the sequential neural network](images/data-science-tutorial/jupyter-cell-06.png)
 
-1. Once the model is created, it needs to be compiled. As part of this, you need to define what type of optimizer will be used, how loss will be calculated, and what metric should be optimized for. Add the following code to build and train the model. You'll notice that after training the accuracy is ~80%.
+1. Once the model is created, it needs to be compiled. As part of this, you need to define what type of optimizer will be used, how loss will be calculated, and what metric should be optimized for. Add the following code to build and train the model. You'll notice that after training, the accuracy is ~61%.
 
    > **Note**: This step may take anywhere from a few seconds to a few minutes to run depending on your machine.
 
@@ -244,16 +244,16 @@ A neural network is a model that uses weights and activation functions, modeling
 
    ![Build and train the neural network](images/data-science-tutorial/jupyter-cell-07.png)
 
-1. With the model built and trained its now time to see how it performs against the test data.
+1. Now that the model is built and trained, we can see how it works against the test data.
 
    ```python
-   y_pred = model.predict_classes(X_test)
+   y_pred = np.argmax(model.predict(X_test), axis=-1)
    print(metrics.accuracy_score(y_test, y_pred))
    ```
 
    ![Evaluate the neural network](images/data-science-tutorial/jupyter-cell-08.png)
 
-   Similar to the training, you'll notice that you were able to get close to 80% accuracy in predicting survival of passengers. This result was better than the 75% accuracy from the Naive Bayes Classifier tried previously.
+   Similar to the training, you'll notice that you now have 61% accuracy in predicting survival of passengers. In this case, the result is not better than the 75% accuracy from the Naive Bayes Classifier tried previously.
 
 ## Next steps
 
@@ -261,4 +261,4 @@ Now that you're familiar with the basics of performing machine learning within V
 
 - Learn more about working with [Jupyter Notebooks in Visual Studio Code](https://youtu.be/FSdIoJdSnig) (video).
 - [Get started with Azure Machine Learning for VS Code](https://docs.microsoft.com/azure/machine-learning/service/how-to-vscode-tools) to deploy and optimize your model using the power of Azure.
-- Find additional data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).
+- Find more data to explore on [Azure Open Data Sets](https://azure.microsoft.com/services/open-datasets/).

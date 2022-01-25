@@ -355,7 +355,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 ### `module`
 
-Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
+Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. The `code` option is also a possible alternative. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
 
 ### `python`
 
@@ -467,6 +467,10 @@ Optional path to a file that contains environment variable definitions. See [Con
 ### `gevent`
 
 If set to `true`, enables debugging of [gevent monkey-patched code](https://www.gevent.org/intro.html).
+
+### `jinja`
+
+When set to `true`, activates debugging features specific to the [Jinja](https://jinja.palletsprojects.com) templating framework.
 
 ## Breakpoints and logpoints
 

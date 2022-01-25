@@ -50,7 +50,7 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `name` | string | A display name for the container. |
+| `name` | string | A name for the dev container displayed in the UI. |
 | `forwardPorts` | array | An array of port numbers or `"host:port"` values  (e.g. `[3000, "db:5432"]`) that should always be forwarded from inside the primary container to the local machine (including on the web for Codespaces). The property is most useful for forwarding ports that cannot be auto-forwarded because the related process that starts before VS Code connects or for forwarding a service not in the primary container in Docker Compose scenarios (e.g. `"db:5432"`). Defaults to `[]`. <br /><br /> ⚠️ Codespaces does not yet support the `"host:port"` variation of this property. |
 | `portsAttributes` | object | Object that maps a port number, `"host:port"` value, range, or regular expression to a set of default options. See [port attributes](#port-attributes) for available options. For example: <br />`"portsAttributes": {"3000": {"label": "Application port"}}` <br /><br /> ⚠️ Codespaces does not yet support the `"host:port"` variation of this property.|
 | `otherPortsAttributes` | object | Default options for ports, port ranges, and hosts that aren't configured using `portsAttributes`. See [port attributes](#port-attributes) for available options. For example: <br /> `"otherPortsAttributes": {"onAutoForward": "silent"}` |

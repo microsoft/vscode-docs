@@ -29,7 +29,7 @@ Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
 Not | `!` | `!editorReadonly`
-Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
+Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
 In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)

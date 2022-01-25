@@ -15,7 +15,7 @@
     "gulp": "^4.0.2",
     "husky": "^4.0.0",
     "lint-staged": "^10.0.0",
-    "shelljs": "^0.7.8"
+    "shelljs": "^0.8.5"
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [

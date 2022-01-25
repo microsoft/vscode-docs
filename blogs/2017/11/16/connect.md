@@ -35,8 +35,6 @@ Here are a few highlights:
 
 * **Work with Azure** - There are now extensions for [many Azure services](https://marketplace.visualstudio.com/search?target=VSCode&category=Azure&sortBy=Downloads), making tasks like deploying web apps, managing container registries and images, and working with databases a lot simpler.
 
-* **Visual Studio Code 1.18** - This was a big release. We crossed off several of the most requested features, such as: Multi-root workspaces, Git status in the Explorer, vertical panel positioning, auto-imports, several performance improvements, and more. See the [release notes](https://code.visualstudio.com/updates/v1_18) for details.
-
 There was a lot of VS Code activity at Connect(); but as we look back at the last 12 months, we also feel good about our pace in improving VS Code.
 
 ## The community and VS Code
@@ -47,31 +45,8 @@ Many of the new features have come from the community; through issues, pull requ
 * We closed over [30,000 issues](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aclosed).
 * There are now more than [4,700 published extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=All%20categories&sortBy=Downloads).
 
-## A sampling of features across the last 12 months
-
-In each monthly release, we've added features and improvements that we hope you love. Across the last 12 months, there's been a lot of them but here is a small sampling...
-
-![Roadmap](roadmap.svg)
-
-Release|Features|Foundation
--------|----------|---------
-[October 2017](/updates/v1_18) |    Multi-root workspaces <BR> Vertical panel layout <BR> Inline Git change review <BR> Auto-import JS/TS | Improved Windows Cold start<BR>Decoration optimizations<BR>Improved recommendations
-[September 2017](/updates/v1_) |    Support for multiple SCM repos <BR> Region folding <BR> Import Suggestions| macOS touch bar support<BR>Terminal performance improvements
-[August 2017](/updates/v1_17) | HTML auto-tag close <BR> HTML/CSS color picker <BR> JS/TS Refactoring – Extract Method
-[July 2017](/updates/v1_16) |   Emmet 2.0 Support<BR>Loaded scripts explorer | 64-bit Windows Support <BR>Large file support
-[June 2017](/updates/v1_15) |   Terminal find, select & copy<BR>Command Palette MRU list <BR> Improved auto indentation <BR> Debugging Recipes <BR> | Multi-root workspaces: in preview <BR> Improved screen reader support
-[May 2017](/updates/v1_13) |    Mini-map on by default (and others) <BR> Improved IntelliSense Documentation <BR> Resolve git conflicts inline|Faster debugging performance
-[April 2017](/updates/v1_12) |  Workbench theming <BR> Source Control providers <BR> JavaScript Type checking | Improved download speed<BR> macOS Native Tabs
-[March 2017](/updates/v1_11) |  Panel maximize & restore <BR> Async Call Stack support<BR>Keyboard shortcuts editor | Faster search over files<BR> Source Control API<BR>Increased extension size limit
-[February 2017](/updates/v1_10) |   Minimap <BR> Drag & drop in editor <BR> Column breakpoints|Official Linux repositories<BR>Language specific settings
-[January 2017](/updates/v1_9) | Welcome experience <BR> Interactive playground <BR> Synchronized Markdown preview <BR> Inline variable display in debugging| Single file debugging<BR>Extension Packs
-December 2016 | OK - You got us, we took a break over the holiday period 😊
-[November 2016](/updates/v1_8) |    Hot Exit <BR> Zen Mode <BR> JavaScript IntelliSense in HTML| New settings editor
-[October 2016](/updates/v1_7) | Horizontal Editor layouts <BR> Printable keyboard shortcuts sheets <BR> Conditional breakpoints <BR> Keymaps for Sublime & Atom|
-
-Phew - that was a long list of updates.
-
 ## Looking forward
+
 We are only getting started, and with [almost 3,000 open feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc) we are not running out of ideas soon.  So earlier this month we updated our [public roadmap](https://github.com/microsoft/vscode/wiki/Roadmap), which gives you an idea of where we are focusing next.  As always push us along by up-voting requests you care about.
 
 If you want to know what we have been up to check out our [release notes](https://code.visualstudio.com/updates) if you are ever interested in what we shipped in a given month that's the first place to look.  Of course you can track along with us by looking at our [monthly iteration plans](https://github.com/microsoft/vscode/wiki/Iteration-Plans) and by using our [insiders build](https://code.visualstudio.com/insiders/) where you can get new stuff every day.

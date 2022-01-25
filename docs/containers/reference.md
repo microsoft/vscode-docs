@@ -443,6 +443,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `up` | Run a `docker-compose up` command. <br/> Either this or `down` must be specified, but not both. | `docker-compose up` |
 | `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
 | `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
+| `envFile` | File of environment variables read in and applied to the containers. | `--env-file <file>` |
 
 ### up object properties
 

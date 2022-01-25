@@ -98,7 +98,7 @@ At this point, we pretty much ran out of colors in the family palette, except fo
 
 The Insiders builds had the orange and then green icons for about 2 months as we iterated on the problems outlined above, and there wasn't a lot of negative feedback coming in.
 
-Maybe our fears were unfounded. Maybe users would really like the new icons and all the angst on a handful of problems were not worth losing sleep over. We decided not to shine a light on something that might not be a problem. We pushed the changes and made a [small reference to the new icons in the release notes](https://code.visualstudio.com/updates/v1_17#_new-visual-studio-code-logo).
+Maybe our fears were unfounded. Maybe users would really like the new icons and all the angst on a handful of problems were not worth losing sleep over. We decided not to shine a light on something that might not be a problem. We pushed the changes and made a small reference to the new icons in our release notes.
 
 And then the issues and comments started rolling in.
 
