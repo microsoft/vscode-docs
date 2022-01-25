@@ -1,3 +1,14 @@
+---
+Order: 12
+Area: java
+TOCTitle: GUI Applications
+ContentId: 517db620-d166-4f72-99c1-fa046710dffe
+PageTitle: Develop Java GUI Applications in Visual Studio Code
+DateApproved: 
+MetaDescription: How to develop Java GUI Applications (JavaFX, AWT, Swing) in Visual Studio Code
+MetaSocialImage:
+---
+
 # Working with GUI application in Visual Studio Code
 
 You can develop Java GUI applications in Visual Studio Code easily. To achieve that, you need to install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes all the required extensions to develop Java GUI application.
