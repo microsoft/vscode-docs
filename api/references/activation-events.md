@@ -149,7 +149,7 @@ If the `vscode.git` extension defines `onUri` as an activation event, it will be
 
 This activation event is emitted and interested extensions will be activated whenever VS Code needs to restore a [webview](/api/extension-guides/webview) with the matching `viewType`.
 
-For example, the declaration of onWebviewPanel below:
+For example, the declaration of `onWebviewPanel` below:
 
 ```json
 "activationEvents": [
@@ -163,7 +163,7 @@ will cause the extension to be activated when VS Code needs to restore a webview
 
 This activation event is emitted and interested extensions will be activated whenever VS Code needs to create a [custom editor](/api/extension-guides/custom-editors) with the matching `viewType`.
 
-For example, the declaration of onCustomEditor below:
+For example, the declaration of `onCustomEditor` below:
 
 ```json
 "activationEvents": [
@@ -177,7 +177,7 @@ will cause the extension to be activated when VS Code needs to restore a custom 
 
 This activation event is emitted and interested extensions will be activated whenever an extension requests an authentication session (via the `authentication.getSession()` API) with the matching `providerId`.
 
-For example, the declaration of onCustomEditor below:
+For example, the declaration of `onAuthenticationRequest` below:
 
 ```json
 "activationEvents": [
