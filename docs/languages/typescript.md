@@ -289,7 +289,7 @@ Inlay hints add additional inline information to source code to help you underst
 
 This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
 
-To enable parameter name hints, set `typescript.inlayHints.parameterNames`. There are three possible values:
+To enable parameter name hints, set `typescript.inlayHints.parameterNames.enabled`. There are three possible values:
 
 * `none` — Disable parameter inlay hints.
 * `literals` — Only show inlay hints for literals (string, number, Boolean).
