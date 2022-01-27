@@ -41,7 +41,7 @@ To run the JavaFX application, you can open the `Maven` explorer, expand `hellof
 
 ### More JavaFX examples
 
-There are more JavaFX project examples, which cover Gradle and unmanaged folder projects in Visual Studio Code as well. You can find them [here](https://github.com/openjfx/samples/tree/master/IDE/VSCode). Each sample has documentation about how to run it as well.
+More JavaFX project examples can be found [here](https://github.com/openjfx/samples/tree/master/IDE/VSCode), which covers different project structures (such as Gradle and unmanaged folder projects). There is documentation on each sample to describe how to run the program.
 
 ## Develop AWT Application
 
@@ -79,6 +79,6 @@ public class AwtExample extends Frame {
 
 ## Develop Swing Application
 
-Swing application development is supported by default. You can directly write your Swing application code without any setup steps.
+Swing application development is supported by default. You can directly write your Swing application code without any setup.
 
 You can find more Swing samples [here](https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html)
