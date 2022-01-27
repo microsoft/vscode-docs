@@ -121,8 +121,7 @@ The **Docker: Add Docker Files to Workspace...** command automatically creates a
 
 1. Navigate to the file that contains your app's startup code, and set a breakpoint.
 
-
-1. Navigate to **Run and Debug** and select **Docker: Python**, **Docker: Python (Djagno)** or **Docker: (Flask)**, as appropriate.
+1. Navigate to **Run and Debug** and select **Docker: Python - General**, **Docker: Python - Django**, or **Docker: Python - Flask**, as appropriate.
 
     ![Selected Docker debug configuration](images/quickstarts/python-debug-configuration.png)
 
