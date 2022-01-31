@@ -158,3 +158,32 @@ It is recommended to use [WOFF](https://developer.mozilla.org/docs/Web/Guide/WOF
 ### Folder icons in File Icon Themes
 
 File Icon themes can instruct the File Explorer not to show the default folder icon (the rotating triangles or "twisties") when the folder icons are good enough to indicate the expansion state of a folder. This mode is enabled by setting `"hidesExplorerArrows":true` in the File Icon theme definition file.
+
+### Language default icons
+
+Language contributors can define an icon for the language.
+
+```jsonc
+{
+  "contributes": {
+    "languages": [
+      {
+        "id": "latex",
+        // ...
+        "icon": {
+          "light": "./icons/latex-light.png",
+          "dark": "./icons/latex-dark.png"
+        }
+      }
+  ]
+```
+
+The icon is used if a file icon theme only has a generic file icon for the language.
+
+Language default icons are only shown if:
+- the file icon theme has specific file icons. E.g. `Minimal` does not have specific file icons and therefore does not use the language default icons
+- the file icon theme does not contain an icon for the given language, file extension or file name.
+- the file icon theme does not define `"showLanguageModeIcons":false`
+
+Language default icons are always shown if
+- the file icon theme does define `"showLanguageModeIcons":true`

@@ -666,6 +666,7 @@ The main effects of `contributes.languages` are:
   - You can contribute a human-readable using the `aliases` field. The first item in the list will be used as the human-readable label.
 - Associate file name extensions, file name patterns, files that begin with a specific line (such as hashbang), mimetypes to that `languageId`.
 - Contribute a set of [Declarative Language Features](/api/language-extensions/overview#declarative-language-features) for the contributed language. Learn more about the configurable editing features in the [Language Configuration Guide](/api/language-extensions/language-configuration-guide).
+- Contribute an icon which can be used as in file icon themes if theme does not contain an icon for the language
 
 ### language example
 
@@ -679,7 +680,11 @@ The main effects of `contributes.languages` are:
         "aliases": ["Python", "py"],
         "filenames": [],
         "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/python-light.png",
+          "dark": "./icons/python-dark.png"
+        }
       }
     ]
   }
