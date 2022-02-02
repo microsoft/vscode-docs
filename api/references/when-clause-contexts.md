@@ -221,6 +221,7 @@ vscode.commands.executeCommand('setContext', 'ext.supportedFolders', [ 'test', '
 // or
 
 // Note in this case (using an object), the value doesn't matter, it is based on the existence of the key in the object
+// The value must be of a simple type
 vscode.commands.executeCommand('setContext', 'ext.supportedFolders', { 'test': true, 'foo': 'anything', 'bar': false });
 ```
 
