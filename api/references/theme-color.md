@@ -220,7 +220,6 @@ The Minimap shows a minified version of the current file.
 - `minimap.background`: Minimap background color.
 - `minimap.selectionOccurrenceHighlight`: Minimap marker color for repeating editor selections.
 - `minimap.foregroundOpacity`: Opacity of foreground elements rendered in the minimap. For example, "#000000c0" will render the elements with 75% opacity.
-- `minimap.unicodeHighlight`: Minimap marker color for highlighted unicode characters.
 
 - `minimapSlider.background`: Minimap slider background color.
 - `minimapSlider.hoverBackground`: Minimap slider background color when hovering.
@@ -462,7 +461,6 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.warningForeground`: Overview ruler marker color for warnings.
 - `editorOverviewRuler.infoForeground`: Overview ruler marker color for infos.
 - `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
-- `editorOverviewRuler.unicodeForeground`: Overview ruler marker color for highlighted unicode characters. The color must not be opaque so as not to hide underlying decorations.
 
 Errors and warnings:
 
