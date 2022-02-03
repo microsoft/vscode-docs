@@ -600,3 +600,11 @@ This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85
 ```bash
 export PROMPT_COMMAND='history -a'
 ```
+
+### I see `1~` or `[201~` when I paste something
+
+This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To workaround this you could run `printf "\e[?2004l"` to disable it for that session of add the following to your `~/.inputrc` file:
+
+```
+bind 'set enable-bracketed-paste off'
+```
