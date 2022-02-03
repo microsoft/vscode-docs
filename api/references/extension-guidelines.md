@@ -1,7 +1,7 @@
 ---
 ## DO NOT TOUCH — Managed by doc writer
 ContentId: fc74f04f-6ba5-4ecc-a28c-75efcdb8ed9a
-DateApproved: 12/8/2021
+DateApproved: 2/3/2022
 MetaDescription: User interface guidelines for Visual Studio Code extension authors
 ---
 # Extension Guidelines
