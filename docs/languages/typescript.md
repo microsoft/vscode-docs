@@ -11,7 +11,7 @@ MetaSocialImage: images/typescript/Languages_typescript.png
 
 # TypeScript in Visual Studio Code
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The [TypeScript language specification](https://github.com/microsoft/TypeScript/tree/master/doc) has full details about the language.
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
 
 ![Working with TypeScript in Visual Studio Code](images/typescript/overview.png)
 
@@ -289,7 +289,7 @@ Inlay hints add additional inline information to source code to help you underst
 
 This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
 
-To enable parameter name hints, set `typescript.inlayHints.parameterNames`. There are three possible values:
+To enable parameter name hints, set `typescript.inlayHints.parameterNames.enabled`. There are three possible values:
 
 * `none` — Disable parameter inlay hints.
 * `literals` — Only show inlay hints for literals (string, number, Boolean).

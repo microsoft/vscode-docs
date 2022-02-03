@@ -386,6 +386,23 @@ Below are example configuration scopes from the built-in Git extension:
           "default": [],
           "scope": "window",
           "description": "%config.ignoredRepositories%"
+        },
+        "git.autofetch": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "enum": [
+            true,
+            false,
+            "all"
+          ],
+          "scope": "resource",
+          "markdownDescription": "%config.autofetch%",
+          "default": false,
+          "tags": [
+            "usesOnlineServices"
+          ]
         }
       }
     }

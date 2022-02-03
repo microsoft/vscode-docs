@@ -208,3 +208,4 @@ In the Docker Compose case, you can add this argument to a separate [override fi
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [Dev container specification repository](https://github.com/microsoft/dev-container-spec) - File and review issues to shape the direction of development containers and the dev container CLI.
