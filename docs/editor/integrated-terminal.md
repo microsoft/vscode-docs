@@ -223,11 +223,12 @@ Extensions make use of links in the terminal, such as GitLens, to identify branc
 
 ## Shell integration
 
-Shell integration is an experimental feature which will turn on certain features like enhanced command tracking and current working directory detection. Shell integration works by injecting a script that is run when the shell is initialized which lets the terminal gain additional insights into what is happening within the terminal, the script injection may not work if you have custom arguments defined in the terminal profile.
+Shell integration is an experimental feature, which will turn on certain features like enhanced command tracking and current working directory detection. Shell integration works by injecting a script that is run when the shell is initialized and lets the terminal gain additional insights into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
 
 Supported shells:
-- Linux/macOS: bash, pwsh, zsh
-- Windows: pwsh
+
+* Linux/macOS: bash, pwsh, zsh
+* Windows: pwsh
 
 You can try it out by setting `terminal.integrated.enableShellIntegration` to `true`.
 
