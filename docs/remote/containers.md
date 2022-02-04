@@ -30,7 +30,7 @@ This lets VS Code provide a **local-quality development experience** including f
 * **Linux**: [Docker CE/EE](https://docs.docker.com/install/#supported-platforms) 18.06+ and [Docker Compose](https://docs.docker.com/compose/install) 1.21+. (The Ubuntu snap package is not supported.)
 * **Remote hosts:** 1 GB RAM is required, but at least 2 GB RAM and a 2-core CPU is recommended.
 
-Other [Docker compliant CLIs](#can-i-use-podman-instead-of-docker) may work, but are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/remote/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [`kubectl` CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
+Other [Docker compliant CLIs](/remote/advancedcontainers/engine-options.md) may work, but are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/remote/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [`kubectl` CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 **Containers**:
 
@@ -633,16 +633,6 @@ In addition, while Alpine support is available, some extensions installed in the
 Right-click on the Docker task bar item. On Windows, select the **Settings** menu item then **Resources > File Sharing** and check the drive(s) where your source code is located. On macOS, select the **Preferences** menu item then **Resources > File Sharing** and make sure the folder containing your source code is under a file path specified in the list.
 
 See [Docker Desktop for Windows tips](/docs/remote/troubleshooting.md#docker-desktop-for-windows-tips) for information on workarounds to common Docker for Windows issues.
-
-### Can I use Podman instead of Docker?
-
-Podman 1.9+ is mostly compatible with Docker's CLI commands and therefore generally does work if you update the setting **Remote > Containers: Docker Path** to `podman` on Linux.
-
-![Docker Path setting](images/containers/docker-path-setting.png)
-
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Development Container Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
-
-Docker Compose is also not supported by Podman.
 
 ### I'm seeing an error about a missing library or dependency
 
