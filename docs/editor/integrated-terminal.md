@@ -221,6 +221,16 @@ Extensions make use of links in the terminal, such as GitLens, to identify branc
 
 ![A branch link is hovered in the terminal](images/integrated-terminal/gitlens-link.png)
 
+## Shell integration
+
+Shell integration is an experimental feature which will turn on certain features like enhanced command tracking and current working directory detection. Shell integration works by injecting a script that is run when the shell is initialized which lets the terminal gain additional insights into what is happening within the terminal, the script injection may not work if you have custom arguments defined in the terminal profile.
+
+Supported shells:
+- Linux/macOS: bash, pwsh, zsh
+- Windows: pwsh
+
+You can try it out by setting `terminal.integrated.enableShellIntegration` to `true`.
+
 ## Local echo
 
 On some remote connections, there's a delay between typing and seeing the characters on the terminal as a result of the round trip the data has to make from VS code to the process. Local echo attempts to predict modifications and cursor movements made locally in the terminal to decrease this lag.
