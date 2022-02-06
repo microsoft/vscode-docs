@@ -57,9 +57,15 @@ If you don't have a compiler installed, in the example below, we describe how to
 
 ## Example: Install MinGW-x64
 
-We will install Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe).
+You can install Mingw-w64:
 
-Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command, especially Step 7, when you will install the actual Mingw-w64 toolset (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
+   * [Using MSYS2](https://www.msys2.org/):
+     > Provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe). Follow the **Installation** instructions on the
+       [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command, especially Step 7, when you will install the actual Mingw-w64 toolset (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
+   * [Using winlibs](https://winlibs.com/):
+     > This project aims to provide lastest build of GCC, Mingw, and many other tools for languages C, C++, Fortran, D, etc. You can download the latest buld from [here](https://winlibs.com/#download-release) and extract to some directory.
+   * [Using chocolatey](https://chocolatey.org):
+     > If you have chocolatey installed in you windows you can do `choco install mingw` and it will download and extract the packages required and add to the path too. You can then check the gcc version by `gcc --version`.
 
 ### Add the MinGW compiler to your path
 
