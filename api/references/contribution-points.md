@@ -749,6 +749,7 @@ Currently extension writers can contribute to:
 - The Timeline view item context menu - `timeline/item/context`
 - The Extensions view context menu - `extension/context`
 - The Test Explorer item context menu - `testing/item/context`
+- The menu for a gutter decoration for a test item - `testing/item/gutter`
 - The notebook toolbar - `notebook/toolbar`
 - The notebook cell title menu bar - `notebook/cell/title`
 - The notebook cell execution menu - `notebook/cell/execute`
