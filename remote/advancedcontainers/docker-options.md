@@ -33,7 +33,45 @@ Docker is available on a variety of Linux platforms, macOS, and Windows. If conn
 ### SSH
 You may use the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) with Remote - Containers. This enables you just to have Docker or an alternate supported engine on your remote machine; Docker is not needed locally.
 
-You may learn more about this and other remote connection options in the [Develop on a remote Docker host doc](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts).
+One option is to use Remote - SSH to connect to a Linux VM with Docker installed. You can set up an Azure VM through the Azure CLI, and set it to use a `cloud-init.txt` file to install Docker automatically.
+
+`cloud-init.txt` file:
+``` bash
+#cloud-config
+
+apt:
+  sources:
+    docker.list:
+      source: deb [arch=amd64] https://download.docker.com/linux/ubuntu $RELEASE stable
+      keyid: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+
+packages:
+  - docker-ce
+  - docker-ce-cli
+
+groups:
+  - docker
+
+system_info:
+  default_user:
+    groups: [docker]
+```
+
+Example Azure CLI commands. Be sure to update `<location-here>` to a data center close to you (i.e. `eastus`, `westeurope`):
+``` bash
+az login
+
+az group create --name dev-server --location <location-here>
+
+az vm create \
+  --resource-group dev-server \
+  --name dev-server \
+  --image Canonical:0001-com-ubuntu-server-impish:21_10-gen2:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys
+```
+
+You may learn more about using Remote - SSH with Remote - Containers in the [Develop on a remote Docker host doc](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts).
 
 **Colima**
 
@@ -41,7 +79,7 @@ You may learn more about this and other remote connection options in the [Develo
 
 You can use the Remote - SSH extension to connect to a Colima virtual machine and clone your repositories on the VM. This will avoid potential issues with the workspace folder on the macOS filesystem being mounted readonly. You may add the following entry to your `~/.ssh/config`:
 
-```
+``` bash
 Host colima
     HostName localhost
     Port 56384
