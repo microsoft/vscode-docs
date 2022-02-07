@@ -30,7 +30,7 @@ This lets VS Code provide a **local-quality development experience** including f
 * **Linux**: [Docker CE/EE](https://docs.docker.com/install/#supported-platforms) 18.06+ and [Docker Compose](https://docs.docker.com/compose/install) 1.21+. (The Ubuntu snap package is not supported.)
 * **Remote hosts:** 1 GB RAM is required, but at least 2 GB RAM and a 2-core CPU is recommended.
 
-Other [Docker compliant CLIs](/remote/advancedcontainers/engine-options.md) may work, but are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/remote/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [`kubectl` CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
+Other [Docker compliant CLIs](/remote/advancedcontainers/docker-options.md) may work, but are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/remote/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [`kubectl` CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 **Containers**:
 

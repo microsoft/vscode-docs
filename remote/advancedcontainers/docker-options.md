@@ -1,14 +1,14 @@
 ---
 Order: 16
 Area: advancedcontainers
-TOCTitle: Container platforms
-PageTitle: Remote - Containers engine options
+TOCTitle: Docker Options
+PageTitle: Remote - Containers Docker options
 ContentId:
-MetaDescription: Remote - Containers engine options
+MetaDescription: Remote - Containers Docker options
 DateApproved: 2/4/2022
 ---
 
-# Other Container CLIs and Engines
+# Alternate ways to install Docker
 
 Remote - Containers interacts with CLIs; it makes no assumptions about how a container engine works and does not interact with container engines or daemon directly. You may use other Docker compliant CLIs with Remote - Containers, several of which are described below. Please note they are not officially supported.
 
