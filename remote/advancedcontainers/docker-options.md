@@ -10,7 +10,13 @@ DateApproved: 2/4/2022
 
 # Alternate ways to install Docker
 
-Remote - Containers interacts with CLIs; it makes no assumptions about how a container engine works and does not interact with container engines or daemon directly. You may use other Docker compliant CLIs with Remote - Containers, several of which are described below. Please note they are not officially supported.
+You may harness Docker in the Remote - Containers extension in a few ways:
+* Docker installed locally
+* Docker installed on another machine or remote environment
+* Other Docker compliant CLIs, installed locally or in a remote environment
+     * Remote - Containers interacts with CLIs; it makes no assumptions about how a container engine works and does not interact with container engines or daemon directly. Please note that other Docker compliant CLIs are not officially supported.
+
+Continue reading to learn alternative ways you may install and leverage Docker or a Docker compliant CLI.
 
 ## Podman
 
