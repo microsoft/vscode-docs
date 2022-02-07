@@ -22,17 +22,7 @@ However, certain tricks like [Docker-from-Docker do not work](https://github.com
 
 Docker Compose is also not supported by Podman.
 
-## Docker Contexts
-
-[Docker Contexts](https://docs.docker.com/engine/context/working-with-contexts/) allow you to interact with different hosts - you can set up contexts for each host and switch between them.
-
-You create new contexts with `docker context create`. The current context can be changed using `docker context use <context>`.
-
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with `docker.host` (same as `DOCKER_HOST` env variable) and `docker.context` (same as `DOCKER_CONTEXT` env variable) user settings that are also honored by the Remote-Containers extension.
-
-> **Note**: The above settings are only visible when the Docker extension is installed. Without the Docker extension, Remote-Containers will use the current context.
-
-### Colima
+## Colima
 
 [Colima](https://github.com/abiosoft/colima) provides container runtimes on macOS and Linux. It's recommended to use Colima v0.2.2 or later so that VS Code can properly see containers running through Colima.
 
