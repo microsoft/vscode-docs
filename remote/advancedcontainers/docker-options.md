@@ -38,7 +38,7 @@ Colima automatically sets up a `colima` [context](https://docs.docker.com/engine
 ### Cloud-Init VM
 You may use the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) with Remote - Containers. This enables you just to have Docker installed on your remote machine.
 
-You may use Remote - SSH to connect to a Linux VM with Docker installed. As an example, you can create an Azure VM through the Azure CLI, and set it to use a `cloud-init.txt` file to install Docker automatically.
+You may use Remote - SSH to connect to a Linux VM with Docker installed. You may use a [Cloud-Init](https://cloud-init.io/) file (which is an industry standard) to install Docker on the VM automatically. As an example, you can create an Azure VM through the Azure CLI, and set it to use a `cloud-init.txt` during creation.
 
 `cloud-init.txt` file:
 ``` bash
