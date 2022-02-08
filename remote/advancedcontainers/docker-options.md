@@ -99,7 +99,7 @@ To work around issues with rootless Podman (i.e. not respecting a non-root `"rem
 
 `"remoteUser"` can be used when `"HOME"` is set because Remote - Containers gives that precedence over the home folder it finds in `/etc/passwd`.
 
-Docker Compose is also not supported by Podman.
+Podman also has its own implementation of the Compose Spec with [Podman Compose](https://github.com/containers/podman-compose).
 
 # Other container engines
 
