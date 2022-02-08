@@ -80,28 +80,18 @@ az vm create \
 
 You may learn more about using Remote - SSH with Remote - Containers in the doc on how to [develop on a remote Docker host](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts).
 
-**Colima**
-
-[Colima](https://github.com/abiosoft/colima) provides container runtimes on macOS. It's recommended to use Colima v0.2.2 or later so that VS Code can properly see containers running through Colima.
-
-You can use the Remote - SSH extension to connect to a Colima VM and clone your repositories on the VM. This will avoid potential issues with the workspace folder on the macOS filesystem being mounted as readonly.
-
-You may add the following entry to your `~/.ssh/config`:
-
-``` bash
-Host colima
-    HostName localhost
-    Port 56384
-    IdentityFile ~/.lima/_config/user
-    NoHostAuthenticationForLocalhost yes
-```
-
-> **Note:** The port may change after restarting the VM.
-
 ### Windows Subsystem for Linux (WSL)
 On Windows, you can use Docker installed in WSL through the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). You can reference the [Docker documentation](https://docs.docker.com/engine/install/) for installing Docker on Linux.
 
 One issue is that the dockerd daemon won't start automatically due to the lack of systemd or any other system daemon. You can use [Distrod](https://github.com/nullpo-head/wsl-distrod) to get WSL distros with systemd. You may install a new distro or update your current distros to run systemd.
+
+## Colima
+
+[Colima](https://github.com/abiosoft/colima) provides container runtimes on macOS. It's recommended to use Colima v0.2.2 or later so that VS Code can properly see containers running through Colima.
+
+Colima automatically sets up a `colima` [context](https://docs.docker.com/engine/context/working-with-contexts/) in Docker and makes it the active context. You may also want to install the `docker` and `docker-compose` CLIs before running `colima start` for this setup to work properly.
+
+> Note: Colima uses Alpine Linux, which isn't supported by Remote - SSH.
 
 ## Other container engines
 
