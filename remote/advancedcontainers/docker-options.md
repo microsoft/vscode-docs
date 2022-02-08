@@ -86,6 +86,19 @@ You may learn more about using Remote - SSH with Remote - Containers in the doc 
 
 However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Remote-Containers: Try a Development Container Sample...** and **[Remote- Containers: Clone Repository in Container Volume...](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume)** commands.
 
+To work around issues with rootless Podman (i.e. not respecting a non-root `"remoteUser"` and trying to install the server in `root`), you may set the following:
+
+```bash
+"runArgs": [
+  "--userns=keep-id"
+],
+"containerEnv": {
+  "HOME": "/home/node"
+}
+```
+
+`"remoteUser"` can be used when `"HOME"` is set because Remote - Containers gives that precedence over the home folder it finds in `/etc/passwd`.
+
 Docker Compose is also not supported by Podman.
 
 # Other container engines
