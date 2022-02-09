@@ -38,7 +38,17 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 ## Project Setup
 
-**Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
+> **Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
+
+### Enabling testing and adding test framework JARs to your project
+
+Start from `Test Runner for Java@0.34.0`, you can enable a test framework for your unmanaged folder project (the project without any build tools) with just a few clicks from the `Testing` explorer:
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/enable-tests.mp4" type="video/mp4">
+</video>
+
+> **Note**: Currently this feature only supports unmanaged folders which do not contain any testing dependencies.
 
 ### JUnit 4
 
@@ -71,7 +81,7 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+If your project does not use any build tools, you can enable the JUnit 4 via [just a few clicks](#enabling-testing-and-adding-test-framework-jars-to-your-project) or manually download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
@@ -83,8 +93,7 @@ If your project does not use any build tools, download the following JARs and ad
 The JUnit 5 team provides a collection of sample projects with different build tools. Check the [junit5-sample repository](https://github.com/junit-team/junit5-samples) if your project uses Maven or Gradle as your build tool.
 
 #### Unmanaged folder
-
-If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
+If your project does not use any build tools, you can enable the JUnit 5 via [just a few clicks](#enabling-testing-and-adding-test-framework-jars-to-your-project) or manually include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
 
 ### TestNG
 
@@ -117,10 +126,11 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+If your project does not use any build tools, you can enable the TestNG via [just a few clicks](#enabling-testing-and-adding-test-framework-jars-to-your-project) or manually download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
-- [jcommander.jar](https://search.maven.org/artifact/com.beust/jcommander/1.81/jar)
+- [jcommander.jar](https://search.maven.org/search?q=g:com.beust%20AND%20a:jcommander)
+- [slf4j-api.jar](https://search.maven.org/search?q=g:org.slf4j%20AND%20a:slf4j-api)
 
 ## Features
 
