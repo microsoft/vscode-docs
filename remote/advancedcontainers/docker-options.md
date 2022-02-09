@@ -35,6 +35,8 @@ Colima automatically sets up a `colima` [context](https://docs.docker.com/engine
 
 ## Linux
 
+If you're using Linux on your local machine, or already have a remote Linux machine with SSH access, you can reference the [Docker documentation](https://docs.docker.com/engine/install/) for installing Docker on Linux, with specific information per distro starting [here](https://docs.docker.com/engine/install/centos/).
+
 ### Cloud-Init VM
 You may use the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) with Remote - Containers. This enables you just to have Docker installed on your remote machine.
 
