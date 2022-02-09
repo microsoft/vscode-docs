@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
 PageTitle: Java Unit Tests in Visual Studio Code
-DateApproved: 11/30/2021
+DateApproved: 2/8/2022
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
@@ -40,15 +40,15 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 > **Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
 
-### Enabling testing and adding test framework JARs to your project
+### Enable testing and adding test framework JARs to your project
 
-Start from `Test Runner for Java@0.34.0`, you can enable a test framework for your unmanaged folder project (the project without any build tools) with just a few clicks from the `Testing` explorer:
+Starting with Test Runner for Java version 0.34.0, you can enable a test framework for your unmanaged folder project (a project without any build tools) with just a few steps in the **Testing** Explorer:
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/enable-tests.mp4" type="video/mp4">
 </video>
 
-> **Note**: Currently this feature only supports unmanaged folders which do not contain any testing dependencies.
+> **Note**: Currently this feature only supports unmanaged folders that do not contain any testing dependencies.
 
 ### JUnit 4
 
@@ -81,7 +81,7 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, you can enable the JUnit 4 via [just a few clicks](#enabling-testing-and-adding-test-framework-jars-to-your-project) or manually download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+If your project does not use any build tools, you can enable JUnit 4 via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually downloading the following JARs and adding them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
@@ -93,7 +93,8 @@ If your project does not use any build tools, you can enable the JUnit 4 via [ju
 The JUnit 5 team provides a collection of sample projects with different build tools. Check the [junit5-sample repository](https://github.com/junit-team/junit5-samples) if your project uses Maven or Gradle as your build tool.
 
 #### Unmanaged folder
-If your project does not use any build tools, you can enable the JUnit 5 via [just a few clicks](#enabling-testing-and-adding-test-framework-jars-to-your-project) or manually include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
+
+If your project does not use any build tools, you can enable JUnit 5 via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually including the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
 
 ### TestNG
 
@@ -126,7 +127,7 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, you can enable the TestNG via [just a few clicks](#enabling-testing-and-adding-test-framework-jars-to-your-project) or manually download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+If your project does not use any build tools, you can enable TestNG via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually downloading the following JARs and adding them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
 - [jcommander.jar](https://search.maven.org/search?q=g:com.beust%20AND%20a:jcommander)
@@ -136,13 +137,13 @@ If your project does not use any build tools, you can enable the TestNG via [jus
 
 ### Run/Debug test cases
 
-The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, click the green play button. You can also right-click on it to see more options.
+The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, select the green play button. You can also right-click on it to see more options.
 
 ![Run/Debug Test Cases](images/java-testing/editor-decoration.png)
 
 ### Test Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can click the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
 ![Test Explorer](images/java-testing/test_explorer.png)
 
