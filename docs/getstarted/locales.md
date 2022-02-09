@@ -93,3 +93,7 @@ Yes, the [Visual Studio Code Community Localization Project](https://aka.ms/vsco
 ### How can I enable a programming language like Python?
 
 Refer to the [Programming Languages](/docs/languages/overview.md) section to learn how to install support for programming languages, such as PHP, Python, and Java.
+
+### Can I change the display language in VS Code for the Web?
+
+No, VS Code for the Web (vscode.dev, github.dev) doesn't yet support installing Language Pack extensions and so English is currently the only supported display language. You can follow progress in [issue #82595](https://github.com/microsoft/vscode/issues/82595).
