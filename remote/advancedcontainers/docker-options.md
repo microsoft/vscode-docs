@@ -38,9 +38,9 @@ Colima automatically sets up a `colima` [context](https://docs.docker.com/engine
 If you're using Linux on your local machine, or already have a remote Linux machine with SSH access, you can reference the [Docker documentation](https://docs.docker.com/engine/install/) for installing Docker on Linux, with specific information per distro starting [here](https://docs.docker.com/engine/install/centos/).
 
 ### Cloud-Init VM
-You may use the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) with Remote - Containers. This enables you just to have Docker installed on your remote machine.
+You may use the [Remote - SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) with Remote - Containers. This enables you just to have Docker installed on your remote machine, such as a Linux VM.
 
-You may use Remote - SSH to connect to a Linux VM with Docker installed. You may use a [Cloud-Init](https://cloud-init.io/) file (which is an industry standard) to install Docker on the VM automatically. As an example, you can create an Azure VM through the Azure CLI, and set it to use a `cloud-init.txt` during creation.
+You may use a [Cloud-Init](https://cloud-init.io/) file (which is an industry standard) to install Docker on the VM automatically. As an example, you can create an Azure VM through the Azure CLI, and set it to use a `cloud-init.txt` during creation.
 
 `cloud-init.txt` file:
 ``` bash
