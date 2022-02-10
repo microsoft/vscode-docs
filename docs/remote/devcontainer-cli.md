@@ -215,7 +215,7 @@ Run 'docker buildx COMMAND --help' for more information on a command.
     "name": "Alpine",
     "build": {
     "dockerfile": "Dockerfile",
-    "args": { "VARIANT": "3.15" }
+    "args": { "VARIANT": "3.15" },
     "settings": {},
     "extensions": [],
     "remoteUser": "vscode"
@@ -237,7 +237,7 @@ Run 'docker buildx COMMAND --help' for more information on a command.
 
 1. `devcontainer build`: As before, this invokes the build command by using Docker under the hood.
 2. `--platform linux/amd64,linux/arm64`: This creates Docker images for the `linux/amd64` and `linux/arm64` architectures using `docker buildx`.
-3. `--image-name hubusername/multiarch-test:v1 `: This will tag the image.
+3. `--image-name hubusername/multiarch-test:v1`: This will tag the image.
 
 `--no-push` defaults to `true`, i.e., to local development. In order to push to a container registry, append the `--no-push` option as follows:
 
