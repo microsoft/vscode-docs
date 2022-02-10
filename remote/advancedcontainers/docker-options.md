@@ -112,6 +112,6 @@ Podman also has its own implementation of the Compose Spec with [Podman Compose]
 
 You can open or review requests for support for other container engines through the [vscode-remote-release repository](https://github.com/microsoft/vscode-remote-release). There are already several feature requests you can explore:
 
-* [nerdctl](https://github.com/microsoft/vscode-remote-release)
+* [nerdctl](https://github.com/microsoft/vscode-remote-release/issues/6014)
 * [critcl](https://github.com/microsoft/vscode-remote-release/issues/6075)
 * [Singularity containers](https://github.com/microsoft/vscode-remote-release/issues/3066)
