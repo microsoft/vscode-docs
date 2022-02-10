@@ -214,11 +214,12 @@ Run 'docker buildx COMMAND --help' for more information on a command.
     {
     "name": "Alpine",
     "build": {
-    "dockerfile": "Dockerfile",
-    "args": { "VARIANT": "3.15" },
-    "settings": {},
-    "extensions": [],
-    "remoteUser": "vscode"
+        "dockerfile": "Dockerfile",
+        "args": { "VARIANT": "3.15" },
+        "settings": {},
+        "extensions": [],
+        "remoteUser": "vscode"
+      }
     }
     ```
 
