@@ -11,6 +11,25 @@ DateApproved: 12/17/2021
 
 Given the growing number of use cases for dev containers, there is a companion `devcontainer` command line interface (CLI) that can be used independent of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
 
+## Table of Contents
+- [devcontainer command line interface](#devcontainer-command-line-interface)
+  - [Table of Contents](#table-of-contents)
+  - [System requirements](#system-requirements)
+  - [Installation](#installation)
+    - [Install using VS Code](#install-using-vs-code)
+    - [Install from the command line](#install-from-the-command-line)
+  - [Opening a folder directly within a dev container](#opening-a-folder-directly-within-a-dev-container)
+  - [Building a dev container image](#building-a-dev-container-image)
+    - [Example of building and publishing an image](#example-of-building-and-publishing-an-image)
+    - [Building Multi-Architecture builds](#building-multi-architecture-builds)
+      - [Pre-requisites](#pre-requisites)
+      - [Process Example](#process-example)
+      - [Breaking down the command](#breaking-down-the-command)
+    - [Adding automation](#adding-automation)
+    - [devcontainer CLI build options](#devcontainer-cli-build-options)
+    - [[Optional] Avoiding problems with images built using Docker](#optional-avoiding-problems-with-images-built-using-docker)
+  - [Next steps](#next-steps)
+
 ## System requirements
 
 To use the `devcontainer` CLI, you'll need the following on your system or CI/DevOps environment:
@@ -80,6 +99,20 @@ The `devcontainer build` command allows you to quickly build dev container image
 
 As with the `open` command, `build` accepts a path to the folder containing a `.devcontainer` folder or `.devcontainer.json` file. If omitted, the current working folder is used. For example, `devcontainer build` will build the dev container image for the current folder and `devcontainer build /source/my-folder` will build the container image for the `/source/my-folder` folder.
 
+You can use `devcontainer build -h` to see the supported `build` options.
+```bash
+Options:
+
+  -h, --help               Show help [boolean]
+      --disable-telemetry  Disable telemetry  [boolean] [default: false]
+      --verbose            Run build with increased log level  [boolean] [default: false]
+      --no-cache           Disable image cache for the dev container build [boolean] [default: false]
+      --image-name         Specify the image name  [string]
+      -- platform          Comma delimited string with multiple architectures [string]
+      --no-push            Only used with --platform to build without pushing to a container
+                           registry [boolean] [default: true]
+```
+
 ### Example of building and publishing an image
 
 For example, you may want to pre-build several images that you then reuse across multiple projects or repositories. To do so, follow these steps:
@@ -125,6 +158,96 @@ For example, you may want to pre-build several images that you then reuse across
     ```
 
 That's it!
+
+### Building Multi-Architecture builds
+
+#### Pre-requisites
+1. [Node.js 14+](https://nodejs.org).
+2. [The `docker` CLI](/docs/remote/containers#installation).
+3. [Docker `Buildx`](https://docs.docker.com/buildx/working-with-buildx/)
+4. Docker logged in to a Dockerhub registry.
+
+Ensure that the command `docker buildx` returns the following:
+
+```bash
+Usage:  docker buildx [OPTIONS] COMMAND
+
+Extended build capabilities with BuildKit
+
+Options:
+      --builder string   Override the configured builder instance
+
+Management Commands:
+  imagetools  Commands to work on images in registry
+
+Commands:
+  bake        Build from a file
+  build       Start a build
+  create      Create a new builder instance
+  du          Disk usage
+  inspect     Inspect current builder instance
+  ls          List builder instances
+  prune       Remove build cache
+  rm          Remove a builder instance
+  stop        Stop builder instance
+  use         Set the current builder instance
+  version     Show buildx version information
+
+Run 'docker buildx COMMAND --help' for more information on a command.
+```
+
+#### Process Example
+
+1. Create a basic Dockerfile as below:
+
+    ```Dockerfile
+    #FROM alpine:latest
+    ARG VARIANT=3.13
+    FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-${VARIANT}
+    #FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
+    CMD echo "Running on $(uname -m)"
+    ```
+
+2. Create a basic `devcontainer.json` as below:
+
+    ```json
+    {
+    "name": "Alpine",
+    "build": {
+    "dockerfile": "Dockerfile",
+    "args": { "VARIANT": "3.15" }
+    "settings": {},
+    "extensions": [],
+    "remoteUser": "vscode"
+    }
+    ```
+
+3. Place both files in a `.devcontainer` directory.
+
+4. Run the below command:
+
+    ```bash
+    devcontainer build \
+        --platform linux/amd64,linux/arm64 \
+        --image-name hubusername/multiarch-test:v1 \
+        change-me-to-repository-folder-with-dot-devcontainer
+    ```
+
+#### Breaking down the command
+
+1. `devcontainer build`: As before, this invokes the build command by using Docker under the hood.
+2. `--platform linux/amd64,linux/arm64`: This creates Docker images for the `linux/amd64` and `linux/arm64` architectures using `docker buildx`.
+3. `--image-name hubusername/multiarch-test:v1 `: This will tag the image.
+
+`--no-push` defaults to `true`, i.e., to local development. In order to push to a container registry, append the `--no-push` option as follows:
+
+    ```bash
+    devcontainer build \
+        --platform linux/amd64,linux/arm64 \
+        --no-push false \
+        --image-name hubusername/multiarch-test:v1 \
+        change-me-to-repository-folder-with-dot-devcontainer
+    ```
 
 ### Adding automation
 
