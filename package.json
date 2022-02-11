@@ -9,12 +9,13 @@
     "url": "https://github.com/microsoft/vscode-docs.git"
   },
   "scripts": {
-    "check-lfs": "node ./build/check-lfs.js"
+    "check-lfs": "node ./build/check-lfs.js",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "husky": "^4.0.0",
-    "lint-staged": "^10.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.3",
     "shelljs": "^0.8.5"
   },
   "lint-staged": {
