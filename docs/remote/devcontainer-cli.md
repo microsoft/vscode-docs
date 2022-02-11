@@ -25,6 +25,7 @@ Given the growing number of use cases for dev containers, there is a companion `
       - [Pre-requisites](#pre-requisites)
       - [Process Example](#process-example)
       - [Breaking down the command](#breaking-down-the-command)
+      - [No Push](#no-push)
     - [Adding automation](#adding-automation)
     - [devcontainer CLI build options](#devcontainer-cli-build-options)
     - [[Optional] Avoiding problems with images built using Docker](#optional-avoiding-problems-with-images-built-using-docker)
@@ -102,15 +103,13 @@ As with the `open` command, `build` accepts a path to the folder containing a `.
 You can use `devcontainer build -h` to see the supported `build` options.
 ```bash
 Options:
-
-  -h, --help               Show help [boolean]
+  -h, --help               Show help  [boolean]
       --disable-telemetry  Disable telemetry  [boolean] [default: false]
       --verbose            Run build with increased log level  [boolean] [default: false]
-      --no-cache           Disable image cache for the dev container build [boolean] [default: false]
-      --image-name         Specify the image name  [string]
-      -- platform          Comma delimited string with multiple architectures [string]
-      --no-push            Only used with --platform to build without pushing to a container
-                           registry [boolean] [default: true]
+      --no-cache           disable image cache for the dev container build  [boolean] [default: false]
+      --image-name         specify the image name  [string]
+      --platform           build platforms and push to container registry  [string]
+      --no-push            do not push to container registry  [boolean]
 ```
 
 ### Example of building and publishing an image
@@ -167,34 +166,9 @@ That's it!
 3. [Docker `Buildx`](https://docs.docker.com/buildx/working-with-buildx/)
 4. Docker logged in to a Dockerhub registry.
 
-Ensure that the command `docker buildx` returns the following:
+Ensure that the command `docker buildx -h` returns a valid help message.
 
-```bash
-Usage:  docker buildx [OPTIONS] COMMAND
-
-Extended build capabilities with BuildKit
-
-Options:
-      --builder string   Override the configured builder instance
-
-Management Commands:
-  imagetools  Commands to work on images in registry
-
-Commands:
-  bake        Build from a file
-  build       Start a build
-  create      Create a new builder instance
-  du          Disk usage
-  inspect     Inspect current builder instance
-  ls          List builder instances
-  prune       Remove build cache
-  rm          Remove a builder instance
-  stop        Stop builder instance
-  use         Set the current builder instance
-  version     Show buildx version information
-
-Run 'docker buildx COMMAND --help' for more information on a command.
-```
+Docker needs to be logged in to a container registry because the multi-architecture build defaults to pushing the multi-arch image manifesto to a container registry. If not, the `--no-push` option needs to be used.
 
 #### Process Example
 
@@ -231,24 +205,28 @@ Run 'docker buildx COMMAND --help' for more information on a command.
     devcontainer build \
         --platform linux/amd64,linux/arm64 \
         --image-name hubusername/multiarch-test:v1 \
-        change-me-to-repository-folder-with-dot-devcontainer
+        path-to-devcontainer-json
     ```
 
 #### Breaking down the command
 
-1. `devcontainer build`: As before, this invokes the build command by using Docker under the hood.
-2. `--platform linux/amd64,linux/arm64`: This creates Docker images for the `linux/amd64` and `linux/arm64` architectures using `docker buildx`.
-3. `--image-name hubusername/multiarch-test:v1`: This will tag the image.
+1. `devcontainer build`: As before, this invokes the devcontainer CLI build command.
+2. `--platform linux/amd64,linux/arm64`: This creates Docker images for the `linux/amd64` and `linux/arm64` architectures.
+3. `--image-name hubusername/multiarch-test:v1`: **This is mandatory when using `--platform` and optional otherwise.** This will tag the image and needs to follow container registry naming conventions to upload.
 
-`--no-push` defaults to `true`, i.e., to local development. In order to push to a container registry, append the `--no-push` option as follows:
+#### No Push
+
+By default, the Devcontainer CLI **will push** to the container registry. To avoid doing this for local development purposes, append `--no-push` to the command as shown below:
 
     ```bash
     devcontainer build \
         --platform linux/amd64,linux/arm64 \
-        --no-push false \
+        --no-push \
         --image-name hubusername/multiarch-test:v1 \
         change-me-to-repository-folder-with-dot-devcontainer
     ```
+
+`--no-push` makes the images inaccessible for local development, but allows for the build process to be tested locally. This is because Docker does not currently support building and running multi-architecture images locally.
 
 ### Adding automation
 
