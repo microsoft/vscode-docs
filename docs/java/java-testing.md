@@ -139,13 +139,17 @@ If your project does not use any build tools, you can enable TestNG via the [Tes
 
 The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, select the green play button. You can also right-click on it to see more options.
 
-![Run/Debug Test Cases](images/java-testing/editor-decoration.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/gutter-icon.mp4" type="video/mp4">
+</video>
 
 ### Test Explorer
 
 The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
-![Test Explorer](images/java-testing/test_explorer.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-explorer.mp4" type="video/mp4">
+</video>
 
 ### Customize test configurations
 
@@ -172,7 +176,9 @@ More details can be found on the [vscode-java-test Wiki](https://github.com/Micr
 
 After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Test Explorer.
 
-![View test results](images/java-testing/test_report.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-result.mp4" type="video/mp4">
+</video>
 
 You can trigger the command **Test: Peek Output** to peek the results view. You can select the links in the stack trace to navigate to the source location.
 
@@ -196,7 +202,9 @@ If you trigger the source action from your test source code, you will be asked w
 
 The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named **Go to Test** or **Go to Test Subject** in the editor context menu:
 
-![Go to tests](images/java-testing/goto-test.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-navigation.mp4" type="video/mp4">
+</video>
 
 You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.
 
