@@ -3,8 +3,8 @@ Order: 8
 Area: java
 TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
-PageTitle: Java Unit Tests in Visual Studio Code
-DateApproved: 2/8/2022
+PageTitle: Java Testing in Visual Studio Code
+DateApproved: 2/11/2022
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
@@ -26,7 +26,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 - Run/Debug test cases
 - Customize test configurations
 - View test report
-- View tests in Test Explorer
+- View tests in Testing Explorer
 
 ## Requirements
 
@@ -143,9 +143,9 @@ The Test Runner for Java extension will generate shortcuts (the green play butto
   <source src="/docs/java/java-testing/gutter-icon.mp4" type="video/mp4">
 </video>
 
-### Test Explorer
+### Testing Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+The Testing Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/test-explorer.mp4" type="video/mp4">
@@ -174,7 +174,7 @@ More details can be found on the [vscode-java-test Wiki](https://github.com/Micr
 
 ### View test results
 
-After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Test Explorer.
+After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Testing Explorer.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-testing/test-result.mp4" type="video/mp4">
