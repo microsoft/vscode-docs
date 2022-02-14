@@ -11,26 +11,6 @@ DateApproved: 12/17/2021
 
 Given the growing number of use cases for dev containers, there is a companion `devcontainer` command line interface (CLI) that can be used independent of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
 
-## Table of Contents
-- [devcontainer command line interface](#devcontainer-command-line-interface)
-  - [Table of Contents](#table-of-contents)
-  - [System requirements](#system-requirements)
-  - [Installation](#installation)
-    - [Install using VS Code](#install-using-vs-code)
-    - [Install from the command line](#install-from-the-command-line)
-  - [Opening a folder directly within a dev container](#opening-a-folder-directly-within-a-dev-container)
-  - [Building a dev container image](#building-a-dev-container-image)
-    - [Example of building and publishing an image](#example-of-building-and-publishing-an-image)
-    - [Building Multi-Architecture builds](#building-multi-architecture-builds)
-      - [Pre-requisites](#pre-requisites)
-      - [Process Example](#process-example)
-      - [Breaking down the command](#breaking-down-the-command)
-      - [No Push](#no-push)
-    - [Adding automation](#adding-automation)
-    - [devcontainer CLI build options](#devcontainer-cli-build-options)
-    - [[Optional] Avoiding problems with images built using Docker](#optional-avoiding-problems-with-images-built-using-docker)
-  - [Next steps](#next-steps)
-
 ## System requirements
 
 To use the `devcontainer` CLI, you'll need the following on your system or CI/DevOps environment:
@@ -158,7 +138,7 @@ For example, you may want to pre-build several images that you then reuse across
 
 That's it!
 
-### Building Multi-Architecture builds
+## Building Multi-Architecture builds
 
 #### Pre-requisites
 1. [Node.js 14+](https://nodejs.org).
@@ -228,7 +208,7 @@ By default, the Devcontainer CLI **will push** to the container registry. To avo
 
 `--no-push` makes the images inaccessible for local development, but allows for the build process to be tested locally. This is because Docker does not currently support building and running multi-architecture images locally.
 
-### Adding automation
+## Adding automation
 
 Steps to automate pre-building your image will vary by CI/DevOps system, but here's an example GitHub Actions workflow that will automate the process for a subfolder called `change-me` and push it to GitHub Container Registry once a month and whenever the dev container folder is modified in the `main` branch:
 
@@ -271,7 +251,7 @@ jobs:
           docker push "${IMAGE_REPOSITORY}"
 ```
 
-### devcontainer CLI build options
+## devcontainer CLI build options
 
 The following options can be used with the `build` command:
 
