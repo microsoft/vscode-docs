@@ -214,7 +214,9 @@ To verify a publisher:
 4. Follow the instructions in the dialog to add a TXT record to your domain's DNS configuration.
 5. Select **Verify** to validate that the TXT record has been successfully added.
 
-Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days, 9AM to 5PM on Monday-Friday (Indian Standard Time).
+
+
 
 ### Eligible domains
 
