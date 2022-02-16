@@ -64,9 +64,9 @@ Split the terminal by:
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, and focusing the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Tabs support drag and drop to allow rearranging. Dragging an entry in a terminal group into the empty will remove it from the group (for example, unsplit). Dragging a tab into the main terminal area allows joining a group.
+Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows joining a group.
 
-Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command.
+Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command through the command palette or in the right click context menu.
 
 ### Customizing Tabs
 
