@@ -66,7 +66,7 @@ Navigate between terminals in a group by focusing the previous pane, `kb(workben
 
 Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows joining a group.
 
-Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command through the command palette or in the right click context menu.
+Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
 ### Customizing Tabs
 

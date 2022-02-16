@@ -223,7 +223,7 @@ Eligible domains meet the following criteria:
 - Cannot be a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
 - You must be able to manage the DNS configuration settings and add a TXT record.
 - Your domain must use HTTPS protocol.
-- Your domain must be able to serve an HTTP 200 status response to a HEAD request
+- Your domain must be able to serve an HTTP 200 status response to a HEAD request.
 
 ### Using .vscodeignore
 
