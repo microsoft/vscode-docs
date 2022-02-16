@@ -144,7 +144,7 @@ That's it!
 1. [Node.js 14+](https://nodejs.org).
 2. [The `docker` CLI](/docs/remote/containers#installation).
 3. [Docker `Buildx`](https://docs.docker.com/buildx/working-with-buildx/)
-4. Docker logged in to a Dockerhub registry.
+4. [Docker logged in to a Dockerhub registry](https://docs.docker.com/engine/reference/commandline/login/)
 
 Ensure that the command `docker buildx -h` returns a valid help message.
 
@@ -155,10 +155,8 @@ Docker needs to be logged in to a container registry because the multi-architect
 1. Create a basic Dockerfile as below:
 
     ```Dockerfile
-    #FROM alpine:latest
     ARG VARIANT=3.13
     FROM mcr.microsoft.com/vscode/devcontainers/base:0-alpine-${VARIANT}
-    #FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
     CMD echo "Running on $(uname -m)"
     ```
 
@@ -191,12 +189,12 @@ Docker needs to be logged in to a container registry because the multi-architect
 #### Breaking down the command
 
 1. `devcontainer build`: As before, this invokes the devcontainer CLI build command.
-2. `--platform linux/amd64,linux/arm64`: This creates Docker images for the `linux/amd64` and `linux/arm64` architectures.
-3. `--image-name hubusername/multiarch-test:v1`: **This is mandatory when using `--platform` and optional otherwise.** This will tag the image and needs to follow container registry naming conventions to upload.
+2. `--platform linux/amd64,linux/arm64`: This creates Docker images for the `linux/amd64` and `linux/arm64` architectures. Find other supported platforms [here](https://docs.docker.com/engine/install/) (all Docker supported platforms are supported) and [here](https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#platform) on the Docker Buildx documentation page.
+4. `--image-name hubusername/multiarch-test:v1`: **This is mandatory when using `--platform` and optional otherwise.** This will tag the image and needs to follow container registry naming conventions to upload.
 
 #### No Push
 
-By default, the Devcontainer CLI **will push** to the container registry. To avoid doing this for local development purposes, append `--no-push` to the command as shown below:
+By default, the Devcontainer CLI **will push** to the container registry when multi-platform builds are specified. To run a multi-paltform build for local development purposes, append `--no-push` to the command as shown below:
 
     ```bash
     devcontainer build \
