@@ -44,7 +44,7 @@ Items are placed inside of various containers and include:
 
 It's important to limit the number of notifications sent in order to respect the user's attention. To help guide your decision on whether or not you should show a notification, please follow our notification decision tree:
 
-[![Notification decision tree for showing notifications](images/guidelines/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
+[![Show a multi-step quick pick if multi step user input is immediately needed. If user input is immediately needed but it is not multi-step show a modal dialog. If you need to show progress that is low priority show the progress in the status bar. If the interaction is triggered by the user find the right moment to show the notification and only then show it. If you need to show multiple notifications try to combine them into one. If the user does not really need to be notified consider to not show anything and relax.](images/guidelines/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
 
 ### Notification examples
 
