@@ -88,8 +88,8 @@ To give Python Web Developers a great starting point, we chose to use [Gunicorn]
 
 To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
 
-```docker
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]`
+```dockerfile
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]
 ```
 
 If your project does not follow Django's default project structure (that is, a workspace folder and a wsgi.py file within a subfolder named the same as the workspace) you must overwrite the Gunicorn entry point in the Dockerfile to locate the correct `wsgi.py` file.
@@ -107,7 +107,7 @@ app = Flask(__name__) # Flask instance named app
 
 To accomplish this binding, the final line in the Dockerfile says:
 
-```docker
+```dockerfile
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "{subfolder}.{module_file}:app"]
 ```
 
