@@ -94,10 +94,10 @@ Pylint messages fall into the categories in the following table with the indicat
 
 | Pylint category | Description | VS Code category mapping | Applicable setting<br/>(python.linting.) |
 | --- | --- | --- | --- |
-| Convention (C) | Programming standard violation | Information (green underline) | pylintCategorySeverity.convention |
+| Convention (C) | Programming standard violation | Information (underline) | pylintCategorySeverity.convention |
 | Refactor (R) | Bad code smell | Hint (light bulbs) | pylintCategorySeverity.refactor |
 | Warning (W) | Python-specific problems | Warning | pylintCategorySeverity.warning |
-| Error (E) | Likely code bugs | Error (red underline) | pylintCategorySeverity.error |
+| Error (E) | Likely code bugs | Error (underline) | pylintCategorySeverity.error |
 | Fatal (F) | An error prevented further Pylint processing | Error | pylintCategorySeverity.fatal |
 
 ### Command-line arguments and configuration files
