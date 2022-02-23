@@ -7,7 +7,9 @@ MetaDescription: Connect via SSH to Docker engine running on a remote machine an
 ---
 # Connect to remote Docker over SSH
 
-We recommend using the Visual Studio Code [Remote-SSH extension](/docs/containers/choosing-dev-environment.md#remote-machine) to connect to a remote machine running Docker engine, but it also possible to connect to the remote Docker engine directly, using SSH tunneling.
+We recommend using the Visual Studio Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to a remote machine running Docker engine. You can use the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) and [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extensions together. You may review the steps in the [remote development documentation](/docs/remote/containers#_open-a-folder-on-a-remote-ssh-host-in-a-container).
+
+It also possible to connect to the remote Docker engine directly using SSH tunneling, which you may read more about below.
 
 ## Set up SSH Tunneling
 
