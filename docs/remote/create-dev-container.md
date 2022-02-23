@@ -456,6 +456,8 @@ Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub 
 
 Once in place, the configuration will be automatically picked up when using any of the remote containers commands. Once in the container, you can also select **Remote-Containers: Open Container Configuration File** from the Command Palette (`kbstyle(F1)`) to open the related `devcontainer.json` file and make further edits.
 
+The path used for looking up the configuration is derived from the output of `git remote -v`. If the configuration is not found when you attempt to reopen the folder in a container, check the log **Remote-Containers: Show Container Log** in the Command Palette (`kbstyle(F1)`) for the list of the paths that were checked.
+
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
