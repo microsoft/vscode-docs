@@ -72,6 +72,7 @@ If you have never installed a JDK before and need to install one, we recommend y
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
 * [SapMachine](https://sapmachine.io)
+* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 
 ## Creating a source code file
 
