@@ -313,11 +313,11 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 }
 ```
 
-You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as markdown.
+You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
-If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as markdown in the settings UI.
+If you set `deprecationMessage`, or `markdownDeprecationMessage`, the setting will get a warning underline with your specified message. It won't show up in the settings UI unless it is configured by the user. If you set `markdownDeprecationMessage`, the markdown will not be rendered in the setting hover or the problems view. If you set both properties, `deprecationMessage` will be shown in the hover and the problems view, and `markdownDeprecationMessage` will be rendered as Markdown in the settings UI.
 
 Example:
 
@@ -731,7 +731,7 @@ Currently extension writers can contribute to:
 - The debug callstack view context menu - `debug/callstack/context`
 - The debug callstack view inline actions - `debug/callstack/context` group `inline`
 - The debug variables view context menu - `debug/variables/context`
-- The debug toolbar - `debug/toolbar`
+- The debug toolbar - `debug/toolBar`
 - The [SCM title menu](/api/extension-guides/scm-provider#menus) - `scm/title`
 - [SCM resource groups](/api/extension-guides/scm-provider#menus) menus - `scm/resourceGroup/context`
 - [SCM resource folders](/api/extension-guides/scm-provider#menus) menus - `scm/resourceFolder/context`
@@ -749,6 +749,7 @@ Currently extension writers can contribute to:
 - The Timeline view item context menu - `timeline/item/context`
 - The Extensions view context menu - `extension/context`
 - The Test Explorer item context menu - `testing/item/context`
+- The menu for a gutter decoration for a test item - `testing/item/gutter`
 - The notebook toolbar - `notebook/toolbar`
 - The notebook cell title menu bar - `notebook/cell/title`
 - The notebook cell execution menu - `notebook/cell/execute`

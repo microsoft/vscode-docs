@@ -266,13 +266,13 @@ Select the `Docker: Add docker files to workspace` command,  select `Node.js` as
 
 The Docker extension also provides auto-completion for your `Dockerfiles` and `docker-compose.yml` files, which makes authoring your Docker assets a lot simpler. For example, open up the `Dockerfile` and change line 2 from:
 
-```docker
+```dockerfile
 FROM node:latest
 ```
 
 To:
 
-```docker
+```dockerfile
 FROM mhart
 ```
 

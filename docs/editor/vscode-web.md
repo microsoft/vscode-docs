@@ -13,7 +13,7 @@ Visual Studio Code for the Web provides a free, zero-install Microsoft Visual St
 
 VS Code for the Web has many of the features of VS Code desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos (in preview), you can also work with code that is stored on your local machine.
 
-VS Code for the Web runs entirely in your web browser, so there are certain limitations compared to the desktop experience, which you can read more about [below](#current-limitations).
+VS Code for the Web runs entirely in your web browser, so there are certain limitations compared to the desktop experience, which you can read more about [below](#limitations).
 
 ## Relationship to VS Code desktop
 
@@ -141,25 +141,21 @@ When extensions are executed in the browser sandbox, they are more restricted. E
 
 There are also extensions that run in the browser with partial support only. A good example is a language extension that [restricts its support](/docs/nodejs/working-with-javascript.md#partial-intellisense-mode) to single files or the currently opened files.
 
+### File system API
+
+Edge and Chrome today support the [File System API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API), allowing web pages to access the local file system. If your browser does not support the File System API, you cannot open a folder locally, but you can open files instead.
+
 ### Browser support
 
 You can use VS Code for the Web in Chrome, Edge, Firefox, and Safari.
 
 Webviews might appear differently or have some unexpected behavior in Firefox and Safari. You can view issue queries in the VS Code GitHub repo to track issues related to specific browsers, such as with the [Safari label](https://github.com/microsoft/vscode/labels/safari) and [Firefox label](https://github.com/microsoft/vscode/labels/firefox).
 
-### File system API
+There are additional steps you can take to improve your browser experience using VS Code for the Web. Review the [Additional browser setup](#additional-browser-setup) section for more information.
 
-Edge and Chrome today support the [File System API](https://developer.mozilla.org/docs/Web/API/File_System_Access_API), allowing web pages to access the local file system. If your browser does not support the File System API, you cannot open a folder locally, but you can open files instead.
+### Mobile support
 
-### Opening new tabs and windows
-
-In certain cases, you may need to open a new tab or window while working in VS Code for the Web. VS Code might ask you for permission to access the clipboard when reading from it. Depending on your browser, you may grant access to the clipboard or otherwise allow for pop-up windows in different ways:
-
-* Chrome, Edge, Firefox: Search for "site permissions" in your browser's settings, or look for the following option in the address bar on the right:
-
-![Allow clipboard access in the browser](images/vscode-web/allow-clipboard-access.png)
-
-* Safari: In the Safari browser, go to **Preferences...** > **Websites** > **Pop-up Windows** > `vscode.dev` (or `insiders.vscode.dev` for the Insiders version), and select **Allow** from the dropdown.
+You can use VS Code for the Web on mobile devices, but smaller screens may have certain limitations.
 
 ### Keybindings
 
@@ -172,6 +168,16 @@ Certain keybindings may also work differently in the web.
 | `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web. | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
 | `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
 
-### Mobile support
+## Additional browser setup
 
-You can use VS Code for the Web on mobile devices, but smaller screens may have certain limitations.
+There are additional browser configuration steps you can take when working with VS Code in a browser.
+
+### Opening new tabs and windows
+
+In certain cases, you may need to open a new tab or window while working in VS Code for the Web. VS Code might ask you for permission to access the clipboard when reading from it. Depending on your browser, you may grant access to the clipboard or otherwise allow for pop-up windows in different ways:
+
+* Chrome, Edge, Firefox: Search for "site permissions" in your browser's settings, or look for the following option in the address bar on the right:
+
+![Allow clipboard access in the browser](images/vscode-web/allow-clipboard-access.png)
+
+* Safari: In the Safari browser, go to **Preferences...** > **Websites** > **Pop-up Windows** > the domain you're accessing (for example, `vscode.dev`), and select **Allow** from the dropdown.

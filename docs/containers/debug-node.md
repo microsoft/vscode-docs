@@ -66,9 +66,9 @@ The Docker extension can automatically launch the browser to the entry point of 
 
 This feature depends on several aspects of the application:
 
- - The application must output logs to the debug console.
- - The application must log a "server ready" message.
- - The application must serve a browsable page.
+- The application must output logs to the debug console.
+- The application must log a "server ready" message.
+- The application must serve a browsable page.
 
 While the default settings may work for an Express.js based application, other Node.js frameworks may require explicit configuration of one or more of those aspects.
 
@@ -201,9 +201,9 @@ For example, if the application instead resides in `/usr/my-custom-location`, th
 }
 ```
 
-# Troubleshooting
+## Troubleshooting
 
-## Docker image fails to build or start due to missing node_modules
+### Docker image fails to build or start due to missing node_modules
 
 Dockerfiles are often arranged in such a way as to optimize either image build time, image size, or both.  However, not every Node.js application framework supports all of the typical Node.js Dockerfile optimizations. In particular, for some frameworks, the `node_modules` folder must be an immediate subfolder of the application root folder, whereas, the Docker extension scaffolds a Dockerfile where the `node_modules` folder exists at a parent or ancestor level (which is generally allowed by Node.js).
 

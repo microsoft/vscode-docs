@@ -333,6 +333,21 @@ fi
 
 The agent should be running by default on macOS.
 
+### Making local SSH Agent available on the remote
+
+An SSH Agent on your local machine allows the Remote - SSH extension to connect to your chosen remote system without repeatedly prompting for a passphrase, but tools like Git that run on the remote, don't have access to your locally-unlocked private keys.
+
+You can see this by opening the integrated terminal on the remote and running `ssh-add -l`. The command should list the unlocked keys, but instead reports an error about not being able to connect to the authentication agent. Setting `ForwardAgent yes` makes the local SSH Agent available in the remote environment, solving this problem.
+
+You can do this by editing your `.ssh/config` file (or whatever `Remote.SSH.configFile` is set to - use the **Remote-SSH: Open SSH Configuration File...** command to be sure) and adding:
+
+```ssh-config
+Host *
+    ForwardAgent yes
+```
+
+Note that you might want to be more restrictive and only set the option for particular named hosts.
+
 ### Fixing SSH file permission errors
 
 SSH can be strict about file permissions and if they are set incorrectly, you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". There are several ways to update file permissions in order to fix this, which are described in the sections below.

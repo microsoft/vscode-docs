@@ -398,7 +398,7 @@ Using multi-target debugging is simple: after you've started a first debug sessi
 
 ### Compound launch configurations
 
-An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started.
+An alternative way to start multiple debug sessions is by using a **compound** launch configuration. A compound launch configuration lists the names of two or more launch configurations that should be launched in parallel. Optionally a `preLaunchTask` can be specified that is run before the individual debug sessions are started. The boolean flag `stopAll` controls whether manually terminating one session will stop all of the compound sessions.
 
 ```json
 {
@@ -421,7 +421,8 @@ An alternative way to start multiple debug sessions is by using a **compound** l
         {
             "name": "Server/Client",
             "configurations": ["Server", "Client"],
-            "preLaunchTask": "${defaultBuildTask}"
+            "preLaunchTask": "${defaultBuildTask}",
+            "stopAll": true
         }
     ]
 }

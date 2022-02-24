@@ -3,8 +3,8 @@ Order: 8
 Area: java
 TOCTitle: Testing
 ContentId: 82be3b78-2c09-4571-abec-69f95f111e0f
-PageTitle: Java Unit Tests in Visual Studio Code
-DateApproved: 11/30/2021
+PageTitle: Java Testing in Visual Studio Code
+DateApproved: 2/11/2022
 MetaDescription: See how you can test your Java code in Visual Studio Code.
 MetaSocialImage:
 ---
@@ -26,7 +26,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 - Run/Debug test cases
 - Customize test configurations
 - View test report
-- View tests in Test Explorer
+- View tests in Testing Explorer
 
 ## Requirements
 
@@ -38,7 +38,17 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 ## Project Setup
 
-**Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
+> **Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
+
+### Enable testing and adding test framework JARs to your project
+
+Starting with Test Runner for Java version 0.34.0, you can enable a test framework for your unmanaged folder project (a project without any build tools) with just a few steps in the **Testing** Explorer:
+
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/enable-tests.mp4" type="video/mp4">
+</video>
+
+> **Note**: Currently this feature only supports unmanaged folders that do not contain any testing dependencies.
 
 ### JUnit 4
 
@@ -71,7 +81,7 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+If your project does not use any build tools, you can enable JUnit 4 via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually downloading the following JARs and adding them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
 
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
@@ -84,7 +94,7 @@ The JUnit 5 team provides a collection of sample projects with different build t
 
 #### Unmanaged folder
 
-If your project does not use any build tools, for simplicity, you can directly include the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
+If your project does not use any build tools, you can enable JUnit 5 via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually including the [junit-platform-console-standalone](https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/) JAR in the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information).
 
 ### TestNG
 
@@ -117,24 +127,29 @@ dependencies {
 
 #### Unmanaged folder
 
-If your project does not use any build tools, download the following JARs and add them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
+If your project does not use any build tools, you can enable TestNG via the [Testing Explorer](#enable-testing-and-adding-test-framework-jars-to-your-project) or by manually downloading the following JARs and adding them to the project classpath (via setting `java.project.referencedLibraries`, check [Dependency management](/docs/java/java-project.md#dependency-management) for more information):
 
 - [testng.jar](https://search.maven.org/search?q=g:org.testng%20AND%20a:testng)
-- [jcommander.jar](https://search.maven.org/artifact/com.beust/jcommander/1.81/jar)
+- [jcommander.jar](https://search.maven.org/search?q=g:com.beust%20AND%20a:jcommander)
+- [slf4j-api.jar](https://search.maven.org/search?q=g:org.slf4j%20AND%20a:slf4j-api)
 
 ## Features
 
 ### Run/Debug test cases
 
-The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, click the green play button. You can also right-click on it to see more options.
+The Test Runner for Java extension will generate shortcuts (the green play button) on the left side of the class and method definition. To run the target test cases, select the green play button. You can also right-click on it to see more options.
 
-![Run/Debug Test Cases](images/java-testing/editor-decoration.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/gutter-icon.mp4" type="video/mp4">
+</video>
 
-### Test Explorer
+### Testing Explorer
 
-The Test Explorer is a tree view to show all the test cases in your workspace. You can click the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
+The Testing Explorer is a tree view to show all the test cases in your workspace. You can select the beaker button on the left-side Activity bar of Visual Studio Code to open it. You can also run/debug your test cases and view their test results from there.
 
-![Test Explorer](images/java-testing/test_explorer.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-explorer.mp4" type="video/mp4">
+</video>
 
 ### Customize test configurations
 
@@ -159,9 +174,11 @@ More details can be found on the [vscode-java-test Wiki](https://github.com/Micr
 
 ### View test results
 
-After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Test Explorer.
+After running/debugging the test cases, the state of the related test items will be updated in both editor decorations and the Testing Explorer.
 
-![View test results](images/java-testing/test_report.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-result.mp4" type="video/mp4">
+</video>
 
 You can trigger the command **Test: Peek Output** to peek the results view. You can select the links in the stack trace to navigate to the source location.
 
@@ -185,7 +202,9 @@ If you trigger the source action from your test source code, you will be asked w
 
 The extension provides features to help you navigate between your tests and test subjects. If your source code is contained in `src/main/java` or `src/test/java`, you can find the entry named **Go to Test** or **Go to Test Subject** in the editor context menu:
 
-![Go to tests](images/java-testing/goto-test.png)
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-testing/test-navigation.mp4" type="video/mp4">
+</video>
 
 You can also find the command in the Command Palette (`kb(workbench.action.showCommands)`) by searching for **Java: Go to Test**.
 

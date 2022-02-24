@@ -4,7 +4,7 @@ Area: java
 TOCTitle: GUI Applications
 ContentId: 517db620-d166-4f72-99c1-fa046710dffe
 PageTitle: Develop Java GUI Applications in Visual Studio Code
-DateApproved: 1/26/2022
+DateApproved: 2/11/2022
 MetaDescription: How to develop Java GUI Applications (JavaFX, AWT, Swing) in Visual Studio Code
 ---
 
@@ -46,7 +46,11 @@ More JavaFX project examples can be found in the [openjfx samples repository](ht
 
 By default, the types from the Abstract Window Toolkit (AWT) are hidden. You may notice that code completions are not working when you are developing an AWT application. To enable completions, you can open the Command Palette  (`kb(workbench.action.showCommands)`) and then select the command **Java: Help Center**. Go to the **Student** section and select **Enable AWT Development**.
 
-> Note: This action will update a setting at the workspace level, so please make sure a workspace is opened in VS Code.
+<video autoplay loop muted playsinline controls>
+  <source src="/docs/java/java-gui/enable-awt.mp4" type="video/mp4">
+</video>
+
+> Note: This action will update a setting, `java.completion.filteredTypes` at the workspace level in `.vscode\settings.json`, so please make sure a workspace is opened in VS Code.
 
 You can use the sample code below to run a simple Java AWT application in VS Code.
 

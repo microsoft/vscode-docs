@@ -64,9 +64,9 @@ Split the terminal by:
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, and focusing the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Tabs support drag and drop to allow rearranging. Dragging an entry in a terminal group into the empty will remove it from the group (for example, unsplit). Dragging a tab into the main terminal area allows joining a group.
+Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows joining a group.
 
-Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command.
+Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
 ### Customizing Tabs
 
@@ -220,6 +220,17 @@ Clicking a file link will either open that document in an editor or produce a Qu
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
 ![A branch link is hovered in the terminal](images/integrated-terminal/gitlens-link.png)
+
+## Shell integration
+
+Shell integration is an experimental feature, which will turn on certain features like enhanced command tracking and current working directory detection. Shell integration works by injecting a script that is run when the shell is initialized and lets the terminal gain additional insights into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
+
+Supported shells:
+
+* Linux/macOS: bash, pwsh, zsh
+* Windows: pwsh
+
+You can try it out by setting `terminal.integrated.enableShellIntegration` to `true`.
 
 ## Local echo
 
@@ -599,4 +610,12 @@ This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85
 
 ```bash
 export PROMPT_COMMAND='history -a'
+```
+
+### I see `1~` or `[201~` when I paste something
+
+This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To workaround this you could run `printf "\e[?2004l"` to disable it for that session of add the following to your `~/.inputrc` file:
+
+```
+bind 'set enable-bracketed-paste off'
 ```

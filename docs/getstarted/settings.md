@@ -20,6 +20,8 @@ VS Code provides two different scopes for settings:
 
 Workspace settings override user settings. Workspace settings are specific to a project and can be shared across developers on a project.
 
+>**Note**: You cannot use the Settings editor to create a workspace setting that matches the setting's default value. If you want your workspace to enforce that a particular setting has its default value, even when somebody has configured that setting as a user setting, you must add it to the workspace settings file manually.
+
 >**Note**: A VS Code "workspace" is usually just your project root folder. Workspace settings as well as [debugging](/docs/editor/debugging.md) and [task](/docs/editor/tasks.md) configurations are stored at the root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md). You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces.md) article.
 
 ## Creating User and Workspace Settings
@@ -68,7 +70,7 @@ By default VS Code shows the Settings editor, but you can still edit the underly
 Depending on your platform, the user settings file is located here:
 
 * **Windows** `%APPDATA%\Code\User\settings.json`
-* **macOS** `$HOME/Library/Application Support/Code/User/settings.json`
+* **macOS** `$HOME/Library/Application\ Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
 The workspace settings file is located under the `.vscode` folder in your root folder.

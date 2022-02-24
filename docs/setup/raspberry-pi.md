@@ -55,6 +55,16 @@ While 1 GB of memory (RAM) meets the minimum system requirements, users will ben
 
 First-generation Raspberry Pi modules and Raspberry Pi Zero are not supported as they only include an ARMv6 CPU.
 
+### Workaround for poor performance
+
+VS Code on Raspberry Pi 4 may be slow with the default setup. A workaround is to disable hardware (GPU) acceleration in VS Code:
+
+1. Open the VS Code `argv.json` file using the **Preferences: Configure Runtime Arguments** command.
+2. Set `"disable-hardware-acceleration": true`.
+3. Restart VS Code.
+
+The `"disable-hardware-acceleration": true` runtime argument switch has the effect of passing the `--disable-gpu` command-line argument on VS Code startup.
+
 ## Next steps
 
 Once you have installed VS Code, these topics will help you learn more about it:

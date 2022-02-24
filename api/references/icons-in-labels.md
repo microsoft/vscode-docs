@@ -37,7 +37,11 @@ To place a literal `${...}` text inside a label, escape the `$` with a backslash
 
 ## Animation
 
-You can apply a spinning animation to any icon by appending `~spin` to the icon name:
+You can apply a spinning animation to the following icons by appending `~spin` to the icon name:
+
+- `sync`
+- `loading`
+- `gear`
 
 ```ts
 $(sync~spin)
