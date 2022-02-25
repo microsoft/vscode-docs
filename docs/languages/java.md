@@ -79,12 +79,12 @@ A Java Development Kit (JDK) is a software development environment used for deve
 We recommend you to consider installing the JDK from one of these sources:
 
 * [Amazon Corretto](https://aws.amazon.com/corretto)
+* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
 * [SapMachine](https://sapmachine.io)
-* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 
 > **Note**: If you have multiple JDKs installed and need to use a specific JDK version for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 

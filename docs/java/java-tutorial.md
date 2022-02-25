@@ -67,12 +67,12 @@ The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemNam
 If you have never installed a JDK before and need to install one, we recommend you to choose from one of these sources:
 
 * [Amazon Corretto](https://aws.amazon.com/corretto)
+* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
 * [SapMachine](https://sapmachine.io)
-* [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 
 ## Creating a source code file
 
