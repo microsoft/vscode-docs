@@ -455,7 +455,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - false: Disables horizontal bracket pair guides.
     "editor.guides.bracketPairsHorizontal": "active",
 
-    // Controls whether bracket pair guides are enabled or not.
+    // Controls whether the editor should highlight the active bracket pair.
     "editor.guides.highlightActiveBracketPair": true,
 
     // Controls whether the editor should highlight the active indent guide.
@@ -1090,6 +1090,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether a top border is drawn on tabs for editors that have unsaved changes. This value is ignored when `workbench.editor.showTabs` is disabled.
     "workbench.editor.highlightModifiedTabs": false,
 
+    // Enables use of editor history in language detection. This causes automatic language detection to favor languages that have been recently opened and allows for automatic language detection to operate with smaller inputs.
+    "workbench.editor.historyBasedLanguageDetection": true,
+
     // Controls the format of the label for an editor.
     //  - default: Show the name of the file. When tabs are enabled and two files have the same name in one group the distinguishing sections of each file's path are added. When tabs are disabled, the path relative to the workspace folder is shown if the editor is active.
     //  - short: Show the name of the file followed by its directory name.
@@ -1109,8 +1112,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the maximum number of opened editors. Use the `workbench.editor.limit.perEditorGroup` setting to control this limit per editor group or across all groups.
     "workbench.editor.limit.value": 10,
 
-    // Navigate between open files using mouse buttons four and five if provided.
+    // Enables the use of mouse buttons four and five for commands 'Go Back' and 'Go Forward'.
     "workbench.editor.mouseBackForwardToNavigate": true,
+
+    // Controls the scope of history navigation in editors for commands such as 'Go Back' and 'Go Forward'.
+    //  - default: Navigate across all opened editors and editor groups.
+    //  - editorGroup: Navigate only in editors of the active editor group.
+    //  - editor: Navigate only in the active editor.
+    "workbench.editor.navigationScope": "default",
 
     // Controls where editors open. Select `left` or `right` to open editors to the left or right of the currently active one. Select `first` or `last` to open editors independently from the currently active one.
     "workbench.editor.openPositioning": "right",
@@ -1229,6 +1238,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether lists and trees have smooth scrolling.
     "workbench.list.smoothScrolling": false,
+
+    // Controls the default location of the panel (terminal, debug console, output, problems) in a new workspace. It can either show at the bottom, right, or left of the editor area.
+    "workbench.panel.defaultLocation": "bottom",
 
     // Controls whether the panel opens maximized. It can either always open maximized, never open maximized, or open to the last state it was in before being closed.
     //  - always: Always maximize the panel when opening it.
@@ -1727,6 +1739,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether to use `.gitignore` and `.ignore` files when searching for files.
     "search.useIgnoreFiles": true,
 
+    // Controls whether to use `.gitignore` and `.ignore` files in parent directories when searching for files. Requires `search.useIgnoreFiles` to be enabled.
+    "search.useParentIgnoreFiles": false,
+
     // Controls whether to open Replace Preview when selecting or replacing a match.
     "search.useReplacePreview": true,
 
@@ -2140,7 +2155,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - none: Only insert attribute names.
     "javascript.preferences.jsxAttributeCompletionStyle": "auto",
 
-    // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
+    // Preferred quote style to use for Quick Fixes.
+    //  - auto: Infer quote type from existing code
+    //  - single: Always use single quotes: `'`
+    //  - double: Always use double quotes: `"`
     "javascript.preferences.quoteStyle": "auto",
 
     // The setting 'typescript.preferences.renameShorthandProperties' has been deprecated in favor of 'typescript.preferences.useAliasesForRenames'
@@ -2332,7 +2350,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - none: Only insert attribute names.
     "typescript.preferences.jsxAttributeCompletionStyle": "auto",
 
-    // Preferred quote style to use for quick fixes: `single` quotes, `double` quotes, or `auto` infer quote type from existing imports.
+    // Preferred quote style to use for Quick Fixes.
+    //  - auto: Infer quote type from existing code
+    //  - single: Always use single quotes: `'`
+    //  - double: Always use double quotes: `"`
     "typescript.preferences.quoteStyle": "auto",
 
     // Enable/disable introducing aliases for object shorthand properties during renames. Requires using TypeScript 3.4 or newer in the workspace.
@@ -2880,9 +2901,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.automationProfile.windows": null,
 
     // A set of messages that when encountered in the terminal will be automatically responded to. Provided the message is specific enough, this can help automate away common responses.
-    "terminal.integrated.autoReplies": {
-        "Terminate batch job (Y/N)": "Y\r"
-    },
+    "terminal.integrated.autoReplies": {},
 
     // The number of milliseconds to show the bell within a terminal tab when triggered.
     "terminal.integrated.bellDuration": 1000,
@@ -3544,11 +3563,47 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Audio Cues
 
-    // Controls whether audio cues are enabled.
-    //  - auto: Enable audio cues when a screen reader is attached.
-    //  - on: Enable audio cues.
-    //  - off: Disable audio cues.
-    "audioCues.enabled": "auto",
+    // Plays a sound when the debugger stopped on a breakpoint.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.debuggerStoppedOnBreakpoint": "auto",
+
+    // Plays a sound when the active line has a breakpoint.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.lineHasBreakpoint": "auto",
+
+    // Plays a sound when the active line has an error.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.lineHasError": "auto",
+
+    // Plays a sound when the active line has a folded area that can be unfolded.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.lineHasFoldedArea": "auto",
+
+    // Plays a sound when the active line has an inline suggestion.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.lineHasInlineSuggestion": "auto",
+
+    // Plays a sound when the active line has a warning.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.lineHasWarning": "off",
+
+    // Plays a sound when trying to read a line with inlay hints that has no inlay hints.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.noInlayHints": "auto",
 
 // Remote
 
@@ -3674,6 +3729,12 @@ Below are the Visual Studio Code default settings and their values. You can also
         "remote",
         "tags"
     ],
+
+    // Controls whether the diff editor should be automatically closed when changes are stashed, committed, discarded, staged, or unstaged.
+    "git.closeDiffOnOperation": false,
+
+    // List of git commands (ex: commit, push) that would have their `stdout` logged to the git output. If the git command has a client-side hook configured, the client-side hook's `stdout` will also be logged to the git output.
+    "git.commandsToLog": [],
 
     // Always confirm the creation of empty commits for the 'Git: Commit Empty' command.
     "git.confirmEmptyCommits": true,
@@ -3915,9 +3976,6 @@ Below are the Visual Studio Code default settings and their values. You can also
         "!**/node_modules/**",
         "**/$KNOWN_TOOLS$/**"
     ],
-
-    // Configures whether property getters will be expanded automatically. If this is false, the getter will appear as `get propertyName` and will only be evaluated when you click on it.
-    "debug.javascript.autoExpandGetters": false,
 
     // When debugging a remote web app, configures whether to automatically tunnel the remote server to your local machine.
     "debug.javascript.automaticallyTunnelRemoteServer": true,
