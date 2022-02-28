@@ -19,6 +19,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`customEditors`](/api/references/contribution-points#contributes.customEditors)
 - [`debuggers`](/api/references/contribution-points#contributes.debuggers)
 - [`grammars`](/api/references/contribution-points#contributes.grammars)
+- [`icons`](/api/references/contribution-points#contributes.icons)
 - [`iconThemes`](/api/references/contribution-points#contributes.iconThemes)
 - [`jsonValidation`](/api/references/contribution-points#contributes.jsonValidation)
 - [`keybindings`](/api/references/contribution-points#contributes.keybindings)
@@ -98,7 +99,7 @@ hand, shows disabled items but doesn't show the category label.
 
 > **Note:** When a command is invoked (from a key binding, from the **Command Palette**, any other menu, or programmatically), VS Code will emit an activationEvent `onCommand:${command}`.
 
-> **Note:** When using icons from [product icons](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing), setting `light` and `dark` will disable the icon.
+> **Note:** When using icons from [product icons](/api/references/icons-in-labels#icon-listing), setting `light` and `dark` will disable the icon.
 > The correct syntax is `"icon": "$(book)"`
 
 ### command example
@@ -598,6 +599,34 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 See the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide) to learn more about how to register TextMate grammars associated with a language to receive syntax highlighting.
 
 ![grammars extension point example](images/contribution-points/grammars.png)
+
+## contributes.icons
+
+Contribute a new icon by id, along with a default icon.
+The icon id can then be used by the extension (or any other extensions that depend on the extension) at the places where ThemeIcon can be used `new ThemeIcon("iconId")`, [markdown strings](/api/references/icons-in-labels#icon-in-labels) (`$(iconId)`) and as icons in certain contribution points.
+
+```json
+{
+  "contributes": {
+    "icons": {
+      "distro-ubuntu": {
+        "description": "Ubuntu icon",
+        "default": {
+          "fontPath": "./distroicons.woff",
+          "fontCharacter": "\\E001"
+        }
+      },
+      "distro-fedora": {
+        "description": "Ubuntu icon",
+        "default": {
+          "fontPath": "./distroicons.woff",
+          "fontCharacter": "\\E002"
+        }
+      }
+    }
+  }
+}
+```
 
 ## contributes.iconThemes
 
