@@ -230,7 +230,7 @@ Supported shells:
 * Linux/macOS: bash, pwsh, zsh
 * Windows: pwsh
 
-You can try it out by setting `terminal.integrated.enableShellIntegration` to `true`.
+You can try it out by setting `terminal.integrated.shellIntegration.enabled` to `true`.
 
 ## Local echo
 
