@@ -185,13 +185,15 @@ This can be done in the following two ways:
 - `vscode.window.registerTreeDataProvider` - Register the tree data provider by providing the registered view ID and above data provider.
 
     ```typescript
-    vscode.window.registerTreeDataProvider('nodeDependencies', new NodeDependenciesProvider(vscode.workspace.rootPath));
+    const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
+		? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
+    vscode.window.registerTreeDataProvider('nodeDependencies', new NodeDependenciesProvider(rootPath));
     ```
 
 - `vscode.window.createTreeView` - Create the Tree View by providing the registered view ID and above data provider. This will give access to the [TreeView](/api/references/vscode-api#TreeView), which you can use for performing other view operations. Use `createTreeView`, if you need the `TreeView` API.
 
     ```typescript
-    vscode.window.createTreeView('nodeDependencies', { treeDataProvider: new NodeDependenciesProvider(vscode.workspace.rootPath)});
+    vscode.window.createTreeView('nodeDependencies', { treeDataProvider: new NodeDependenciesProvider(rootPath)});
     ```
 
 Here's the extension in action:
@@ -239,7 +241,9 @@ import * as vscode from 'vscode';
 import { NodeDependenciesProvider } from './nodeDependencies';
 
 export function activate(context: vscode.ExtensionContext) {
-    const nodeDependenciesProvider = new NodeDependenciesProvider(vscode.workspace.rootPath);
+    const rootPath = (vscode.workspace.workspaceFolders && (vscode.workspace.workspaceFolders.length > 0))
+		? vscode.workspace.workspaceFolders[0].uri.fsPath : undefined;
+    const nodeDependenciesProvider = new NodeDependenciesProvider(rootPath);
     vscode.window.registerTreeDataProvider('nodeDependencies', nodeDependenciesProvider);
     vscode.commands.registerCommand('nodeDependencies.refreshEntry', () => nodeDependenciesProvider.refresh());
 }
