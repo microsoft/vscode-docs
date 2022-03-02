@@ -503,6 +503,12 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
 - `diffEditor.border`: Border color between the two text editors.
 - `diffEditor.diagonalFill`: Color of the diff editor's diagonal fill. The diagonal fill is used in side-by-side diff views.
+- `diffEditor.insertedLineBackground`: Background color for lines that got inserted. The color must not be opaque so as not to hide underlying decorations.
+- `diffEditor.removedLineBackground`: Background color for lines that got removed. The color must not be opaque so as not to hide underlying decorations.
+- `diffEditorGutter.insertedLineBackground`: Background color for the margin where lines got inserted.
+- `diffEditorGutter.removedLineBackground`: Background color for the margin where lines got removed.
+- `diffEditorOverview.insertedForeground`: Diff overview ruler foreground for inserted content.
+- `diffEditorOverview.removedForeground`: Diff overview ruler foreground for removed content.
 
 ## Editor widget colors
 
@@ -630,6 +636,7 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
+- `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
 
@@ -757,6 +764,9 @@ The following customizations are available:
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
 - `terminal.tab.activeBorder`: Border on the side of the terminal tab in the panel. This defaults to `tab.activeBorder`.
+- `terminalCommandDecoration.defaultBackground`: The default terminal command decoration background color.
+- `terminalCommandDecoration.successBackground`: The terminal command decoration background color for successful commands.
+- `terminalCommandDecoration.errorBackground`: The terminal command decoration background color for error commands.
 
 ## Debug colors
 
@@ -844,6 +854,8 @@ The following customizations are available:
 - `settings.numberInputBorder`: Number input box border.
 - `settings.focusedRowBackground`: Background color of a focused setting row.
 - `settings.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
+- `settings.headerBorder`: The color of the header container border.
+- `settings.sashBorder`: The color of the Settings editor splitview sash border.
 
 ## Breadcrumbs colors
 
