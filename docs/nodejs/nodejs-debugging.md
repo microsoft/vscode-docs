@@ -431,7 +431,7 @@ Finally, the debug adapter searches for the full path of `app.ts` in this result
 
 Here are some things to try when your breakpoints turn gray:
 
-* While debugging, run the **Debug: Create Diagnostic Information for Current Session** command. This command will bring up a tool that can provide hints to help you resolve any issues from the Command Palette (`kb(workbench.action.showCommands)`).
+* While debugging, run the **Debug: Diagnose Breakpoint Problems** command. This command will bring up a tool that can provide hints to help you resolve any issues from the Command Palette (`kb(workbench.action.showCommands)`).
 * Did you build with source maps enabled? Make sure there are `.js.map` files, or inlined source maps in your `.js` files.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
