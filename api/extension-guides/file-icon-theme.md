@@ -112,12 +112,14 @@ Each file association points to an icon definition.
 - `fileExtensions` associates file extensions to icons. The key in the set is the file extension name. The extension name is a file name segment after a dot (not including the dot). File names with multiple dots such as `lib.d.ts` can match multiple extensions; 'd.ts' and 'ts'. Optionally, the file extension name can be prefixed by a single parent path segment (*). Extensions are compared case insensitive.
 - `fileNames` associates file names to icons. The key in the set is the full file name, not including any path segments. Optionally, the file extension name can be prefixed by a single parent path segment (*). Patterns or wildcards are not supported. File name matching is case insensitive. A 'fileName' match is the strongest match, and the icon associated to the file name will be preferred over an icon of a matching fileExtension and also of a matching language ID.
 
-(*) Some property keys (`folderNames`, `folderNamesExpanded`, `fileExtensions`, `fileNames`) can be prefixed by a single parent path segment. The icon will only be used if the resource's direct parent folder matches the parent path folder. This can be used to give resources in a particular folder (e.g. `system`) a different appearance:
+(*) Some property keys (`folderNames`, `folderNamesExpanded`, `fileExtensions`, `fileNames`) can be prefixed by a single parent path segment. The icon will only be used if the resource's direct parent folder matches the parent path folder. This can be used to give resources in a particular folder (for example, `system`) a different appearance:
+
 ```json
   "fileNames": {
     "system/win.ini": "_win_ini_file"
   },
 ```
+
 `system/win.ini` means that the association matches files called `win.ini` directly in a folder `system`
 
 ```json
@@ -125,10 +127,10 @@ Each file association points to an icon definition.
     "system/ini": "_ini_file"
   },
 ```
+
 `system/ini` means that the association matches files called `*.ini` directly in a folder `system`
 
-A file extension match is preferred over a language match, but is weaker than a file name match.
-A match with a parent path segment is preferred over a match without such a segment of the same kind.
+A file extension match is preferred over a language match, but is weaker than a file name match. A match with a parent path segment is preferred over a match without such a segment of the same kind.
 
 `file name match with parent > file name match > file extension match with parent > file extension match > language match ...`
 

@@ -51,32 +51,30 @@ $(sync~spin)
 
 ## Icon contribution point
 
-The icon contribution point allow extensions to define additional icons by id, along with a default icon.
-That icon id can then be used by the extension (or any other extensions that depend on the extension) in labels (`$(iconId)`) or at all places where a `ThemeIcon` can be used (`new ThemeIcon("iconId")`).
+The icon contribution point allow extensions to define additional icons by ID, along with a default icon. The icon ID can then be used by the extension (or any other extensions that depend on the extension) in labels (`$(iconId)`) or at all places where a `ThemeIcon` can be used (`new ThemeIcon("iconId")`).
 
-```
+```json
 "contributes": {
   "icons": {
-		"distro-ubuntu": {
-			"description": "Ubuntu icon",
-			"default": {
-				"fontPath": "./distroicons.woff",
-				"fontCharacter": "\\E001"
-			}
-		},
-		"distro-fedora": {
-			"description": "Ubuntu icon",
-			"default": {
-				"fontPath": "./distroicons.woff",
-				"fontCharacter": "\\E002"
-			}
-		}
-	}
+        "distro-ubuntu": {
+            "description": "Ubuntu icon",
+            "default": {
+                "fontPath": "./distroicons.woff",
+                "fontCharacter": "\\E001"
+            }
+        },
+        "distro-fedora": {
+            "description": "Ubuntu icon",
+            "default": {
+                "fontPath": "./distroicons.woff",
+                "fontCharacter": "\\E002"
+            }
+        }
+    }
 }
 ```
 
-Product icon themes can redefine the icon (if they know about the icon id).x
-
+Product icon themes can redefine the icon (if they know about the icon ID).
 
 ## Icon Listing
 
@@ -85,7 +83,6 @@ Below is a listing of the built-in product icons by identifier.
 The ID of the icon identifies the location where the icon is used. The default codicon ID describes which icon from the codicon library is used by default, and the preview shows what that icon looks like.
 
 [Product Icon Themes](/api/extension-guides/product-icon-theme) can replace each icon individually, as well as all icons from the codicon library.
-
 
 <div id="codicon-listing">
 
