@@ -5,7 +5,7 @@ TOCTitle: MongoDB
 PageTitle: Working with MongoDB in Visual Studio Code
 ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
-DateApproved: 2/3/2022
+DateApproved: 3/3/2022
 ---
 # Working with MongoDB
 

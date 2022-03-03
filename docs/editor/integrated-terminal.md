@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 2/3/2022
+DateApproved: 3/3/2022
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -217,10 +217,10 @@ The terminal features link detection, showing an underline when files or URLs ar
 
 Depending on the type of link, activating it will do one of the following:
 
-- Open the file in an editor
-- Focus the folder in the workspace
-- Open a new window with a folder outside the workspace
-- Search the workspace using a quick pick with all matches.
+* Open the file in an editor.
+* Focus the folder in the workspace.
+* Open a new window with a folder outside the workspace.
+* Search the workspace using a Quick Pick with all matches.
 
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
