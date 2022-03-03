@@ -213,9 +213,14 @@ We've added an experimental setting `terminal.integrated.persistentSessionRevive
 
 ## Links
 
-The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as "low confidence" links, which only show an underline when hovered. These low confidence links will search the workspace for the term, opening the match if one is found.
+The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as low confidence "workspace search" links, which only show an underline when hovered if the modifier is down. These low confidence links will search the workspace for the term, opening the match if one is found.
 
-Clicking a file link will either open that document in an editor or produce a Quick Pick with all matches.
+Depending on the type of link, activating it will do one of the following:
+
+- Open the file in an editor
+- Focus the folder in the workspace
+- Open a new window with a folder outside the workspace
+- Search the workspace using a quick pick with all matches.
 
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
