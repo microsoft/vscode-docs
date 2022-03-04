@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -109,6 +109,24 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 > **Tip:** You can jump to the matching bracket with `kb(editor.action.jumpToBracket)`
 
+### Bracket Pair Colorization
+
+Matching bracket pairs can also be colorized by setting `editor.bracketPairColorization.enabled` to `true`.
+
+![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
+
+All colors are themeable and up to six colors can be configured.
+
+You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
+
+```json
+"workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#FFD700",
+    "editorBracketHighlight.foreground2": "#DA70D6",
+    "editorBracketHighlight.foreground3": "#179fff",
+},
+```
+
 ## Reference information
 
 Some languages like C# support inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
@@ -149,7 +167,7 @@ For your protection, VS Code displays a prompt before opening an outgoing websit
 
 ![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
 
-You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a drop-down lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
+You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a dropdown lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
 
 ![Configure Trusted Domains dropdown](images/editingevolved/trusted-domain-dropdown.png)
 

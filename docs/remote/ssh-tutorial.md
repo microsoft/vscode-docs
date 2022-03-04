@@ -5,7 +5,7 @@ TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 ---
 # Remote development over SSH
 
@@ -53,7 +53,7 @@ Now you can specify details of your VM, such as the name, the size, and the base
 
 ## Set up SSH
 
-There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We strongly recommend using key-based authentication (if you use a username/password, you'll be prompted to enter your credentials more than once by the extension). If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We recommend using key-based authentication (if you use a username/password, you'll be prompted to enter your credentials more than once by the extension). If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 ### Create an SSH key
 
@@ -71,7 +71,7 @@ You will then be prompted to enter a secure passphrase, but you can leave that b
 
 ## Add SSH key to your VM
 
-In the previous step, you generated an SSH key pair. Select **Use existing public key** in the drop down for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
+In the previous step, you generated an SSH key pair. Select **Use existing public key** in the dropdown for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
 
 ![Add SSH public key to VM](images/ssh-tutorial/add-ssh-public-key.png)
 

@@ -31,7 +31,7 @@ First some prerequisites:
 
 * Install Windows 10 Insider Preview build 18975 (Slow) or later for WSL 2.
 * Install Ubuntu from the [Microsoft store](https://www.microsoft.com/p/ubuntu/9nblggh4msv6).
-* Enable WSL 2 by following this [guide](https://docs.microsoft.com/windows/wsl/wsl2-install).
+* Enable WSL 2 by following this [guide](https://docs.microsoft.com/windows/wsl/install).
 * Install the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension for VS Code.
 * Install the [Docker WSL 2 Technical Preview](https://docs.docker.com/docker-for-windows/wsl-tech-preview/#download).
 

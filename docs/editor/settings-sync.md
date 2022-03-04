@@ -1,17 +1,15 @@
 ---
-Order: 12
+Order: 13
 Area: editor
 TOCTitle: Settings Sync
 ContentId: 6cb84e60-6d90-4137-83f6-bdab3438b8f5
 PageTitle: Settings Sync in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Synchronize your user settings across all your Visual Studio Code instances.
 ---
 # Settings Sync
 
 Settings Sync lets you share your Visual Studio Code configurations such as settings, keybindings, and installed extensions across your machines so you are always working with your favorite setup.
-
->**Note**: Settings Sync is still in preview.
 
 ## Turning on Settings Sync
 
@@ -108,6 +106,16 @@ VS Code keeps track of the machines synchronizing your preferences and provides 
 
 You can open this view using **Settings Sync: Show Synced Data** command from the Command Palette.
 
+## Extension authors
+
+If you are an extension author, you should make sure your extension behaves appropriately when users enable Setting Sync. For example, you probably don't want your extension to display the same dismissed notifications or welcome pages on multiple machines.
+
+### Sync user global state between machines
+
+If your extension needs to preserve some user state across different machines then provide the state to Settings Sync using `vscode.ExtensionContext.globalState.setKeysForSync`. Sharing state such as UI dismissed or viewed flags across machines can provide a better user experience.
+
+There is an example of using `setKeysforSync` in the [Extension Capabilities](/api/extension-capabilities/common-capabilities.md#data-storage) topic.
+
 ## Reporting issues
 
 Settings Sync activity can be monitored in the **Log (Settings Sync)** output view. If you experience a problem with Settings Sync, include this log when creating the issue. If your problem is related to authentication, also include the log from the **Account** output view.
@@ -145,6 +153,36 @@ If the keychain throws the error "The user name or passphrase you entered is not
 ### Linux
 
 If the keychain throws the error "No such interface "org.freedesktop.Secret.Collection" on object at path /org/freedesktop/secrets/collection/login", try following the steps described in [issue #92972](https://github.com/microsoft/vscode/issues/92972#issuecomment-625751232) to create a new keyring.
+
+If the error is "Writing login information to the keychain failed with error 'Unknown or unsupported transport “disabled” for address “disabled:”'", check that `dbus-launch` has been started by following the instructions in [issue #120392](https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643).
+
+If the error is "Writing login information to the keychain failed with error 'Cannot create an item in a locked collection'.", you need to:
+
+1. Add the following lines to your `~/.xinitrc`:
+
+   ```sh
+   # see https://unix.stackexchange.com/a/295652/332452
+   source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+   # see https://wiki.archlinux.org/title/GNOME/Keyring#xinitrc
+   eval $(/usr/bin/gnome-keyring-daemon --start)
+   export SSH_AUTH_SOCK
+
+   # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
+   mkdir -p "$HOME"/.local/share/keyrings
+   ```
+
+2. Login again.
+
+3. Have the following programs installed (installation assumes arch/pacman, should be similar to other distros):
+
+   ```sh
+   sudo pacman -S gnome-keyring libsecret libgnome-keyring
+   ```
+
+4. Launch `seahorse`, unlock the default password keyring or create a new one, and keep it unlocked.
+
+5. Restart the login procedure.
 
 ## Can I share settings between VS Code Stable and Insiders?
 

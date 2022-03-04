@@ -1,10 +1,10 @@
 ---
-Order: 17
+Order: 19
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -27,7 +27,7 @@ When you adjust the zoom level with the **View** > **Zoom In / Out** commands, t
 
 ## High Contrast theme
 
-We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** drop-down and select the **High Contrast** theme.
+We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
@@ -65,9 +65,8 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 
 ## Screen readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](https://www.nvaccess.org), VoiceOver on macOS and Orca on Linux.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the following screen readers: [NVDA](https://www.nvaccess.org) and JAWS on Windows,  VoiceOver on macOS and Orca on Linux.
 
-> When using NVDA on Windows, we recommend to update to NVDA 2017.3 or higher. NVDA 2017.3 increases NVDA's timeout for receiving a caret move event from 30ms to 100ms. This version is the first one [where the built-in timeout is increased from 30ms to 100ms](https://github.com/nvaccess/nvda/pull/7201).
 
 > For NVDA, we recommend staying in focus mode and using the hotkeys to navigate, instead of using browse mode.
 
@@ -103,6 +102,10 @@ The setting `terminal.integrated.minimumContrastRatio` can be set to a number be
 
 Once a focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
 
+### Diff editor accessibility
+
+There is a review pane in the Diff editor that presents changes in a unified patch format. You can navigate between changes with **Go to Next Difference** (`kb(editor.action.diffReview.next)`) and **Go to Previous Difference** (`kb(editor.action.diffReview.prev)`). Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the Diff editor and the selected line.
+
 ## Debugger accessibility
 
 The VS Code debugger UI is user accessible and has the following features:
@@ -126,7 +129,7 @@ There is screen reader support for the editor with VoiceOver.
 Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
 Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
 
-* Make sure to use the latest version of Orca out of master. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
+* Make sure to use the latest version of Orca out of the master branch. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
 * We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19, we have encountered issues.
 * Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.

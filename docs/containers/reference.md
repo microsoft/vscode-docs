@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 3/5/2020
+DateApproved: 08/05/2021
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension
@@ -443,6 +443,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `up` | Run a `docker-compose up` command. <br/> Either this or `down` must be specified, but not both. | `docker-compose up` |
 | `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
 | `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
+| `envFile` | File of environment variables read in and applied to the containers. | `--env-file <file>` |
 
 ### up object properties
 
@@ -451,7 +452,8 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `detached` | Whether or not to run detached. | `-d` | `true` |
 | `build` | Whether or not to build before running. | `--build` | `true` |
 | `scale` | Number of instances of each service to run. This is a list of key-value pairs. | `--scale SERVICE=NUM` |
-| `services` | A subset of the services to start. | `[SERVICE...]` | (all) |
+| `services` | A subset of the services to start. Cannot be combined with `profiles`. | `[SERVICE...]` | (all) |
+| `profiles` | A subset of the profiles to start. Cannot be combined with `services`. | `--profile <profile>` | (all) |
 | `customOptions` | Any extra parameters to add after the `up` argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
 
 ### down object properties
@@ -466,7 +468,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 
 The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
 
-For example, the token `${serviceList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
+For example, the tokens `${serviceList}` and `${profileList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
 
 For each of these customizable Docker commands, a configuration setting is available to set the template of what to execute. Alternatively, you can define multiple templates, optionally with a regular expression, which when matched, hints the context in which a template should be used. The templates support some tokens similar to `launch.json` and `tasks.json`, for example, `${workspaceFolder}`.
 
@@ -594,6 +596,7 @@ Supported tokens:
 | `${detached}` | Set to `-d` if the configuration setting `docker.dockerComposeDetached` is set to `true`. Otherwise, set to `""`. |
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
 | `${serviceList}` | If specified, prompts for a subset of the services to start when the command is run. |
+| `${profileList}` | If specified and the Docker Compose YAML file contains profiles, prompts for a subset of the profiles to start when the command is run. |
 
 ### Docker Compose Down
 

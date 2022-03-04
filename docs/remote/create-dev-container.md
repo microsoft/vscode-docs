@@ -5,11 +5,11 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 ---
 # Create a development container
 
-The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase.
+The **Visual Studio Code Remote - Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
 
 ## Path to creating a dev container
 
@@ -43,7 +43,7 @@ You can alter your configuration to do things such as:
 * Forward or publish additional ports.
 * Set runtime arguments.
 * Reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
-* Add more [advanced container configurations](/docs/remote/containers-advanced.md).
+* Add more [Advanced container configuration](/remote/advancedcontainers/overview.md).
 
 For this example, if you'd like to install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
 
@@ -69,13 +69,13 @@ After running this command, when VS Code restarts, you're now within a Node.js a
 
 Through a `devcontainer.json` file, you can:
 
-* Spin up a stand-alone "sandbox" container to isolate your toolchain or speed up setup.
+* Spin up a stand-alone container to isolate your toolchain or speed up setup.
 * Work with a container deployed application defined by an image, [Dockerfile](#dockerfile), or [Docker Compose](#use-docker-compose).
-* [Use Docker or Kubernetes](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container) from inside a dev container to build and deploy your app.
+* [Use Docker or Kubernetes](/remote/advancedcontainers/use-docker-kubernetes.md) from inside a dev container to build and deploy your app.
 
 If `devcontainer.json`'s supported workflows do not meet your needs, you can also [attach to an already running container instead](/docs/remote/attach-container.md).
 
-> **Tip:** Want to use a remote Docker host? See the [Advanced Containers article](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) for details on setup.
+> **Tip:** Want to use a remote Docker host? See the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for details on setup.
 
 ## Install additional software
 
@@ -93,7 +93,7 @@ apt-get update
 apt-get install <package>
 ```
 
-If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Advanced Container Configuration](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) article can help you set this up for your own containers. Regardless, if you install and configure `sudo`, you'll be able to use it when running as any user including root.
+If you are running as root, you can install software as long as `sudo` is configured in your container. All predefined containers have `sudo` set up, but the [Add a non-root user to a container](/remote/advancedcontainers/add-nonroot-user.md) article can help you set this up for your own containers. Regardless, if you install and configure `sudo`, you'll be able to use it when running as any user including root.
 
 ```bash
 # If sudo is installed and configured
@@ -110,13 +110,27 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
+You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a pre-defined set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) or even your own.
+
+> **Note:** Features support is in preview.
+
+For example, you could install the latest version of the Azure CLI with the following:
+
+```json
+"features": {
+    "azure-cli": "latest"
+  }
+```
+
+See the article on [dev container features](/docs/remote/containers.md#dev-container-features-preview) for more details.
+
 ### Rebuild
 
 When editing the contents of the `.devcontainer` folder, you'll need to rebuild for changes to take effect. Use the **Remote-Containers: Rebuild Container** command for your container to update.
 
 However, if you **rebuild** the container, you will have to **reinstall** anything you've installed manually. To avoid this problem, you can use the `postCreateCommand` property in `devcontainer.json`.
 
-The `postCreateCommand` is run once the container is running, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
+The `postCreateCommand` actions are run once the container is created, so you can also use the property to run commands like `npm install` or to execute a shell script in your source tree (if you have mounted it).
 
 ```json
 "postCreateCommand": "bash scripts/install-dev-tools.sh"
@@ -146,7 +160,7 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 
 ```json
 {
-    "build": { "dockerFile": "Dockerfile" },
+    "build": { "dockerfile": "Dockerfile" },
     "extensions": [
         "dbaeumer.vscode-eslint"
     ],
@@ -175,6 +189,10 @@ The command lets you pick a pre-defined container configuration from a list base
 ![Add a dev container definition](images/containers/select-dev-container-def-all.png)
 
 All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
+
+At the end of using **Remote-Containers: Add Development Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Remote-Containers: Configure Container Features** allows you to update an existing configuration.
+
+![Dev container features in Command Palette](images/containers/container-features.png)
 
 You can also reuse an existing Dockerfile:
 
@@ -217,7 +235,7 @@ You can either:
 1. Work with a service defined in an existing, unmodified `docker-compose.yml`.
 2. Create a new `docker-compose.yml` (or make a copy of an existing one) that you use to develop a service.
 3. [Extend your existing Docker Compose configuration](#extend-your-docker-compose-file-for-development) to develop the service.
-4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once) at once.
+4. Use separate VS Code windows to [work with multiple Docker Compose-defined services](/remote/advancedcontainers/connect-multiple-containers.md) at once.
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
@@ -284,7 +302,7 @@ volumes:
   - ..:/workspace:cached
 ```
 
-However, on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
+However, on Linux you may need to set up and **specify a non-root user** when using a bind mount or any files you create will be root. See [Adding a non-root user to your dev container](/remote/advancedcontainers/add-nonroot-user.md) for details. To have VS Code run as a different user, add this to `devcontainer.json`:
 
 ```json
 "remoteUser": "your-user-name-here"
@@ -321,7 +339,7 @@ You can add other services to your `docker-compose.yml` file as described in [Do
 network_mode: service:db
 ```
 
-You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/master/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L22).
+You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L22).
 
 ### Extend your Docker Compose file for development
 
@@ -398,20 +416,6 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-For example:
-
-```json
-{
-    "name": "[Optional] Your project name here",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "the-name-of-the-service-you-want-to-work-with-in-vscode",
-    "workspaceFolder": "/default/workspace/path/in/container/to/open",
-    "shutdownAction": "stopCompose"
-}
-```
-
-Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
-
 ### Docker Compose dev container definitions
 
 The following are dev container definitions that use Docker Compose:
@@ -452,8 +456,10 @@ Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub 
 
 Once in place, the configuration will be automatically picked up when using any of the remote containers commands. Once in the container, you can also select **Remote-Containers: Open Container Configuration File** from the Command Palette (`kbstyle(F1)`) to open the related `devcontainer.json` file and make further edits.
 
+The path used for looking up the configuration is derived from the output of `git remote -v`. If the configuration is not found when you attempt to reopen the folder in a container, check the log **Remote-Containers: Show Container Log** in the Command Palette (`kbstyle(F1)`) for the list of the paths that were checked.
+
 ## Next steps
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
-* [Advanced Containers](/docs/remote/containers-advanced.md) - Find solutions to advanced container scenarios.
+* [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.

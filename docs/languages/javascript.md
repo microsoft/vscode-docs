@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -119,7 +119,7 @@ To disable auto imports, set `"javascript.suggest.autoImports"` to `false`.
 
 ## Formatting
 
-VS Code's built-in JavaScript formatter providers basic code formatting with reasonable defaults.
+VS Code's built-in JavaScript formatter provides basic code formatting with reasonable defaults.
 
 The `javascript.format.*` [settings](/docs/getstarted/settings.md) configure the built-in formatter. Or, if the built-in formatter is getting in the way, set `"javascript.format.enable"` to `false` to disable it.
 
@@ -206,7 +206,7 @@ The **Organize Imports** Source Action sorts the imports in a JavaScript file an
 
 You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
 
-Organize imports can also be automatically when you save a JavaScript file by setting:
+Organize imports can also be done automatically when you save a JavaScript file by setting:
 
 ```json
 "editor.codeActionsOnSave": {
@@ -247,6 +247,47 @@ VS Code automatically suggests some common code simplifications such as converti
 
 Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
+## Inlay hints
+
+Inlay hints add additional inline information to source code to help you understand what the code does.
+
+**Parameter name inlay hints** show the names of parameters in function calls:
+
+![Parameter name inlay hints](images/javascript/inlay-parameters.png)
+
+This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
+
+To enable parameter name hints, set `javascript.inlayHints.parameterNames`. There are three possible values:
+
+* `none` — Disable parameter inlay hints.
+* `literals` — Only show inlay hints for literals (string, number, Boolean).
+* `all` — Show inlay hints for all arguments.
+
+**Variable type inlay hints** show the types of variables that don't have explicit type annotations.
+
+Setting: `javascript.inlayHints.variableTypes.enabled`
+
+![Variable type inlay hints](images/javascript/inlay-var-types.png)
+
+**Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
+
+Setting: `javascript.inlayHints.propertyDeclarationTypes.enabled`
+
+![Property type inlay hints](images/javascript/inlay-property-types.png)
+
+**Parameter type hints**  show the types of implicitly typed parameters.
+
+Setting: `javascript.inlayHints.parameterTypes.enabled`
+
+![Parameter type inlay hints](images/javascript/inlay-parameter-types.png)
+
+**Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
+
+Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
+
+![Return type inlay hints](images/javascript/inlay-return-type.png)
+
+
 ## References CodeLens
 
 The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
@@ -275,7 +316,7 @@ The `javascript.updateImportsOnFileMove.enabled` setting controls this behavior.
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-gallery.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in JavaScript linter, many JavaScript linter [extensions](/docs/editor/extension-marketplace.md) available in the marketplace.
 
 <div class="marketplace-extensions-javascript-linters-curated"></div>
 
@@ -297,7 +338,7 @@ VS Code comes with great debugging support for JavaScript. Set breakpoints, insp
 
 ### Debug client side
 
-You can debug your client-side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+You can debug your client-side code using a browser debugger such as our built-in debugger for Edge and Chrome, or the [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
 
 ### Debug server side
 
@@ -307,7 +348,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Popular extensions
 
-VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-gallery.md).
+VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-marketplace.md).
 
 <div class="marketplace-extensions-javascript-curated"></div>
 

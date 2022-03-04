@@ -5,7 +5,7 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 ---
 # Remote development in Containers
 
@@ -64,7 +64,7 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Select **Remote-Containers: Try a Sample...** from the command list that appears and select the Node sample from the list.
+Select **Remote-Containers: Try a Development Container Sample...** from the command list that appears and select the Node sample from the list.
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
@@ -148,7 +148,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 | Option | Description |
 |---|---|
-| `dockerfile` | Relative path to a `Dockerfile` that you wish to use as your image. |
+| `dockerfile` | Relative path to a `Dockerfile` that you want to use as your image. |
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
 | `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
 | `forwardPorts`  | Make a list of ports inside the container available locally. |
@@ -175,7 +175,7 @@ Or get them all by installing the
 
 ### Verify Docker context
 
-If you are not using a fresh Docker install and the **Remote-Containers: Try a Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
+If you are not using a fresh Docker install and the **Remote-Containers: Try a Development Container Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
 
 ```bash
 # Displays the list of contexts, '*' denotes the current context

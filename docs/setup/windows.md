@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -13,7 +13,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
 1. Download the [Visual Studio Code installer](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
 2. Once it is downloaded, run the installer (VSCodeUserSetup-{version}.exe). This will only take a minute.
-3. By default, VS Code is installed under `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code`.
+3. By default, VS Code is installed under `C:\Users\{Username}\AppData\Local\Programs\Microsoft VS Code`.
 
 Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
@@ -21,11 +21,11 @@ Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract 
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
-## User versus system setup
+## User setup versus system setup
 
 VS Code provides both Windows user and system level setups. Installing the [user setup](https://go.microsoft.com/fwlink/?LinkID=534107) does not require Administrator privileges as the location will be under your user Local AppData (LOCALAPPDATA) folder. User setup also provides a smoother background update experience.
 
-The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges and will place the installation under Program Files.
+The [system setup](https://go.microsoft.com/fwlink/?linkid=852157) requires elevation to Administrator privileges and will place the installation under Program Files. This also means that VS Code will be available to all users in the system.
 
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
 
@@ -39,15 +39,15 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 >Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
 
-## Windows as a developer machine
+## Windows Subsystem for Linux
 
-Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) and the new Windows Terminal.
+Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) (WSL) and the new Windows Terminal.
 
 ### Recent Windows build
 
 Make sure you are on a recent Windows 10 build. Check **Settings** > **Windows Update** to see if you are up-to-date.
 
-### Windows Subsystem for Linux
+### Windows as a developer machine
 
 With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on your Windows machine.
 

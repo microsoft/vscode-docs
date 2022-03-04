@@ -1,10 +1,10 @@
 ---
-Order: 11
+Order: 10
 Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in Visual Studio Code
-DateApproved: 03/18/2019
+DateApproved: 10/27/2021
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code, the best Python IDE.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -40,18 +40,21 @@ In this section, you create a virtual environment in which Flask is installed. U
 
 1. On your file system, create a project folder for this tutorial, such as `hello_flask`.
 
-1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
+1. In that folder, use the following command (as appropriate to your computer) to create and activate a virtual environment named `.venv` based on your current interpreter:
 
     ```bash
     # Linux
     sudo apt-get install python3-venv    # If needed
-    python3 -m venv env
+    python3 -m venv .venv
+    source .venv/bin/activate
 
     # macOS
-    python3 -m venv env
+    python3 -m venv .venv
+    source .venv/bin/activate
 
     # Windows
-    python -m venv env
+    py -3 -m venv .venv
+    .venv\scripts\activate
     ```
 
     > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
@@ -62,15 +65,15 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     ![Flask tutorial: opening the Command Palette in VS Code](images/shared/command-palette.png)
 
-1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./env` or `.\env`:
+1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select the virtual environment in your project folder that starts with `./.venv` or `.\.venv`:
 
     ![Flask tutorial: selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run [**Terminal: Create New Integrated Terminal**](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run [**Terminal: Create New Terminal**](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
-1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
+1. The selected environment appears on the left side of the VS Code status bar, and notice the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
 
     ![Flask tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
@@ -86,7 +89,7 @@ In this section, you create a virtual environment in which Flask is installed. U
     python -m pip install flask
     ```
 
-You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Integrated Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source env/bin/activate` (Linux/macOS) or `env\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(env)** at the beginning.
+You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use **Terminal: Create New Terminal**. If you open a separate command prompt or terminal, activate the environment by running `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\Activate.ps1` (Windows).  You know the environment is activated when the command prompt shows **(.venv)** at the beginning.
 
 ## Create and run a minimal Flask app
 
@@ -116,7 +119,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 1. In the Integrated Terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
     ```bash
-    (env) D:\py\\hello_flask>python -m flask run
+    (.venv) D:\py\\hello_flask>python -m flask run
      * Environment: production
        WARNING: Do not use the development server in a production environment.
        Use a production WSGI server instead.
@@ -198,7 +201,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Flask tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. 1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the drop-down and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and VS Code will prompt for a debug configuration. Select **Flask** from the dropdown and VS Code will populate a new `launch.json` file with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
 1. Scroll down to and examine the configuration, which is named "Python: Flask". This configuration contains `"module": "flask",`, which tells VS Code to run Python with `-m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
 
@@ -226,7 +229,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     > **Note**: Once `launch.json` is created, an **Add Configuration** button appears in the editor. That button displays a list of additional configurations to add to the beginning of the configuration list. (The **Run** > **Add Configuration** menu command does the same action.).
 
-1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list select the **Python: Flask** configuration.
+1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration dropdown list select the **Python: Flask** configuration.
 
     ![Flask tutorial: selecting the Flask debugging configuration](images/flask-tutorial/debug-select-configuration.png)
 
@@ -272,11 +275,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Wed, 31 Oct, 18 at 18:13:39'
     ```
 
-    > **Note**: If you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
-
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
     ![Flask tutorial: result of the modified program](images/flask-tutorial/debug-run-result.png)
+
+1.  Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Flask server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
@@ -294,7 +297,7 @@ During your work with Flask or any other library, you may want to examine the co
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](https://flask.palletsprojects.com/security/#cross-site-scripting-xss). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
+The app you've created so far in this tutorial generates only plain text web pages from Python code. Although it's possible to generate HTML directly in code, developers avoid such a practice because it opens the app to [cross-site scripting (XSS) attacks](https://flask.palletsprojects.com/security/#cross-site-scripting-xss). In the `hello_there` function of this tutorial, for example, one might think to format the output in code with something like `content = "<h1>Hello there, " + clean_name + "!</h1>"`, where the result in `content` is given directly to a browser. This opening allows an attacker to place malicious HTML, including JavaScript code, in the URL that ends up in `clean_name` and thus ends up being run in the browser.
 
 A much better practice is to keep HTML out of your code entirely by using **templates**, so that your code is concerned only with data values and not with rendering.
 
@@ -566,6 +569,8 @@ With all the page templates in place, save `app.py`, run the app, and open a bro
 
 ![Flask tutorial: app rendering a common nav bar from the base template](images/flask-tutorial/full-app.png)
 
+>**Note**: If you're not seeing the latest changes, you might need to do a hard refresh on the page to avoid seeing a cached file.
+
 ## Optional activities
 
 The following sections describe additional steps that you might find helpful in your work with Python and Visual Studio Code.
@@ -578,7 +583,7 @@ Accordingly, developers typically omit the virtual environment folder from sourc
 
 Although you can create the file by hand, you can also use the `pip freeze` command to generate the file based on the exact libraries installed in the activated environment:
 
-1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Integrated Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
+1. With your chosen environment selected using the **Python: Select Interpreter** command, run the **Terminal: Create New Terminal** command (`kb(workbench.action.terminal.new)`)) to open a terminal with that environment activated.
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 

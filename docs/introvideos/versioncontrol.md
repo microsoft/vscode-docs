@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Version control in Visual Studio Code
-DateApproved: 1/20/2021
+DateApproved: 10/11/2021
 MetaDescription: Learn how to use Git version control basics in Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
@@ -12,9 +12,11 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we will learn how to use the basics of Git version control in Visual Studio Code. For more information about integrated Git support, including how to work with remote repositories, read on in the [related resources](/docs/introvideos/versioncontrol.md#related-resources) section below.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RE4Mzrv" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Next video: [IntelliSense](/docs/introvideos/intellisense.md)
+Here's the next video we recommend: [Customize](/docs/introvideos/customize.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
@@ -27,7 +29,8 @@ Next video: [IntelliSense](/docs/introvideos/intellisense.md)
 
 ## Next video
 
-* [IntelliSense](/docs/introvideos/intellisense.md) - Learn how to set up IntelliSense and receive intelligent code completions.
+* [Customize](/docs/introvideos/customize.md) - Customize VS Code with settings and keyboard shortcuts.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Debug
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 PageTitle: Debug an app running in a Docker container
-DateApproved: 01/29/2020
+DateApproved: 07/16/2021
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
 # Debug containerized apps
@@ -147,7 +147,7 @@ Example `launch.json` configuration for debugging a .NET Core application:
 | `host` | The host for remote debugging. | |
 | `port` | The port for remote debugging. | `5678` |
 | `pathMappings` | Maps the project path between local machine and remote host.  | |
-| `projectType` | Type of Python app. | |
+| `projectType` | The type of your Python project, `flask` for Flask projects, `django` for Django, `fastapi` for FastAPI, and general for others. The project type will be used to set the port and commands used for debugging. |
 | `justMyCode` | Debug only user-written code. | |
 | `django` | Django debugging. | `false` |
 | `jinja` | Jinja template debugging (such as Flask). | `false` |
@@ -168,3 +168,4 @@ Read on to learn more about:
 - [Debugging Python within Docker containers](/docs/containers/debug-python.md)
 - [Debugging .NET Core within Docker containers](/docs/containers/debug-netcore.md)
 - [Debugging with Docker Compose](/docs/containers/docker-compose.md#debug)
+- [Troubleshooting](/docs/containers/troubleshooting.md)

@@ -4,8 +4,8 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 03/07/2019
-MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
+DateApproved: 10/8/2021
+MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
 # Python in Visual Studio Code
 
@@ -17,15 +17,17 @@ This article provides only an overview of the different capabilities of the Pyth
 
 ## Install Python and the Python extension
 
-The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.7 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
-You can configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
+You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
+
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Run Python code
 
-To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
+To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code:
 
 ```python
 print("Hello World")
@@ -36,7 +38,7 @@ The Python extension then provides shortcuts to run Python code in the currently
 - In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - In Explorer: right-click a Python file and select **Run Python File in Terminal**.
 
-You can also use the **Terminal: Create New Integrated Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+You can also use the **Terminal: Create New Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
 For a more specific walkthrough on running code, see the [tutorial](/docs/python/python-tutorial.md).
 
@@ -66,15 +68,9 @@ For Python-specific details, including setting up your `launch.json` configurati
 
 <video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
 
-## Snippets
-
-Snippets take productivity to the next level. You can configure [your own snippets](/docs/editor/userdefinedsnippets.md) and use snippets provided by an extension. Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`. For specific examples with Python, see the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials.
-
-<video id="python-snippets-video" src="https://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
-
 ## Environments
 
-The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md). You can also use the `python.pythonPath` setting to point to an interpreter anywhere on your computer.
+The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md).
 
 The current environment is shown on the left side of the VS Code Status Bar:
 
@@ -108,11 +104,11 @@ You can also convert and open the notebook as a Python code file. The notebook's
 
 Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
 
-Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/python/jupyter-support.md).
+Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/datascience/jupyter-notebooks.md).
 
 ## Testing
 
-The Python extension supports [testing](/docs/python/testing.md) with the unittest, pytest, and nose test frameworks.
+The Python extension supports [testing](/docs/python/testing.md) with unittest and pytest.
 
 To run tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 

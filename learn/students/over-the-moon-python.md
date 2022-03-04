@@ -16,9 +16,9 @@ Get a glimpse into the Python programming language with this introductory learni
 
 <div class="module">
     <div class="info">
-        <a href="https://docs.microsoft.com/en-us/learn/paths/explore-space-using-python/?WT.mc_id=python-0000-cxa"><h2 class="title faux-h3">Explore space with Python and Visual Studio Code</h2></a>
+        <a href="https://docs.microsoft.com/learn/paths/explore-space-using-python/?WT.mc_id=python-0000-cxa"><h2 class="title faux-h3">Explore space with Python and Visual Studio Code</h2></a>
     </div>
     <p class="description">Plan a moon mission, predict meteor showers, and use artificial intelligence to recognize objects in this learning path inspired by the Netflix film "Over the Moon".</p>
-    <a href="https://docs.microsoft.com/en-us/learn/paths/explore-space-using-python/?WT.mc_id=python-0000-cxa"><img src="/assets/learn/students/over-the-moon-python/otm-python.png" alt="Over The Moon module" aria-hidden="true" class="thumb"/></a>
+    <a href="https://docs.microsoft.com/learn/paths/explore-space-using-python/?WT.mc_id=python-0000-cxa"><img src="/assets/learn/students/over-the-moon-python/otm-python.png" alt="Over The Moon module" aria-hidden="true" class="thumb"/></a>
     </a>
 </div><br/>

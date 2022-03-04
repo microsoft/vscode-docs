@@ -1,29 +1,35 @@
 ---
 Order:
 Area: introvideos
-TOCTitle: Customize
+TOCTitle: Personalize
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
-PageTitle: Customize Visual Studio Code
-DateApproved: 3/6/2017
-MetaDescription: Learn how to customize Visual Studio Code with themes
+PageTitle: Personalize Visual Studio Code
+DateApproved: 10/5/2021
+MetaDescription: Learn how to personalize Visual Studio Code with themes.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
-# Customize Visual Studio Code
+# Personalize Visual Studio Code
 
 In this Visual Studio Code tutorial, we show you how to personalize Visual Studio Code with themes.
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+>**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
 
-Next video: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
+<iframe src="https://www.microsoft.com/videoplayer/embed/RE4MEEF" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+Here's the next video we recommend: [Extensions in Visual Studio Code](/docs/introvideos/extend.md)
+
+Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 
 ## Video outline
 
-* Change your UI Color Theme
-* Change your File Icon Theme
+* Change your Color Theme.
+* Install a new Color Theme from the VS Code Extension Marketplace.
+* Change your File Icon Theme.
 
 ## Next video
 
 * [Extensions in Visual Studio Code](/docs/introvideos/extend.md) - Add features to VS Code through Extensions.
+* [Introductory Videos](/docs/getstarted/introvideos.md) - Review the entire list of videos.
 
 ## Related resources
 

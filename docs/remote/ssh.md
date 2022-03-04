@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 ---
 # Remote Development using SSH
 
@@ -15,7 +15,7 @@ No source code needs to be on your local machine to gain these benefits since th
 
 ![SSH Architecture](images/ssh/architecture-ssh.png)
 
-This lets VS Code provide a **local-quality development experience** — including full IntelliSense (completions), code navigation, and debugging — **regardless of where your code is hosted**.
+This lets VS Code provide a **local-quality development experience** - including full IntelliSense (completions), code navigation, and debugging - **regardless of where your code is hosted**.
 
 ## Getting started
 
@@ -28,10 +28,11 @@ This lets VS Code provide a **local-quality development experience** — includi
 **Remote SSH host**: A running [SSH server](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server) on:
 
 - x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
-- ARMv7l (AArch32) Raspbian Stretch/9+ (32-bit).
+- ARMv7l (AArch32) Raspberry Pi OS (previously called Raspbian) Stretch/9+ (32-bit).
 - ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
 - Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
-- macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
+- macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
+- 1 GB RAM is required for remote hosts, but at least 2 GB RAM and a 2-core CPU is recommended.
 
 Other `glibc` based Linux distributions for x86_64, ARMv7l (AArch32), and ARMv8l (AArch64) should work if they have the needed prerequisites. See the [Remote Development with Linux](/docs/remote/linux.md) article for information prerequisites and tips for getting community supported distributions up and running.
 
@@ -73,7 +74,7 @@ To connect to a remote host for the first time, follow these steps:
     ssh user@domain@hostname
     ```
 
-2. In VS Code, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) and use the same `user@hostname` as in step 1.
+2. In VS Code, select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) and use the same `user@hostname` as in step 1.
 
     ![Illustration of user@host input box](images/ssh/ssh-user@box.png)
 
@@ -103,6 +104,19 @@ From here, [install any extensions](#managing-extensions) you want to use when c
 
 > **Note:** On ARMv7l / ARMv8l `glibc` SSH hosts, some extensions may not work due to x86 compiled native code inside the extension.
 
+### Open a folder on a remote SSH host in a container
+
+If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Remote - Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+
+To do so:
+
+1. Follow the [installation](/docs/remote/containers.md#installation) steps for the Remote - Containers extension on your remote host.
+1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
+1. Follow the [quick start](#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
+1. Use the **Remote-Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+
+The rest of the [Remote - Containers quick start](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Remote - Containers extension in its documentation](/docs/remote/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
+
 ### Disconnect from a remote host
 
 To close the connection when you finish editing files on the remote host, choose **File > Close Remote Connection** to disconnect from the host. The default configuration does not include a keyboard shortcut for this command. You can also simply exit VS Code to close the remote connection.
@@ -113,7 +127,7 @@ If you have a set of hosts you use frequently or you need to connect to a host u
 
 To make setup easy, the extension can guide you through adding a host without having to hand edit this file.
 
-Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`) or clicking on the **Add New** icon in the SSH **Remote Explorer** in the Activity Bar.
+Start by selecting **Remote-SSH: Add New SSH Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or clicking on the **Add New** icon in the SSH **Remote Explorer** in the Activity Bar.
 
 ![Remote Explorer Add New item](images/ssh/ssh-explorer-add-new.png)
 
@@ -138,7 +152,7 @@ Host remotehost.yourcompany.com
 
 See [Tips and Tricks](/docs/remote/troubleshooting.md#improving-your-security-with-a-dedicated-key) for details on generating the key shown here. You can manually edit this file with anything the [SSH config file format](https://man7.org/linux/man-pages/man5/ssh_config.5.html) supports, so this is just one example.
 
-From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) or in the **SSH Targets** section of the **Remote Explorer**.
+From this point forward, the host will appear in the list of hosts when you select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or in the **SSH Targets** section of the **Remote Explorer**.
 
 ![SSH targets in the Remote Explorer](images/ssh/ssh-explorer-connect.png)
 
@@ -166,7 +180,7 @@ Local extensions that actually need to run remotely will appear dimmed and disab
 
 ![Disabled Extensions w/Install Button](images/ssh/ssh-disabled-extensions.png)
 
-You can also install all locally installed extensions on the SSH host by going to the Extensions view and selecting **Install Local Extensions in SSH: [Hostname]** using the cloud button at the right of the **Local - Installed** title bar. This will display a drop down where you can select which locally installed extensions to install on your SSH host.
+You can also install all locally installed extensions on the SSH host by going to the Extensions view and selecting **Install Local Extensions in SSH: [Hostname]** using the cloud button at the right of the **Local - Installed** title bar. This will display a dropdown where you can select which locally installed extensions to install on your SSH host.
 
 ### "Always installed" extensions
 
@@ -200,7 +214,7 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
 
 ![Remote Explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
 
@@ -254,7 +268,7 @@ See the [debugging](/docs/editor/debugging.md) documentation for details on conf
 
 ## SSH host-specific settings
 
-VS Code's local User settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`) or by selecting on the **Remote** tab in the Settings editor. These will override any User settings you have in place whenever you connect to the host. And Workspace settings will override Remote and User settings.
+VS Code's local User settings are also reused when you are connected to an SSH host. While this keeps your user experience consistent, you may want to vary some of these settings between your local machine and each host. Fortunately, once you have connected to a host, you can also set host-specific settings by running the **Preferences: Open Remote Settings** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or by selecting on the **Remote** tab in the Settings editor. These will override any User settings you have in place whenever you connect to the host. And Workspace settings will override Remote and User settings.
 
 ![Host-specific settings tab](images/ssh/ssh-settings.png)
 
@@ -271,17 +285,18 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 
 ### Remote - SSH limitations
 
-- Using key based authentication is strongly recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
+- Using key based authentication is recommended. Passwords and other tokens entered for [alternate authentication methods](/docs/remote/troubleshooting.md#enabling-alternate-ssh-authentication-methods) are not saved.
 - Alpine Linux and non-glibc based Linux SSH hosts are not supported.
 - Older (community supported) Linux distributions require workarounds to install the [needed prerequisites](/docs/remote/linux.md).
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
+- You cannot use Remote - Containers from a Remote - SSH connection to a Windows machine.
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
 ### Docker Extension limitations
 
-While the Docker extension can run both remotely and locally, if it is already installed locally, you will be unable to install on a remote SSH host without first uninstalling it locally. We will address this problem in a future VS Code release.
+If you are using the Docker or Kubernetes extension in a Remote - SSH window, you will not be able to use the right-click **Attach VS Code to Container** option. This will only work if you are using it from your local machine.
 
 ### Extension limitations
 

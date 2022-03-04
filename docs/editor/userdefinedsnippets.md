@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order: 14
 Area: editor
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Snippets in Visual Studio Code
@@ -27,7 +27,7 @@ You can see the available snippets for a language by running the **Insert Snippe
 
 ## Install snippets from the Marketplace
 
-Many [extensions](/docs/editor/extension-gallery.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
+Many [extensions](/docs/editor/extension-marketplace.md) on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) include snippets. You can search for extensions that contains snippets in the Extensions view (`kb(workbench.view.extensions)`) using the `@category:"snippets"` filter.
 
 ![Searching for extensions with snippets](images/userdefinedsnippets/category-snippets.png)
 
@@ -37,7 +37,7 @@ If you find an extension you want to use, install it, then restart VS Code and t
 
 You can easily define your own snippets without any extension. To create or edit your own snippets, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS), and then select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear, or the **New Global Snippets file** option if they should appear for all languages. VS Code manages the creation and refreshing of the underlying snippets file(s) for you.
 
-![snippet drop-down](images/userdefinedsnippets/snippet-dropdown.png)
+![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
 
 Snippets files are written in JSON, support C-style comments, and can define an unlimited number of snippets. Snippets support most TextMate syntax for dynamic behavior, intelligently format whitespace based on the insertion context, and allow easy multiline editing.
 
@@ -86,7 +86,7 @@ Every snippet is scoped to one, several, or all ("global") languages based on wh
 
 Single-language user-defined snippets are defined in a specific language's snippet file (for example `javascript.json`), which you can access by language identifier through **Preferences: Configure User Snippets**. A snippet is only accessible when editing the language for which it is defined.
 
-Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Preferences: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more language identifiers, which makes the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
+Multi-language and global user-defined snippets are all defined in "global" snippet files (JSON with the file suffix `.code-snippets`), which is also accessible through **Preferences: Configure User Snippets**. In a global snippets file, a snippet definition may have an additional `scope` property that takes one or more [language identifiers](/docs/languages/identifiers.md), which makes the snippet available only for those specified languages. If no `scope` property is given, then the global snippet is available in **all** languages.
 
 Most user-defined snippets are scoped to a single language, and so are defined in a language-specific snippet file.
 
@@ -125,6 +125,7 @@ The following variables can be used:
 * `TM_FILENAME_BASE` The filename of the current document without its extensions
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
+* `RELATIVE_FILEPATH` The relative (to the opened workspace or folder) file path of the current document
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
 * `WORKSPACE_FOLDER` The path of the opened workspace or folder
@@ -136,13 +137,19 @@ For inserting the current date and time:
 * `CURRENT_MONTH` The month as two digits (example '02')
 * `CURRENT_MONTH_NAME` The full name of the month (example 'July')
 * `CURRENT_MONTH_NAME_SHORT` The short name of the month (example 'Jul')
-* `CURRENT_DATE` The day of the month
+* `CURRENT_DATE` The day of the month as two digits (example '08')
 * `CURRENT_DAY_NAME` The name of day (example 'Monday')
 * `CURRENT_DAY_NAME_SHORT` The short name of the day (example 'Mon')
 * `CURRENT_HOUR` The current hour in 24-hour clock format
-* `CURRENT_MINUTE` The current minute
-* `CURRENT_SECOND` The current second
+* `CURRENT_MINUTE` The current minute as two digits
+* `CURRENT_SECOND` The current second as two digits
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+
+For inserting random values:
+
+* `RANDOM` 6 random Base-10 digits
+* `RANDOM_HEX` 6 random Base-16 digits
+* `UUID` A Version 4 UUID
 
 For inserting line or block comments, honoring the current language:
 
@@ -220,7 +227,7 @@ variable    ::= '$' var | '${' var '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
-                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
+                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/camelcase' | '/pascalcase' '}'
                 | '${' int ':+' if '}'
                 | '${' int ':?' if ':' else '}'
                 | '${' int ':-' else '}' | '${' int ':' else '}'
@@ -252,7 +259,7 @@ You can create custom [keybindings](/docs/getstarted/keybindings.md) to insert s
 
 The keybinding will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/getstarted/keybindings.md) as usual with a keyboard shortcut, command ID, and optional [when clause context](/docs/getstarted/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
 
-Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments. The `langId` argument is the name of the JSON user snippet file and `name` is the snippet's unique name from this file:
+Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments. The `langId` argument selects the language for which the snippet denoted by `name` is inserted, e.g the sample below selects the `myFavSnippet` that's available for `csharp`-files.
 
 ```json
 {
@@ -277,3 +284,29 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 ### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
 You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/api/language-extensions/snippet-guide.md#using-textmate-snippets) in our Extension API documentation.
+
+### How do I have a snippet place a variable in the pasted script?
+
+To have a variable in the pasted script, you need to escape the '$' of the `$variable` name so that it isn't parsed by the snippet expansion phase.
+
+```json
+"VariableSnippet":{
+    "prefix": "_Var",
+    "body": "\\$MyVar = 2",
+    "description": "A basic snippet that places a variable into script with the $ prefix"
+  }
+```
+
+This results in the pasted snippet as:
+
+```text
+$MyVar = 2
+```
+
+### Can I remove snippets from IntelliSense?
+
+Yes, you can hide specific snippets from showing in IntelliSense (completion list) by selecting the **Hide from IntelliSense** button to the right of snippet items in the **Insert Snippet** command dropdown.
+
+ ![Hide from IntelliSense button in Insert Snippet dropdown](images/userdefinedsnippets/hide-from-intellisense.png)
+
+ You can still select the snippet with the **Insert Snippet** command but the hidden snippet won't be displayed in IntelliSense.

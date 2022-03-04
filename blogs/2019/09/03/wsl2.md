@@ -24,7 +24,7 @@ All of this translates to increased IO performance – up to 20x faster compared
 
 ## WSL 2 and Visual Studio Code
 
-If you're following along, make sure you've opted into Windows Insiders builds and enabled WSL 2. You can learn more about how to get started in the [Installation instructions for WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-install).
+If you're following along, make sure you've opted into Windows Insiders builds and enabled WSL 2. You can learn more about how to get started in the [Installation instructions for WSL 2](https://docs.microsoft.com/windows/wsl/install).
 
 You'll also need to install [Visual Studio Code](https://code.visualstudio.com/download) and the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Optionally, check out the [beta Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701) for the best possible terminal experience on Windows.
 

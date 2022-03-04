@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 15
 Area: languages
 TOCTitle: T-SQL
 ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
@@ -72,7 +72,6 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [SQL Server documentation]
 * [SQL Server on Linux documentation]
 * [SQL Server Blog]
-* [SQL Server Videos] on Channel9
 
 [Transact-SQL]: https://docs.microsoft.com/sql/t-sql/language-reference
 [mssql]: https://aka.ms/mssql-marketplace
@@ -82,6 +81,5 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 [SQL Server documentation]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [SQL Server on Linux documentation]: https://docs.microsoft.com/sql/linux/
 [SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
-[SQL Server Videos]: https://channel9.msdn.com/Tags/sql+server
 [GitHub]: https://github.com/microsoft/vscode-mssql
 [GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues

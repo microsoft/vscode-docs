@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 5/2/2017
+DateApproved: 11/1/2021
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
@@ -41,7 +41,7 @@ Open up **Unity Preferences**, **External Tools**, then browse for the Visual St
 
 ## Unity version 2019.2 or above
 
-[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the Visual Studio Code editor package. The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
+[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the [Visual Studio Code Editor package](https://docs.unity3d.com/Manual/com.unity.ide.vscode.html). The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
 
 ## Editing Evolved
 
@@ -76,7 +76,7 @@ If you are installing VS Code for the first time, you might be missing targeting
 
 Targeting pack download links:
 
-* [Windows: .NET Framework 4.6 Targeting Pack](https://www.microsoft.com/download/details.aspx?id=48136)
+* [Windows: .NET Framework 4.7.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 * [macOS: Download .NET SDK](https://dotnet.microsoft.com/download)
 
 Steps:
@@ -125,7 +125,7 @@ dotnet_diagnostic.IDE0051.severity = none
 
 `root=true` tells OmniSharp that this is your project root and it should stop looking for parent `.editorconfig` files outside of this folder.
 
-`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you wish to this file.
+`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you want to this file.
 
 `[*.cs]` indicates that our custom rules should apply to all C# scripts (files with the `.cs` extension).
 
@@ -156,7 +156,7 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
 
-To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
+To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md). By adding these excludes to your workspace settings, you will not change your global user settings and it allows anyone also working on the project to have the same file excludes.
 
 ```json
     // Configure glob patterns for excluding files and folders.
@@ -184,6 +184,23 @@ As you can see below this will clean things up a lot...
 Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
+
+To edit this directly within VS Code Settings editor, go to **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS). Switch to the **Workspace** tab and then type "files exclude" into the Settings editor search bar.  Add a glob pattern similar to the pattern shown below by clicking the **Add Pattern** button for the **Files: Exclude** setting.  You will need to add each pattern separately.
+
+```glob
+**/.git
+**/*.fbx
+**/*.FBX
+**/*.mat
+**/*.*.meta
+**/*.meta
+**/*.prefab
+**/*.unityproj
+**/Library
+**/Packages
+**/ProjectSettings
+**/Temp
+```
 
 ### How can I debug Unity?
 

@@ -1,16 +1,11 @@
 ---
-Order: 16
+Order: 17
 Area: languages
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code
 DateApproved: 3/6/2019
 MetaDescription: Get started writing and debugging .NET Core apps with Visual Studio Code.
-MetaTags:
-- .NET Core
-- ASP.NET Core
-- C#
-- F#
 ---
 # Using .NET Core in Visual Studio Code
 
@@ -45,8 +40,6 @@ Install the following:
    ```cmd
    dotnet run
    ```
-
-Watch a video tutorial for further C# setup help on [Windows](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows), [macOS](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-NET-Core-Mac), or [Linux](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-Csharp-dotnet-Core-Ubuntu).
 
 ## Create an F# "Hello World" app
 

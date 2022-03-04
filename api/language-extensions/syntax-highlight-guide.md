@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -22,7 +22,7 @@ Before diving into the details, a good start is to play with the [scope inspecto
 
 The tokenization of text is about breaking the text into segments and to classify each segment with a token type.
 
-VS Code's tokenization engine is powered by [TextMate grammars][tm-grammars]. TextMate grammars are a structured collection of regular expressions and are written as a plist (XML) or JSON files. VS Code extensions can contribute grammars through the `grammar` contribution point.
+VS Code's tokenization engine is powered by [TextMate grammars][tm-grammars]. TextMate grammars are a structured collection of regular expressions and are written as a plist (XML) or JSON files. VS Code extensions can contribute grammars through the `grammars` contribution point.
 
 The TextMate tokenization engine runs in the same process as the renderer and tokens are updated as the user types. Tokens are used for syntax highlighting, but also to classify the source code into areas of comments, strings, regex.
 
@@ -180,9 +180,9 @@ To quickly create a new grammar extension, use [VS Code's Yeoman templates](/api
 
 Yeoman will walk you through some basic questions to scaffold the new extension. The important questions for creating a new grammar are:
 
-- `Language Id` - A unique identifier for your language.
-- `Language Name` - A human readable name for your language.
-- `Scope names` - Root TextMate scope name for your grammar
+- `Language id` - A unique identifier for your language.
+- `Language name` - A human readable name for your language.
+- `Scope names` - Root TextMate scope name for your grammar.
 
 ![Filling in the 'new language' questions](images/syntax-highlighting/yo-new-language-questions.png)
 

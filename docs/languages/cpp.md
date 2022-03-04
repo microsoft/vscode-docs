@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
-DateApproved: 12/13/2020
+DateApproved: 7/15/2021
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: images/cpp/languages_cpp.png
 ---
@@ -33,7 +33,7 @@ C++ is a compiled language meaning your program's source code must be translated
 
 There may already be a C++ compiler and debugger provided by your academic or work development environment. Check with your instructors or colleagues for guidance on installing the recommended C++ toolset (compiler, debugger, project system, linter).
 
-Some platforms, such as Linux or macOS, have a C++ compiler already installed. Most Linux distributions have the [GNU Compiler Collection](https://wikipedia.org/wiki/GNU_Compiler_Collection) (GCC) installed and macOS users can get the [Clang](https://wikipedia.org/wiki/Clang) tools with [XCode](https://developer.apple.com/xcode/).
+Some platforms, such as Linux or macOS, have a C++ compiler already installed. Most Linux distributions have the [GNU Compiler Collection](https://wikipedia.org/wiki/GNU_Compiler_Collection) (GCC) installed and macOS users can get the [Clang](https://wikipedia.org/wiki/Clang) tools with [Xcode](https://developer.apple.com/xcode/).
 
 ### Check if you have a compiler installed
 
@@ -57,18 +57,9 @@ If you don't have a compiler installed, in the example below, we describe how to
 
 ## Example: Install MinGW-x64
 
-We will install Mingw-w64 via the SourceForge website. You can use this [Mingw-w64 link](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to download the Windows Mingw-w64 installer.
+We will install Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe).
 
-1. Run the installer, which should be named `mingw-w64-install.exe` in your Download folder.
-
-   ![MinGW installation dialog welcome page](images/cpp/welcome-mingw-w64.png)
-
-2. For **Architecture** select **x86_64** and then select **Next**.
-
-   ![Choose x86_64 on the MinGW settings page](images/cpp/choose-x86-64.png)
-
-3. On the **Installation Folder** page, use the default location for the **Destination folder**. Copy the location as you will need it later.
-4. Select **Next** to start the installation.
+Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command, especially Step 7, when you will install the actual Mingw-w64 toolset (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
 
 ### Add the MinGW compiler to your path
 
@@ -76,8 +67,8 @@ Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment va
 
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
-   1. Choose the `Path` variable and then select **Edit**.
-   1. Select **New** and add the Mingw-w64 destination folder path, with `\mingw64\bin` appended, to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin`.
+   1. Choose the `Path` variable in your **User variables** and then select **Edit**.
+   1. Select **New** and add the Mingw-w64 destination folder path, with `\mingw64\bin` appended, to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\msys64\mingw64\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
 ### Check your MinGW installation
@@ -89,7 +80,7 @@ g++ --version
 gdb --version
 ```
 
-If you don't see the expected output or `g++` or `gdb` is not a recognized command, check your installation (Windows **Control Panel** > **Programs** > **Programs and Features**) and make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located.
+If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located.
 
 ## Hello World
 
@@ -102,6 +93,8 @@ mkdir HelloWorld
 cd HelloWorld
 code .
 ```
+
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
 
 Now create a new file called `helloworld.cpp` with the **New File** button in the File Explorer or **File** > **New File** command.
 
@@ -116,11 +109,9 @@ Now paste in this source code:
 ```cpp
 #include <iostream>
 
-using namespace std;
-
 int main()
 {
-    cout << "Hello World" << endl;
+    std::cout << "Hello World" << std::endl;
 }
 ```
 
@@ -132,9 +123,9 @@ Now that we have a simple C++ program, let's build it. Select the **Terminal** >
 
 ![Run Build Task menu option](images/cpp/run-build-task.png)
 
-This will display a drop-down with various compiler task options. If you are using a GCC toolset like MinGW, you would choose **C/C++: g++.exe build active file**.
+This will display a dropdown with various compiler task options. If you are using a GCC toolset like MinGW, you would choose **C/C++: g++.exe build active file**.
 
-![Select g++.exe task](images/cpp/select-gpp-task.png)
+![Select g++.exe task](images/cpp/gpp-build-task-msys64.png)
 
 This will compile `helloworld.cpp` and create an executable file called `helloworld.exe`, which will appear in the File Explorer.
 

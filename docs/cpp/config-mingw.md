@@ -1,15 +1,15 @@
 ---
-Order: 2
+Order: 3
 Area: cpp
 TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 7/20/2020
+DateApproved: 7/15/2021
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
 # Using GCC with MinGW
 
-In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [mingw-w64](http://mingw-w64.org/doku.php/start) to create programs that run on Windows.
+In this tutorial, you configure Visual Studio Code to use the GCC C++ compiler (g++) and GDB debugger from [mingw-w64](http://mingw-w64.org) to create programs that run on Windows.
 
 After configuring VS Code, you will compile and debug a simple Hello World program in VS Code. This tutorial does not teach you about GCC, GDB, Mingw-w64, or the C++ language. For those subjects, there are many good resources available on the Web.
 
@@ -25,17 +25,15 @@ To successfully complete this tutorial, you must do the following steps:
 
     ![C/C++ extension](images/cpp/cpp-extension.png)
 
-1. Install Mingw-w64 via the SourceForge website. Click [Mingw-w64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/installer/mingw-w64-install.exe/download) to download the Windows Mingw-w64 installer.
-    1. Run the installer.
-    1. For **Architecture** select **x86_64** and then select **Next**.
-    1. On the Installation Folder page, use the default installation folder. Copy the location as you will need it later.
-    1. Select **Next** to start the installation.
+1. Get the latest version of Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries. You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe).
+
+1. Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command, especially Step 7, when you will install the actual Mingw-w64 toolset (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
    1. Search for **Edit environment variables for your account**.
-   1. Choose the `Path` variable and then select **Edit**.
-   1. Select **New** and add the Mingw-w64 destination folder path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin`.
+   1. Choose the `Path` variable in your **User variables** and then select **Edit**.
+   1. Select **New** and add the Mingw-w64 destination folder path to the system path. The exact path depends on which version of Mingw-w64 you have installed and where you installed it. If you used the settings above to install Mingw-w64, then add this to the path: `C:\msys64\mingw64\bin`.
    1. Select **OK** to save the updated PATH. You will need to reopen any console windows for the new PATH location to be available.
 
 ### Check your MinGW installation
@@ -47,7 +45,7 @@ g++ --version
 gdb --version
 ```
 
-If you don't see the expected output or `g++` or `gdb` is not a recognized command, check your installation (Windows **Control Panel** > **Programs**) and make sure your PATH entry matches the Mingw-w64 binary location where the compilers are located.
+If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compilers are located. If the compilers do not exist at that PATH entry, make sure you followed the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
 
 ## Create Hello World
 
@@ -61,7 +59,9 @@ cd helloworld
 code .
 ```
 
-The "code ." command opens VS Code in the current working folder, which becomes your "workspace". As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
+The "code ." command opens VS Code in the current working folder, which becomes your "workspace". Accept the [Workspace Trust](/docs/editor/workspace-trust.md) dialog by selecting **Yes, I trust the authors** since this is a folder you created.
+
+As you go through the tutorial, you will see three files created in a `.vscode` folder in the workspace:
 
 - `tasks.json` (build instructions)
 - `launch.json` (debugger settings)
@@ -128,12 +128,11 @@ Your new `tasks.json` file should look similar to the JSON below:
 
 ```json
 {
-    "version": "2.0.0",
     "tasks": [
         {
-            "type": "shell",
+            "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+            "command": "C:/msys64/mingw64/bin/g++.exe",
             "args": [
                 "-g",
                 "${file}",
@@ -141,7 +140,7 @@ Your new `tasks.json` file should look similar to the JSON below:
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${fileDirname}"
             },
             "problemMatcher": [
                 "$gcc"
@@ -149,9 +148,11 @@ Your new `tasks.json` file should look similar to the JSON below:
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
         }
-    ]
+    ],
+    "version": "2.0.0"
 }
 ```
 
@@ -169,11 +170,11 @@ The `"isDefault": true` value in the `group` object specifies that this task wil
 1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Run Build Task**.
 1. When the task starts, you should see the Integrated Terminal panel appear below the source code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful g++ build, the output looks something like this:
 
-   ![G++ build output in terminal](images/mingw/build-output-in-terminal.png)
+   ![G++ build output in terminal](images/mingw/mingw-build-output.png)
 
 1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `dir` and you should now see the executable `helloworld.exe`.
 
-    ![Hello World in PowerShell terminal](images/mingw/helloworld-in-terminal.png)
+    ![Hello World in PowerShell terminal](images/mingw/mingw-dir-output.png)
 
 1. You can run `helloworld` in the terminal by typing `helloworld.exe` (or `.\helloworld.exe` if you use a PowerShell terminal).
 
@@ -205,11 +206,11 @@ VS Code creates a `launch.json` file, opens it in the editor, and builds and run
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -273,7 +274,7 @@ Now you're ready to start stepping through the code.
 
    When the loop has completed, you can see the output in the Integrated Terminal, along with some other diagnostic information that is output by GDB.
 
-   ![Debug output in terminal](images/mingw/debug-output.png)
+   ![Debug output in terminal](images/mingw/mingw-debug-output.png)
 
 ## Set a watch
 
@@ -319,9 +320,10 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/g++.exe",
-            "cStandard": "c11",
-            "intelliSenseMode": "gcc-x64"
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
         }
     ],
     "version": 4
@@ -342,7 +344,17 @@ The `compilerPath` search order is:
 * Then look for g++ on Windows Subsystem for Linux (WSL)
 * Then g++ for Mingw-w64.
 
-If you have Visual Studio or WSL installed, you may need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed Mingw-w64 version 8.1.0 using the i686 architecture, Win32 threading, and sjlj exception handling install options, the path would look like this: `C:\Program Files (x86)\mingw-w64\i686-8.1.0-win32-sjlj-rt_v6-rev0`.
+If you have Visual Studio or WSL installed, you may need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed Mingw-w64 version 8.1.0 using the i686 architecture, Win32 threading, and sjlj exception handling install options, the path would look like this: `C:\Program Files (x86)\mingw-w64\i686-8.1.0-win32-sjlj-rt_v6-rev0\mingw64\bin\g++.exe`.
+
+## Troubleshooting
+
+### MSYS2 is installed, but g++ and gdb are still not found
+
+You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install Mingw-w64, which contains those tools.
+
+### MinGW 32-bit
+
+If you need a 32-bit version of the MinGW toolset, consult the [Downloading](https://www.msys2.org/wiki/MSYS2-installation/) section on the MSYS2 wiki. It includes links to both 32-bit and 64-bit installation options.
 
 ## Next steps
 

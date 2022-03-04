@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 07/18/2019
+DateApproved: 10/20/2021
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -33,7 +33,7 @@ To successfully complete this tutorial, you need to first setup your Python  dev
 ## Install Visual Studio Code and the Python Extension
 
 1. If you have not already done so, install [VS Code](https://code.visualstudio.com/).
-2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). The Python extension is named **Python** and it's published by Microsoft.
+2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). The Python extension is named **Python** and it's published by Microsoft.
 
    [![Python extension on Marketplace](images/tutorial/python-extension-marketplace.png)](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
@@ -45,7 +45,7 @@ Along with the Python extension, you need to install a Python interpreter. Which
 
 Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
->**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/en-us/p/python-37/9nj46sx7x90p), [Python 3.8](https://www.microsoft.com/en-us/p/python-38/9mssztt1n39l), and [Python 3.9](https://www.microsoft.com/en-au/p/python-39/9p7qfqmjrfp7). Be aware that you might have compatibility issues with some packages using this method.
+>**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/p/python-37/9nj46sx7x90p), [Python 3.8](https://www.microsoft.com/p/python-38/9mssztt1n39l), [Python 3.9](https://www.microsoft.com/p/python-39/9p7qfqmjrfp7), and [Python 3.10](https://www.microsoft.com/p/python-310/9pjpw5ldxlz5). Be aware that you might have compatibility issues with some packages using this method.
 
 For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.9/using/windows.html)
 
@@ -57,7 +57,7 @@ The system install of Python on macOS is not supported. Instead, an installation
 
 ### Linux
 
-The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [get-pip.py](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
+The built-in Python 3 installation on Linux works well, but to install other Python packages you must install `pip` with [get-pip.py](https://pip.pypa.io/en/stable/installation/#get-pip-py).
 
 ### Other options
 
@@ -113,9 +113,9 @@ The command presents a list of available interpreters that VS Code can find auto
 
 > **Note**: When using an Anaconda distribution, the correct interpreter should have the suffix `('base':conda)`, for example `Python 3.7.3 64-bit ('base':conda)`.
 
-Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS), then select the **Workspace Settings** tab.
+Selecting an interpreter sets which interpreter will be used by the Python extension for that workspace.
 
-> **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.pythonPath` in your user settings instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
+> **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.defaultInterpreterPath` in User scope instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
 
 ## Create a Python Hello World source code file
 
@@ -185,6 +185,10 @@ Next, to initialize the debugger, press `kb(workbench.action.debug.start)`. Sinc
 
 These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select **Python File**, which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
+You can also start the debugger by clicking on the down-arrow next to the run button on the editor, and selecting **Debug Python File in Terminal**.
+
+![Using the debug Python file in terminal button](images/tutorial/debug-python-file-in-terminal-button.png)
+
 The debugger will stop at the first line of the file breakpoint. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you will see now defined `msg` variable appears in the **Local** pane.
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
@@ -240,7 +244,7 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. Such a message indicates that the required package isn't available in your system.
 
-To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Integrated Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
 
 A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
 
@@ -251,7 +255,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
 
-   **For windows**
+   **For Windows**
 
    ```cmd
    py -3 -m venv .venv

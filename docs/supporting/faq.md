@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -27,17 +27,23 @@ Yes, VS Code is free for private or commercial use. See the [product license](ht
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` user [setting](/docs/getstarted/settings.md) to `false`.
+If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings.md) to `off`.
 
-From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and uncheck the **Telemetry: Enable Telemetry** setting. This will silence all telemetry events from VS Code going forward.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`. This will silence all telemetry events from VS Code going forward.
 
-> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
+> **Important Notice**: VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting.
+
+### How to disable experiments
+
+VS Code uses experiments to try out new features or progressively roll them out. Our experimentation framework calls out to a Microsoft-owned service and is therefore disabled when telemetry is disabled. However, if you want to disable experiments regardless of your telemetry preferences, you may set the `workbench.enableExperiments` user [setting](/docs/getstarted/settings.md) to `false`.
+
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), search for `experiments`, and uncheck the **Workbench: Enable Experiments** setting. This will prevent VS Code from calling out to the service and opt out of any ongoing experiments.
 
 ## How to disable crash reporting
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't wish to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
+If you don't want to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
 
 * Open the Command Palette (`kb(workbench.action.showCommands)`).
 * Run the **Preferences: Configure Runtime Arguments** command.
@@ -93,7 +99,7 @@ If you use the JSON editor to modify your settings, add the following line:
 
 ### Location
 
-You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt`, Chromium's `Credits_*.html`, and VS Code's English language `LICENSE.txt` are available under `resources\app`. Localized versions of `LICENSE.txt` by Language ID are under `resources\app\licenses`.
+You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt`, Chromium's `Credits_*.html`, and VS Code's English language `LICENSE.txt` are available under `resources\app`. Localized versions of `LICENSE.txt` by language ID are under `resources\app\licenses`.
 
 ### Why does Visual Studio Code have a different license than the vscode GitHub repository?
 
@@ -182,6 +188,12 @@ Want an early peek at new VS Code features?  You can try prerelease versions of 
 
 To install the Insiders build, go to the [Insiders download page](/insiders).
 
+## Where can I find the Visual Studio Code icons?
+
+**Are there guidelines for using the icons and names?**
+
+You can download the official Visual Studio Code icons and read the usage guidelines at [Icons and names usage guidelines](/brand).
+
 ## What is a VS Code "workspace"?
 
 A VS Code "workspace" is usually just your project root folder. VS Code uses the "workspace" concept in order to scope project configurations such as project-specific [settings](/docs/getstarted/settings.md) as well as config files for [debugging](/docs/editor/debugging.md) and [tasks](/docs/editor/tasks.md). Workspace files are stored at the project root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md).
@@ -196,15 +208,45 @@ Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) that lets you keep 
 
 For bugs, feature requests or to contact an extension author, you should use the links available in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode) or use **Help: Report Issue** from the Command Palette. However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have [an email alias to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
-## VS Code gets unresponsive right after opening a folder
+## Installation appears to be corrupt [Unsupported]
 
-When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
+VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
 
-```json
-    "files.exclude": {
-        "**/largeFolder": true
-    }
-```
+You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
+
+## Resolving shell environment fails
+
+*This section applies to macOS and Linux environments only.*
+
+When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
+
+However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
+
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after 10 seconds, the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+
+![Shell environment startup error](images/faq/shell-env-error.png)
+
+If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness.
+
+If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
+
+### Investigate slow shell initialization
+
+The process outlined below may help you identify which parts of your shell initialization are taking the most time:
+
+* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in Quick Open (`kb(workbench.action.quickOpen)`)).
+* Selectively comment out potentially long running operations (such as `nvm` if you find that).
+* Save and fully restart VS Code.
+* Continue commenting out operations until the error disappears.
+
+>**Note**: While `nvm` is a powerful and useful Node.js package manager, it can cause slow shell startup times, if being run during shell initialization. You might consider package manager alternatives such as [asdf](https://asdf-vm.com) or search on the internet for `nvm` performance suggestions.
+
+### Launch VS Code from a terminal
+
+If modifying your shell environment isn't practical, you can avoid VS Code's resolving shell environment phase by launching VS Code directly from a fully initialized terminal.
+
+* Typing `code` from an open terminal will launch VS Code with your last workspace.
+* Typing `code .` will launch VS Code open to the current folder.
 
 ## VS Code is blank?
 
@@ -214,33 +256,15 @@ The Electron shell used by Visual Studio Code has trouble with some GPU (graphic
 code --disable-gpu
 ```
 
-## Installation appears to be corrupt [Unsupported]
+## VS Code gets unresponsive right after opening a folder
 
-VS Code does a background check to detect if the installation has been changed on disk and if so, you will see the text **[Unsupported]** in the title bar. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. [Reinstalling VS Code](/download) will replace the modified files and silence the warning.
+When you open a folder, VS Code will search for typical project files to offer you additional tooling (for example, the solution picker in the Status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via the `files.exclude` setting and they will not be searched for project files:
 
-You may also see the **[Unsupported]** message if VS Code files have been mistakenly quarantined or removed by anti-virus software (see issue [#94858](https://github.com/microsoft/vscode/issues/94858) for an example). Check your anti-virus software settings and reinstall VS Code to repair the missing files.
-
-## Resolving Shell Environment is Slow (Error, Warning)
-
-*This section applies to macOS and Linux environments only.*
-
-When VS Code is launched from a terminal (for example, via `code .`), it has access to environment settings defined in your `.bashrc` or `.zshrc` files. This means features like tasks or debug targets also have access to those settings.
-
-However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
-
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If your startup file takes a long time to process (more than 3 seconds), you will see the following warning:
-
-![Shell environment startup warning](images/faq/shell-env-warning.png)
-
-If, after 10 seconds, the shell environment has still not been resolved, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see the following error:
-
-![Shell environment startup error](images/faq/shell-env-error.png)
-
-The easiest way to investigate delays in your startup file is to:
-
-* Open your shell's startup file (for example, in VS Code by typing `~/.bashrc` or `~/.zshrc` in quick open).
-* Selectively comment out potentially long running operations.
-* Save and fully restart VS Code until the warning or error disappears.
+```json
+    "files.exclude": {
+        "**/largeFolder": true
+    }
+```
 
 ## Technical Support
 

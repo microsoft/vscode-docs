@@ -150,7 +150,7 @@ Fixing isolated lines of code or adding tests was a reactive solution that only 
 
 The problem was that we couldn't just enable a compiler flag and everything would be magically fixed. The core VS Code codebase has some 1800 TypeScript files, comprising more than half a million lines. Compiling it with `"strictNullChecks": true` produced some 4500 errors. Ugh!
 
-Furthermore, VS Code is made of a small core team and we like moving fast. Branching off the code to fix those 4500 strict null errors would have added a huge amount of engineering overhead. And where do you even start? Go through the list of errors top to bottom? In addition, changes in a branch would not help master, where the majority of the team would still be working.
+Furthermore, VS Code is made of a small core team and we like moving fast. Branching off the code to fix those 4500 strict null errors would have added a huge amount of engineering overhead. And where do you even start? Go through the list of errors top to bottom? In addition, changes in a branch would not help main, where the majority of the team would still be working.
 
 We wanted a plan that would incrementally bring the benefits of strict null checking to all engineers on the team, starting right away. That way, we could break the work into manageable changes with each small change making the code a little bit safer.
 
@@ -163,13 +163,13 @@ To do this, we created a new TypeScript project file called `tsconfig.strictNull
         "noEmit": true, // Don't output any javascript
         "strictNullChecks": true
     },
-    "files: [
+    "files": [
         // Slowly growing list of strict null check files goes here
     ]
 }
 ```
 
-While this plan seemed reasonable, one issue was that engineers working in master would normally not be compiling the strict null checked subset of VS Code. To prevent accidental regressions to already strict null checked files, we added a continuous integration step that compiled `tsconfig.strictNullChecks.json`. This ensured that checkins that regressed strict null checking would break the build.
+While this plan seemed reasonable, one issue was that engineers working in main would normally not be compiling the strict null checked subset of VS Code. To prevent accidental regressions to already strict null checked files, we added a continuous integration step that compiled `tsconfig.strictNullChecks.json`. This ensured that checkins that regressed strict null checking would break the build.
 
 We also put together [two simple scripts](https://github.com/mjbvz/vscode-strict-null-check-migration-tools) to automate some of the repetitive tasks related to adding files to the strict null checked project. The first script printed a list of files that were eligible to be strict null checked. A file is considered eligible if it only imports files that were themselves strict null checked. The second script tried to automatically add eligible files to the strict null project. If adding the file caused no compile errors, then it was committed to `tsconfig.strictNullChecks.json`.
 

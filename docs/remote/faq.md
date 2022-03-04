@@ -1,11 +1,11 @@
 ---
-Order: 14
+Order: 15
 Area: remote
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 ---
 # Remote Development FAQ
 
@@ -27,7 +27,7 @@ Some benefits of remote development include:
 * Being able to develop in an environment that matches the target deployment environment.
 * Using larger or more specialized hardware than your local machine for development.
 * The ability to edit code stored in another location, such as in the cloud or at a customer site.
-* Sandboxing of developer environments to avoid conflicts, improve security, and speed up on-boarding.
+* Separating developer environments to avoid conflicts, improve security, and speed up on-boarding.
 
 Compared to using a network share or synchronizing files, VS Code Remote Development provides dramatically better performance along with better control over your development environment and tools.
 
@@ -115,6 +115,12 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 * [Remote - Containers](https://aka.ms/vscode-remote/download/containers)
 * [Remote - WSL](https://aka.ms/vscode-remote/download/wsl)
 
+## How can I review and configure extension settings?
+
+As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Remote - Containers as an example, you may review a list of all Remote - Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
+
+![List of settings in Feature Contributions](images/containers/feature-contributions.png)
+
 ## Remote - WSL
 
 ### What is the advantage of the extension over using WSL as the terminal?
@@ -125,7 +131,7 @@ For example, you might install the Go stack in WSL (compiler, debugger, linters,
 
 It’s true that you can run binaries in WSL from Windows and vice-versa, but regular VS Code extensions don’t know how to do this. This is how we started out supporting debugging in WSL, but quickly realized we would have to update all extensions to know about WSL.
 
-We decided instead to make parts of VS Code run in WSL and let the UI running on Windows talk to the VS Code server running in WSL. This is what the Remote - WSL extension enables and with it, the Go extension runs in WSL along with the rest of the Go tools (complier, debugger, linters), while VS Code runs on Windows.
+We decided instead to make parts of VS Code run in WSL and let the UI running on Windows talk to the VS Code server running in WSL. This is what the Remote - WSL extension enables and with it, the Go extension runs in WSL along with the rest of the Go tools (compiler, debugger, linters), while VS Code runs on Windows.
 
 With this approach, language features like smart completions just work against what is in WSL without having to set up anything on Windows. You don't have to worry about path issues or set up different versions of development stacks on Windows. If you are deploying applications to Linux, you can set up your WSL instances to look like your runtime environment while still getting a rich editing experience on Windows.
 
@@ -153,7 +159,7 @@ When VS Code connects to a remote environment, extensions are classified as eith
 
 When a user installs an extension, VS Code attempts to infer the correct location and install it based on its type. Extensions that do not need to run remotely like themes and other UI customizations are automatically installed on the UI side. All others are treated as Workspace extensions since they are the most full-featured. However, extension authors can also override this location with an `extensionKind` property in `package.json`.
 
-See [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details.
+If your extension is not functioning as expected, [there are steps to check](/api/advanced-topics/remote-extensions#incorrect-execution-location) if it is running in the correct location or should perhaps have a different `extensionKind`. Also see [Supporting Remote Development](/api/advanced-topics/remote-extensions.md) for additional details on what extension authors need to know about Remote Development and Codespaces.
 
 ## License and privacy
 
@@ -181,11 +187,11 @@ You are free to use the extensions for both personal or corporate use to connect
 
 ### Can I use the VS Code Remote Development extensions to build my own product or service?
 
-You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (for example VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use”, you can document how to use the extensions in conjunction with your service.
+You can use the extensions with your own internal or private services. You cannot build a public or commercial service on top of the VS Code Remote Development extensions or their related components (for example VS Code Server). You cannot create other extensions that extend or manipulate the Remote Development extensions. While the license states you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use", you can document how to use the extensions in conjunction with your service.
 
 ### Can I repackage or reuse VS Code Server in my own public service offering?
 
-No. The license states that you may not “provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use” which means you may not build public products or services on top of the VS Code Server.
+No. The license states that you may not "provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use" which means you may not build public products or services on top of the VS Code Server.
 
 ### I have a question about whether I can use the extensions for X, who can I ask?
 

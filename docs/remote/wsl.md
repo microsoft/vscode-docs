@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 ---
 # Developing in WSL
 
@@ -25,7 +25,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started, you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) along with your preferred Linux distribution.
+1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) along with your preferred Linux distribution.
 
     > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native source code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
@@ -81,6 +81,20 @@ To open a WSL window directly from a Windows prompt use the `--remote` command l
 
 for example: `code --remote wsl+Ubuntu /home/jim/projects/c`
 
+We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
+
+To force that a folder is opened, add slash to the path or use:
+
+`code --folder-uri vscode-remote://wsl+Ubuntu/home/ubuntu/folder.with.dot`
+
+To force that a file is opened add `--goto` or use:
+
+`code --file-uri vscode-remote://wsl+Ubuntu/home/ubuntu/fileWithoutExtension`
+
+
+
+
+
 ## Working with Git
 
 If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
@@ -103,7 +117,7 @@ Local extensions that actually need to run remotely will appear dimmed and disab
 
 ![Disabled Extensions w/Install Button](images/wsl/wsl-disabled-extensions.png)
 
-You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** using the cloud button at the right of the **Local - Installed** title bar. This will display a drop down where you can select which locally installed extensions to install in your WSL instance.
+You can also install all locally installed extensions inside WSL by going to the Extensions view and selecting **Install Local Extensions in WSL: [Name]** using the cloud button at the right of the **Local - Installed** title bar. This will display a dropdown where you can select which locally installed extensions to install in your WSL instance.
 
 ![Install all extensions](images/wsl/install-all-extn-wsl.png)
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -11,9 +11,9 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 Once you have made a high-quality extension, you can publish it to the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode) so others can find, download, and use your extension. Alternatively, you can [package](#packaging-extensions) an extension into the installable VSIX format and share it with other users.
 
-This topics covers:
+This topic covers:
 
-- Using [`vsce`](#vsce), the CLI tool for managing VS Code extensions
+- Using [vsce](#vsce), the CLI tool for managing VS Code extensions
 - [Packaging](#packaging-extensions), [publishing](#publishing-extensions) and [unpublishing](#unpublishing-extensions) extensions
 - [Registering a `publisherId`](#create-a-publisher) necessary for publishing extensions
 
@@ -64,7 +64,7 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 ### Get a Personal Access Token
 
-First off, follow the documentation to [create your own organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate.
+First off, follow the documentation to [create your own organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
 
 From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
@@ -200,7 +200,32 @@ Here are some tips for making your extension look great on the Marketplace:
 
 Also see [Marketplace Presentation Tips](/api/references/extension-manifest#marketplace-presentation-tips).
 
-### `.vscodeignore`
+### Verify a publisher
+
+You can become a **verified publisher** by verifying ownership of an [eligible domain](#eligible-domains) associated with your brand or identity. Verifying your publisher will demonstrate your authenticity and add a verified badge to your extensions.
+
+![Verified publisher indicators in VS Code](images/publishing-extension/verified-publishers.png)
+
+To verify a publisher:
+
+1. Visit the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage).
+2. Select or create a publisher you wish to verify.
+3. Input an [eligible domain](#eligible-domains) in the **Verified domain** field, save, and select **Verify**.
+4. Follow the instructions in the dialog to add a TXT record to your domain's DNS configuration.
+5. Select **Verify** to validate that the TXT record has been successfully added.
+
+Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+### Eligible domains
+
+Eligible domains meet the following criteria:
+
+- Cannot be a subdomain ({subdomain}.github.io, {subdomain}.contoso.com, or similar).
+- You must be able to manage the DNS configuration settings and add a TXT record.
+- Your domain must use HTTPS protocol.
+- Your domain must be able to serve an HTTP 200 status response to a HEAD request.
+
+### Using .vscodeignore
 
 You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
 
@@ -236,9 +261,69 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
+### Pre-release extensions
+
+Users can choose to install pre-release versions of extensions in VS Code or VS Code Insiders in order to regularly get the latest extension version before the official extension release.
+
+![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/pre-release.png)
+
+For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the publish step:
+
+```bash
+vsce publish --pre-release
+```
+
+Alternatively, the `pre-release` flag can also be passed in the `package` step.
+
+We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Support for this will arrive in the future.
+
+VS Code will auto update extensions to the highest version available, so even if a user opted into a pre-release version and there is an extension release with a higher version, that user will be updated to the released version.
+Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
+
+If extension authors do not want their pre-release users to be updated to the release version, we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher.
+
+Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
+
+> **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install of the pre-release version of the main extension.
+
+### Platform-specific extensions
+
+Extensions can publish different VSIXs for each platform (Windows, Linux, macOS) VS Code is running on. We call such extensions  **platform-specific extensions**.
+
+Starting with version 1.61.0, VS Code looks for the extension package that matches the current platform.
+
+Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
+
+When publishing platform-specific extensions, a separate package needs to be published for each and every platform that an extension supports. If no package has been published for a platform, the user will see the extension appear as disabled and it can not be installed.
+
+The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64` and `darwin-arm64`.
+
+If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. The extension capabilites that are not supported in the `web` should use `when` clauses in the `package.json` to make sure that they are disabled. We do not recommend that extensions ship a different `package.json` for the web platform or to remove parts of the VSIX that do not work in the `web`.
+
+#### Publishing
+
+Starting from version `1.99.0`, [vsce](https://github.com/microsoft/vscode-vsce) supports a `--target` parameter that allows you to specify the target platform while packaging and publishing a VSIX.
+
+Here's how you can publish a VSIX for the `win32-x64` and `win32-ia32` platforms:
+
+```bash
+vsce publish --target win32-x64 win32-ia32
+```
+
+Alternatively, you can also use the `--target` option when packaging to simply create a platform-specific VSIX. The VSIX can later be published to the Marketplace as usual. Here's how to do it for the `win32-x64` platform:
+
+```bash
+vsce package --target win32-x64
+vsce publish --packagePath PATH_TO_WIN32X64_VSIX
+```
+
+#### Continuous Integration
+
+Managing multiple platform-specific VSIXs might get overwhelming, so we suggest to automate your extension's build process in Continuous Integration. Using [GitHub Actions](https://github.com/features/actions) is a good approach. Our [platform-specific extension sample](https://github.com/microsoft/vscode-platform-specific-sample) can be used as a learning resource; its [workflow](https://github.com/microsoft/vscode-platform-specific-sample/blob/main/.github/workflows/ci.yml) enables the common scenario of using platform-specific extension support to distribute native node modules as dependencies across all supported VS Code targets.
+
 ## Next steps
 
-- [Extension Marketplace](/docs/editor/extension-gallery) - Learn more about VS Code's public extension Marketplace.
+- [Extension Marketplace](/docs/editor/extension-marketplace) - Learn more about VS Code's public Extension Marketplace.
 - [Testing Extensions](/api/working-with-extensions/testing-extension) - Add tests to your extension project to ensure high quality.
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
@@ -246,7 +331,7 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
-One easy mistake to make when creating the PAT (Personal Access Token) is to not select **All accessible organizations** in the **Organizations** field drop-down (instead selecting a specific organization). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
+One easy mistake to make when creating the PAT (Personal Access Token) is to not select **All accessible organizations** in the **Organizations** field dropdown (instead selecting a specific organization). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.
 
 ### I can't unpublish my extension through the `vsce` tool?
 
@@ -254,7 +339,7 @@ You may have changed your extension ID or publisher name. You can also manage yo
 
 ### Why does vsce not preserve file attributes?
 
-Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
+Note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
 
 ### Can I publish from a continuous integration (CI) build?
 

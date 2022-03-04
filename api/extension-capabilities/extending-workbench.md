@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e0d5bd37-f020-4235-ad81-c977baaeb24f
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain how to extend Visual Studio Code's workbench area with custom UI components
@@ -22,7 +22,7 @@ VS Code provides various APIs that allow you to add your own components to the W
 
 ![workbench-contribution](images/extending-workbench/workbench-contribution.png)
 
-- Activity Bar: The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) adds a [View Container](#view-container)
+- Activity Bar: The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) adds a [View Container](#views-container)
 - Side Bar: The built-in [NPM extension](https://github.com/microsoft/vscode/tree/main/extensions/npm) adds a [Tree View](#tree-view) to the Explorer View
 - Editor Group: The built-in [Markdown extension](https://github.com/microsoft/vscode/tree/main/extensions/markdown-language-features) adds a [Webview](#webview) next to other editors in the Editor Group
 - Status Bar: The [VSCodeVim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) adds a [Status Bar Item](#status-bar-item) in the Status Bar

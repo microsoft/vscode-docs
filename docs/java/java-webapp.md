@@ -21,7 +21,7 @@ A simple Spring Boot Getting Started web app
 
 Before running and deploying this sample, you must have the Java SE Development Kit (JDK) and Apache Maven build tools on your local development environment. If you don't have, please install them.
 
-Download and install the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which has JDK 11 included.
+Download and install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which has JDK 11 included.
 
 >**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
@@ -41,11 +41,11 @@ Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spri
 
 ![Clone Spring Repository](images/java-webapp/clone-repository.gif)
 
-From within VS Code, open any of the Java files within the `complete` folder (for example `src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
+From within VS Code, open any of the Java files within the `complete` folder (for example `src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
 
 ![Install Java Extensions](images/java-webapp/install-extensions.gif)
 
-Once you have the Java Extension Pack installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
+Once you have the Extension Pack for Java installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
 
 ![debug configuration in the Status Bar](images/java-webapp/debugging-status-bar.png)
 
@@ -150,7 +150,7 @@ The [Spring Boot Starter](https://docs.microsoft.com/java/azure/spring-framework
 
 ### Config your project
 
-1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/microsoft/azure-spring-boot/tree/master/azure-spring-boot-samples/azure-cosmosdb-spring-boot-sample).
+1. You can start from the [Spring Data Azure Cosmos DB Sample Project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-samples/azure-spring-boot-sample-cosmos).
 
 2. Navigate to `src/main/resources` and open `application.properties`. Replace below properties in `application.properties` with information of your database.
 
@@ -183,5 +183,5 @@ Alternatively, you can also use Maven to package and run your project as steps b
 
 ## Next steps
 
-* To containerize and deploy a web application, check out the [Docker Container Tutorial](/docs/azure/docker.md).
-* To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md).
+- To containerize and deploy a web application, check out the [Docker in VS Code](/docs/containers/overview.md).
+- To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md).

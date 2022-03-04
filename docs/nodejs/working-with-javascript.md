@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -164,7 +164,7 @@ Using `// @ts-check` is a good approach if you just want to try type checking in
 
 **Using a setting**
 
-To enable type checking for all JavaScript files without changing any code, just add `"javascript.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
+To enable type checking for all JavaScript files without changing any code, just add `"js/ts.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
 
 You can opt individual files out of type checking with a `// @ts-nocheck` comment at the top of the file:
 
@@ -308,3 +308,42 @@ If you prefer to use JavaScript language features supported by other JavaScript 
 To disable JavaScript/TypeScript support, go to the Extensions view (`kb(workbench.view.extensions)`) and filter on built-in extensions (**Show Built-in Extensions** in the **...** **More Actions** dropdown), then type 'typescript'. Select the **TypeScript and JavaScript Language Features** extension and press the **Disable** button. VS Code built-in extensions cannot be uninstalled, only disabled, and can be re-enabled at any time.
 
 ![TypeScript and JavaScript Language Features extension](images/working-with-javascript/disable-TS-language.png)
+
+## Partial IntelliSense mode
+
+VS Code tries to provide project-wide IntelliSense for JavaScript and TypeScript, which is what makes features such as auto-imports and **Go to Definition** possible. However, there are some cases where VS Code is limited to working only with your currently opened files and is unable to load the other files that make up your JavaScript or TypeScript project.
+
+This can happen in a few instances:
+
+- You are working with JavaScript or TypeScript code on [vscode.dev](https://vscode.dev) or [github.dev](https://docs.github.com/codespaces/developing-in-codespaces/web-based-editor) and VS Code is running in the browser.
+- You open a file from a virtual file system (such as when using the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension).
+- The project is currently loading. Once loading completes, you will start getting project-wide IntelliSense for it.
+
+In these cases, VS Code's IntelliSense will operate in **partial mode**. Partial mode tries its best to provide IntelliSense for any JavaScript or TypeScript files you have open, but is limited and is not able to offer any cross-file IntelliSense features.
+
+### Which features are impacted?
+
+Here's an incomplete list of features that are either disabled or have more limited functionality in partial mode:
+
+- All opened files are treated as part of a single project.
+- Configuration options from your `jsconfig` or `tsconfig` (such as `target`) are not respected.
+- Only syntax errors are reported. Semantic errors — such as accessing an unknown property or passing the wrong type to a function — are not reported.
+- Quick Fixes for semantic errors are disabled.
+- Symbols can only be resolved within the current file. Any symbols imported from other files will be treated as being of the `any` type.
+- Commands such as **Go to Definition** and **Find All References** will only work for opened files instead of across the entire project. This also means that symbol from any packages you install under `node_module` will not be resolved.
+- Workspace symbol search will only include symbols from currently opened files.
+- Auto imports are disabled.
+- Renaming is disabled.
+- Many refactorings are disabled.
+
+Some additional features are disabled on `vscode.dev` and `github.dev`:
+
+- [Automatic type acquisition](/docs/nodejs/working-with-javascript.md#typings-and-automatic-type-acquisition) is currently not supported.
+
+### Checking if you are in partial mode
+
+To check if the current file is using partial mode IntelliSense instead of project-wide IntelliSense, hover over the `JavaScript` or `TypeScript` language status item in the status bar:
+
+![Partial mode status item](images/working-with-javascript/partial-mode-status-item.png)
+
+The status item will show `Partial mode` if the current file is in partial mode.

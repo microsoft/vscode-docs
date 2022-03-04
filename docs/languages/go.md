@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 14
 Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
@@ -61,7 +61,7 @@ You can also navigate back and forth between a Go file and its test implementati
 
 The Go language server (`gopls`) detects build and vet errors found on the workspace. The errors and warnings from running any/all of the above will be shown red/green squiggly lines in the editor. These diagnostics also show up in the **Problems** panel  (**View** > **Problems**).
 
-You can add additional lint checks using the `go.lintOnSave` setting and configuring your choice of linting tool (`staticcheck`, `golangci-lint`, or `revive`) using the `go.listTool` setting.
+You can add additional lint checks using the `go.lintOnSave` setting and configuring your choice of linting tool (`staticcheck`, `golangci-lint`, or `revive`) using the `go.lintTool` setting.
 
 You can configure the extension to run tests and compute test coverage using:
 
@@ -85,7 +85,7 @@ When you have multiple formatters activated for Go files, you can select the Go 
 
 ```json
 "[go]": {
-    "editor.defaultFormatter": "golang.go”
+    "editor.defaultFormatter": "golang.go"
 }
 ```
 
@@ -128,5 +128,5 @@ If you have any issues or feature requests, feel free to log them in the Go exte
 If you'd like to learn more about VS Code, try these topics:
 
 * [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
-* [Install an Extension](/docs/editor/extension-gallery.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

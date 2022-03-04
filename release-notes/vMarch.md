@@ -175,7 +175,7 @@ The HTML formatter is based on the **beautifyjs** library. The formatting option
 
 ## Localization
 
-VS Code is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default, VS Code picks up the operating system's language. If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch VS Code or use the **Configure Display Language** action to specify a locale setting to use whenever VS Code is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
+VS Code is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default, VS Code picks up the operating system's language. If you want to configure a specific language, you can either use the command-line switch `--locale` to specify a locale when you launch VS Code or use the **Configure Display Language** action to specify a locale setting to use whenever VS Code is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
 
 ![](images/March/language.png)
 
@@ -210,7 +210,7 @@ You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking
 
 ![](images/March/column-select-mouse.gif)
 
-We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish.
+We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you want.
 
 For example:
 

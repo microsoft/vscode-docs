@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 995c7085-5fc0-44e0-a171-30a759c0b7da
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using commands programmatically in Visual Studio Code extensions (plug-ins)
@@ -214,10 +214,10 @@ Last, menus showing commands, like the Command Palette or context menus, impleme
 
 If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views by using a `when` clause context and none of the existing keys suit your needs, then you can add your own context.
 
-The first example below sets the key `myExtension:showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
+The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a `when` clause to check if the number of cool open things is greater than 2.
 
 ```js
-vscode.commands.executeCommand('setContext', 'myExtension:showMyCommand', true);
+vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 
-vscode.commands.executeCommand('setContext', 'myExtension:numberOfCoolOpenThings', 4);
+vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```

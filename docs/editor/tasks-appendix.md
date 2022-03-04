@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Visual Studio Code Tasks Appendix
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -190,21 +190,41 @@ interface PresentationOptions {
 
     /**
      * Controls whether the command associated with the task is echoed
-     * in the user interface.
+     * in the user interface. Defaults to `true`.
      */
     echo?: boolean;
 
     /**
      * Controls whether the panel showing the task output is taking focus.
+     * Defaults to `false`.
      */
     focus?: boolean;
 
     /**
      * Controls if the task panel is used for this task only (dedicated),
      * shared between tasks (shared) or if a new panel is created on
-     * every task execution (new). Defaults to `shared`
+     * every task execution (new). Defaults to `shared`.
      */
     panel?: "shared" | "dedicated" | "new";
+
+    /**
+     * Controls whether to show the `Terminal will be reused by tasks,
+     * press any key to close it` message.
+     */
+    showReuseMessage?: boolean;
+
+    /**
+     * Controls whether the terminal is cleared before this task is run.
+     * Defaults to `false`.
+     */
+    clear?: boolean;
+
+    /**
+     * Controls whether the task is executed in a specific terminal
+     * group using split panes. Tasks in the same group (specified by a string value)
+     * will use split terminals to present instead of a new terminal panel.
+     */
+    group?: string;
 }
 
 /**

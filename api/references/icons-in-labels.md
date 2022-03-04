@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -13,7 +13,9 @@ Visual Studio Code contains a set of built-in icons that are used in views and t
 
 The product icons that ship with VS Code are contained in the [Codicon icon font](https://github.com/microsoft/vscode-codicons) and form the **default** product icon theme. Extensions can provide new [Product Icon Themes](/api/extension-guides/product-icon-theme) to redefine these icons and give VS Code a new appearance.
 
-In order to allow this, all product icons are identified by an ID. The icon identifier is what's used in UI components. The association of icon identifier to an actual icon font glyph is then done in the product icon theme.
+In order to allow this, all product icons are identified by an ID. The icon identifier is what's used in UI components in labels (`$(pencil)`), in the API as `ThemeIcon` and in contributions when icons are needed.
+
+The association of icon identifier to an actual icon font glyph happens the product icon theme.
 
 ## Icons in labels
 
@@ -29,22 +31,58 @@ You can also embed text and use multiple icons:
 $(eye) $(heart) $(mark-github) GitHub
 ```
 
+To place a literal `${...}` text inside a label, escape the `$` with a backslash:
+
+```ts
+\$(eye)
+```
+
 ## Animation
 
-You can apply a spinning animation to any icon by appending `~spin` to the icon name:
+You can apply a spinning animation to the following icons by appending `~spin` to the icon name:
+
+- `sync`
+- `loading`
+- `gear`
 
 ```ts
 $(sync~spin)
 ```
 
+## Icon contribution point
+
+The icon contribution point allow extensions to define additional icons by ID, along with a default icon. The icon ID can then be used by the extension (or any other extensions that depend on the extension) in labels (`$(iconId)`) or at all places where a `ThemeIcon` can be used (`new ThemeIcon("iconId")`).
+
+```json
+"contributes": {
+  "icons": {
+        "distro-ubuntu": {
+            "description": "Ubuntu icon",
+            "default": {
+                "fontPath": "./distroicons.woff",
+                "fontCharacter": "\\E001"
+            }
+        },
+        "distro-fedora": {
+            "description": "Ubuntu icon",
+            "default": {
+                "fontPath": "./distroicons.woff",
+                "fontCharacter": "\\E002"
+            }
+        }
+    }
+}
+```
+
+Product icon themes can redefine the icon (if they know about the icon ID).
+
 ## Icon Listing
 
-Below is a listing of the product icons by identifier.
+Below is a listing of the built-in product icons by identifier.
 
 The ID of the icon identifies the location where the icon is used. The default codicon ID describes which icon from the codicon library is used by default, and the preview shows what that icon looks like.
 
 [Product Icon Themes](/api/extension-guides/product-icon-theme) can replace each icon individually, as well as all icons from the codicon library.
-
 
 <div id="codicon-listing">
 

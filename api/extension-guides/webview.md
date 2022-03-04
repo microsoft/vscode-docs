@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -279,7 +279,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       panel.webview.html = getWebviewContent(cats['Coding Cat']);
 
-      // After 5sec, pragmatically close the webview panel
+      // After 5sec, programmatically close the webview panel
       const timeout = setTimeout(() => panel.dispose(), 5000);
 
       panel.onDidDispose(
@@ -406,15 +406,23 @@ function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof c
 
 ### Inspecting and debugging webviews
 
-The **Developer: Open Webview Developer Tools** VS Code command lets you debug webviews. Running the command launches an instance of Developer Tools for any currently visible webviews:
+The **Developer: Toggle Developer Tools** command opens a [Developer Tools](https://developer.chrome.com/docs/devtools/) window that you can use debug and inspect your webviews.
 
-![Webview Developer Tools](images/webview/basics-developer_tools.png)
+![The developer tools](images/webview/developer-overview.png)
 
-The contents of the webview are within an iframe inside the webview document. You can use Developer Tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
+Note that if you are using a version of VS Code older than 1.56, or if you are trying to debug a webview that sets `enableFindWidget`, you must instead use the **Developer: Open Webview Developer Tools** command. This command opens a dedicated Developer Tools page for each webview instead of using a Developer Tools page that is shared by all webviews and the editor itself.
 
-If you use the webview Developer Tools console, make sure to select the **active frame** environment from the drop-down in the top left corner of the Console panel:
+From the Developer Tools, you can start inspecting the contents of your webview using the inspect tool located in the top left corner of the Developer Tools window:
 
-![Selecting the active frame](images/webview/debug-active-frame.png)
+![Inspecting a webview using the developer tools](images/webview/developer-inspect.png)
+
+You can also view all of the errors and logs from your webview in the developer tools console:
+
+![The developer tools console](images/webview/developer-console.png)
+
+To evaluate an expression in the context of your webview, make sure to select the **active frame** environment from the dropdown in the top left corner of the Developer tools console panel:
+
+![Selecting the active frame](images/webview/developer-active-frame.png)
 
 The **active frame** environment is where the webview scripts themselves are executed.
 
@@ -712,7 +720,7 @@ function getWebviewContent() {
 
 ### Passing messages from a webview to an extension
 
-Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code API object inside the webview. To access the VS Code API object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code API returned by this method, and hand it out to any other functions that wish to use it.
+Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code API object inside the webview. To access the VS Code API object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code API returned by this method, and hand it out to any other functions that need to use it.
 
 We can use the VS Code API and `postMessage` in our **Cat Coding** webview to alert the extension when our cat introduces a bug in their code:
 
@@ -787,9 +795,51 @@ function getWebviewContent() {
 
 For security reasons, you must keep the VS Code API object private and make sure it is never leaked into the global scope.
 
+### Using Web Workers
+
+[Web Workers](https://developer.mozilla.org/docs/Web/API/Web_Workers_API/Using_web_workers) are supported inside of webviews but there are a few important restrictions to be aware of.
+
+First off, workers can only be loaded using either a `data:` or `blob:` URI. You cannot directly load a worker from your extension's folder.
+
+If you do need to load worker code from a JavaScript file in your extension, try using `fetch`:
+
+```js
+const workerSource = 'absolute/path/to/worker.js';
+
+fetch(workerSource)
+  .then(result => result.blob())
+  .then(blob => {
+    const blobUrl = URL.createObjectURL(blob)
+    new Worker(blobUrl);
+  });
+```
+
+Worker scripts also do not support importing source code using `importScripts` or `import(...)`. If your worker loads code dynamically, try using a bundler such as [webpack](https://webpack.js.org) to package the worker script into a single file.
+
+With `webpack`, you can use `LimitChunkCountPlugin` to force the compiled worker JavaScript to be a single file:
+
+```js
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+  target: 'webworker',
+  entry: './worker/src/index.js',
+  output: {
+    filename: 'worker.js',
+    path: path.resolve(__dirname, 'media'),
+  },
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
+  ],
+};
+```
+
 ## Security
 
-As with any webpage, when creating a webview you must follow some basic security best practices.
+As with any webpage, when creating a webview, you must follow some basic security best practices.
 
 ### Limit capabilities
 

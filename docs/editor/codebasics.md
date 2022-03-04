@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -74,7 +74,7 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
 
 ### Column Selection mode
 
@@ -177,7 +177,7 @@ In the two input boxes below the search box, you can enter patterns to include o
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
-Note that glob patterns in the search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the search view, the `**` prefix is assumed.
+Note that glob patterns in the search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
@@ -194,6 +194,16 @@ When you type text into the Replace text box, you will see a diff display of the
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
 >**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
+
+### Case changing in regex replace
+
+VS Code supports changing the case of regex matching groups while doing Search and Replace in the editor or globally. This is done with the modifiers `\u\U\l\L`, where `\u` and `\l` will upper/lowercase a single character, and `\U` and `\L` will upper/lowercase the rest of the matching group.
+
+Example:
+
+![Changing case while doing find and replace](images/codebasics/case-change-replace.gif)
+
+The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
 
 ## IntelliSense
 
@@ -301,7 +311,7 @@ VS Code analyzes your open file and determines the indentation used in the docum
 
 ![auto detect indentation](images/codebasics/indentation-detection.png)
 
-You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+You can click on the Status Bar indentation display to bring up a dropdown with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 

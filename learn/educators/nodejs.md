@@ -10,7 +10,7 @@ MetaDescription: Node.js and JavaScript in Visual Studio Code
 
 # Node.js and JavaScript in Visual Studio Code
 
-Visual Studio Code the most popular free code editor among JavaScript developers around the world according to the [State of JS 2020 survey](https://2020.stateofjs.com/other-tools/#text_editors). It is easily customizable and has a rich ecosystem of extensions to help your students learn Node.js and JavaScript.
+Visual Studio Code is the most popular free code editor among JavaScript developers around the world according to the [State of JS 2020 survey](https://2020.stateofjs.com/other-tools/#text_editors). It is easily customizable and has a rich ecosystem of extensions to help your students learn Node.js and JavaScript.
 
 Below is a case study of a Computer Science educator in Thailand and includes his recommendations for VS Code extensions and settings in the classroom.
 

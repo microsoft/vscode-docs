@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -9,7 +9,7 @@ MetaDescription: Use Continuous Integration for testing Visual Studio Code exten
 
 # Continuous Integration
 
-Extension integration tests can be run on CI services. The [`vscode-test`](https://github.com/microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/main/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/main/sample/azure-pipelines.yml).
+Extension integration tests can be run on CI services. The [`@vscode/test-electron`](https://github.com/microsoft/vscode-test) library helps you set up extension tests on CI providers and contains a [sample extension](https://github.com/microsoft/vscode-test/tree/main/sample) setup on Azure Pipelines. You can check out the [build pipeline](https://dev.azure.com/vscode/vscode-test/_build?definitionId=15) or jump directly to the [`azure-pipelines.yml` file](https://github.com/microsoft/vscode-test/blob/main/sample/azure-pipelines.yml).
 
 ## Automated publishing
 
@@ -31,7 +31,7 @@ Then, add the following `azure-pipelines.yml` file to the root of your extension
 trigger:
   branches:
     include:
-    - master
+    - main
   tags:
     include:
     - v*
@@ -97,7 +97,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 trigger:
   branches:
     include:
-    - master
+    - main
   tags:
     include:
     - refs/tags/v*
@@ -133,7 +133,7 @@ You can also configure GitHub Actions to run your extension CI. In headless Linu
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -173,7 +173,7 @@ jobs:
 on:
   push:
     branches:
-    - master
+    - main
   release:
     types:
     - created
@@ -197,9 +197,49 @@ In our example, the condition has three checks:
 - `startsWith( github.ref, 'refs/tags/releases/')` - Publish only if a tagged (release) build.
 - `matrix.os == 'ubuntu-latest'` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
 
+## GitLab CI
+
+GitLab CI can be used to test and publish the extension in headless Docker containers. This can be done by pulling a preconfigured Docker image, or installing `xvfb` and the libraries required to run Visual Studio Code during the pipeline.
+
+```yml
+image: node:12-buster
+
+before_script:
+  - npm install
+
+test:
+  script:
+    - |
+      apt update
+      apt install -y libasound2 libgbm1 libgtk-3-0 libnss3 xvfb
+      xvfb-run -a npm run test
+```
+
+### GitLab CI automated publishing
+
+1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ee/ci/variables/README.html#mask-a-cicd-variable).
+2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+3. Declare a `deploy` script in `package.json` without the PAT.
+
+```json
+"scripts": {
+  "deploy": "vsce publish --yarn"
+}
+```
+
+4. Add a `deploy` job that calls `npm run deploy` with the masked variable which will only trigger on tags.
+
+```yaml
+deploy:
+  only:
+    - tags
+  script:
+    - npm run deploy
+```
+
 ## Travis CI
 
-[vscode-test](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/main/.travis.yml). The way to define environment variables in Travis CI is different from other CI frameworks, so the `xvfb` script is also different:
+[`@vscode/test-electron`](https://github.com/microsoft/vscode-test) also includes a [Travis CI build definition](https://github.com/microsoft/vscode-test/blob/main/.travis.yml). The way to define environment variables in Travis CI is different from other CI frameworks, so the `xvfb` script is also different:
 
 ```yaml
 language: node_js

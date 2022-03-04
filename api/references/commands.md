@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -26,12 +26,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
-* _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
+* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
 
 `vscode.executeDocumentSymbolProvider` - Execute document symbol provider.
 
 * _uri_ - Uri of a text document
-* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
+* _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
 
 `vscode.executeFormatDocumentProvider` - Execute document format provider.
 
@@ -191,11 +191,11 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _context_ - Context object with uri and range
 * _(returns)_ - A promise that resolves to an array of ColorPresentation objects.
 
-`vscode.executeInlineHintProvider` - Execute inline hints provider
+`vscode.executeInlayHintProvider` - Execute inlay hints provider
 
 * _uri_ - Uri of a text document
 * _range_ - A range in a text document
-* _(returns)_ - A promise that resolves to an array of InlineHint objects
+* _(returns)_ - A promise that resolves to an array of Inlay objects
 
 `vscode.resolveNotebookContentProviders` - Resolve Notebook Content Providers
 
@@ -236,7 +236,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _Cursor move argument object_ - Property-value pairs that can be passed through this argument:
   * 'to': A mandatory logical position value providing where to move the cursor.
     ```
-    'left', 'right', 'up', 'down'
+    'left', 'right', 'up', 'down', 'prevBlankLine', 'nextBlankLine',
     'wrappedLineStart', 'wrappedLineEnd', 'wrappedLineColumnCenter'
     'wrappedLineFirstNonWhitespaceCharacter', 'wrappedLineLastNonWhitespaceCharacter'
     'viewPortTop', 'viewPortCenter', 'viewPortBottom', 'viewPortIfOutside'
@@ -304,7 +304,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 `workbench.action.quickOpen` - Quick access
 
-* _prefix_ -
+* _prefix_ - String value indicating the value to fill into the quick access input field when opening
 
 `moveActiveEditor` - Move the active editor by tabs or groups
 

@@ -1,7 +1,7 @@
 ---
 ## DO NOT TOUCH — Managed by doc writer
 ContentId: fc74f04f-6ba5-4ecc-a28c-75efcdb8ed9a
-DateApproved: 1/21/2021
+DateApproved: 3/3/2022
 MetaDescription: User interface guidelines for Visual Studio Code extension authors
 ---
 # Extension Guidelines
@@ -42,7 +42,11 @@ Items are placed inside of various containers and include:
 * [Warning](/api/references/vscode-api#window.showWarningMessage)
 * [Error](/api/references/vscode-api#window.showErrorMessage)
 
-It's important to limit the number of notifications sent in order to respect the user's attention.
+It's important to limit the number of notifications sent in order to respect the user's attention. To help guide your decision on whether or not you should show a notification, please follow our notification decision tree:
+
+[![Show a multi-step quick pick if multi step user input is immediately needed. If user input is immediately needed but it is not multi-step show a modal dialog. If you need to show progress that is low priority show the progress in the status bar. If the interaction is triggered by the user find the right moment to show the notification and only then show it. If you need to show multiple notifications try to combine them into one. If the user does not really need to be notified consider to not show anything and relax.](images/guidelines/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
+
+### Notification examples
 
 ![Information notification](images/guidelines/notification-info.png)
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 3/4/2021
+DateApproved: 3/3/2022
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -19,13 +19,15 @@ Prefer a video? You can watch a recent Microsoft Build talk [Visual Studio Code 
 
 ### Getting started
 
-Open the **Welcome** page to get started with the basics of VS Code. **Help** > **Welcome**.
+The best way of exploring VS Code hands-on is to open the **Get Started** page. You will get an overview of VS Code's customizations and features. **Help** > **Get Started**.
 
-![welcome page](images/tips-and-tricks/welcome_page.png)
+![Get Started page](images/tips-and-tricks/getstarted_page.png)
 
-In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's features. **Help** > **Interactive Playground**.
+Pick a **Walkthrough** for a self-guided tour through the setup steps, features, and deeper customizations that VS Code offers. As you discover and learn, the walkthroughs track your progress.
 
-![interactive playground](images/tips-and-tricks/interactive_playground.png)
+If you are looking to improve your code editing skills open the **Interactive Editor Playground**. Try out VS Code's [code editing features](/docs/editor/codebasics.md), like multi-cursor editing, [IntelliSense](/docs/editor/intellisense.md), Snippets, [Emmet](/docs/editor/emmet.md), and many more. **Help** > **Editor Playground**.
+
+![Interactive editor playground](images/tips-and-tricks/interactive_playground.png)
 
 ### Command Palette
 
@@ -33,7 +35,7 @@ Access all available commands based on your current context.
 
 Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
-![command palette](images/tips-and-tricks/OpenCommandPalatte.gif)
+![Command Palette](images/tips-and-tricks/OpenCommandPalatte.gif)
 
 ### Default keyboard shortcuts
 
@@ -286,7 +288,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
+You can scope the settings that you only want for specific languages by the language identifier. You can find a list of commonly used language IDs in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {
@@ -488,7 +490,7 @@ Here is a selection of common features for editing code. If the keyboard shortcu
 
 ### Multi cursor selection
 
-To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+click)` on macOS).
+To add cursors at arbitrary positions, select a position with your mouse and use `kbstyle(Alt+Click)` (`kbstyle(Option+Click)` on macOS).
 
 To set cursors above or below the current position use:
 
@@ -773,7 +775,7 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
+Git integration comes with VS Code "out-of-the-box". You can install other SCM providers from the Extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
 ### Diffs
 
@@ -834,7 +836,7 @@ Click the (...) button and then select **Undo Last Commit** to undo the previous
 
 VS Code makes it easy to see what Git commands are actually running. This is helpful when learning Git or debugging a difficult source control issue.
 
-Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **Git** in the drop-down.
+Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **Git** in the dropdown.
 
 ### Gutter indicators
 
@@ -881,10 +883,6 @@ Place breakpoints next to the line number. Navigate forward with the Debug widge
 Inspect variables in the **Run** panels and in the console.
 
 ![data inspection](images/tips-and-tricks/debug_data_inspection.gif)
-
-### Inline values
-
-You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
 
 ### Logpoints
 
