@@ -627,7 +627,7 @@ bind 'set enable-bracketed-paste off'
 
 ### Ctrl+A, Ctrl+R, etc. output ^A, ^R, etc on zsh
 
-This can happen if zsh is in vim mode instead of emacs mode which can happen if you set `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts. To workaround this you have two options:
+This can happen if zsh is in vim mode instead of emacs mode due to setting `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts. To workaround this you have two options:
 
 - Ensure that you don't set `$EDITOR` to `vi(m)`, this isn't an option if you want your git editor to work though.
 - Add `bindkey -e` to your init script to set emacs explicitly.
