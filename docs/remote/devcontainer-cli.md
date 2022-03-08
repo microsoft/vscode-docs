@@ -8,13 +8,15 @@ MetaDescription: Documentation on using the VS Code devcontainer command line in
 DateApproved: 3/3/2022
 ---
 # Development container command line interface
+
 When we refer to a command line interface (CLI) for development containers, there are two varieties:
-* "dev container CLI" - A reference implementation for the open dev container spec. The [current proposal](https://github.com/microsoft/dev-container-spec/issues/9) is to make a CLI available that can take a `devcontainer.json` and create and configure a dev container from it. It could be available in any IDE or editor.
+
+* "dev container CLI" - A reference implementation for the open dev container specification. The [current proposal](https://github.com/microsoft/dev-container-spec/issues/9) is to make a CLI available that can take a `devcontainer.json` and create and configure a development container from it. It could be available in any IDE or editor.
 * "Visual Studio Code `devcontainer` CLI" - A CLI that can be installed and used via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or through an external terminal.
 
-The former is in-progress. The latter is available today and the focus of this document.
+The former is in-progress. The latter, VS Code `devcontainer` CLI, is available today and the focus of this document.
 
-## Visual Studio Code `devcontainer` CLI
+## Visual Studio Code devcontainer CLI
 
 Given the growing number of use cases for dev containers, there is a companion `devcontainer` CLI that can be used independent of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
 

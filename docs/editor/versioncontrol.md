@@ -242,12 +242,8 @@ You can always set up a [credential helper](https://help.github.com/articles/cac
 
 ### How can I sign in to Git with my Azure DevOps organization that requires multi-factor authentication?
 
-[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)
-(or GCM for short) is the recommended Git credential helper for Windows,
-macOS, and Linux. If you're running Git for Windows, GCM has already been
-installed and configured for you. If you're running on macOS or Linux,
-please see the GCM [`README`](https://github.com/GitCredentialManager/git-credential-manager#download-and-install)
-for setup instructions.
+[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager) (GCM) is the recommended Git credential helper for Windows, macOS, and Linux. If you're running Git for Windows, GCM has already been installed and configured for you. If you're running on macOS or Linux, the GCM [README](https://github.com/GitCredentialManager/git-credential-manager#download-and-install)
+has setup instructions.
 
 ### I have GitHub Desktop installed on my computer but VS Code ignores it
 
