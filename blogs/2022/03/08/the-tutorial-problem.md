@@ -1,7 +1,7 @@
 ---
 Order: 71
-TOCTitle: Solving the "Tutorial Problem"
-PageTitle: Solving the "Tutorial Problem"
+TOCTitle: Solving the Tutorial Problem
+PageTitle: Solving the Tutorial Problem
 MetaDescription: How Laravel uses containerized dev environments to make a better tutorial
 Date: 2022-03-08
 Author: Burke Holland
@@ -15,7 +15,7 @@ Writing a great tutorial ain't easy. I should know - I've written a lot of them,
 
 As a case in point, our very own tutorial on [how to use Remote Containers in Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - somewhere in the neighborhood of 4 - 6%. To figure out where people were giving up, we conducted user studies - which is where someone goes through the tutorial while we observe their progress.
 
-During these user studies, it became immediately clear to us why people weren't able to complete the tutorial: **Nobody was** **reading it**.
+During these user studies, it became immediately clear to us why people weren't able to complete the tutorial: **Nobody was reading it**.
 
 ## Nobody reads
 
