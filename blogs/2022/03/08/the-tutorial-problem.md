@@ -1,5 +1,5 @@
 ---
-Order: 71
+Order:
 TOCTitle: Solving the Tutorial Problem
 PageTitle: Solving the Tutorial Problem
 MetaDescription: How Laravel uses containerized dev environments to make a better tutorial
