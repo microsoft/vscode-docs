@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 71
 TOCTitle: Solving the Tutorial Problem
 PageTitle: Solving the Tutorial Problem
 MetaDescription: How Laravel uses containerized dev environments to make a better tutorial
@@ -43,7 +43,7 @@ The [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms
 
 ![The remote containers extension screenshot from extension gallery](remote-containers-extension.png)
 
-In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but  a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you though selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and Powershell…
+In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but  a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you through selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and PowerShell…
 
 ![Adding a dev container configuration to a Python project](add-dev-container.gif)
 
@@ -79,7 +79,7 @@ I specified that our project has a MySQL Server and a Redis Cache, so we actuall
 
 These containers are networked together so that we can call the MySQL or Redis cache containers from the app container.
 
-If you connect an interactive terminal to the `sail-8.1/app container`, you'll see your project in the `/var/www/html` folder. Because Docker "mounts" the project from your machine into the container, any changes you make while developing are reflected in the application when you refresh.
+If you connect an interactive terminal to the `sail-8.1/app container`, you'll see your project in the `/var/www/html` folder. Docker "mounts" the project from your machine into the container, so any changes you make while developing are reflected in the application when you refresh.
 
 ![The file structure of the Laravel project in a container](container-file-structure.png)
 
