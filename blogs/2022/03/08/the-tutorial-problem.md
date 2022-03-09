@@ -13,19 +13,19 @@ March 8, 2022 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland
 
 Writing a great tutorial isn't easy. I should know - I've written a lot of them, and not every one was a smashing success.
 
-As it turns out making a great tutorial isn't about _what_ you write, it's about how whether developers can be successful without having to read every word. In this article we'll look how dev containers can reduce the errors a user might encounter, and how the [Laravel PHP project](https://laravel.com/) elegantly implements this in their own tutorials to great effect.
+As it turns out making a great tutorial isn't about **what** you write, it's about whether developers can be successful without having to read every word. In this article, we'll look how development containers can reduce the errors a user might encounter, and how the [Laravel PHP project](https://laravel.com/) elegantly implements this in their own tutorials to great effect.
 
 ## Nobody reads
 
-Our very own tutorial on [How to use Remote Containers in Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
+Our very own tutorial on [how to use Remote Containers in Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
 
 ![dev containers learn module screenshot](dev-containers-tutorial-screenshot.png)
 
 To figure out where people were giving up, we conducted user studies and watched as people tried to complete our tutorial. It was...painful.
 
-It was immediately clear why people couldn't complete the tutorial: **Nobody was reading it**. People skipped right over the instructions and went directly to the action steps. Inevitably, they would get stuck because they made an error they wouldn't have made if they had read the instructions.
+It was immediately clear why people couldn't complete the tutorial: **Nobody was reading it**. People skipped right over the instructions and went directly to the action steps. Inevitably, they would get stuck because they made an error that they wouldn't have made if they had read the instructions.
 
-Penn State Professor [John M. Carroll](https://jcarroll.ist.psu.edu/) talks about this in his seminal book, [The Nurnberg Funnel - Designing Minimalist Instruction for Practical Computer Skill](https://mitpress.mit.edu/books/nurnberg-funnel). He writes, "[learners] are too busy learning to make much use of the instruction. This is the paradox of sense making."
+Penn State Professor [John M. Carroll](https://jcarroll.ist.psu.edu/) talks about this in his seminal book, [The Nurnberg Funnel - Designing Minimalist Instruction for Practical Computer Skill](https://mitpress.mit.edu/books/nurnberg-funnel). He writes, "[Learners] are too busy learning to make much use of the instruction. This is the paradox of sense making."
 
 I can relate to this, and you probably can too. When I'm going through a tutorial, my eyes are scanning for blocks of code because I'm trying to learn by doing. I'm literally too busy learning to read the instructions.
 
@@ -43,13 +43,13 @@ The [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms
 
 ![The remote containers extension screenshot from extension gallery](remote-containers-extension.png)
 
-In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but  a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you though selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case I add the Azure CLI, Dotnet CLI and Powershell…
+In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but  a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you though selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and Powershell…
 
 ![Adding a dev container configuration to a Python project](add-dev-container.gif)
 
-This process adds a “.devcontainer” folder to this project with the necessary “Dockerfile” included. It also adds a “devcontainer.json” file, which is a standard for defining aspects of a dev container, like which extensions should be installed, which setup commands should be run after container build, etc. Since you have complete control over the environment and its setup, you can automate pretty much everything - including dependency installs, library versions, etc.
+This process adds a `.devcontainer` folder to this project with the necessary `Dockerfile` included. It also adds a `devcontainer.json` file, which is a standard for defining aspects of a dev container, like which extensions should be installed, which setup commands should be run after container build, etc. Since you have complete control over the environment and its setup, you can automate pretty much everything - including dependency installs, library versions, etc.
 
-In this way, it’s possible to quite literally hand someone a complete, ready-to-use environment that requires no additional setup steps or triggering of existential crisis over Ruby gems.
+In this way, it's possible to quite literally hand someone a complete, ready-to-use environment that requires no additional setup steps or triggering of existential crisis over Ruby gems.
 
 Some folks are already using a dev container-based approach to get their users up and running quickly with what are otherwise very complex environments. A great example of this is the Laravel framework for PHP.
 
@@ -79,7 +79,7 @@ I specified that our project has a MySQL Server and a Redis Cache, so we actuall
 
 These containers are networked together so that we can call the MySQL or Redis cache containers from the app container.
 
-If you connect an interactive terminal to the “sail-8.1/app container”, you’ll see your project in the /var/www/html folder. Because Docker “mounts” the project from your machine into the container, any changes you make while developing are reflected in the application when you refresh.
+If you connect an interactive terminal to the `sail-8.1/app container`, you'll see your project in the `/var/www/html` folder. Because Docker "mounts" the project from your machine into the container, any changes you make while developing are reflected in the application when you refresh.
 
 ![The file structure of the Laravel project in a container](container-file-structure.png)
 
@@ -136,7 +136,7 @@ For VS Code and Laravel, extensions are suggested in the `devcontainer.json`, bu
 
 ## Read less, do more
 
-People don't read. And that should be OK. Laravel's tutorials aren't necessarily shorter than any others, but the important thing is that if you skip to the code and just run the commands, it works. Dev containers make that possible. Now if only we could figure out how to make a dev container for our own [How to use Remote Containers in Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) tutorial...
+People don't read. And that should be OK. Laravel's tutorials aren't necessarily shorter than any others, but the important thing is that if you skip to the code and just run the commands, it works. Dev containers make that possible. Now if only we could figure out how to make a dev container for our own [Use a Docker container as a development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) tutorial...
 
 Happy Coding!
 
