@@ -43,7 +43,7 @@ The [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms
 
 ![The remote containers extension screenshot from extension gallery](remote-containers-extension.png)
 
-In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but  a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you through selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and PowerShell…
+In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you through selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and PowerShell…
 
 ![Adding a dev container configuration to a Python project](add-dev-container.gif)
 
@@ -55,7 +55,7 @@ Some folks are already using a dev container-based approach to get their users u
 
 ## The Laravel solution
 
-[Laravel](https://laravel.com/) is an open-source MVC framework for PHP. It's comprehensive in the sense that it also includes things like an Object Relational Mapper (ORM), direct database access, a packaging system and more. Laravel can do a lot. And in order to experience it, you really need to have at least a database when you're getting started. Normally this would require the user to install not just PHP, but a database as well - usually MySQL. That's a significant ask when a user is simply trying your framework on for size.
+[Laravel](https://laravel.com/) is an open-source MVC framework for PHP. It's comprehensive in the sense that it also includes things like an Object Relational Mapper (ORM), direct database access, a packaging system, and more. Laravel can do a lot. And in order to experience it, you really need to have at least a database when you're getting started. Normally this would require the user to install not just PHP, but a database as well - usually MySQL. That's a significant ask when a user is simply trying your framework on for size.
 
 Laravel addresses this with containerized dev environments and a tool called [Sail](https://github.com/laravel/sail). To get started from scratch with Laravel, a MySQL Server, and a Redis Cache, you only have to run a single command...
 
@@ -73,7 +73,7 @@ The sample application just runs. No installing PHP. No Laravel. No dependency r
 
 ![An example Laravel application running in the browser on localhost](laravel-app.png)
 
-I specified that our project has a MySQL Server and a Redis Cache, so we actually get three containers when the project spins up. We can see that using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension for VS Code.
+I specified that our project has a MySQL Server and a Redis Cache, so we actually get three containers when the project spins up. We can see that using the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) for VS Code.
 
 ![The Docker extension in VS Code](docker-extension.png)
 
@@ -91,13 +91,13 @@ Support has also been added for the [Remote - Containers](https://marketplace.vi
     curl -s "https://laravel.build/example-app?with=mysql,redis&devcontainer" | bash
 ```
 
-> Note that if you want to add a devcontainer to an existing Sail/Laravel project, you can do that by running `php artisan sail:install --devcontainer`
+> Note that if you want to add a devcontainer to an existing Sail/Laravel project, you can do that by running `php artisan sail:install --devcontainer`.
 
 This creates the same project configuration, but will include a `.devcontainer` folder. VS Code will automatically detect that folder and prompt you to reopen the project in a container thereby skipping the required `sail up` step.
 
 ![A notification in VS Code saying "Reopen in container"](reopen-in-container-prompt.png)
 
-VS Code attaches to the container, so you are developing **within** the container environment as opposed to your local one. You'll know that because the Remote Indicator in the left-hand corner of VS Code tells you so...
+VS Code attaches to the container, so you are developing **within** the container environment as opposed to your local one. You'll know that because the Remote Indicator in the lower left-hand corner of VS Code tells you so...
 
 ![The remote indicator in VS Code showing connection to a container](remote-indicator.png)
 
