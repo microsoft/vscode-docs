@@ -1,13 +1,13 @@
 ---
 Order: 71
-TOCTitle: Solving the Tutorial Problem
-PageTitle: Solving the Tutorial Problem
+TOCTitle: The problem with tutorials
+PageTitle: The problem with tutorials
 MetaDescription: How Laravel uses containerized dev environments to make a better tutorial
 Date: 2022-03-08
 Author: Burke Holland
 ---
 
-# Solving the "Tutorial" problem
+# The problem with tutorials
 
 March 8, 2022 by Burke Holland, [@burkeholland](https://twitter.com/burkeholland)
 
