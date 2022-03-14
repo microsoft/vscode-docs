@@ -29,7 +29,7 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
   "workbench.colorTheme": "Default Dark+"
 ```
 
-> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#creating-user-and-workspace-settings).
+> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
 
 ## Color Themes from the Marketplace
 
@@ -74,6 +74,7 @@ To customize a specific theme only, use the following syntax:
 ```
 
 If a customization applies to more than one themes, you can name multiple themes or use `*` as wildcard at the beginning and the end of the name:
+
 ```json
 "workbench.colorCustomizations": {
     "[Abyss][Red]": {
@@ -84,7 +85,6 @@ If a customization applies to more than one themes, you can name multiple themes
     }
 }
 ```
-
 
 ### Editor syntax highlighting
 
