@@ -71,9 +71,11 @@ Open the Settings Editor (`kb((workbench.action.openSettings)`) and type 'activi
 
 You can further limit the scope to just those settings under the **Appearance** group in the left side tree. There should not be just three settings.
 
-You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting from the default you see the blue line to the left. You can always reset a setting to the default value via the gear context menu **Reset Settings** command.
+You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting from the default, you see the blue line to the left.
 
 ![Activity Bar: Visible unchecked and Activity Bar is hidden](images/settings/activity-bar-hidden.png)
+
+You can always reset a setting to the default value via the gear context menu **Reset Settings** command.
 
 ## Settings editor filters
 
@@ -98,7 +100,7 @@ Here are some of the filters available:
 * `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md)
 
-The Search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo`)). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
+The Search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
 
 ![Clear Settings Search Input button in the right of the Settings editor](images/settings/clear-search-input-button.png)
 
@@ -112,21 +114,23 @@ You can also review an extension's settings from the Extensions view (`kb(workbe
 
 ![Python extension Settings list under Feature Contributions tab](images/settings/python-feature-contributions.png)
 
-Extension authors can learn more about adding custom settings in the `configuration` [contribution point documentation](/api/references/contribution-points.md#contributes.configuration).
+Extension authors can learn more about adding custom settings in the [configuration contribution point documentation](/api/references/contribution-points.md#contributes.configuration).
 
 ## settings.json
 
-The Settings editor is the UI that lets you review and modify setting values that are stored in a `settings.json` file. You can review and edit this file directly by opening it in the editor with the **Preferences: Open Settings (JSON)** command. Settings are written as JSON by specifying the settings ID and value.
+The Settings editor is the UI that lets you review and modify setting values that are stored in a `settings.json` file. You can review and edit this file directly by opening it in the editor with the **Preferences: Open Settings (JSON)** command. Settings are written as JSON by specifying the setting ID and value.
 
 ![User settings.json open in the editor](images/settings/settings-json-in-editor.png)
 
-`settings.json` has full IntelliSense with smart completions for settings and values and hovers for descriptions. Errors due to incorrect setting names or JSON formatting are also highlighted.
+The `settings.json` file has full IntelliSense with smart completions for settings and values and description hovers. Errors due to incorrect setting names or JSON formatting are also highlighted.
 
 ![IntelliSense for settings.json open in the editor](images/settings/settings-json-intellisense.png)
 
 Some settings can only be edited in `settings.json` such as **Workbench: Color Customizations** and show a **Edit in settings.json** link in the Settings editor.
 
 ![Workbench: Color Customizations setting with Edit in settings.json link](images/settings/edit-in-settings-json-link.png)
+
+### Changing settings.json
 
 As an example, lets change the editor line number color. Click the **Edit in settings.json** link and add the following JSON:
 
@@ -175,6 +179,8 @@ All features of the Settings editor such as settings groups, search, and filteri
 Similar to User Settings, Workspace Settings are also stored in a `settings.json` file, which you can edit directly via the **Preferences: Open Workspace Settings (JSON)** command.
 
 The workspace settings file is located under the `.vscode` folder in your root folder.
+
+![The File Explorer displaying settings.json under the .vscode folder](images/settings/settings-json-under-vscode.png)
 
 >**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
@@ -314,7 +320,7 @@ In general, VS Code extensions store their settings in your user or workspaces s
 Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor or see a read-only version of the `defaultSettings.json` via **Preferences: Open Default Settings (JSON)**.
 
 <details>
-<summary>Click to view Default settings</summary>
+<summary>Click here to view Default settings</summary>
 
 ```json
 {
