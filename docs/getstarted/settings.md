@@ -16,7 +16,7 @@ VS Code provides two different scopes for settings:
 * **User Settings** - Settings that apply globally to any instance of VS Code you open.
 * **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
-In this article, we'll first describe user settings as these are your personal settings for customizing VS Code. Later we'll cover [Workspace Settings](#workspace-settings), which will be specific to the project you're working on.
+In this article, we'll first describe user settings as these are your personal settings for customizing VS Code. Later we'll cover [Workspace settings](#workspace-settings), which will be specific to the project you're working on.
 
 ## Settings editor
 
@@ -65,9 +65,9 @@ As an example, let's hide the Activity Bar from VS Code. The Activity Bar is the
 
 ![Activity Bar display on the left of the editor](images/settings/activity-bar.png)
 
-Open the Settings Editor (`kb((workbench.action.openSettings)`) and type 'activity' in the Search bar. You should see 5 settings.
+Open the Settings Editor (`kb((workbench.action.openSettings)`) and type 'activity' in the Search bar. You should see five settings.
 
-![Settings editor with 'activity' in the Search bar with 5 settings](images/settings/search-for-activity.png)
+![Settings editor with 'activity' in the Search bar with five settings](images/settings/search-for-activity.png)
 
 You can further limit the scope to just those settings under the **Appearance** group in the left side tree. There should not be just three settings.
 
@@ -96,7 +96,7 @@ There are several other handy filters for searching settings.
 Here are some of the filters available:
 
 * `@ext` - Settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
-* `@feature` - Settings specific to a **Features** sub-group. For example, `@feature:explorer` shows settings of the File Explorer.
+* `@feature` - Settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
 * `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md)
 
@@ -162,7 +162,7 @@ Depending on your platform, the user settings file is located here:
 
 While you can reset settings individually via the Settings editor **Reset Setting** command, you can reset all changed settings by opening `settings.json` and deleting the entries between the braces `{}`. Be careful since there will be no way to recover your previous setting values.
 
-## Workspace Settings
+## Workspace settings
 
 Workspace settings are specific to a project and can be shared across developers on a project. Workspace settings override user settings.
 
@@ -313,18 +313,17 @@ If you're using a workspace that needs custom settings but you don't want to app
 
 ### Where can I find extension settings?
 
-In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)** - `kb(workbench.action.openSettings)`) or directly in the `settings.json` file (**Preferences: Open Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
+In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)**) or via IntelliSense in your `settings.json` file (**Preferences: Open Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
 
 ## Default settings
 
 Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor or see a read-only version of the `defaultSettings.json` via **Preferences: Open Default Settings (JSON)**.
 
 <details>
-<summary>Click here to view Default settings</summary>
+<summary>Click here to expand Default settings</summary>
 
 ```json
 {
-
 // Editor
 
     // Controls whether the editor shows CodeLens.
@@ -4193,4 +4192,5 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.scriptExplorerExclude": []
 }
 ```
+
 </details>
