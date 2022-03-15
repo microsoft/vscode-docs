@@ -422,7 +422,7 @@ The following are dev container definitions that use Docker Compose:
 
 * [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 * [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
-* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres) -  A Python container that connects to PostgreSQL in a different container.
+* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres) -  A Python container that connects to PostGreSQL in a different container.
 * [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
 Congratulations! You've now configured a dev container in Visual Studio Code. Continue reading to learn how to share container configurations among teammates and various projects.
@@ -434,6 +434,18 @@ You can easily share a customized dev container definition for your project by a
 ![Dev container configuration file reopen notification](images/containers/dev-container-reopen-prompt.png)
 
 Beyond the advantages of having your team use a consistent environment and tool-chain, this also makes it easier for new contributors or team members to be productive quickly. First-time contributors will require less guidance and hit fewer issues related to environment setup.
+
+You may also add a badge or link in your repository so that users can easily open your project in Remote - Containers. For the badge, you may add:
+
+```
+[![Open in Remote - Containers](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://insiders.vscode.dev/redirect?url=vscode-insiders://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+```
+
+You may also include the `open in dev container` link directly:
+
+```
+If you already have Docker installed, then you may use [open in dev container](https://insiders.vscode.dev/redirect?url=vscode-insiders://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java) (which provides the same functionality as the Remote - Containers badge above). This installs the Remote - Containers extension if needed, clones the source code in a Docker Volume, and opens it in VS Code.
+```
 
 ### Alternative: Repository configuration folders
 
