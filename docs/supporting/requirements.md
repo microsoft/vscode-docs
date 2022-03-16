@@ -22,13 +22,9 @@ We recommend:
 VS Code has been tested on the following platforms:
 
 * OS X El Capitan (10.11+)
-* Windows 7 (with .NET Framework 4.5.2), 8.0, 8.1 and 10, 11 (32-bit and 64-bit)
+* Windows 8.0, 8.1 and 10, 11 (32-bit and 64-bit)
 * Linux (Debian): Ubuntu Desktop 16.04, Debian 9
 * Linux (Red Hat): Red Hat Enterprise Linux 7, CentOS 8, Fedora 24
-
-### Additional Windows requirements
-
-Microsoft .NET Framework 4.5.2 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) is installed.
 
 ### Additional Linux requirements
 

@@ -17,8 +17,6 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
 Alternatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
->**Note:** .NET Framework 4.5.2 or higher is required for VS Code. If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed. You can check your version of .NET Framework using this command, `reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version` from a command prompt.
-
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
 ## User setup versus system setup
@@ -89,7 +87,7 @@ Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use thi
 
 ### Icons are missing
 
-I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
+I installed Visual Studio Code on my Windows 8 machine. Why are some icons not appearing in the workbench and editor?
 
 VS Code uses [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) icons and we have found instances where the .SVG file extension is associated with something other than `image/svg+xml`. We're considering options to fix it, but for now here's a workaround:
 
