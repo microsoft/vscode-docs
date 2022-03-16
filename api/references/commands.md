@@ -211,7 +211,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.openWith` - Opens the provided resource with a specific editor.
 
 * _resource_ - Resource to open
-* _viewId_ - Custom editor view id or 'default' to use VS Code's default editor
+* _viewType_ - Unique identifier for the custom editor provider. This should match the viewType from the customEditors contribution point. Set to 'default' to use VS Code's default editor.
 * _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
 * _(returns)_ - no result
 
