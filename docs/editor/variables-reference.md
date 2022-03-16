@@ -25,7 +25,7 @@ The following predefined variables are supported:
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname
 - **${fileExtname}** - the current opened file's extension
-- **${cwd}** - the task runner's current working directory on startup
+- **${cwd}** - the task runner's current working directory upon the startup of VS Code
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
