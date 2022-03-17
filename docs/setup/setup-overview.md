@@ -90,7 +90,7 @@ VS Code has detected that some installation files have been modified, perhaps by
 
 ### How can I do a 'clean' uninstall of VS Code?
 
-If you want to remove all user data after uninstalling VS Code, you can delete the user data folders `Code` and `.vscode`. This will return you to the state before you installed VS Code. This can also be used to reset all settings if you don't want to uninstall VS Code.
+If you want to remove all user data after [uninstalling](/docs/setup/uninstall.md) VS Code, you can delete the user data folders `Code` and `.vscode`. This will return you to the state before you installed VS Code. This can also be used to reset all settings if you don't want to uninstall VS Code.
 
 The folder locations will vary depending on your platform:
 
