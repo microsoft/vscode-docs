@@ -45,7 +45,7 @@ If semantic highlighting is enabled and the color theme has a corresponding styl
 
 Semantic highlighting can change colors based on:
 
-* The resolved type of a symbol: namespace, variable, property, variable, property, class, interface, typeParameter.
+* The resolved type of a symbol: namespace, variable, property, variable, class, interface, typeParameter.
 * Whether the variable/property is read-only (const) or modifiable.
 * Whether the variable/property type is callable (a function type) or not.
 
