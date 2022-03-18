@@ -65,7 +65,7 @@ The folder locations will vary depending on your platform:
 
 ## Next steps
 
-* [Setup overview](/docs/setup/overview.md) - General information about VS Code setup and updates.
+* [Setup overview](/docs/setup/setup-overview.md) - General information about VS Code setup and updates.
 * [Windows setup](/docs/setup/windows.md) - Details and common questions about installing VS Code on Windows.
 * [macOS setup](/docs/setup/mac.md) - VS Code is available for both Intel and Apple Silicon macOS machines.
 * [Linux setup](/docs/setup/linux.md) - Learn about the different VS Code packages available for Linux.
