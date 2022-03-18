@@ -31,7 +31,7 @@ Before deploying an image, the image must be uploaded to a container registry. T
    ![Registries](images/registries/explorer-registries.png)
 
 3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry. If the image isn't tagged when you try to push it, VS Code asks you what registry you want to associate with the image.
-    - Images you previously built appear in the Docker Explorer under the ***Images** section. Right-click and choose **Tag...**.
+    - Images you previously built appear in the Docker Explorer under the **Images** section. Right-click and choose **Tag...**.
 
         ![Tag image](images/registries/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
