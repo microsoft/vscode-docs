@@ -157,7 +157,7 @@ You're done! Now that your container is ready, you may want to:
 - [Debug with Docker Compose](/docs/containers/docker-compose.md#python)
 - [Customize how you debug Python apps in a container](/docs/containers/debug-python.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
-- [Create a container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+- [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-to-a-container-registry)
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
 - [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)
