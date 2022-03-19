@@ -1030,6 +1030,10 @@ Notice how the counter does not reset now when the webview is hidden and then re
 
 Although `retainContextWhenHidden` may be appealing, keep in mind that this has high memory overhead and should only be used when other persistence techniques will not work.
 
+## Accessibility
+
+The class `vscode-using-screen-reader` will be added to your webview's main body in contexts where the user is operating vscode with a screen reader. Additionally, the class `vscode-reduce-motion` will be added to the document's main body element in cases where the user has expressed a preference to reduce the amount of motion in the window. By observing these classes and adjusting your rendering accordingly, your webview content can better reflect the user's preferences.
+
 ## Next steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
