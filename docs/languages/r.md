@@ -67,7 +67,7 @@ Besides code completion and linting, the R extension also supports other feature
 
 The workspace viewer is located in the side bar in VS Code and contains the packages in use and global variables in the active R session. Click the R icon and the workspace viewer and help pages viewer will show up. It is a convenient way to view the R workspace, preview existing R objects, find help topics, and read help pages interactively.
 
-![Workspace Viewer](images/r/workerspace-viewer.gif)
+![Workspace Viewer](images/r/workspace-viewer.gif)
 
 Besides the workspace viewer, there are also data viewer, plot viewer, and widget viewer. Read [Interactive Viewers](https://github.com/REditorSupport/vscode-R/wiki/Interactive-viewers) for more details.
 
