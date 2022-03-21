@@ -13,14 +13,12 @@ You can configure Visual Studio Code to your liking through its various settings
 
 ![VS Code Settings editor](images/settings/hero.png)
 
-VS Code provides two different scopes for settings:
+VS Code provides several different scopes for settings. When you open a workspace, you will see at least the following two scopes:
 
 * **User Settings** - Settings that apply globally to any instance of VS Code you open.
 * **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
 Workspace settings override user settings. Workspace settings are specific to a project and can be shared across developers on a project.
-
->**Note**: You cannot use the Settings editor to create a workspace setting that matches the setting's default value. If you want your workspace to enforce that a particular setting has its default value, even when somebody has configured that setting as a user setting, you must add it to the workspace settings file manually.
 
 >**Note**: A VS Code "workspace" is usually just your project root folder. Workspace settings as well as [debugging](/docs/editor/debugging.md) and [task](/docs/editor/tasks.md) configurations are stored at the root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md). You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces.md) article.
 
@@ -35,15 +33,15 @@ You can also open the Settings editor from the **Command Palette** (`kb(workbenc
 
 In the example below, the side bar location and file icon theme have been changed.
 
-![Modified settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
+![Configured settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
 
-Changes to settings are reloaded by VS Code as you change them. Modified settings are now indicated with a _blue line_ similar to modified lines in the editor. The gear icon opens a context menu with options to reset the setting to its default value as well as copy setting as JSON.
+Changes to settings are reloaded by VS Code as you change them. Configured settings are indicated with a _blue line_ similar to modified lines in the editor. The gear icon opens a context menu with options to reset the setting to its default value, as well as to copy the setting as JSON.
 
->**Note:** Workspace settings are useful for sharing project specific settings across a team.
+>**Note:** Workspace settings are useful for sharing project-specific settings across a team.
 
 ## Settings editor
 
-When you open the settings editor, you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
+When you open the settings editor, you can search and discover settings you are looking for. When you search using the search widget, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
 
 ![Filtering settings by searching in the Settings editor](images/settings/settings-search.png)
 
@@ -51,13 +49,13 @@ When you open the settings editor, you can search and discover settings you are 
 
 ### Edit settings
 
-Each setting can be edited by either a **checkbox**, an **input** or by a **dropdown**. Edit the text or select the option you want to change to the desired settings.
+Each setting can be edited by either a **checkbox**, an **input** or a **dropdown**. Edit the text or select the option you want to change to the desired settings.
 
 ![An example setting with a dropdown](images/settings/settings-edit.png)
 
 ### Settings groups
 
-Default settings are represented in groups so that you can navigate them easily. It has a **Commonly Used** group at the top, which shows popular customizations.
+Settings are represented in groups in the table of contents so that you can navigate them easily. There is a **Commonly Used** group at the top, which shows popular customizations.
 
 ![Settings editor with the SCM section of the table of contents selected](images/settings/settings-groups.png)
 
@@ -75,11 +73,20 @@ Depending on your platform, the user settings file is located here:
 
 The workspace settings file is located under the `.vscode` folder in your root folder.
 
->**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+>**Note:** For a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
 ## Language-specific editor settings
 
-To customize your editor by language, run the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want, which then opens your user `settings.json` with the language entry where you can add applicable settings.
+One way to customize language-specific settings is by opening the Settings editor and typing a language filter in the form of `@lang:languageId` into the search widget. The settings that show up will be overridable for that given language, and will show the setting value specific to that language, if applicable.
+
+When modifying a setting while there is a language filter in place, the setting will be configured in the given scope for that language specifically.
+For example, when modifying the user-scope `diffEditor.codeLens` setting while there is a `@lang:css` filter in the search widget, the Settings editor will save the new value to the CSS-specific section of the user settings file.
+
+![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-override-example.png)
+
+>**Note:** If you enter more than one language filter in the search widget, the current behaviour is that only the first language filter will be used.
+
+Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want, which then opens your user `settings.json` with the language entry where you can add applicable settings.
 
 ![Configure language-specific settings command typed up in the Command Palette](images/settings/pref-config-lang-settings.png)
 
@@ -93,7 +100,8 @@ Add language-specific settings to your user settings:
 
 If you have a file open and you want to customize the editor for this file type, select the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens your user `settings.json` with the language entry where you can add applicable settings.
 
-Language-specific editor settings in your user settings override workspace settings.
+Language-specific editor settings always override non-language-specific editor settings, even if the non-language-specific setting
+has a narrower scope. For example, language-specific user settings override (non-language-specific) workspace settings.
 
 You can scope language-specific settings to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
 
@@ -118,11 +126,18 @@ You can use IntelliSense in `settings.json` to help you find allowed language-ba
 
 ## Settings precedence
 
-Configurations can be overridden at multiple levels by the different setting scopes:
+Configurations can be overridden at multiple levels by the different setting scopes. In the following list, **later scopes override earlier scopes**:
 
+* Default settings - This scope represents the default unconfigured setting values.
 * User settings - Apply globally to all VS Code instances.
-* Workspace setting - Apply to the open folder or workspace and override User settings.
-* Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editor/multi-root-workspaces.md). Override User and Workspace settings.
+* Remote settings - Apply to a remote machine opened by a user.
+* Workspace settings - Apply to the open folder or workspace.
+* Workspace Folder settings - Apply to a specific folder of a [multi-root workspace](/docs/editor/multi-root-workspaces.md).
+* Language-specific default settings - These are language-specific default values that can be contributed by extensions.
+* Language-specific user settings - Same as User settings, but specific to a language.
+* Language-specific remote settings - Same as Remote settings, but specific to a language.
+* Language-specific workspace settings - Same as Workspace settings, but specific to a language.
+* Language-specific workspace folder settings - Same as Workspace Folder settings, but specific to a language.
 
 Setting values can be of various types:
 
@@ -132,9 +147,9 @@ Setting values can be of various types:
 * Array - `"editor.rulers": []`
 * Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
 
-Values with primitive types and Array type are overridden but those with Object type are merged. For example, `workbench.colorCustomizations` takes an Object that specifies a group of UI elements and their desired colors.
+Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
 
-If your user settings set the editor backgrounds to blue and green:
+For example, `workbench.colorCustomizations` takes an Object that specifies a group of UI elements and their desired colors. If your user settings set the editor backgrounds to blue and green:
 
 ```json
   "workbench.colorCustomizations": {
@@ -162,7 +177,7 @@ The result, when that workspace is open, is the combination of those two color c
   }
 ```
 
-If there are conflicting values, such as `editor.selectionBackground` in the example above, the usual override behavior occurs with workspace values taking precedence over user values.
+If there are conflicting values, such as `editor.selectionBackground` in the example above, the usual override behavior occurs, with workspace values taking precedence over user values, and language-specific values taking precedence over non-language-specific values.
 
 ## Settings and security
 
