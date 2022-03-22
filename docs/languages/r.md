@@ -19,7 +19,7 @@ syntax highlighting, code completion, linting, formatting, interacting with R te
 
 ## Getting started
 
-1. [Install R](https://cloud.r-project.org/) (>= 3.4.0) for your platform. For Windows users, Writing R Path to the registry is recommended in the installation.
+1. [Install R](https://cloud.r-project.org/) (>= 3.4.0) for your platform. For Windows users, it is recommended to have *Save version number in registry* checked in the installation so that the R extension could find the R executable automatically.
 
 2. Install [`languageserver`](https://github.com/REditorSupport/languageserver) in R.
 
