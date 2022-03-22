@@ -150,9 +150,11 @@ If necessary, extensions can declare new types and modifiers or create sub types
     }]
   }
 }
+```
 
 In the example above, an extension declares a new type `templateType` and a new modifier `native`. By naming `type` as the super type, styling rules for `type` will also apply to `templateType`:
-```
+
+```json
 {
   "name": "Red Theme",
   "semanticTokenColors": {
@@ -160,10 +162,10 @@ In the example above, an extension declares a new type `templateType` and a new 
   }
 }
 ```
-applies to both `type` and all it's subtypes, including `templateType`
 
+The `semanticTokenColors` value shown above applies to both `type` and all it's subtypes, including `templateType`.
 
-Along with custom token types, extensions can define how these are mapped to TextMate scopes. This is described in the [Custom Mappings](#custom-textmate-scope-mappings) section. Note that custom mapping rules are not automatically inherited from the super type. Instead, subtypes need to refefine the mapping, preferrably to more specific scopes.
+Along with custom token types, extensions can define how these are mapped to TextMate scopes. This is described in the [Custom Mappings](#custom-textmate-scope-mappings) section. Note that custom mapping rules are not automatically inherited from the super type. Instead, subtypes need to redefine the mapping, preferably to more specific scopes.
 
 ## Enablement of semantic highlighting
 

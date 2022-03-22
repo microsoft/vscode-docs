@@ -25,12 +25,6 @@ You can configure the Python extension through settings. Learn more in the [Pyth
 
 >**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
-## Insiders program
-
-The Insiders program allows you to try out and automatically install new versions of the Python extension prior to release, including new features and fixes.
-
-If you'd like to opt into the program, you can either open the Command Palette (`kb(workbench.action.showCommands)`) and select **Python: Switch to Insiders Daily/Weekly Channel** or else you can open settings (`kb(workbench.action.openSettings)`) and look for **Python: Insiders Channel** to set the channel to "daily" or "weekly".
-
 ## Run Python code
 
 To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code:

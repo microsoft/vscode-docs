@@ -1032,7 +1032,7 @@ Although `retainContextWhenHidden` may be appealing, keep in mind that this has 
 
 ## Accessibility
 
-The class `vscode-using-screen-reader` will be added to your webview's main body in contexts where the user is operating vscode with a screen reader. Additionally, the class `vscode-reduce-motion` will be added to the document's main body element in cases where the user has expressed a preference to reduce the amount of motion in the window. By observing these classes and adjusting your rendering accordingly, your webview content can better reflect the user's preferences.
+The class `vscode-using-screen-reader` will be added to your webview's main body in contexts where the user is operating VS Code with a screen reader. Additionally, the class `vscode-reduce-motion` will be added to the document's main body element in cases where the user has expressed a preference to reduce the amount of motion in the window. By observing these classes and adjusting your rendering accordingly, your webview content can better reflect the user's preferences.
 
 ## Next steps
 

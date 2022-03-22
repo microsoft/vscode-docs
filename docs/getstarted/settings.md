@@ -11,41 +11,37 @@ MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 
 You can configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
-![VS Code Settings editor](images/settings/hero.png)
-
 VS Code provides several different scopes for settings. When you open a workspace, you will see at least the following two scopes:
 
 * **User Settings** - Settings that apply globally to any instance of VS Code you open.
 * **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
-Workspace settings override user settings. Workspace settings are specific to a project and can be shared across developers on a project.
+In this article, we'll first describe user settings as these are your personal settings for customizing VS Code. Later we'll cover [Workspace settings](#workspace-settings), which will be specific to the project you're working on.
 
->**Note**: A VS Code "workspace" is usually just your project root folder. Workspace settings as well as [debugging](/docs/editor/debugging.md) and [task](/docs/editor/tasks.md) configurations are stored at the root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md). You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces.md) article.
+## Settings editor
 
-## Creating User and Workspace Settings
+To modify user settings, you'll use the Settings editor to review and change VS Code settings.
 
-To open your user and workspace settings, use the following VS Code menu command:
+To open the Settings editor, use the following VS Code menu command:
 
 * On Windows/Linux - **File** > **Preferences** > **Settings**
 * On macOS - **Code** > **Preferences** > **Settings**
 
 You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-In the example below, the side bar location and file icon theme have been changed.
-
-![Configured settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
-
-Changes to settings are reloaded by VS Code as you change them. Configured settings are indicated with a _blue line_ similar to modified lines in the editor. The gear icon opens a context menu with options to reset the setting to its default value, as well as to copy the setting as JSON.
-
->**Note:** Workspace settings are useful for sharing project-specific settings across a team.
-
-## Settings editor
-
-When you open the settings editor, you can search and discover settings you are looking for. When you search using the search widget, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
+When you open the Settings editor, you can search and discover the settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy.
 
 ![Filtering settings by searching in the Settings editor](images/settings/settings-search.png)
 
-**Note**: VS Code extensions can also add their own custom settings and they will be visible under an **Extensions** section.
+In the example below, the Side Bar location and file icon theme have been changed.
+
+![Modified settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
+
+Changes to settings are reloaded by VS Code as you change them. Modified settings are indicated with a **blue line** similar to modified lines in the editor.
+
+The gear icon (**More Actions...** `kb(settings.action.showContextMenu)`) opens a context menu with options to reset the setting to its default value as well as copy the setting ID or JSON name-value pair.
+
+![Settings edit gear context menu](images/settings/more-actions-context-menu.png)
 
 ### Edit settings
 
@@ -55,15 +51,106 @@ Each setting can be edited by either a **checkbox**, an **input** or a **dropdow
 
 ### Settings groups
 
-Settings are represented in groups in the table of contents so that you can navigate them easily. There is a **Commonly Used** group at the top, which shows popular customizations.
+Settings are represented in groups so that you can navigate them easily. It has a **Commonly Used** group at the top, which shows popular customizations.
+
+Below the Source Control Management (SCM) settings are focused by selecting **SCM** in the tree view.
 
 ![Settings editor with the SCM section of the table of contents selected](images/settings/settings-groups.png)
 
-Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
+**Note**: VS Code extensions can also add their own custom settings and they will be visible under an **Extensions** section.
 
-## Settings file locations
+## Changing a setting
 
-By default VS Code shows the Settings editor, but you can still edit the underlying `settings.json` file by using the **Open Settings (JSON)** command or by changing your default settings editor with the `workbench.settings.editor` setting.
+As an example, let's hide the Activity Bar from VS Code. The Activity Bar is the wide border on the left with various icons for different views such as the File Explorer, Search, Source Control, and Extensions. You might want to hide the Activity Bar to give the editor a little more room and if you prefer to open views via the **View** menu or Command Palette.
+
+![Activity Bar display on the left of the editor](images/settings/activity-bar.png)
+
+Open the Settings Editor (`kb((workbench.action.openSettings)`) and type 'activity' in the Search bar. You should see five settings.
+
+![Settings editor with 'activity' in the Search bar with five settings](images/settings/search-for-activity.png)
+
+You can further limit the scope to just those settings under the **Appearance** group in the left side tree. There should not be just three settings.
+
+You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting from the default, you see the blue line to the left.
+
+![Activity Bar: Visible unchecked and Activity Bar is hidden](images/settings/activity-bar-hidden.png)
+
+You can always reset a setting to the default value via the gear context menu **Reset Settings** command.
+
+## Settings editor filters
+
+The Settings editor Search bar has several filters to make it easier to manage your settings.
+
+### Modified settings
+
+To check which settings you have changed, there is a `@modified` filter in the Search bar. This can be useful if you have forgotten whether you changed a setting or if the editor is not behaving as you expect because you accidentally modified a setting.
+
+![Settings editor with @modified filter showing four changed settings](images/settings/modified-settings.png)
+
+### Other filters
+
+There are several other handy filters for searching settings.
+
+![Setting editor @ tag filter dropdown](images/settings/settings-editor-filters.png)
+
+Here are some of the filters available:
+
+* `@ext` - Settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
+* `@feature` - Settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
+* `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
+* `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md)
+
+The Search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
+
+![Clear Settings Search Input button in the right of the Settings editor](images/settings/clear-search-input-button.png)
+
+## Extension settings
+
+Installed VS Code extensions can also contribute their own settings, which you can review under the **Extensions** section of the Settings editor.
+
+![C++ extension settings in the Settings editor](images/settings/cpp-extension-settings.png)
+
+You can also review an extension's settings from the Extensions view (`kb(workbench.view.extensions)`) by selecting the extension and reviewing the **Feature Contributions** tab.
+
+![Python extension Settings list under Feature Contributions tab](images/settings/python-feature-contributions.png)
+
+Extension authors can learn more about adding custom settings in the [configuration contribution point documentation](/api/references/contribution-points.md#contributes.configuration).
+
+## settings.json
+
+The Settings editor is the UI that lets you review and modify setting values that are stored in a `settings.json` file. You can review and edit this file directly by opening it in the editor with the **Preferences: Open Settings (JSON)** command. Settings are written as JSON by specifying the setting ID and value.
+
+![User settings.json open in the editor](images/settings/settings-json-in-editor.png)
+
+The `settings.json` file has full IntelliSense with smart completions for settings and values and description hovers. Errors due to incorrect setting names or JSON formatting are also highlighted.
+
+![IntelliSense for settings.json open in the editor](images/settings/settings-json-intellisense.png)
+
+Some settings can only be edited in `settings.json` such as **Workbench: Color Customizations** and show a **Edit in settings.json** link in the Settings editor.
+
+![Workbench: Color Customizations setting with Edit in settings.json link](images/settings/edit-in-settings-json-link.png)
+
+### Changing settings.json
+
+As an example, lets change the editor line number color. Click the **Edit in settings.json** link and add the following JSON:
+
+```json
+     "workbench.colorCustomizations": {
+        "editorLineNumber.foreground": "#00ff00"
+    }
+```
+
+Here the line numbers in the editor for the `settings.json` file are now green.
+
+![settings.json editor with green line numbers](images/settings/color-customization-example.png)
+
+Remove the `workbench.colorCustomizations` setting code block to return the line number color to the default.
+
+>**Note**: The example above changes the editor line number for all [Color Themes](/docs/getstarted/themes.md), but you can tune colors per [specific Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) or even [create your own Color Theme](/api/extension-guides/color-theme.md#create-a-new-color-theme) extension.
+
+If you prefer to always work directly with `settings.json`, you can set `"workbench.settings.editor": "json"` so that **File** > **Preferences** > **Settings** and the keybinding `kb(workbench.action.openSettings)` always opens the `settings.json` file and not the Setting editor UI.
+
+### Settings file locations
 
 Depending on your platform, the user settings file is located here:
 
@@ -71,9 +158,35 @@ Depending on your platform, the user settings file is located here:
 * **macOS** `$HOME/Library/Application\ Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
+### Reset all settings
+
+While you can reset settings individually via the Settings editor **Reset Setting** command, you can reset all changed settings by opening `settings.json` and deleting the entries between the braces `{}`. Be careful since there will be no way to recover your previous setting values.
+
+## Workspace settings
+
+Workspace settings are specific to a project and can be shared across developers on a project. Workspace settings override user settings.
+
+>**Note**: A VS Code "workspace" is usually just your project root folder. Workspace settings as well as [debugging](/docs/editor/debugging.md) and [task](/docs/editor/tasks.md) configurations are stored at the root in a `.vscode` folder. You can also have more than one root folder in a VS Code workspace through a feature called [Multi-root workspaces](/docs/editor/multi-root-workspaces.md). You can learn more in the [What is a VS Code "workspace"?](/docs/editor/workspaces.md) article.
+
+You can edit via the Settings editor **Workspace** tab or open that tab directly with the **Preferences: Open Workspace Settings** command.
+
+![Settings editor with Workspace tab highlighted](images/settings/settings-editor-workspace-tab.png)
+
+All features of the Settings editor such as settings groups, search, and filtering behave the same for Workspace settings. Not all User settings are available as Workspace settings. For example, application-wide settings related to updates and security can not be overridden by Workspace settings.
+
+### Workspace settings.json location
+
+Similar to User Settings, Workspace Settings are also stored in a `settings.json` file, which you can edit directly via the **Preferences: Open Workspace Settings (JSON)** command.
+
 The workspace settings file is located under the `.vscode` folder in your root folder.
 
+![The File Explorer displaying settings.json under the .vscode folder](images/settings/settings-json-under-vscode.png)
+
 >**Note:** For a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+
+When you add Workspace Settings `settings.json` file to your project or source control, the default settings for the project will be shared by all users of that project
+
+>**Note**: You cannot use the Settings editor to create a workspace setting that matches the setting's default value. If you want your workspace to enforce that a particular setting has its default value, even when somebody has configured that setting as a user setting, you must add it to the workspace `settings.json` file manually.
 
 ## Language-specific editor settings
 
@@ -192,13 +305,38 @@ Here is the list of settings not supported in workspace settings:
 
 The first time you open a workspace that defines any of these settings, VS Code will warn you and then always ignore the values after that.
 
+## Settings Sync
+
+You can share your user settings across your VS Code instances with the [Settings Sync](/docs/editor/settings-sync.md) feature. This feature lets you share settings, keyboard shortcuts, and installed extensions across your VS Code installs on various machines. You can enable Settings Sync via the **Turn on Settings Sync** command on the right of the Settings editor or on the **Accounts** Activity Bar context menu.
+
+![Turn on Settings Sync command in the Accounts Activity Bar menu](images/settings/accounts-context-menu.png)
+
+You can learn more about turning on and configuring Settings Sync in the [Settings Sync](/docs/editor/settings-sync.md) user guide.
+
+## Common questions
+
+### VS Code says "Unable to write settings."
+
+If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write into user settings. Please open user settings to correct errors/warnings in it and try again.", it means your `settings.json` file is ill-formed or has errors. The error can be as simple as a missing comma or incorrect setting value. Open the `settings.json` file with the **Preferences: Open Settings (JSON)** command and you should see the error highlighted with red squiggles.
+
+### How can I reset my user settings?
+
+The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces `{}`, save the file, and VS Code will go back to using the default values.
+
+### When does it make sense to use workspace settings?
+
+If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+
+### Where can I find extension settings?
+
+In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)**) or via IntelliSense in your `settings.json` file (**Preferences: Open Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.
+
 ## Default settings
 
-Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor.
+Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor or see a read-only version of the `defaultSettings.json` via **Preferences: Open Default Settings (JSON)**.
 
 ```json
 {
-
 // Editor
 
     // Controls whether the editor shows CodeLens.
@@ -4067,21 +4205,3 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.scriptExplorerExclude": []
 }
 ```
-
-## Common questions
-
-### VS Code says "Unable to write settings."
-
-If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openSettings)`) and you should see the error highlighted with red squiggles.
-
-### How can I reset my user settings?
-
-The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file. You can open the `settings.json` file with the **Preferences: Open Settings (JSON)** command in the Command Palette (`kb(workbench.action.showCommands)`). Once the file is open in an editor, delete everything between the two curly braces, save the file, and VS Code will go back to using the default values.
-
-### When does it make sense to use workspace settings?
-
-If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
-
-### Where can I find extension settings?
-
-In general, VS Code extensions store their settings in your user or workspaces settings files and they are available through the Settings editor UI (**Preferences: Open Settings (UI)** - `kb(workbench.action.openSettings)`) or directly in the `settings.json` file (**Preferences: Open Settings (JSON)**). Searching by the extension name (for example `gitlens` or `python`) can help filter down settings to just those contributed by an extension.

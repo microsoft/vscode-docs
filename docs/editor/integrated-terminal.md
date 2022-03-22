@@ -624,3 +624,12 @@ This normally means that the program/shell running inside the terminal requested
 ```
 bind 'set enable-bracketed-paste off'
 ```
+
+### Ctrl+A, Ctrl+R output ^A, ^R on zsh
+
+This can happen if zsh is in Vim mode instead of Emacs mode, due to setting `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts.
+
+To workaround this you have two options:
+
+* Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
+* Add `bindkey -e` to your init script to set Emacs explicitly.
