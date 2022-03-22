@@ -319,9 +319,6 @@ In general, VS Code extensions store their settings in your user or workspaces s
 
 Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor or see a read-only version of the `defaultSettings.json` via **Preferences: Open Default Settings (JSON)**.
 
-<details>
-<summary>Click here to expand Default settings</summary>
-
 ```json
 {
 // Editor
@@ -4192,5 +4189,3 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.scriptExplorerExclude": []
 }
 ```
-
-</details>
