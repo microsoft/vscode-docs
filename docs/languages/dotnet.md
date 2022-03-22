@@ -9,7 +9,7 @@ MetaDescription: Get started writing and debugging .NET Core apps with Visual St
 ---
 # Using .NET Core in Visual Studio Code
 
-[.NET Core](https://docs.microsoft.com/dotnet/core) provides a fast and modular platform for creating server apps that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
+[.NET Core](https://docs.microsoft.com/dotnet/core) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
 
 ## Prerequisites
 

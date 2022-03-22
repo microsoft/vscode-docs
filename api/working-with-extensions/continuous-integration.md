@@ -31,7 +31,7 @@ Then, add the following `azure-pipelines.yml` file to the root of your extension
 trigger:
   branches:
     include:
-    - master
+    - main
   tags:
     include:
     - v*
@@ -97,7 +97,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 trigger:
   branches:
     include:
-    - master
+    - main
   tags:
     include:
     - refs/tags/v*
@@ -133,7 +133,7 @@ You can also configure GitHub Actions to run your extension CI. In headless Linu
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -173,7 +173,7 @@ jobs:
 on:
   push:
     branches:
-    - master
+    - main
   release:
     types:
     - created

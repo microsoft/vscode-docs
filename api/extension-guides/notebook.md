@@ -218,10 +218,10 @@ try {
 Rich outputs are the most advanced form of displaying cell outputs. They allow for providing many different representations of the output data, keyed by mimetype. For example, if a cell output was to represent a GitHub Issue, the kernel might produce a rich output with several properties on its `data` field:
 
 * A `text/html` field containing a formatted view of the issue.
-* An `application/json` field containing a machine readable view.
+* A `text/x-json` field containing a machine readable view.
 * An `application/github-issue` field that a `NotebookRenderer` could use to create a fully interactive view of the issue.
 
-In this case, the `text/html` and `application/json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookRenderer` was registered to that mimetype.
+In this case, the `text/html` and `text/x-json` views will be rendered by VS Code natively, but the `application/github-issue` view will display an error if no `NotebookRenderer` was registered to that mimetype.
 
 ```ts
 execution.replaceOutput([new vscode.NotebookCellOutput([
@@ -245,7 +245,7 @@ By default, VS Code can render the following mimetypes:
 
 VS Code will render these mimetypes as code in a built-in editor:
 
-* application/json
+* text/x-json
 * text/x-javascript
 * text/x-html
 * text/x-rust

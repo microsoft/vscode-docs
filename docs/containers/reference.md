@@ -444,6 +444,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
 | `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
 | `envFile` | File of environment variables read in and applied to the containers. | `--env-file <file>` |
+| `projectName` | Alternate project name to use when naming and labeling Docker objects. If using an alternate project name when composing up, the same project name must be specified when composing down. | `--project-name <name>` |
 
 ### up object properties
 
