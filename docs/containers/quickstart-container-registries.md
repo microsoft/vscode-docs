@@ -18,7 +18,7 @@ Users can connect to Docker registries from the following sources:
 - [GitLab](https://gitlab.com/) container registry
 - Any generic private registry that supports the [Docker V2 api](https://docs.docker.com/registry/spec/api/)
 
-## Push the image to a container registry
+## Push an image to a container registry
 
 Before deploying an image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're push to DockerHub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
 
