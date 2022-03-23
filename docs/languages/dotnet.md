@@ -1,5 +1,5 @@
 ---
-Order: 17
+Order: 18
 Area: languages
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
