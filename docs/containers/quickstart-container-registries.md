@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 PageTitle: Quickstart - Using container registries
-DateApproved: 04/21/2020
+DateApproved: 3/23/2022
 MetaDescription: Work with Docker container registries in Visual Studio Code
 ---
 # Using container registries
@@ -20,13 +20,13 @@ Users can connect to Docker registries from the following sources:
 
 ## Push an image to a container registry
 
-Before deploying an image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to DockerHub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
+Before you can deploy a Docker image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to DockerHub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
 
-1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the Azure Account extension.
+1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension.
 
     ![Connect to Registry](images/registries/connect-registry-2.png)
 
-2. Now the registry will be visible under Registries.
+2. Now the registry will be visible under **Registries**.
 
    ![Registries](images/registries/explorer-registries.png)
 
@@ -35,13 +35,13 @@ Before deploying an image, the image must be uploaded to a container registry. T
 
         ![Tag image](images/registries/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
-    tag action. For example, new image name for ACR would be 'mainacr.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
+    tag action. For example, new image name for ACR would be `mainacr.azurecr.io/webapp6:latest` and for Docker Hub it would be `myusername/webapp6:latest`.
 
 4. The image shows up in the Docker Explorer in the **Images** tab under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you're prompted to choose a registry to push to, or create a new registry, and the image is tagged based on the selection.
 
     ![Push image](images/registries/explorer-push-image.png)
 
-5. Once the push command is completed. Refresh the registry node where the image is pushed to and the uploaded image will show up.
+5. Once the push command is completed, refresh the registry node where the image is pushed to and the uploaded image will show up.
 
     ![Refresh registry](images/registries/explorer-refresh-registry.png)
 
