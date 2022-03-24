@@ -28,9 +28,9 @@ jobs:
     displayName: Copy ${{ parameters.artifactName }}
 
   - task: NodeTool@0
-    displayName: Use Node 12.18.0
+    displayName: Use Node 12.22.9
     inputs:
-      versionSpec: 12.18.0
+      versionSpec: 12.22.9
       checkLatest: true
 
   - task: Npm@0
