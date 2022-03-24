@@ -260,14 +260,13 @@ You can bundle separate extensions together in **Extension Packs**. An Extension
 
 An Extension Pack bundles other extensions using the `extensionPack` attribute inside the `package.json` file.
 
-For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
+For example, here is an Extension Pack for PHP that includes a debugger and a language service:
 
 ```json
 {
   "extensionPack": [
-    "felixfbecker.php-debug",
-    "felixfbecker.php-intellisense",
-    "Kasik96.format-php"
+    "xdebug.php-debug",
+    "zobo.php-intellisense"
   ]
 }
 ```
