@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order: 14
 Area: languages
 TOCTitle: R
-ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
+ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
 PageTitle: R in Visual Studio Code
-DateApproved: 03/19/2022
+DateApproved: 03/23/2022
 MetaDescription: Learn about working with the R programming language in Visual Studio Code.
 ---
 
@@ -12,14 +12,13 @@ MetaDescription: Learn about working with the R programming language in Visual S
 
 The [R programming language](https://www.r-project.org/) is a dynamic language built for statistical computing and graphics. R is commonly used in statistical analysis, scientific computing, machine learning, and data visualization.
 
-The [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r) for Visual Studio Code supports extended
-syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
+The [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r) for Visual Studio Code supports extended syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
 
 ![Overview](images/r/overview.png)
 
 ## Getting started
 
-1. [Install R](https://cloud.r-project.org/) (>= 3.4.0) for your platform. For Windows users, it is recommended to have *Save version number in registry* checked in the installation so that the R extension could find the R executable automatically.
+1. [Install R](https://cloud.r-project.org/) (>= 3.4.0) for your platform. For Windows users, it is recommended to check **Save version number in registry** during installation so that the R extension can find the R executable automatically.
 
 2. Install [`languageserver`](https://github.com/REditorSupport/languageserver) in R.
 
@@ -63,17 +62,17 @@ Linting is a feature that checks the code for warnings and potential errors. R c
 
 Besides code completion and linting, the R extension also supports other features such as code formatting, go to definition, rename symbol, find references. Read [R Language Service](https://github.com/REditorSupport/vscode-R/wiki/R-Language-Service) for more details.
 
-## Workspace Viewer
+## Workspace viewer
 
-The workspace viewer is located in the side bar in VS Code and contains the packages in use and global variables in the active R session. Click the R icon and the workspace viewer and help pages viewer will show up. It is a convenient way to view the R workspace, preview existing R objects, find help topics, and read help pages interactively.
+The workspace viewer is located in the side bar in VS Code and contains the packages in use and global variables in the active R session. Select the R icon in the Activity bar and the workspace viewer and help pages viewer will show up. It is a convenient way to view the R workspace, preview existing R objects, find help topics, and read help pages interactively.
 
 ![Workspace Viewer](images/r/workspace-viewer.gif)
 
-Besides the workspace viewer, there are also data viewer, plot viewer, and widget viewer. Read [Interactive Viewers](https://github.com/REditorSupport/vscode-R/wiki/Interactive-viewers) for more details.
+Besides the workspace viewer, there is also a data viewer, a plot viewer, and a widget viewer. Read [Interactive viewers](https://github.com/REditorSupport/vscode-R/wiki/Interactive-viewers) for more details.
 
 ## Debugging
 
-The R debugging capabilities are provided by [R Debugger](https://marketplace.visualstudio.com/items?itemName=RDebugger.r-debugger) extension. It supports debugging R code or an R project by lanuching a new R process or attaching to a running one.
+The R debugging capabilities are provided by [R Debugger](https://marketplace.visualstudio.com/items?itemName=RDebugger.r-debugger) extension. It supports debugging R code or an R project by launching a new R process or attaching to a running one.
 
 When a breakpoint is hit, you can view or alter the variables of the currently selected stack frame, or evaluate an expression in the debug console in the stack frame.
 
