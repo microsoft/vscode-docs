@@ -14,7 +14,7 @@ The [R programming language](https://www.r-project.org/) is a dynamic language b
 
 The [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r) for Visual Studio Code supports extended syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
 
-![Overview](images/r/overview.png)
+[![Overview](images/r/overview.png)](/assets/docs/languages/r/overview.png)
 
 ## Getting started
 
