@@ -48,9 +48,7 @@ If you use the JSON editor for your settings, add the following line:
 
 VS Code lets you add features to the product by installing Microsoft and third-party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.telemetryLevel` setting. Consult the specific extension's documentation to learn about its telemetry reporting and whether it can be disabled.
 
-For example, the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) has a setting to disable its telemetry collection:
-
-![GitHub Pull Request extension disable telemetry](images/telemetry/GHPR-disable-telemetry.png)
+Extension authors may refer to the ["For Extension Authors"](#for-extension-authors) section for guidance on implementing telemetry best practices within their extension.
 
 ## Output channel for telemetry events
 
@@ -128,7 +126,7 @@ When you open a file type for which VS Code does not have any precomputed recomm
 
 ## For extension authors
 
-If you have created a VS Code extension, you can use the VS Code telemetry infrastructure for reporting through the [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) npm module. This module provides a consistent way for extensions to report telemetry over [Azure Monitor and Application Insights](https://azure.microsoft.com/services/monitor/). The module respects the user's decision about whether or not to send telemetry data via the `telemetry.telemetryLevel` setting.
+If you have created a VS Code extension, you can use the VS Code telemetry infrastructure for reporting through the [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) npm module. This module provides a consistent way for extensions to report telemetry over [Azure Monitor and Application Insights](https://azure.microsoft.com/services/monitor/). The module respects the user's decision about whether or not to send telemetry data via the `telemetry.telemetryLevel` setting. Additionally, this module guarantees backwards compatability against previous versions of VS Code.
 
 Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
 
