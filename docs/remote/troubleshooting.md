@@ -516,8 +516,9 @@ The SSH extension provides a command for cleaning up the VS Code Server from the
 If you want to run these steps manually, or if the command isn't working for you, you can run a script like this:
 
 ```bash
-kill -9 `ps ax | grep "remoteExtensionHostAgent.js" | grep -v grep | awk '{print $1}'`
-kill -9 `ps ax | grep "watcherService" | grep -v grep | awk '{print $1}'`
+# Kill server processes
+kill -9 `ps aux | \grep vscode-server | \grep USER | \grep -v grep | awk '{print $2}'`
+# Delete related files and folder
 rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
 ```
 
