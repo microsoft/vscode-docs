@@ -2694,13 +2694,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable default CSS formatter.
     "css.format.enable": true,
 
-    // Add a new line after every CSS rule
+    // Separate rulesets by a blank line.
     "css.format.newlineBetweenRules": true,
 
-    // Separate selectors with newline or not
-    "css.format.selectorSeparatorNewline": true,
+    // Separate selectors with a newline.
+    "css.format.newlineBetweenSelectors": true,
 
-    // Ensure space around selector separators
+    // Ensure a space character around selector separators '>', '+', '~' (e.g. `a > b`).
     "css.format.spaceAroundSelectorSeparator": false,
 
     // Show tag and attribute documentation in CSS hovers.
@@ -2786,13 +2786,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable default LESS formatter.
     "less.format.enable": true,
 
-    // Add a new line after every LESS rule
+    // Separate rulesets by a blank line.
     "less.format.newlineBetweenRules": true,
 
-    // Separate selectors with newline or not
-    "less.format.selectorSeparatorNewline": true,
+    // Separate selectors with a newline.
+    "less.format.newlineBetweenSelectors": true,
 
-    // Ensure space around selector separators
+    // Ensure a space character around selector separators '>', '+', '~' (e.g. `a > b`).
     "less.format.spaceAroundSelectorSeparator": false,
 
     // Show tag and attribute documentation in LESS hovers.
@@ -2875,13 +2875,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable default SCSS formatter.
     "scss.format.enable": true,
 
-    // Add a new line after every SCSS rule
+    // Separate rulesets by a blank line.
     "scss.format.newlineBetweenRules": true,
 
-    // Separate selectors with newline or not
-    "scss.format.selectorSeparatorNewline": true,
+    // Separate selectors with a newline.
+    "scss.format.newlineBetweenSelectors": true,
 
-    // Ensure space around selector separators
+    // Ensure a space character around selector separators '>', '+', '~' (e.g. `a > b`).
     "scss.format.spaceAroundSelectorSeparator": false,
 
     // Show tag and attribute documentation in SCSS hovers.
