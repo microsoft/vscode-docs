@@ -411,7 +411,7 @@ Static files are pieces of content that your web app returns as-is for certain r
 
 Serving static files in Django is something of an art, especially when deploying to production. What's shown here is a simple approach that works with the Django development server and also a production server like Gunicorn. A full treatment of static files, however, is beyond the scope of this tutorial, so for more information, see [Managing static files](https://docs.djangoproject.com/en/3.1/howto/static-files/) in the Django documentation.
 
-In production, you also need to set `DEBUG=False` in `settings.py`, which necessitates some additional work when using containers. For details, see [Issue 13](https://github.com/microsoft/python-sample-vscode-django-tutorial/issues/13).
+In production, you also need to set `DEBUG=False` in `settings.py`, when switching to production environment should also change `ALLOWED_HOSTS = ['*']` in `settings.py`,  which necessitates some additional work when using containers. For details, see [Issue 13](https://github.com/microsoft/python-sample-vscode-django-tutorial/issues/13).
 
 ### Ready the app for static files
 
