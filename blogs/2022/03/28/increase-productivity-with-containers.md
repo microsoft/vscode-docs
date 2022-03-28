@@ -49,7 +49,7 @@ In a simplistic view, physical shipping containers allow goods to stay as a unit
 
 Containers first emerged in the virtual world for this exact same benefit: a streamlined way to ship products. They provide a way to ship your software as a unit, including the binaries, dependencies, and configuration files.  This reduces the time spent on configuration overhead, as the container packages everything that the software needs to be run. The container can then be easily deployed from environment to environment. It’s [predicted](https://www.gartner.com/en/newsroom/press-releases/2020-06-25-gartner-forecasts-strong-revenue-growth-for-global-co) that by 2023, more than 75% of global organizations will be running containerized applications in production, up from less than 30% in 2020.
 
-Traditionally, containers come into play when the code is ready to be deployed to production. While this model certainly streamlines the end of the software development lifecycle, it doesn’t do much for developers when they’re actually writing and testing the code. To solve this gap, container-based development emerged.
+Traditionally, containers are used when the code is ready to be deployed to production. While this model certainly streamlines the end of the software development lifecycle, it doesn’t do much for developers when they’re actually writing and testing the code. To solve this gap, container-based development emerged.
 
 ## Containers for developers
 
