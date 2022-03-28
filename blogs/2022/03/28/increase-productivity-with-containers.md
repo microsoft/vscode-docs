@@ -53,7 +53,7 @@ Traditionally, containers are used when the code is ready to be deployed to prod
 
 ## Containers for developers
 
-The idea behind container-based development is to introduce containers at the very start of the development process.  Developers can then do all coding and testing in environments that are consistent with both the production environment and other dev environments. Because of this consistency across environments, time spent troubleshooting different code behavior from one environment to another can be virtually eliminated.
+The idea behind container-based development is to introduce containers at the very start of the development process.  Developers can then do all coding and testing in environments that are consistent with other environments, like production. Because of this consistency across environments, time spent troubleshooting different code behavior from one environment to another can be virtually eliminated.
 
 This brings us to the concept of a development container: a container that runs a full-featured development environment. A dev container houses its own app and dependencies, such as the required tools, libraries, and runtimes. In the diagram below, you can see that these dependencies exist in the containers and not on the host machine, which means that you can seamlessly switch between tech stacks in no time at all.
 
