@@ -71,11 +71,17 @@ While there are inherent risks with the cloud, it also comes with major benefits
 
 Running containers in the cloud is not a new concept; in fact, [one study](https://www.datadoghq.com/container-report/?utm_source=SocialMedia&utm_medium=Twitter&utm_campaign=OrganicPosting-containerreport) shows that at least half of all containers are running in the cloud. The basic infrastructure involves deploying a container to a cloud-hosted VM. We can deploy our dev container to the cloud  to provide a cloud-hosted development environment.
 
-VS Code’s entry into this space comes from powering [GitHub Codespaces](https://github.com/features/codespaces). Within minutes, you can create and configure a dev container hosted in the cloud that is ready whenever you need it. The same dev containers used in the Remote - Containers extension can be used in Codespaces, providing a seamless transition.
-
-You can then connect via VS Code (in either the browser or desktop) to a development environment that is managed completely for you, no longer relying on your laptop’s resources to handle the demand.
+VS Code’s entry into this space comes from powering [GitHub Codespaces](https://github.com/features/codespaces). Within minutes, you can create and configure a dev container hosted in the cloud that is ready whenever you need it. You can then connect via VS Code (in either the browser or desktop) to a development environment that is managed completely for you, no longer relying on your laptop’s resources to handle the demand.
 
 ![A diagram showing the infrastructure and workflow of Codespaces](codespaces-diagram.png)
+
+The same dev containers used in the Remote - Containers extension can be used in Codespaces, providing a seamless transition to the cloud.
+
+But remember all of those scary possibilities of the cloud? Well, Codespaces alleviates those issues by leveraging Github's cloud features. Codespaces run on compute options hosted on Github.com, and the feature is currently available for those using [GitHub Team or GitHub Enterprise Cloud](https://docs.github.com/en/get-started/learning-about-github/githubs-products).
+
+Github bills on a per-user basis, so you'll never pay for more than what you're using. You must also set a spending limit, getting rid of any surprise expenses. Additionally, GitHub can provide a service level agreement for 99.9% monthly uptime, and [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) is available to ease any security concerns.
+
+With the power of VS Code, GitHub, and dev containers, Codespaces provides a clear path to moving from local development to the cloud.
 
 ## What’s next?
 
