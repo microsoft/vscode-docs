@@ -47,17 +47,17 @@ In a simplistic view, physical shipping containers allow goods to stay as a unit
 
 Containers first emerged in the virtual world for this exact same benefit: a streamlined way to ship products. They provide a way to ship your software as a unit, including the binaries, dependencies, and configuration files.  This reduces the time spent on configuration overhead, as the container packages everything that the software needs to be run. The container can then be easily deployed from environment to environment. It’s [predicted](https://www.gartner.com/en/newsroom/press-releases/2020-06-25-gartner-forecasts-strong-revenue-growth-for-global-co) that by 2023, more than 75% of global organizations will be running containerized applications in production, up from less than 30% in 2020.
 
-Traditionally, containers come into play when the code is ready to be deployed to production. While this model certainly streamlines the end of the software development lifecycle, it doesn’t do much for developers when they’re actually writing and testing the code. To solve this gap, container-based development emerged.
+Traditionally, containers are used when the code is ready to be deployed to production. While this model certainly streamlines the end of the software development lifecycle, it doesn’t do much for developers when they’re actually writing and testing the code. To solve this gap, container-based development emerged.
 
 ## Containers for developers
 
-The idea behind container-based development is to introduce containers at the very start of the development process.  Developers can then do all coding and testing in environments that are consistent with both the production environment and other dev environments. Because of this consistency across environments, time spent troubleshooting different code behavior from one environment to another can be virtually eliminated.
+The idea behind container-based development is to introduce containers at the very start of the development process.  Developers can then do all coding and testing in environments that are consistent with other environments, like production. Because of this consistency across environments, time spent troubleshooting different code behavior from one environment to another can be virtually eliminated.
 
 This brings us to the concept of a development container: a container that runs a full-featured development environment. A dev container houses its own app and dependencies, such as the required tools, libraries, and runtimes. In the diagram below, you can see that these dependencies exist in the containers and not on the host machine, which means that you can seamlessly switch between tech stacks in no time at all.
 
 ![A diagram showing containers with different tech stacks](container-diagram.png)
 
-To provide a way to create and connect to dev containers, VS Code unveiled the [Remote -  Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019. This extension provides the illusion of local development by leveraging the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
+To provide a way to create and connect to dev containers, VS Code unveiled the [Remote -  Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019. This extension enhances local development by leveraging the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
 
 ## Moving to the cloud
 
@@ -71,7 +71,7 @@ While there are inherent risks with the cloud, it also comes with major benefits
 
 ## Containers in the cloud
 
-Running containers in the cloud is not a new concept; in fact, [one study](https://www.datadoghq.com/container-report/?utm_source=SocialMedia&utm_medium=Twitter&utm_campaign=OrganicPosting-containerreport) shows that at least half of all containers are running in the cloud. The basic infrastructure involves deploying a container to a cloud-hosted VM. For a development environment hosted in the cloud, the deployed container is the dev container that houses our code and dependencies. Developers can then connect to this VM to harness the power of containers in the cloud.
+Running containers in the cloud is not a new concept; in fact, [one study](https://www.datadoghq.com/container-report/?utm_source=SocialMedia&utm_medium=Twitter&utm_campaign=OrganicPosting-containerreport) shows that at least half of all containers are running in the cloud. The basic infrastructure involves deploying a container to a cloud-hosted VM. We can deploy our dev container to the cloud  to provide a cloud-hosted development environment.
 
 VS Code’s entry into this space comes from powering [GitHub Codespaces](https://github.com/features/codespaces). Within minutes, you can create and configure a dev container hosted in the cloud that is ready whenever you need it. You can then connect via VS Code (in either the browser or desktop) to a development environment that is managed completely for you, no longer relying on your laptop’s resources to handle the demand.
 
