@@ -21,7 +21,7 @@ But what’s the path look like to get us there? Let’s examine the journey to 
 
 ## Starting out with local development
 
-Let’s begin where all developers start (and where a lot still are): local development. If you’ve uttered the phrase, “But it works on my computer!”, then chances are that you were in the local development phase. This means that everything for your development environment exists locally on your machine.
+Let’s begin where all developers start (and where a lot still are): local development. If you’ve uttered the phrase, “But it works on my computer!”, then chances are you were in the local development phase. This means everything for your development environment exists locally on your machine.
 
 ![A shrug emoji saying "It works on my machine"](it-works-on-my-machine.png)
 
