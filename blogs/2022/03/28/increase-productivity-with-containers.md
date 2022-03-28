@@ -13,7 +13,7 @@ March 28, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaG
 
 One of my favorite things that industry professionals like to ask aspiring developers is, “how many lines of code does the average developer write per day?” Most guess in the hundreds or thousands – they’re always shocked to hear that the actual average figure lies in the tens.
 
-Then what are developers doing with the rest of their time? Sure, there's time spent on important tasks like code design and googling “how to center a div in css”, but an inordinate amount is pure overhead – setting up projects, onboarding other developers, and troubleshooting issues that you can’t seem to repro on your own machine.
+Then what are developers doing with the rest of their time? Sure, there's time spent on important tasks like code design and googling “how to center a div in css”, but an inordinate amount is spent on pure overhead – setting up projects, onboarding other developers, and troubleshooting issues that you can’t seem to repro on your own machine.
 
 The VS Code team has used this as the heart of our research over the years: if we can reduce time spent on overhead, like [reading about environment setup](https://code.visualstudio.com/blogs/2022/03/08/the-tutorial-problem), then we can increase productivity time. We have a vision where developers don’t have to keep fighting the same battles over and over again. This means a consistent dev setup that endures never-ending churn of version upgrades, configuration changes, and hardware refreshes.
 
@@ -77,4 +77,4 @@ VS Code’s entry into this space comes from powering [GitHub Codespaces](https:
 
 ## What’s next?
 
-As developers, we want to spend more time developing software and less time on headache-inducing configuration. Trends in the industry can, and should, be used to empower developers to increase their productivity. We’ve seen how containers and the cloud can take us to the next level – what do you think could be the next step in making our lives even easier?
+As developers, we want to spend more time developing software and less time on headache-inducing configuration. Trends in the industry can, and should, be used to empower developers to increase their productivity. We’ve explored how containers and the cloud can take us to the next level, and you can [get started with the Remote - Containers extension](https://code.visualstudio.com/docs/remote/containers) to see for yourself. Now, what do you think could be the next step in making our lives even easier?
