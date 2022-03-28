@@ -76,7 +76,7 @@ While there are inherent risks with the cloud, it also comes with major benefits
 
 ## Containers in the cloud
 
-Running containers in the cloud is not a new concept; in fact, [one study](https://www.datadoghq.com/container-report/?utm_source=SocialMedia&utm_medium=Twitter&utm_campaign=OrganicPosting-containerreport) shows that at least half of all containers are running in the cloud. The basic infrastructure involves deploying a container to a cloud-hosted VM. For a development environment hosted in the cloud, the deployed container is the dev container that houses our code and dependencies. Developers can then connect to this VM to harness the power of containers in the cloud.
+Running containers in the cloud is not a new concept; in fact, [one study](https://www.datadoghq.com/container-report/?utm_source=SocialMedia&utm_medium=Twitter&utm_campaign=OrganicPosting-containerreport) shows that at least half of all containers are running in the cloud. The basic infrastructure involves deploying a container to a cloud-hosted VM. We can deploy our dev container to the cloud  to provide a cloud-hosted development environment.
 
 VS Code’s entry into this space comes from powering [GitHub Codespaces](https://github.com/features/codespaces). Within minutes, you can create and configure a dev container hosted in the cloud that is ready whenever you need it. You can then connect via VS Code (in either the browser or desktop) to a development environment that is managed completely for you, no longer relying on your laptop’s resources to handle the demand.
 
