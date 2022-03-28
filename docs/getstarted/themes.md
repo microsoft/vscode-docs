@@ -50,6 +50,7 @@ To customize the themes that are used when a color scheme changes, you can set t
 * `workbench.preferredLightColorTheme` - defaults to "Default Light+"
 * `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
 * `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
+* `workbench.preferredHighContrastLightColorTheme` - defaults to "Default High Contrast Light"
 
 ## Customizing a Color Theme
 
