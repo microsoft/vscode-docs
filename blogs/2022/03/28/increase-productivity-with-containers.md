@@ -1,21 +1,21 @@
 ---
 Order: 72
-TOCTitle: Increase Productivity with Containers
-PageTitle: Leveraging Containers to Increase Developer Productivity
+TOCTitle: Moving from Local to Remote Development
+PageTitle: Leveraging Containers to Move from Local to Remote Development
 MetaDescription: Increase productivity by moving your development environment from local, to containers, to the cloud.
 Date: 2022-03-28
 Author: Olivia Guzzardo
 ---
 
-# Leveraging Containers to Increase Developer Productivity
+# Leveraging Containers to Move from Local to Remote Development
 
 March 28, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaGuzzardo)
 
 One of my favorite things that industry professionals like to ask aspiring developers is, “how many lines of code does the average developer write per day?” Most guess in the hundreds or thousands – they’re always shocked to hear that the actual average figure lies in the tens.
 
-Then what are developers doing with the rest of their time? Sure, some of the remaining time is spent on code design and googling “how to center a div in css”, but an inordinate amount is pure overhead – setting up projects, onboarding other developers, and troubleshooting issues that you can’t seem to repro on your own machine.
+Then what are developers doing with the rest of their time? Sure, there's time spent on important tasks like code design and googling “how to center a div in css”, but an inordinate amount is pure overhead – setting up projects, onboarding other developers, and troubleshooting issues that you can’t seem to repro on your own machine.
 
-The VS Code team has used this as the heart of our research over the years: if we can reduce time spent on overhead, then we can increase productivity time. We have a vision where developers don’t have to keep fighting the same battles over and over again. This means a consistent dev setup that endures never-ending churn of version upgrades, configuration changes, and hardware refreshes.
+The VS Code team has used this as the heart of our research over the years: if we can reduce time spent on overhead, like [reading about environment setup](https://code.visualstudio.com/blogs/2022/03/08/the-tutorial-problem), then we can increase productivity time. We have a vision where developers don’t have to keep fighting the same battles over and over again. This means a consistent dev setup that endures never-ending churn of version upgrades, configuration changes, and hardware refreshes.
 
 But what’s the path look like to get us there? Let’s examine the journey to increase developer productivity that has led us from local development, to container-based development, to the cloud.
 
@@ -25,13 +25,11 @@ Let’s begin where all developers start (and where a lot still are): local deve
 
 ![A shrug emoji saying "It works on my machine"](it-works-on-my-machine.png)
 
-Let’s paint a picture of what local development looks like in the real world. Bobby is so excited because he just landed his first software engineering job! On day one, he shows up ready to code. Instead, his boss hands him a stack of onboarding notes detailing all the steps that he needs to install to get the code up and running. He ends up spending his first full week doing nothing but running install commands, then being bounced from developer to developer to help troubleshoot his build issues, until he can finally run the project on his laptop.
+Let’s paint a picture of what local development looks like in the real world. Have you ever joined a new project, ready to get to work and start coding? Just to be handed pages of onboarding notes in order to get your environment up and running. You spend hours and hours waiting for install commands to finish and being bounced from developer to developer to troubleshoot build failures. It can be days before you can successfully run the project.
 
-After a little while on the project, Bobby is delivering features like a champ. Then a security vulnerability test alerts his team that they need to update their .NET Core version. Bobby goes through the effort of upgrading the version on his Windows machine, updating the dependencies in their project, and testing any necessary code changes. He pushes his changes up and everything looks good! Or does it?
+Then once you get over that onboarding hump, your team needs to update one of the project's dependency versions. So then you have to install the updated version on your laptop, test the update, and push up any refactoring updates. But your laptop runs Windows and your teammate's runs MacOS, and the changes aren't working on their environment, and you have even more troubleshooting ahead of you.
 
-As it turns out, a week later his teammate Susie gets back from being out of office and didn’t get the memo about upgrading. When she pulls the latest code, the build fails. After some back and forth figuring out who the heck broke the build while she was gone, she realizes that she still has the outdated version on her machine.
-
-She tries installing the upgraded .NET Core version on her MacBook, but the build is still failing, so Bobby spends hours trying to figure out why on earth it’s not working for Susie – and the seasoned devs are basically back at step one for setting up their environments. And let’s not even get started on how much anxiety they’re going to feel when they need to update the prod environment…
+And THEN you need to make sure all the updates work in prod too...
 
 ![A meme showing a dog saying "This is fine" while sitting in a room on fire](this-is-fine-meme.png)
 
