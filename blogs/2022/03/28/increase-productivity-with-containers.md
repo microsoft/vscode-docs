@@ -60,7 +60,7 @@ This brings us to the concept of a development container: a container that runs 
 ![A diagram showing containers with different tech stacks](container-diagram.png)
 Image Source: Development Containers in Education with Visual Studio Code
 
-To provide a way to create and connect to dev containers, VS Code unveiled the [Remote -  Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019. This extension provides the illusion of local development by leveraging the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
+To provide a way to create and connect to dev containers, VS Code unveiled the [Remote -  Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019. This extension enhances local development by leveraging the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
 
 ## Moving to the cloud
 
