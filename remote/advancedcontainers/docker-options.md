@@ -110,6 +110,14 @@ Podman also has its own implementation of the Compose Spec with [Podman Compose]
 
 ## Other container engines
 
+### Rancher Desktop
+
+[Rancher Desktop](https://docs.rancherdesktop.io/) provides container management and Kubernetes on Windows, macOS, and Linux.
+
+Since Rancher Desktop supports Docker CLI via Moby, you can use Remote - Containers extension with it. You may learn how to get started in Rancher Desktop's [Remote - Containers guide](https://docs.rancherdesktop.io/how-to-guides/vs-code-remote-containers/).
+
+### Additional engines
+
 You can open or review requests for support for other container engines through the [vscode-remote-release repository](https://github.com/microsoft/vscode-remote-release). There are already several feature requests you can explore:
 
 * [nerdctl](https://github.com/microsoft/vscode-remote-release/issues/6014)
