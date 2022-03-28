@@ -3,13 +3,13 @@ Order: 72
 TOCTitle: Moving from Local to Remote Development
 PageTitle: Leveraging Containers to Move from Local to Remote Development
 MetaDescription: Increase productivity by moving your development environment from local, to containers, to the cloud.
-Date: 2022-03-28
+Date: 2022-04-04
 Author: Olivia Guzzardo
 ---
 
 # Leveraging Containers to Move from Local to Remote Development
 
-March 28, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaGuzzardo)
+April 4, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaGuzzardo)
 
 One of my favorite things that industry professionals like to ask aspiring developers is, “how many lines of code does the average developer write per day?” Most guess in the hundreds or thousands – they’re always shocked to hear that the actual average figure lies in the tens.
 
