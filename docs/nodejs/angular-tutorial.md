@@ -164,7 +164,7 @@ If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack exam
 
 ## Angular Extensions
 
-In addition to the functionality, VS Code provides out of the box, you can install VS Code extensions for greater functionality.
+In addition to the features VS Code provides out of the box, VS Code extensions can be installed for greater functionality.
 
 <div class="marketplace-extensions-angular-curated"></div>
 
