@@ -51,10 +51,10 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in a `~/.virtualenvs` folder for [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/).
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv), [Pipenv](https://pypi.org/project/pipenv/), and [Poetry](https://poetry.eustace.io/).
 - Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)).
-- Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
+- Conda environments that contain a Python interpreter. VS Code doesn't show conda environments that don't contain an interpreter.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
-You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code does not locate it automatically.
+You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code doesn't locate it automatically.
 
 > **Note**: Once the ["select interpreter" flow](#select-and-activate-an-environment) is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 
@@ -88,7 +88,7 @@ This will add the path to the Python interpreter from the new virtual environmen
 
 ### Create a conda environment
 
-The Python extension automatically detects existing conda environments provided that the environment contains a Python interpreter. For example, the following command creates a conda environment with the Python 3.4 interpreter and several libraries, which VS Code then shows in the list of available interpreters:
+The Python extension automatically detects existing conda environments if the environment contains a Python interpreter. For example, the following command creates a conda environment with the Python 3.4 interpreter and several libraries, which VS Code then shows in the list of available interpreters:
 
 ```bash
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
@@ -155,13 +155,13 @@ In either case, clicking this area of the Status Bar is a convenient shortcut fo
 
 ### Manually specify an interpreter
 
-If VS Code does not automatically locate an interpreter you want to use, you can browse for the interpreter on your file system or provide the path to it manually.
+If VS Code doesn't automatically locate an interpreter you want to use, you can browse for the interpreter on your file system or provide the path to it manually.
 
 You can do so by running the **Python: Select Interpreter** command and clicking on the **Enter interpreter path...** option that shows on the top of the interpreters list:
 
 ![Enter interpreter path option on the interpreters list](images/environments/enter-interpreter-path.png)
 
-You can then either enter the full path of the Python interpreter directly in the text box (for example, ".venv/Scripts/python.exe"), or you can click on the **Find...** button and browse your file system to find the python executable you wish to select.
+You can then either enter the full path of the Python interpreter directly in the text box (for example, ".venv/Scripts/python.exe"), or you can select the **Find...** button and browse your file system to find the python executable you wish to select.
 
 ![Enter path or browse for an interpreter](images/environments/enter-or-find-interpreter.png)
 
@@ -221,7 +221,7 @@ By using an environment variable, you can easily transfer a project between oper
 
 After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. The environment is also activated automatically when you use the **Terminal: Create New Terminal** command unless you change the `python.terminal.activateEnvironment` setting to `false`.
 
-However, launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Integrated Terminal. Use the **Terminal: Create New Terminal** command after VS Code is running.
+However, launching VS Code from a shell in which a certain Python environment is activated doesn't automatically activate that environment in the default Integrated Terminal. Use the **Terminal: Create New Terminal** command after VS Code is running.
 
 > **Note:** conda environments cannot be automatically activated in the integrated terminal if PowerShell is set as the integrated shell. See [Integrated terminal - Configuration](/docs/editor/integrated-terminal.md#configuration) for how to change the shell.
 
@@ -231,7 +231,7 @@ Changing interpreters with the **Python: Select Interpreter** command doesn't af
 
 ### Choose a debugging environment
 
-By default, the debugger will use the Python interpreter you have selected with the Python extension. However, if you have a `python` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code will give precedence to the `python` property of the selected debug configuration in `launch.json`. If it's not defined, then it will use the path to the Python interpreter you have selected for your workspace.
+By default, the debugger will use the Python interpreter you've selected with the Python extension. However, if you have a `python` property in the debug configuration of `launch.json`, that interpreter is used instead. To be more specific, VS Code will give precedence to the `python` property of the selected debug configuration in `launch.json`. If it's not defined, then it will use the path to the Python interpreter you've selected for your workspace.
 
 For more details on debug configuration, see [Debugging configurations](/docs/python/debugging.md).
 
@@ -245,7 +245,7 @@ We currently support selecting Python 2.7 as an interpreter in your workspace. B
 
 ### Environment variable definitions file
 
-An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values are not supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution). Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but are not applied to the terminal.
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution). Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
 
 By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General settings](/docs/python/settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
@@ -301,14 +301,14 @@ Within this syntax, the following rules apply:
 - Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${env:VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
 - The `$` character can be escaped with a backslash, as in `\$`.
 - You can use recursive substitution, such as `PYTHONPATH=${env:PROJ_DIR}:${env:PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` is not supported.
+- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` isn't supported.
 - Entries with unsupported syntax are left as-is.
 
 ### Use of the PYTHONPATH variable
 
 The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. In VS Code, PYTHONPATH can be set through the terminal settings (terminal.integrated.env.*) and/or within an `.env` file.
 
-When the terminal settings are used, PYTHONPATH affects any tools that are run within the terminal by a user, as well as any action the extension performs for a user that is routed through the terminal such as debugging. However, in this case when the extension is performing an action that isn't routed through the terminal, such as the use of a linter or formatter, then this setting will not have an effect on module look-up.
+When the terminal settings are used, PYTHONPATH affects any tools that are run within the terminal by a user, as well as any action the extension performs for a user that is routed through the terminal such as debugging. However, in this case when the extension is performing an action that isn't routed through the terminal, such as the use of a linter or formatter, then this setting won't have an effect on module look-up.
 
 When PYTHONPATH is set using an `.env` file, it will affect anything the extension does on your behalf and actions performed by the debugger, but it will not affect tools run in the terminal.
 
