@@ -4,39 +4,42 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 10/05/2021
+DateApproved: 03/20/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Using Python environments in VS Code
 
-This article discusses the helpful features provided by the VS Code Python extension for working with Python environments. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages. After you finish this article, you'll have a good understanding of:
+This article discusses the helpful Python environments features available in VS Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
 
-- [General environment concepts](#global-and-virtual-environments)
-- [How to select an environment](#select-and-activate-an-environment)
-- How to create a [virtual](#create-a-virtual-environment) or [conda](#create-a-conda-environment) environment
-- How to [select and activate](#select-and-activate-an-environment) a virtual environment
-- How to work with [Environments and Terminal windows](#environments-and-terminal-windows)
-- [Where the Python extension looks for environments](#where-the-extension-looks-for-environments)
-- Environment variables and [environment variable definitions files (.env)](#environment-variable-definitions-file)
+If you're new to working with Python environments, you can learn more at [Getting started](#getting-started).
 
-While this article provides some information about Python environments and their concepts, it is primarily for understanding how to work with them within VS Code. If you're new to working with Python environments, you can learn more at [Virtual Environments and Packages (Python.org)](https://docs.python.org/3/tutorial/venv.html) and [Installing Python Modules (Python.org)](https://docs.python.org/3/installing/index.html#installing-index).
+## Python environments
 
-> **Note**: If you're looking to get started with Python in Visual Studio Code, refer to the tutorial [Getting Started with Python in VS Code](/docs/python/python-tutorial.md). The [Python tutorial (Python.org)](https://docs.python.org/3/tutorial/index.html) might also be helpful if you're new to the Python language.
+### Global environments
 
-## Global and virtual environments
+By default, any Python interpreter installed runs in its own **global environment**. They aren't specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Any packages that you install or uninstall affect the global environment and all programs that you run within it.
 
-By default, any Python interpreter that you've installed runs in its own **global environment**, which is not specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
+Working in the global environment is an easy way to get started. In time, that environment will become crowded with the different packages, making it difficult to thoroughly test an application.
 
-Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
+### Virtual environments
 
-For this reason, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` environment variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
+To prevent such clutter, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` environment variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
+### Python environment tools
+Once you activate your virtual environment, you’ll need to identify how to manage it and its accompanying packages. The following table explains how to use these Python environments:
+
+|   Tool         | Definition and Purpose    |
+|   ---          | --- |
+|   pip          | Manages packages and is installed with Python by default.      |
+|   virtualenv   | Manages virtual environments and is installed with Python by default.   |
+|   conda        | Installed with **Anaconda** and **Miniconda**. It can be used to manage both packages and virtual environments. Generally used for data science projects.   |
+
 ### Conda environments
 
-A conda environment is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) (conda.io)). Conda works well to create environments with interrelated dependencies as well as binary packages. Unlike virtual environments, which are scoped to a project, conda environments are available globally on any given computer. This availability makes it easy to configure several distinct conda environments and then choose the appropriate one for any given project.
+A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) (conda.io)). Conda works well to create environments with interrelated dependencies as well as binary packages. Unlike virtual environments, which are scoped to a project, conda environments are available globally on any given computer. This availability makes it easy to configure several distinct conda environments and then choose the appropriate one for any given project.
 
 ### Where the extension looks for environments
 
@@ -57,7 +60,7 @@ You can also [manually specify an interpreter](#manually-specify-an-interpreter)
 
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
-## Work with environments
+## Creating environments
 
 ### Create a virtual environment
 
@@ -107,6 +110,8 @@ Additional notes:
 
 - You can manually specify the path to the conda executable to use for activation (version 4.4+). To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.condaPath`, which is in the Python extension section of User Settings, with the appropriate path.
 
+## Work with Python interpreters
+
 ### Select and activate an environment
 
 By default, the Python extension looks for and uses the first Python interpreter it finds in the system path. To select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
@@ -136,7 +141,7 @@ run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=1351
 
 > **Note**: By default, VS Code uses the interpreter selected for your workspace when debugging code. You can override this behavior by specifying a different path in the `python` property of a debug configuration. See [Choose a debugging environment](#choose-a-debugging-environment).
 
-The Status Bar always shows the current interpreter.
+The selected interpreter version will show on the right side of the Status Bar.
 
 ![Status Bar showing a selected interpreter](images/environments/selected-interpreter-status-bar.png)
 
@@ -326,6 +331,13 @@ Then set `python.envFile` in your `settings.json` file to point to the `.env` fi
 The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`: a semicolon (`;`) on Windows and a colon (`:`) on Linux/macOS. Invalid paths are ignored. If you find that your value for PYTHONPATH isn't working as expected, make sure that you're using the correct separator between locations for the operating system. For example, using a colon to separate locations on Windows, or using a semicolon to separate locations on Linux/macOS results in an invalid value for PYTHONPATH, which is ignored.
 
 > **Note**: PYTHONPATH does **not** specify a path to a Python interpreter itself. For additional information about PYTHONPATH, read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH).
+
+## Getting started
+
+- [Getting Started with Python in VS Code](/docs/python/python-tutorial.md) - Learn how to edit, run, and debug code in VS Code.
+- [Virtual Environments and Packages (Python.org)](https://docs.python.org/3/tutorial/venv.html) - Learn more about virtual environments and packages.
+- [Installing Python Modules (Python.org)](https://docs.python.org/3/installing/index.html#installing-index) - Learn how to install Python modules.
+- [Python tutorial (Python.org)](https://docs.python.org/3/tutorial/index.html) - Learn more about the Python language.
 
 ## Next steps
 
