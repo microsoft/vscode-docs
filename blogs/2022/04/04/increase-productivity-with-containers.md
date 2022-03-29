@@ -65,7 +65,9 @@ With all these reasons to be weary of the cloud, it can be uncomfortable to thin
 
 Turns out staying in our comfort zone doesn’t sound so peachy either.
 
-While there are inherent risks with the cloud, it also comes with major benefits: scalability, faster performance, and easier maintenance, just to name a few. Hosting in the cloud gives you access to another machine’s resources that can then be spun up quickly and available anywhere. Combine that with the benefits of container-based development, and developers can be up and coding in the blink of an eye.
+While there are inherent risks with the cloud, if you choose your cloud hosting service wisely, these risks can be mitigated - we'll talk more about that shortly. With these concerns alleviated, you're left to reap some major benefits of the cloud: scalability, faster performance, and easier maintenance, just to name a few.
+
+Hosting in the cloud gives you access to another machine’s resources that can then be spun up quickly and available anywhere. Combine that with the benefits of container-based development, and developers can be up and coding in the blink of an eye.
 
 ## Containers in the cloud
 
