@@ -16,6 +16,8 @@ You can use Docker with the [Remote - Containers](https://marketplace.visualstud
 * Docker installed on another machine or remote environment.
   * You only need Docker installed on the remote host, rather than Docker installed locally.
 * Other Docker compliant CLIs, installed locally or in a remote environment.
+  * For instance, [Rancher Desktop](https://docs.rancherdesktop.io/) is another way to install Docker, providing container management and Kubernetes on Windows, macOS, and Linux.
+    * Since Rancher Desktop supports Docker CLI via Moby, you can use Remote - Containers extension with it. You may learn how to get started in Rancher Desktop's [Remote - Containers guide](https://docs.rancherdesktop.io/how-to-guides/vs-code-remote-containers/).
   * Remote - Containers interacts with CLIs; it makes no assumptions about how a container engine works and does not interact with container engines or daemons directly.
   * Note that other Docker compliant CLIs are not officially supported.
 
@@ -109,14 +111,6 @@ To work around issues with rootless Podman (for example, not respecting a non-ro
 Podman also has its own implementation of the Compose Spec with [Podman Compose](https://github.com/containers/podman-compose).
 
 ## Other container engines
-
-### Rancher Desktop
-
-[Rancher Desktop](https://docs.rancherdesktop.io/) provides container management and Kubernetes on Windows, macOS, and Linux.
-
-Since Rancher Desktop supports Docker CLI via Moby, you can use Remote - Containers extension with it. You may learn how to get started in Rancher Desktop's [Remote - Containers guide](https://docs.rancherdesktop.io/how-to-guides/vs-code-remote-containers/).
-
-### Additional engines
 
 You can open or review requests for support for other container engines through the [vscode-remote-release repository](https://github.com/microsoft/vscode-remote-release). There are already several feature requests you can explore:
 
