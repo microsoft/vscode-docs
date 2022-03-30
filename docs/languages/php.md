@@ -63,7 +63,7 @@ To disable the built-in PHP smart completions in favor of suggestions from an in
 
 ## Debugging
 
-PHP debugging with **XDebug** is supported through a [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug). Follow the extension's instructions for configuring **XDebug** to work with VS Code.
+PHP debugging with **XDebug** is supported through a [PHP Debug extension](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug). Follow the extension's instructions for configuring **XDebug** to work with VS Code.
 
 ## Next steps
 

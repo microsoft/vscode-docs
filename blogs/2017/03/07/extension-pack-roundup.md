@@ -71,7 +71,6 @@ Some of my favorite extensions are:
 
 * **[Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)** by [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance). If you use Azure resources, this is a must. We created this pack to group the various Azure extensions into one installation.
 * **[React Native iOS Pack](https://marketplace.visualstudio.com/items?itemName=bierner.react-native-ios-pack)** by [Matt Bierner](https://marketplace.visualstudio.com/search?term=publisher%3A%22Matt%20Bierner%22&target=VSCode). Matt has put together good tools for working with React Native, Objective-C, and Swift.
-* **[PHP Extension Pack](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-pack)** by [Felix Becker](https://marketplace.visualstudio.com/search?term=publisher%3A%22Felix%20Becker%22&target=VSCode). Felix has created a couple popular PHP extensions for VS Code. This is a simple pack he made to bundle them together.
 * **[Node.js Extension Pack](https://marketplace.visualstudio.com/items?itemName=waderyan.nodejs-extension-pack)** by [waderyan](https://marketplace.visualstudio.com/search?term=publisher%3A%22Wade%20Anderson%22&target=VSCode). Disclaimer: Shameless self-promotion 😊. I created this extension to pull together my favorite Node.js extensions from previous blog posts.
 
 ## Want to see your extension featured?

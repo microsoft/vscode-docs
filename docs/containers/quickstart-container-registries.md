@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Registries
 ContentId: 318A4299-AF24-4ADA-863D-E73B314FC440
 PageTitle: Quickstart - Using container registries
-DateApproved: 04/21/2020
+DateApproved: 3/23/2022
 MetaDescription: Work with Docker container registries in Visual Studio Code
 ---
 # Using container registries
@@ -17,6 +17,51 @@ Users can connect to Docker registries from the following sources:
 - [Docker Hub](https://hub.docker.com/)
 - [GitLab](https://gitlab.com/) container registry
 - Any generic private registry that supports the [Docker V2 api](https://docs.docker.com/registry/spec/api/)
+
+## Push an image to a container registry
+
+Before you can deploy a Docker image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to DockerHub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
+
+1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension.
+
+    ![Connect to Registry](images/registries/connect-registry-2.png)
+
+2. Now the registry will be visible under **Registries**.
+
+   ![Registries](images/registries/explorer-registries.png)
+
+3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry. If the image isn't tagged when you try to push it, VS Code asks you what registry you want to associate with the image.
+    - Images you previously built appear in the Docker Explorer under the **Images** tab. Right-click and choose **Tag...**.
+
+        ![Tag image](images/registries/explorer-tag-image.png)
+    - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
+    tag action. For example, new image name for ACR would be `mainacr.azurecr.io/webapp6:latest` and for Docker Hub it would be `myusername/webapp6:latest`.
+
+4. The image shows up in the Docker Explorer in the **Images** tab under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you're prompted to choose a registry to push to, or create a new registry, and the image is tagged based on the selection.
+
+    ![Push image](images/registries/explorer-push-image.png)
+
+5. Once the push command is completed, refresh the registry node where the image is pushed to and the uploaded image will show up.
+
+    ![Refresh registry](images/registries/explorer-refresh-registry.png)
+
+## Docker Hub
+
+This connects to [Docker Hub](https://hub.docker.com/) and lists all of the repositories and images under the given account.
+Once you select this option, you will be required to type in your Docker Hub credentials.
+
+![Docker Hub](images/registries/docker-hub.png)
+
+For each repository in the Docker Hub registry, here are the actions that can be performed:
+
+- **Pull repository**: copies all of the images in a given repository locally
+- **Open in browser**: opens the browser and navigates to the given repository on Docker Hub
+- **Refresh**: refreshes the repository to reflect changes
+
+For each tagged image in a repository, here are the actions that can be performed:
+
+- **Pull image**: copies the latest version of the image locally
+- **Open in browser**: opens the browser and navigates to the given image on Docker Hub
 
 ## Azure Container Registry
 
@@ -52,24 +97,6 @@ For each tagged image in a repository, here are the actions that can be performe
 - **Untag image**: untags the image
 - **Delete image**: deletes the image permanently
 
-## Docker Hub
-
-This connects to [Docker Hub](https://hub.docker.com/) and lists all of the repositories and images under the given account.
-Once you select this option, you will be required to type in your Docker Hub credentials.
-
-![Docker Hub](images/registries/docker-hub.png)
-
-For each repository in the Docker Hub registry, here are the actions that can be performed:
-
-- **Pull repository**: copies all of the images in a given repository locally
-- **Open in browser**: opens the browser and navigates to the given repository on Docker Hub
-- **Refresh**: refreshes the repository to reflect changes
-
-For each tagged image in a repository, here are the actions that can be performed:
-
-- **Pull image**: copies the latest version of the image locally
-- **Open in browser**: opens the browser and navigates to the given image on Docker Hub
-
 ## GitLab
 
 This connects to Docker registries in your [GitLab](https://gitlab.com/) account.
@@ -85,3 +112,7 @@ For each repository in the GitLab registry, here are the actions that can be per
 For each tagged image in a repository, here are the actions that can be performed:
 
 - **Pull image**: copies the latest version of the image locally
+
+## Next steps
+
+- [Deploy to Azure App Service](/docs/containers/app-service.md)

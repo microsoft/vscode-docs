@@ -85,6 +85,8 @@ The easiest way to get started is to try one of the sample development container
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
+> Note: If you already have VS Code and Docker installed, then you may use [open in dev container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-python). You can learn more about this and how to add it to your repos in the [create a dev container guide](/docs/remote/create-dev-container.md#add-configuration-files-to-a-repository).
+
 ## Quick start: Open an existing folder in a container
 
 This quick start covers how to set up a dev container for an existing project to use as your full-time development environment using existing source code on your filesystem. Follow these steps:
