@@ -519,7 +519,7 @@ If you want to run these steps manually, or if the command isn't working for you
 # Kill server processes
 kill -9 `ps aux | \grep vscode-server | \grep USER | \grep -v grep | awk '{print $2}'`
 # Delete related files and folder
-rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
+rm -rf $HOME/.vscode-server # Or ~/.vscode-server-insiders
 ```
 
 The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
