@@ -646,7 +646,7 @@ will appear in the uri that is passed to the <a href="#UriHandler">UriHandler</a
   }
 });
 
-const callableUri = await vscode.env.asExternalUri(vscode.Uri.parse(`${vscode.env.uriScheme}://my.extension/did-authenticate`));
+const callableUri = await vscode.env.asExternalUri(vscode.Uri.parse(&#96;${vscode.env.uriScheme}://my.extension/did-authenticate&#96;));
 await vscode.env.openExternal(callableUri);
 </code></pre>
 <p><em>Note</em> that extensions should not cache the result of <code>asExternalUri</code> as the resolved uri may become invalid due to
