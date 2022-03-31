@@ -243,11 +243,11 @@ You can try it out by setting `terminal.integrated.shellIntegration.enabled` to 
 
 ### Complex bash $PROMPT_COMMAND
 
-In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. We take a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature we disable shell integration with the following message:
+In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. VS Code takes a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature, shell integration is disabled with the following message:
 
 > `Shell integration cannot be activated due to complex PROMPT_COMMAND: ...`
 
-If you hit this error it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
+If you hit this error, it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
 
 ```sh
 prompt() {

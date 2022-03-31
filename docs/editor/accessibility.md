@@ -67,7 +67,6 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 
 VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the following screen readers: [NVDA](https://www.nvaccess.org) and JAWS on Windows,  VoiceOver on macOS and Orca on Linux.
 
-
 > For NVDA, we recommend staying in focus mode and using the hotkeys to navigate, instead of using browse mode.
 
 The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.nextInFiles)` and `kb(editor.action.marker.prevInFiles)`) allow screen readers to announce the error or warning messages.

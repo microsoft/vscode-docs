@@ -80,8 +80,6 @@ For information about creating and using debugging configurations, see the [Init
 
 ![Start debugging](images/debugging/debug-start-button.png)
 
-
-
 ## Command line debugging
 
 The debugger can also be run from the command line. The debugger command line syntax is as follows:
@@ -394,10 +392,10 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 | `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console. |
 
 ### `purpose`
+
  If set to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
  If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the **Debug Python File in Terminal** button on the top-right of the editor.
  Note that the `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
-
 
 ### `autoReload`
 
