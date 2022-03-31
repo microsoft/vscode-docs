@@ -12,30 +12,28 @@ MetaSocialImage: images/tutorial/social.png
 
 This article discusses the helpful Python environments features available in VS Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
 
-If you're new to working with Python environments, you can learn more at [Getting started](#getting-started).
-
 ## Python environments
 
 ### Global environments
 
-By default, any Python interpreter installed runs in its own **global environment**. They aren't specific to any one project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Any packages that you install or uninstall affect the global environment and all programs that you run within it.
+By default, any Python interpreter installed runs in its own **global environment**. They aren't specific to a particular project. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. If Python is not added to PATH, run `py` (Windows) at a new command prompt instead. Any packages that you install or uninstall affect the global environment and all programs that you run within it.
 
-Working in the global environment is an easy way to get started. In time, that environment will become crowded with the different packages, making it difficult to thoroughly test an application.
+Working in the global environment is an easy way to get started. If you install packages in that environment, in time it will become crowded, making it difficult to thoroughly test an application.
 
 ### Virtual environments
 
-To prevent such clutter, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that environment's subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. Be aware that if you're not using a **virtual environment**, and you have multiple versions of Python installed and set in the `path` environment variable, you might need to specify the Python interpreter to use in the terminal for installing packages to the global environment.
+To prevent such clutter, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. You might need to specify the Python interpreter to use the terminal for installing packages to the global environment. Consider this option if you're not using a **virtual environment**, have multiple versions of Python installed, and are set in the `path` environment variable.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
 ### Python environment tools
 Once you activate your virtual environment, you’ll need to identify how to manage it and its accompanying packages. The following table explains how to use these Python environments:
 
-|   Tool         | Definition and Purpose    |
-|   ---          | --- |
-|   pip          | Manages packages and is installed with Python by default.      |
-|   virtualenv   | Manages virtual environments and is installed with Python by default.   |
-|   conda        | Installed with **Anaconda** and **Miniconda**. It can be used to manage both packages and virtual environments. Generally used for data science projects.   |
+|   Tool   | Definition and Purpose |
+|   :---:  | --- |
+|   pip    | The Python package manager that installs and updates packages. It's installed with Python 3.4+ by default.      |
+|   venv   | Allows you to manage separate package installations for different projects and is installed with Python 3 by default. For Python 2, **virtualenv** would need to be installed manually. |
+|   conda  | Installed with **Anaconda** and **Miniconda**. It can be used to manage both packages and virtual environments. Generally used for data science projects.   |
 
 ### Conda environments
 
