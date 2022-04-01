@@ -25,6 +25,16 @@ You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **
 
 When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20%.
 
+## Color vision accessibility
+
+You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use Extensions `kbstyle(Ctrl+Shift+X)` to access the Marketplace extension search bar and enter "colorblind" to populate relevant options.
+
+![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
+
+To change the [color theme](/docs/getstarted/themes.md), go to **File** > **Preferences** > **Color Theme** `kbstyle(Ctrl+K)` `kbstyle(Ctrl+T)`.
+
+![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
+
 ## High Contrast theme
 
 We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
