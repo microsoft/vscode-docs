@@ -104,6 +104,17 @@ You can extend VS Code's CSS support through a declarative [custom data format](
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
 
+## Formatting
+
+The CSS Languages Features extension also providesa formatter. The formatter works with CSS, LESS and SCSS. It is implemented by the [JS Beautify library](https://github.com/beautify-web/js-beautify) and comes with the following settings:
+
+* `css.format.enable` - Enable/disable default CSS formatter.
+* `css.format.newlineBetweenRules` - Separate rulesets by a blank line.
+* `css.format.newlineBetweenSelectors` - Separate selectors with a new line.
+* `css.format.spaceAroundSelectorSeparator` - Ensure a space character around selector separators '>', '+', '~' (for example, `a > b`).
+
+The same settings also exist for `less` and `scss`.
+
 ## Transpiling Sass and Less into CSS
 
 VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/editor/tasks.md). We can use this to transpile `.scss` or `.less` files into `.css` files. Let's walk through transpiling a simple Sass/Less file.
