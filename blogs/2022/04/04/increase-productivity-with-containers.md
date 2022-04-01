@@ -61,7 +61,7 @@ To provide a way to create and connect to dev containers, VS Code unveiled the [
 
 Let’s be real: everything is moving to the cloud, so why should your development environment be any different? Well, for one, the cloud is vulnerable to attacks. For two, it seems like we’re constantly hearing about major outages. For three, it can be pricey. For four… wait, isn’t the cloud supposed to be a good thing?
 
-With all these reasons to be weary of the cloud, it can be uncomfortable to think about something as important as our development environment being hosted there.  So let’s stay comfortable! Let’s continue relying on our 6-year-old laptop that makes really weird whirring noises if you try to open an email too quickly, let alone try to build a project. And we’ll just comfortably wait for the inevitability of when the laptop crashes, and then once we get our new laptop, we have to rebuild our dev environment and try to remember exactly how we had it configured.
+With all these reasons to be wary of the cloud, it can be uncomfortable to think about something as important as our development environment being hosted there.  So let’s stay comfortable! Let’s continue relying on our 6-year-old laptop that makes really weird whirring noises if you try to open an email too quickly, let alone try to build a project. And we’ll just comfortably wait for the inevitability of when the laptop crashes, and then once we get our new laptop, we have to rebuild our dev environment and try to remember exactly how we had it configured.
 
 Turns out staying in our comfort zone doesn’t sound so peachy either.
 
