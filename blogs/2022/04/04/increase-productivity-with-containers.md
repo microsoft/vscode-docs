@@ -1,13 +1,13 @@
 ---
 Order: 72
 TOCTitle: Moving from Local to Remote Development
-PageTitle: Leveraging Containers to Move from Local to Remote Development
+PageTitle: Using Containers to Move from Local to Remote Development
 MetaDescription: Increase productivity by moving your development environment from local, to containers, to the cloud.
 Date: 2022-04-04
 Author: Olivia Guzzardo
 ---
 
-# Leveraging Containers to Move from Local to Remote Development
+# Using Containers to Move from Local to Remote Development
 
 April 4, 2022 by Olivia Guzzardo, [@OliviaGuzzardo](https://twitter.com/OliviaGuzzardo)
 
