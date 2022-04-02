@@ -35,6 +35,36 @@ To change the [color theme](/docs/getstarted/themes.md), go to **File** > **Pref
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
+### Customizing warning colors in VS Code
+
+The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
+
+> Note: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#_customizing-a-color-theme) to learn more about overriding the colors in your current theme.
+
+To customize the error/warning squigglies, go to **File** > **Preference** > **Settings**. Then open the UI settings by selecting the file icon shown in the image below.
+
+![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
+
+Once the `kbstyle(settings.json)` file populates, nest the following code inside the outermost curly braces. You'll be able to assign a color to each object by entering a hex code.
+
+```JSON
+    "workbench.colorCustomizations": {
+
+    "editorError.foreground": "#ffef0f",
+
+    "editorWarning.foreground": "#3777ff"
+}
+```
+
+![JSON code to alter error/warning squiggle colors](images/accessibility/accessibility-extension-squiggles.png)
+
+* `kbstyle(editorError.foreground)` - Overrides the wavy line beneath an error.
+* `kbstyle(editorWarning.foreground)` - Overrides the wavy line beneath a warning.
+* `kbstyle(editorError.background)` - Overrides the highlight color of an error.
+* `kbstyle(editorWarning.background)` - Overrides the highlight color of a warning.
+
+Assigning a color to the background of `kbstyle(editorError)` and `kbstyle(editorWarning)` also helps to identify potential issues. The color that you choose will highlight the respective error or warning.
+
 ## High Contrast theme
 
 We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
