@@ -15,7 +15,7 @@ One of my favorite things that industry professionals like to ask aspiring devel
 
 Then what are developers doing with the rest of their time? Sure, there's time spent on important tasks like code design and searching "How to center a div in CSS", but an inordinate amount is spent on pure overhead – setting up projects, onboarding other developers, and troubleshooting issues that you can't seem to repro on your own machine.
 
-The VS Code team has used this insight as the heart of their research over the years: if we can reduce time spent on overhead, like [reading about environment setup](https://code.visualstudio.com/blogs/2022/03/08/the-tutorial-problem), then we can increase productivity time. We have a vision where developers don't have to keep fighting the same battles over and over again. This means a consistent development setup that can handle the never-ending churn of version upgrades, configuration changes, and hardware refreshes.
+The Visual Studio Code team has used this insight as the heart of their research over the years: if we can reduce time spent on overhead, like [reading about environment setup](https://code.visualstudio.com/blogs/2022/03/08/the-tutorial-problem), then we can increase productivity time. We have a vision where developers don't have to keep fighting the same battles over and over again. This means a consistent development setup that can handle the never-ending churn of version upgrades, configuration changes, and hardware refreshes.
 
 But what does the path look like to get us there? Let's examine the journey to increase developer productivity that has led us from local development, to container-based development, to the cloud.
 
@@ -81,7 +81,7 @@ The same dev containers used in the Remote - Containers extension can be used in
 
 But remember all of those scary possibilities of the cloud? Well, GitHub Codespaces alleviates those issues by leveraging GitHub's cloud features. Codespaces run on compute options hosted on GitHub.com, and the feature is currently available for developers using [GitHub Team or GitHub Enterprise Cloud](https://docs.github.com/get-started/learning-about-github/githubs-products).
 
-GitHub bills on a per-user basis, so you'll never pay for more than what you're using. You must also set a spending limit, getting rid of any surprise expenses. Additionally, GitHub can provide a service level agreement for 99.9% monthly uptime, and [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security) is available to ease any security concerns.
+GitHub bills on a per-user basis, so you'll never pay for more than what you're using. You also set a spending limit, getting rid of any surprise expenses. Additionally, GitHub can provide a service level agreement for 99.9% monthly uptime, and [GitHub Advanced Security](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security) is available to ease any security concerns.
 
 With the power of VS Code, GitHub, and dev containers, GitHub Codespaces provides a clear path to moving from local development to the cloud.
 
