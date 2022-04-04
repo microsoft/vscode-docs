@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 3/3/2022
+DateApproved: 3/30/2022
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -228,7 +228,11 @@ Extensions make use of links in the terminal, such as GitLens, to identify branc
 
 ## Shell integration
 
-Shell integration is an experimental feature, which will turn on certain features like enhanced command tracking and current working directory detection. Shell integration works by injecting a script that is run when the shell is initialized and lets the terminal gain additional insights into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
+Shell integration is an experimental feature, which will turn on certain features like enhanced command tracking and current working directory detection.
+
+![Command decorations show up on the left of the command as well as in the scroll bar when shell integration is enabled](images/integrated-terminal/shell-integration.png)
+
+Shell integration works by injecting a script that is run when the shell is initialized and lets the terminal gain additional insights into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
 
 Supported shells:
 
@@ -236,6 +240,21 @@ Supported shells:
 * Windows: pwsh
 
 You can try it out by setting `terminal.integrated.shellIntegration.enabled` to `true`.
+
+### Complex bash $PROMPT_COMMAND
+
+In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. VS Code takes a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature, shell integration is disabled with the following message:
+
+> `Shell integration cannot be activated due to complex PROMPT_COMMAND: ...`
+
+If you hit this error, it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
+
+```sh
+prompt() {
+   printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
+}
+PROMPT_COMMAND=prompt
+```
 
 ## Local echo
 

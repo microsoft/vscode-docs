@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 3/3/2022
+DateApproved: 3/30/2022
 ---
 # Create a development container
 
@@ -434,6 +434,22 @@ You can easily share a customized dev container definition for your project by a
 ![Dev container configuration file reopen notification](images/containers/dev-container-reopen-prompt.png)
 
 Beyond the advantages of having your team use a consistent environment and tool-chain, this also makes it easier for new contributors or team members to be productive quickly. First-time contributors will require less guidance and hit fewer issues related to environment setup.
+
+### Add an open in dev container badge
+
+You may also add a badge or link in your repository so that users can easily open your project in Remote - Containers. It will install the Remote - Containers extension if necessary, clone the repo into a container [volume](/remote/advancedcontainers/improve-performance.md#use-clone-repository-in-container-volume), and start up the dev container.
+
+As an example, a badge to open [https://github.com/microsoft/vscode-remote-try-java](https://github.com/microsoft/vscode-remote-try-java) would look like:
+
+```markdown
+[![Open in Remote - Containers](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+```
+
+You can also include an `open in dev container` link directly:
+
+```markdown
+If you already have VS Code and Docker installed, you can click the badge above or [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java) to get started. Clicking these links will cause VS Code to automatically install the Remote - Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+```
 
 ### Alternative: Repository configuration folders
 

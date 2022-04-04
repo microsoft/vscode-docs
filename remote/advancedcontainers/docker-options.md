@@ -5,7 +5,7 @@ TOCTitle: Docker options
 PageTitle: Remote - Containers Docker options
 ContentId: 5098c2a8-5aba-4a48-9e9b-5dabf1db93ca
 MetaDescription: Remote - Containers Docker options
-DateApproved: 3/3/2022
+DateApproved: 3/30/2022
 ---
 
 # Alternate ways to install Docker
@@ -16,6 +16,8 @@ You can use Docker with the [Remote - Containers](https://marketplace.visualstud
 * Docker installed on another machine or remote environment.
   * You only need Docker installed on the remote host, rather than Docker installed locally.
 * Other Docker compliant CLIs, installed locally or in a remote environment.
+  * For instance, [Rancher Desktop](https://docs.rancherdesktop.io/) is another way to install Docker, providing container management and Kubernetes on Windows, macOS, and Linux.
+    * Since Rancher Desktop supports Docker CLI via [Moby](https://mobyproject.org/), you can use Remote - Containers extension with it. You may learn how to get started in Rancher Desktop's [Remote - Containers guide](https://docs.rancherdesktop.io/how-to-guides/vs-code-remote-containers/).
   * Remote - Containers interacts with CLIs; it makes no assumptions about how a container engine works and does not interact with container engines or daemons directly.
   * Note that other Docker compliant CLIs are not officially supported.
 

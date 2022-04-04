@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 3/3/2022
+DateApproved: 3/30/2022
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -160,6 +160,14 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 ## Code Action
 
 Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
+
+## Inlay Hints
+
+Some languages provide inlay hints: that is additional information about source code that is rendered inline. This is usually used to show infered types. The sample below shows inlay hints that display the inferred types of JavaScript variables and function return types.
+
+![Inlay hints for inferred types in TypeScript](images/editingevolved/inlay-hints.png)
+
+Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled`-setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
 
 ## Outgoing link protection
 
