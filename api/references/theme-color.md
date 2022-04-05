@@ -351,6 +351,7 @@ The current line is typically shown as either background highlight or a border (
 The color for unicode highlights
 
 - `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
+-  `editorUnicodeHighlight.background`: Background color used to highlight unicode characters.
 
 
 The link color is visible when clicking on a link.
@@ -760,6 +761,10 @@ The following customizations are available:
 - `terminal.ansiWhite`: 'White' ANSI color in the terminal.
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 - `terminal.selectionBackground`: The selection background color of the terminal.
+- `terminal.findMatchBackground`: Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content.
+- `terminal.findMatchBorder`: Border color of the current search match in the terminal.
+- `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.
+- `terminal.findMatchHighlightBorder`: Border color of the other search matches in the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
@@ -767,6 +772,8 @@ The following customizations are available:
 - `terminalCommandDecoration.defaultBackground`: The default terminal command decoration background color.
 - `terminalCommandDecoration.successBackground`: The terminal command decoration background color for successful commands.
 - `terminalCommandDecoration.errorBackground`: The terminal command decoration background color for error commands.
+- `terminalOverviewRuler.cursorForeground`: The overview ruler cursor color.
+- `terminalOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches in the terminal.
 
 ## Debug colors
 
