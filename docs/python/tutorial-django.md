@@ -11,7 +11,11 @@ MetaDescription: Python Django tutorial demonstrating IntelliSense, code navigat
 
 Django is a high-level Python framework designed for rapid, secure, and scalable web development. Django includes rich support for URL routing, page templates, and working with data.
 
-In this Django tutorial, you create a simple Django app with three pages that use a common base template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about Django itself, such as working with data models and creating an administrative interface. For guidance on those aspects, refer to the Django documentation links at the end of this tutorial.
+In this Django tutorial, you create a simple Django app with three pages that use a common **base** template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. This tutorial does not explore various details about Django itself, such as working with data models and creating an administrative interface. For guidance on those aspects, refer to the Django documentation links at the end of this tutorial.
+
+> **Note**: VS Code does not have built-in support for Django templates. The default HTML extension does not provide correct syntax highlighting for Django template tags and may break Django template tags.
+
+> **Note**: VS Code does not have built-in support for running Django tests (e.g. `manage.py test`) using the Testing panel. Your options at this time are to: 1) manually run your Django tests from a terminal (e.g. `python manage.py test`) and use alternate means of debugging, or 2) write your tests using unittest or pytest, which VS Code does support.
 
 The completed code project from this Django tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial).
 
@@ -70,7 +74,7 @@ In this section, you create a virtual environment in which Django is installed. 
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
-1. The selected environment appears on the left side of the VS Code status bar, and notices the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
+1. The selected environment appears on the right side of the VS Code status bar, and notices the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
 
     ![Django tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
@@ -152,7 +156,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     python manage.py startapp hello
     ```
 
-    The command creates a folder called `hello` that contains a number of code files and one subfolder. Of these, you frequently work with `views.py` (that contains the functions that define pages in your web app) and `models.py` (that contains classes defining your data objects). The `migrations` folder is used by Django's administrative utility to manage database versions as discussed later in this tutorial. There are also the files `apps.py` (app configuration), `admin.py` (for creating an [administrative interface](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/)), and `tests.py` (for [creating tests](https://docs.djangoproject.com/en/3.1/topics/testing/)), which are not covered here.
+    The command creates a folder called `hello` that contains a number of code files and one subfolder. Of these, you frequently work with `views.py` (that contains the functions that define pages in your web app) and `models.py` (that contains classes defining your data objects). The `migrations` folder is used by Django's administrative utility to manage database versions as discussed later in this tutorial. There are also the files `apps.py` (app configuration), `admin.py` (for creating an [administrative interface](https://docs.djangoproject.com/en/3.1/ref/contrib/admin/)), and `tests.py` (for [creating tests](https://docs.djangoproject.com/en/3.1/topics/testing/)), which are not covered here. As noted above, VS Code does not currently have support for running standard Django tests.
 
 1. Modify `hello/views.py` to match the following code, which creates a single view for the app's home page:
 
@@ -196,13 +200,15 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 You're probably already wondering if there's an easier way to run the server and test the app without typing `python manage.py runserver` each time. Fortunately, there is! You can create a customized launch profile in VS Code, which is also used for the inevitable exercise of debugging.
 
-1. Switch to **Run** view in VS Code (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
+**Before you begin**: Make sure you've stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
+
+1. Switch to **Run and Debug** view in VS Code (using the left-side activity bar or `kb(workbench.action.debug.start)`). You may see the message "To customize Run and Debug create a launch.json file". This means that you don't yet have a `launch.json` file containing debug configurations. VS Code can create that for you if you click on the **create a launch.json file** link:
 
     ![Django tutorial: initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
-1. Select the link and VS Code will prompt for a debug configuration. Select **Django** from the dropdown and VS Code will populate a new `launch.json` file with a Django run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+1. Select the link and VS Code will prompt for a debug configuration. Select **Python** from the dropdown and then select **Django** from the next dropdown and VS Code will populate a new `launch.json` file with a Django run configuration the the `.vscode` folder. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
-1. Scroll down to and examine the configuration with the name "Python: Django":
+1. View the configuration with the name "Python: Django":
 
     ```json
     {
@@ -211,15 +217,16 @@ You're probably already wondering if there's an easier way to run the server and
         "request": "launch",
         "program": "${workspaceFolder}/manage.py",
         "args": [
-            "runserver",
+            "runserver"
         ],
-        "django": true
+        "django": true,
+        "justMyCode": true
     },
     ```
 
     This configuration tells VS Code to run `"${workspaceFolder}/manage.py"` using the selected Python interpreter and the arguments in the `args` list. Launching the VS Code debugger with this configuration, then, is the same as running `python manage.py runserver` in the VS Code Terminal with your activated virtual environment. (You can add a port number like `"5000"` to `args` if desired.) The `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you see later in this tutorial.
 
-1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+1. Test the configuration by selecting the **Run** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`). If you left the `runserver` command running in your terminal, you will need to Ctrl-C to stop it before starting the launch configuration:
 
     ![Django tutorial: start debugging/continue arrow on the debug toolbar](images/django-tutorial/debug-continue-arrow.png)
 
@@ -232,8 +239,6 @@ You're probably already wondering if there's an easier way to run the server and
 ## Explore the debugger
 
 Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](/docs/python/debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
-
-**Before you begin**: Make sure you've stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
 
 1. In `hello/urls.py`, add a route to the `urlpatterns` list:
 
@@ -249,14 +254,16 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```python
     import re
-    from django.utils.timezone import datetime
+
     from django.http import HttpResponse
+    from django.utils import timezone
+
 
     def home(request):
         return HttpResponse("Hello, Django!")
 
     def hello_there(request, name):
-        now = datetime.now()
+        now = timezone.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
         # Filter the name argument to letters only using regular expressions. URL arguments
@@ -274,7 +281,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     The `name` variable defined in the URL route is given as an argument to the `hello_there` function. As described in the code comments, always filter arbitrary user-provided information to avoid various attacks on your app. In this case, the code filters the name argument to contain only letters, which avoids injection of control characters, HTML, and so forth. (When you use templates in the next section, Django does automatic filtering and you don't need this code.)
 
-1. Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
+1. Set a breakpoint at the first line of code in the `hello_there` function (`now = timezone.now()`) by doing any one of the following:
     - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
     - With the cursor on that line, select the **Run** > **Toggle Breakpoint** menu command, or,
     - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
@@ -299,13 +306,13 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Django tutorial: VS Code paused at a breakpoint](images/django-tutorial/debug-program-paused.png)
 
-1. Use Step Over to run the `now = datetime.now()` statement.
+1. Use Step Over to run the `now = timezone.now()` statement.
 
 1. On the left side of the VS Code window, you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes only to correct values when the code didn't produce the right value to begin with.
 
     ![Django tutorial: local variables and arguments in VS Code during debugging](images/django-tutorial/debug-local-variables.png)
 
-1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = datetime.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
+1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = timezone.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Evaluate in Debug Console** to send that code to the debug console, where it runs:
 
     ```bash
     now.strftime("%A, %d %B, %Y at %X")
@@ -331,9 +338,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Change the line in the code to use different datetime format, for example `now.strftime("%a, %d %b, %y at %X")`, and then save the file. The Django server will automatically reload, which means the changes will be applied without the need to restart the debugger. Refresh the page on the browser to see the update.
 
-1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
-
-> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:8000/hello/VSCode`, output that URL using a `print` statement somewhere in a file like `views.py`. The URL appears in the VS Code Terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
+1. Stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Run** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
 ## Go to Definition and Peek Definition commands
 
@@ -373,12 +378,14 @@ In this section, you start by creating a single page using a template. In subseq
             <title>Hello, Django</title>
         </head>
         <body>
-            <strong>Hello there, \{{ name }}!</strong> It's \{{ date | date:"l, d F, Y" }} at \{{ date | time:"H:i:s" }}
+            <strong>Hello there, \{{ name }}!</strong> It's \{{ date|date:"l, d F, Y" }} at \{{ date|time:"H:i:s" }}
         </body>
     </html>
     ```
 
-1. At the top of `views.py`, add the following import statement:
+> **Note**: VS Code does not currently support syntax highlighting for Django template tags. In addition, VS Code may incorrectly format the above example by placing the closing `}}` on a new line, which will break the tag. If this happens, try to edit manually to fix the issue. If VS Code continues to apply incorrect formatting, you may need to disable HTML formatting.
+
+1. At the top of `views.py`, add the following import statement grouped with the existing `from django.` import statements:
 
     ```python
     from django.shortcuts import render
@@ -393,7 +400,7 @@ In this section, you start by creating a single page using a template. In subseq
             'hello/hello_there.html',
             {
                 'name': name,
-                'date': datetime.now()
+                'date': timezone.now()
             }
         )
     ```
@@ -434,7 +441,7 @@ In production, you also need to set `DEBUG=False` in `settings.py`, which necess
 
     The reason for this extra subfolder is that when you deploy the Django project to a production server, you collect all the static files into a single folder that's then served by a dedicated static file server. The `static/hello` subfolder ensures that when the app's static files are collected, they're in an app-specific subfolder and won't collide with file from other apps in the same project.
 
-1. In the `static/hello` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that VS Code provides for CSS files, including a color preview.
+1. In the `static/hello` folder, create a file named `site.css` with the following contents:
 
     ```css
     .message {
@@ -443,17 +450,20 @@ In production, you also need to set `DEBUG=False` in `settings.py`, which necess
     }
     ```
 
-1. In `templates/hello/hello_there.html`, add the following lines after the `<title>` element. The `{% load static %}` tag is a custom Django template tag set, which allows you to use `{% static %}` to refer to a file like the stylesheet.
+    You should see the syntax highlighting that VS Code provides for CSS files, including a color preview.
+
+    ![Django tutorial: CSS Syntax Highlighting](images/django-tutorial/css-syntax-highlighting.png)
+
+1. In `templates/hello/hello_there.html`, add `{% load static %}` above `<!DOCTYPE html>` and then add the following line after the `<title>` element. The `{% load static %}` tag is a custom Django template tag set, which allows you to use `{% static %}` to refer to a file like the stylesheet.
 
     ```html
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}" />
     ```
 
 1. Also in `templates/hello/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">Hello, there \{{ name }}!</span> It's \{{ date | date:'l, d F, Y' }} at \{{ date | time:'H:i:s' }}.
+    <span class="message">Hello, there \{{ name }}!</span> It's \{{ date|date:'l, d F, Y' }} at \{{ date|time:'H:i:s' }}.
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
@@ -489,12 +499,12 @@ The following steps demonstrate creating a base template.
 1. In the `templates/hello` folder, create a file named `layout.html` with the contents below, which contains blocks named "title" and "content". As you can see, the markup defines a simple nav bar structure with links to Home, About, and Contact pages, which you create in a later section. Notice the use of Django's `{% url %}` tag to refer to other pages through the names of the corresponding URL patterns rather than by relative path.
 
     ```html
+    {% load static %}
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8"/>
         <title>{% block title %}{% endblock %}</title>
-        {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}"/>
     </head>
 
@@ -559,7 +569,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. In the list that appears, select **html**. (The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.)
 
-1. After VS code opens `html.json`, add the code below within the existing curly braces. (The explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
+1. After VS code opens `html.json`, add the code below within the existing curly braces:
 
     ```json
     "Django Tutorial: template extending layout.html": {
@@ -567,15 +577,18 @@ Because the three pages you create in the next section extend `layout.html`, it 
         "body": [
             "{% extends \"hello/layout.html\" %}",
             "{% block title %}",
-            "$0",
+            "$1",
             "{% endblock %}",
             "{% block content %}",
+            "$2",
             "{% endblock %}"
         ],
 
         "description": "Boilerplate template that extends layout.html"
     },
     ```
+
+    The explanatory comments, not shown here, describe details such as how the `$1` line indicates where VS Code places the cursor after inserting a snippet.
 
 1. Save the `html.json` file (`kb(workbench.action.files.save)`).
 
@@ -595,7 +608,7 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
     ![Django tutorial: insertion of the djextlayout code snippet](images/django-tutorial/code-snippet-inserted.png)
 
-1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Django tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
+1. At the insertion point in the "title" block, write `Home`, then press Tab to jump to the "content" block, write `<p>Home page for the Visual Studio Code Django tutorial.</p>`, and then save the file. These lines are the only unique parts of the extended page template.
 
 1. In the `templates/hello` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the Visual Studio Code Django tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
 
@@ -608,10 +621,9 @@ With the code snippet in place, you can quickly create templates for the Home, A
     path("contact/", views.contact, name="contact"),
     ```
 
-1. In `views.py`, add functions for the /about and /contact routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
+1. In `views.py`, replace the existing `home` function and add the functions for the /about and /contact routes using the code below:
 
     ```python
-    # Replace the existing home function with the one below
     def home(request):
         return render(request, "hello/home.html")
 
@@ -642,7 +654,7 @@ The migration scripts effectively record all the incremental changes you make to
 
 In code, too, you work exclusively with your model classes to store and retrieve data; Django handles the underlying details. The one exception is that you can write data into your database using the Django administrative utility [loaddata command](https://docs.djangoproject.com/en/3.1/ref/django-admin/#loaddata). This utility is often used to initialize a data set after the `migrate` command has initialized the schema.
 
-When using the `db.sqlite3` file, you can also work directly with the database using a tool like the [SQLite browser](https://sqlitebrowser.org/). It's fine to add or delete records in tables using such a tool, but avoid making changes to the database schema because the database will then be out of sync with your app's models. Instead, change the models, run `makemigrations`, then run `migrate`.
+When using the `db.sqlite3` file, you can also work directly with the database using a tool like the [DB Browser for SQLite](https://sqlitebrowser.org/). It's fine to add or delete records in tables using such a tool, but avoid making changes to the database schema because the database will then be out of sync with your app's models. Instead, change the models, run `makemigrations`, then run `migrate`.
 
 ### Types of databases
 
@@ -661,6 +673,7 @@ For example, add the following class in `models.py` to define a data model that 
 ```python
 from django.db import models
 from django.utils import timezone
+
 
 class LogMessage(models.Model):
     message = models.CharField(max_length=300)
@@ -695,15 +708,17 @@ With your models in place and the database migrated, you can store and retrieve 
 
     ```python
     from django import forms
+
     from hello.models import LogMessage
+
 
     class LogMessageForm(forms.ModelForm):
         class Meta:
             model = LogMessage
-            fields = ("message",)   # NOTE: the trailing comma is required
+            fields = ("message",)
     ```
 
-1. In the `templates/hello` folder, create a new template named `log_message.html` with the following contents, which assumes that the template is given a variable named `form` to define the body of the form. It then adds a submit button with the label "Log".
+1. In the `templates/hello` folder, create a new template named `log_message.html`, use the `djtextlayout` snippet created above to fill in the `{% block title %}` and `{% block content %}` blocks respectively.
 
     ```html
     {% extends "hello/layout.html" %}
@@ -718,6 +733,8 @@ With your models in place and the database migrated, you can store and retrieve 
         </form>
     {% endblock %}
     ```
+
+    The content assumes that the template is given a variable named `form` to define the body of the form. It then adds a submit button with the label "Log".
 
     > **Note**: Django's `{% csrf_token %}` tag provides protection from cross-site request forgeries. See [Cross Site Request Forgery protection](https://docs.djangoproject.com/en/3.1/ref/csrf/) in the Django documentation for details.
 
@@ -735,27 +752,36 @@ With your models in place and the database migrated, you can store and retrieve 
     path("log/", views.log_message, name="log"),
     ```
 
-1. In `views.py`, define the view named `log_message` (as referred to by the URL route). This view handles both HTTP GET and POST cases. In the GET case (the `else:` section), it just displays the form that you defined in the previous steps. In the POST case, it retrieves the data from the form into a data object (`message`), sets the timestamp, then saves that object at which point it's written to the database:
+1. In `views.py`, define the view named `log_message`. Add `redirect` to the existing `django.shortcuts` import statement:
 
     ```python
-    # Add these to existing imports at the top of the file:
-    from django.shortcuts import redirect
-    from hello.forms import LogMessageForm
-    from hello.models import LogMessage
+    from django.shortcuts import redirect, render
+    ```
 
-    # Add this code elsewhere in the file:
+    Add an import for `LogMessageForm`:
+
+    ```python
+    from hello.forms import LogMessageForm
+    ```
+
+    Add the view function:
+
+    ```python
     def log_message(request):
         form = LogMessageForm(request.POST or None)
 
         if request.method == "POST":
             if form.is_valid():
                 message = form.save(commit=False)
-                message.log_date = datetime.now()
+                message.log_date = timezone.now()
                 message.save()
                 return redirect("home")
         else:
             return render(request, "hello/log_message.html", {"form": form})
     ```
+
+    This view handles both HTTP GET and POST cases. In the GET case (the `else:` section), it just displays the form that you defined in the previous steps. In the POST case, it retrieves the data from the form into a data object (`message`), sets the timestamp, then saves that object at which point it's written to the database:
+
 
 1. One more step before you're ready to try everything out! In `templates/hello/layout.html`, add a link in the "navbar" div for the message logging page:
 
@@ -768,17 +794,13 @@ With your models in place and the database migrated, you can store and retrieve 
 
     ![Django tutorial: the message logging page added to the app](images/django-tutorial/message-logging-page.png)
 
-1. Enter a message, select **Log**, and you should be taken back to the home page. The home page doesn't yet show any of the logged messages yet (which you remedy in a moment). Feel free to log a few more messages as well. If you want, peek in the database using a tool like SQLite Browser to see that records have been created. Open the database as read-only, or otherwise remember to close the database before using the app, otherwise the app will fail because the database is locked.
+1. Enter a message, select **Log**, and you should be taken back to the home page. The home page doesn't yet show any of the logged messages yet (which you will remedy in a moment). Feel free to log a few more messages as well. If you want, peek in the database using a tool like [DB Browser for SQLite](https://sqlitebrowser.org/) to see that records have been created. Open the database as read-only, or otherwise remember to close the database before using the app, otherwise the app will fail because the database is locked.
 
 1. Stop the app when you're done.
 
-1. Now modify the home page to display the logged messages. Start by replacing the contents of app's `templates/hello/home.html` file with the markup below. This template expects a context variable named `message_list`. If it receives one (checked with the `{% if message_list %}` tag), it then iterates over that list (the `{% for message in message_list %}` tag) to generate table rows for each message. Otherwise the page indicates that no messages have yet been logged.
+1. Now modify the home page to display the logged messages. Start by replacing the contents of the `{% block content %}` block in `templates/hello/home.html` file with the markup below:
 
     ```html
-    {% extends "hello/layout.html" %}
-    {% block title %}
-        Home
-    {% endblock %}
     {% block content %}
         <h2>Logged messages</h2>
 
@@ -794,8 +816,8 @@ With your models in place and the database migrated, you can store and retrieve 
                 <tbody>
                 {% for message in message_list %}
                     <tr>
-                        <td>\{{ message.log_date | date:'d M Y' }}</td>
-                        <td>\{{ message.log_date | time:'H:i:s' }}</td>
+                        <td>\{{ message.log_date|date:'d M Y' }}</td>
+                        <td>\{{ message.log_date|time:'H:i:s' }}</td>
                         <td>
                             \{{ message.message }}
                         </td>
@@ -809,56 +831,48 @@ With your models in place and the database migrated, you can store and retrieve 
     {% endblock %}
     ```
 
+    This template expects a context variable named `message_list`. If it receives one (checked with the `{% if message_list %}` tag), it then iterates over that list (the `{% for message in message_list %}` tag) to generate table rows for each message. Otherwise the page indicates that no messages have yet been logged.
+
 1. In `static/hello/site.css`, add a rule to format the table a little:
 
     ```css
-    .message_list th,td {
+    .message_list th,
+    td {
         text-align: left;
         padding-right: 15px;
     }
     ```
 
-1. In `views.py`, import Django's generic `ListView` class, which we'll use to implement the home page:
+1. In `views.py`, import Django's generic `ListView` class, which we'll use to implement the home page, and import the `LogMessage` model:
 
     ```python
     from django.views.generic import ListView
+
+    from hello.models import LogMessage
     ```
 
-1. Also in `views.py`, replace the `home` function with a *class* named `HomeListView`, derived from `ListView`, which ties itself to the `LogMessage` model and implements a function `get_context_data` to generate the context for the template.
+1. Also in `views.py`, replace the `home` function the *class-based view* below:
 
     ```python
-    # Remove the old home function if you want; it's no longer used
-
     class HomeListView(ListView):
         """Renders the home page, with a list of all messages."""
+
+        context_object_name = "message_list"
         model = LogMessage
+        queryset = LogMessage.objects.order_by("-log_date")[:5]
+        template = "hello/home.html"
 
         def get_context_data(self, **kwargs):
             context = super(HomeListView, self).get_context_data(**kwargs)
             return context
     ```
 
-1. In the app's `urls.py`, import the data model:
+    This sets the model and queryset, which retrieves the five most recent messages, used by the view and specifies the template variable used for the results of the queryset. Finally, it implements a function `get_context_data` to generate the context for the template.
+
+1. In `urls.py`, modify the path to the home page to use the `HomeListView`:
 
     ```python
-    from hello.models import LogMessage
-    ```
-
-1. Also in `urls.py`, make a variable for the new view, which retrieves the five most recent `LogMessage` objects in descending order (meaning that it queries the database), and then provides a name for the data in the template context (`message_list`), and identifies the template to use:
-
-    ```python
-    home_list_view = views.HomeListView.as_view(
-        queryset=LogMessage.objects.order_by("-log_date")[:5],  # :5 limits the results to the five most recent
-        context_object_name="message_list",
-        template_name="hello/home.html",
-    )
-    ```
-
-1. In `urls.py`, modify the path to the home page to use the `home_list_view` variable:
-
-    ```python
-        # Replace the existing path for ""
-        path("", home_list_view, name="home"),
+    path("", views.HomeListView.as_view(), name="home"),
     ```
 
 1. Start the app and open a browser to the home page, which should now display messages:
@@ -871,7 +885,7 @@ With your models in place and the database migrated, you can store and retrieve 
 
 As shown in the previous section, page templates can contain procedural directives like `{% for message in message_list %}` and `{% if message_list %}`, rather than only passive, declarative elements like `{% url %}` and `{% block %}`. As a result, you can have programming errors inside templates as with any other procedural code.
 
-Fortunately, the Python Extension for VS Code provides template debugging when you have `"django": true` in the debugging configuration (as you do already). The following steps demonstrate this capability:
+Fortunately, the Python Extension for VS Code provides template debugging when you have `"django": true` in the `launch.json` configuration, which was added automatically in a previous step. The following steps demonstrate this capability:
 
 1. In `templates/hello/home.html`, set breakpoints on both the `{% if message_list %}` and `{% for message in message_list %}` lines, as indicated by the yellow arrows in the image below:
 
