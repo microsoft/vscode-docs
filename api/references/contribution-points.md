@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 3/3/2022
+DateApproved: 3/30/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -29,6 +29,9 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`problemPatterns`](/api/references/contribution-points#contributes.problemPatterns)
 - [`productIconThemes`](/api/references/contribution-points#contributes.productIconThemes)
 - [`resourceLabelFormatters`](/api/references/contribution-points#contributes.resourceLabelFormatters)
+- [`semanticTokenModifiers`](/api/references/contribution-points#contributes.semanticTokenModifiers)
+- [`semanticTokenScopes`](/api/references/contribution-points#contributes.semanticTokenScopes)
+- [`semanticTokenTypes`](/api/references/contribution-points#contributes.semanticTokenTypes)
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`submenus`](/api/references/contribution-points#contributes.submenus)
 - [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
@@ -72,7 +75,8 @@ Contributes new themable colors. These colors can be used by the extension in ed
         "defaults": {
           "dark": "errorForeground",
           "light": "errorForeground",
-          "highContrast": "#010203"
+          "highContrast": "#010203",
+          "highContrastLght": "#feedc3",
         }
       }
     ]
@@ -1019,6 +1023,66 @@ Contributes resource label formatters that specify how to display URIs everywher
 ```
 
 This means that all URIs that have a scheme `remotehub` will get rendered by showing only the `path` segment of the URI and the separator will be `/`. Workspaces which have the `remotehub` URI will have the GitHub suffix in their label.
+
+## contributes.semanticTokenModifiers
+
+Contributes new semantic token modifiers that can be highlighted via theme rules.
+
+```json
+{
+  "contributes": {
+    "semanticTokenModifiers": [
+      {
+        "id": "native",
+        "description": "Annotates a symbol that is implemented natively"
+      }
+    ]
+  }
+}
+```
+
+See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highlight-guide) to read more about semantic highlighting.
+
+## contributes.semanticTokenScopes
+
+Contributes mapping between semantic token types & modifiers and scopes either as a fallback or to support language-specific themes.
+
+```json
+{
+  "contributes": {
+    "semanticTokenScopes": [
+      {
+        "language": "typescript",
+        "scopes": {
+          "property.readonly": ["variable.other.constant.property.ts"]
+        }
+      }
+    ]
+  }
+}
+```
+
+See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highlight-guide) to read more about semantic highlighting.
+
+## contributes.semanticTokenTypes
+
+Contributes new semantic token types that can be highlighted via theme rules.
+
+```json
+{
+  "contributes": {
+    "semanticTokenTypes": [
+      {
+        "id": "templateType",
+        "superType": "type",
+        "description": "A template type."
+      }
+    ]
+  }
+}
+```
+
+See the [Semantic Highlighting Guide](/api/language-extensions/semantic-highlight-guide) to read more about semantic highlighting.
 
 ## contributes.snippets
 

@@ -54,7 +54,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
-### Troubleshooting
+### Troubleshooting IntelliSense
 
 If autocomplete and IntelliSense aren't working for a custom module, check the following causes:
 
@@ -137,7 +137,7 @@ When using custom arguments, each top-level element of an argument string that's
 
 In the second example, the top-level element `{based_on_style: chromium, indent_width: 20}` is a single value contained in braces, so the spaces within that value don't delineate a separate element.
 
-### Troubleshooting
+### Troubleshooting formatting
 
 If formatting fails, check the following possible causes:
 
