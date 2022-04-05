@@ -630,7 +630,7 @@ Unfortunately, some issues cannot be automatically detected. If you experience i
 
 ### Git Bash isn't saving history when I close the terminal
 
-This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash-profile`:
+This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile`:
 
 ```bash
 export PROMPT_COMMAND='history -a'
