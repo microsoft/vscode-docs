@@ -351,7 +351,7 @@ The current line is typically shown as either background highlight or a border (
 The color for unicode highlights
 
 - `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
--  `editorUnicodeHighlight.background`: Background color used to highlight unicode characters.
+- `editorUnicodeHighlight.background`: Background color used to highlight unicode characters.
 
 
 The link color is visible when clicking on a link.
