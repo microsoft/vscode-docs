@@ -566,7 +566,9 @@ There are many reasons why the debugger may not work. Sometimes the debug consol
 
 - If you are working with a **Linux** system, you may receive a "timed out" error message when trying to apply a debugger to any running process. To prevent this, you can temporarily run the following command:
 
-    `$ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
+    ```bash
+    $ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    ```
 
 ## Next steps
 
