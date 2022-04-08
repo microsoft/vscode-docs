@@ -31,7 +31,7 @@ Once you activate your virtual environment, you’ll need to identify how to man
 
 |   Tool   | Definition and Purpose |
 |   :---:  | --- |
-|   pip    | The Python package manager that installs and updates packages. It's installed with Python 3.4+ by default.      |
+|   pip    | The Python package manager that installs and updates packages. It's installed with Python 3.4+ by default (install `python3-pip` on Debian-based OSs).      |
 |   venv   | Allows you to manage separate package installations for different projects and is installed with Python 3 by default (install `python3-venv` if you are using a Debian-based OS) |
 |   conda  | Installed with **Anaconda** and **Miniconda**. It can be used to manage both packages and virtual environments. Generally used for data science projects.   |
 
