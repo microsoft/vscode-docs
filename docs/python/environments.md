@@ -52,7 +52,7 @@ The extension automatically looks for interpreters in the following locations:
 - Conda environments found by `conda env list`. Conda environments which do not have an interpreter will have one installed for them upon selection.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
-You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code doesn't locate it automatically.
+You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code doesn't locate your interpreter automatically.
 
 > **Note**: Once the ["select interpreter" flow](#select-and-activate-an-environment) is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 
