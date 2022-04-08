@@ -86,7 +86,7 @@ This will add the path to the Python interpreter from the new virtual environmen
 
 ### Create a conda environment
 
-The Python extension automatically detects existing conda environments if the environment contains a Python interpreter. For example, the following command creates a conda environment with the Python 3.4 interpreter and several libraries, which VS Code then shows in the list of available interpreters:
+The Python extension automatically detects existing conda environments. We recommend you install a Python interpreter into your conda environment, otherwise one will be installed for you after you select the environment. For example, the following command creates a conda environment with the Python 3.4 interpreter and several libraries, which VS Code then shows in the list of available interpreters:
 
 ```bash
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
