@@ -22,7 +22,7 @@ Working in the global environment is an easy way to get started. If you install 
 
 ### Virtual environments
 
-To prevent such clutter, developers often create a **virtual environment** for a project. A virtual environment is a subfolder in a project that contains a copy of a specific interpreter. When you activate the virtual environment, any packages you install are installed only in that subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages. You might need to specify the Python interpreter to use the terminal for installing packages to the global environment. Consider this option if you're not using a **virtual environment**, have multiple versions of Python installed, and are set in the `path` environment variable.
+To prevent such clutter, developers often create a **virtual environment** for a project. A virtual environment is a folder that contains a copy (or symlink) of a specific interpreter. When you install into a virtual environment, any packages you install are installed only in that subfolder. When you then run a Python program within that environment, you know that it's running against only those specific packages.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
