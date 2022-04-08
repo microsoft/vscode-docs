@@ -49,7 +49,7 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in a `~/.virtualenvs` folder for [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/).
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv), [Pipenv](https://pypi.org/project/pipenv/), and [Poetry](https://poetry.eustace.io/).
 - Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)).
-- Conda environments that contain a Python interpreter. VS Code doesn't show conda environments that don't contain an interpreter.
+- Conda environments found by `conda env list`. Conda environments which do not have an interpreter will have one installed for them upon selection.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
 You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code doesn't locate it automatically.
