@@ -18,7 +18,7 @@ This article discusses the helpful Python environments features available in VS 
 
 By default, any Python interpreter installed runs in its own **global environment**. They aren't specific to a particular project. For example, if you just run `python`, `python3`, or `py` at a new terminal (depending on how you installed Python), you're running in that interpreter's global environment. Any packages that you install or uninstall affect the global environment and all programs that you run within it.
 
-Working in the global environment is an easy way to get started. If you install packages in that environment, in time it will become crowded, making it difficult to thoroughly test an application.
+Working in the global environment is an easy way to get started. If you install packages in that environment, though, in time it will become crowded and make it difficult to properly test an application.
 
 ### Virtual environments
 
