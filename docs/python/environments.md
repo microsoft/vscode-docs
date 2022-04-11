@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 03/20/2022
+DateApproved: 04/08/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Using Python environments in VS Code
 
-This article discusses the helpful Python environments features available in VS Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
+This article discusses the helpful Python environments features available in Visual Studio Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
 
 ## Python environments
 
@@ -27,6 +27,7 @@ To prevent such clutter, developers often create a **virtual environment** for a
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
 ### Python environment tools
+
 Once you activate your virtual environment, you’ll need to identify how to manage it and its accompanying packages. The following table explains how to use these Python environments:
 
 |   Tool   | Definition and Purpose |
