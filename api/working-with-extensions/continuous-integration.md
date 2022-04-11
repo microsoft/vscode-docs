@@ -277,24 +277,23 @@ cache: yarn
 }
 ```
 
-4. Add an `after_script` stage to the job that calls `npm run deploy` with the secret variable.
+4. Add `deploy` stage that calls `npm run deploy` with the secret variable.
 
 ```yaml
-after_script:
-- |
-  echo ">>> Publish"
-  yarn deploy
-
-stages:
-- name: after_script
-  if: env(TRAVIS_TAG) =~ ^v
+deploy:
+  provider: script
+  script: "npm run deploy"
+  skip_cleanup: true
+  on:
+    tags: true
 ```
 
-The [stages](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditional-stages) property tells the CI to include stages when certain conditions are met.
+The [deploy](https://docs.travis-ci.com/user/deployment) property tells the CI to deploy artifacts to a given provider if a set of conditions are met. The deploy stage does not get triggered on pull requests
 
-In our example, the condition has one check:
+In our example, the condition that is checked:
 
-- `env(TRAVIS_TAG) =~ ^v` - Publish only if a tagged (release) build that starts with the letter `v`.
+- `tags: true` - Publish only if the build is triggered from a git tag (releast) 
+- `skip_cleanup: true` - Prevents travis from removing any files created during the build that may be needed for deployment.
 
 ## Common questions
 
