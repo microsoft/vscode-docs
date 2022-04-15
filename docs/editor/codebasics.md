@@ -169,7 +169,7 @@ You can configure advanced search options by clicking the ellipsis (**Toggle Sea
 
 In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use glob syntax:
 
-* `*` to match one or more characters in a path segment
+* `*` to match zero or more characters in a path segment
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
 * `{}` to group conditions (for example `{**/*.html,**/*.txt}` matches all HTML and text files)

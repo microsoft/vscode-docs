@@ -11377,7 +11377,7 @@ does not want to participate or was cancelled.</p>
 (like <code>**/*.{ts,js}</code> or <code>*.{ts,js}</code>) or a <a href="#RelativePattern">relative pattern</a>.</p>
 <p>Glob patterns can have the following syntax:</p>
 <ul>
-<li><code>*</code> to match one or more characters in a path segment</li>
+<li><code>*</code> to match zero or more characters in a path segment</li>
 <li><code>?</code> to match on one character in a path segment</li>
 <li><code>**</code> to match any number of path segments, including none</li>
 <li><code>{}</code> to group conditions (e.g. <code>**/*.{ts,js}</code> matches all TypeScript and JavaScript files)</li>
