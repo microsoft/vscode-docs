@@ -88,7 +88,7 @@ Terminal profiles are platform-specific shell configurations comprised of an exe
 
 Example profile:
 
-```json
+```jsonc
 {
   "terminal.integrated.profiles.windows": {
     "My PowerShell": {
@@ -300,7 +300,7 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list and removed by adding the command name to the list prefixed with a `-`.
 
-```json
+```jsonc
 {
   "terminal.integrated.commandsToSkipShell": [
     // Ensure the toggle sidebar visibility keybinding skips the shell
