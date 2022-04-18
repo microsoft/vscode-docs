@@ -524,7 +524,7 @@ The command template chosen to execute is selected based on the following rules:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.build` | `docker build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
+| `docker.commands.build` | `${config:docker.dockerPath} build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
 
 Supported tokens:
 
@@ -542,8 +542,8 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.run` | `docker run --rm -d ${exposedPorts} ${tag}` |
-| `docker.commands.runInteractive` | `docker run --rm -it ${exposedPorts} ${tag}` |
+| `docker.commands.run` | `${config:docker.dockerPath} run --rm -d ${exposedPorts} ${tag}` |
+| `docker.commands.runInteractive` | `${config:docker.dockerPath} run --rm -it ${exposedPorts} ${tag}` |
 
 Supported tokens:
 
@@ -558,7 +558,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.attach` | `docker exec -it ${containerId} ${shellCommand}`
+| `docker.commands.attach` | `${config:docker.dockerPath} exec -it ${containerId} ${shellCommand}`
 
 Supported tokens:
 
@@ -573,7 +573,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.logs` | `docker logs -f ${containerId}`
+| `docker.commands.logs` | `${config:docker.dockerPath} logs -f ${containerId}`
 
 Supported tokens:
 
@@ -587,7 +587,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.composeUp` | `docker-compose ${configurationFile} up ${detached} ${build}` |
+| `docker.commands.composeUp` | `${composeCommand} ${configurationFile} up ${detached} ${build}` |
 
 Supported tokens:
 
@@ -598,18 +598,20 @@ Supported tokens:
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
 | `${serviceList}` | If specified, prompts for a subset of the services to start when the command is run. |
 | `${profileList}` | If specified and the Docker Compose YAML file contains profiles, prompts for a subset of the profiles to start when the command is run. |
+| `${composeCommand}` | Set to the value of the `docker.composeCommand` setting if set, otherwise the extension will try to automatically determine the command to use (`docker compose` or `docker-compose`). |
 
 ### Docker Compose Down
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.composeDown` | `docker-compose ${configurationFile} down` |
+| `docker.commands.composeDown` | `${composeCommand} ${configurationFile} down` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
 | `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
+| `${composeCommand}` | Set to the value of the `docker.composeCommand` setting if set, otherwise the extension will try to automatically determine the command to use (`docker compose` or `docker-compose`). |
 
 ### Additional supported tokens
 
