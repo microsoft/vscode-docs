@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 08/05/2021
+DateApproved: 04/18/2022
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension
@@ -167,7 +167,7 @@ The most important configuration settings for the `docker-run` task are `dockerR
 
 See [property reference](#run-task-reference) for full list of all task properties.
 
-### Platform support
+### Docker run platform support
 
 While the `docker-run` task can be used to run any Docker image, the extension has explicit support (and simplified configuration) for Node.js, Python, and .NET Core.
 
@@ -403,6 +403,7 @@ The most important configuration setting for the `docker-compose` task is `docke
 See [property reference](#compose-task-reference) for full list of all task properties.
 
 **Example configuration**
+
 ```json
 {
     "version": "2.0.0",
