@@ -96,7 +96,9 @@ Output in the Integrated Terminal can be navigated through by using the "navigat
 
 ### Minimum contrast ratio
 
-The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color to adjust luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+
+Note that the `terminal.integrated.minimumContrastRatio` will not apply to `powerline` characters per #146406.
 
 ## Status Bar accessibility
 
