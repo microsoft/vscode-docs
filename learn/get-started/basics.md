@@ -11,7 +11,7 @@ MetaDescription: Download and learn the basics of Visual Studio Code.
 
 In this video, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/ITxcbrfEcIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/ITxcbrfEcIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Getting Started with Visual Studio Code"></iframe>
 
 Next video: [Extensions for Visual Studio Code](/learn/get-started/extensions.md)
 
