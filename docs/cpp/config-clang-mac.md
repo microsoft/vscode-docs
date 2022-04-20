@@ -191,13 +191,15 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 Next, you'll create a `launch.json` file to configure VS Code to launch the LLDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
-From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+From the main menu, choose **Run** > **Add Configuration...**. VS Code creates an empty `launch.json` file. Copy and paste the following configuration into `launch.json`:
+
+<!-- and then choose **C++ (GDB/LLDB)**.
 
 You'll then see a dropdown for predefined debugging configurations. Choose **clang++ build and debug active file**.
 
 ![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
 
-VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'. Your `launch.json` file will look something like this:
+VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'. Your `launch.json` file will look something like this: -->
 
 ```json
 {
