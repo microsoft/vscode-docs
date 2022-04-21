@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 This article discusses the helpful Python environments features available in Visual Studio Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
 
-> **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](./environments.md/#more-python-resources).
+> **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](#more-python-resources).
 
 ## Python environments
 
