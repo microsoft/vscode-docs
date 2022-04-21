@@ -102,20 +102,26 @@ In the `helloworld.cpp` file, hover over `vector` or `string` to see type inform
 
 You can press the `kbstyle(Tab)` key to insert the selected member. Then, when you add the opening parenthesis, you'll see information about arguments that the function requires.
 
-## Build helloworld.cpp
+## Run helloworld.cpp
+Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
 
-Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the Clang C++ compiler to create an executable file from the source code.
+1. Open `helloworld.cpp` so that it is the active file.
+2. Press the play button in the top right corner of the editor.
 
-It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor as context to create the build task in the next step.
+   ![Screenshot of helloworld.cpp and play button](../languages/images/cpp/run-play-button.png)
 
-From the main menu, choose **Terminal** > **Configure Default Build Task**.
-A dropdown will appear listing various predefined build tasks for the compilers that VS Code found on your machine. Choose **C/C++ clang++ build active file** to build the file that is currently displayed (active) in the editor.
+3. Choose **C/C++: clang++ build active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run `helloworld.cpp`).
 
-![Build task](images/clang-mac/default-build-task.png)
+   ![Build task](images/clang-mac/default-build-task.png)
 
-This will create a `tasks.json` file in the `.vscode` folder and open it in the editor.
+<!-- TO DO update for macos terminal -->
+4. After the build succeeds, your program's output will appear in the integrated **Terminal**.
 
-Replace the contents of that file with the following:
+    ![screenshot of program output](../languages/images/cpp/helloworld-terminal-output.png)
+
+The first time you run your program, the C++ extension creates `tasks.json`, which you'll find in your project's `.vscode` folder. `tasks.json` stores build configurations.
+
+Your new `tasks.json` file should look similar to the JSON below:
 
 ```json
 {
@@ -149,11 +155,7 @@ Replace the contents of that file with the following:
     ]
 }
 ```
-
-The JSON above differs from the default template JSON in the following ways:
-
-- `"args"` is updated to compile with C++17 because our `helloworld.cpp` uses C++17 language features.
-- Changes the current working directory directive (`"cwd"`) to the folder where `helloworld.cpp` is.
+>**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run. In this case, `"clang++"` is the driver that causes the Clang compiler to expect C++ code and link against the C++ standard library.
 
@@ -165,76 +167,30 @@ The `label` value is what you will see in the tasks list. Name this whatever you
 
 The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For clang++, you'll get the best results if you use the `$gcc` problem matcher.
 
-The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to `false`, you can still build from the Terminal menu with **Terminal > Run Build Task**.
-
->**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
-
-### Running the build
-
-1. Go back to `helloworld.cpp`. Because we want to build `helloworld.cpp` it is important that this file be the one that is active in the editor for the next step.
-1. To run the build task that you defined in tasks.json, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Run Build Task**.
-1. When the task starts, you should see the Integrated Terminal window appear below the code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful Clang build, the output looks something like this:
-
-   ![Clang build output in terminal](images/clang-mac/clang-task-in-terminal.png)
-
-1. Create a new terminal using the **+** button and you'll have a new terminal with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` along with the debugging file (`helloworld.dSYM`).
-
-    ![Hello World in macOS terminal](images/clang-mac/helloworld-in-terminal.png)
-
-1. You can run `helloworld` in the terminal by typing `./helloworld`.
-
+From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
+```json
+"isDefault": true
+```
 ### Modifying tasks.json
 
 You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}/myProgram.out"`).
 
 ## Debug helloworld.cpp
+1. Go back to `helloworld.cpp` so that it is the active file.
+1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
+   ![screenshot of breakpoint in helloworld.cpp](../languages/images/cpp/cpp-breakpoint.png)
+1. From the drop-down next to the play button, select **Debug C/C++ File**. Or press `kb(workbench.action.debug.start)`.
+    ![Screenshot of play button drop-down](../languages/images/cpp/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](../languages/images/cpp/debug-cpp-file-play-button.png)
+1. Choose **clang++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+   ![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the LLDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
+The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
 
-From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+   ![screenshot of play button in debug mode](../languages/images/cpp/debug-button.png)
 
-You'll then see a dropdown for predefined debugging configurations. Choose **clang++ build and debug active file**.
-
-![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
-
-VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'. Your `launch.json` file will look something like this:
-
-```json
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "clang++ - Build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "clang++ build active file"
-        }
-    ]
-}
-```
-
-The `program` setting specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`.
-
-By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
-
-Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
-
-Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.
-
-### Start a debugging session
-
-1. Go back to `helloworld.cpp` so that it is the active file in the editor. This is important because VS Code uses the active file to determine what you want to debug.
-2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the source code, let's take a moment to notice several changes in the user interface:
+## Explore the debugger
+Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
 - The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
@@ -270,6 +226,52 @@ You might want to keep track of the value of a variable as your program executes
 1. To quickly view the value of any variable while execution is paused, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
+
+## Customize debugging with launch.json
+When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
+
+There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
+
+To create `launch.json`, choose **Run** > **Add Configuration...** from the main menu and then choose **C++ (GDB/LLDB)**.
+
+You'll then see a dropdown for various predefined debugging configurations. Choose **clang++ build and debug active file**.
+![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
+
+VS Code creates a `launch.json` file, which looks something like this:
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "clang++ - Build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "clang++ build active file"
+        }
+    ]
+}
+```
+
+The `program` setting specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
+
+By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
+
+Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
+
+Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.
+
+ > From now on, the play button and `kb(workbench.action.debug.start)` will read from your `launch.json` file when launching your program for debugging.
 
 ## C/C++ configuration
 

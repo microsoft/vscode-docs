@@ -128,8 +128,6 @@ Remember, the C++ extension uses the C++ compiler you have installed on your mac
 
    ![Screenshot of helloworld.cpp and play button](../languages/images/cpp/run-play-button.png)
 
-   > **Note**: This experience is shipped as an A/B test, so you might not see it by default. If you don't see the play button, you can turn it on by enabling **C_Cpp: Debug Shortcut** in User settings.
-
 3. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run `helloworld.cpp`).
 
    ![C++ debug configuration dropdown](../languages/images/cpp/select-cl-compiler.png)
@@ -192,40 +190,17 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-### Debug with the play button
-> **Note**: This experience is shipped as an A/B test, so you might not see it by default. If you don't see the play button, you can turn it on by enabling **C_Cpp: Debug Shortcut** in User settings.
 1. Go back to `helloworld.cpp` so that it is the active file.
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](../languages/images/cpp/cpp-breakpoint.png)
-2. Select the drop-down next to the play button in the top right corner of the editor.
+1. From the drop-down next to the play button, select **Debug C/C++ File**. Or press `kb(workbench.action.debug.start)`.
     ![Screenshot of play button drop-down](../languages/images/cpp/run-debug-arrow.png)
-3. Select **Debug C/C++ File**.
    ![Screenshot of play button drop-down](../languages/images/cpp/debug-cpp-file-play-button.png)
-4. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](../languages/images/cpp/select-cl-compiler.png)
-
-The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
-
-If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
-
-![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](../languages/images/cpp/dev-command-prompt-error.png)
 
 The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
    ![screenshot of play button in debug mode](../languages/images/cpp/debug-button.png)
-
-
-### Debug with F5
-1. Go back to `helloworld.cpp` so that it is the active file.
-1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
-   ![screenshot of breakpoint in helloworld.cpp](../languages/images/cpp/cpp-breakpoint.png)
-1. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**.
-1. Select **C++ (Windows)**.
-2. Select **cl.exe build and debug active file** from the list of detected compilers on your system.
-    ![C++ debug configuration dropdown](../languages/images/cpp/select-cl-compiler.png)
-
-    > **Note:** You'll only be asked to choose an environment and compiler the first time you debug `helloworld.cpp`.
-
-The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
 
 If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 
