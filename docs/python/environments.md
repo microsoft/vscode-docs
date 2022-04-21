@@ -4,13 +4,15 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 04/08/2022
+DateApproved: 04/20/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Using Python environments in VS Code
 
 This article discusses the helpful Python environments features available in Visual Studio Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
+
+> **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](./environments.md/#more-python-resources).
 
 ## Python environments
 
@@ -331,16 +333,16 @@ The value of PYTHONPATH can contain multiple locations separated by `os.pathsep`
 
 > **Note**: PYTHONPATH does **not** specify a path to a Python interpreter itself. For additional information about PYTHONPATH, read the [PYTHONPATH documentation](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH).
 
-## Getting started
-
-- [Getting Started with Python in VS Code](/docs/python/python-tutorial.md) - Learn how to edit, run, and debug code in VS Code.
-- [Virtual Environments and Packages (Python.org)](https://docs.python.org/3/tutorial/venv.html) - Learn more about virtual environments and packages.
-- [Installing Python Modules (Python.org)](https://docs.python.org/3/installing/index.html#installing-index) - Learn how to install Python modules.
-- [Python tutorial (Python.org)](https://docs.python.org/3/tutorial/index.html) - Learn more about the Python language.
-
 ## Next steps
 
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
+
+## More Python resources
+
+- [Getting Started with Python in VS Code](/docs/python/python-tutorial.md) - Learn how to edit, run, and debug code in VS Code.
+- [Virtual Environments and Packages (Python.org)](https://docs.python.org/3/tutorial/venv.html) - Learn more about virtual environments and packages.
+- [Installing Python Modules (Python.org)](https://docs.python.org/3/installing/index.html#installing-index) - Learn how to install Python modules.
+- [Python tutorial (Python.org)](https://docs.python.org/3/tutorial/index.html) - Learn more about the Python language.
