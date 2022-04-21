@@ -126,19 +126,19 @@ Remember, the C++ extension uses the C++ compiler you have installed on your mac
 1. Open `helloworld.cpp` so that it is the active file.
 2. Press the play button in the top right corner of the editor.
 
-   ![Screenshot of helloworld.cpp and play button](../languages/images/cpp/run-play-button.png)
+   ![Screenshot of helloworld.cpp and play button](images/playbutton/run-play-button.png)
 
 3. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run `helloworld.cpp`).
 
-   ![C++ debug configuration dropdown](../languages/images/cpp/select-cl-compiler.png)
+   ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
 4. After the build succeeds, your program's output will appear in the integrated **Terminal**.
 
-    ![screenshot of program output](../languages/images/cpp/helloworld-terminal-output.png)
+    ![screenshot of program output](images/playbutton/helloworld-terminal-output.png)
 
 If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 
-![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](../languages/images/cpp/dev-command-prompt-error.png)
+![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
 
 The first time you run your program, the C++ extension creates `tasks.json`, which you'll find in your project's `.vscode` folder. `tasks.json` stores build configurations.
 
@@ -192,19 +192,19 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 1. Go back to `helloworld.cpp` so that it is the active file.
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
-   ![screenshot of breakpoint in helloworld.cpp](../languages/images/cpp/cpp-breakpoint.png)
+   ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**. Or press `kb(workbench.action.debug.start)`.
-    ![Screenshot of play button drop-down](../languages/images/cpp/run-debug-arrow.png)
-   ![Screenshot of play button drop-down](../languages/images/cpp/debug-cpp-file-play-button.png)
+    ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
 1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
-   ![C++ debug configuration dropdown](../languages/images/cpp/select-cl-compiler.png)
+   ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
 The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
-   ![screenshot of play button in debug mode](../languages/images/cpp/debug-button.png)
+   ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
 
 If you get an error trying to build and debug with cl.exe, make sure you have [started VS Code from the Developer Command Prompt for Visual Studio](#check-your-microsoft-visual-c-installation) using the `code .` shortcut.
 
-![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](../languages/images/cpp/dev-command-prompt-error.png)
+![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
 
 
 ## Explore the debugger
@@ -213,7 +213,7 @@ Before you start stepping through the code, let's take a moment to notice severa
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
 - The editor highlights the line where you set a breakpoint before starting the debugger:
 
-   ![Initial breakpoint](../languages/images/cpp/breakpoint-debug.png)
+   ![Initial breakpoint](images/playbutton/breakpoint-debug.png)
 
 - The Run view on the left shows debugging information. You'll see an example later in the tutorial.
 
@@ -269,7 +269,7 @@ To create `launch.json`, choose **Run** > **Add Configuration...** from the main
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **C/C++: cl.exe build and debug active file**.
 
-![C++ debug configuration dropdown](../languages/images/cpp/select-cl-compiler.png)
+![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
 VS Code creates a `launch.json` file, which looks something like this:
 ```json
