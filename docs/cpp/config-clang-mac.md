@@ -232,7 +232,9 @@ When you debug with the play button or `kb(workbench.action.debug.start)`, the C
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
 
-To create `launch.json`, choose **Run** > **Add Configuration...** from the main menu and then choose **C++ (GDB/LLDB)**.
+To create `launch.json`, choose **Add Debug Configuration** from the play button drop-down menu.
+
+![Add debug configuration play button menu](images/playbutton/add-debug-configuration.png)
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **clang++ build and debug active file**.
 ![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
