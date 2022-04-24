@@ -198,27 +198,27 @@ Lightweight mode doesn't resolve imported dependencies nor build the project, so
 
 You can control which mode to launch with by configuring `java.server.launchMode` with the options below:
 
-- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
+- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the language status item on the Status bar to manually switch to standard mode.
 - `Standard` - A workspace is opened with standard mode.
-- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
+- `LightWeight` - A workspace is opened with lightweight mode. You can click the language status item on the Status bar to manually switch to standard mode.
 
-The Status bar indicates which mode the current workspace is in using different icons.
+The language status item indicates which mode the current workspace is in using different icons.
 
 <div id="codicon-listing">
 
-- <i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode.
+- <i class="codicon codicon-bracket-dot"></i> - workspace opened with lightweight mode.
 - <i class="codicon codicon-sync"></i> - workspace in the process of being opened with standard mode.
-- <i class="codicon codicon-thumbsup"></i> - workspace opened with standard mode.
+- <i class="codicon codicon-symbol-namespace"></i> - workspace opened with standard mode.
 
 </div>
 
-Clicking the lightweight mode icon switches to standard mode.
+Clicking the language status item switches to standard mode.
 
 ![Switch to Standard](images/java-project/switch-to-standard.gif)
 
 ## Build Status
 
-When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language server Status bar icon in the lower right.
+When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also click `check details` when a notification shows the language server is opening Java projects to see the build task status.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">

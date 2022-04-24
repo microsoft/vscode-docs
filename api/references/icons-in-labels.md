@@ -330,6 +330,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-bold"></i>|bold|
 |<i class="codicon codicon-book"></i>|book|
 |<i class="codicon codicon-bookmark"></i>|bookmark|
+|<i class="codicon codicon-bracket-dot"></i>|bracket-dot|
 |<i class="codicon codicon-briefcase"></i>|briefcase|
 |<i class="codicon codicon-broadcast"></i>|broadcast|
 |<i class="codicon codicon-browser"></i>|browser|
