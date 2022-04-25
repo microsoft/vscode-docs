@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
 PageTitle: Java project management in Visual Studio Code
-DateApproved: 12/1/2021
+DateApproved: 4/25/2022
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
@@ -218,7 +218,7 @@ Clicking the language status item switches to standard mode.
 
 ## Build Status
 
-When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also click `check details` when a notification shows the language server is opening Java projects to see the build task status.
+When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
