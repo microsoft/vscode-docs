@@ -1,0 +1,24 @@
+---
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: UX guidelines for editor actions in a Visual Studio Code extension.
+---
+
+## Editor Actions
+
+[Editor actions](/api/references/contribution-points#contributes.commands) can appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (**...**).
+
+**✔️ Do**
+
+* Show only when contextually appropriate
+* Use icons from the icon library
+* Use the overflow menu for secondary actions
+
+❌ Don't
+
+* Add more than one icon
+* Add custom colors
+* Use emojis
+
+![Editor Actions](images/guidelines/editor-actions.png)
+
+*This example only uses a single icon that only appears on HTML pages to launch a preview.*
