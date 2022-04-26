@@ -9,7 +9,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
 
-## Installation
+## Installation - Hello World
 
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
 2. Open the browser's download list and locate the downloaded app or archive.

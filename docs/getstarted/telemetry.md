@@ -139,3 +139,4 @@ Additionally, telemetry authors can add a `telemetry.json` file to their root bu
 * [Visual Studio Code FAQ](/docs/supporting/faq.md) - Consult the Frequently Asked Questions to learn more.
 * [User and Workspace Settings](/docs/getstarted/settings.md) - Read about available options to customize VS Code.
 * [Key Bindings](/docs/getstarted/keybindings.md) - You can easily modify commonly used keyboard shortcuts.
+* [Blah](/docs/gettstarted/themes.md) - blah
