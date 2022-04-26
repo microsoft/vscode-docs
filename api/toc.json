@@ -48,7 +48,6 @@
     "area": "ux-guidelines",
     "topics": [
       ["Overview", "/api/ux-guidelines/overview"],
-      ["Architecture", "/api/ux-guidelines/architecture"],
       ["Notifications", "/api/ux-guidelines/notifications"],
       ["Views", "/api/ux-guidelines/views"],
       ["Webviews", "/api/ux-guidelines/webviews"],
