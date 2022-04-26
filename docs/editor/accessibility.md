@@ -33,34 +33,41 @@ We support a High Contrast color theme on all platforms.  Use **File** > **Prefe
 
 ## Color vision accessibility
 
-You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use Extensions `kb(workbench.view.extensions)` to access the Marketplace extension search bar and enter "colorblind" to populate relevant options.
+You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use the Extensions view `kb(workbench.view.extensions)` and search for "colorblind" to populate relevant options.
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-To change the [color theme](/docs/getstarted/themes.md), go to **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
+
+### Recommended themes for color vision accessibility
+
+* [GitHub](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) - Accessible to most forms of colorblindness and matches the themes in GitHub's settings.
+* [Gotthard](https://marketplace.visualstudio.com/items?itemName=janbiasi.gotthard-theme) - Optimized for approximately 20 programming languages.
+* [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created with Deuteranopia in mind and possesses a high contrast color ratio.
+* [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both colorblindness and light sensitivity.
 
 ## Customizing warning colors
 
 The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
-> Note: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
+>**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
 
-To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS). Then open the UI settings by clicking **Edit in settings.json** like the image below.
+To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS) to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
 
 ![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
 
-Once the `settings.json` file populates, nest the following code inside the outermost curly braces. You'll be able to assign a color to each object by entering a hex code.
+In `settings.json` file, nest the following code inside the outermost curly braces. You'll be able to assign a color to each object by entering a hex code.
 
 ```json
-    "workbench.colorCustomizations": {
-
+"workbench.colorCustomizations": {
     "editorError.foreground": "#ffef0f",
-
     "editorWarning.foreground": "#3777ff"
 }
 ```
+
+In the example below, the warning color is applied when a comma is missing after a JSON item.
 
 ![JSON code to alter error/warning squiggle colors](images/accessibility/accessibility-extension-squiggles.png)
 
@@ -86,14 +93,7 @@ One of the best approaches to selecting the best colors for a specific condition
 
 ![Color wheel highlighting complementary colors](images/accessibility/accessibility-color-wheels.png)
 
->Note: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
-
-### Recommended themes
-
-* [GitHub](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) - Accessible to most forms of colorblindness and matches the themes in GitHub's settings.
-* [Gotthard](https://marketplace.visualstudio.com/items?itemName=janbiasi.gotthard-theme) - Optimized for approximately 20 programming languages.
-* [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created with Deuteranopia in mind and possesses a high contrast color ratio.
-* [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both colorblindness and light sensitivity.
+>**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
 
 ## Keyboard navigation
 
