@@ -3,7 +3,7 @@
 MetaDescription: Description of the various parts of the Visual Studio Code interface.
 ---
 
-## Architecture
+# Architecture
 
 The VS Code UI has two types of elements: containers and items. Containers refer to the outer layers, which include:
 

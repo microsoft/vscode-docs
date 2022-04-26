@@ -3,7 +3,7 @@
 MetaDescription: UX guidelines for status bar and status bar items in a Visual Studio Code extension.
 ---
 
-## Status Bar
+# Status Bar
 
 The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item) sits at the bottom of the VS Code workbench and displays information and actions that relate to your workspace. Items are placed into two groups: Primary (left) and Secondary (right). Items that relate to the entire workspace (status, problems/warnings, sync) go on the left and items that are secondary or contextual (language, spacing, feedback) go on the right. Limit the number of items added, as other extensions contribute to the same area.
 
@@ -25,7 +25,7 @@ The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item
 
 *This example shows an item that relates to the entire workspace, so it is on the left.*
 
-### Progress Status Bar item
+## Progress Status Bar item
 
 When needing to show discreet progress (progress happening in the background), it's recommended to show a Status Bar item with the loading icon (you can also add spin animation). If progress needs to be elevated for user attention, we recommend moving to a progress notification.
 
@@ -33,7 +33,7 @@ When needing to show discreet progress (progress happening in the background), i
 
 *This example shows a progress Status Bar item that is discreet.*
 
-### Error Status Bar item
+## Error Status Bar item
 
 If you need to show an item that is highly visible for error purposes, you can use the error Status Bar item. Only use error Status Bar items as a last resort and only for special cases.
 

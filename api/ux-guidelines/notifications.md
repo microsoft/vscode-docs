@@ -3,7 +3,7 @@
 MetaDescription: UX guidelines for notifications in a Visual Studio Code extension.
 ---
 
-## Notifications
+# Notifications
 
 [Notifications](/api/extension-capabilities/common-capabilities#display-notifications) display brief information that is surfaced from the bottom right of VS Code. You can send three types of notifications:
 
@@ -15,7 +15,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 [![Show a multi-step quick pick if multi step user input is immediately needed. If user input is immediately needed but it is not multi-step show a modal dialog. If you need to show progress that is low priority show the progress in the status bar. If the interaction is triggered by the user find the right moment to show the notification and only then show it. If you need to show multiple notifications try to combine them into one. If the user does not really need to be notified consider to not show anything and relax.](images/guidelines/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
 
-### Notification examples
+## Notification examples
 
 ![Information notification](images/guidelines/notification-info.png)
 
@@ -42,7 +42,7 @@ It's important to limit the number of notifications sent in order to respect the
 * Ask for feedback on the first install
 * Show actions if there aren't any
 
-### Progress notification
+## Progress notification
 
 When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
 

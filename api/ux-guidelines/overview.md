@@ -3,6 +3,6 @@
 MetaDescription: Guidelines that showcase best practices for creating Visual Studio Code extensions.
 ---
 
-# Extension Guidelines
+# UX Guidelines
 
 These guidelines cover the best practices for creating Visual Studio Code extensions.

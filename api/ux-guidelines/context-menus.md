@@ -3,7 +3,7 @@
 MetaDescription: UX guidelines for using context menus in a Visual Studio Code extension.
 ---
 
-## Context Menus
+# Context Menus
 
 [Menu items](/api/references/contribution-points#contributes.menus) appear in views, actions, and right-click menus. It's important that the grouping of menus remain consistent. If your extension has actions that relate to files, place your actions in the File Explorer context menu (when appropriate). If an extension has actions for certain file types, only display it for those items.
 

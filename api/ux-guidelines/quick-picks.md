@@ -3,7 +3,7 @@
 MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
 ---
 
-## Quick Picks
+# Quick Picks
 
 [Quick Picks](/api/extension-capabilities/common-capabilities#quick-pick) are an easy way to perform actions and receive input from the user. This is helpful when selecting a configuration option, needing to filter content, or picking from a list of items.
 

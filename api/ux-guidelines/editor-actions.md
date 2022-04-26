@@ -3,7 +3,7 @@
 MetaDescription: UX guidelines for editor actions in a Visual Studio Code extension.
 ---
 
-## Editor Actions
+# Editor Actions
 
 [Editor actions](/api/references/contribution-points#contributes.commands) can appear in the editor toolbar. You can either add an icon as a quick action or add menu item under the overflow menu (**...**).
 

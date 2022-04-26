@@ -3,7 +3,7 @@
 MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 ---
 
-## Views
+# Views
 
 [Views](/api/references/contribution-points#contributes.views) are containers of content that can appear in the sidebar or panel. Views can contain tree views or custom views and can also display view actions. Views can also be rearranged by the user into other views, Activity Bar items, and panels. Limit the number of views created as other extensions can contribute in the same view.
 
@@ -28,13 +28,13 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 
 *This example uses the tree view to display a list of tests and the state for each one. Each test type has a unique icon.*
 
-### View locations
+## View locations
 
 Views can be placed in [existing view containers](/api/references/contribution-points#contributes.views), such as the File Explorer and Source Control (SCM) and Debug view containers. They can also be added to a custom view container via the Activity Bar. In addition, views can be added to any view container in the panel or in their own custom view container.
 
 ![View locations](images/guidelines/views-locations.png)
 
-### View Containers
+## View Containers
 
 [View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style.
 
@@ -42,13 +42,13 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 *This example shows an outline icon used for a custom view container.*
 
-### Views with progress
+## Views with progress
 
 You can also [show progress in the Source Control view](/api/references/vscode-api#ProgressLocation) if your view is inside of the SCM view container.
 
 ![SCM Progress](images/guidelines/scm-progress.png)
 
-### Welcome views
+## Welcome views
 
 When a view is empty, you can [add content to guide users](/api/references/contribution-points#contributes.viewsWelcome) on how to use your extension or get started. Links and icons are supported in Welcome views.
 
