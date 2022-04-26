@@ -25,13 +25,29 @@ You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **
 
 When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment/decrement changes the zoom level by 20%.
 
+## High Contrast theme
+
+We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
+
+![High Contrast Theme](images/accessibility/high-contrast.png)
+
+## Color vision accessibility
+
+You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use Extensions `kb(workbench.view.extensions)` to access the Marketplace extension search bar and enter "colorblind" to populate relevant options.
+
+![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
+
+To change the [color theme](/docs/getstarted/themes.md), go to **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+
+![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
+
 ## Customizing warning colors
 
 The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
 
 > Note: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
 
-To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS). Then open the UI settings by selecting the file icon shown in the image below.
+To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS). Then open the UI settings by clicking **Edit in settings.json** like the image below.
 
 ![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
 
@@ -71,22 +87,6 @@ One of the best approaches to selecting the best colors for a specific condition
 ![Color wheel highlighting complementary colors](images/accessibility/accessibility-color-wheels.png)
 
 >Note: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
-
-## High Contrast theme
-
-We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
-
-![High Contrast Theme](images/accessibility/high-contrast.png)
-
-## Color vision accessibility
-
-You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use Extensions `kb(workbench.view.extensions)` to access the Marketplace extension search bar and enter "colorblind" to populate relevant options.
-
-![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
-
-To change the [color theme](/docs/getstarted/themes.md), go to **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
-
-![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
 ### Recommended themes
 
