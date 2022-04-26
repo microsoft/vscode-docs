@@ -14,7 +14,7 @@ The Python Extension for Visual Studio Code is highly configurable. This page de
 
 For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md), as well as the [Variables reference](/docs/editor/variables-reference.md) for information about predefined variable support.
 
-## General settings
+## General Python settings
 
 | Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
@@ -160,7 +160,7 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 
 ## Linting settings
 
-### General
+### General linting
 
 | Setting<br/>(python.linting.) | Default | Description | See also |
 | --- | --- | --- | --- |
@@ -247,7 +247,7 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 
 ## Testing settings
 
-### General settings
+### General testing
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
@@ -270,7 +270,6 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | pytestEnabled | `false` | Specifies whether pytest is enabled for testing. | [Testing](/docs/python/testing.md) |
 | pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
 | pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging tests with pytest-cov installed, include `--no-cov` in these arguments. | [Testing](/docs/python/testing.md) |
-
 
 ## Predefined variables
 

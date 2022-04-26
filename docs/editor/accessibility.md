@@ -31,6 +31,70 @@ We support a High Contrast color theme on all platforms.  Use **File** > **Prefe
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
+## Color vision accessibility
+
+You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use the Extensions view `kb(workbench.view.extensions)` and search for "colorblind" to populate relevant options.
+
+![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
+
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+
+![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
+
+### Recommended themes for color vision accessibility
+
+* [GitHub](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) - Accessible to most forms of colorblindness and matches the themes in GitHub's settings.
+* [Gotthard](https://marketplace.visualstudio.com/items?itemName=janbiasi.gotthard-theme) - Optimized for approximately 20 programming languages.
+* [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created with Deuteranopia in mind and possesses a high contrast color ratio.
+* [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both colorblindness and light sensitivity.
+
+## Customizing warning colors
+
+The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
+
+>**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
+
+To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS) to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
+
+![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
+
+In `settings.json` file, nest the following code inside the outermost curly braces. You'll be able to assign a color to each object by entering a hex code.
+
+```json
+"workbench.colorCustomizations": {
+    "editorError.foreground": "#ffef0f",
+    "editorWarning.foreground": "#3777ff"
+}
+```
+
+In the example below, the warning color is applied when a comma is missing after a JSON item.
+
+![JSON code to alter error/warning squiggle colors](images/accessibility/accessibility-extension-squiggles.png)
+
+* `editorError.foreground` - Overrides the wavy line beneath an error.
+* `editorWarning.foreground` - Overrides the wavy line beneath a warning.
+* `editorError.background` - Overrides the highlight color of an error.
+* `editorWarning.background` - Overrides the highlight color of a warning.
+
+Assigning a color to the background of `editorError` and `editorWarning` also helps to identify potential issues. The color that you choose will highlight the respective error or warning. The colors shown in the example above `#ffef0f` (yellow) and `#37777ff` (blue), are more accessible to individuals with common forms of color vision deficiencies.
+
+### Selecting accessible colors
+
+The accessibility of colors is subjective to the type of anomalous trichromacy (color blindness). The level of severity ranges per person and can be divided into four condition types:
+
+|   Condition      |   Type    |
+|       ---        |    ---    |
+|   Deuteranopia   |   Defined by the reduced sensitivity to green light. It is the most common form of color blindness.
+|   Protanopia     |   Defined by the reduced sensitivity to red light.
+|   Tritanopia     |   Defined by the reduced sensitivity to blue light. This condition is considered rare.
+|   Monochromia    |   Also referred to as, achromatopsia and is defined by the inability to see all colors. This is the rarest form of color blindness. Go to [Foundation for Fighting Blindness](https://www.fightingblindness.org/diseases/achromatopsia) for more information.
+
+One of the best approaches to selecting the best colors for a specific condition is to apply complementary colors. These are colors located opposite of one another on a color wheel.
+
+![Color wheel highlighting complementary colors](images/accessibility/accessibility-color-wheels.png)
+
+>**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
+
 ## Keyboard navigation
 
 You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
@@ -66,7 +130,6 @@ Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** p
 ## Screen readers
 
 VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the following screen readers: [NVDA](https://www.nvaccess.org) and JAWS on Windows,  VoiceOver on macOS and Orca on Linux.
-
 
 > For NVDA, we recommend staying in focus mode and using the hotkeys to navigate, instead of using browse mode.
 
