@@ -24,7 +24,7 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 * Use custom webview views if not necessary
 * Use a view container to launch a webview in the editor
 
-![Views example](images/views-example.png)
+![Views example](images/examples/views-example.png)
 
 *This example uses the tree view to display a list of tests and the state for each one. Each test type has a unique icon.*
 
@@ -32,13 +32,13 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 
 Views can be placed in [existing view containers](/api/references/contribution-points#contributes.views), such as the File Explorer and Source Control (SCM) and Debug view containers. They can also be added to a custom view container via the Activity Bar. In addition, views can be added to any view container in the panel or in their own custom view container.
 
-![View locations](images/views-locations.png)
+![View locations](images/examples/views-locations.png)
 
 ## View Containers
 
 [View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style.
 
-![View Container](images/view-container.png)
+![View Container](images/examples/view-container.png)
 
 *This example shows an outline icon used for a custom view container.*
 
@@ -46,7 +46,7 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 You can also [show progress in the Source Control view](/api/references/vscode-api#ProgressLocation) if your view is inside of the SCM view container.
 
-![SCM Progress](images/scm-progress.png)
+![SCM Progress](images/examples/scm-progress.png)
 
 ## Welcome views
 
@@ -68,6 +68,6 @@ When a view is empty, you can [add content to guide users](/api/references/contr
 * Use Welcome views for promotions
 * Use generic "read more" as link text
 
-![Welcome Views](images/welcome-views.png)
+![Welcome Views](images/examples/welcome-views.png)
 
 *This example shows one primary action for the extension and the additional views have context about what to expect with links to documentation.*

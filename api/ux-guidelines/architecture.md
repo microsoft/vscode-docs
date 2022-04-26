@@ -7,7 +7,7 @@ MetaDescription: Description of the various parts of the Visual Studio Code inte
 
 The VS Code UI has two types of elements: containers and items. Containers refer to the outer layers, which include:
 
-[![Overview of Visual Studio Code containers elements](images/architecture-groups.png)](images/architecture-groups.png)
+[![Overview of Visual Studio Code containers elements](images/examples/architecture-groups.png)](images/examples/architecture-groups.png)
 
 1. [Activity Bar](#view-containers)
 2. Sidebar
@@ -17,7 +17,7 @@ The VS Code UI has two types of elements: containers and items. Containers refer
 
 Items are placed inside of various containers and include:
 
-[![Overview of Visual Studio Code item elements](images/architecture-sections.png)](images/architecture-sections.png)
+[![Overview of Visual Studio Code item elements](images/examples/architecture-sections.png)](images/examples/architecture-sections.png)
 
 6. View Container
 7. [View](#views)

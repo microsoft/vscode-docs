@@ -21,7 +21,7 @@ The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item
 * Add more than one icon (unless necessary)
 * Add more than one item (unless necessary)
 
-![Status Bar Item](images/statusbar-item.png)
+![Status Bar Item](images/examples/statusbar-item.png)
 
 *This example shows an item that relates to the entire workspace, so it is on the left.*
 
@@ -29,7 +29,7 @@ The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item
 
 When needing to show discreet progress (progress happening in the background), it's recommended to show a Status Bar item with the loading icon (you can also add spin animation). If progress needs to be elevated for user attention, we recommend moving to a progress notification.
 
-![Status Bar Progress](images/status-bar-progress.png)
+![Status Bar Progress](images/examples/status-bar-progress.png)
 
 *This example shows a progress Status Bar item that is discreet.*
 
@@ -37,6 +37,6 @@ When needing to show discreet progress (progress happening in the background), i
 
 If you need to show an item that is highly visible for error purposes, you can use the error Status Bar item. Only use error Status Bar items as a last resort and only for special cases.
 
-![Status Bar Error](images/status-bar-error.png)
+![Status Bar Error](images/examples/status-bar-error.png)
 
 *This example uses the error Status Bar item for showing a blocking error in the file.*

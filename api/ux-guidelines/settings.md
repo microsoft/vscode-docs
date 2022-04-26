@@ -20,6 +20,6 @@ MetaDescription: UX guidelines for settings contributed by a Visual Studio Code 
 * Create your own settings page/webview
 * Create long descriptions
 
-![Settings](images/settings.png)
+![Settings](images/examples/settings.png)
 
 *This example links to a specific setting using the setting ID.*

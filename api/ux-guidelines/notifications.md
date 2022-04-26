@@ -13,19 +13,19 @@ MetaDescription: UX guidelines for notifications in a Visual Studio Code extensi
 
 It's important to limit the number of notifications sent in order to respect the user's attention. To help guide your decision on whether or not you should show a notification, please follow our notification decision tree:
 
-[![Show a multi-step quick pick if multi step user input is immediately needed. If user input is immediately needed but it is not multi-step show a modal dialog. If you need to show progress that is low priority show the progress in the status bar. If the interaction is triggered by the user find the right moment to show the notification and only then show it. If you need to show multiple notifications try to combine them into one. If the user does not really need to be notified consider to not show anything and relax.](images/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
+[![Show a multi-step quick pick if multi step user input is immediately needed. If user input is immediately needed but it is not multi-step show a modal dialog. If you need to show progress that is low priority show the progress in the status bar. If the interaction is triggered by the user find the right moment to show the notification and only then show it. If you need to show multiple notifications try to combine them into one. If the user does not really need to be notified consider to not show anything and relax.](images/examples/notification-decision-tree.png)](/assets/api/references/guidelines/notification-decision-tree.png)
 
 ## Notification examples
 
-![Information notification](images/notification-info.png)
+![Information notification](images/examples/notification-info.png)
 
 *This notification appears after the user runs an **Update version** command. Notice that there are no additional actions and is purely informational.*
 
-![Warning notification](images/notification-warning.png)
+![Warning notification](images/examples/notification-warning.png)
 
 *This example highlights a blocking error with a feature that requires user input and shows actions to resolve the issue.*
 
-![Error notification](images/notification-error.png)
+![Error notification](images/examples/notification-error.png)
 
 *This example shows a failure notification with no actions.*
 
@@ -57,6 +57,6 @@ When needing to display progress for an undetermined timeframe (for example, set
 
 * Leave a notification running in progress
 
-![Progress notification](images/notification-progress.png)
+![Progress notification](images/examples/notification-progress.png)
 
 *This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs (**details**).*
