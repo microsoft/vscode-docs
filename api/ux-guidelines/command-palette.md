@@ -18,6 +18,6 @@ The [Command Palette](/api/references/contribution-points#contributes.commands) 
 * Overwrite existing keyboard shortcuts
 * Use emojis in command names
 
-![Command Palette](images/guidelines/command-palette.png)
+![Command Palette](images/command-palette.png)
 
 *This example has commands that are grouped together in the "Debug" category and have clear labels and only a few commands have shortcuts.*

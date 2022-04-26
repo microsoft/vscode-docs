@@ -31,24 +31,24 @@ If you need to display custom functionality that is beyond what the VS Code API 
 
 This extension opens a browser preview for the editor to the side.
 
-![Weview Sample - Browser](images/guidelines/webview-browser.png)
+![Weview Sample - Browser](images/webview-browser.png)
 
 **Pull request**
 
 This extension shows pull requests for the repository of the workspace in a custom tree view and then uses a webview for a detail view of the pull request.
 
-![Webview Sample - Pull Request](images/guidelines/webview-pullrequest.png)
+![Webview Sample - Pull Request](images/webview-pullrequest.png)
 
 **Onboarding**
 
 This extension opens a quickstart webview with helpful actions and links for more information. The webview only appears the first time a user opens a certain file and checks if certain steps have already been completed (for example, install or create a file).
 
-![Webview Sample - Onboarding](images/guidelines/webview-onboarding.png)
+![Webview Sample - Onboarding](images/webview-onboarding.png)
 
 ### Webview views
 
 You can also place webviews into any view container (sidebar or panel) and these elements are called [webview views](/api/references/vscode-api#WebviewView). The same webview guidance applies to webview views.
 
-![Webview View](images/guidelines/webview-view.png)
+![Webview View](images/webview-view.png)
 
 *This webview view shows content for creating a pull request that uses dropdowns, inputs, and buttons.*

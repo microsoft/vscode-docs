@@ -19,6 +19,6 @@ MetaDescription: UX guidelines for editor actions in a Visual Studio Code extens
 * Add custom colors
 * Use emojis
 
-![Editor Actions](images/guidelines/editor-actions.png)
+![Editor Actions](images/editor-actions.png)
 
 *This example only uses a single icon that only appears on HTML pages to launch a preview.*

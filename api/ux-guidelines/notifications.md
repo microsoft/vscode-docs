@@ -57,6 +57,6 @@ When needing to display progress for an undetermined timeframe (for example, set
 
 * Leave a notification running in progress
 
-![Progress notification](images/guidelines/notification-progress.png)
+![Progress notification](images/notification-progress.png)
 
 *This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs (**details**).*

@@ -17,6 +17,6 @@ MetaDescription: UX guidelines for using context menus in a Visual Studio Code e
 
 * Show actions for every file without context
 
-![Context Menu](images/guidelines/context-menu.png)
+![Context Menu](images/context-menu.png)
 
 *This example places a **Copy GitHub Link** next to the other copy commands. This action only appears on files that are from a GitHub repository.*
