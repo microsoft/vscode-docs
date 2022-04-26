@@ -117,7 +117,7 @@ You can disable auto imports by setting `"typescript.suggest.autoImports": false
 
 ## Formatting
 
-VS Code includes a TypeScript formatter that providers basic code formatting with reasonable defaults.
+VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
 Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
 

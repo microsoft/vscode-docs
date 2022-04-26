@@ -59,7 +59,7 @@ In `smart` Auto Attach mode, VS Code will try to attach to your code, and not at
 ]
 ```
 
-`$KNOWN_TOOLS$` is replaced list a list of common 'code runners' such as `ts-node`, `mocha`, `ava`, and so on. You can modify this list if these settings don't work. For example, to exclude `mocha` and include `my-cool-test-runner`, you could add two lines:
+`$KNOWN_TOOLS$` is replaced with a list of common 'code runners' such as `ts-node`, `mocha`, `ava`, and so on. You can modify this list if these settings don't work. For example, to exclude `mocha` and include `my-cool-test-runner`, you could add two lines:
 
 ```js
 [

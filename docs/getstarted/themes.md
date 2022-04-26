@@ -129,14 +129,14 @@ The "Tomorrow Night Blue" color theme with semantic highlighting:
 
 Notice the color differences based on language service symbol understanding:
 
-- line 10: `languageModes` is colored as a parameter.
-- line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
-- line 13: `getFoldingRanges` is colored as a function.
+* line 10: `languageModes` is colored as a parameter.
+* line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
+* line 13: `getFoldingRanges` is colored as a function.
 
 The settings `editor.semanticHighlighting.enabled` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
 
-- `true` and `false` turn semantic highlighting on or off for all themes.
-- `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.
+* `true` and `false` turn semantic highlighting on or off for all themes.
+* `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.
 
 Users can override the theme setting by:
 

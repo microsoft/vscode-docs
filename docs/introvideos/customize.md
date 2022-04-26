@@ -12,7 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this Visual Studio Code tutorial, we show you how to customize Visual Studio Code with settings and keyboard shortcuts.
 
-<iframe src="https://www.microsoft.com/videoplayer/embed/RWBdEz" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<iframe src="https://www.microsoft.com/videoplayer/embed/RWBdEz" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Customize Visual Studio Code"></iframe>
 
 Pick another video from the list: [Introductory Videos](/docs/getstarted/introvideos.md)
 

@@ -15,8 +15,8 @@ As educators, we know it's frustrating to install all the different software to 
 
 This coding pack includes everything you need to start coding in Java.
 
-<a onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win"><button name="windows-java" aria-label="Windows download" role="link">Download - Windows</button></a>
-<a onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac"><button name="mac-java" aria-label="Windows download" role="link">Download - macOS</button></a>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Download - Windows</a>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Download - macOS</a>
 
 This will install:
 
@@ -30,7 +30,7 @@ This will install:
 
 This coding pack includes everything you need to start coding in Python.
 
-<a onclick="pushCodingPackEvent('python', 'win')" href="https://aka.ms/coding-pack-for-python-win"><button name="windows-python" aria-label="Windows download" role="link">Download - Windows</button></a>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('python', 'win')" href="https://aka.ms/coding-pack-for-python-win">Download - Windows</a>
 
 It will install:
 
@@ -49,8 +49,9 @@ In the Coding Pack for Python, we will include a User-level `settings.json` with
 
 The .NET coding pack includes everything you need to start coding with .NET.
 
-<a onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win"><button name="windows-dotnet" aria-label="Windows download" role="link">Download - Windows</button></a>
-<a onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac"><button name="mac-dotnet" aria-label="macOS download" role="link">Download - macOS</button></a>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Download - Windows</a>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Download - macOS</a>
+
 
 This will install:
 

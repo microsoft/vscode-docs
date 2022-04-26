@@ -88,7 +88,7 @@ Terminal profiles are platform-specific shell configurations comprised of an exe
 
 Example profile:
 
-```json
+```jsonc
 {
   "terminal.integrated.profiles.windows": {
     "My PowerShell": {
@@ -243,11 +243,11 @@ You can try it out by setting `terminal.integrated.shellIntegration.enabled` to 
 
 ### Complex bash $PROMPT_COMMAND
 
-In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. We take a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature we disable shell integration with the following message:
+In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. VS Code takes a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature, shell integration is disabled with the following message:
 
 > `Shell integration cannot be activated due to complex PROMPT_COMMAND: ...`
 
-If you hit this error it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
+If you hit this error, it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
 
 ```sh
 prompt() {
@@ -300,7 +300,7 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list and removed by adding the command name to the list prefixed with a `-`.
 
-```json
+```jsonc
 {
   "terminal.integrated.commandsToSkipShell": [
     // Ensure the toggle sidebar visibility keybinding skips the shell
@@ -630,7 +630,7 @@ Unfortunately, some issues cannot be automatically detected. If you experience i
 
 ### Git Bash isn't saving history when I close the terminal
 
-This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash-profile`:
+This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile`:
 
 ```bash
 export PROMPT_COMMAND='history -a'

@@ -33,7 +33,7 @@ In this module, learn the fundamentals of version control systems like Git.
 
 [Build a Node.js app using GitHub and Azure](https://www.youtube.com/watch?v=Myc1T4n6wn0)
 
-<iframe src="https://www.youtube-nocookie.com/embed/Myc1T4n6wn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/Myc1T4n6wn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="End to end app development using Visual Studio Code"></iframe>
 
 In this video, you'll see how GitHub is used when building a project. After completing this one hour tutorial and you'll end up creating a Node.js app, hosting it on GitHub, and deploying it to the cloud.
 
@@ -43,7 +43,7 @@ In this video, you'll see how GitHub is used when building a project. After comp
 
 With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/editor/github.md).
 
-<iframe src="https://www.youtube-nocookie.com/embed/T6sW1Dk9B4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/T6sW1Dk9B4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="What every GitHub user should know about VS Code"></iframe>
 
 ---
 
@@ -51,7 +51,7 @@ With this extension, you can quickly create pull requests and review other pull 
 
 The GitLens extension enhances the built-in Git features in VS Code, like showing you when lines of code were written, by whom, and in what commit. To learn more, check out this helpful [video](https://www.youtube.com/watch?v=C6wMNoe78oc).
 
-<iframe src="https://www.youtube-nocookie.com/embed/bRdQw4-sGIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/bRdQw4-sGIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="VS Code tips: Viewing file history with GitLens"></iframe>
 
 ## Connect with us
 
