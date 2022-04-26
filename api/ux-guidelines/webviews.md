@@ -1,9 +1,13 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 1c1f6d51-5914-44fa-ae10-0360be0ae2a3
+DateApproved: 3/30/2022
+
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for webviews in a Visual Studio Code extension.
 ---
 
-## Webviews
+# Webviews
 
 If you need to display custom functionality that is beyond what the VS Code API supports, you can use [webviews](/api/extension-guides/webview), which are fully customizable. It's important to understand that webviews should only be used if you absolutely need them.
 
@@ -25,7 +29,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 * Add functionality that is unrelated to the editor or workspace
 * Repeat existing functionality (Welcome page, Settings, configuration, etc.)
 
-### Webview examples
+## Webview examples
 
 **Browser preview**
 
@@ -45,7 +49,7 @@ This extension opens a quickstart webview with helpful actions and links for mor
 
 ![Webview Sample - Onboarding](images/examples/webview-onboarding.png)
 
-### Webview views
+## Webview views
 
 You can also place webviews into any view container (sidebar or panel) and these elements are called [webview views](/api/references/vscode-api#WebviewView). The same webview guidance applies to webview views.
 

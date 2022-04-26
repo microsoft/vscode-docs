@@ -1,4 +1,8 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 85918f63-ff5d-4ab8-8a18-26ad00618eff
+DateApproved: 3/30/2022
+
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
 ---
@@ -23,4 +27,4 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 
 * Repeat existing functionality
 * Use the same icon for multiple items
-* Use more than six icons in a list d
+* Use more than six icons in a list

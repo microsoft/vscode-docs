@@ -1,4 +1,8 @@
 ---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 9bce9eee-c589-42e4-9109-2ee6328f1209
+DateApproved: 3/30/2022
+
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Description of the various parts of the Visual Studio Code interface.
 ---
