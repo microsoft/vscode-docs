@@ -282,18 +282,24 @@ If you'd like to learn more about VS Code, try these topics:
 * [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
-<!--
 ## Common questions
 
-### Linker error
+### Linker errors
+
+If you see linker errors such as **"error: linker `link.exe` not found"** when you try to build your Rust program, you may be missing the necessary C/C++ toolset. Depending on your platform, you will need to install a toolset with a C/C++ linker to combine the Rust compiler output.
 
 **Windows**
 
-On Windows, you will need to also install Microsoft Visual Studio C++ Build Tools in order to get the C++ linker `link.exe`. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
+On Windows, you will need to also install [Microsoft Visual Studio C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) in order to get the C/C++ linker `link.exe`. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
 
 >**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
 **macOS**
 
 You may need to install the XCode toolset by running `xcode-select --install` in a terminal.
--->
+
+**Linux**
+
+You may need to install the GCC toolset via the `build-essential` package by running `sudo apt-get install build-essential` in a terminal.
+
+For further troubleshooting advice, refer to the [Rust installation](https://doc.rust-lang.org/book/ch01-01-installation.html) guide.
