@@ -446,12 +446,11 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-diff-removed"></i>|diff-removed|
 |<i class="codicon codicon-diff-renamed"></i>|diff-renamed|
 |<i class="codicon codicon-discard"></i>|discard|
-|<i class="codicon codicon-drop-down-button"></i>|drop-down-button|
 |<i class="codicon codicon-edit"></i>|edit|
 |<i class="codicon codicon-editor-layout"></i>|editor-layout|
 |<i class="codicon codicon-ellipsis"></i>|ellipsis|
 |<i class="codicon codicon-empty-window"></i>|empty-window|
-|<i class="codicon codicon-error=small"></i>|error-small|
+|<i class="codicon codicon-error-small"></i>|error-small|
 |<i class="codicon codicon-error"></i>|error|
 |<i class="codicon codicon-exclude"></i>|exclude|
 |<i class="codicon codicon-expand-all"></i>|expand-all|
