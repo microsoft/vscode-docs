@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
 PageTitle: Rust with Visual Studio Code
-DateApproved: 4/22/2022
+DateApproved: 4/26/2022
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Rust.
 ---
 # Rust in Visual Studio Code
@@ -135,7 +135,7 @@ One of the first things you may notice is rust-analyzer providing [inlay hints](
 
 ![Rust program with inlay hints displayed](images/rust/inlay-hints.png)
 
-While inlay hints can be very helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`editor.inlayHints.enabled`) or use the **Rust Analyzer: Toggle Inlay Hints** command to hide or display this extra information.
+While inlay hints can be helpful for understanding your code, you can also disable the feature via the **Editor > Inlay Hints: Enabled** setting (`editor.inlayHints.enabled`) or use the **Rust Analyzer: Toggle Inlay Hints** command to hide or display this extra information.
 
 ### Hover information
 
@@ -161,7 +161,7 @@ Being able to quickly tell which Rust variables are mutable or not can help your
 
 In `settings.json`, you would add:
 
-```json
+```jsonc
 {
   "editor.semanticTokenColorCustomizations": {
     "rules": {
@@ -197,7 +197,7 @@ The Rust toolset includes a linter, clippy, to detect issues with your source co
 
 ## Quick Fixes
 
-When the linter finds errors and warnings in your source code, rust-analyzer can often provide suggested Quick Fixes (also called Code Actions), which are available via a lightbulb hover in the editor. You can quickly open available Quick Fixes via the `kb(editor.action.quickFix)`.
+When the linter finds errors and warnings in your source code, rust-analyzer can often provide suggested Quick Fixes (also called Code Actions), which are available via a light bulb hover in the editor. You can quickly open available Quick Fixes via the `kb(editor.action.quickFix)`.
 
 ![Quick Fixes for greeting unused boolean variable](images/rust/quick-fixes.png)
 
@@ -205,9 +205,7 @@ When the linter finds errors and warnings in your source code, rust-analyzer can
 
 Due to rust-analyzers semantic understanding of your source code, it can also provide smart renames, across your Rust files. With your cursor on a variable, select **Rename Symbol** from the context menu, Command Palette, or via `kb(editor.action.rename)`.
 
-### Assists
-
-The rust-analyzer extensions also supports other code refactorings and code generation, which the extension calls [Assists](https://rust-analyzer.github.io/manual.html#assists-code-actions).
+The rust-analyzer extension also supports other code refactorings and code generation, which the extension calls [Assists](https://rust-analyzer.github.io/manual.html#assists-code-actions).
 
 Here are just a few of the refactorings available:
 
@@ -225,9 +223,9 @@ You also have the option to run the formatter on each save (**Editor: Format On 
 
 ## Debugging
 
-The rust-analzyer extension supports debugging Rust from within VS Code.
+The rust-analyzer extension supports debugging Rust from within VS Code.
 
-### Installation
+### Install debugging support
 
 To start debugging, you will first need to install one of two language extension with debugging support:
 
@@ -240,15 +238,41 @@ If you forget to install one of these extensions, rust-analyzer will provide a n
 
 ### Using Rust Analyzer: Debug
 
-Need to set Allow breakpoints everywhere to set a break point in the `main.rs`
+The rust-analyzer extension has basic debugging support via the **Rust Analyzer: Debug** command available in the Command Palette (`kb(workbench.action.showCommands)`) and the **Run|Debug** CodeLens in the editor.
 
+Let's debug the Hello World program, we created earlier. First we will set a breakpoint in `main.rs`.
+
+1. You'll need to enable the setting **Debug: Allow Breakpoints Everywhere**, which you can find in the Settings editor (`kb(workbench.action.openSettings)`) by searching on 'everywhere`.
+
+   ![Debug: Allow Breakpoints Everywhere in the Settings editor](images/rust/allow-breakpoints-everywhere.png)
+
+2. Open `main.rs` and click the left gutter in the editor to set a break point on the `println!` line. It should display as a red dot.
+
+   ![Red breakpoint dot in the left gutter of the editor](images/rust/set-breakpoint.png)
+
+3. To start debugging, use either the **Rust Analyzer: Debug** command or select the **Debug** CodeLens about `main()`.
+
+   ![Debug session stopped at breakpoint](images/rust/debug-hello-world.png)
+
+<!--
 ### Using launch.json
+
+For more complicated debugging scenarios, you can create a `launch.json` [debugging configuration](/docs/editor/debugging.md/#launch-configurations) file. A `launch.json` file lets you pass arguments to your program, run pre-launch tasks, set environment variables, and much more.
+
+To create a `launch.json` for a Rust program:
+
+1. In the Debug view (`kb(workbench.view.debug)`), select the **create a launch.json file** link.
+2. This will display a dropdown, which several default launch configuration types. You can pick the first option as we will add another configuration for Rust.
+3. You will now have a `launch.json` file in the editor, which is located in a new `.vscode` folder in your project.
+4. Select the **Add Configuration** button in the lower right and select the **C/C++: (Windows) Launch** configuration.
+  ![Add Configuration with C/C++ Windows Launch selected](images/rust/add-configuration.png)
+-->
 
 ## Next steps
 
 This has been a brief overview showing the rust-analyzer extension features within VS Code. For more information, see the details provided in the Rust Analyzer extension [User Manual](https://rust-analyzer.github.io/manual.html), including how to tune specific [VS Code editor](https://rust-analyzer.github.io/manual.html#vs-code-2) configurations.
 
-To stay up to date on the latest features/bug fixes for the rust-analyzer extension, see the [CHANGELOG](https://rust-analyzer.github.io/thisweek). You can also try out new features and fixes by installing the rust-analyzer **Pre-Release Version** available in the Extensions view **Install** drop down.
+To stay up to date on the latest features/bug fixes for the rust-analyzer extension, see the [CHANGELOG](https://rust-analyzer.github.io/thisweek). You can also try out new features and fixes by installing the rust-analyzer **Pre-Release Version** available in the Extensions view **Install** dropdown.
 
 If you have any issues or feature requests, feel free to log them in the rust-analyzer extension [GitHub repo](https://github.com/rust-lang/rust-analyzer/issues).
 
@@ -258,6 +282,7 @@ If you'd like to learn more about VS Code, try these topics:
 * [Install an Extension](/docs/editor/extension-marketplace.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
+<!--
 ## Common questions
 
 ### Linker error
@@ -271,5 +296,4 @@ On Windows, you will need to also install Microsoft Visual Studio C++ Build Tool
 **macOS**
 
 You may need to install the XCode toolset via
-
-mention good documentation on rust.org
+-->
