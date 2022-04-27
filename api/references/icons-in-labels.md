@@ -316,10 +316,10 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-archive"></i>|archive|
 |<i class="codicon codicon-array"></i>|array|
 |<i class="codicon codicon-arrow-both"></i>|arrow-both|
-|<i class="codicon codicon-circle-down"></i>|circle-down|
-|<i class="codicon codicon-circle-left"></i>|circle-left|
-|<i class="codicon codicon-circle-right"></i>|circle-right|
-|<i class="codicon codicon-circle-up"></i>|circle-up|
+|<i class="codicon codicon-arrow-circle-down"></i>|circle-down|
+|<i class="codicon codicon-arrow-circle-left"></i>|circle-left|
+|<i class="codicon codicon-arrow-circle-right"></i>|circle-right|
+|<i class="codicon codicon-arrow-circle-up"></i>|circle-up|
 |<i class="codicon codicon-arrow-down"></i>|arrow-down|
 |<i class="codicon codicon-arrow-left"></i>|arrow-left|
 |<i class="codicon codicon-arrow-right"></i>|arrow-right|
