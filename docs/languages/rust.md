@@ -117,7 +117,7 @@ Cargo can also be used to run your Rust project via `cargo run`.
 cargo run
 ```
 
-You can also run hello_world.exe manually in the terminal by typing `.\target\debug\hello_world`.
+You can also run `hello_world.exe` manually in the terminal by typing `.\target\debug\hello_world`.
 
 ![Manually running hello_world.exe output in the integrated terminal](images/rust/cargo-run.png)
 
@@ -191,7 +191,7 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Linting
 
-The Rust toolset includes a linter, clippy, to detect issues with your source code. While you can run clippy directly from the command line (`carge clippy`), the rust-analyzer extension integrates clippy warnings and errors directly in the editor and Problems view (`kb(workbench.actions.view.problems)`).
+The Rust toolset includes a linter, clippy, to detect issues with your source code. While you can run clippy directly from the command line (`cargo clippy`), the rust-analyzer extension integrates clippy warnings and errors directly in the editor and Problems view.
 
 ![linter warning about an unused variable](images/rust/linter-warning.png)
 
@@ -217,7 +217,7 @@ Here are just a few of the refactorings available:
 
 ## Formatting
 
-The Rust toolset includes a formatter, rustfmt.exe, which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
+The Rust toolset includes a formatter, `rustfmt.exe`, which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
 
 You also have the option to run the formatter on each save (**Editor: Format On Save**) or paste (**Format On Paste**) to keep your Rust code properly formatted automatically while you are working.
 
@@ -289,7 +289,7 @@ If you'd like to learn more about VS Code, try these topics:
 
 **Windows**
 
-On Windows, you will need to also install Microsoft Visual Studio C++ Build Tools in order to get the C++ linker link.exe. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
+On Windows, you will need to also install Microsoft Visual Studio C++ Build Tools in order to get the C++ linker `link.exe`. Be sure to select the **Desktop Development with C++** when running the Visual Studio installer.
 
 >**Note**: You can use the C++ toolset from Visual Studio Build Tools along with Visual Studio Code to compile, build, and verify any C++ codebase as long as you also have a valid Visual Studio license (either Community, Pro, or Enterprise) that you are actively using to develop that C++ codebase.
 
