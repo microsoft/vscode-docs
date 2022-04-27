@@ -9,11 +9,11 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Rust in Visual Studio Code
 
-[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic does into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.
+[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.
 
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
->**Note**: There is also another popular Rust extension in the VS Code Marketplace (extension ID rust-lang.rust) but this extension will soon be deprecated and rust-analyzer will be the recommended VS Code Rust extension by rust-lang.org.
+>**Note**: There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension will soon be deprecated and rust-analyzer will be the recommended VS Code Rust extension by rust-lang.org.
 
 ## Installation
 
@@ -295,5 +295,5 @@ On Windows, you will need to also install Microsoft Visual Studio C++ Build Tool
 
 **macOS**
 
-You may need to install the XCode toolset via
+You may need to install the XCode toolset by running `xcode-select --install` in a terminal.
 -->
