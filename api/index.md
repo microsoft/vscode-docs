@@ -16,7 +16,7 @@ This documentation describes:
 * How to build, run, debug, test, and publish an extension
 * How to take advantage of VS Code's rich Extension API
 * Where to find [guides](https://code.visualstudio.com/api/extension-guides/overview) and [code samples](https://github.com/microsoft/vscode-extension-samples) to help get you started
-* Following our [extension guidelines](/api/references/extension-guidelines) for best practices
+* Following our [extension guidelines](/api/ux-guidelines/overview) for best practices
 
 Code samples are available at [Microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples).
 

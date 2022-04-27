@@ -112,7 +112,7 @@ On the other hand, VS Code also offers a set of [Debug Extension API](/api/refer
 
 ## Extension Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/references/extension-guidelines), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Restrictions
 
