@@ -18,7 +18,7 @@ These guidelines cover the best practices for creating Visual Studio Code extens
 
 The VS Code UI has two types of elements: containers and items. Containers refer to the outer layers, which include:
 
-[![Overview of Visual Studio Code containers elements](images/examples/architecture-groups.png)](images/examples/architecture-groups.png)
+[![Overview of Visual Studio Code containers elements](images/examples/architecture-groups.png)](/assets/api/ux-guidelines/examples/architecture-groups.png)
 
 1. [Activity Bar](/api/ux-guidelines/views#view-containers)
 2. Sidebar
@@ -28,7 +28,7 @@ The VS Code UI has two types of elements: containers and items. Containers refer
 
 Items are placed inside of various containers and include:
 
-[![Overview of Visual Studio Code item elements](images/examples/architecture-sections.png)](images/examples/architecture-sections.png)
+[![Overview of Visual Studio Code item elements](images/examples/architecture-sections.png)](/assets/api/ux-guidelines/examples/architecture-sections.png)
 
 6. View Container
 7. [View](/api/ux-guidelines/views)
