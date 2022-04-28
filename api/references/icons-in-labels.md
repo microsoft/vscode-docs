@@ -301,11 +301,9 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-debug-alt"></i>|watch-view-icon|debug-alt|View icon of the watch view.|
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
 
-
 The Codicon library contains all the icons used in VS Code views, as well as a set of useful icons.
 
 VS Code extensions can use these icons in labels, views, and trees.
-
 
 | preview     | identifier
 | ----------- | --------------------------------- |
@@ -316,10 +314,10 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-archive"></i>|archive|
 |<i class="codicon codicon-array"></i>|array|
 |<i class="codicon codicon-arrow-both"></i>|arrow-both|
-|<i class="codicon codicon-arrow-circle-down"></i>|circle-down|
-|<i class="codicon codicon-arrow-circle-left"></i>|circle-left|
-|<i class="codicon codicon-arrow-circle-right"></i>|circle-right|
-|<i class="codicon codicon-arrow-circle-up"></i>|circle-up|
+|<i class="codicon codicon-arrow-circle-down"></i>|arrow-circle-down|
+|<i class="codicon codicon-arrow-circle-left"></i>|arrow-circle-left|
+|<i class="codicon codicon-arrow-circle-right"></i>|arrow-circle-right|
+|<i class="codicon codicon-arrow-circle-up"></i>|arrow-circle-up|
 |<i class="codicon codicon-arrow-down"></i>|arrow-down|
 |<i class="codicon codicon-arrow-left"></i>|arrow-left|
 |<i class="codicon codicon-arrow-right"></i>|arrow-right|
