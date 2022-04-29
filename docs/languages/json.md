@@ -15,7 +15,9 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 ## IntelliSense and validation
 
-For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`). We also perform structural and value verification based on an associated JSON schema giving you red squiggles.
+For properties and values, both for JSON data with or without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).
+
+We also perform structural and value verification based on an associated JSON schema giving you red squiggles. To disable validation, use the `json.validate.enable` [setting](/docs/getstarted/settings.md).
 
 ![IntelliSense](images/json/intellisense.png)
 
