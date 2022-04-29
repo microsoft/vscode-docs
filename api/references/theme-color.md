@@ -42,6 +42,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
+- `disabledForeground`: Overall foreground for disabled elements. This color is only used if not overridden by a component.
 - `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
@@ -256,6 +257,10 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `editorGroupHeader.border`: Border color between editor group header and editor (below breadcrumbs if enabled).
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
+- `editorGroup.dropIntoPromptForeground`: Foreground color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+- `editorGroup.dropIntoPromptBackground`: Background color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+- `editorGroup.dropIntoPromptBorder`: Border color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+
 - `tab.activeBackground`: Active Tab background color in an active group.
 - `tab.unfocusedActiveBackground`: Active Tab background color in an inactive editor group.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
@@ -493,6 +498,16 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
+
+
+The editor comments widget can be seen when reviewing pull requests:
+
+- `editorCommentsWidget.resolvedBorder`: Color of borders and arrow for resolved comments.
+- `editorCommentsWidget.unresolvedBorder`: Color of borders and arrow for unresolved comments.
+- `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
+- `editorCommentsWidget.rangeBorder`: Color of border for comment ranges.
+- `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
+- `editorCommentsWidget.rangeActiveBorder`: Color of border for currently selected or hovered comment range.
 
 ## Diff editor colors
 
