@@ -51,11 +51,8 @@ Spanish | `es`
 Japanese | `ja`
 Korean | `ko`
 Russian | `ru`
-Bulgarian | `bg`
-Hungarian | `hu`
 Portuguese (Brazil) | `pt-br`
 Turkish | `tr`
-Polish | `pl`
 Czech | `cs`
 
 ## Marketplace Language Packs
