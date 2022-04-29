@@ -53,6 +53,7 @@ Korean | `ko`
 Russian | `ru`
 Portuguese (Brazil) | `pt-br`
 Turkish | `tr`
+Polish | `pl`
 Czech | `cs`
 
 ## Marketplace Language Packs
