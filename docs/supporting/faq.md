@@ -239,7 +239,7 @@ The process outlined below may help you identify which parts of your shell initi
 * Save and fully restart VS Code.
 * Continue commenting out operations until the error disappears.
 
->**Note**: While `nvm` is a powerful and useful Node.js package manager, it can cause slow shell startup times, if being run during shell initialization. You might consider package manager alternatives such as [asdf](https://asdf-vm.com) or search on the internet for `nvm` performance suggestions.
+>**Note**: While `nvm` is a powerful and useful Node.js package manager, it can cause slow shell startup times, if being run during shell initialization. You might consider [lazy loading](https://spin.atomicobject.com/2022/01/18/terminal-lazy-loading/) nvm or other package manager alternatives such as [asdf](https://asdf-vm.com) or search on the internet for `nvm` performance suggestions.
 
 ### Launch VS Code from a terminal
 
