@@ -4,46 +4,45 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 10/05/2021
+DateApproved: 04/30/2022
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in Visual Studio Code
 
-Linting highlights syntactical and stylistic problems in your Python source code, which oftentimes helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](/docs/python/editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code *appears*.
+Linting highlights syntactical and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](/docs/python/editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code *appears*.
 
-By default, stylistic and syntactical code detection is enabled by the Language Server. If you require third-party linters for additional problem detection, however, you can enable them by using the **Python: Select Linter** command and selecting the appropriate linter. You can easily enable and disable all linting by using the **Python: Enable Linting** command.
+> **Note**: Stylistic and syntactical code detection is enabled by the Language Server. To enable third-party linters for additional problem detection, you can enable them by using the **Python: Select Linter** command and selecting the appropriate linter.
 
-## Enable linters
+## Enable linting
 
-To enable linters, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. This command adds `"python.linting.<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
+To enable linters, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. Which adds `"python.linting.<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
 
 Enabling a linter prompts you to install the required packages in your selected environment for the chosen linter.
 
 ![Prompt for installing a linter](images/linting/install-linter-message.png)
 
-> **Note**: If you're using a global environment and VS Code is not running elevated, linter installation may fail. In that case, either run VS Code elevated, or manually run the Python package manager to install the linter at an elevated command prompt for the same environment: for example `sudo pip3 install pylint` (macOS/Linux) or `pip install pylint` (Windows, at an elevated prompt)
+> **Note**: If you're using a global environment and VS Code is not running elevated, linter installation may fail. In that case, either run VS Code elevated, or manually run the Python package manager to install the linter at an elevated command prompt for the same environment: for example `sudo pip3 install pylint` (macOS/Linux) or `pip install pylint` (Windows, at an elevated prompt).
 
 ## Disable linting
 
-You can disable all Python linting with the **Python: Enable Linting** command, which shows a dropdown with the current linting state and options to turn Python linting `on` or `off`.
+You can easily toggle between enabling and disabling your linter. To switch, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Enable/Disable Linting** command.
+
+This will populate a dropdown with the current linting state and options to `Enable` or `Disable` Python linting.
 
 ![Python Enable Linting command dropdown](images/linting/enable-linting-dropdown.png)
 
 ## Run linting
 
-To perform linting:
+To perform linting, the Command Palette (`kb(workbench.action.showCommands)`), then enter and select **Python: Run Linting**. Linting will run automatically when you save a file.
 
-- Linting runs automatically when you save a file.
-- Open the Command Palette (`kb(workbench.action.showCommands)`), then enter and select **Python: Run Linting**.
-
-Issues are shown in the **Problems** panel and as underlines in the code editor. Hovering over an underlined issue displays the details:
+Issues are shown in the **Problems** panel and as wavy underlines in the code editor. Hovering over an underlined issue displays the details:
 
 ![Linting messages in the editor and the Problems panel](images/linting/lint-messages.png)
 
 ## General linting settings
 
-The remainder of this article describes settings for linting in general as well as specific linters. You can add any of the settings to your user `settings.json` file (opened with the **File** > **Preferences** > **Settings** command `kb(workbench.action.openSettings)`). Refer to [User and Workspace settings](/docs/getstarted/settings.md) to find out more about working with settings in VS Code generally.
+You can add any of the linting settings to your user `settings.json` file (opened with the **File** > **Preferences** > **Settings** command `kb(workbench.action.openSettings)`). Refer to [User and Workspace settings](/docs/getstarted/settings.md) to find out more about working with settings in VS Code.
 
 To change the linting behavior across all enabled linters, modify the following settings:
 
@@ -53,8 +52,6 @@ To change the linting behavior across all enabled linters, modify the following 
 | Linting on file save | lintOnSave | `true` |
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
-
-You can easily change `python.linting.enabled` by using the **Python: Enable Linting** command.
 
 When enabling `lintOnSave`, you might also want to enable the generic `files.autoSave` option (see [Save / Auto Save](/docs/editor/codebasics.md#save-auto-save)). The combination provides frequent linting feedback in your code as you type.
 
@@ -72,7 +69,7 @@ The following table provides a summary of available Python linters and their bas
 | pylama | [pylama](https://pypi.org/project/pylama/) | pylamaEnabled | pylamaArgs | pylamaPath |
 | bandit | [bandit](https://pypi.org/project/bandit/) | banditEnabled | banditArgs | banditPath  |
 
-To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
+To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, that using the **Select Linter** command overwrites those edits.
 
 Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
 
@@ -82,11 +79,11 @@ Custom arguments are specified in the appropriate arguments setting for each lin
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
 ```
 
-Note that if a top-level element is a single value, as delineated by quotation marks or braces, it still appears as a single item in the list even if the value itself contains spaces.
+If a top-level element is a single value (delineated by quotation marks or braces), it still appears as a single item in the list even if the value itself contains spaces.
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
-The sections that follow provide additional details for those individual linters linked in the table. In general, custom rules must be specified in a separate file as required by the linter you're using.
+> **Note**: The following sections provide additional details for the individual linters linked in the [Specific linters](#specific-linters) table above. In general, custom rules must be specified in a separate file as required by the linter you're using.
 
 ## Pylint
 
@@ -102,11 +99,17 @@ Pylint messages fall into the categories in the following table with the indicat
 
 ### Command-line arguments and configuration files
 
-See [Pylint command-line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command-line arguments can be used to load Pylint plugins, such as the plugin for Django:
+You can easily generate an options file using different methods.See [Pylint command-line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches.
+
+**If you're using command-line arguments:**
+
+Command-line arguments can be used to load Pylint plugins, such as the plugin for Django:
 
 ```json
 "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 ```
+
+**If you're using the workspace folder:**
 
 Options can also be specified in a `pylintrc` or `.pylintrc` options file in the workspace folder, as described on [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options).
 
@@ -127,20 +130,21 @@ To control which Pylint messages are shown, add the following contents to an opt
 #disable=
 ```
 
-You can easily generate an options file using Pylint itself:
+**If you're using Pylint:**
+You can create an options file using Pylint itself, by running the command below.
 
 ```bash
 # Using an *nix shell or cmd on Windows
 pylint --generate-rcfile > .pylintrc
 ```
 
-For PowerShell you have to explicitly specify a UTF-8 output encoding:
+**If you're using PowerShell:**
+
+For PowerShell you have to explicitly specify a UTF-8 output encoding. This file contains sections for all the Pylint options, along with documentation in the comments.
 
 ```ps
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
-
-The generated file contains sections for all the Pylint options, along with documentation in the comments.
 
 ## pydocstyle
 
@@ -208,7 +212,7 @@ See [Prospector Command Line Usage](https://prospector.readthedocs.io/en/master/
 
 It's common with Prospector to use [profiles](https://prospector.readthedocs.io/en/master/profiles.html) to configure how Prospector runs. By default, Prospector loads the profile from a `.prospector.yaml` file in the current folder.
 
-Because Prospector calls other tools, such as Pylint, any configuration files for those tools override tool-specific settings in `.prospector.yaml`.  For example, suppose you specify the following in `.prospector.yaml`:
+Because Prospector calls other tools, such as Pylint, any configuration files for those tools override tool-specific settings in `.prospector.yaml`.  For example, suppose you specify the following, in `.prospector.yaml`:
 
 ```yaml
 pylint:
