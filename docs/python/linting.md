@@ -10,13 +10,13 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in Visual Studio Code
 
-Linting highlights syntactical and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](/docs/python/editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code *appears*.
+Linting highlights syntactical and stylistic problems in your Python source code, which often helps you identify and correct subtle programming errors or unconventional coding practices that can lead to errors. For example, linting detects use of an uninitialized or undefined variable, calls to undefined functions, missing parentheses, and even more subtle issues such as attempting to redefine built-in types or functions. Linting is thus distinct from [Formatting](/docs/python/editing.md#formatting) because linting analyzes how the code runs and detects errors whereas formatting only restructures how code **appears**.
 
 > **Note**: Stylistic and syntactical code detection is enabled by the Language Server. To enable third-party linters for additional problem detection, you can enable them by using the **Python: Select Linter** command and selecting the appropriate linter.
 
 ## Enable linting
 
-To enable linters, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. Which adds `"python.linting.<linter>Enabled": true` to your settings, where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
+To enable linters, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Select Linter** command. The **Select Linter** command adds `"python.linting.<linter>Enabled": true` to your [settings](/docs/getstarted/settings.md), where `<linter>` is the name of the chosen linter. See [Specific linters](#specific-linters) for details.
 
 Enabling a linter prompts you to install the required packages in your selected environment for the chosen linter.
 
@@ -28,13 +28,13 @@ Enabling a linter prompts you to install the required packages in your selected 
 
 You can easily toggle between enabling and disabling your linter. To switch, open the Command Palette (`kb(workbench.action.showCommands)`) and select the **Python: Enable/Disable Linting** command.
 
-This will populate a dropdown with the current linting state and options to `Enable` or `Disable` Python linting.
+This will populate a dropdown with the current linting state and options to **Enable** or **Disable** Python linting.
 
 ![Python Enable Linting command dropdown](images/linting/enable-linting-dropdown.png)
 
 ## Run linting
 
-To perform linting, the Command Palette (`kb(workbench.action.showCommands)`), then enter and select **Python: Run Linting**. Linting will run automatically when you save a file.
+To perform linting, open the Command Palette (`kb(workbench.action.showCommands)`), filter on "linting", and select **Python: Run Linting**. Linting will run automatically when you save a file.
 
 Issues are shown in the **Problems** panel and as wavy underlines in the code editor. Hovering over an underlined issue displays the details:
 
@@ -99,7 +99,7 @@ Pylint messages fall into the categories in the following table with the indicat
 
 ### Command-line arguments and configuration files
 
-You can easily generate an options file using different methods.See [Pylint command-line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches.
+You can easily generate an options file using different methods. See [Pylint command-line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches.
 
 **If you're using command-line arguments:**
 
@@ -109,7 +109,7 @@ Command-line arguments can be used to load Pylint plugins, such as the plugin fo
 "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 ```
 
-**If you're using the workspace folder:**
+**If you're using a pylintrc file:**
 
 Options can also be specified in a `pylintrc` or `.pylintrc` options file in the workspace folder, as described on [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options).
 
@@ -131,6 +131,7 @@ To control which Pylint messages are shown, add the following contents to an opt
 ```
 
 **If you're using Pylint:**
+
 You can create an options file using Pylint itself, by running the command below.
 
 ```bash
@@ -138,9 +139,7 @@ You can create an options file using Pylint itself, by running the command below
 pylint --generate-rcfile > .pylintrc
 ```
 
-**If you're using PowerShell:**
-
-For PowerShell you have to explicitly specify a UTF-8 output encoding. This file contains sections for all the Pylint options, along with documentation in the comments.
+If you are running Pylint in PowerShell, you have to explicitly specify a UTF-8 output encoding. This file contains sections for all the Pylint options, along with documentation in the comments.
 
 ```ps
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
@@ -271,7 +270,7 @@ The Python extension maps mypy message categories to VS Code categories through 
 | --- | --- | --- |
 | ... unable to import \<module_name\> | The Python extension is using the wrong version of Pylint. | Ensure that selected interpreter is a valid Python installation where Pylint is installed. Alternately, set the `python.linting.pylintPath` to an appropriate version of Pylint for the Python interpreter being used. |
 | Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
-| | The linter has not been installed in the current Python environment. | Open a command prompt, navigate to the location where your selecter interpreter is , and run `pip install` for the linter. |
+| | The linter has not been installed in the current Python environment. | Open a command prompt, navigate to the location where your selecter interpreter is, and run `pip install` for the linter. |
 | | The path to the linter is incorrect. | Ensure that the appropriate `python.linting.<linter>Path` setting for the linter is correct. |
 | | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is a list of the argument elements that are separated by spaces. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |
 
