@@ -7,7 +7,7 @@ DateApproved: 3/30/2022
 MetaDescription: Learn how Visual Studio Code extensions can enable telemetry and respect user telemetry choices.
 ---
 
-# Customer content extension authors guide
+# Telemetry extension authors guide
 
 Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry) to learn more.
 
