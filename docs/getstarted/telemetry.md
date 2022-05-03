@@ -124,15 +124,6 @@ Some precomputed recommendations are shipped as part of the product while additi
 
 When you open a file type for which VS Code does not have any precomputed recommendation, it asks the Extension Marketplace for extensions that declare that they support this file type. If the query returns extensions you don't have installed, VS Code will provide a notification.
 
-## For extension authors
-
-If you have created a VS Code extension, you can use the VS Code telemetry infrastructure for reporting through the [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) npm module. This module provides a consistent way for extensions to report telemetry over [Azure Monitor and Application Insights](https://azure.microsoft.com/services/monitor/). The module respects the user's decision about whether or not to send telemetry data via the `telemetry.telemetryLevel` setting. Additionally, this module guarantees backwards compatability against previous versions of VS Code.
-
-Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
-
-If you would prefer to not utilize the npm module, it is still recommended that extension authors respect the user's choice by utilizing the `isTelemetryEnabled` and `onDidChangeTelemetryEnabled` API.
-
-Additionally, telemetry authors can add a `telemetry.json` file to their root build directory for their telemetry to show up in the `--telemetry` dump that VS Code produces.
 
 ## Next steps
 
