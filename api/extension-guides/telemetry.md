@@ -11,11 +11,11 @@ MetaDescription: Learn how Visual Studio Code extensions can enable telemetry an
 
 Visual Studio Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry) to learn more.
 
-This topic is guide for extension authors so that their extensions conform to VS Code telemetry requirements and best practices.
+This topic has guidelines for extension authors so that their extensions can conform to VS Code telemetry requirements and best practices.
 
 >**Note**: If you don't want to send usage data to Microsoft, you can set the `telemetry.telemetryLevel` user [setting](/docs/getstarted/settings) to `off`.
 
-## Telemetry Module
+## Telemetry module
 
 The VS Code team maintains the [vscode-extension-telemetry](https://www.npmjs.com/package/@vscode/extension-telemetry) npm module that provides a consistent and safe way to collect telemetry within VS Code. The module reports telemetry to [Azure Monitor and Application Insights](https://azure.microsoft.com/services/monitor/) and guarantees backwards compatibility against previous versions of VS Code.
 
