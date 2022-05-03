@@ -124,6 +124,9 @@ Some precomputed recommendations are shipped as part of the product while additi
 
 When you open a file type for which VS Code does not have any precomputed recommendation, it asks the Extension Marketplace for extensions that declare that they support this file type. If the query returns extensions you don't have installed, VS Code will provide a notification.
 
+## For extension authors
+
+Please read the [extension guides telemetry document](../../api/extension-guides/telemetry.md).
 
 ## Next steps
 
