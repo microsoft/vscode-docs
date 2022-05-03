@@ -126,7 +126,7 @@ When you open a file type for which VS Code does not have any precomputed recomm
 
 ## For extension authors
 
-Please read the [extension guides telemetry document](../../api/extension-guides/telemetry.md).
+Please read the [extension guides telemetry document](/api/extension-guides/telemetry.md).
 
 ## Next steps
 
