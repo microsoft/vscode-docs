@@ -181,6 +181,14 @@ The VS Code debugger UI is user accessible and has the following features:
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
 
+## Audio Cues
+
+Audio cues indicate if the current line has certain markers such as: errors, warnings, breakpoints, folded text regions or inline suggestions.
+
+They are played when the primary cursor changes its line or the first time a marker is added to the current line. Audio cues are enabled automatically when a screen reader is attached, but can also be controlled by the settings `audioCues.*`.
+
+The command **Help: List Audio Cues** lists all available audio cues, lets you hear each audio cue as you move through the list, and review which cues are currently enabled.
+
 ## Current known issues
 
 VS Code has some known accessibility issues depending on the platform. Here's a [full list](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility) of VS Code accessibility issues.
@@ -191,11 +199,8 @@ There is screen reader support for the editor with VoiceOver.
 
 ### Linux
 
-Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
-Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
+VS Code works well with the Orca screen reader. If on your Linux distribution Orca does not read the editor content:
 
-* Make sure to use the latest version of Orca out of the master branch. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
-* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19, we have encountered issues.
 * Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
 
