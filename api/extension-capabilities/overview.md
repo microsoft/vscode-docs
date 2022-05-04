@@ -110,9 +110,9 @@ On the other hand, VS Code also offers a set of [Debug Extension API](/api/refer
 - Register new source control provider, such as Mercurial.
 - Implement a custom file search provider. -->
 
-## Extension Guidelines
+## UX Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seemlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Restrictions
 

@@ -191,7 +191,7 @@ code --enable-proposed-api (<extension-id>)
     Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
 ```
 
-You can see the extension ID on the extension details page next to the extension name.
+You can see the extension ID on the extension details page under the Marketplace Info.
 
 ![extension identifier](images/extension-marketplace/extension-identifier.png)
 
