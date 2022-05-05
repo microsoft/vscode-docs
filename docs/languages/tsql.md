@@ -1,5 +1,5 @@
 ---
-Order: 15
+Order: 17
 Area: languages
 TOCTitle: T-SQL
 ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3

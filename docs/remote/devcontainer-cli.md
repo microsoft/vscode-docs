@@ -4,16 +4,25 @@ Area: remote
 TOCTitle: devcontainer CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
-MetaDescription: Documentation on using the devcontainer command line interface with the Visual Studio Code Remote - Containers extension
-DateApproved: 12/17/2021
+MetaDescription: Documentation on using the VS Code development container (devcontainer) command line interface with the Visual Studio Code Remote - Containers extension
+DateApproved: 3/30/2022
 ---
-# devcontainer command line interface
+# Development container CLI
 
-Given the growing number of use cases for dev containers, there is a companion `devcontainer` command line interface (CLI) that can be used independent of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
+When we refer to a command line interface (CLI) for development containers, there are two varieties:
+
+* "dev container CLI" - A reference implementation for the open dev container specification. The [current proposal](https://github.com/microsoft/dev-container-spec/issues/9) is to make a CLI available that can take a `devcontainer.json` and create and configure a development container from it. It could be available in any IDE or editor.
+* "Visual Studio Code `devcontainer` CLI" - A CLI that can be installed and used via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or through an external terminal.
+
+The former is in-progress. The latter, VS Code `devcontainer` CLI, is available today and the focus of this document.
+
+## Visual Studio Code devcontainer CLI
+
+Given the growing number of use cases for dev containers, there is a companion `devcontainer` CLI that can be used independent of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or GitHub Codespaces. This article will walk you through its installation and how to use it in different scenarios.
 
 ## System requirements
 
-To use the `devcontainer` CLI, you'll need the following on your system or CI/DevOps environment:
+To use the VS Code `devcontainer` CLI, you'll need the following on your system or CI/DevOps environment:
 
 1. [Node.js 14+](https://nodejs.org).
 1. [The `docker` CLI](/docs/remote/containers#installation).
@@ -70,7 +79,7 @@ Visual Studio Code has many [command line options](/docs/editor/command-line.md)
 
 ![Prompt to reopen folder within a dev container](images/devcontainer-cli/reopen-in-container.png)
 
-With the devcontainer CLI, you can use the `devcontainer open` command to open the current folder straight into dev container mode, skipping the prompt.
+With the VS Code `devcontainer` CLI, you can use the `devcontainer open` command to open the current folder straight into dev container mode, skipping the prompt.
 
 You can optionally specify the path to the folder to open, for example `devcontainer open /source/my-folder` to open the `/source/my-folder` folder within a dev container.
 
@@ -169,7 +178,7 @@ jobs:
           docker push "${IMAGE_REPOSITORY}"
 ```
 
-### devcontainer CLI build options
+### CLI build options
 
 The following options can be used with the `build` command:
 
@@ -180,7 +189,7 @@ You can also type `devcontainer build --help` to see a full list of available op
 
 ### [Optional] Avoiding problems with images built using Docker
 
-Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly if it will not work as expected. To solve this problem, you can add a build argument that needs to be specified for things to work.
+Given Dockerfiles and Docker Compose files can be used without VS Code or the VS Code `devcontainer` CLI, you may want to let users know that they should not try to build the image directly if it will not work as expected. To solve this problem, you can add a build argument that needs to be specified for things to work.
 
 For example, you could add the following to your Dockerfile:
 
@@ -201,7 +210,7 @@ And the following in your `devcontainer.json`:
     }
 ```
 
-In the Docker Compose case, you can add this argument to a separate [override file to extend your configuration](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development) that is located in a different place in your source tree than the primary Docker Compose file
+In the Docker Compose case, you can add this argument to a separate [override file to extend your configuration](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development) that is located in a different place in your source tree than the primary Docker Compose file.
 
 ## Next steps
 

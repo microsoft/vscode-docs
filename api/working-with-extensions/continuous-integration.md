@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -31,7 +31,7 @@ Then, add the following `azure-pipelines.yml` file to the root of your extension
 trigger:
   branches:
     include:
-    - master
+    - main
   tags:
     include:
     - v*
@@ -97,7 +97,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 trigger:
   branches:
     include:
-    - master
+    - main
   tags:
     include:
     - refs/tags/v*
@@ -133,7 +133,7 @@ You can also configure GitHub Actions to run your extension CI. In headless Linu
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -173,7 +173,7 @@ jobs:
 on:
   push:
     branches:
-    - master
+    - main
   release:
     types:
     - created
@@ -277,24 +277,23 @@ cache: yarn
 }
 ```
 
-4. Add an `after_script` stage to the job that calls `npm run deploy` with the secret variable.
+4. Add `deploy` stage that calls `npm run deploy` with the secret variable.
 
 ```yaml
-after_script:
-- |
-  echo ">>> Publish"
-  yarn deploy
-
-stages:
-- name: after_script
-  if: env(TRAVIS_TAG) =~ ^v
+deploy:
+  provider: script
+  script: "npm run deploy"
+  skip_cleanup: true
+  on:
+    tags: true
 ```
 
-The [stages](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditional-stages) property tells the CI to include stages when certain conditions are met.
+The [deploy](https://docs.travis-ci.com/user/deployment) property tells the CI to deploy artifacts to a given provider if a set of conditions are met. The deploy stage does not get triggered on pull requests
 
-In our example, the condition has one check:
+In our example, the condition that is checked:
 
-- `env(TRAVIS_TAG) =~ ^v` - Publish only if a tagged (release) build that starts with the letter `v`.
+- `tags: true` - Publish only if the build is triggered from a git tag (releast) 
+- `skip_cleanup: true` - Prevents travis from removing any files created during the build that may be needed for deployment.
 
 ## Common questions
 

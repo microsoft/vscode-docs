@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -293,6 +293,10 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   * `always` - The panel is always brought to front. This is the default.
   * `never` - The user must explicitly bring the terminal panel to the front using the  **View** > **Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
   * `silent` - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
+* **revealProblems**: Controls whether the Problems panel is revealed when running this task or not. Takes precedence over option `reveal`. Default is `never`.
+  * `always` - Always reveals the Problems panel when this task is executed.
+  * `onProblem` - Only reveals the Problems panel if a problem is found.
+  * `never` - Never reveals the Problems panel when this task is executed.
 * **focus**: Controls whether the terminal is taking input focus or not. Default is `false`.
 * **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
 * **showReuseMessage**: Controls whether to show the "Terminal will be reused by tasks, press any key to close it" message.
@@ -301,6 +305,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   * `dedicated` - The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.
   * `new` - Every execution of that task is using a new clean terminal.
 * **clear**: Controls whether the terminal is cleared before this task is run. Default is `false`.
+* **close**: Controls whether the terminal the task runs in is closed when the task exits.
 * **group**: Controls whether the task is executed in a specific terminal group using split panes. Tasks in the same group (specified by a string value) will use split terminals to present instead of a new terminal panel.
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:

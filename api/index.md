@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
@@ -16,7 +16,7 @@ This documentation describes:
 * How to build, run, debug, test, and publish an extension
 * How to take advantage of VS Code's rich Extension API
 * Where to find [guides](https://code.visualstudio.com/api/extension-guides/overview) and [code samples](https://github.com/microsoft/vscode-extension-samples) to help get you started
-* Following our [extension guidelines](/api/references/extension-guidelines) for best practices
+* Following our [UX guidelines](/api/ux-guidelines/overview) for best practices
 
 Code samples are available at [Microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples).
 
@@ -41,6 +41,7 @@ Building a good extension can take a lot of effort. Here is what each section of
 * **Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample) sample.
 * **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
 * **Extension Guides** includes guides and code samples that explain specific usages of VS Code Extension API.
+* **UX Guidelines** showcases best practices for providing a great user experience in an extension.
 * **Language Extensions** illustrates how to add support for a programming language with guides and code samples.
 * **Testing and Publishing** includes in-depth guides on various extension development topics, such as [testing](/api/working-with-extensions/testing-extension) and [publishing](/api/working-with-extensions/publishing-extension) extensions.
 * **Advanced Topics** explains advanced concepts such as [Extension Host](/api/advanced-topics/extension-host), [Supporting Remote Development and GitHub Codespaces](/api/advanced-topics/remote-extensions), and [Proposed API](/api/advanced-topics/using-proposed-api).

@@ -130,4 +130,5 @@ You're done! Now that your container is ready, you may want to:
 
 - [Learn about debugging Node.js in a container](/docs/containers/debug-node.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
+- [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)

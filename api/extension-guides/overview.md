@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn from Visual Studio Code extension guides and code samples
@@ -23,7 +23,7 @@ In each guide or sample, you can expect to find:
 
 ## Guides & Samples
 
-Here are the guides on the VS Code website, including their usage of the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points). Don't forget to refer to the [Extension Guidelines](/api/references/extension-guidelines) to learn the best practices for creating extensions.
+Here are the guides on the VS Code website, including their usage of the [VS Code API](/api/references/vscode-api) and [Contribution Points](/api/references/contribution-points). Don't forget to refer to the [UX Guidelines](/api/ux-guidelines/overview) to learn the user interface best practices for creating extensions.
 
 | Guide on VS Code Website | API & Contribution |
 | --- | --- |

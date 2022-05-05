@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -29,7 +29,7 @@ The active color theme is stored in your user [settings](/docs/getstarted/settin
   "workbench.colorTheme": "Default Dark+"
 ```
 
-> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#creating-user-and-workspace-settings).
+> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#workspace-settings).
 
 ## Color Themes from the Marketplace
 
@@ -50,6 +50,7 @@ To customize the themes that are used when a color scheme changes, you can set t
 * `workbench.preferredLightColorTheme` - defaults to "Default Light+"
 * `workbench.preferredDarkColorTheme` - defaults to "Default Dark+"
 * `workbench.preferredHighContrastColorTheme` - defaults to "Default High Contrast"
+* `workbench.preferredHighContrastLightColorTheme` - defaults to "Default High Contrast Light"
 
 ## Customizing a Color Theme
 
@@ -74,6 +75,7 @@ To customize a specific theme only, use the following syntax:
 ```
 
 If a customization applies to more than one themes, you can name multiple themes or use `*` as wildcard at the beginning and the end of the name:
+
 ```json
 "workbench.colorCustomizations": {
     "[Abyss][Red]": {
@@ -84,7 +86,6 @@ If a customization applies to more than one themes, you can name multiple themes
     }
 }
 ```
-
 
 ### Editor syntax highlighting
 
@@ -128,14 +129,14 @@ The "Tomorrow Night Blue" color theme with semantic highlighting:
 
 Notice the color differences based on language service symbol understanding:
 
-- line 10: `languageModes` is colored as a parameter.
-- line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
-- line 13: `getFoldingRanges` is colored as a function.
+* line 10: `languageModes` is colored as a parameter.
+* line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
+* line 13: `getFoldingRanges` is colored as a function.
 
 The settings `editor.semanticHighlighting.enabled` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
 
-- `true` and `false` turn semantic highlighting on or off for all themes.
-- `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.
+* `true` and `false` turn semantic highlighting on or off for all themes.
+* `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with VS Code (for example, the "Dark+" default) have semantic highlighting enabled by default.
 
 Users can override the theme setting by:
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -111,7 +111,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggest.localityBonus": true,
 
     // Controls how suggestions are pre-selected when showing the suggest list
-    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggestSelection": "first",
 
     // Enable word based suggestions
     "editor.wordBasedSuggestions": true,
@@ -147,8 +147,8 @@ By default, VS Code pre-selects the previously used suggestion in the suggestion
 
 The available `editor.suggestSelection` values are:
 
-* `first` - Always select the top list item.
-* `recentlyUsed` - (default) The previously used item is selected unless a prefix (type to select) selects a different item.
+* `first` - (default) Always select the top list item.
+* `recentlyUsed` - The previously used item is selected unless a prefix (type to select) selects a different item.
 * `recentlyUsedByPrefix` - Select items based on previous prefixes that have completed those suggestions.
 
 "Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed` it will be given precedence.

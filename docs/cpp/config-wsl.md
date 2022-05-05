@@ -223,13 +223,17 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
+
+From the main menu, choose **Run** > **Add Configuration...**. VS Code creates an empty `launch.json` file. Copy and paste the following configuration into `launch.json`:
+
+<!-- and then choose **C++ (GDB/LLDB)**.
 
 You'll then see a dropdown for various predefined debugging configurations. Choose **g++ build and debug active file**.
 
 ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
 
-VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'.
+VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'. -->
 
 ```json
 {

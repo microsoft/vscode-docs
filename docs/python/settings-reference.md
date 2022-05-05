@@ -14,7 +14,7 @@ The Python Extension for Visual Studio Code is highly configurable. This page de
 
 For general information about working with settings in VS Code, refer to [User and workspace settings](/docs/getstarted/settings.md), as well as the [Variables reference](/docs/editor/variables-reference.md) for information about predefined variable support.
 
-## General settings
+## General Python settings
 
 | Setting<br/>(python.) | Default | Description |
 | --- | --- | --- |
@@ -31,7 +31,6 @@ For general information about working with settings in VS Code, refer to [User a
 | terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created. For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
 | terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
 | logging.level| `error` | Specifies the level of logging to be performed by the extension. The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`. When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension. At the `error` level, basic information and errors will be shown. At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
-| insidersChannel | `off` | Specifies whether to participate in the Insiders program and the channel to use. Set to `weekly` or `daily` to automatically download and install the latest Insiders builds of the Python extension, which include upcoming features and bug fixes. |
 
 ## Code analysis settings
 
@@ -161,7 +160,7 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 
 ## Linting settings
 
-### General
+### General linting
 
 | Setting<br/>(python.linting.) | Default | Description | See also |
 | --- | --- | --- | --- |
@@ -248,7 +247,7 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 
 ## Testing settings
 
-### General settings
+### General testing
 
 | Setting<br/>(python.testing.) | Default | Description | See also |
 | --- | --- | --- | --- |
@@ -271,7 +270,6 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | pytestEnabled | `false` | Specifies whether pytest is enabled for testing. | [Testing](/docs/python/testing.md) |
 | pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. | [Testing](/docs/python/testing.md) |
 | pytestArgs | `[]` | Arguments to pass to pytest, where each top-level element that's separated by a space is a separate item in the list. When debugging tests with pytest-cov installed, include `--no-cov` in these arguments. | [Testing](/docs/python/testing.md) |
-
 
 ## Predefined variables
 

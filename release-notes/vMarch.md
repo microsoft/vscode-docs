@@ -63,7 +63,7 @@ To make it easy to distinguish between diagnostics from external linters and the
 
 ### IntelliSense when using ES6 import statements in React Native
 
-Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start).
+Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://reactnative.dev/docs/getting-started).
 
 In the snippet, below you get no IntelliSense for `React`:
 

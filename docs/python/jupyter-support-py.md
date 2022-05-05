@@ -75,10 +75,9 @@ The following table lists additional commands and keyboard shortcuts supported w
 |Python: Change Cell to Code              | `kbstyle(Ctrl+; C)`        |
 |Python: Change Cell to Markdown          | `kbstyle(Ctrl+; M)`        |
 
-## Python Interactive window
+## Using the Python Interactive window
 
-The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
-To use the window as a console, open it with the **Jupyter: Create Interactive Window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
+The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells). To use the window as a console, open it with the **Jupyter: Create Interactive Window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
 To use the window with a file, use the **Jupyter: Run Current File in Python Interactive Window** command from the Command Palette.
 

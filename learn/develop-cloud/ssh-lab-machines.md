@@ -27,7 +27,7 @@ To get started with using SSH in VS Code, you'll need to download the [Remote - 
 
 Check out the following video to see an example of using Remote - SSH in action:
 
-<iframe src="https://youtube.com/embed/rh1Ag41J6IA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://youtube.com/embed/rh1Ag41J6IA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Visual Studio Code Remote - SSH"></iframe>
 
 As demonstrated above, we can SSH into a more powerful virtual machine to greatly speed up the execution time of our programs.
 

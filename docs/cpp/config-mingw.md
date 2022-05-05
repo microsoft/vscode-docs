@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 7/15/2021
+DateApproved: 1/21/2022
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
 # Using GCC with MinGW
@@ -188,13 +188,16 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 
 Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
 
-1. From the main menu, choose **Run** > **Add Configuration...** and then choose **C++ (GDB/LLDB)**.
+1. From the main menu, choose **Run** > **Add Configuration...**. VS Code creates an empty `launch.json` file.
+2. Copy and paste the following configuration into `launch.json`:
+
+<!-- and then choose **C++ (GDB/LLDB)**.
 1. You'll then see a dropdown for various predefined debugging configurations. Choose **g++.exe build and debug active file**.
 
 ![C++ debug configuration dropdown](images/mingw/build-and-debug-active-file.png)
 
 VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'.
-
+ -->
 ```json
 {
     "version": "0.2.0",

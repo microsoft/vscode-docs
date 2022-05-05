@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 2/3/2022
+DateApproved: 3/30/2022
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -88,7 +88,7 @@ Terminal profiles are platform-specific shell configurations comprised of an exe
 
 Example profile:
 
-```json
+```jsonc
 {
   "terminal.integrated.profiles.windows": {
     "My PowerShell": {
@@ -213,9 +213,14 @@ We've added an experimental setting `terminal.integrated.persistentSessionRevive
 
 ## Links
 
-The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as "low confidence" links, which only show an underline when hovered. These low confidence links will search the workspace for the term, opening the match if one is found.
+The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as low confidence "workspace search" links, which only show an underline when hovered if the modifier is down. These low confidence links will search the workspace for the term, opening the match if one is found.
 
-Clicking a file link will either open that document in an editor or produce a Quick Pick with all matches.
+Depending on the type of link, activating it will do one of the following:
+
+* Open the file in an editor.
+* Focus the folder in the workspace.
+* Open a new window with a folder outside the workspace.
+* Search the workspace using a Quick Pick with all matches.
 
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
@@ -223,14 +228,33 @@ Extensions make use of links in the terminal, such as GitLens, to identify branc
 
 ## Shell integration
 
-Shell integration is an experimental feature, which will turn on certain features like enhanced command tracking and current working directory detection. Shell integration works by injecting a script that is run when the shell is initialized and lets the terminal gain additional insights into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
+Shell integration is an experimental feature, which will turn on certain features like enhanced command tracking and current working directory detection.
+
+![Command decorations show up on the left of the command as well as in the scroll bar when shell integration is enabled](images/integrated-terminal/shell-integration.png)
+
+Shell integration works by injecting a script that is run when the shell is initialized and lets the terminal gain additional insights into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
 
 Supported shells:
 
 * Linux/macOS: bash, pwsh, zsh
 * Windows: pwsh
 
-You can try it out by setting `terminal.integrated.enableShellIntegration` to `true`.
+You can try it out by setting `terminal.integrated.shellIntegration.enabled` to `true`.
+
+### Complex bash $PROMPT_COMMAND
+
+In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. VS Code takes a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature, shell integration is disabled with the following message:
+
+> `Shell integration cannot be activated due to complex PROMPT_COMMAND: ...`
+
+If you hit this error, it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
+
+```sh
+prompt() {
+   printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
+}
+PROMPT_COMMAND=prompt
+```
 
 ## Local echo
 
@@ -276,7 +300,7 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list and removed by adding the command name to the list prefixed with a `-`.
 
-```json
+```jsonc
 {
   "terminal.integrated.commandsToSkipShell": [
     // Ensure the toggle sidebar visibility keybinding skips the shell
@@ -606,7 +630,7 @@ Unfortunately, some issues cannot be automatically detected. If you experience i
 
 ### Git Bash isn't saving history when I close the terminal
 
-This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash-profile`:
+This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile`:
 
 ```bash
 export PROMPT_COMMAND='history -a'
@@ -619,3 +643,12 @@ This normally means that the program/shell running inside the terminal requested
 ```
 bind 'set enable-bracketed-paste off'
 ```
+
+### Ctrl+A, Ctrl+R output ^A, ^R on zsh
+
+This can happen if zsh is in Vim mode instead of Emacs mode, due to setting `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts.
+
+To workaround this you have two options:
+
+* Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
+* Add `bindkey -e` to your init script to set Emacs explicitly.

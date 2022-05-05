@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 08/05/2021
+DateApproved: 04/18/2022
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension
@@ -167,7 +167,7 @@ The most important configuration settings for the `docker-run` task are `dockerR
 
 See [property reference](#run-task-reference) for full list of all task properties.
 
-### Platform support
+### Docker run platform support
 
 While the `docker-run` task can be used to run any Docker image, the extension has explicit support (and simplified configuration) for Node.js, Python, and .NET Core.
 
@@ -403,6 +403,7 @@ The most important configuration setting for the `docker-compose` task is `docke
 See [property reference](#compose-task-reference) for full list of all task properties.
 
 **Example configuration**
+
 ```json
 {
     "version": "2.0.0",
@@ -444,6 +445,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
 | `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
 | `envFile` | File of environment variables read in and applied to the containers. | `--env-file <file>` |
+| `projectName` | Alternate project name to use when naming and labeling Docker objects. If using an alternate project name when composing up, the same project name must be specified when composing down. | `--project-name <name>` |
 
 ### up object properties
 
@@ -523,7 +525,7 @@ The command template chosen to execute is selected based on the following rules:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.build` | `docker build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
+| `docker.commands.build` | `${config:docker.dockerPath} build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
 
 Supported tokens:
 
@@ -541,8 +543,8 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.run` | `docker run --rm -d ${exposedPorts} ${tag}` |
-| `docker.commands.runInteractive` | `docker run --rm -it ${exposedPorts} ${tag}` |
+| `docker.commands.run` | `${config:docker.dockerPath} run --rm -d ${exposedPorts} ${tag}` |
+| `docker.commands.runInteractive` | `${config:docker.dockerPath} run --rm -it ${exposedPorts} ${tag}` |
 
 Supported tokens:
 
@@ -557,7 +559,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.attach` | `docker exec -it ${containerId} ${shellCommand}`
+| `docker.commands.attach` | `${config:docker.dockerPath} exec -it ${containerId} ${shellCommand}`
 
 Supported tokens:
 
@@ -572,7 +574,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.logs` | `docker logs -f ${containerId}`
+| `docker.commands.logs` | `${config:docker.dockerPath} logs -f ${containerId}`
 
 Supported tokens:
 
@@ -586,7 +588,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.composeUp` | `docker-compose ${configurationFile} up ${detached} ${build}` |
+| `docker.commands.composeUp` | `${composeCommand} ${configurationFile} up ${detached} ${build}` |
 
 Supported tokens:
 
@@ -597,18 +599,20 @@ Supported tokens:
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
 | `${serviceList}` | If specified, prompts for a subset of the services to start when the command is run. |
 | `${profileList}` | If specified and the Docker Compose YAML file contains profiles, prompts for a subset of the profiles to start when the command is run. |
+| `${composeCommand}` | Set to the value of the `docker.composeCommand` setting if set, otherwise the extension will try to automatically determine the command to use (`docker compose` or `docker-compose`). |
 
 ### Docker Compose Down
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.composeDown` | `docker-compose ${configurationFile} down` |
+| `docker.commands.composeDown` | `${composeCommand} ${configurationFile} down` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
 | `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
+| `${composeCommand}` | Set to the value of the `docker.composeCommand` setting if set, otherwise the extension will try to automatically determine the command to use (`docker compose` or `docker-compose`). |
 
 ### Additional supported tokens
 
