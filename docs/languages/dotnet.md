@@ -1,21 +1,21 @@
 ---
 Order: 19
 Area: languages
-TOCTitle: .NET Core
+TOCTitle: .NET
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
-PageTitle: .NET Core and Visual Studio Code
+PageTitle: .NET and Visual Studio Code
 DateApproved: 3/6/2019
-MetaDescription: Get started writing and debugging .NET Core apps with Visual Studio Code.
+MetaDescription: Get started writing and debugging .NET apps with Visual Studio Code.
 ---
-# Using .NET Core in Visual Studio Code
+# Using .NET in Visual Studio Code
 
-[.NET Core](https://docs.microsoft.com/dotnet/core) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
+[.NET](https://dotnet.microsoft.com) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
 
 ## Prerequisites
 
 Install the following:
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download). The SDK also includes the Runtime.
+* [.NET SDK](https://dotnet.microsoft.com/download). The SDK also includes the Runtime.
 * The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
 * The [F# extension (Ionide)](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp) from the VS Code Marketplace.
 
@@ -66,7 +66,7 @@ Install the following:
 
 ## Next steps
 
-* Continue exploring C# development: [Debug with VS Code and .NET Core](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
+* Continue exploring C# development: [Debug with VS Code and .NET](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
