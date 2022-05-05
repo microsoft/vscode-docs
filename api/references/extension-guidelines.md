@@ -133,7 +133,7 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 ### Views with progress
 
-You can also [show progress in the Source Control view](/api/references/vscode-api#ProgressLocation) if your view is inside of the SCM view container.
+You can also [show progress in a view](/api/references/vscode-api#ProgressLocation) by referencing the view id.
 
 ![SCM Progress](images/guidelines/scm-progress.png)
 
