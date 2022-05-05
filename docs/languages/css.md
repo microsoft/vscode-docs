@@ -106,7 +106,7 @@ You can read more about using custom data in the [vscode-custom-data](https://gi
 
 ## Formatting
 
-The CSS Languages Features extension also providesa formatter. The formatter works with CSS, LESS and SCSS. It is implemented by the [JS Beautify library](https://github.com/beautify-web/js-beautify) and comes with the following settings:
+The CSS Languages Features extension also provides a formatter. The formatter works with CSS, LESS and SCSS. It is implemented by the [JS Beautify library](https://github.com/beautify-web/js-beautify) and comes with the following settings:
 
 * `css.format.enable` - Enable/disable default CSS formatter.
 * `css.format.newlineBetweenRules` - Separate rulesets by a blank line.
