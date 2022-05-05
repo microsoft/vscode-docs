@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 ---
 # Developing inside a Container
 
@@ -486,9 +486,6 @@ Get-Service ssh-agent
 
 **Linux:**
 
-* On **WSL**:
-  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
-
 First, start the SSH Agent in the background by running the following in a terminal:
 
 ```bash
@@ -520,7 +517,6 @@ If you do not have GPG set up, you can configure it for your platform:
 * On **Linux**, **locally** install the `gnupg2` package using your system's package manager.
 * On **WSL**:
   * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side.
-  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
   * Install `gpg` in your WSL distro. `sudo apt install gpg`
   * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
   * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`

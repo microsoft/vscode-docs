@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -42,6 +42,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
+- `disabledForeground`: Overall foreground for disabled elements. This color is only used if not overridden by a component.
 - `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
@@ -256,6 +257,10 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `editorGroupHeader.border`: Border color between editor group header and editor (below breadcrumbs if enabled).
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
+- `editorGroup.dropIntoPromptForeground`: Foreground color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+- `editorGroup.dropIntoPromptBackground`: Background color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+- `editorGroup.dropIntoPromptBorder`: Border color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+
 - `tab.activeBackground`: Active Tab background color in an active group.
 - `tab.unfocusedActiveBackground`: Active Tab background color in an inactive editor group.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
@@ -351,6 +356,7 @@ The current line is typically shown as either background highlight or a border (
 The color for unicode highlights
 
 - `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
+- `editorUnicodeHighlight.background`: Background color used to highlight unicode characters.
 
 
 The link color is visible when clicking on a link.
@@ -492,6 +498,16 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
+
+
+The editor comments widget can be seen when reviewing pull requests:
+
+- `editorCommentsWidget.resolvedBorder`: Color of borders and arrow for resolved comments.
+- `editorCommentsWidget.unresolvedBorder`: Color of borders and arrow for unresolved comments.
+- `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
+- `editorCommentsWidget.rangeBorder`: Color of border for comment ranges.
+- `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
+- `editorCommentsWidget.rangeActiveBorder`: Color of border for currently selected or hovered comment range.
 
 ## Diff editor colors
 
@@ -760,6 +776,10 @@ The following customizations are available:
 - `terminal.ansiWhite`: 'White' ANSI color in the terminal.
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 - `terminal.selectionBackground`: The selection background color of the terminal.
+- `terminal.findMatchBackground`: Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content.
+- `terminal.findMatchBorder`: Border color of the current search match in the terminal.
+- `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.
+- `terminal.findMatchHighlightBorder`: Border color of the other search matches in the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
@@ -767,6 +787,8 @@ The following customizations are available:
 - `terminalCommandDecoration.defaultBackground`: The default terminal command decoration background color.
 - `terminalCommandDecoration.successBackground`: The terminal command decoration background color for successful commands.
 - `terminalCommandDecoration.errorBackground`: The terminal command decoration background color for error commands.
+- `terminalOverviewRuler.cursorForeground`: The overview ruler cursor color.
+- `terminalOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches in the terminal.
 
 ## Debug colors
 

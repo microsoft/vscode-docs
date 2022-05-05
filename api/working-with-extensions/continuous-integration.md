@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -292,7 +292,7 @@ The [deploy](https://docs.travis-ci.com/user/deployment) property tells the CI t
 
 In our example, the condition that is checked:
 
-- `tags: true` - Publish only if the build is triggered from a git tag (releast) 
+- `tags: true` - Publish only if the build is triggered from a git tag (releast)
 - `skip_cleanup: true` - Prevents travis from removing any files created during the build that may be needed for deployment.
 
 ## Common questions
