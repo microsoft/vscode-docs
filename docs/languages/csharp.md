@@ -10,15 +10,15 @@ MetaSocialImage: images/csharp/languages_csharp.png
 ---
 # Working with C&#35;
 
-The C# support in Visual Studio Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/languages/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development.
+The C# support in Visual Studio Code is optimized for cross-platform .NET development (see [working with .NET and VS Code](/docs/languages/dotnet.md) for another relevant article). Our focus with VS Code is to be a great editor for cross-platform C# development.
 
 ![C# language within VS Code](images/csharp/c_sharp_hero.png)
 
-VS Code supports debugging of C# applications running on either .NET Core or Mono.
+VS Code supports debugging of C# applications running on either .NET or Mono.
 
 For detailed instructions on:
 
-* .NET Core debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
+* .NET debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
 * Mono debugging - see the [Mono Debug extension's README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
 
 >**Note:** [VS Code has limited support for debugging applications running on the Desktop .NET Framework.](https://github.com/OmniSharp/omnisharp-vscode/wiki/Desktop-.NET-Framework)
@@ -33,7 +33,7 @@ C# language support is an optional [install from the Marketplace](https://market
 
 Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](https://www.omnisharp.net) to offer an enhanced C# experience. We offer support for:
 
-* .NET Core projects
+* .NET projects
 * MSBuild projects
 * C# scripts (CSX)
 
