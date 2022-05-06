@@ -191,9 +191,11 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Linting
 
-The Rust toolset includes a linter, clippy, to detect issues with your source code. While you can run clippy directly from the command line (`cargo clippy`), the rust-analyzer extension integrates clippy warnings and errors directly in the editor and Problems view.
+The Rust toolset includes linting, provided by rustc and clippy, to detect issues with your source code.
 
 ![linter warning about an unused variable](images/rust/linter-warning.png)
+
+The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check on Save: Command** (`rust-analyzer.checkOnSave.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
 
 ## Quick Fixes
 
@@ -217,7 +219,7 @@ Here are just a few of the refactorings available:
 
 ## Formatting
 
-The Rust toolset includes a formatter, `rustfmt.exe`, which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
+The Rust toolset includes a formatter, [rustfmt](https://github.com/rust-lang/rustfmt), which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
 
 You also have the option to run the formatter on each save (**Editor: Format On Save**) or paste (**Format On Paste**) to keep your Rust code properly formatted automatically while you are working.
 
