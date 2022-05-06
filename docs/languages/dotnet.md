@@ -69,8 +69,8 @@ Install the following:
 * Continue exploring C# development: [Debug with VS Code and .NET](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
+* [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
-* [.NET Core Docs](https://docs.microsoft.com/dotnet/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.
+* [.NET Docs](https://docs.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.
 * [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).
 * [Get Started with F# in Visual Studio Code](https://docs.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)

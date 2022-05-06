@@ -37,13 +37,13 @@ Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) 
 * MSBuild projects
 * C# scripts (CSX)
 
-On startup the best matching projects are loaded automatically but you can also choose your projects manually. The status bar will show what projects have been loaded and also allows you to select a different set of projects. To do so, click on the status bar projects item and select *Change projects…*. In the image below a single project has been picked up:
+On startup the best matching projects are loaded automatically but you can also choose your projects manually. The status bar will show what projects have been loaded and also allows you to select a different set of projects. To do so, click on the status bar projects item and select **Change projects…**. In the image below a single project has been picked up:
 
 ![Select Project](images/csharp/selectproject.png)
 
 The available options include:
 
-* Selecting a ```project.json``` file will open a .NET Core project and VS Code will load that project plus the referenced projects.
+* Selecting a ```project.json``` file will open a .NET project and VS Code will load that project plus the referenced projects.
 * Selecting a ```*.sln``` file opens a MSBuild-project. It will load the referenced ```*.csproj``` projects and sibling or descendant ```project.json``` files but no other project files that are referenced from the solution file.
 * Selecting a ```folder``` will make VS Code scan for ```*.sln```, ```project.json``` and ```*.csx``` files (C# scripts) and VS Code will attempt to load them all.
 
@@ -105,7 +105,7 @@ There are some basic quick fixes supported in VS Code. You will see a lightbulb 
 
 Read on to find out about:
 
-* [.NET Core Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
+* [.NET Development](/docs/languages/dotnet.md) - get up and running with cross-platform .NET
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Tasks](/docs/editor/tasks.md) - Use tasks to build your project and more.
 * [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project.
@@ -115,7 +115,7 @@ Read on to find out about:
 
 ### My Project won't load
 
-VS Code only supports a limited set of project types (primarily .NET Core). For full .NET project support, we suggest you use [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
+VS Code only supports a limited set of project types. For full .NET project support, we suggest you use [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
 
 ### IntelliSense is not working
 

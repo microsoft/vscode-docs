@@ -43,7 +43,7 @@ Below is a list of sample dev containers we'd recommend starting out with:
 - [Try Out Development Containers: Java](https://github.com/microsoft/vscode-remote-try-java)
 - [Try Out Development Containers: C++](https://github.com/microsoft/vscode-remote-try-cpp)
 - [Try Out Development Containers: Node.js](https://github.com/microsoft/vscode-remote-try-node)
-- [Try Out Development Containers: .NET Core](https://github.com/microsoft/vscode-remote-try-dotnetcore)
+- [Try Out Development Containers: .NET](https://github.com/microsoft/vscode-remote-try-dotnetcore)
 - [Try Out Development Containers: Go](https://github.com/microsoft/vscode-remote-try-go)
 - [Try Out Development Containers: PHP](https://github.com/microsoft/vscode-remote-try-php)
 - [Try Out Development Containers: Rust](https://github.com/microsoft/vscode-remote-try-rust)
