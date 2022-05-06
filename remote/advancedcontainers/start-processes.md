@@ -83,7 +83,7 @@ The `CMD` here makes sure the container stays running by default. Keeping your s
 Next, create a `docker-entrypoint.sh` script:
 
 ```bash
-#!/usr/env bash
+#!/usr/bin/env bash
 
 echo "Hello from our entrypoint!"
 
