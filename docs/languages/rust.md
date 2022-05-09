@@ -61,7 +61,7 @@ When you install Rust with rustup, the toolset includes the rustc compiler, the 
 
 ### Cargo new
 
-A good way to create your first Rust program is to use Cargo to scaffold a new project by typing `cargo new`. This will create a simple Hello World program along with a default `Cargo.tml` dependency file. You pass `cargo new` the folder where you'd like to create the project.
+A good way to create your first Rust program is to use Cargo to scaffold a new project by typing `cargo new`. This will create a simple Hello World program along with a default `Cargo.toml` dependency file. You pass `cargo new` the folder where you'd like to create the project.
 
 Let's create Hello World. Navigate to a folder where you'd like to create your project and type:
 
