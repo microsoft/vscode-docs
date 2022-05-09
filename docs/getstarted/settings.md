@@ -37,7 +37,7 @@ In the example below, the Side Bar location and file icon theme have been change
 
 ![Modified settings in the Settings editor showing blue vertical bars to the left of them](images/settings/settings-modified.png)
 
-Changes to settings are reloaded by VS Code as you change them. Modified settings are indicated with a **blue line** similar to modified lines in the editor.
+Changes to settings are applied by VS Code as you change them. Modified settings are indicated with a **blue line** similar to modified lines in the editor.
 
 The gear icon (**More Actions...** `kb(settings.action.showContextMenu)`) opens a context menu with options to reset the setting to its default value as well as copy the setting ID or JSON name-value pair.
 
@@ -51,45 +51,46 @@ Each setting can be edited by either a **checkbox**, an **input** or a **dropdow
 
 ### Settings groups
 
-Settings are represented in groups so that you can navigate them easily. It has a **Commonly Used** group at the top, which shows popular customizations.
+Settings are represented in groups so that you can navigate them easily. There is a **Commonly Used** group at the top, which shows popular customizations.
 
-Below the Source Control Management (SCM) settings are focused by selecting **SCM** in the tree view.
+Below, the Source Control settings are focused by selecting **Source Control** in the tree view.
 
-![Settings editor with the SCM section of the table of contents selected](images/settings/settings-groups.png)
+![Settings editor with the Source Control section of the table of contents selected](images/settings/settings-groups.png)
 
-**Note**: VS Code extensions can also add their own custom settings and they will be visible under an **Extensions** section.
+**Note**: VS Code extensions can also add their own custom settings, and those settings will be visible under an **Extensions** section.
 
 ## Changing a setting
 
-As an example, let's hide the Activity Bar from VS Code. The Activity Bar is the wide border on the left with various icons for different views such as the File Explorer, Search, Source Control, and Extensions. You might want to hide the Activity Bar to give the editor a little more room and if you prefer to open views via the **View** menu or Command Palette.
+As an example, let's hide the Activity Bar from VS Code. The Activity Bar is the wide border on the left with various icons for different views such as the File Explorer, Search, Source Control, and Extensions. You might want to hide the Activity Bar to give the editor a little more room, or if you prefer to open views via the **View** menu or Command Palette.
 
 ![Activity Bar display on the left of the editor](images/settings/activity-bar.png)
 
-Open the Settings Editor (`kb((workbench.action.openSettings)`) and type 'activity' in the Search bar. You should see five settings.
+Open the Settings Editor (`kb((workbench.action.openSettings)`) and type "activity" in the Search bar. You should see at least five settings.
 
-![Settings editor with 'activity' in the Search bar with five settings](images/settings/search-for-activity.png)
+![Settings editor with 'activity' in the Search bar with at least five settings](images/settings/search-for-activity.png)
 
-You can further limit the scope to just those settings under the **Appearance** group in the left side tree. There should not be just three settings.
+You can further limit the scope to just those settings under the **Appearance** group in the table of contents on the left. There should now be just three settings.
 
-You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting from the default, you see the blue line to the left.
+You can now check and uncheck the **Workbench** > **Activity Bar: Visible** setting to hide and unhide the Activity Bar. Notice that when you have changed the setting value to be different than the default value, you see a blue line to the left.
 
 ![Activity Bar: Visible unchecked and Activity Bar is hidden](images/settings/activity-bar-hidden.png)
 
-You can always reset a setting to the default value via the gear context menu **Reset Settings** command.
+You can always reset a setting to the default value by hovering over a setting to show the gear icon, clicking on the gear icon, and then selecting the **Reset Setting** action.
 
 ## Settings editor filters
 
 The Settings editor Search bar has several filters to make it easier to manage your settings.
+To the right of the Search bar is a filter button with a funnel icon that provides some options to easily add a filter to the Search bar.
 
 ### Modified settings
 
-To check which settings you have changed, there is a `@modified` filter in the Search bar. This can be useful if you have forgotten whether you changed a setting or if the editor is not behaving as you expect because you accidentally modified a setting.
+To check which settings you have configured, there is a `@modified` filter in the Search bar. A setting shows up under this filter if its value differs from the default value, or if its value is explicitly set in the respective settings JSON file. This filter can be useful if you have forgotten whether you configured a setting, or if the editor is not behaving as you expect because you accidentally configured a setting.
 
-![Settings editor with @modified filter showing four changed settings](images/settings/modified-settings.png)
+![Settings editor with @modified filter showing changed settings](images/settings/modified-filter-settings.png)
 
 ### Other filters
 
-There are several other handy filters for searching settings.
+There are several other handy filters to help with searching through settings.
 
 ![Setting editor @ tag filter dropdown](images/settings/settings-editor-filters.png)
 
@@ -98,6 +99,7 @@ Here are some of the filters available:
 * `@ext` - Settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
 * `@feature` - Settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
 * `@id` - Find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
+* `@lang` - Apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
 * `@tag` - Settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editor/workspace-trust.md)
 
 The Search bar remembers your settings search queries and supports Undo/Redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the Search bar.
@@ -184,22 +186,20 @@ The workspace settings file is located under the `.vscode` folder in your root f
 
 >**Note:** For a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
-When you add Workspace Settings `settings.json` file to your project or source control, the default settings for the project will be shared by all users of that project
-
->**Note**: You cannot use the Settings editor to create a workspace setting that matches the setting's default value. If you want your workspace to enforce that a particular setting has its default value, even when somebody has configured that setting as a user setting, you must add it to the workspace `settings.json` file manually.
+When you add a Workspace Settings `settings.json` file to your project or source control, the settings for the project will be shared by all users of that project.
 
 ## Language-specific editor settings
 
-One way to customize language-specific settings is by opening the Settings editor and typing a language filter in the form of `@lang:languageId` into the search widget. The settings that show up will be overridable for that given language, and will show the setting value specific to that language, if applicable.
+One way to customize language-specific settings is by opening the Settings editor, pressing on the filter button, and selecting the language option to add a language filter. Alternatively, one can directly type a language filter of the form `@lang:languageId` into the search widget. The settings that show up will be configurable for that specific language, and will show the setting value specific to that language, if applicable.
 
-When modifying a setting while there is a language filter in place, the setting will be configured in the given scope for that language specifically.
+When modifying a setting while there is a language filter in place, the setting will be configured in the given scope for that language.
 For example, when modifying the user-scope `diffEditor.codeLens` setting while there is a `@lang:css` filter in the search widget, the Settings editor will save the new value to the CSS-specific section of the user settings file.
 
-![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-override-example.png)
+![Editing the CSS-specific user-scoped diffEditor.codeLens setting in the Settings editor](images/settings/settings-css-example.png)
 
 >**Note:** If you enter more than one language filter in the search widget, the current behaviour is that only the first language filter will be used.
 
-Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want, which then opens your user `settings.json` with the language entry where you can add applicable settings.
+Another way to customize your editor by language is by running the global command **Preferences: Configure Language Specific Settings** (command ID: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Select the language you want. Then, the Settings editor opens with a language filter for the selected language, which allows you to modify language-specific settings for that language. Though, if you have the `workbench.settings.editor` setting set to `json`, then the `settings.json` file opens with a new language entry where you can add applicable settings.
 
 ![Configure language-specific settings command typed up in the Command Palette](images/settings/pref-config-lang-settings.png)
 
@@ -207,18 +207,22 @@ Select the language via the dropdown:
 
 ![Select language dropdown](images/settings/lang-selection.png)
 
-Add language-specific settings to your user settings:
+Now you can start editing settings specifically for that language:
+
+![Settings editor showing a specific language filter](images/settings/lang-based-settings-editor.png)
+
+Or, if `workbench.settings.editor` is set to `json`, now you can start adding language-specific settings to your user settings:
 
 ![Suggestions for language-specific settings shown in the settings JSON file](images/settings/lang-based-settings.png)
 
 If you have a file open and you want to customize the editor for this file type, select the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings**. Selecting this opens your user `settings.json` with the language entry where you can add applicable settings.
 
 Language-specific editor settings always override non-language-specific editor settings, even if the non-language-specific setting
-has a narrower scope. For example, language-specific user settings override (non-language-specific) workspace settings.
+has a narrower scope. For example, language-specific user settings override non-language-specific workspace settings.
 
-You can scope language-specific settings to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+You can scope language-specific settings to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for the same language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
 
-The following examples customize editor settings for language modes `typescript` and `markdown`.
+The following example can be pasted into a settings JSON file to customize editor settings for the `typescript` and `markdown` language modes.
 
 ```json
 {
@@ -235,7 +239,7 @@ The following examples customize editor settings for language modes `typescript`
 }
 ```
 
-You can use IntelliSense in `settings.json` to help you find allowed language-based settings. All editor settings and some non-editor settings are supported. Some languages have default language-specific settings already set, which you can review in `defaultSettings.json` opened with the **Preferences: Open Default Settings** command.
+You can use IntelliSense in `settings.json` to help you find language-specific settings. All editor settings and some non-editor settings are supported. Some languages have default language-specific settings already set, which you can review in `defaultSettings.json` by running the **Preferences: Open Default Settings** command.
 
 ## Settings precedence
 

@@ -25,7 +25,7 @@ The rich code navigation experience we're building helps developers keep track o
 
 ![Navigating a csharp PR](CSharp.gif)
 
-*Navigating a C#-based PR on macOS, without even having the C# extension or .NET Core installed.*
+*Navigating a C#-based PR on macOS, without even having the C# extension or .NET installed.*
 
 ![Navigating a C++ PR](CPlusPlus.gif)
 
