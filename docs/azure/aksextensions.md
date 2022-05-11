@@ -47,7 +47,7 @@ Once you successfully sign in with your Azure Account, you can view all AKS clus
 
 ### Merge into Kubeconfig
 
-Right-click on your AKS cluster and select **Merge into Kubeconfig** to add the selected AKS cluster to your default local kubeconfig file.
+Right-click on your AKS cluster and select **Merge into Kubeconfig** to add the selected AKS cluster to your [active kubeconfig file](https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools#working-with-kubeconfigs).
 
 ### Save Kubeconfig
 
@@ -67,6 +67,10 @@ To perform further checks on your AKS cluster to troubleshoot and get recommende
 
 ![AKS Diagnostics Webview](images/aksextensions/aks-diagnostics-webview.png)
 
+### Navigating to your cluster in the Azure Portal
+
+Right-click on your AKS cluster and select **Show In Azure Portal** to open the Overview page for your cluster in the [Azure portal](https://portal.azure.com/).
+
 ### AKS Periscope
 
 Right-click on your AKS cluster and select **Run AKS Periscope** to extract detailed diagnostic information from your AKS cluster and export it to an Azure storage account. When you select the option, a web view will load providing you the option to generate a downloadable link for the collected logs as well as a shareable link with 7-day expiry.
@@ -81,7 +85,7 @@ For more information, visit [AKS Periscope](https://github.com/Azure/aks-perisco
 
 Running the AKS Periscope requires you to have a storage account associated with the Diagnostic settings of your AKS cluster. If you have only one storage account associated with the Diagnostic settings of your AKS cluster, the collected logs will be stored in the associated storage account by default. If you have more than one storage account associated with the Diagnostics settings of your AKS cluster, then the extension will prompt you to choose the storage account for saving collected logs. If you don't have a storage account configured in the Diagnostic settings, you can follow these instructions to enable it:
 
-1. Navigate to your AKS cluster in the [Azure portal](https://portal.azure.com/).
+1. Right-click on your AKS cluster and select **Show In Azure Portal**.
 
 2. Select **Diagnostic Settings** under **Monitoring** in the left navigation.
 
