@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Azure Kubernetes Service
 ContentId: 131f9633-5446-4384-96ca-7bff2e3dc0fc
 PageTitle: Working with AKS tools and diagnostics in Visual Studio Code
-DateApproved: 5/03/2022
+DateApproved: 5/11/2022
 MetaDescription: Working with AKS tools and diagnostics in Visual Studio Code
 ---
 # AKS tools and diagnostics in VS Code
