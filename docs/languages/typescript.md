@@ -39,7 +39,7 @@ In addition to syntax highlighting, TypeScript and JavaScript also provide seman
 
 Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
 
-Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#editor-semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
 
 If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
 
@@ -361,7 +361,7 @@ You can debug your client-side code using a browser debugger such as the [built-
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application) to help you.
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 

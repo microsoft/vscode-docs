@@ -62,7 +62,7 @@ To set the colors of VS Code UI elements such as list & trees (File Explorer, su
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
-You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
+You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/api/references/theme-color.md).
 
 To customize a specific theme only, use the following syntax:
 
