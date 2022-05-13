@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -103,6 +103,17 @@ There is jump to definition for `@import` and `url()` links in CSS, SCSS and Les
 You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
+
+## Formatting
+
+The CSS Languages Features extension also provides a formatter. The formatter works with CSS, LESS and SCSS. It is implemented by the [JS Beautify library](https://github.com/beautify-web/js-beautify) and comes with the following settings:
+
+* `css.format.enable` - Enable/disable default CSS formatter.
+* `css.format.newlineBetweenRules` - Separate rulesets by a blank line.
+* `css.format.newlineBetweenSelectors` - Separate selectors with a new line.
+* `css.format.spaceAroundSelectorSeparator` - Ensure a space character around selector separators '>', '+', '~' (for example, `a > b`).
+
+The same settings also exist for `less` and `scss`.
 
 ## Transpiling Sass and Less into CSS
 

@@ -174,6 +174,7 @@ This task tells g++ to take the active file (`${file}`), compile it, and create 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
 From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
+
 ```json
 "isDefault": true
 ```

@@ -11,7 +11,7 @@ MetaDescription: Learn how to customize Visual Studio Code color themes and file
 
 In this video, we walk you through customizing Visual Studio Code using themes.
 
-<iframe src="https://www.youtube-nocookie.com/embed/HOShAQzOy4Q" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/HOShAQzOy4Q" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Personalize VS Code with themes"></iframe>
 
 ## Outline
 

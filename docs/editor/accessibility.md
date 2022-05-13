@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -19,6 +19,8 @@ You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **
 * **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) - decrease the Zoom level.
 * **View** > **Appearance** > **Reset Zoom** (`kb(workbench.action.zoomReset)`) - reset the Zoom level to 0.
 
+>**Note**: If you are using a magnifier make sure to hold the `alt` key while viewing the hover to allow the mouse to move over the hover.
+
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
 ### Persisted Zoom Level
@@ -30,6 +32,70 @@ When you adjust the zoom level with the **View** > **Zoom In / Out** commands, t
 We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
+
+## Color vision accessibility
+
+You can search for extensions in **Visual Studio Marketplace** that are compatible for color vision deficiency. Use the Extensions view `kb(workbench.view.extensions)` and search for "colorblind" to populate relevant options.
+
+![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
+
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+
+![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
+
+### Recommended themes for color vision accessibility
+
+* [GitHub](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) - Accessible to most forms of colorblindness and matches the themes in GitHub's settings.
+* [Gotthard](https://marketplace.visualstudio.com/items?itemName=janbiasi.gotthard-theme) - Optimized for approximately 20 programming languages.
+* [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created with Deuteranopia in mind and possesses a high contrast color ratio.
+* [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both colorblindness and light sensitivity.
+
+## Customizing warning colors
+
+The default Color Theme for VS Code is **Dark+**. However, you can customize both the theme and property colors in the user interface.
+
+>**Note**: Visit [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) to learn more about overriding the colors in your current theme.
+
+To customize the error/warning squigglies, go to **File** > **Preference** > **Settings** (**Code** > **Preference** > **Settings** for macOS) to find user settings. Search for "color customizations", find the **Workbench: Color Customizations** setting, and open your user `settings.json` by selecting **Edit in settings.json**.
+
+![JSON file settings icon](images/accessibility/accessibility-settings-json-file.png)
+
+In `settings.json` file, nest the following code inside the outermost curly braces. You'll be able to assign a color to each object by entering a hex code.
+
+```json
+"workbench.colorCustomizations": {
+    "editorError.foreground": "#ffef0f",
+    "editorWarning.foreground": "#3777ff"
+}
+```
+
+In the example below, the warning color is applied when a comma is missing after a JSON item.
+
+![JSON code to alter error/warning squiggle colors](images/accessibility/accessibility-extension-squiggles.png)
+
+* `editorError.foreground` - Overrides the wavy line beneath an error.
+* `editorWarning.foreground` - Overrides the wavy line beneath a warning.
+* `editorError.background` - Overrides the highlight color of an error.
+* `editorWarning.background` - Overrides the highlight color of a warning.
+
+Assigning a color to the background of `editorError` and `editorWarning` also helps to identify potential issues. The color that you choose will highlight the respective error or warning. The colors shown in the example above `#ffef0f` (yellow) and `#37777ff` (blue), are more accessible to individuals with common forms of color vision deficiencies.
+
+### Selecting accessible colors
+
+The accessibility of colors is subjective to the type of anomalous trichromacy (color blindness). The level of severity ranges per person and can be divided into four condition types:
+
+|   Condition      |   Type    |
+|       ---        |    ---    |
+|   Deuteranopia   |   Defined by the reduced sensitivity to green light. It is the most common form of color blindness.
+|   Protanopia     |   Defined by the reduced sensitivity to red light.
+|   Tritanopia     |   Defined by the reduced sensitivity to blue light. This condition is considered rare.
+|   Monochromia    |   Also referred to as, achromatopsia and is defined by the inability to see all colors. This is the rarest form of color blindness. Go to [Foundation for Fighting Blindness](https://www.fightingblindness.org/diseases/achromatopsia) for more information.
+
+One of the best approaches to selecting the best colors for a specific condition is to apply complementary colors. These are colors located opposite of one another on a color wheel.
+
+![Color wheel highlighting complementary colors](images/accessibility/accessibility-color-wheels.png)
+
+>**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
 
 ## Keyboard navigation
 
@@ -95,7 +161,9 @@ Output in the Integrated Terminal can be navigated through by using the "navigat
 
 ### Minimum contrast ratio
 
-The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color to adjust luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+
+Note that the `terminal.integrated.minimumContrastRatio` will not apply to `powerline` characters.
 
 ## Status Bar accessibility
 
@@ -115,6 +183,14 @@ The VS Code debugger UI is user accessible and has the following features:
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
 
+## Audio Cues
+
+Audio cues indicate if the current line has certain markers such as: errors, warnings, breakpoints, folded text regions or inline suggestions.
+
+They are played when the primary cursor changes its line or the first time a marker is added to the current line. Audio cues are enabled automatically when a screen reader is attached, but can also be controlled by the settings `audioCues.*`.
+
+The command **Help: List Audio Cues** lists all available audio cues, lets you hear each audio cue as you move through the list, and review which cues are currently enabled.
+
 ## Current known issues
 
 VS Code has some known accessibility issues depending on the platform. Here's a [full list](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility) of VS Code accessibility issues.
@@ -125,11 +201,8 @@ There is screen reader support for the editor with VoiceOver.
 
 ### Linux
 
-Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
-Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
+VS Code works well with the Orca screen reader. If on your Linux distribution Orca does not read the editor content:
 
-* Make sure to use the latest version of Orca out of the master branch. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
-* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19, we have encountered issues.
 * Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
 

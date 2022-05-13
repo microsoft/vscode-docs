@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 ---
 # Create a development container
 
@@ -339,7 +339,7 @@ You can add other services to your `docker-compose.yml` file as described in [Do
 network_mode: service:db
 ```
 
-You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L22).
+You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L20).
 
 ### Extend your Docker Compose file for development
 

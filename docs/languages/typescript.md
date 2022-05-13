@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -117,7 +117,7 @@ You can disable auto imports by setting `"typescript.suggest.autoImports": false
 
 ## Formatting
 
-VS Code includes a TypeScript formatter that providers basic code formatting with reasonable defaults.
+VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
 Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
 

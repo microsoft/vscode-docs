@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: a15875fa-19b5-4c11-8903-864af133ce57
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Next steps to take after studying the Getting Started section
@@ -19,9 +19,9 @@ In this section, we split the [VS Code API](/api/references/vscode-api) and [Con
 
 We have a great collection of sample extensions that you can adapt from, and some of them include a detailed guide that explains the source code. You can find all Samples & Guides in the [Extension Guide Listing](/api/extension-guides/overview) or the [vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples) repository.
 
-## Extension Guidelines
+## UX Guidelines
 
-To help make your extension fit seemlessly into the VS Code user interface, refer to the [Extension Guidelines](/api/references/extension-guidelines), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
+To help make your extension fit seemlessly into the VS Code user interface, refer to the [UX Guidelines](/api/ux-guidelines/overview), where you'll learn the best practices for creating extension UI and conventions for following the preferred VS Code workflows.
 
 ## Testing and Publishing
 

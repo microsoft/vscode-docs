@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Create your first Visual Studio Code extension (plug-in) with a simple Hello World example.
@@ -38,7 +38,7 @@ Then, inside the editor, press `kb(workbench.action.debug.start)`. This will com
 
 Run the **Hello World** command from the Command Palette (`kb(workbench.action.showCommands)`) in the new window:
 
-<video autoplay loop muted playsinline controls title="Launch your first VS Code extension video">
+<video loop muted playsinline controls title="Launch your first VS Code extension video">
   <source src="/api/get-started/your-first-extension/launch.mp4" type="video/mp4">
 </video>
 
@@ -54,7 +54,7 @@ Let's make a change to the message:
 
 You should see the updated message showing up.
 
-<video autoplay loop muted playsinline controls title="Reload VS Code extension video">
+<video loop muted playsinline controls title="Reload VS Code extension video">
   <source src="/api/get-started/your-first-extension/reload.mp4" type="video/mp4">
 </video>
 
@@ -68,7 +68,7 @@ Here are some ideas for things for you to try:
 
 VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the Run view in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
 
-<video autoplay loop muted playsinline controls title="Debug VS Code extension video">
+<video loop muted playsinline controls title="Debug VS Code extension video">
   <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
 </video>
 
@@ -78,12 +78,12 @@ You can learn more about debugging Node.js apps in VS Code in the [Node.js Debug
 
 In the next topic, [Extension Anatomy](/api/get-started/extension-anatomy), we'll take a closer look at the source code of the `Hello World` sample and explain key concepts.
 
-You can find the source code of this tutorial at: [https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample). The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point, and following the recommendations in our [Extension Guidelines](/api/references/extension-guidelines).
+You can find the source code of this tutorial at: [https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample). The [Extension Guides](/api/extension-guides/overview) topic contains other samples, each illustrating a different VS Code API or Contribution Point, and following the recommendations in our [UX Guidelines](/api/ux-guidelines/overview).
 
 ### Using JavaScript
 
 In this guide, we mainly describe how to develop VS Code extension with TypeScript because we believe TypeScript offers the best experience for developing VS Code extensions. However, if you prefer JavaScript, you can still follow along using [helloworld-minimal-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-minimal-sample).
 
-### Extension Guidelines
+### UX Guidelines
 
-This is also a good time to review our [Extension Guidelines](/api/references/extension-guidelines) so you can start designing your extension to follow the VS Code best practices.
+This is also a good time to review our [UX Guidelines](/api/ux-guidelines/overview) so you can start designing your extension user interface to follow the VS Code best practices.

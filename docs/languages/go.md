@@ -1,5 +1,5 @@
 ---
-Order: 15
+Order: 16
 Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca

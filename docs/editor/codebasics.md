@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -169,7 +169,7 @@ You can configure advanced search options by clicking the ellipsis (**Toggle Sea
 
 In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use glob syntax:
 
-* `*` to match one or more characters in a path segment
+* `*` to match zero or more characters in a path segment
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
 * `{}` to group conditions (for example `{**/*.html,**/*.txt}` matches all HTML and text files)

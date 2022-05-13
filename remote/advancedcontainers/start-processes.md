@@ -5,7 +5,7 @@ TOCTitle: Start processes
 PageTitle: Start a processes when a container starts
 ContentId: 5be7285b-998b-4378-bdc4-90915e858eb7
 MetaDescription: Start a process when a container starts
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 ---
 # Start a process when the container starts
 
@@ -83,7 +83,7 @@ The `CMD` here makes sure the container stays running by default. Keeping your s
 Next, create a `docker-entrypoint.sh` script:
 
 ```bash
-#!/usr/env bash
+#!/usr/bin/env bash
 
 echo "Hello from our entrypoint!"
 

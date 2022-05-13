@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 11/3/2021
+DateApproved: 4/1/2022
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -550,7 +550,7 @@ If you want to run Flask's development server in development mode, use the follo
 
 ## Troubleshooting
 
-There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but two specific reasons are as follows:
+There are many reasons why the debugger may not work. Sometimes the debug console reveals specific causes, but the main reasons are as follows:
 
 - The path to the python executable is incorrect: check the path of your selected interpreter by running the **Python: Select Interpreter** command and looking at the current value:
 
@@ -562,6 +562,12 @@ There are many reasons why the debugger may not work. Sometimes the debug consol
     ```python
     import debugpy
     debugpy.debug_this_thread()
+    ```
+
+- If you are working with a **Linux** system, you may receive a "timed out" error message when trying to apply a debugger to any running process. To prevent this, you can temporarily run the following command:
+
+    ```bash
+    $ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     ```
 
 ## Next steps

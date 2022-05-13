@@ -40,7 +40,24 @@
       ["Debugger Extension", "/api/extension-guides/debugger-extension"],
       ["Markdown Extension", "/api/extension-guides/markdown-extension"],
       ["Test Extension", "/api/extension-guides/testing"],
-      ["Custom Data Extension", "/api/extension-guides/custom-data-extension"]
+      ["Custom Data Extension", "/api/extension-guides/custom-data-extension"],
+      ["Telemetry", "/api/extension-guides/telemetry"]
+    ]
+  },
+  {
+    "name": "UX Guidelines",
+    "area": "ux-guidelines",
+    "topics": [
+      ["Overview", "/api/ux-guidelines/overview"],
+      ["Notifications", "/api/ux-guidelines/notifications"],
+      ["Views", "/api/ux-guidelines/views"],
+      ["Webviews", "/api/ux-guidelines/webviews"],
+      ["Status Bar", "/api/ux-guidelines/status-bar"],
+      ["Quick Picks", "/api/ux-guidelines/quick-picks"],
+      ["Editor Actions", "/api/ux-guidelines/editor-actions"],
+      ["Context Menus", "/api/ux-guidelines/context-menus"],
+      ["Settings", "/api/ux-guidelines/settings"],
+      ["Command Palette", "/api/ux-guidelines/command-palette"]
     ]
   },
   {
@@ -96,8 +113,7 @@
       ["When clause contexts", "/api/references/when-clause-contexts"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
-      ["Document Selector", "/api/references/document-selector"],
-      ["Extension Guidelines", "/api/references/extension-guidelines"]
+      ["Document Selector", "/api/references/document-selector"]
     ]
   }
 ]

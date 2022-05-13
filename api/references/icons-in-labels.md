@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 109a10fc-2d64-44b6-98ce-b8375d245776
-DateApproved: 3/30/2022
+DateApproved: 5/5/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Reference of all product icons by id
@@ -301,11 +301,9 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-debug-alt"></i>|watch-view-icon|debug-alt|View icon of the watch view.|
 |<i class="codicon codicon-close"></i>|widget-close|close|Icon for the close action in widgets.|
 
-
 The Codicon library contains all the icons used in VS Code views, as well as a set of useful icons.
 
 VS Code extensions can use these icons in labels, views, and trees.
-
 
 | preview     | identifier
 | ----------- | --------------------------------- |
@@ -316,6 +314,10 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-archive"></i>|archive|
 |<i class="codicon codicon-array"></i>|array|
 |<i class="codicon codicon-arrow-both"></i>|arrow-both|
+|<i class="codicon codicon-arrow-circle-down"></i>|arrow-circle-down|
+|<i class="codicon codicon-arrow-circle-left"></i>|arrow-circle-left|
+|<i class="codicon codicon-arrow-circle-right"></i>|arrow-circle-right|
+|<i class="codicon codicon-arrow-circle-up"></i>|arrow-circle-up|
 |<i class="codicon codicon-arrow-down"></i>|arrow-down|
 |<i class="codicon codicon-arrow-left"></i>|arrow-left|
 |<i class="codicon codicon-arrow-right"></i>|arrow-right|
@@ -323,13 +325,20 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-arrow-small-left"></i>|arrow-small-left|
 |<i class="codicon codicon-arrow-small-right"></i>|arrow-small-right|
 |<i class="codicon codicon-arrow-small-up"></i>|arrow-small-up|
+|<i class="codicon codicon-arrow-swap"></i>|arrow-swap|
 |<i class="codicon codicon-arrow-up"></i>|arrow-up|
+|<i class="codicon codicon-azure-devops"></i>|azure-devops|
+|<i class="codicon codicon-azure"></i>|azure|
+|<i class="codicon codicon-beaker-stop"></i>|beaker-stop|
 |<i class="codicon codicon-beaker"></i>|beaker|
 |<i class="codicon codicon-bell"></i>|bell|
 |<i class="codicon codicon-bell-dot"></i>|bell-dot|
 |<i class="codicon codicon-bold"></i>|bold|
 |<i class="codicon codicon-book"></i>|book|
 |<i class="codicon codicon-bookmark"></i>|bookmark|
+|<i class="codicon codicon-bracket-dot"></i>|bracket-dot|
+|<i class="codicon codicon-bracket-error"></i>|bracket-error|
+|<i class="codicon codicon-bracket"></i>|bracket|
 |<i class="codicon codicon-briefcase"></i>|briefcase|
 |<i class="codicon codicon-broadcast"></i>|broadcast|
 |<i class="codicon codicon-browser"></i>|browser|
@@ -373,11 +382,15 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-comment-add"></i>|comment-add|
 |<i class="codicon codicon-comment-discussion"></i>|comment-discussion|
 |<i class="codicon codicon-compare-changes"></i>|compare-changes|
+|<i class="codicon codicon-compass-active"></i>|compass-active|
+|<i class="codicon codicon-compass-dot"></i>|compass-dot|
+|<i class="codicon codicon-compass"></i>|compass|
 |<i class="codicon codicon-console"></i>|console|
 |<i class="codicon codicon-credit-card"></i>|credit-card|
 |<i class="codicon codicon-dash"></i>|dash|
 |<i class="codicon codicon-dashboard"></i>|dashboard|
 |<i class="codicon codicon-database"></i>|database|
+|<i class="codicon codicon-debug-all"></i>|debug-all|
 |<i class="codicon codicon-debug"></i>|debug|
 |<i class="codicon codicon-debug-alt"></i>|debug-alt|
 |<i class="codicon codicon-debug-alt-small"></i>|debug-alt-small|
@@ -398,9 +411,12 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-debug-breakpoint-unsupported"></i>|debug-breakpoint-unsupported|
 |<i class="codicon codicon-debug-breakpoint-unverified"></i>|debug-breakpoint-unverified|
 |<i class="codicon codicon-debug-console"></i>|debug-console|
+|<i class="codicon codicon-debug-continue-small"></i>|debug-continue-small|
 |<i class="codicon codicon-debug-continue"></i>|debug-continue|
+|<i class="codicon codicon-debug-coverage"></i>|debug-coverage|
 |<i class="codicon codicon-debug-disconnect"></i>|debug-disconnect|
 |<i class="codicon codicon-debug-hint"></i>|debug-hint|
+|<i class="codicon codicon-debug-line-by-line"></i>|debug-line-by-line|
 |<i class="codicon codicon-debug-pause"></i>|debug-pause|
 |<i class="codicon codicon-debug-rerun"></i>|debug-rerun|
 |<i class="codicon codicon-debug-restart"></i>|debug-restart|
@@ -428,11 +444,11 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-diff-removed"></i>|diff-removed|
 |<i class="codicon codicon-diff-renamed"></i>|diff-renamed|
 |<i class="codicon codicon-discard"></i>|discard|
-|<i class="codicon codicon-drop-down-button"></i>|drop-down-button|
 |<i class="codicon codicon-edit"></i>|edit|
 |<i class="codicon codicon-editor-layout"></i>|editor-layout|
 |<i class="codicon codicon-ellipsis"></i>|ellipsis|
 |<i class="codicon codicon-empty-window"></i>|empty-window|
+|<i class="codicon codicon-error-small"></i>|error-small|
 |<i class="codicon codicon-error"></i>|error|
 |<i class="codicon codicon-exclude"></i>|exclude|
 |<i class="codicon codicon-expand-all"></i>|expand-all|
@@ -457,6 +473,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-file-text"></i>|file-text|
 |<i class="codicon codicon-file-zip"></i>|file-zip|
 |<i class="codicon codicon-files"></i>|files|
+|<i class="codicon codicon-filter-filled"></i>|filter-filled|
 |<i class="codicon codicon-filter"></i>|filter|
 |<i class="codicon codicon-flame"></i>|flame|
 |<i class="codicon codicon-fold"></i>|fold|
@@ -464,6 +481,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-fold-up"></i>|fold-up|
 |<i class="codicon codicon-folder"></i>|folder|
 |<i class="codicon codicon-folder-active"></i>|folder-active|
+|<i class="codicon codicon-folder-library"></i>|folder-library|
 |<i class="codicon codicon-folder-opened"></i>|folder-opened|
 |<i class="codicon codicon-gather"></i>|gather|
 |<i class="codicon codicon-gear"></i>|gear|
@@ -482,7 +500,9 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-git-merge"></i>|git-merge|
 |<i class="codicon codicon-git-pull-request"></i>|git-pull-request|
 |<i class="codicon codicon-git-pull-request-abandoned"></i>|git-pull-request-abandoned|
+|<i class="codicon codicon-git-pull-request-closed"></i>|git-pull-request-closed|
 |<i class="codicon codicon-git-pull-request-create"></i>|git-pull-request-create|
+|<i class="codicon codicon-git-pull-request-draft"></i>|git-pull-request-draft|
 |<i class="codicon codicon-github"></i>|github|
 |<i class="codicon codicon-github-action"></i>|github-action|
 |<i class="codicon codicon-github-alt"></i>|github-alt|
@@ -492,6 +512,8 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-grabber"></i>|grabber|
 |<i class="codicon codicon-graph"></i>|graph|
 |<i class="codicon codicon-graph-left"></i>|graph-left|
+|<i class="codicon codicon-graph-line"></i>|graph-line|
+|<i class="codicon codicon-graph-scatter"></i>|graph-scatter|
 |<i class="codicon codicon-gripper"></i>|gripper|
 |<i class="codicon codicon-group-by-ref-type"></i>|group-by-ref-type|
 |<i class="codicon codicon-heart"></i>|heart|
@@ -500,8 +522,11 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-horizontal-rule"></i>|horizontal-rule|
 |<i class="codicon codicon-hubot"></i>|hubot|
 |<i class="codicon codicon-inbox"></i>|inbox|
+|<i class="codicon codicon-indent"></i>|indent|
 |<i class="codicon codicon-info"></i>|info|
+|<i class="codicon codicon-inspect"></i>|inspect|
 |<i class="codicon codicon-issue-closed"></i>|issue-closed|
+|<i class="codicon codicon-issue-draft"></i>|issue-draft|
 |<i class="codicon codicon-issue-opened"></i>|issue-opened|
 |<i class="codicon codicon-issue-reopened"></i>|issue-reopened|
 |<i class="codicon codicon-issues"></i>|issues|
@@ -513,6 +538,22 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-key"></i>|key|
 |<i class="codicon codicon-keyboard"></i>|keyboard|
 |<i class="codicon codicon-law"></i>|law|
+|<i class="codicon codicon-layers-active"></i>|layers-active|
+|<i class="codicon codicon-layers-dot"></i>|layers-dot|
+|<i class="codicon codicon-layers"></i>|layers|
+|<i class="codicon codicon-layout-activitybar-left"></i>|layout-activitybar-left|
+|<i class="codicon codicon-layout-activitybar-right"></i>|layout-activitybar-right|
+|<i class="codicon codicon-layout-centered"></i>|layout-centered|
+|<i class="codicon codicon-layout-menubar"></i>|layout-menubar|
+|<i class="codicon codicon-layout-panel-center"></i>|layout-panel-center|
+|<i class="codicon codicon-layout-panel-justify"></i>|layout-panel-justify|
+|<i class="codicon codicon-layout-panel-left"></i>|layout-panel-left|
+|<i class="codicon codicon-layout-panel-right"></i>|layout-panel-right|
+|<i class="codicon codicon-layout-panel"></i>|layout-panel|
+|<i class="codicon codicon-layout-sidebar-left"></i>|layout-sidebar-left|
+|<i class="codicon codicon-layout-sidebar-right"></i>|layout-sidebar-right|
+|<i class="codicon codicon-layout-statusbar"></i>|layout-statusbar|
+|<i class="codicon codicon-layout"></i>|layout|
 |<i class="codicon codicon-library"></i>|library|
 |<i class="codicon codicon-light-bulb"></i>|light-bulb|
 |<i class="codicon codicon-lightbulb"></i>|lightbulb|
@@ -528,6 +569,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-live-share"></i>|live-share|
 |<i class="codicon codicon-loading"></i>|loading|
 |<i class="codicon codicon-location"></i>|location|
+|<i class="codicon codicon-lock-small"></i>|lock-small|
 |<i class="codicon codicon-lock"></i>|lock|
 |<i class="codicon codicon-log-in"></i>|log-in|
 |<i class="codicon codicon-log-out"></i>|log-out|
@@ -554,6 +596,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-mute"></i>|mute|
 |<i class="codicon codicon-new-file"></i>|new-file|
 |<i class="codicon codicon-new-folder"></i>|new-folder|
+|<i class="codicon codicon-newline"></i>|newline|
 |<i class="codicon codicon-no-newline"></i>|no-newline|
 |<i class="codicon codicon-note"></i>|note|
 |<i class="codicon codicon-notebook"></i>|notebook|
@@ -574,6 +617,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-person-filled"></i>|person-filled|
 |<i class="codicon codicon-person-follow"></i>|person-follow|
 |<i class="codicon codicon-person-outline"></i>|person-outline|
+|<i class="codicon codicon-pie-chart"></i>|pie-chart|
 |<i class="codicon codicon-pin"></i>|pin|
 |<i class="codicon codicon-pinned"></i>|pinned|
 |<i class="codicon codicon-pinned-dirty"></i>|pinned-dirty|
@@ -593,6 +637,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-reactions"></i>|reactions|
 |<i class="codicon codicon-record"></i>|record|
 |<i class="codicon codicon-record-keys"></i>|record-keys|
+|<i class="codicon codicon-record-small"></i>|record-small|
 |<i class="codicon codicon-redo"></i>|redo|
 |<i class="codicon codicon-references"></i>|references|
 |<i class="codicon codicon-refresh"></i>|refresh|
@@ -625,6 +670,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-run-all"></i>|run-all|
 |<i class="codicon codicon-run-above"></i>|run-above|
 |<i class="codicon codicon-run-below"></i>|run-below|
+|<i class="codicon codicon-run-errors"></i>|run-errors|
 |<i class="codicon codicon-save"></i>|save|
 |<i class="codicon codicon-save-all"></i>|save-all|
 |<i class="codicon codicon-save-as"></i>|save-as|
@@ -697,11 +743,19 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-symbol-variable"></i>|symbol-variable|
 |<i class="codicon codicon-sync"></i>|sync|
 |<i class="codicon codicon-sync-ignored"></i>|sync-ignored|
-|<i class="codicon codicon-tag"></i>|tag|
 |<i class="codicon codicon-tag-add"></i>|tag-add|
 |<i class="codicon codicon-tag-remove"></i>|tag-remove|
+|<i class="codicon codicon-tag"></i>|tag|
+|<i class="codicon codicon-target"></i>|target|
 |<i class="codicon codicon-tasklist"></i>|tasklist|
 |<i class="codicon codicon-telescope"></i>|telescope|
+|<i class="codicon codicon-terminal-bash"></i>|terminal-bash|
+|<i class="codicon codicon-terminal-cmd"></i>|terminal-cmd|
+|<i class="codicon codicon-terminal-debian"></i>|terminal-debian|
+|<i class="codicon codicon-terminal-linux"></i>|terminal-linux|
+|<i class="codicon codicon-terminal-powershell"></i>|terminal-powershell|
+|<i class="codicon codicon-terminal-tmux"></i>|terminal-tmux|
+|<i class="codicon codicon-terminal-ubuntu"></i>|terminal-ubuntu|
 |<i class="codicon codicon-terminal"></i>|terminal|
 |<i class="codicon codicon-text-size"></i>|text-size|
 |<i class="codicon codicon-three-bars"></i>|three-bars|
@@ -724,6 +778,7 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-unmute"></i>|unmute|
 |<i class="codicon codicon-unverified"></i>|unverified|
 |<i class="codicon codicon-variable"></i>|variable|
+|<i class="codicon codicon-verified-filled"></i>|verified-filled|
 |<i class="codicon codicon-verified"></i>|verified|
 |<i class="codicon codicon-versions"></i>|versions|
 |<i class="codicon codicon-vm"></i>|vm|
@@ -737,6 +792,9 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-whole-word"></i>|whole-word|
 |<i class="codicon codicon-window"></i>|window|
 |<i class="codicon codicon-word-wrap"></i>|word-wrap|
+|<i class="codicon codicon-workspace-trusted"></i>|workspace-trusted|
+|<i class="codicon codicon-workspace-unknown"></i>|workspace-unknown|
+|<i class="codicon codicon-workspace-untrusted"></i>|workspace-untrusted|
 |<i class="codicon codicon-wrench"></i>|wrench|
 |<i class="codicon codicon-wrench-subaction"></i>|wrench-subaction|
 |<i class="codicon codicon-x"></i>|x|
