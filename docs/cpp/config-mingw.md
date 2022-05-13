@@ -123,6 +123,9 @@ Remember, the C++ extension uses the C++ compiler you have installed on your mac
    ![Screenshot of helloworld.cpp and play button](images/playbutton/run-play-button.png)
 
 3. Choose **C/C++: g++.exe build and debug active file** from the list of detected compilers on your system.
+
+   ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
+
 you'll only be asked to choose a compiler the first time you run `helloworld.cpp`. This compiler will be set as the "default" compiler in `tasks.json` file. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
@@ -137,8 +140,6 @@ with this:
 ```json
     "group": "build",
 ```
-
-   ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
 
 4. After the build succeeds, your program's output will appear in the integrated **Terminal**.
 
