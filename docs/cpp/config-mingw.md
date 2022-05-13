@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Windows
 ContentId: 7efec972-6556-4526-8aa8-c73b3319d612
 PageTitle: Get Started with C++ and Mingw-w64 in Visual Studio Code
-DateApproved: 4/5/2022
+DateApproved: 5/13/2022
 MetaDescription: Configuring the C++ extension in Visual Studio Code to target g++ and gdb on a Mingw-w64 installation
 ---
 # Using GCC with MinGW
@@ -115,6 +115,7 @@ In your new `helloworld.cpp` file, hover over `vector` or `string` to see type i
 You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
 
 ## Run helloworld.cpp
+
 Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
 
 1. Open `helloworld.cpp` so that it is the active file.
@@ -166,6 +167,7 @@ Your new `tasks.json` file should look similar to the JSON below:
     "version": "2.0.0"
 }
 ```
+
 >**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is g++.
@@ -177,12 +179,7 @@ The `label` value is what you will see in the tasks list; you can name this what
 
 The `detail` value is what you will as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
 
-From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
-
-```json
-"isDefault": true
-```
-In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
     "group": {
@@ -207,9 +204,9 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 2. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 3. From the drop-down next to the play button, select **Debug C/C++ File**.
-![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
-1. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+4. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
 
 The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of using the drop-down.
@@ -217,6 +214,7 @@ The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It w
    ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
 
 ## Explore the debugger
+
 Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
@@ -275,6 +273,7 @@ Sometimes you might want to keep track of the value of a variable as your progra
    ![Mouse hover](images/cpp/mouse-hover.png)
 
 ## Customize debugging with launch.json
+
 When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
@@ -288,6 +287,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
 
 VS Code creates a `launch.json` file, which looks something like this:
+
 ```json
 {
   "version": "0.2.0",
@@ -316,6 +316,7 @@ VS Code creates a `launch.json` file, which looks something like this:
   ]
 }
 ```
+
 In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder (`${fileDirname}`) and active filename with the `.exe` extension (`${fileBasenameNoExtension}.exe`), which if `helloworld.cpp` is the active file will be `helloworld.exe`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
@@ -374,9 +375,9 @@ The C/C++ extension attempts to populate `compilerPath` with the default compile
 
 The `compilerPath` search order is:
 
-* First check for the Microsoft Visual C++ compiler
-* Then look for g++ on Windows Subsystem for Linux (WSL)
-* Then g++ for Mingw-w64.
+- First check for the Microsoft Visual C++ compiler
+- Then look for g++ on Windows Subsystem for Linux (WSL)
+- Then g++ for Mingw-w64.
 
 If you have Visual Studio or WSL installed, you may need to change `compilerPath` to match the preferred compiler for your project. For example, if you installed Mingw-w64 version 8.1.0 using the i686 architecture, Win32 threading, and sjlj exception handling install options, the path would look like this: `C:\Program Files (x86)\mingw-w64\i686-8.1.0-win32-sjlj-rt_v6-rev0\mingw64\bin\g++.exe`.
 

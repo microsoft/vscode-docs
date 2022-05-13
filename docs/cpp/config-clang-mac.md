@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Clang on macOS
 ContentId: 6ef32219-81ad-4d73-84b8-8d4384a45f8a
 PageTitle: Configure VS Code for Clang/LLVM on macOS
-DateApproved: 3/18/2020
+DateApproved: 5/13/2022
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Clang/LLVM
 ---
 # Using Clang in Visual Studio Code
@@ -103,6 +103,7 @@ In the `helloworld.cpp` file, hover over `vector` or `string` to see type inform
 You can press the `kbstyle(Tab)` key to insert the selected member. Then, when you add the opening parenthesis, you'll see information about arguments that the function requires.
 
 ## Run helloworld.cpp
+
 Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
 
 1. Open `helloworld.cpp` so that it is the active file.
@@ -158,6 +159,7 @@ Your new `tasks.json` file should look similar to the JSON below:
     ]
 }
 ```
+
 >**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run. In this case, `"clang++"` is the driver that causes the Clang compiler to expect C++ code and link against the C++ standard library.
@@ -172,11 +174,7 @@ The `detail` value is what you will as the description of the task in the tasks 
 
 The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For clang++, you'll get the best results if you use the `$gcc` problem matcher.
 
-From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
-```json
-"isDefault": true
-```
-In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
     "group": {
@@ -196,11 +194,12 @@ with this:
 You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}/myProgram.out"`).
 
 ## Debug helloworld.cpp
+
 1. Go back to `helloworld.cpp` so that it is the active file.
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
-    ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
 1. Choose **clang++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/clang-mac/build-and-debug-active-file.png)
@@ -210,6 +209,7 @@ The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It w
    ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
 
 ## Explore the debugger
+
 Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
@@ -248,6 +248,7 @@ You might want to keep track of the value of a variable as your program executes
    ![Mouse hover](images/cpp/mouse-hover.png)
 
 ## Customize debugging with launch.json
+
 When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
@@ -339,8 +340,8 @@ You only need to modify the **Include path** setting if your program includes he
 
 The C/C++ extension attempts to populate `compilerPath` with the default compiler location based on what it finds on your system. The `compilerPath` search order is:
 
-* Your PATH for the names of known compilers. The order the compilers appear in the list depends on your PATH.
-* Then hard-coded Xcode paths are searched, such as `/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/`
+- Your PATH for the names of known compilers. The order the compilers appear in the list depends on your PATH.
+- Then hard-coded Xcode paths are searched, such as `/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/`
 
 ### Mac framework path
 

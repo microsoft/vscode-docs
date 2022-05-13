@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Microsoft C++ on Windows
 ContentId: c8b779d6-79e2-49d6-acfc-430d7ac3a299
 PageTitle: Configure Visual Studio Code for Microsoft C++
-DateApproved: 8/19/2021
+DateApproved: 5/13/2022
 MetaDescription: Configure the C++ extension in Visual Studio Code to target Microsoft C++ on Windows.
 ---
 # Configure VS Code for Microsoft C++
@@ -121,6 +121,7 @@ In your new `helloworld.cpp` file, hover over `vector` or `string` to see type i
 You can press the `kbstyle(Tab)` key to insert the selected member; then, when you add the opening parenthesis, you will see information about any arguments that the function requires.
 
 ## Run helloworld.cpp
+
 Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
 
 1. Open `helloworld.cpp` so that it is the active file.
@@ -173,6 +174,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 ]
 }
 ```
+
 >**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is "cl.exe". The `args` array specifies the command-line arguments that will be passed to cl.exe. These arguments must be specified in the order expected by the compiler.
@@ -185,11 +187,7 @@ The `detail` value is what you will as the description of the task in the tasks 
 
 The `problemMatcher` value selects the output parser to use for finding errors and warnings in the compiler output. For cl.exe, you'll get the best results if you use the `$msCompile` problem matcher.
 
-From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
-```json
-"isDefault": true
-```
-In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
     "group": {
@@ -214,7 +212,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
-    ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
 1. Choose **C/C++: cl.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
@@ -226,8 +224,8 @@ If you get an error trying to build and debug with cl.exe, make sure you have [s
 
 ![Error notification when trying to use MSVC without running VS Code from the Developer Command Prompt for VS](images/playbutton/dev-command-prompt-error.png)
 
-
 ## Explore the debugger
+
 Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
@@ -268,6 +266,7 @@ Now you're ready to start stepping through the code.
    Then press `kb(workbench.action.debug.start)` to start execution from the current line in the standard library header. Execution will break on `cout`. If you like, you can press `kb(editor.debug.action.toggleBreakpoint)` again to toggle off the breakpoint.
 
 ## Set a watch
+
 Sometimes you might want to keep track of the value of a variable as your program executes. You can do this by setting a **watch** on the variable.
 
 1. Place the insertion point inside the loop. In the **Watch** window, select the plus sign and in the text box, type `word`, which is the name of the loop variable. Now view the Watch window as you step through the loop.
@@ -281,6 +280,7 @@ Sometimes you might want to keep track of the value of a variable as your progra
    ![Mouse hover](images/cpp/mouse-hover.png)
 
 ## Customize debugging with launch.json
+
 When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
@@ -294,6 +294,7 @@ You'll then see a dropdown for various predefined debugging configurations. Choo
 ![C++ debug configuration dropdown](images/playbutton/select-cl-compiler.png)
 
 VS Code creates a `launch.json` file, which looks something like this:
+
 ```json
 {
 "version": "0.2.0",
@@ -313,6 +314,7 @@ VS Code creates a `launch.json` file, which looks something like this:
 ]
 }
 ```
+
 In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder (`${fileDirname}`) and active filename with the `.exe` extension (`${fileBasenameNoExtension}.exe`), which if `helloworld.cpp` is the active file will be `helloworld.exe`. The `args` property is an array of arguments to pass to the program at runtime.
 
 By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
@@ -369,9 +371,9 @@ The C/C++ extension attempts to populate `compilerPath` with the default compile
 
 The `compilerPath` search order is:
 
-* First check for the Microsoft Visual C++ compilerOpe
-* Then look for g++ on Windows Subsystem for Linux (WSL)
-* Then g++ for Mingw-w64.
+- First check for the Microsoft Visual C++ compilerOpe
+- Then look for g++ on Windows Subsystem for Linux (WSL)
+- Then g++ for Mingw-w64.
 
 If you have g++ or WSL installed, you might need to change `compilerPath` to match the preferred compiler for your project. For Microsoft C++, the path should look something like this, depending on which specific version you have installed: "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe".
 

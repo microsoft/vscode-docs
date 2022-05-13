@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
 PageTitle: Get Started with C++ on Linux in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 5/13/2022
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---
 # Using C++ on Linux in VS Code
@@ -110,6 +110,7 @@ In the `helloworld.cpp` file, hover over `vector` or `string` to see type inform
 You can press the `kbstyle(Tab)` key to insert the selected member. Then, when you add the opening parenthesis, you'll see information about arguments that the function requires.
 
 ## Run helloworld.cpp
+
 Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
 
 1. Open `helloworld.cpp` so that it is the active file.
@@ -160,6 +161,7 @@ Your new `tasks.json` file should look similar to the JSON below:
 ]
 }
 ```
+
 >**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is g++.
@@ -171,12 +173,7 @@ The `label` value is what you will see in the tasks list; you can name this what
 
 The `detail` value is what you will as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
 
-From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
-
-```json
-"isDefault": true
-```
-In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
 
 ```json
     "group": {
@@ -201,7 +198,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
 1. From the drop-down next to the play button, select **Debug C/C++ File**.
-    ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
 1. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
    ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
@@ -210,6 +207,7 @@ The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It w
    ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
 
 ## Explore the debugger
+
 Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
@@ -224,7 +222,6 @@ Before you start stepping through the code, let's take a moment to notice severa
    ![Debugging controls](images/cpp/debug-controls.png)
 
 If you already have a launch.json file in your workspace, the play button will read from it when figuring out how run and debug your C++ file. If you don’t have launch.json, the play button will create a temporary “quick debug” configuration on the fly, eliminating the need for launch.json altogether!
-
 
 ## Step through the code
 
@@ -271,6 +268,7 @@ Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) t
 It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
 
 ## Customize debugging with launch.json
+
 When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
 
 There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
