@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: GCC on Linux
 ContentId: 8ba2e5c6-cb57-4513-bc02-c8b73e6956ad
 PageTitle: Get Started with C++ on Linux in Visual Studio Code
-DateApproved: 3/19/2020
+DateApproved: 3/30/2022
 MetaDescription: Configure the C++ extension in Visual Studio Code to target g++ and GDB on Linux
 ---
 # Using C++ on Linux in VS Code
@@ -109,17 +109,23 @@ In the `helloworld.cpp` file, hover over `vector` or `string` to see type inform
 
 You can press the `kbstyle(Tab)` key to insert the selected member. Then, when you add the opening parenthesis, you'll see information about arguments that the function requires.
 
-## Build helloworld.cpp
+## Run helloworld.cpp
+Remember, the C++ extension uses the C++ compiler you have installed on your machine to build your program. Make sure you have a C++ compiler installed before attempting to run and debug `helloworld.cpp` in VS Code.
 
-Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
+1. Open `helloworld.cpp` so that it is the active file.
+2. Press the play button in the top right corner of the editor.
 
-It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
+   ![Screenshot of helloworld.cpp and play button](images/playbutton/run-play-button.png)
 
-From the main menu, choose **Terminal** > **Configure Default Build Task**. A dropdown appears showing various predefined build tasks for C++ compilers. Choose **C/C++: g++ build active file**.
+3. Choose **g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run `helloworld.cpp`).
 
-![Tasks C++ build dropdown](images/wsl/build-active-file.png)
+   ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
 
-This will create a `tasks.json` file in a `.vscode` folder and open it in the editor.
+4. After the build succeeds, your program's output will appear in the integrated **Terminal**.
+
+    ![screenshot of program output](images/playbutton/helloworld-terminal-output.png)
+
+The first time you run your program, the C++ extension creates `tasks.json`, which you'll find in your project's `.vscode` folder. `tasks.json` stores build configurations.
 
 Your new `tasks.json` file should look similar to the JSON below:
 
@@ -151,7 +157,6 @@ Your new `tasks.json` file should look similar to the JSON below:
 ]
 }
 ```
-
 >**Note**: You can learn more about `tasks.json` variables in the [variables reference](/docs/editor/variables-reference.md).
 
 The `command` setting specifies the program to run; in this case that is g++.
@@ -161,90 +166,45 @@ This task tells g++ to take the active file (`${file}`), compile it, and create 
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
-The `"isDefault": true` value in the `group` object specifies that this task will be run when you press `kb(workbench.action.tasks.build)`. This property is for convenience only; if you set it to false, you can still run it from the Terminal menu with **Tasks: Run Build Task**.
+From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
 
-### Running the build
-
-1. Go back to `helloworld.cpp`. Your task builds the active file and you want to build `helloworld.cpp`.
-1. To run the build task defined in `tasks.json`, press `kb(workbench.action.tasks.build)` or from the **Terminal** main menu choose **Run Build Task**.
-1. When the task starts, you should see the Integrated Terminal panel appear below the source code editor. After the task completes, the terminal shows output from the compiler that indicates whether the build succeeded or failed. For a successful g++ build, the output looks something like this:
-
-   ![G++ build output in terminal](images/wsl/wsl-task-in-terminal.png)
-
-1. Create a new terminal using the **+** button and you'll have a terminal running your default shell with the `helloworld` folder as the working directory. Run `ls` and you should now see the executable `helloworld` (no file extension).
-
-    ![WSL bash terminal](images/wsl/wsl-bash-terminal.png)
-
-1. You can run `helloworld` in the terminal by typing `./helloworld`.
-
+```json
+"isDefault": true
+```
 ### Modifying tasks.json
 
-You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
+You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`.This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example 'helloworld.out').
 
 ## Debug helloworld.cpp
 
-Next, you'll create a `launch.json` file to configure VS Code to launch the GDB debugger when you press `kb(workbench.action.debug.start)` to debug the program.
-
-From the main menu, choose **Run** > **Add Configuration...**. VS Code creates an empty `launch.json` file. Copy and paste the following configuration into `launch.json`:
-
-<!-- and then choose **C++ (GDB/LLDB)**.
-
-You'll then see a dropdown for various predefined debugging configurations. Choose **g++ build and debug active file**.
-
-![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
-
-VS Code creates a `launch.json` file, opens it in the editor, and builds and runs 'helloworld'. -->
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "g++ build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "g++ build active file",
-            "miDebuggerPath": "/usr/bin/gdb"
-        }
-    ]
-}
-```
-
- In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`.
-
-By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
-
- Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
-
-### Start a debugging session
-
 1. Go back to `helloworld.cpp` so that it is the active file.
-2. Press `kb(workbench.action.debug.start)` or from the main menu choose **Run > Start Debugging**. Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
+1. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
+   ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
+1. From the drop-down next to the play button, select **Debug C/C++ File**. Or press `kb(workbench.action.debug.start)`.
+    ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
+   ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
+1. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
+   ![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
+
+The play button has two modes: **Run C/C++ File** and **Debug C/C++ File**. It will default to the last-used mode. If you see the debug icon in the play button, you can just click the play button to debug, instead of selecting the drop-down menu item.
+   ![screenshot of play button in debug mode](images/playbutton/debug-button.png)
+
+## Explore the debugger
+Before you start stepping through the code, let's take a moment to notice several changes in the user interface:
 
 - The Integrated Terminal appears at the bottom of the source code editor. In the **Debug Output** tab, you see output that indicates the debugger is up and running.
-- The editor highlights the first statement in the `main` method. This is a breakpoint that the C++ extension automatically sets for you:
+- The editor highlights line 12, which is a breakpoint that you set before starting the debugger:
 
-   ![Initial breakpoint](images/wsl/wsl-breakpoint-default.png)
+   ![Initial breakpoint](images/playbutton/breakpoint-debug.png)
 
 - The Run view on the left shows debugging information. You'll see an example later in the tutorial.
 
 - At the top of the code editor, a debugging control panel appears. You can move this around the screen by grabbing the dots on the left side.
 
    ![Debugging controls](images/cpp/debug-controls.png)
+
+If you already have a launch.json file in your workspace, the play button will read from it when figuring out how run and debug your C++ file. If you don’t have launch.json, the play button will create a temporary “quick debug” configuration on the fly, eliminating the need for launch.json altogether!
+
 
 ## Step through the code
 
@@ -285,6 +245,62 @@ To keep track of the value of a variable as your program executes, set a **watch
 1. To quickly view the value of any variable while execution is paused on a breakpoint, you can hover over it with the mouse pointer.
 
    ![Mouse hover](images/cpp/mouse-hover.png)
+
+Next, you'll create a `tasks.json` file to tell VS Code how to build (compile) the program. This task will invoke the g++ compiler to create an executable file from the source code.
+
+It's important to have `helloworld.cpp` open in the editor because the next step uses the active file in the editor for context to create the build task in the next step.
+
+## Customize debugging with launch.json
+When you debug with the play button or `kb(workbench.action.debug.start)`, the C++ extension creates a dynamic debug configuration on the fly.
+
+There are cases where you'd want to customize your debug configuration, such as specifying arguments to pass to the program at runtime. You can define custom debug configurations in a `launch.json` file.
+
+To create `launch.json`, choose **Add Debug Configuration** from the play button drop-down menu.
+
+![Add debug configuration play button menu](images/playbutton/add-debug-configuration.png)
+
+You'll then see a dropdown for various predefined debugging configurations. Choose **g++ build and debug active file**.
+
+![C++ debug configuration dropdown](images/wsl/build-and-debug-active-file.png)
+
+VS Code creates a `launch.json` file, which looks something like this:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}
+```
+
+ In the JSON above, `program` specifies the program you want to debug. Here it is set to the active file folder `${fileDirname}` and active filename without an extension `${fileBasenameNoExtension}`, which if `helloworld.cpp` is the active file will be `helloworld`. The `args` property is an array of arguments to pass to the program at runtime.
+
+By default, the C++ extension won't add any breakpoints to your source code and the `stopAtEntry` value is set to `false`.
+
+ Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.
+
+ > From now on, the play button and `kb(workbench.action.debug.start)` will read from your `launch.json` file when launching your program for debugging.
 
 ## C/C++ configurations
 
