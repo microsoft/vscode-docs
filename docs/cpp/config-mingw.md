@@ -122,7 +122,21 @@ Remember, the C++ extension uses the C++ compiler you have installed on your mac
 
    ![Screenshot of helloworld.cpp and play button](images/playbutton/run-play-button.png)
 
-3. Choose **C/C++: g++.exe build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run `helloworld.cpp`).
+3. Choose **C/C++: g++.exe build and debug active file** from the list of detected compilers on your system.
+you'll only be asked to choose a compiler the first time you run `helloworld.cpp`. This compiler will be set as the "default" compiler in `tasks.json` file. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+
+```json
+    "group": {
+        "kind": "build",
+        "isDefault": true
+    },
+```
+
+with this:
+
+```json
+    "group": "build",
+```
 
    ![C++ debug configuration dropdown](images/playbutton/select-gcc-compiler.png)
 
@@ -173,6 +187,8 @@ This task tells g++ to take the active file (`${file}`), compile it, and create 
 
 The `label` value is what you will see in the tasks list; you can name this whatever you like.
 
+The `detail` value is what you will as the description of the task in the tasks list. It's highly recommended to rename this value to differentiate it from similar tasks.
+
 From now on, the play button will read from `tasks.json` to figure out how to build and run your program. You can define multiple build tasks in `tasks.json`, and whichever task is marked as the default will be used by the play button.
 ```json
 "isDefault": true
@@ -186,7 +202,7 @@ You can modify your `tasks.json` to build multiple C++ files by using an argumen
 1. Go back to `helloworld.cpp` so that it is the active file.
 2. Set a breakpoint by clicking on the editor margin or using F9 on the current line.
    ![screenshot of breakpoint in helloworld.cpp](images/playbutton/cpp-breakpoint.png)
-3. From the drop-down next to the play button, select **Debug C/C++ File**. Or press `kb(workbench.action.debug.start)`.
+3. From the drop-down next to the play button, select **Debug C/C++ File**.
 ![Screenshot of play button drop-down](images/playbutton/run-debug-arrow.png)
    ![Screenshot of play button drop-down](images/playbutton/debug-cpp-file-play-button.png)
 1. Choose **C/C++: g++ build and debug active file** from the list of detected compilers on your system (you'll only be asked to choose a compiler the first time you run/debug `helloworld.cpp`).
@@ -273,7 +289,7 @@ VS Code creates a `launch.json` file, which looks something like this:
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "g++.exe - Build and debug active file",
+      "name": "C/C++: g++.exe build and debug active file",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
