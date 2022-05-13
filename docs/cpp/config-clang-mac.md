@@ -114,20 +114,7 @@ Remember, the C++ extension uses the C++ compiler you have installed on your mac
 
    ![Build task](images/clang-mac/default-build-task.png)
 
-You'll only be asked to choose a compiler the first time you run `helloworld.cpp`. This compiler will be set as the "default" compiler in `tasks.json` file. In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
-
-```json
-    "group": {
-        "kind": "build",
-        "isDefault": true
-    },
-```
-
-with this:
-
-```json
-    "group": "build",
-```
+You'll only be asked to choose a compiler the first time you run `helloworld.cpp`. This compiler will be set as the "default" compiler in `tasks.json` file.
 
 <!-- TO DO update for macos terminal -->
 4. After the build succeeds, your program's output will appear in the integrated **Terminal**.
@@ -189,6 +176,21 @@ From now on, the play button will read from `tasks.json` to figure out how to bu
 ```json
 "isDefault": true
 ```
+In case you need to change the default compiler, you can run **Tasks: Configure default build task**. Alternatively you can modify the `tasks.json` file and remove the default by replacing this segment:
+
+```json
+    "group": {
+        "kind": "build",
+        "isDefault": true
+    },
+```
+
+with this:
+
+```json
+    "group": "build",
+```
+
 ### Modifying tasks.json
 
 You can modify your `tasks.json` to build multiple C++ files by using an argument like `"${workspaceFolder}/*.cpp"` instead of `${file}`. This will build all `.cpp` files in your current folder. You can also modify the output filename by replacing `"${fileDirname}/${fileBasenameNoExtension}"` with a hard-coded filename (for example `"${workspaceFolder}/myProgram.out"`).
