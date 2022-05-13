@@ -33,21 +33,41 @@ tsc --version
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
 
-## Syntax highlighting and semantic highlighting
+## Hello World
 
-In addition to syntax highlighting, TypeScript and JavaScript also provide semantic highlighting.
+Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
 
-Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
+```
+mkdir HelloWorld
+cd HelloWorld
+code .
+```
 
-Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+From the File Explorer, create a new file called `helloworld.ts`.
 
-If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
+![create new file](images/typescript/create-new-file.png)
 
-Semantic highlighting can change colors based on:
+Now add the following TypeScript code. You'll notice the TypeScript keyword `let` and the `string` type declaration.
 
-* The resolved type of a symbol: namespace, variable, property, variable, class, interface, typeParameter.
-* Whether the variable/property is read-only (const) or modifiable.
-* Whether the variable/property type is callable (a function type) or not.
+```typescript
+let message : string = "Hello World";
+console.log(message);
+```
+
+To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
+
+![compiled hello world](images/typescript/compiled-hello-world.png)
+
+If you have Node.js installed, you can run `node helloworld.js`.
+
+![run hello world](images/typescript/run-hello-world.png)
+
+If you open `helloworld.js`, you'll see that it doesn't look very different from `helloworld.ts`. The type information has been removed and `let` is now `var`.
+
+```javascript
+var message = "Hello World";
+console.log(message);
+```
 
 ## IntelliSense
 
@@ -59,9 +79,29 @@ IntelliSense shows you intelligent code completion, hover info, and signature in
 
 VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
 
+### Hover information
+
+Hover over a TypeScript symbol to quickly see its type information and relevant documentation:
+
+![Hover for a lodash function](images/typescript/hover.png)
+
+You can also show the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+
+### Signature help
+
+As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+
+![Signature help for the lodash capitalize function](images/typescript/signature-help.png)
+
+Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
+
+## Errors and warnings
+
+TBD
+
 ## Snippets
 
-VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
 
 <video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -70,72 +110,6 @@ VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md
 You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
 > **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
-
-## JSDoc support
-
-VS Code's TypeScript IntelliSense understands many standard [JSDoc](https://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
-
-![TypeScript language within VS Code](images/typescript/jsdocs.png)
-
-Keep in mind that when using JSDoc for TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JSDoc.
-
-<video src="/docs/languages/typescript/jsdoc-autofill.mp4" placeholder="images/typescript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-To disable JSDoc comment suggestions in TypeScript, set `"typescript.suggest.completeJSDocs": false`.
-
-## Hover information
-
-Hover over a TypeScript symbol to quickly see its type information and relevant documentation:
-
-![Hover for a lodash function](images/typescript/hover.png)
-
-You can also show the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
-
-## Signature help
-
-As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
-
-![Signature help for the lodash capitalize function](images/typescript/signature-help.png)
-
-Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
-
-## Auto imports
-
-Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
-
-Just start typing to see [suggestions](#intellisense) for all available TypeScript symbols in your current project.
-
-![Global symbols are shown in the suggestion list](images/typescript/auto-import-pre.png)
-
-If you choose one of the suggestions from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
-
-![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
-
-You can disable auto imports by setting `"typescript.suggest.autoImports": false`.
-
-## Formatting
-
-VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
-
-Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
-
-For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code marketplace.
-
-## JSX and auto closing tags
-
-VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/introducing-jsx.html). To use JSX in your TypeScript, use the `*.tsx` file extension instead of the normal `*.ts`:
-
-![IntelliSense in JSX](images/typescript/jsx.png)
-
-VS Code also includes JSX-specific features such as autoclosing of JSX tags in TypeScript:
-
-<video src="/docs/languages/typescript/jsx-tag-complete.mp4" placeholder="images/typescript/jsx-tag-complete-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 ## Code navigation
 
@@ -152,11 +126,13 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 * **Go to Symbol in File** `kb(workbench.action.gotoSymbol)`
 * **Go to Symbol in Workspace** `kb(workbench.action.showAllSymbols)`
 
-## Rename
+## Formatting
 
-Press `kb(editor.action.rename)` to rename the symbol under the cursor across your TypeScript project:
+VS Code includes a TypeScript formatter that provides basic code formatting with reasonable defaults.
 
-![Renaming a method](images/typescript/rename.png)
+Use the `typescript.format.*` [settings](/docs/getstarted/settings.md) to configure the built-in formatter, such as making braces appear on their own line. Or, if the built-in formatter is getting in the way, set `"typescript.format.enable"` to `false` to disable it.
+
+For more specialized code formatting styles, try installing one of the formatting extensions from the VS Code Marketplace.
 
 ## Refactoring
 
@@ -164,192 +140,13 @@ VS Code includes some handy refactorings for TypeScript such as **Extract functi
 
 ![TypeScript refactoring](images/typescript/refactorings.png)
 
-See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactoring TypeScript](/docs/editor/typescript-refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
-Available TypeScript refactorings include:
+### Rename
 
-* **Extract to method or function** - Extract the selected statements or expressions to either a new method or a new function in the file.
+One of the simplest refactorings is to rename a method or variable. Press `kb(editor.action.rename)` to rename the symbol under the cursor across your TypeScript project:
 
-   ![Triggering the extract method refactoring on a selection](images/typescript/refactor-extract-function.gif)
-
-   After selecting the **Extract to method** or **Extract to function** refactoring, enter the name of the extracted method/function.
-
-* **Extract to constant** - Extract the selected expression to a new constant in the file.
-
-   ![Extracting a constant from a selection](images/typescript/refactor-extract-constant.gif)
-
-* **Extract type to interface or type alias** - Extract the selected complex type to either an interface or a type alias.
-
-   ![Extract an inline type to an interface](images/typescript/refactor-extract-interface.gif)
-
-* **Move to new file** - Move one or more classes, functions, constants, or interfaces in the top-level scope of the file to a new file. The new file's name is inferred from the selected symbol's name.
-
-   ![Moving a class to a new file](images/typescript/refactor-move-file.gif)
-
-* **Convert between named imports and namespace imports** - Convert between named imports (`import { Name } from './foo'`) and namespace imports (`import * as foo from './foo'`).
-
-   ![Converting a named import to a namespace import](images/typescript/refactor-convert-import.gif)
-
-* **Convert between default export and named export** - Convert from using a `export default` and having a named export (`export const Foo = ...`).
-
-* **Generate get and set accessors** - Encapsulate a selected class property by generating a getter and setter for it.
-
-   ![Generating getters and setters from class property](images/typescript/refactor-generate-get-set.gif)
-
-* **Convert parameters to destructured object** - Rewrite a function that takes a long list of arguments to take a single arguments object.
-
-## Quick Fixes
-
-Quick Fixes are suggested edits that address simple coding errors. Example Quick Fixes include:
-
-* Adding a missing `this` to a member access.
-* Fixing a misspelled property name.
-* Removing unreachable code or unused imports
-* Declaring
-
-When you move your cursor on to a TypeScript error, VS Code shows a lightbulb that indicates that Quick Fixes are available. Click the lightbulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
-
-## Unused variables and unreachable code
-
-Unused TypeScript code, such as the `else` block of an `if` statement that is always true or an unreferenced import, is faded out in the editor:
-
-![Unreachable source code faded out](images/typescript/unreachable.png)
-
-You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
-
-To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScript by setting:
-
-```json
-"[typescript]": {
-    "editor.showUnused":  false
-},
-"[typescriptreact]": {
-    "editor.showUnused":  false
-},
-```
-
-## Organize Imports
-
-The **Organize Imports** source code action sorts the imports in a TypeScript file and removes unused imports:
-
-<video src="/docs/languages/typescript/organize-imports.mp4" placeholder="images/typescript/organize-imports-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-You can run **Organize Imports** from the **Source Action** context menu or with the `kb(editor.action.organizeImports)` keyboard shortcut.
-
-Organize imports can also be done automatically when you save a TypeScript file by setting:
-
-```json
-"editor.codeActionsOnSave": {
-    "source.organizeImports": true
-}
-```
-
-## Code Actions on Save
-
-The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
-
-```json
-// On save, run both fixAll and organizeImports source actions
-"editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
-}
-```
-
-You can also set `editor.codeActionsOnSave` to an array of Code Actions to execute in order.
-
-Here are some source actions:
-
-* `"organizeImports"` -  Enables organize imports on save.
-* `"fixAll"` - Auto Fix on Save computes all possible fixes in one round (for all providers including ESLint).
-* `"fixAll.eslint"` -  Auto Fix only for ESLint.
-* `"addMissingImports"` - Adds all missing imports on save.
-
-See [TypeScript](/docs/typescript/typescript-tutorial) for more information.
-
-## Code suggestions
-
-VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
-
-<video src="/docs/languages/typescript/code-suggestions-convert-async.mp4" placeholder="images/typescript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
-
-Set `"typescript.suggestionActions.enabled"` to `false` to disable suggestions.
-
-## Inlay hints
-
-Inlay hints add additional inline information to source code to help you understand what the code does.
-
-**Parameter name inlay hints** show the names of parameters in function calls:
-
-![Parameter name inlay hints](images/typescript/inlay-parameters.png)
-
-This can help you understand the meaning of each argument at a glance, which is especially helpful for functions that take Boolean flags or have parameters that are easy to mix up.
-
-To enable parameter name hints, set `typescript.inlayHints.parameterNames.enabled`. There are three possible values:
-
-* `none` — Disable parameter inlay hints.
-* `literals` — Only show inlay hints for literals (string, number, Boolean).
-* `all` — Show inlay hints for all arguments.
-
-**Variable type inlay hints** show the types of variables that don't have explicit type annotations.
-
-Setting: `typescript.inlayHints.variableTypes.enabled`
-
-![Variable type inlay hints](images/typescript/inlay-var-types.png)
-
-**Property type inlay hints** show the type of class properties that don't have an explicit type annotation.
-
-Setting: `typescript.inlayHints.propertyDeclarationTypes.enabled`
-
-![Property type inlay hints](images/typescript/inlay-property-types.png)
-
-**Parameter type hints**  show the types of implicitly typed parameters.
-
-Setting: `typescript.inlayHints.parameterTypes.enabled`
-
-![Parameter type inlay hints](images/typescript/inlay-parameter-types.png)
-
-**Return type inlay hints** show the return types of functions that don't have an explicit type annotation.
-
-Setting: `typescript.inlayHints.functionLikeReturnTypes.enabled`
-
-![Return type inlay hints](images/typescript/inlay-return-type.png)
-
-## References CodeLens
-
-The TypeScript references CodeLens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
-
-![TypeScript references CodeLens](images/typescript/ts-references-code-lens.png)
-
-You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
-
-Click on the reference count to quickly browse a list of references:
-
-![TypeScript references CodeLens peek](images/typescript/ts-references-code-lens-peek.png)
-
-## Implementations CodeLens
-
-The TypeScript implementations CodeLens displays the number of implementors of an interface:
-
-![TypeScript implementations CodeLens](images/typescript/ts-implementations-code-lens.png)
-
-You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
-
-As with the references CodeLens, you can click on the implementation count to quickly browse a list of all implementations.
-
-## Update imports on file move
-
-When you move or rename a file that is imported by other files in your TypeScript project, VS Code can automatically update all import paths that reference the moved file.
-
-The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior. Valid settings values are:
-
-* `"prompt"` - The default. Asks if paths should be updated for each file move.
-* `"always"` - Always automatically update paths.
-* `"never"` - Do not update paths automatically and do not prompt.
+![Renaming a method](images/typescript/rename.png)
 
 ## Debugging
 
@@ -367,7 +164,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 ## Linters
 
-[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-marketplace.md) available in the marketplace.
+[Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-marketplace.md) available in the Marketplace.
 
 [ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [Quick Fixes](#quick-fixes). [The ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/README.md) details how to configure ESLint for your TypeScript projects.
 
@@ -389,9 +186,9 @@ To learn more, see:
 
 ## Common questions
 
-### Can I use the version of TypeScript that ships with VS 2015?
+### Can I use the version of TypeScript that ships with VS 2019? TBD is this still a problem?
 
-No, the TypeScript language service that ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2017 and 2019 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
 
 ### How can I use the latest TypeScript beta with VS Code?
 

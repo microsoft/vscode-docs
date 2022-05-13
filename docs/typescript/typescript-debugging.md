@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: typescript
 TOCTitle: Debugging
 ContentId: 19c60eb6-662b-444a-92f6-009642cc1e5b
