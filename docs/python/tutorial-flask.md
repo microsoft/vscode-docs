@@ -73,7 +73,7 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
-1. The selected environment appears on the left side of the VS Code status bar, and notice the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
+1. The selected environment appears on the right side of the VS Code status bar, and notice the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
 
     ![Flask tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
