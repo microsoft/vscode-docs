@@ -149,7 +149,7 @@ Each type requires additional configuration attributes:
 `pickString`:
 
 - **description**: Shown in the quick pick, provides context for the input.
-- **options**:  Can be an array of options for the user to pick from,or an object having {label, value} properties.
+- **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
 `command`:
