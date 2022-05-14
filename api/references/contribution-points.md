@@ -11,9 +11,8 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 **Contribution Points** are a set of JSON declarations that you make in the `contributes` field of the `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension registers **Contribution Points** to extend various functionalities within Visual Studio Code. Here is a list of all available **Contribution Points**:
 
-- [`authentication`]()
-- [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`authentication`](/api/references/contribution-points#contributes.authentication)
+- [`breakpoints`](/api/references/contribution-points#contributes.breakpoints)
 - [`codeActions`](/api/references/contribution-points#contributes.codeActions)
 - [`colors`](/api/references/contribution-points#contributes.colors)
 - [`commands`](/api/references/contribution-points#contributes.commands)
