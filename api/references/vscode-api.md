@@ -2699,9 +2699,9 @@ to open the editor to the side of the currently active one.</p>
 
 
 
-<a name="window.showTextDocument"></a><span class="ts" id=2721 data-target="#details-2721" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
+<a name="window.showTextDocument"></a><span class="ts" id=2721 data-target="#details-2721" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorOpenOptions">TextEditorOpenOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-2721">
-<div class="comment"><p>Show the given document in a text editor. <a href="#TextDocumentShowOptions">Options</a> can be provided
+<div class="comment"><p>Show the given document in a text editor. <a href="#TextEditorOpenOptions">Options</a> can be provided
 to control options of the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
 </div>
 <div class="signature">
@@ -2709,7 +2709,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="document"></a><span class="ts" id=2722 data-target="#details-2722" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=2723 data-target="#details-2723" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#TextDocumentShowOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
+<tr><td><a name="options"></a><span class="ts" id=2723 data-target="#details-2723" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorOpenOptions">TextEditorOpenOptions</a></span></td><td><div class="comment"><p>(#TextEditorOpenOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
@@ -2720,7 +2720,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 
 
 
-<a name="window.showTextDocument"></a><span class="ts" id=2724 data-target="#details-2724" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
+<a name="window.showTextDocument"></a><span class="ts" id=2724 data-target="#details-2724" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorOpenOptions">TextEditorOpenOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-2724">
 <div class="comment"><p>A short-hand for <code>openTextDocument(uri).then(document =&gt; showTextDocument(document, options))</code>.</p>
 <ul>
@@ -2732,7 +2732,7 @@ to control options of the editor is being shown. Might change the <a href="#wind
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="uri"></a><span class="ts" id=2725 data-target="#details-2725" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=2726 data-target="#details-2726" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextDocumentShowOptions">TextDocumentShowOptions</a></span></td><td><div class="comment"><p>(#TextDocumentShowOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
+<tr><td><a name="options"></a><span class="ts" id=2726 data-target="#details-2726" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorOpenOptions">TextEditorOpenOptions</a></span></td><td><div class="comment"><p>(#TextEditorOpenOptions) to configure the behavior of showing the <a href="#TextEditor">editor</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
@@ -17844,7 +17844,7 @@ identical to the provided text due to end-of-line-sequence normalization.</p>
 <em>1</em>
 </div>
 
-### <a name="TextDocumentShowOptions"></a><span class="code-item" id=242>TextDocumentShowOptions</span>
+### <a name="TextEditorOpenOptions"></a><span class="code-item" id=242>TextEditorOpenOptions</span>
 
 
 
@@ -17855,7 +17855,7 @@ identical to the provided text due to end-of-line-sequence normalization.</p>
 
 
 
-<a name="TextDocumentShowOptions.preserveFocus"></a><span class="ts" id=244 data-target="#details-244" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<a name="TextEditorOpenOptions.preserveFocus"></a><span class="ts" id=244 data-target="#details-244" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-244">
 <div class="comment"><p>An optional flag that when <code>true</code> will stop the <a href="#TextEditor">editor</a> from taking focus.</p>
 </div>
@@ -17863,7 +17863,7 @@ identical to the provided text due to end-of-line-sequence normalization.</p>
 
 
 
-<a name="TextDocumentShowOptions.preview"></a><span class="ts" id=245 data-target="#details-245" data-toggle="collapse"><span class="ident">preview</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<a name="TextEditorOpenOptions.preview"></a><span class="ts" id=245 data-target="#details-245" data-toggle="collapse"><span class="ident">preview</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
 <div class="details collapse" id="details-245">
 <div class="comment"><p>An optional flag that controls if an <a href="#TextEditor">editor</a>-tab will be replaced
 with the next editor or if it will be kept.</p>
@@ -17872,7 +17872,7 @@ with the next editor or if it will be kept.</p>
 
 
 
-<a name="TextDocumentShowOptions.selection"></a><span class="ts" id=246 data-target="#details-246" data-toggle="collapse"><span class="ident">selection</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
+<a name="TextEditorOpenOptions.selection"></a><span class="ts" id=246 data-target="#details-246" data-toggle="collapse"><span class="ident">selection</span><span>?</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
 <div class="details collapse" id="details-246">
 <div class="comment"><p>An optional selection to apply for the document in the <a href="#TextEditor">editor</a>.</p>
 </div>
@@ -17880,7 +17880,7 @@ with the next editor or if it will be kept.</p>
 
 
 
-<a name="TextDocumentShowOptions.viewColumn"></a><span class="ts" id=243 data-target="#details-243" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
+<a name="TextEditorOpenOptions.viewColumn"></a><span class="ts" id=243 data-target="#details-243" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
 <div class="details collapse" id="details-243">
 <div class="comment"><p>An optional view column in which the <a href="#TextEditor">editor</a> should be shown.
 The default is the <a href="#ViewColumn.Active">active</a>, other values are adjusted to

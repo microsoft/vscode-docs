@@ -204,7 +204,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 `vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or an http(s) URL. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
 
 * _uri_ - Uri of a text document
-* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
+* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextEditorOpenOptions
 * _label_ - (optional)
 * _(returns)_ - no result
 
@@ -212,7 +212,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _resource_ - Resource to open
 * _viewId_ - Custom editor view id or 'default' to use VS Code's default editor
-* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
+* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextEditorOpenOptions
 * _(returns)_ - no result
 
 `vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
@@ -220,7 +220,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _left_ - Left-hand side resource of the diff editor
 * _right_ - Right-hand side resource of the diff editor
 * _title_ - (optional) Human readable title for the diff editor
-* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
+* _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextEditorOpenOptions
 * _(returns)_ - no result
 
 `vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
