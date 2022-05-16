@@ -1,17 +1,17 @@
 ---
 Area: containers
 ContentId: B1DF33C0-400C-413D-B60B-D1AA278F6DE3
-PageTitle: Debug a .NET Core app running in a Docker container
+PageTitle: Debug a .NET app running in a Docker container
 DateApproved: 04/15/2021
-MetaDescription: Debug a .NET Core app running in a Docker container, using Visual Studio Code.
+MetaDescription: Debug a .NET app running in a Docker container, using Visual Studio Code.
 ---
-# Debug .NET Core within a container
+# Debug .NET within a container
 
 ## Prerequisites
 
-1. Install the [.NET Core SDK](https://www.microsoft.com/net/download), which includes support for attaching to the .NET Core debugger.
+1. Install the [.NET SDK](https://www.microsoft.com/net/download), which includes support for attaching to the .NET debugger.
 
-1. Install the Visual Studio Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which includes support for attaching to the .NET Core debugger with VS Code.
+1. Install the Visual Studio Code [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which includes support for attaching to the .NET debugger with VS Code.
 
 1. macOS users only: Add `/usr/local/share/dotnet/sdk/NuGetFallbackFolder` as a shared folder in your Docker preferences.
 
@@ -19,7 +19,7 @@ MetaDescription: Debug a .NET Core app running in a Docker container, using Visu
 
 ## Walkthrough
 
-1. If needed, create a .NET Core project with `dotnet new`.
+1. If needed, create a .NET project with `dotnet new`.
 1. Open the project folder in VS Code.
 1. Wait until a notification appears asking if you want to add required assets for debugging. Select **Yes**:
 

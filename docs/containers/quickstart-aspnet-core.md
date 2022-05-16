@@ -18,10 +18,10 @@ In this guide you will learn how to:
 ## Prerequisites
 
 - Docker and the VS Code Docker extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
-- For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
+- For .NET development, install [.NET SDK](https://dotnet.microsoft.com/download).
 - Microsoft [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
-## Create a .NET Core Web API project
+## Create a .NET Web API project
 
 1. Create a folder for the project.
 1. Open developer command prompt in the project folder and initialize the project:
@@ -54,15 +54,18 @@ In this guide you will learn how to:
 
    ``` output
    ~/code/scratch/netcorerest$ dotnet build
-   Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+   Microsoft (R) Build Engine version 17.2.0+41abc5629 for .NET
    Copyright (C) Microsoft Corporation. All rights reserved.
 
-   Restore completed in 18.97 ms for ~/code/scratch/netcorerest/netcorerest.csproj.
-   netcorerest -> ~/code/scratch/netcorerest/bin/Debug/netcoreapp3.0/netcorerest.dll
+     Determining projects to restore...
+     All projects are up-to-date for restore.
+     nettest -> c:\source\repos\nettest\bin\Debug\net6.0\nettest.dll
 
-    Build succeeded.
-        0 Warning(s)
-        0 Error(s)
+   Build succeeded.
+       0 Warning(s)
+       0 Error(s)
+
+   Time Elapsed 00:00:03.78
    ```
 
 ## Add an environment variable to the image
@@ -169,7 +172,7 @@ You can use specific port on the host by changing the Docker run options used by
 
 You're done! Now that your container is ready, you may want to:
 
-- [Learn about debugging .NET Core in a container](/docs/containers/debug-netcore.md)
+- [Learn about debugging .NET in a container](/docs/containers/debug-netcore.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
 - [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
