@@ -81,7 +81,7 @@ cd $HOME/projects/helloworld
 code .
 ```
 
-You'll see a message about "Installing VS Code Server". VS Code is downloading and installing a small server on the Linux side that the desktop VS Code will then talk to. VS Code will then start and open the `helloWorld` folder. The File Explorer shows that VS Code is now running in the context of WSL with the title bar **[WSL: Ubuntu]**.
+You'll see a message about "Installing VS Code Server". VS Code is downloading and installing a small server on the Linux side that the desktop VS Code will then talk to. VS Code will then start and open the `helloWorld` folder. The File Explorer shows that VS Code is now running in the context of WSL with the title bar **WSL: Ubuntu**.
 
 ![File Explorer in WSL](images/wsl/file-explorer-wsl.png)
 

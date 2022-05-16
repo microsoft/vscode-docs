@@ -747,7 +747,7 @@ Follow these steps:
     ssh -NL localhost:23750:/var/run/docker.sock user@hostname
     ```
 
-VS Code will now be able to [attach to any running container](/docs/remote/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](/remote/advancedcontainers/develop-remote-host.md#converting-an-existing-or-pre-defined-devcontainerjson).
+VS Code will now be able to [attach to any running container](/docs/remote/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](/remote/advancedcontainers/develop-remote-host.md#converting-an-existing-or-predefined-devcontainerjson).
 
 Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close the tunnel.
 
