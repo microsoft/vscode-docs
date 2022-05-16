@@ -43,12 +43,6 @@ This extension shows pull requests for the repository of the workspace in a cust
 
 ![Webview Sample - Pull Request](images/examples/webview-pullrequest.png)
 
-**Onboarding**
-
-This extension opens a quickstart webview with helpful actions and links for more information. The webview only appears the first time a user opens a certain file and checks if certain steps have already been completed (for example, install or create a file).
-
-![Webview Sample - Onboarding](images/examples/webview-onboarding.png)
-
 ## Webview views
 
 You can also place webviews into any view container (sidebar or panel) and these elements are called [webview views](/api/references/vscode-api#WebviewView). The same webview guidance applies to webview views.
