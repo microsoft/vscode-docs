@@ -342,7 +342,7 @@ You can debug your client-side code using a browser debugger such as our built-i
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application) to help you.
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
