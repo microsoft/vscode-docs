@@ -115,7 +115,7 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+Now press `kb(workbench.action.files.save)` to save the file. You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 ### Build Hello World
 
