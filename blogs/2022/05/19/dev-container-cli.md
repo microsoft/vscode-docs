@@ -42,7 +42,9 @@ We’d love for you to try out the dev container CLI and let us know what you th
 
 ### npm install
 
-<TODO>
+```bash
+npm install devcontainers/cli
+```
 
 ### Building the repo from sources
 
@@ -83,8 +85,10 @@ Options:
   --version  Show version number                                       [boolean]
 ```
 
-#### Try the CLI
-You can try out the dev container CLI with a sample project, like this [Rust sample](https://github.com/microsoft/vscode-remote-try-rust). Clone the Rust sample to the repo's parent folder and start a dev container:
+### Try the CLI
+Once you have the CLI through npm or building from sources, you can try it out with a sample project, like this [Rust sample](https://github.com/microsoft/vscode-remote-try-rust).
+
+Clone the Rust sample to the repo's parent folder and start a dev container:
 
 ```bash
 git clone https://github.com/microsoft/vscode-remote-try-rust ../vscode-remote-try-rust
