@@ -216,7 +216,7 @@ Below is a search for the word 'SearchEditor' with two lines of text before and 
 
 The Open Search Editor command opens an existing search editor if one exists, or to otherwise create a new one. The pre-existing command Open new Search Editor has been renamed to New Search Editor, and will always create a new Search Editor.
 
-** Insert image or gif showing how to open it?
+<b>** Insert image or gif showing how to open it?</b>
 
 In the Search Editor, results can be navigated to using Go to Definition actions, such as F12 to open the source location in the current editor group, or Ctrl+K F12 to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
 
@@ -226,10 +226,10 @@ In the Search Editor, results can be navigated to using Go to Definition actions
 * `search.action.openNewEditor` - Opens the search editor in a new tab.
 - `search.action.openInEditor` - Copy the current Search results into a new Search editor
 * `search.action.openNewEditorToSide` - Opens the search editor in a new window next to the window you currently have opened.
-- Should we insert images here?
+- <b>Should we insert images here?</b>
 
 You can also use the Open New Search Editor button at the top of the Search view. (TODO: See where this is) You can also copy your existing results from a Search view over to a Search Editor with the <b>Open in Editor link</b> added to the top of the results tree, or the <b>Search Editor: Open Results </b> in Editor command.
-- **Dont insert image from Feb 2020 release? Thats for an extenssion
+- <b>**Dont insert image from Feb 2020 release? Thats for an extenssion</b>
 
 
 Note: Search Editors are enabled by default in [Insiders](https://code.visualstudio.com/insiders/), and can be opted into in Stable by setting search.enableSearchEditorPreview to true
