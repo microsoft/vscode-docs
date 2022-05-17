@@ -54,7 +54,7 @@ Selecting a command starts Jupyter (if necessary, which might take a minute), th
 
 You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `# %%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
 
-You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](debugging.md) for details).
+You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](/docs/editor/debugging.md) for details).
 
 ### Additional commands and keyboard shortcuts
 

@@ -141,7 +141,7 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 To do so:
 
 1. Follow the [installation](/docs/remote/ssh.md#installation) and SSH [host setup](/docs/remote/ssh.md#ssh-host-setup) steps for the Remote - SSH extension.
-1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
+1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. [Install Docker](#installation) on your SSH host. You do not need to install Docker locally.
 1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
 1. Use the **Remote-Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
