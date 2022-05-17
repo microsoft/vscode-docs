@@ -206,6 +206,37 @@ Example:
 
 The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
 
+## Search Editor
+Search Editors let you view workspace search results in a full-sized editor, complete with syntax highlighting and optional lines of surrounding context.
+
+- ** Insert image from Feb 2020 release??
+
+The Open Search Editor command opens an existing search editor if one exists, or to otherwise create a new one. The pre-existing command Open new Search Editor has been renamed to New Search Editor, and will always create a new Search Editor.
+
+** Insert image or gif?
+
+In the Search Editor, results can be navigated to using Go to Definition actions, such as F12 to open the source location in the current editor group, or Ctrl+K F12 to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+
+** Insert image or gif
+
+### Search editor command arguments
+* `search.action.openNewEditor` - Opens the search editor in a new tab.
+- `search.action.openInEditor` - Copy the current Search results into a new Search editor
+* `search.action.openNewEditorToSide` - Opens the search editor in a new window next to the window you currently have opened.
+- Should we insert images here?
+
+You can also use the Open New Search Editor button at the top of the Search view. (TODO: See where this is) You can also copy your existing results from a Search view over to a Search Editor with the <b>Open in Editor link</b> added to the top of the results tree, or the <b>Search Editor: Open Results </b> in Editor command.
+- **insert image?
+
+
+Note: Search Editors are enabled by default in [Insiders](https://code.visualstudio.com/insiders/), and can be opted into in Stable by setting search.enableSearchEditorPreview to true
+### Search editor context default
+The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search editor.
+
+### Options for configuring how Search Editors are created
+- `search.searchEditor.defaultNumberOfContextLines` - Configure how many context lines a Search Editor shows by default.
+- `search.searchEditor.reusePriorSearchConfiguration` - Reuse the last active Search Editor's configuration when creating a new Search Editor.
+
 ## IntelliSense
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
