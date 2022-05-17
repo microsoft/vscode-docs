@@ -122,7 +122,7 @@ These steps are also provided in the CLI repo’s [readme](https://github.com/de
 
 Your feedback is incredibly helpful in shaping and expanding the spec, and we’d love your feedback on the CLI so far. Please check out the CLI and let us know what you think. We’ve [opened an issue](https://github.com/devcontainers/cli/issues/7) specifically for folks to leave comments and questions, and you can also certainly also open new issues or PRs in the repo, just like other open-source projects.
 
-The CLI and overall specification are under active development, so stay tuned for exciting new advancements. We’ll continue providing updates and info about what you can try out and when.
+The CLI and overall specification are under active development, so stay tuned for exciting new advancements. We welcome your [feedback on the spec](https://github.com/devcontainers/spec/issues) anytime, and we’ll continue providing updates and info about what you can try out and when.
 
 We’re incredibly excited for the future of container-based development and can’t wait to hear your feedback. We look forward to providing a ubiquitous, productive format across tools and users.
 
