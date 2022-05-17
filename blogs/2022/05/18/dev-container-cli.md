@@ -7,7 +7,8 @@ Date: 2022-05-18
 Author: Brigit Murtaugh
 ---
 
-# A consistent environment anywhere with the dev container CLI
+# The dev container CLI
+**A consistent environment anywhere with the dev container CLI**
 
 May 18, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
