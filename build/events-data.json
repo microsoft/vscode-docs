@@ -491,29 +491,6 @@
     "youtubeId": "7FltByLPnrg"
   },
   {
-    "isReleaseParty": "1.62",
-    "title": "VS Code 1.62 Release Party",
-    "description": "Live event and Q&A with the VS Code team to discuss highlights from the October 2021, 1.62 release.",
-    "speakers": [
-      {
-        "name": "VS Code team"
-      }
-    ],
-    "start": "2021-11-04T15:00:00Z",
-    "duration": 30,
-    "location": {
-      "isOnline": true,
-      "name": "Microsoft Learn TV",
-      "link": "https://aka.ms/live-vscode"
-    },
-    "image": "https://vscodeassets.azureedge.net/public/livestreams/20211104.jpg",
-    "calendar": {
-      "ics": "https://aka.ms/vscodelive/20211104/ics",
-      "google": "https://aka.ms/vscodelive/20211104/google"
-    },
-    "youtubeId": "IKvtYHfzE3g"
-  },
-  {
     "title": "VS Code for the Web: vscode.dev",
     "description": "We're excited to introduce you to [vscode.dev](https://vscode.dev), bringing a true VS Code experience to the Web that doesn't need to be installed, launches instantly, and works anywhere (*hello, iPad!*). Come see the culmination of a decade of work and learn what you can do with VS Code for the Web.",
     "speakers": [
