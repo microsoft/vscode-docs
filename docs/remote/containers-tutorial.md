@@ -128,13 +128,17 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "name": "Node.js Sample",
     "dockerFile": "Dockerfile",
 
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
+	"customizations": {
+		"vscode": {
+			"settings": {
+			    "terminal.integrated.shell.linux": "/bin/bash"
+			},
 
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+			"extensions": [
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
 
     "forwardPorts": [3000],
 
@@ -149,6 +153,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | Option | Description |
 |---|---|
 | `dockerfile` | Relative path to a `Dockerfile` that you want to use as your image. |
+| `customizations` | Configure tool-specific properties, like `settings ` and `extensions` properties for VS Code.
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file. |
 | `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created.   |
 | `forwardPorts`  | Make a list of ports inside the container available locally. |

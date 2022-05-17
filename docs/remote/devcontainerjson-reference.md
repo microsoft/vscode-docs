@@ -64,7 +64,19 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 
 ## VS Code specific properties
 
-While most properties apply to any `devcontainer.json` supporting tool or service, a few are specific to VS Code.
+While most properties apply to any `devcontainer.json` supporting tool or service, a few are specific to VS Code. To configure them, you may use the `customizations.vscode` property. Below is an example:
+
+```json
+// Configure tool-specific properties.
+"customizations": {
+	// Configure properties specific to VS Code.
+	"vscode": {
+		"settings": {},
+		"extensions": [],
+        "devPort": {}
+		}
+	},
+```
 
 | Property | Type | Description |
 |----------|------|-------------|

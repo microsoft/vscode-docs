@@ -34,16 +34,21 @@ Both of these files support a subset of `devcontainer.json` properties:
     // Default path to open when attaching to a new container.
     "workspaceFolder": "/path/to/code/in/container/here",
 
-    // An array of extension IDs that specify the extensions to
-    // install inside the container when you first attach to it.
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+			    "terminal.integrated.shell.linux": "/bin/bash"
+			},
 
-    // Any *default* container specific VS Code settings
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
 
     // An array port numbers to forward
     "forwardPorts": [8000],
