@@ -14,7 +14,7 @@ May 18, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMur
 
 ## TLDR;
 
-We’ve released a dev container CLI as part of the new Development Containers Specification. We’d love your feedback in [this issue](https://github.com/devcontainers/cli/issues/7), or new issues and PRs in the repo.
+The dev container teams at Microsoft and GitHub are excited to release a dev container CLI as part of the new Development Containers Specification. We’d love your feedback in [this issue](https://github.com/devcontainers/cli/issues/7), or new issues and PRs in the repo.
 
 ## Consistency = joy
 A consistent, predictable environment is key to a productive and enjoyable software development experience.
