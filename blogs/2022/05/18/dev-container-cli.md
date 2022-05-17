@@ -41,7 +41,7 @@ The CLI is available in a new repo you can check out [here](https://github.com/d
 
 We’d love for you to try out the dev container CLI and let us know what you think. You can quickly try it out in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
 
-You may learn more about building from sources in the [CLI repo](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
+You may learn more about building from sources in the [CLI repo's readme](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
 
 ### npm install
 
@@ -53,12 +53,14 @@ Verify you can run the CLI and see its help text:
 
 ```bash
 devcontainer <command>
+
 Commands:
   devcontainer up                   Create and run dev container
   devcontainer build [path]         Build a dev container image
   devcontainer run-user-commands    Run user commands
   devcontainer read-configuration   Read configuration
   devcontainer exec <cmd> [args..]  Execute a command on a running dev container
+
 Options:
   --help     Show help                                                 [boolean]
   --version  Show version number                                       [boolean]
