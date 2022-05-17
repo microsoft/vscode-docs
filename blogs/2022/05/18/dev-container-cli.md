@@ -16,7 +16,7 @@ May 18, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMur
 
 We’ve released a dev container CLI as part of the new Development Containers Specification. We’d love your feedback in [this issue](https://github.com/devcontainers/cli/issues/7), or new issues and PRs in the repo.
 
-## Context
+## Consistency = joy
 A consistent, predictable environment is key to a productive and enjoyable software development experience.
 
 Containers have historically been used to standardize apps when they’re deployed, but there’s a great opportunity to support additional scenarios, including continuous integration, test automation, and full-featured coding environments. A development container provides this full-featured coding environment and ensures your project has the tools and software it needs, whether it’s complex and distributed or just has a few requirements.
