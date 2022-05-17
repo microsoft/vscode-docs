@@ -121,7 +121,7 @@
   {
     "isReleaseParty": "1.66",
     "title": "VS Code 1.66 Release Party",
-    "description": "Live event and Q & A with the VS Code team to discuss highlights from the March 2022, 1.66 release.",
+    "description": "Live event and Q&A with the VS Code team to discuss highlights from the March 2022, 1.66 release.",
     "speakers": [
       {
         "name": "VS Code team"
@@ -263,7 +263,7 @@
   },
   {
     "title": "Testing modern web apps with Playwright and VS Code",
-    "description": "Playwright is a framework for building end-to-end tests for modern web applications. It can help us create tests that are resilient and run on any browser and platform–and it now comes with a new VS Code extension! In this livestream, we'll scaffold a new project from scratch and create some tests for real web pages.",
+    "description": "Playwright is a framework for building end-to-end tests for modern web applications. It can help create tests that are resilient and run on any browser and platform–and it now comes with a new VS Code extension! In this livestream, we'll scaffold a new project from scratch and create some tests for real web pages.",
     "speakers": [
       {
         "name": "Marcus Felling",
