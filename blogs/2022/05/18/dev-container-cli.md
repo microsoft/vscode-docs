@@ -40,59 +40,37 @@ The CLI is available in a new repo you can check out [here](https://github.com/d
 
 We’d love for you to try out the dev container CLI and let us know what you think. You can quickly try it out in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
 
+You may learn more about building from sources in the [CLI repo](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
+
 ### npm install
 
 ```bash
 npm install -g @devcontainers/cli
 ```
 
-### Building the repo from sources
-
-#### Set up
-
-The CLI repository has a [dev container configuration](https://github.com/devcontainers/cli/tree/main/.devcontainer), which you can use to ensure you have the right dependencies installed.
-
-#### Clone and compile
-
-Start off by cloning the CLI repo, then compile it with yarn:
-
-```bash
-git clone https://github.com/devcontainers/cli
-yarn
-yarn compile
-```
-
 Verify you can run the CLI and see its help text:
 
 ```bash
-node devcontainer.js --help
-```
-
-The output:
-
-```bash
 devcontainer <command>
-
 Commands:
   devcontainer up                   Create and run dev container
   devcontainer build [path]         Build a dev container image
   devcontainer run-user-commands    Run user commands
   devcontainer read-configuration   Read configuration
   devcontainer exec <cmd> [args..]  Execute a command on a running dev container
-
 Options:
   --help     Show help                                                 [boolean]
   --version  Show version number                                       [boolean]
 ```
 
-### Try the CLI
-Once you have the CLI through npm or building from sources, you can try it out with a sample project, like this [Rust sample](https://github.com/microsoft/vscode-remote-try-rust).
+### Try out the CLI
+Once you have the CLI, you can try it out with a sample project, like this [Rust sample](https://github.com/microsoft/vscode-remote-try-rust).
 
-Clone the Rust sample to the repo's parent folder and start a dev container:
+Clone the Rust sample to your machine, and start a dev container with the CLI's `up` command:
 
 ```bash
-git clone https://github.com/microsoft/vscode-remote-try-rust ../vscode-remote-try-rust
-node devcontainer.js up --workspace-folder ../vscode-remote-try-rust
+git clone https://github.com/microsoft/vscode-remote-try-rust
+devcontainer up --workspace-folder <path-to-vscode-remote-try-rust>
 ```
 
 This will download the container image from a container registry and start the container. Your Rust container should now be running:
@@ -119,7 +97,7 @@ Container started
 You can then run commands in this dev container:
 
 ```bash
-node devcontainer.js exec --workspace-folder ../vscode-remote-try-rust cargo run
+devcontainer exec --workspace-folder <path-to-vscode-remote-try-rust> cargo run
 ```
 
 This will compile and run the Rust sample, outputting:
