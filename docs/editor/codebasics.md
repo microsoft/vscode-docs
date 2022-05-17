@@ -209,15 +209,18 @@ The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the f
 ## Search Editor
 Search Editors let you view workspace search results in a full-sized editor, complete with syntax highlighting and optional lines of surrounding context.
 
-- ** Insert image from Feb 2020 release??
+Below is a search for the word 'SearchEditor' with two lines of text before and after the match for context:
+
+
+![search editor overview](images/codebasics/search-editor-overview.png)
 
 The Open Search Editor command opens an existing search editor if one exists, or to otherwise create a new one. The pre-existing command Open new Search Editor has been renamed to New Search Editor, and will always create a new Search Editor.
 
-** Insert image or gif?
+** Insert image or gif showing how to open it?
 
 In the Search Editor, results can be navigated to using Go to Definition actions, such as F12 to open the source location in the current editor group, or Ctrl+K F12 to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
 
-** Insert image or gif
+![search editor triggers](images/codebasics/search-editor-triggers.gif)
 
 ### Search editor command arguments
 * `search.action.openNewEditor` - Opens the search editor in a new tab.
@@ -226,7 +229,7 @@ In the Search Editor, results can be navigated to using Go to Definition actions
 - Should we insert images here?
 
 You can also use the Open New Search Editor button at the top of the Search view. (TODO: See where this is) You can also copy your existing results from a Search view over to a Search Editor with the <b>Open in Editor link</b> added to the top of the results tree, or the <b>Search Editor: Open Results </b> in Editor command.
-- **insert image?
+- **Dont insert image from Feb 2020 release? Thats for an extenssion
 
 
 Note: Search Editors are enabled by default in [Insiders](https://code.visualstudio.com/insiders/), and can be opted into in Stable by setting search.enableSearchEditorPreview to true
