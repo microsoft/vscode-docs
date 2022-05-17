@@ -3,13 +3,13 @@ Order: 73
 TOCTitle: Dev container CLI
 PageTitle: Development Container CLI
 MetaDescription: Provide a consistent development environment anywhere using the development container CLI.
-Date: 2022-05-19
+Date: 2022-05-18
 Author: Brigit Murtaugh
 ---
 
 # A consistent environment anywhere with the dev container CLI
 
-May 19, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
+May 18, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 ## TLDR;
 
