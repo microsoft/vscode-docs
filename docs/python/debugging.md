@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 4/1/2022
+DateApproved: 5/17/2022
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -353,7 +353,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 ### `module`
 
-Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. The `code` option is also a possible alternative. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
+Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
 
 ### `python`
 
