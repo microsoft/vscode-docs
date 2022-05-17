@@ -9,7 +9,7 @@ Author: Brigit Murtaugh
 
 # A consistent environment anywhere with the dev container CLI
 
-May 16, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
+May 19, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 ## TLDR;
 
@@ -43,7 +43,7 @@ We’d love for you to try out the dev container CLI and let us know what you th
 ### npm install
 
 ```bash
-npm install devcontainers/cli
+npm install -g @devcontainers/cli
 ```
 
 ### Building the repo from sources
