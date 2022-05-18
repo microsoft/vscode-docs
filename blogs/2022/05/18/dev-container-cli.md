@@ -45,7 +45,7 @@ We'd love for you to try out the dev container CLI and let us know what you thin
 
 You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
 
-To install the npm package, you will need Python and Node.js (version 14 or greater) installed.
+To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
 
 ### npm install
 
