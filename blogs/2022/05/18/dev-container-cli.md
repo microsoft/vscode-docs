@@ -45,6 +45,8 @@ We'd love for you to try out the dev container CLI and let us know what you thin
 
 You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
 
+To install the npm package, you will need Python and Node.js (version 14 or greater) installed.
+
 ### npm install
 
 ```bash
