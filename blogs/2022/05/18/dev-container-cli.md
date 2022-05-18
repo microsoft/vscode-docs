@@ -11,9 +11,9 @@ Author: Brigit Murtaugh
 
 May 18, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
-**A consistent environment anywhere with the dev container CLI**
-
 ## TL;DR
+
+**A consistent environment anywhere with the dev container CLI**
 
 The development container teams at Microsoft and GitHub are excited to release an open source command-line interface (CLI) as part of the new [Development Containers Specification](https://github.com/devcontainers/spec). We'd love your feedback in [this issue](https://github.com/devcontainers/cli/issues/7), or new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
