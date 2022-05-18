@@ -8,40 +8,42 @@ Author: Brigit Murtaugh
 ---
 
 # The dev container CLI
-**A consistent environment anywhere with the dev container CLI**
 
 May 18, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
-## TLDR;
+**A consistent environment anywhere with the dev container CLI**
 
-The dev container teams at Microsoft and GitHub are excited to release an open source CLI as part of the new [Development Containers Specification](https://github.com/devcontainers/spec). We’d love your feedback in [this issue](https://github.com/devcontainers/cli/issues/7), or new issues and PRs in the repo.
+## TL;DR
+
+The development container teams at Microsoft and GitHub are excited to release an open source command-line interface (CLI) as part of the new [Development Containers Specification](https://github.com/devcontainers/spec). We'd love your feedback in [this issue](https://github.com/devcontainers/cli/issues/7), or new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
 ## Consistency = joy
+
 A consistent, predictable environment is key to a productive and enjoyable software development experience.
 
-Containers have historically been used to standardize apps when they’re deployed, but there’s a great opportunity to support additional scenarios, including continuous integration, test automation, and full-featured coding environments. A development container provides this full-featured coding environment and ensures your project has the tools and software it needs, whether it’s complex and distributed or just has a few requirements.
+Containers have historically been used to standardize apps when they're deployed, but there's a great opportunity to support additional scenarios, including continuous integration (CI), test automation, and full-featured coding environments. A development container provides this full-featured coding environment and ensures your project has the tools and software it needs, whether it's complex and distributed or just has a few requirements.
 
 ![Diagram comparing dev versus production containers](dev-container-stages.png)
 
-We’ve supported dev containers in Visual Studio Code since [the announcement](https://code.visualstudio.com/blogs/2019/05/02/remote-development) of the [Remote-Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019, and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by **devcontainer.json**, a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Dev containers have been supported in Visual Studio Code since [the announcement](https://code.visualstudio.com/blogs/2019/05/02/remote-development) of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019, and more recently in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by **devcontainer.json**, a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
-As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. We’re excited to announce we’ve started work on the **Development Containers Specification**, which empowers anyone in any tool to configure a consistent dev environment. Today, we’re excited to share a major component of this spec you can now try, which is the **dev container CLI**.
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. We're excited to announce that work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. In addition, today we're excited to share a major component of this specification that you can now try, which is the **dev container CLI**.
 
 ## What is the dev container CLI?
 
-The dev container CLI is a reference implementation for the dev container spec.
+The dev container CLI is a reference implementation for the dev container specification.
 
-When tools like VS Code and Codespaces detect a devcontainer.json file in a user’s project, they use a CLI to configure a dev container. We’ve now opened up this CLI as a reference implementation so that individual users and other tools can read in devcontainer.json metadata and create dev containers from it.
+When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. We've now opened up this CLI as a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
 
-This CLI can either be used directly or integrated into product experiences, like how it’s integrated with Remote-Containers and Codespaces today. It currently supports both a simple single container option and integrating with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
+This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Remote - Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
-The CLI is available in a new repo you can check out [here](https://github.com/devcontainers/cli). You can read more about its development in [this issue in our spec repo](https://github.com/devcontainers/spec/issues/9).
+The CLI is available for review in a new [devcontainers/cli](https://github.com/devcontainers/cli) repository and you can read more about its development in [this issue in the spec repo](https://github.com/devcontainers/spec/issues/9).
 
 ## How can I try it?
 
-We’d love for you to try out the dev container CLI and let us know what you think. You can quickly try it out in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
+We'd love for you to try out the dev container CLI and let us know what you think. You can quickly try it out in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
 
-You may learn more about building from sources in the [CLI repo's readme](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
+You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out). In this post, we'll focus on using the npm package.
 
 ### npm install
 
@@ -67,6 +69,7 @@ Options:
 ```
 
 ### Try out the CLI
+
 Once you have the CLI, you can try it out with a sample project, like this [Rust sample](https://github.com/microsoft/vscode-remote-try-rust).
 
 Clone the Rust sample to your machine, and start a dev container with the CLI's `up` command:
@@ -114,18 +117,18 @@ Hello, VS Code Remote - Containers!
 {"outcome":"success"}
 ```
 
-Congrats, you’ve just run the dev container CLI and seen it in action!
+Congrats, you've just run the dev container CLI and seen it in action!
 
-These steps are also provided in the CLI repo’s [readme](https://github.com/devcontainers/cli/blob/main/README.md).
+These steps are also provided in the CLI repo's [README](https://github.com/devcontainers/cli/blob/main/README.md).
 
 ## How can I get involved?
 
-Your feedback is incredibly helpful in shaping and expanding the spec, and we’d love your feedback on the CLI so far. Please check out the CLI and let us know what you think. We’ve [opened an issue](https://github.com/devcontainers/cli/issues/7) specifically for folks to leave comments and questions, and you can also certainly also open new issues or PRs in the repo, just like other open-source projects.
+Your feedback is incredibly helpful in shaping and expanding the specification, and we'd love your feedback on the CLI so far. Please check out the CLI and let us know what you think. We've [opened an issue](https://github.com/devcontainers/cli/issues/7) specifically for folks to leave comments and questions, and you can also open new issues or PRs in the repo, just like other open-source projects.
 
-The CLI and overall specification are under active development, so stay tuned for exciting new advancements. We welcome your [feedback on the spec](https://github.com/devcontainers/spec/issues) anytime, and we’ll continue providing updates and info about what you can try out and when.
+The CLI and overall specification are under active development, so stay tuned for exciting new advancements. We welcome your [feedback on the specification](https://github.com/devcontainers/spec/issues) anytime, and we'll continue providing updates and info about what you can try out and when.
 
-We’re incredibly excited for the future of container-based development and can’t wait to hear your feedback. We look forward to providing a ubiquitous, productive format across tools and users.
+We're incredibly excited for the future of container-based development and can't wait to hear your feedback. We look forward to providing a ubiquitous, productive format across tools and users.
 
 Happy Coding!
 
-The VS Code Team, [@code](https://twitter.com/code)
+Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
