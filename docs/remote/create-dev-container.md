@@ -50,9 +50,15 @@ For this example, if you'd like to install the [ESLint extension](https://market
 ```json
 {
     "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    "customizations": {
+        "vscode": {
+          "extensions": [
+              "dbaeumer.vscode-eslint"
+          ]
+        }
+	  },
+
     "forwardPorts": [ 3000 ]
 }
 ```
@@ -161,9 +167,15 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 ```json
 {
     "build": { "dockerfile": "Dockerfile" },
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    "customizations": {
+        "vscode": {
+          "extensions": [
+              "dbaeumer.vscode-eslint"
+          ]
+        }
+	  },
+
     "forwardPorts": [ 3000 ]
 }
 ```

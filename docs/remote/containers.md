@@ -244,9 +244,15 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 {
     "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
     "forwardPorts": [ 3000 ],
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ]
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	}
 }
 ```
 
@@ -437,8 +443,14 @@ You can include defaults for container specific settings in `devcontainer.json` 
 For example, adding this to `.devcontainer/devcontainer.json` will set the Java home path:
 
 ```json
-"settings": {
-    "java.home": "/docker-java-home"
+// Configure tool-specific properties.
+"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+            "settings": {
+                "java.home": "/docker-java-home"
+            }
+        }
 }
 ```
 
