@@ -217,7 +217,7 @@ Below is a search for the word 'SearchEditor' with two lines of text before and 
 The **Open Search Editor** command opens an existing search editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
 
 
-In the Search Editor, results can be navigated to using Go to Definition actions, such as F12 to open the source location in the current editor group, or Ctrl+K F12 to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+In the Search Editor, results can be navigated to using Go to Definition actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
 
 ![search editor triggers](images/codebasics/search-editor-triggers.gif)
 
