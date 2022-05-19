@@ -216,7 +216,6 @@ Below is a search for the word 'SearchEditor' with two lines of text before and 
 
 The Open Search Editor command opens an existing search editor if one exists, or to otherwise create a new one. The pre-existing command Open new Search Editor has been renamed to New Search Editor, and will always create a new Search Editor.
 
-<b>** Insert image or gif showing how to open it?</b>
 
 In the Search Editor, results can be navigated to using Go to Definition actions, such as F12 to open the source location in the current editor group, or Ctrl+K F12 to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
 
@@ -228,6 +227,10 @@ In the Search Editor, results can be navigated to using Go to Definition actions
 * `search.action.openNewEditorToSide` - Opens the search editor in a new window next to the window you currently have opened.
 
 You can also use the Open New Search Editor button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the <b>Open in Editor link</b> added to the top of the results tree, or the <b>Search Editor: Open Results </b> in Editor command.
+
+![Search Editor Button](images/codebasics/search-editor-button.png)
+
+Search editor was opened by clicking the Open New Search Editor button (third button) on the top of the search view
 
 Note: Search Editors are enabled by default in [Insiders](https://code.visualstudio.com/insiders/), and can be opted into in Stable by setting search.enableSearchEditorPreview to true
 ### Search editor context default
