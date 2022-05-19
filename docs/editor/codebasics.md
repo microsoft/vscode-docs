@@ -226,11 +226,11 @@ In the Search Editor, results can be navigated to using Go to Definition actions
 - `search.action.openInEditor` - Copy the current Search results into a new Search editor
 * `search.action.openNewEditorToSide` - Opens the search editor in a new window next to the window you currently have opened.
 
-You can also use the Open New Search Editor button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the <b>Open in Editor link</b> added to the top of the results tree, or the <b>Search Editor: Open Results </b> in Editor command.
+You can also use the Open New Search Editor button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in Editor link** added to the top of the results tree, or the **Search Editor: Open Results** in Editor command.
 
 ![Search Editor Button](images/codebasics/search-editor-button.png)
 
-Search editor was opened by clicking the Open New Search Editor button (third button) on the top of the search view
+Search editor was opened by clicking the **Open New Search Editor** button (third button) on the top of the search view
 
 Note: Search Editors are enabled by default in [Insiders](https://code.visualstudio.com/insiders/), and can be opted into in Stable by setting search.enableSearchEditorPreview to true
 ### Search editor context default
