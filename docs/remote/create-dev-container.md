@@ -53,12 +53,11 @@ For this example, if you'd like to install the [ESLint extension](https://market
 
     "customizations": {
         "vscode": {
-          "extensions": [
-              "dbaeumer.vscode-eslint"
-          ]
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
         }
-	  },
-
+    },
     "forwardPorts": [ 3000 ]
 }
 ```
@@ -170,11 +169,11 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 
     "customizations": {
         "vscode": {
-          "extensions": [
-              "dbaeumer.vscode-eslint"
-          ]
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
         }
-	  },
+    },
 
     "forwardPorts": [ 3000 ]
 }
