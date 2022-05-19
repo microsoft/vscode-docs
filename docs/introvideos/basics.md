@@ -57,7 +57,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
   * [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) - Hosts a local server to preview your webpages.
 * Zoom
   * Zoom out (`kb(workbench.action.zoomOut)`)
-  * Zoom in (`kb(workbench.action.zoomOut)`)
+  * Zoom in (`kb(workbench.action.zoomIn)`)
 * Customize your editor with color themes.
   * **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`)
   * **Code** > **Preferences** > **Color Theme** on macOS
