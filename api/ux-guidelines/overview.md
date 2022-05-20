@@ -9,9 +9,9 @@ MetaDescription: Guidelines that showcase best practices for creating Visual Stu
 
 # UX Guidelines
 
-These guidelines cover the best practices for creating Visual Studio Code extensions that extend the core editor's user experience and interface. In these guidelines, you can expect to find:
+These guidelines cover the best practices for creating extensions that seamlessly integrate with the VS Code's native user experience and interface. In these guidelines, you can expect to find:
 - An outline of VS Code's overall UI architecture and elements
-- Recommandations and examples of UI contributed by an extension
+- Recommandations and examples for UI contributed by an extension
 - Alternative approaches to specific UX scenarios
 
 ## Architecture
@@ -22,19 +22,19 @@ The main building blocks of the VS Code UI are as follows:
 
 ### Activity Bar
 
-The Activity Bar serves as a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open a View Container in the Primary Sidebar. View Containers can contain one or more views contributed by an extension.
+The Activity Bar serves as a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that act as View Containers in the Primary Sidebar.
 
 [![Overview of the Activity Bar element](images/examples/...)](/images/examples/...)
 
 ### Primary Sidebar
 
-The Primary Sidebar renders View Containers which in turn render Views. A concrete example is the Explorer--it contains multiple views like the Open Editors view, one or more Folder views, the Outline view, and the Timeline view.
+The Primary Sidebar acts as View Container which in turn render Views. A concrete example is the Explorer--it is a View Container that contains multiple views like the Open Editors view, the Outline view, and the Timeline view.
 
 [![Overview of the Primary Sidebar element](images/examples/...)](/images/examples/...)
 
 ### Secondary Sidebar
 
-The Secondary Sidebar can be used as an alternate location to display views. VS Code users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout to best suit their needs.
+The Secondary Sidebar also acts as a View Container that can be used as an alternate location to display views. VS Code users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout.
 
 [![Overview of the Secondary Sidebar element](images/examples/...)](/images/examples/...)
 
@@ -46,7 +46,7 @@ The Editor area contains one or more Editor Groups. Extensions can contribute Cu
 
 ### Panel
 
-The Panel is another surface to render Views. By default, views like the Terminal, Problems, and Output can be viewed in a single tab at a time. Users can also drag views into a split layout much like they can do in the Editor.
+The Panel is another View Container. By default, views like the Terminal, Problems, and Output can be viewed in a single tab at a time. Users can also drag views into a split layout much like they can do in the Editor.
 
 [![Overview of the Panel element](images/examples/...)](/images/examples/...)
 
@@ -63,45 +63,51 @@ The Status Bar contains two main groups of Status Bar Items. On the left, items 
 
 Extensions can contribute Commands that appears in the Command Palette to quickly execute some functionality.
 
+[![Overview of the Command Palette element](images/examples/...)](/images/examples/...)
+
 ### Quick Pick
 
 Quick Picks capture a user's input in several different ways. They can ask for a single selection, multiple selections, or even freeform text input. For more complex scenarios, quick picks can even feature multiple steps.
+
+[![Overview of the Quick Pick element](images/examples/...)](/images/examples/...)
 
 ### Notifications
 
 Notifications are used to communicate ephemeral information, warning, and error messages to users. They can also be used to indicate progress.
 
-### Views
+[![Overview of the Notification element](images/examples/...)](/images/examples/...)
 
-Views are a fundamental building block of VS Code's UI that can be configured to display tree views, webviews, and welcome views.
+
+[![Overview of the View element](images/examples/...)](/images/examples/...)
 
 ### Webviews
 
 Webviews can be used to display custom content and functionality for use cases that go beyond VS Code's API.
 
-
-### Status Bar Items
-
-Status Bar Items are contributed to the Status Bar to communicate some state or messaging in a unintrusive location.
+[![Overview of the Webview concept](images/examples/...)](/images/examples/...)
 
 ### Context Menu
 
 In contrast to the Command Palette's consistent location, Context Menus give users the ability to perform actions or configure something from a specific location.
 
-### Editor Actions
-
-Extensions can contribute icons to the Editor Toolbar to perform actions scoped to the current editor.
+[![Overview of the Context Menu element](images/examples/...)](/images/examples/...)
 
 ### Walkthroughs
 
 Walkthroughs provide a consistent experience for onboarding users to an extension via a multi-step checklist featuring rich content.
 
-## Other Concepts
+[![Overview of the Walkthrough concept](images/examples/...)](/images/examples/...)
+
+## Other
 
 ### Progress
 
 Extensions can communicate that some operation is in progress by using a progress notification or as a Status Bar Item.
 
+[![Overview of the Progress concept](images/examples/...)](/images/examples/...)
+
 ### Themes and Icons
 
 Color, Product Icon, and File Icon themes all enable users to customize the look and feel of VS Code.
+
+[![Overview of the Color Theme and Icon Theme concepts](images/examples/...)](/images/examples/...)
