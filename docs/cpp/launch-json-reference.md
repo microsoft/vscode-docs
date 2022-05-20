@@ -296,7 +296,7 @@ The `symbolOptions` element allows customization of how the debugger searches fo
     }
 ```
 
-### Properties:
+### Properties
 
 **searchPaths**: Array of symbol server URLs (example: https://msdl.microsoft.com/download/symbols) or directories (example: /build/symbols) to search for .pdb files. These directories will be searched in addition to the default locations -- next to the module and the path where the pdb was originally dropped to.
 
@@ -306,10 +306,12 @@ The `symbolOptions` element allows customization of how the debugger searches fo
 
 **moduleFilter.mode**: This value is either `"loadAllButExcluded"` or `"loadOnlyIncluded"`. In `"loadAllButExcluded"` mode, the debugger loads symbols for all modules unless the module is in the 'excludedModules' array. In `"loadOnlyIncluded"` mode, the debugger will not attempt to load symbols for ANY module unless it is in the 'includedModules' array, or it is included through the 'includeSymbolsNextToModules' setting.
 
-#### Properties for `"loadAllButExcluded"` mode: 
+#### Properties for `"loadAllButExcluded"` mode
+
 **moduleFilter.excludedModules**: Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
 
-#### Properties for `"loadOnlyIncluded"` mode: 
+#### Properties for `"loadOnlyIncluded"` mode
+
 **moduleFilter.includedModules**: Array of modules that the debugger should load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
 
 **moduleFilter.includeSymbolsNextToModules**: If true, for any module NOT in the 'includedModules' array, the debugger will still check next to the module itself and the launching executable, but it will not check paths on the symbol search list. This option defaults to 'true'.

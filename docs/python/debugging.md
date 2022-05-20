@@ -492,7 +492,7 @@ The configuration dropdown provides various different options for general app ty
 
 | Configuration | Description |
 | --- | --- |
-| Attach | See [Remote debugging](#remote-debugging) in the previous section. |
+| Attach | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section. |
 | Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
@@ -567,7 +567,7 @@ There are many reasons why the debugger may not work. Sometimes the debug consol
 - If you are working with a **Linux** system, you may receive a "timed out" error message when trying to apply a debugger to any running process. To prevent this, you can temporarily run the following command:
 
     ```bash
-    $ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     ```
 
 ## Next steps

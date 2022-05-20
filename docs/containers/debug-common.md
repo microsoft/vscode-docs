@@ -13,7 +13,7 @@ With version 0.9.0 and later, the Docker extension provides more support for deb
 
 The Docker extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running Docker container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
 
-The Docker extension currently supports debugging [Node.js](#node-js), [Python](#python), and [.NET](#net) applications within Docker containers.
+The Docker extension currently supports debugging [Node.js](#nodejs), [Python](#python), and [.NET](#net) applications within Docker containers.
 
 ## Requirements
 

@@ -61,4 +61,3 @@ The example below is from a `makefile` and mounts the `KUBECONFIG` file from the
 ```make
 docker run -p 8089:8089 -p 9090:9090 -v $(shell echo ${KUBECONFIG} | sed s#/workspace#${HOST_PROJECT_PATH}#):/kubeconfig.json -e KUBECONFIG=/kubeconfig.json ${IMG} -f behaviours/run_submit_locust.py
 ```
-

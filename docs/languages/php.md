@@ -29,7 +29,7 @@ To change the PHP settings, open your **User or Workspace Settings** (`kb(workbe
 
 To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `php.validate.executablePath` setting with the path to your PHP installation:
 
-### Windows:
+### Windows
 
 ```json
 {
@@ -37,7 +37,7 @@ To set the PHP executable path, select the **Edit in settings.json** link under 
 }
 ```
 
-### Linux and macOS:
+### Linux and macOS
 
 ```json
 {

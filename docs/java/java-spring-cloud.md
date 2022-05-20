@@ -11,7 +11,6 @@ MetaDescription: Java Spring app tutorial showing how to build and deploy a Java
 
 > **Note**: Azure Spring Apps is the new name for the Azure Spring Cloud service.
 
-
 This tutorial shows you how to create a Java web application with Visual Studio Code. You'll learn how to run, debug, and edit the Java web app locally and then on a fully managed Microservices platform built for Java workloads: [Azure Spring Apps](https://azure.microsoft.com/services/spring-cloud/).
 
 ## Scenario
@@ -70,7 +69,7 @@ Test the web app by browsing to [http://localhost:8080](http://localhost:8080) u
 
 ## Make a change
 
-Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Editing and Navigating Code](/docs/languages/java.md#editing-and-navigating-code) to learn about VS Code's editing and code navigation features.
+Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Navigate and edit Java](/docs/java/java-editing.md) to learn about VS Code's editing and code navigation features.
 
 Select the **Restart** button on the top of the editor to relaunch the app and see result by reloading the browser.
 

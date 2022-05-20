@@ -65,5 +65,3 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 This extension provides IntelliSense for npm modules when using `import` or `require`.
 
 ![npm intellisense](images/extensions/npm_intellisense.gif)
-
-
