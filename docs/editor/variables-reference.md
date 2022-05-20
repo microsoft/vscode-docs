@@ -15,7 +15,7 @@ Visual Studio Code supports variable substitution in [Debugging](/docs/editor/de
 
 The following predefined variables are supported:
 
-- **${userHome}** - the path of the user's home folder (see https://github.com/microsoft/vscode/issues/141657)
+- **${userHome}** - the path of the user's home folder
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
