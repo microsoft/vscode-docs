@@ -181,7 +181,7 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
             "type": "pickString",
             "id": "componentType",
             "description": "What type of component do you want to create?",
-            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum", "enum"],
+            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum"],
             "default": "component"
         },
         {
