@@ -15,6 +15,7 @@ Visual Studio Code supports variable substitution in [Debugging](/docs/editor/de
 
 The following predefined variables are supported:
 
+- **${userHome}** - the path of the user's home folder (see https://github.com/microsoft/vscode/issues/141657)
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
@@ -41,6 +42,7 @@ Supposing that you have the following requirements:
 
 So you will have the following values for each variable:
 
+- **${userHome}** - `/home/your-username`
 - **${workspaceFolder}** - `/home/your-username/your-project`
 - **${workspaceFolderBasename}** - `your-project`
 - **${file}** - `/home/your-username/your-project/folder/file.ext`
