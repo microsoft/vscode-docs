@@ -232,7 +232,7 @@ You can also use the Open New Search Editor button at the top of the Search view
 
 Search editor was opened by clicking the **Open New Search Editor** button (third button) on the top of the search view
 
-Note: Search Editors are enabled by default in [Insiders](https://code.visualstudio.com/insiders/)
+
 ### Search editor context default
 The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search editor.
 
