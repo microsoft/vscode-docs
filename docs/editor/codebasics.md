@@ -207,38 +207,51 @@ Example:
 The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
 
 ## Search Editor
+
 Search Editors let you view workspace search results in a full-sized editor, complete with syntax highlighting and optional lines of surrounding context.
 
 Below is a search for the word 'SearchEditor' with two lines of text before and after the match for context:
 
+![Search Editor overview](images/codebasics/search-editor-overview.png)
 
-![search editor overview](images/codebasics/search-editor-overview.png)
+The **Open Search Editor** command opens an existing Search Editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
 
-The **Open Search Editor** command opens an existing search editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
+In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
 
-
-In the Search Editor, results can be navigated to using Go to Definition actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
-
-![search editor triggers](images/codebasics/search-editor-triggers.gif)
-
-### Search editor command arguments
-* `search.action.openNewEditor` - Opens the search editor in a new tab.
-- `search.action.openInEditor` - Copy the current Search results into a new Search editor
-* `search.action.openNewEditorToSide` - Opens the search editor in a new window next to the window you currently have opened.
-
-You can also use the Open New Search Editor button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in Editor link** added to the top of the results tree, or the **Search Editor: Open Results** in Editor command.
+You can also use the **Open New Search Editor** button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in editor** link at the top of the results tree, or the **Search Editor: Open Results in Editor** command.
 
 ![Search Editor Button](images/codebasics/search-editor-button.png)
 
-Search editor was opened by clicking the **Open New Search Editor** button (third button) on the top of the search view
+The Search Editor above was opened by selecting the **Open New Search Editor** button (third button) on the top of the Search view.
 
+### Search Editor commands and arguments
 
-### Search editor context default
-The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search editor.
+* `search.action.openNewEditor` - Opens the Search Editor in a new tab.
+* `search.action.openInEditor` - Copy the current Search results into a new Search Editor.
+* `search.action.openNewEditorToSide` - Opens the Search Editor in a new window next to the window you currently have opened.
 
-### Options for configuring how Search Editors are created
-- `search.searchEditor.defaultNumberOfContextLines` - Configure how many context lines a Search Editor shows by default.
-- `search.searchEditor.reusePriorSearchConfiguration` - Reuse the last active Search Editor's configuration when creating a new Search Editor.
+There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keybindings to configure how a new Search Editor should behave:
+
+* `triggerSearch` - Whether a search be automatically run when a Search Editor is opened. Default is true.
+* `focusResults` - Whether to put focus in the results of a search or the query input. Default is true.
+
+For example, the following keybinding runs the search when the Search Editor is opened but leaves the focus in the search query control.
+
+```json
+{
+    "key": "ctrl+o",
+    "command": "search.action.openNewEditor",
+    "args": { "query": "VS Code", "triggerSearch":true, "focusResults": false }
+}
+```
+
+### Search Editor context default
+
+The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search Editor.
+
+### Reuse last Search Editor configuration
+
+The `search.searchEditor.reusePriorSearchConfiguration` setting (default is `false`) lets you reuse the last active Search Editor's configuration when creating a new Search Editor.
 
 ## IntelliSense
 

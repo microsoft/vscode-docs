@@ -73,7 +73,7 @@ Right-click on your AKS cluster and select **Show In Azure Portal** to open the 
 
 ### Show AKS cluster properties
 
-Right click on your AKS cluster and click on Show Properties to display the AKS cluster and agent pool properties like provisioning state, fqdn, k8s version, along with node properties like node version, vm type, vm size, o/s type, o/s disk size and nodes provisioning state.
+Right click on your AKS cluster and select **Show Properties** to display the AKS cluster and agent pool properties like provisioning state, fqdn, k8s version, along with node properties like node version, vm type, vm size, o/s type, o/s disk size and nodes provisioning state.
 
 ### AKS Periscope
 
