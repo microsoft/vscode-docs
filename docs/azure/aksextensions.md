@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Azure Kubernetes Service
 ContentId: 131f9633-5446-4384-96ca-7bff2e3dc0fc
 PageTitle: Working with AKS tools and diagnostics in Visual Studio Code
-DateApproved: 5/11/2022
+DateApproved: 5/25/2022
 MetaDescription: Working with AKS tools and diagnostics in Visual Studio Code
 ---
 # AKS tools and diagnostics in VS Code
@@ -70,6 +70,10 @@ To perform further checks on your AKS cluster to troubleshoot and get recommende
 ### Navigating to your cluster in the Azure Portal
 
 Right-click on your AKS cluster and select **Show In Azure Portal** to open the Overview page for your cluster in the [Azure portal](https://portal.azure.com/).
+
+### Show AKS cluster properties
+
+Right click on your AKS cluster and click on Show Properties to display the AKS cluster and agent pool properties like provisioning state, fqdn, k8s version, along with node properties like node version, vm type, vm size, o/s type, o/s disk size and nodes provisioning state.
 
 ### AKS Periscope
 
