@@ -28,7 +28,7 @@ Generally speaking, containers can be considered the larger sections of the VS C
 
 #### Activity Bar
 
-The [Activity Bar](api/ux-guidelines/activity-bar) is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open [View Containers](api/ux-guidelines/view-containers) in the Primary Sidebar.
+The [Activity Bar](api/ux-guidelines/activity-bar) is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open [View Containers](api/ux-guidelines/views#view-containers) in the Primary Sidebar.
 
 #### Primary Sidebar
 
