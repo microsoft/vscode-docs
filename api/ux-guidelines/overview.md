@@ -90,7 +90,7 @@ Extensions can contribute Commands that appears in the [Command Palette](api/ux-
 
 ### Quick Pick
 
-[Quick Picks](api/ux-guidelines/command-palette) capture a user's input in several different ways. They can ask for a single selection, multiple selections, or even freeform text input.
+[Quick Picks](api/ux-guidelines/quick-picks) capture a user's input in several different ways. They can ask for a single selection, multiple selections, or even freeform text input.
 
 ![Overview of the Quick Pick element](images/examples/quick-pick.png)
 

@@ -75,3 +75,7 @@ When a view is empty, you can [add content to guide users](/api/references/contr
 ![Welcome Views](images/examples/welcome-views.png)
 
 *This example shows one primary action for the extension and the additional views have context about what to expect with links to documentation.*
+
+## View Toolbar
+
+TBD
