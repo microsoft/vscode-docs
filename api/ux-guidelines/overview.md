@@ -40,7 +40,7 @@ The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) also funct
 
 #### Editor
 
-The [Editor](api/ux-guidelines/editors) area contains one or more Editor Groups. Extensions can contribute [Custom Editors](api/extension-guides/custom-editors) or [Webviews](api/ux-guidelines/webviews) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editors#editor-actions) to expose additional icon buttons in the Editor Toolbar.
+The [Editor](api/ux-guidelines/editor) area contains one or more Editor Groups. Extensions can contribute [Custom Editors](api/extension-guides/custom-editors) or [Webviews](api/ux-guidelines/webviews) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editors#editor-actions) to expose additional icon buttons in the Editor Toolbar.
 
 #### Panel
 
@@ -56,27 +56,27 @@ Extensions can add items to the various containers listed above.
 
 [![Overview of Visual Studio Code containers elements](images/examples/architecture-sections.png)](/assets/api/ux-guidelines/examples/architecture-sections.png)
 
-### View
+#### View
 
 [Views](api/ux-guidelines/views) can be contributed in the form of a Tree View, Webview View, or a Welcome View and and can be dragged around to other areas of the interface.
 
-### View Toolbar
+#### View Toolbar
 
 Extensions can expose View-specific actions that appear as buttons on a [View Toolbar](api/ux-guidelines/views#view-toolbar).
 
-### Sidebar Toolbar
+#### Sidebar Toolbar
 
 Actions scoped to an entire View Container can also be exposed in the [Sidebar Toolbar](api/ux-guidelines/sidebars#sidebar-toolbar).
 
-### Editor Toolbar
+#### Editor Toolbar
 
 Extensions can contribution actions scoped to an editor directly in the [Editor Toolbar](api/ux-guidelines/editors#editor-toolbar).
 
-### Panel Toolbar
+#### Panel Toolbar
 
 The [Panel Toolbar](api/ux-guidelines/panel#panel-toolbar) can expose options scoped to the currently selected View. For example the Terminal view exposes actions to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions.
 
-### Status Bar Item
+#### Status Bar Item
 
 On the left, [Status Bar Item](api/ux-guidelines/status-bar#status-bar-items) are scoped to the entire Workspace. On the right, items are scoped to the current file.
 
