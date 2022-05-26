@@ -232,7 +232,7 @@ Shell integration turns on features like enhanced command tracking and current w
 
 ![Command decorations show up on the left of the command as well as in the scroll bar when shell integration is enabled](images/integrated-terminal/shell-integration.png)
 
-Shell integration works by injecting a script that is run when the shell is initialized and lets us gain and leverage insight into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
+Shell integration works by injecting a script that is run when the shell is initialized and lets VS Code gain insight into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
 
 Supported shells:
 
