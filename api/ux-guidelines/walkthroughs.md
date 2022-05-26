@@ -15,3 +15,6 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
 - TBD
 
 ![Example of walkthrough](images/examples/walkthrough.png)
+
+## Links
+- [Walkthroughs Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.walkthroughs)

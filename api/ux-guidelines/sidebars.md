@@ -39,3 +39,5 @@ Actions scoped to an entire View Container can also be exposed in the Sidebar To
 - [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions)
 - [Welcome View Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsWelcome)
 - [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
+- [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+- [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)

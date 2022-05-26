@@ -32,11 +32,11 @@ The [Activity Bar](api/ux-guidelines/activity-bar) is a core navigation surface 
 
 #### Primary Sidebar
 
-The [Primary Sidebar](api/ux-guidelines/sidebars#primary-sidebar) renders View Containers which render [Views](api/ux-guidelines/views). A concrete example is the Explorer--it is a View Container that renders multiple Views like the Open Editors, Outline, and Timeline views.
+The [Primary Sidebar](api/ux-guidelines/sidebars#primary-sidebar) functions as a View Container that renders [Views](api/ux-guidelines/views). A concrete example is the Explorer--it is a View Container that renders multiple Views like the Open Editors, Outline, and Timeline views.
 
 #### Secondary Sidebar
 
-The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) also functions as a View Container that can be used as an alternate location to display Views. VS Code users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout.
+The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) functions as a View Container that can be used as an alternate location to display Views. Users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout.
 
 #### Editor
 
@@ -44,11 +44,11 @@ The [Editor](api/ux-guidelines/editor) area contains one or more Editor Groups. 
 
 #### Panel
 
-The [Panel](api/ux-guidelines/panel) is another View Container. By default, views like the Terminal, Problems, and Output can be viewed in a single tab at a time. Users can also drag views into a split layout much like they can do in the Editor.
+The [Panel](api/ux-guidelines/panel) is another area functioning as a View Container. By default, views like the Terminal, Problems, and Output can be viewed in a single tab at a time. Users can also drag views into a split layout much like they can do in the Editor.
 
 #### Status Bar
 
-The [Status Bar](api/ux-guidelines/status-bar) contains two groups of [Status Bar Items](api/ux-guidelines/status-bar#status-bar-items).
+The [Status Bar](api/ux-guidelines/status-bar) provides contextual information about the workspace and currently active file. It renders two groups of [Status Bar Items](api/ux-guidelines/status-bar#status-bar-items).
 
 ### Items
 
@@ -58,7 +58,7 @@ Extensions can add items to the various containers listed above.
 
 #### View
 
-[Views](api/ux-guidelines/views) can be contributed in the form of a Tree View, Webview View, or a Welcome View and and can be dragged around to other areas of the interface.
+[Views](api/ux-guidelines/views) can be contributed in the form of a [Tree View](api/ux-guidelines/views#tree-view), [Welcome View](api/ux-guidelines/views#tree-view), or [Webview View](api/ux-guidelines/webviews#webview-view) and can be dragged around to other areas of the interface.
 
 #### View Toolbar
 
@@ -70,7 +70,7 @@ Actions scoped to an entire View Container can also be exposed in the [Sidebar T
 
 #### Editor Toolbar
 
-Extensions can contribution actions scoped to an editor directly in the [Editor Toolbar](api/ux-guidelines/editors#editor-toolbar).
+Extensions can contribution [Editor Actions](api/ux-guidelines/editors#editor-actions) scoped to an editor directly in the Editor Toolbar.
 
 #### Panel Toolbar
 
@@ -78,7 +78,7 @@ The [Panel Toolbar](api/ux-guidelines/panel#panel-toolbar) can expose options sc
 
 #### Status Bar Item
 
-On the left, [Status Bar Item](api/ux-guidelines/status-bar#status-bar-items) are scoped to the entire Workspace. On the right, items are scoped to the current file.
+On the left, [Status Bar Items](api/ux-guidelines/status-bar#status-bar-items) are scoped to the entire Workspace. On the right, items are scoped to the active file.
 
 ## UI Elements
 
@@ -121,4 +121,6 @@ In contrast to the Command Palette's consistent location, [Context Menus](api/ux
 ### Settings
 
 [Settings](api/ux-guidelines/settings) enable users to configure options relevant to the extension.
+
+![Overview of the Settings page](images/examples/settings.png)
 

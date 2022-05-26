@@ -68,3 +68,6 @@ When needing to display progress for an undetermined timeframe (for example, set
 ![Progress notification](images/examples/notification-progress.png)
 
 *This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs (**details**).*
+
+## Links
+- [Hello World Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)

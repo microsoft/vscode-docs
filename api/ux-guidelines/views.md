@@ -46,11 +46,9 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 *This example shows an outline icon used for a custom view container.*
 
-## Views with progress
+## Tree Views
 
-You can also [show progress in a view](/api/references/vscode-api#ProgressLocation) by referencing the view's ID.
-
-![View with progress](images/examples/view-with-progress.png)
+TBD
 
 ## Welcome views
 
@@ -75,6 +73,13 @@ When a view is empty, you can [add content to guide users](/api/references/contr
 ![Welcome Views](images/examples/welcome-view.png)
 
 *This example shows one primary action for the extension and the additional views have context about what to expect with links to documentation.*
+
+## Views with progress
+
+You can also [show progress in a view](/api/references/vscode-api#ProgressLocation) by referencing the view's ID.
+
+![View with progress](images/examples/view-with-progress.png)
+
 
 ## View Toolbar
 
