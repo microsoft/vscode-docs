@@ -5,7 +5,7 @@ The Activity Bar is a core navigation surface in VS Code. Extensions can contrib
 **✔️ Do**
 
 - Use an icon that matches the default Activity Bar item icon style
-- Use a clear, obvious name for the View Container associated with the item
+- Use a clear, obvious name for the [View Container](api/ux-guidelines/views#view-containers) associated with the item
 
 **❌ Don't**
 
