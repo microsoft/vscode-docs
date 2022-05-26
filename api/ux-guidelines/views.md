@@ -28,7 +28,7 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 * Use custom webview views if not necessary
 * Use a view container to launch a webview in the editor
 
-![Views example](images/examples/views-example.png)
+![Views example](images/examples/view.png)
 
 *This example uses the tree view to display a list of tests and the state for each one. Each test type has a unique icon.*
 
@@ -36,7 +36,7 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 
 Views can be placed in [existing view containers](/api/references/contribution-points#contributes.views), such as the File Explorer and Source Control (SCM) and Debug view containers. They can also be added to a custom view container via the Activity Bar. In addition, views can be added to any view container in the panel or in their own custom view container.
 
-![View locations](images/examples/views-locations.png)
+![View locations](images/examples/view-locations.png)
 
 ## View Containers
 
@@ -50,7 +50,7 @@ Views can be placed in [existing view containers](/api/references/contribution-p
 
 You can also [show progress in a view](/api/references/vscode-api#ProgressLocation) by referencing the view's ID.
 
-![SCM Progress](images/examples/scm-progress.png)
+![View with progress](images/examples/view-with-progress.png)
 
 ## Welcome views
 
@@ -72,10 +72,18 @@ When a view is empty, you can [add content to guide users](/api/references/contr
 * Use Welcome views for promotions
 * Use generic "read more" as link text
 
-![Welcome Views](images/examples/welcome-views.png)
+![Welcome Views](images/examples/welcome-view.png)
 
 *This example shows one primary action for the extension and the additional views have context about what to expect with links to documentation.*
 
 ## View Toolbar
 
 TBD
+
+## Links
+- [View Container API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
+- [View API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.views)
+- [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions)
+- [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
+- [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
+- [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
