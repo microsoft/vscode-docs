@@ -31,11 +31,11 @@ It's important to limit the number of notifications sent in order to respect the
 
 ![Warning notification](images/examples/notification-warning.png)
 
-*This example highlights a blocking error with a feature that requires user input and shows actions to resolve the issue.*
+*This example highlights an issue with a feature that requires user input and shows actions to resolve the issue.*
 
 ![Error notification](images/examples/notification-error.png)
 
-*This example shows a failure notification with no actions.*
+*This example shows a failure notification with an action to resolve the issue.*
 
 **✔️ Do**
 
@@ -52,7 +52,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ## Progress Notification
 
-When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
+When needing to display progress for an indeterminate time (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
 
 **✔️ Do**
 
