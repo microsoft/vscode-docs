@@ -49,14 +49,19 @@
     "area": "ux-guidelines",
     "topics": [
       ["Overview", "/api/ux-guidelines/overview"],
-      ["Notifications", "/api/ux-guidelines/notifications"],
-      ["Views", "/api/ux-guidelines/views"],
-      ["Webviews", "/api/ux-guidelines/webviews"],
+      ["Activity Bar", "/api/ux-guidelines/actvitiy-bar"],
+      ["Sidebars", "/api/ux-guidelines/sidebars"],
+      ["Editors", "/api/ux-guidelines/editors"],
+      ["Panel", "/api/ux-guidelines/panel"],
       ["Status Bar", "/api/ux-guidelines/status-bar"],
+      ["Views", "/api/ux-guidelines/views"],
       ["Quick Picks", "/api/ux-guidelines/quick-picks"],
-      ["Context Menus", "/api/ux-guidelines/context-menus"],
-      ["Settings", "/api/ux-guidelines/settings"],
       ["Command Palette", "/api/ux-guidelines/command-palette"]
+      ["Notifications", "/api/ux-guidelines/notifications"],
+      ["Webviews", "/api/ux-guidelines/webviews"],
+      ["Context Menus", "/api/ux-guidelines/context-menus"],
+      ["Walkthroughs", "/api/ux-guidelines/context-walkthroughs"],
+      ["Settings", "/api/ux-guidelines/settings"],
     ]
   },
   {

@@ -106,7 +106,7 @@ Extensions can contribute Commands that appears in the [Command Palette](api/ux-
 
 ![Overview of the Webview element](images/examples/webview.png)
 
-### Context Menu
+### Context Menus
 
 In contrast to the Command Palette's consistent location, [Context Menus](api/ux-guidelines/context-menus) give users the ability to perform actions or configure something from a specific location.
 
@@ -117,4 +117,8 @@ In contrast to the Command Palette's consistent location, [Context Menus](api/ux
 [Walkthroughs](api/ux-guidelines/walkthroughs) provide a consistent experience for onboarding users to an extension via a multi-step checklist featuring rich content.
 
 ![Overview of the Walkthrough API](images/examples/walkthrough.png)
+
+### Settings
+
+[Settings](api/ux-guidelines/settings) enable users to configure options relevant to the extension.
 
