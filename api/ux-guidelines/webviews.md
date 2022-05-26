@@ -41,7 +41,7 @@ This extension opens a browser preview for the editor to the side.
 
 This extension shows pull requests for the repository of the workspace in a custom tree view and then uses a webview for a detail view of the pull request.
 
-![Webview Sample - Pull Request](images/examples/webview-pullrequest.png)
+![Webview Sample - Pull Request](images/examples/webview-pull-request.png)
 
 ## Webview views
 
