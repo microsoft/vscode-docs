@@ -1,4 +1,4 @@
-# Editor
+# Editors
 
 The Editor area contains one or more Editor Groups. Extensions can contribute [Custom Editors](api/extension-guides/custom-editors) or [Webviews](api/ux-guidelines/webviews) to open in the Editor area.
 
