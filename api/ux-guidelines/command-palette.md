@@ -26,6 +26,7 @@ The [Command Palette](/api/references/contribution-points#contributes.commands) 
 
 *This example features commands each displaying a clear `category` prefix e.g. "GitHub Issues".*
 
-## Related Resources
+## Links
+
 - [Commands API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)
 - [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command)

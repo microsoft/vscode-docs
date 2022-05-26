@@ -14,7 +14,8 @@ The Activity Bar is a core navigation surface in VS Code. Extensions can contrib
 
 ![Example of the Activity Bar](images/examples/activity-bar.png)
 
-## Related Resources
+## Links Resources
+
 - [View Container API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
 - [View API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.views)
 - [Product Icon Reference](https://code.visualstudio.com/api/references/icons-in-labels)
