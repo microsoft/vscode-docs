@@ -18,7 +18,7 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 * Use icons for clear metaphors
 * Use the description for displaying the current items (if applicable)
 * Use the detail for providing (brief) additional context
-* Use the multi-step pattern for a series of inputs (like a wizard)
+* Use the multi-step pattern for a series of basic inputs
 * Provide an option to create a new item when picking from a list (if applicable)
 
 ❌ Don't
@@ -54,4 +54,5 @@ Quick Pick Items can be grouped into clear sections using Quick Pick Separators.
 ## Links
 
 - [Quick Pick API Reference](https://code.visualstudio.com/api/references/vscode-api#QuickPick)
+- [Quick Pick Item API Reference](https://code.visualstudio.com/api/references/vscode-api#QuickPickItem)
 - [Quick Pick Sample Extension](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample)
