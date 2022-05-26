@@ -9,7 +9,11 @@ MetaDescription: UX guidelines for notifications in a Visual Studio Code extensi
 
 # Notifications
 
-[Notifications](/api/extension-capabilities/common-capabilities#display-notifications) display brief information that is surfaced from the bottom right of VS Code. You can send three types of notifications:
+[Notifications](/api/extension-capabilities/common-capabilities#display-notifications) display brief information that is surfaced from the bottom right of VS Code.
+
+![Example of a notification](images/examples/notification.png)
+
+You can send three types of notifications:
 
 * [Information](/api/references/vscode-api#window.showInformationMessage)
 * [Warning](/api/references/vscode-api#window.showWarningMessage)
