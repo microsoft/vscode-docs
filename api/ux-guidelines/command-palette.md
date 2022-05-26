@@ -24,4 +24,8 @@ The [Command Palette](/api/references/contribution-points#contributes.commands) 
 
 ![Command Palette](images/examples/command-palette.png)
 
-*This example has commands that are grouped together in the "Debug" category and have clear labels and only a few commands have shortcuts.*
+*This example features commands each displaying a clear `category` prefix e.g. "GitHub Issues".*
+
+## Related Resources
+- [Commands API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)
+- [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command)
