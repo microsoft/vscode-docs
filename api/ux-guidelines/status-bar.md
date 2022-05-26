@@ -31,7 +31,7 @@ The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item
 
 ![Status Bar Item](images/examples/status-bar-item.png)
 
-*This example shows an item that relates to the entire workspace, so it is on the left.*
+*This example shows an item contributed by the GitHub Pull Requests and Issues extension. It relates to the entire workspace, so it is placed on the left.*
 
 ### Progress Status Bar item
 
