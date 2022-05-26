@@ -52,7 +52,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ## Progress Notification
 
-When needing to display progress for an indeterminate time (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
+When needing to display progress for an indeterminate timeframe (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
 
 **✔️ Do**
 
