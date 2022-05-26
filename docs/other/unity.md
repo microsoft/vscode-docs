@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 11/1/2021
+DateApproved: 5/26/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code

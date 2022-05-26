@@ -486,7 +486,7 @@ Use the actions in the editor toolbar to resolve the save conflict. You can eith
 
 Here is a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) for your old editor.
 
-**Tip**: You can see recommended keymap extensions in the **Extensions** view with `kb(workbench.extensions.action.showRecommendedKeymapExtensions)` which filters the search to `@recommended:keymaps`.
+**Tip**: You can see recommended keymap extensions in the **Extensions** view by filtering the search to `@recommended:keymaps`.
 
 ### Multi cursor selection
 
