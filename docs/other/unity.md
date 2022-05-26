@@ -62,14 +62,6 @@ Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) an
 
 ![editing evolved example](images/unity/peekreferences.png)
 
-## Unity Extensions
-
-The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can search for more extensions in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/search?term=Unity&target=VSCode).
-
-<div class="marketplace-extensions-unity"></div>
-
-The extensions shown above are dynamically queried. Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-
 ## Enabling code completion (For recent versions of Unity)
 
 If you are installing VS Code for the first time, you might be missing targeting packs required for Unity's code-completion (IntelliSense) in VS Code.
@@ -201,7 +193,3 @@ To edit this directly within VS Code Settings editor, go to **File** > **Prefere
 **/ProjectSettings
 **/Temp
 ```
-
-### How can I debug Unity?
-
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.
