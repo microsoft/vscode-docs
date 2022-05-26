@@ -46,4 +46,5 @@ TBD
 
 ## Links
 
-- [VS Code Quick Pick API Reference](https://code.visualstudio.com/api/references/vscode-api#QuickPick)
+- [Quick Pick API Reference](https://code.visualstudio.com/api/references/vscode-api#QuickPick)
+- [Quick Pick Sample Extension](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample)
