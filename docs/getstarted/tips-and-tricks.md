@@ -345,7 +345,8 @@ or a custom schema
                 }
             }
         }
-    },
+    }
+]
 ```
 
 See more in the [JSON](/docs/languages/json.md) documentation.
