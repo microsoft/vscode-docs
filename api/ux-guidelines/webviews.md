@@ -31,13 +31,15 @@ If you need to display custom functionality that is beyond what the VS Code API 
 
 ## Webview examples
 
-**Browser preview**
+**Simple Browser**
 
 This extension opens a browser preview for the editor to the side.
 
 ![Weview Sample - Browser](images/examples/webview-browser.png)
 
-**Pull request**
+*This example shows VS Code Web being developed right inside VS Code. A Webview panel is used to render a browser-like window.*
+
+**Pull Request**
 
 This extension shows pull requests for the repository of the workspace in a custom tree view and then uses a webview for a detail view of the pull request.
 
