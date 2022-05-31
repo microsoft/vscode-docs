@@ -40,7 +40,7 @@ The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) functions 
 
 #### Editor
 
-The [Editor](api/ux-guidelines/editor) area contains one or more Editor Groups. Extensions can contribute [Custom Editors](api/extension-guides/custom-editors) or [Webviews](api/ux-guidelines/webviews) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editors#editor-actions) to expose additional icon buttons in the Editor Toolbar.
+The Editor area contains one or more Editor Groups. Extensions can contribute [Custom Editors](api/extension-guides/custom-editors) or [Webviews](api/ux-guidelines/webviews) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editors#editor-actions) to expose additional icon buttons in the Editor Toolbar.
 
 #### Panel
 
