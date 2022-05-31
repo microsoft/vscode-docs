@@ -1,7 +1,7 @@
 [
     {
     "title": "VS Code for XAML and C# Devs",
-    "description": "Who said VS Code is only for Web devs?! The open-source Uno Platform enables XAML and C# single-codebase apps to run on Web, Linux, Android, iOS, MacOS and Windows. Uno Platforms VS Code plugin provides Intelisense-like environment with things like XAML and C# completion, Hot Reload and more. You can now develop a XAML and C# app, using WinUI by using this plugin. Come learn what the Uno Platform is all about!",
+    "description": "Who said Visual Studio Code is only for Web developers?! The open-source Uno Platform enables XAML and C# single-codebase apps to run on Web, Linux, Android, iOS, macOS, and Windows. The Uno Platforms VS Code extension provides language features such as XAML and C# completions, Hot Reload, and more. You can now develop a XAML and C# app, using WinUI, right in VS Code. Come learn what the Uno Platform is all about!",
     "speakers": [
       {
         "name": "Jérôme Laban",
