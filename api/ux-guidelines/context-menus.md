@@ -23,4 +23,8 @@ MetaDescription: UX guidelines for using context menus in a Visual Studio Code e
 
 ![Context Menu](images/examples/context-menu.png)
 
-*This example places a **Copy GitHub Link** next to the other copy commands. This action only appears on files that are from a GitHub repository.*
+*This example places a **Copy GitHub Permalink** next to the other copy commands. This action only appears on files that are from a GitHub repository.*
+
+## Links
+
+- [Context Menu API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.menus)

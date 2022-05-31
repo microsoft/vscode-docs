@@ -9,33 +9,118 @@ MetaDescription: Guidelines that showcase best practices for creating Visual Stu
 
 # UX Guidelines
 
-These guidelines cover the best practices for creating Visual Studio Code extensions that align with and build upon the core editor's user experience and interface. In these guidelines, you can expect to find:
-- Recommandations for UI contributed by an extension
-- Visual examples
-- Alternative approaches to specific UX scenarios
+These guidelines cover the best practices for creating extensions that seamlessly integrate with VS Code's native interface and patterns. In these guidelines, you can expect to find:
+- An outline of VS Code's overall UI architecture and elements
+- Recommandations and examples for UI contributed by an extension
+- Links to relevant guides and samples
+
+Before diving into the details, it's important to understand how the various architectural UI parts of VS Code fit together and how and where your extension could contribute.
 
 ## Architecture
 
-The VS Code UI has two types of elements: containers and items. Containers refer to the outer layers, which include:
+The VS Code interface can roughly be divided into two main concepts: **containers** and **items**:
 
-[![Overview of Visual Studio Code containers elements](images/examples/architecture-groups.png)](/assets/api/ux-guidelines/examples/architecture-groups.png)
+### Containers
 
-1. [Activity Bar](/api/ux-guidelines/views#view-containers)
-2. Sidebar
-3. Editor
-4. Panel
-5. [Status Bar](/api/ux-guidelines/status-bar)
+Generally speaking, containers can be considered the larger sections of the VS Code interface that render one or more items.
 
-Items are placed inside of various containers and include:
+[![Overview of Visual Studio Code containers elements](images/examples/architecture-containers.png)](/assets/api/ux-guidelines/examples/architecture-containers.png)
 
-[![Overview of Visual Studio Code item elements](images/examples/architecture-sections.png)](/assets/api/ux-guidelines/examples/architecture-sections.png)
+#### Activity Bar
 
-6. View Container
-7. [View](/api/ux-guidelines/views)
-8. View Toolbar
-9. Sidebar Toolbar
-10. [Editor Toolbar](/api/ux-guidelines/editor-actions)
-11. View Container
-12. Panel Toolbar
-13. View
-14. [Status Bar Item](/api/ux-guidelines/status-bar)
+The [Activity Bar](api/ux-guidelines/activity-bar) is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that function as [View Containers](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers) that render [Views](api/ux-guidelines/views) in the Primary Sidebar.
+
+#### Primary Sidebar
+
+The [Primary Sidebar](api/ux-guidelines/sidebars#primary-sidebar) renders one or more [Views](api/ux-guidelines/views). The Activity Bar and the Primary Sidebar are tightly coupled. Clicking on a contributed Activity Bar Item (read: View Container) opens up the Primary Sidebar where one or more View associated with that View Container will be rendered. A concrete example would be the Explorer. Clicking on the Explorer Item will open up the Primary Sidebar where the Folder(s), Timeline, and Outline Views are visible.
+
+#### Secondary Sidebar
+
+The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) also functions as a surface for rendering a View Container with Views. Users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout.
+
+#### Editor
+
+The Editor area contains one or more Editor Groups. Extensions can contribute [Custom Editors](https://code.visualstudio.com/api/references/contribution-points#contributes.customEditors) or [Webviews](https://code.visualstudio.com/api/extension-guides/webview) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editor-actions) to expose additional icon buttons in the Editor Toolbar.
+
+#### Panel
+
+The [Panel](api/ux-guidelines/panel) is another area for exposing View Containers. By default, Views like the Terminal, Problems, and Output can be viewed in a single tab at a time in the Panel. Users can also drag views into a split layout much like they can do in the Editor. Additionally, extensions can choose to add View Containers specifically to the Panel instead of the Activity Bar/Primary Sidebar.
+
+#### Status Bar
+
+The [Status Bar](api/ux-guidelines/status-bar) provides contextual information about the workspace and currently active file. It renders two groups of [Status Bar Items](api/ux-guidelines/status-bar#status-bar-items).
+
+### Items
+
+Extensions can add items to the various containers listed above.
+
+[![Overview of Visual Studio Code containers elements](images/examples/architecture-sections.png)](/assets/api/ux-guidelines/examples/architecture-sections.png)
+
+#### View
+
+[Views](api/ux-guidelines/views) can be contributed in the form of a [Tree View](api/ux-guidelines/views#tree-view), [Welcome View](api/ux-guidelines/views#welcome-view), or [Webview View](api/ux-guidelines/webviews#webview-view) and can be dragged around to other areas of the interface.
+
+#### View Toolbar
+
+Extensions can expose View-specific actions that appear as buttons on a [View Toolbar](api/ux-guidelines/views#view-toolbar).
+
+#### Sidebar Toolbar
+
+Actions scoped to an entire View Container can also be exposed in the [Sidebar Toolbar](api/ux-guidelines/sidebars#sidebar-toolbar).
+
+#### Editor Toolbar
+
+Extensions can contribution [Editor Actions](api/ux-guidelines/editors#editor-actions) scoped to an editor directly in the Editor Toolbar.
+
+#### Panel Toolbar
+
+The [Panel Toolbar](api/ux-guidelines/panel#panel-toolbar) can expose options scoped to the currently selected View. For example the Terminal view exposes actions to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions.
+
+#### Status Bar Item
+
+On the left, [Status Bar Items](api/ux-guidelines/status-bar#status-bar-items) are scoped to the entire Workspace. On the right, items are scoped to the active file.
+
+## Common UI Elements
+
+### Command Palette
+
+Extensions can contribute Commands that appears in the [Command Palette](api/ux-guidelines/command-palette) to quickly execute some functionality.
+
+[![Overview of the Command Palette element](images/examples/command-palette.png)](images/examples/command-palette.png)
+
+### Quick Pick
+
+[Quick Picks](api/ux-guidelines/quick-picks) capture a user's input in several different ways. They can ask for a single selection, multiple selections, or even freeform text input.
+
+![Overview of the Quick Pick element](images/examples/quick-pick.png)
+
+### Notifications
+
+[Notifications](api/ux-guidelines/notifications) are used to communicate information, warning, and error messages to users. They can also be used to indicate progress.
+
+![Overview of the Notification element](images/examples/notification.png)
+
+### Webviews
+
+[Webviews](api/ux-guidelines/webviews) can be used to display custom content and functionality for use cases that go beyond VS Code's "native" API.
+
+![Overview of the Webview element](images/examples/webview.png)
+
+### Context Menus
+
+In contrast to the Command Palette's consistent location, [Context Menus](api/ux-guidelines/context-menus) give users the ability to perform actions or configure something from a specific location.
+
+![Overview of the Context Menu element](images/examples/context-menu.png)
+
+### Walkthroughs
+
+[Walkthroughs](api/ux-guidelines/walkthroughs) provide a consistent experience for onboarding users to an extension via a multi-step checklist featuring rich content.
+
+![Overview of the Walkthrough API](images/examples/walkthrough.png)
+
+### Settings
+
+[Settings](api/ux-guidelines/settings) enable users to configure options relevant to the extension.
+
+![Overview of the Settings page](images/examples/settings.png)
+
