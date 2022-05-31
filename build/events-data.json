@@ -1,4 +1,28 @@
 [
+    {
+    "title": "VS Code for XAML and C# Devs",
+    "description": "Who said VS Code is only for Web devs?! The open-source Uno Platform enables XAML and C# single-codebase apps to run on Web, Linux, Android, iOS, MacOS and Windows. Uno Platforms VS Code plugin provides Intelisense-like environment with things like XAML and C# completion, Hot Reload and more. You can now develop a XAML and C# app, using WinUI by using this plugin. Come learn what the Uno Platform is all about!",
+    "speakers": [
+      {
+        "name": "Jérôme Laban",
+        "link": "https://twitter.com/jlaban",
+        "title": "CTO, Uno Platform"
+      }
+    ],
+    "start": "2022-06-02T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/ddnfmhZ7Oec"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220602.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220602/ics",
+      "google": "https://aka.ms/vscodelive/20220602/google"
+    },
+    "youtubeId": "ddnfmhZ7Oec"
+  },
   {
     "title": "Ask Me Anything (AMA) with GitLens creator: Eric Amodio",
     "description": "Join this livestream for exclusive access to GitLens creator, Eric Amodio, as he participates in an AMA (ask me anything) to take community questions about one of the most popular Git extensions for VS Code. Fire away with questions about the recent launch of GitLens 12, including bringing GitLens to vscode.dev and github.dev, and the addition of optional GitLens+ features for enhanced visualization and team collaboration. ",
