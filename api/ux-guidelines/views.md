@@ -24,35 +24,37 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 **❌ Don't**
 
 * Repeat existing functionality
-* Use tree items as single action items (for example, search bar)
+* Use tree items as single action items (e.g. firing a Command on click)
 * Use custom Webview Views if not necessary
-* Use a View Container to open a Webview in the Editor
+* Use a Activity Bar Item (View Container) to open a Webview in the Editor
 
 ![Views example](images/examples/view.png)
 
-*This example uses the tree view to display a list of tests and the state for each one. Each test type has a unique icon.*
+*This example uses a Tree View to display a flat list of Tree View Items.*
 
 ## View Locations
 
-Views can be placed in [existing view containers](/api/references/contribution-points#contributes.views), such as the File Explorer and Source Control (SCM) and Debug view containers. They can also be added to a custom view container via the Activity Bar. In addition, views can be added to any view container in the panel or in their own custom view container.
+Views can be placed in [existing View Containers](/api/references/contribution-points#contributes.views), such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom View Container via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.
 
 ![View locations](images/examples/view-locations.png)
 
-## View Containers
-
-[View Containers](/api/references/contribution-points#contributes.viewsContainers) are part of the Activity Bar. Each container has a unique icon that matches the rest of the iconography (outline) style.
-
-![View Container](images/examples/view-container.png)
-
-*This example shows an outline icon used for a custom view container.*
-
 ## Tree Views
 
-TBD
+Tree Views are a powerful and flexible format to display content in a View. Extensions can add everything from simple flat lists to deeply nested trees.
+
+* Use labels to add context to items where applicable
+* TBD
+* TBD
+
+**❌ Don't**
+
+* Use Tree View Items as buttons to fire Commands
+* TBD
+* TBD
 
 ![Example of a Tree View](images/examples/tree-view.png)
 
-## Welcome views
+## Welcome Views
 
 When a view is empty, you can [add content to guide users](/api/references/contribution-points#contributes.viewsWelcome) on how to use your extension or get started. Links and icons are supported in Welcome views.
 
