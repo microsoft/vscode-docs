@@ -28,23 +28,23 @@ Generally speaking, containers can be considered the larger sections of the VS C
 
 #### Activity Bar
 
-The [Activity Bar](api/ux-guidelines/activity-bar) is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open [View Containers](api/ux-guidelines/views#view-containers) in the Primary Sidebar.
+The [Activity Bar](api/ux-guidelines/activity-bar) is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that function as [View Containers](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers) that render [Views](api/ux-guidelines/views) in the Primary Sidebar.
 
 #### Primary Sidebar
 
-The [Primary Sidebar](api/ux-guidelines/sidebars#primary-sidebar) functions as a View Container that renders [Views](api/ux-guidelines/views). A concrete example is the Explorer--it is a View Container that renders multiple Views like the Open Editors, Outline, and Timeline views.
+The [Primary Sidebar](api/ux-guidelines/sidebars#primary-sidebar) renders one or more [Views](api/ux-guidelines/views). The Activity Bar and the Primary Sidebar are tightly coupled. Clicking on a contributed Activity Bar Item (read: View Container) opens up the Primary Sidebar where one or more View associated with that View Container will be rendered. A concrete example would be the Explorer. Clicking on the Explorer Item will open up the Primary Sidebar where the Folder(s), Timeline, and Outline Views are visible.
 
 #### Secondary Sidebar
 
-The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) functions as a View Container that can be used as an alternate location to display Views. Users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout.
+The [Secondary Sidebar](api/ux-guidelines/sidebars#secondary-sidebar) also functions as a surface for rendering a View Container with Views. Users can drag views like the Terminal or the Problems view to the Secondary Sidebar to customize their layout.
 
 #### Editor
 
-The Editor area contains one or more Editor Groups. Extensions can contribute [Custom Editors](api/extension-guides/custom-editors) or [Webviews](api/ux-guidelines/webviews) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editors#editor-actions) to expose additional icon buttons in the Editor Toolbar.
+The Editor area contains one or more Editor Groups. Extensions can contribute [Custom Editors](https://code.visualstudio.com/api/references/contribution-points#contributes.customEditors) or [Webviews](https://code.visualstudio.com/api/extension-guides/webview) to open in the Editor area. They can also contribute [Editor Actions](api/ux-guidelines/editor-actions) to expose additional icon buttons in the Editor Toolbar.
 
 #### Panel
 
-The [Panel](api/ux-guidelines/panel) is another area functioning as a View Container. By default, views like the Terminal, Problems, and Output can be viewed in a single tab at a time. Users can also drag views into a split layout much like they can do in the Editor.
+The [Panel](api/ux-guidelines/panel) is another area for exposing View Containers. By default, Views like the Terminal, Problems, and Output can be viewed in a single tab at a time in the Panel. Users can also drag views into a split layout much like they can do in the Editor. Additionally, extensions can choose to add View Containers specifically to the Panel instead of the Activity Bar/Primary Sidebar.
 
 #### Status Bar
 
@@ -58,7 +58,7 @@ Extensions can add items to the various containers listed above.
 
 #### View
 
-[Views](api/ux-guidelines/views) can be contributed in the form of a [Tree View](api/ux-guidelines/views#tree-view), [Welcome View](api/ux-guidelines/views#tree-view), or [Webview View](api/ux-guidelines/webviews#webview-view) and can be dragged around to other areas of the interface.
+[Views](api/ux-guidelines/views) can be contributed in the form of a [Tree View](api/ux-guidelines/views#tree-view), [Welcome View](api/ux-guidelines/views#welcome-view), or [Webview View](api/ux-guidelines/webviews#webview-view) and can be dragged around to other areas of the interface.
 
 #### View Toolbar
 
@@ -80,7 +80,7 @@ The [Panel Toolbar](api/ux-guidelines/panel#panel-toolbar) can expose options sc
 
 On the left, [Status Bar Items](api/ux-guidelines/status-bar#status-bar-items) are scoped to the entire Workspace. On the right, items are scoped to the active file.
 
-## UI Elements
+## Common UI Elements
 
 ### Command Palette
 
