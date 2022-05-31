@@ -42,15 +42,15 @@ Views can be placed in [existing View Containers](/api/references/contribution-p
 
 Tree Views are a powerful and flexible format to display content in a View. Extensions can add everything from simple flat lists to deeply nested trees.
 
-* Use labels to add context to items where applicable
-* TBD
-* TBD
+* Use descriptive labels to give context to items (if applicable)
+* Use product icons to distinguish between item types (if applicable)
+*
 
 **❌ Don't**
 
 * Use Tree View Items as buttons to fire Commands
-* TBD
-* TBD
+* Avoid deep nesting unless necessary. A few levels of folders/items is a good balance for most situations.
+* Add more than three actions to an item
 
 ![Example of a Tree View](images/examples/tree-view.png)
 
@@ -76,7 +76,7 @@ When a view is empty, you can [add content to guide users](/api/references/contr
 
 ![Welcome Views](images/examples/welcome-view.png)
 
-*This example shows one primary action for the extension and the additional views have context about what to expect with links to documentation.*
+*This example shows one primary action for the extension with an additional link to documentation.*
 
 ## Views With Progress
 
@@ -84,12 +84,11 @@ You can also [show progress in a view](/api/references/vscode-api#ProgressLocati
 
 ![View with progress](images/examples/view-with-progress.png)
 
+## View Actions
 
-## View Toolbar
+Views can expose [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions) on the View Toolbar. Be careful not too add to many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.
 
-TBD
-
-![Example of a View Toolbar](images/examples/view-toolbar.png)
+![Example of View Actions](images/examples/view-toolbar.png)
 
 ## Links
 - [View Container API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
