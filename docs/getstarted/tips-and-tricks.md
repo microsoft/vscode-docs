@@ -449,7 +449,7 @@ You can quickly open a file or image or create a new file by moving the cursor t
 
 ### Close the currently opened folder
 
-Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
+Keyboard Shortcut: `kb(workbench.action.closeFolder)`
 
 ### Navigation history
 
