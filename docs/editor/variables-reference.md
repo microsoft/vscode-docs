@@ -110,7 +110,7 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
 
-This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
+This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
 
 The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
@@ -274,7 +274,7 @@ The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` 
 
 ### Why aren't variables in tasks.json being resolved?
 
-Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
+Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution. Input variables in the `inputs` section will not be resolved as nesting of input variables is not supported.
 
 ### How can I know a variable's actual value?
 
