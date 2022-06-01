@@ -9,7 +9,7 @@ MetaDescription: UX guidelines for the Command Palette in a Visual Studio Code e
 
 # Command Palette
 
-The [Command Palette](/api/references/contribution-points#contributes.commands) is where all commands are found. It's important that your command names are labeled appropriately so users can easily find them.
+The [Command Palette](/api/references/contribution-points#contributes.commands) is where all Commands are found. It's important that your command names are labeled appropriately so users can easily find them.
 
 **✔️ Do**
 
