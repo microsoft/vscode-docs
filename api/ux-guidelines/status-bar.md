@@ -41,13 +41,18 @@ When needing to show discreet progress (progress happening in the background), i
 
 *This example shows a progress Status Bar item that is discreet.*
 
-### Error Status Bar item
 
-If you need to show an item that is highly visible for error purposes, you can use the error Status Bar item. Only use error Status Bar items as a last resort and only for special cases.
+### Error and Warning Status Bar Items
+
+If you need to show an item that is highly visible for warning or error purposes, you can configure a Status Bar Item to use a warning or error background color. Only use this pattern as a last resort and only for special cases given their prominence in the Status Bar.
 
 ![Status Bar Error](images/examples/status-bar-error.png)
 
-*This example uses the error Status Bar item for showing a blocking error in the file.*
+*This example uses the error Status Bar Item for showing a blocking error in the file.*
+
+![Status Bar Warning](images/examples/status-bar-warning.png)
+
+*This example uses the warning Status Bar Item for showing a warning in the file.*
 
 ## Links
 
