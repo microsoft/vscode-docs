@@ -143,10 +143,10 @@ x               source.abc
     )           punctuation.paren.close, expression.group, expression.group, source.abc
 )               punctuation.paren.close, expression.group, source.abc
 (               punctuation.paren.open, expression.group, source.abc
-a               keyword.letter, source.abc
+a               keyword.letter, expression.group, source.abc
 ```
 
-Note that text that is not matched by one of the rules, such as the string `xyz`, is included in the current scope. The last parenthesis at the end of the file is not part of the `expression.group` since the `end` rule is not matched.
+Note that text that is not matched by one of the rules, such as the string `xyz`, is included in the current scope. The last parenthesis at the end of the file is part of the `expression.group` even if the `end` rule is not matched, as `end-of-document` was found before the `end` rule was.
 
 ### Embedded languages
 
