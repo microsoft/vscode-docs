@@ -49,19 +49,19 @@
     "area": "ux-guidelines",
     "topics": [
       ["Overview", "/api/ux-guidelines/overview"],
-      ["Activity Bar", "/api/ux-guidelines/actvitiy-bar"],
+      ["Activity Bar", "/api/ux-guidelines/activity-bar"],
       ["Sidebars", "/api/ux-guidelines/sidebars"],
       ["Panel", "/api/ux-guidelines/panel"],
       ["Status Bar", "/api/ux-guidelines/status-bar"],
       ["Views", "/api/ux-guidelines/views"],
       ["Editor Actions", "/api/ux-guidelines/editor-actions"],
       ["Quick Picks", "/api/ux-guidelines/quick-picks"],
-      ["Command Palette", "/api/ux-guidelines/command-palette"]
+      ["Command Palette", "/api/ux-guidelines/command-palette"],
       ["Notifications", "/api/ux-guidelines/notifications"],
       ["Webviews", "/api/ux-guidelines/webviews"],
       ["Context Menus", "/api/ux-guidelines/context-menus"],
-      ["Walkthroughs", "/api/ux-guidelines/context-walkthroughs"],
-      ["Settings", "/api/ux-guidelines/settings"],
+      ["Walkthroughs", "/api/ux-guidelines/walkthroughs"],
+      ["Settings", "/api/ux-guidelines/settings"]
     ]
   },
   {
@@ -98,7 +98,7 @@
       ["Remote Development and Codespaces", "/api/advanced-topics/remote-extensions"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
-      ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"],
+      ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"]
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
       // ["Native Modules", "/api/advanced-topics/native-modules"],
       // ["Web Assembly", "/api/advanced-topics/web-assembly"],

@@ -29,4 +29,5 @@ MetaDescription: UX guidelines for settings contributed by a Visual Studio Code 
 *This example links to a specific setting using the setting ID.*
 
 ## Links
-- [Configuration Contribution](https://code.visualstudio.com/api/references/contribution-points#contributes.configuration)
+
+* [Configuration Contribution](/api/references/contribution-points#contributes.configuration)

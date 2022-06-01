@@ -1,6 +1,15 @@
+---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 06ce3b57-9fd5-428a-98aa-d730edbd2728
+DateApproved: 5/5/2022
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: UX guidelines for the Panel Bar in a Visual Studio Code extension.
+---
+
 # Panel
 
-The Panel functions as another main area to display [View Containers](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers).
+The Panel functions as another main area to display [View Containers](/api/references/contribution-points#contributes.viewsContainers).
 
 **✔️ Do**
 
@@ -16,21 +25,22 @@ The Panel functions as another main area to display [View Containers](https://co
 
 ## Panel Toolbar
 
-The Panel Toolbar can expose options scoped to the currently selected View. For example the Terminal view exposes [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions) to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions.
+The Panel Toolbar can expose options scoped to the currently selected View. For example the Terminal view exposes [View Actions](/api/extension-guides/tree-view#view-actions) to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions.
 
 **✔️ Do**
 
-- Use an existing [product icon](https://code.visualstudio.com/api/references/icons-in-labels#icon-listing) if available
+- Use an existing [product icon](/api/references/icons-in-labels#icon-listing) if available
 - Provide clear, useful tooltips
 
 **❌ Don't**
 
-- Don't add an excessive number of icon buttons. Consider using a [Context Menu](https://code.visualstudio.com/api/references/contribution-points#contributes.menus) if more options are needed for a specific button.
+- Don't add an excessive number of icon buttons. Consider using a [Context Menu](/api/references/contribution-points#contributes.menus) if more options are needed for a specific button.
 - Don't duplicate the default Panel icons (collapse/expand, close, etc.)
 
 ![!Example of a panel toolbar](images/examples/panel-toolbar.png)
 
 ## Links
-- [View Container Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
-- [View Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.views)
-- [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions)
+
+- [View Container Contribution Point](/api/references/contribution-points#contributes.viewsContainers)
+- [View Contribution Point](/api/references/contribution-points#contributes.views)
+- [View Actions](/api/extension-guides/tree-view#view-actions)

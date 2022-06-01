@@ -54,7 +54,8 @@ You can also place webviews into any view container (sidebar or panel) and these
 *This webview view shows content for creating a pull request that uses dropdowns, inputs, and buttons.*
 
 ## Links
-- [Webview Extension Guide](https://code.visualstudio.com/api/extension-guides/webview)
-- [Webview Extension Sample](https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample)
-- [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
-- [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit)
+
+* [Webview Extension Guide](/api/extension-guides/webview)
+* [Webview Extension Sample](https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample)
+* [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+* [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit)

@@ -53,6 +53,6 @@ Quick Pick Items can be grouped into clear sections using Quick Pick Separators.
 
 ## Links
 
-- [Quick Pick API Reference](https://code.visualstudio.com/api/references/vscode-api#QuickPick)
-- [Quick Pick Item API Reference](https://code.visualstudio.com/api/references/vscode-api#QuickPickItem)
-- [Quick Pick Sample Extension](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample)
+* [Quick Pick API Reference](/api/references/vscode-api#QuickPick)
+* [Quick Pick Item API Reference](/api/references/vscode-api#QuickPickItem)
+* [Quick Pick Sample Extension](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample)

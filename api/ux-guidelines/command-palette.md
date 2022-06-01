@@ -4,7 +4,7 @@ ContentId: bf0d9a5e-897b-450a-adf4-3c8ca9b8e9de
 DateApproved: 5/5/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
-MetaDescription: UX guidelines for the command palette in a Visual Studio Code extension.
+MetaDescription: UX guidelines for the Command Palette in a Visual Studio Code extension.
 ---
 
 # Command Palette
@@ -24,10 +24,10 @@ The [Command Palette](/api/references/contribution-points#contributes.commands) 
 
 ![Command Palette](images/examples/command-palette.png)
 
-*This example features commands each displaying a clear `category` prefix e.g. "GitHub Issues".*
+*This example features commands each displaying a clear `category` prefix, for example "GitHub Issues".*
 
 ## Links
 
-- [Commands API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)
-- [Commands Extension Guide](https://code.visualstudio.com/api/extension-guides/command)
-- [Hello World Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)
+* [Commands API Reference](/api/references/contribution-points#contributes.commands)
+* [Commands Extension Guide](/api/extension-guides/command)
+* [Hello World Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)

@@ -28,8 +28,9 @@ MetaDescription: UX guidelines for editor actions in a Visual Studio Code extens
 *This example from the GitHub Pull Requests and Issues extension opens a diff view and only shows on files with changes.*
 
 ## Links
-- [Custom Editor Extension Guide](https://code.visualstudio.com/api/extension-guides/custom-editors)
-- [Custom Editor API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.customEditors)
-- [Custom Editor Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample)
-- [Webview Extension Guide](https://code.visualstudio.com/api/extension-guides/webview)
-- [Weview Extension Sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample)
+
+* [Custom Editor Extension Guide](/api/extension-guides/custom-editors)
+* [Custom Editor API Reference](/api/references/contribution-points#contributes.customEditors)
+* [Custom Editor Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample)
+* [Webview Extension Guide](/api/extension-guides/webview)
+* [Webview Extension Sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample)

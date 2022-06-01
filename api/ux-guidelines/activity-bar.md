@@ -1,11 +1,20 @@
+---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 13b649f1-156f-489a-9c03-c2cff8060733
+DateApproved: 5/5/2022
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: UX guidelines for the Activity Bar in a Visual Studio Code extension.
+---
+
 # Activity Bar
 
-The Activity Bar is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open [View Containers](api/ux-guidelines/views#view-containers) in the Primary Sidebar.
+The Activity Bar is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open [View Containers](/api/ux-guidelines/views#view-containers) in the Primary Sidebar.
 
 **✔️ Do**
 
 - Use an icon that matches the default Activity Bar item icon style
-- Use a clear, obvious name for the [View Container](api/ux-guidelines/views#view-containers) associated with the item
+- Use a clear, obvious name for the [View Container](/api/ux-guidelines/views#view-containers) associated with the item
 
 **❌ Don't**
 
@@ -16,6 +25,5 @@ The Activity Bar is a core navigation surface in VS Code. Extensions can contrib
 
 ## Links Resources
 
-- [View Container Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
-- [View API Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.views)
-
+- [View Container Contribution Point](/api/references/contribution-points#contributes.viewsContainers)
+- [View API Contribution Point](/api/references/contribution-points#contributes.views)

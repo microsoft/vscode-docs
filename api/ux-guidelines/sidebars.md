@@ -1,6 +1,15 @@
+---
+# DO NOT TOUCH — Managed by doc writer
+ContentId: 05bd995d-946e-4046-8816-c6d50dccb1b4
+DateApproved: 5/5/2022
+
+# Summarize the whole topic in less than 300 characters for SEO purpose
+MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extension.
+---
+
 # Sidebars
 
-The Primary and Secondary Sidebars function as View Containers that can render one of more Views. Extensions can contribute Views to an existing View Container (e.g. Explorer) or they can contribute an entirely new View Container.
+The Primary and Secondary Sidebars function as View Containers that can render one of more Views. Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
 
 **✔️ Do**
 
@@ -9,7 +18,7 @@ The Primary and Secondary Sidebars function as View Containers that can render o
 
 **❌ Don't**
 
-- Use an excessive number of View Containers. A single View Container (i.e. a Sidebar with Views unique that extension) is generally enough for most extensions.
+- Use an excessive number of View Containers. A single View Container (such as a Sidebar with Views unique that extension) is generally enough for most extensions.
 - Use an excessive number of Views (3-5 is a comfortable max for most screen sizes)
 - Add content to the Sidebar that could be a simple Command.
 - Repeat existing functionality
@@ -42,10 +51,10 @@ As with other toolbars, be careful to not add too many actions to reduce clutter
 
 ## Links
 
-- [View Container Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
-- [View Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.views)
-- [View Actions Guide](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions)
-- [Welcome View Contribution Point](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsWelcome)
+- [View Container Contribution Point](/api/references/contribution-points#contributes.viewsContainers)
+- [View Contribution Point](/api/references/contribution-points#contributes.views)
+- [View Actions Guide](/api/extension-guides/tree-view#view-actions)
+- [Welcome View Contribution Point](/api/references/contribution-points#contributes.viewsWelcome)
 - [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
 - [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
 - [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)

@@ -50,5 +50,6 @@ If you need to show an item that is highly visible for error purposes, you can u
 *This example uses the error Status Bar item for showing a blocking error in the file.*
 
 ## Links
-- [Status Bar Item API Reference](https://code.visualstudio.com/api/references/vscode-api#StatusBarItem)
-- [Status Bar Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample)
+
+* [Status Bar Item API Reference](/api/references/vscode-api#StatusBarItem)
+* [Status Bar Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample)

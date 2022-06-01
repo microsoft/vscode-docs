@@ -9,14 +9,14 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 
 # Views
 
-[Views](/api/references/contribution-points#contributes.views) are containers of content that can appear in the Sidebar or Panel. Views can contain Tree Views, Welcome Views, or Webview Views and can also display View Actions. Views can also be rearranged by the user or moved to another View Container (e.g. from the Primary Sidebar to the Secondary Sidebar). Limit the number of Views created as other extensions can contribute in the same View Container.
+[Views](/api/references/contribution-points#contributes.views) are containers of content that can appear in the Sidebar or Panel. Views can contain Tree Views, Welcome Views, or Webview Views and can also display View Actions. Views can also be rearranged by the user or moved to another View Container (for example, from the Primary Sidebar to the Secondary Sidebar). Limit the number of Views created as other extensions can contribute in the same View Container.
 
 **✔️ Do**
 
 * Use existing icons when possible
 * Use file icons for language files
 * Use a Tree View for displaying data
-* Add an icon to every View (in case it is moved to the Acivity Bar or Secondary Sidebar—both of which use icons to represent the View)
+* Add an icon to every View (in case it is moved to the Activity Bar or Secondary Sidebar—both of which use icons to represent the View)
 * Keep the number of Views to a minimum
 * Keep the length of names to a minimum
 * Limit the use of custom Webview Views
@@ -24,7 +24,7 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 **❌ Don't**
 
 * Repeat existing functionality
-* Use tree items as single action items (e.g. firing a Command on click)
+* Use tree items as single action items (for example, firing a Command on click)
 * Use custom Webview Views if not necessary
 * Use a Activity Bar Item (View Container) to open a Webview in the Editor
 
@@ -44,7 +44,6 @@ Tree Views are a powerful and flexible format to display content in a View. Exte
 
 * Use descriptive labels to give context to items (if applicable)
 * Use product icons to distinguish between item types (if applicable)
-*
 
 **❌ Don't**
 
@@ -86,14 +85,15 @@ You can also [show progress in a view](/api/references/vscode-api#ProgressLocati
 
 ## View Actions
 
-Views can expose [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions) on the View Toolbar. Be careful not too add to many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.
+Views can expose [View Actions](/api/extension-guides/tree-view#view-actions) on the View Toolbar. Be careful not too add to many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.
 
 ![Example of View Actions](images/examples/view-toolbar.png)
 
 ## Links
-- [View Container API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)
-- [View API Reference](https://code.visualstudio.com/api/references/contribution-points#contributes.views)
-- [View Actions](https://code.visualstudio.com/api/extension-guides/tree-view#view-actions)
-- [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
-- [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
-- [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+
+* [View Container API Reference](/api/references/contribution-points#contributes.viewsContainers)
+* [View API Reference](/api/references/contribution-points#contributes.views)
+* [View Actions](/api/extension-guides/tree-view#view-actions)
+* [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
+* [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
+* [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
