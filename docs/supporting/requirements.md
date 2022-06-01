@@ -31,8 +31,7 @@ VS Code is supported on the following platforms:
 * VS Code does not support application virtualization solutions such as Microsoft App-V or MSIX for Windows, or third-party app virtualization technologies.
 * Running VS Code in a virtual machine environment requires a full operating system.
 * VS Code does not support multiple simultaneous users using the software on the same machine, including shared virtual desktop infrastructure machines or a pooled Windows/Linux Virtual Desktop host pool.
-* Running the full VS Code in Windows/Linux containers is not supported but running Remote - Containers is (Where the backend is the container and the front end is on the Desktop) supported.
-
+* Running the full VS Code in Windows/Linux containers is not supported but running with the [Remote - Containers](/docs/remote/containers.md) extension is supported. When using the Remote - Containers extension, the VS Code server is running in the container while the VS Code client is on the desktop.
 
 ### Additional Linux requirements
 
