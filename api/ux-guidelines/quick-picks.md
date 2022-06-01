@@ -39,6 +39,8 @@ Use a multi-select quick pick for closely-related selections that need to be sel
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-multi-select.png)
 
+*Notes the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
+
 ## Title
 
 Quick Picks can be also be configured to show a title bar above the main input and selection UI. Use a title when the user needs more context for the selection being made. Avoid using a title that uses a label already used in the Quick Pick's input placeholder.
