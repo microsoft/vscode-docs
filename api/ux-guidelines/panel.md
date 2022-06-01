@@ -25,7 +25,7 @@ The Panel functions as another main area to display [View Containers](/api/refer
 
 ## Panel Toolbar
 
-The Panel Toolbar can expose options scoped to the currently selected View. For example the Terminal view exposes [View Actions](/api/extension-guides/tree-view#view-actions) to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions.
+The Panel Toolbar can expose options scoped to the currently selected View. For example the Terminal view exposes [View Actions](/api/extension-guides/tree-view#view-actions) to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions. Similar to the [Sidebar Toolbar](api/ux-guidelines/sidebars#sidebar-toolbar), the toolbar will only render if there is just a single View. If more than one View is used, each View will render its own toolbar.
 
 **✔️ Do**
 
@@ -37,7 +37,13 @@ The Panel Toolbar can expose options scoped to the currently selected View. For 
 - Don't add an excessive number of icon buttons. Consider using a [Context Menu](/api/references/contribution-points#contributes.menus) if more options are needed for a specific button.
 - Don't duplicate the default Panel icons (collapse/expand, close, etc.)
 
-![!Example of a panel toolbar](images/examples/panel-toolbar.png)
+![Example of a panel toolbar with a single view](images/examples/panel-toolbar.png)
+
+*In this example, the single View rendered in the Panel renders its View Actions in the main Panel Toolbar.*
+
+![Example of a panel toolbar with multiple views](images/examples/panel-toolbar-multiple-views.png)
+
+*In this example, multiple Views are used, so each View exposes its own specific View Actions.*
 
 ## Links
 
