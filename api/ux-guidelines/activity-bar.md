@@ -9,7 +9,7 @@ MetaDescription: UX guidelines for the Activity Bar in a Visual Studio Code exte
 
 # Activity Bar
 
-The Activity Bar is a core navigation surface in VS Code. Extensions can contribute items to the Activity Bar that open [View Containers](/api/ux-guidelines/views#view-containers) in the Primary Sidebar.
+The Activity Bar is a core navigation surface in VS Code. Extensions can contribute [View Containers](/api/ux-guidelines/views#view-containers) to the Activity Bar that appear as Activity Bar Items. Users can drag the item to other locations like the Panel to customize their layout.
 
 **✔️ Do**
 
