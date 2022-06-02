@@ -453,13 +453,23 @@ Keyboard Shortcut: `kb(workbench.action.closeFolder)`
 
 ### Navigation history
 
-Navigate entire history: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
+Navigate open files in current editor group: `kb(workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup)`
+
+| `kbstyle(Ctrl)` | `kbstyle(Tab)` | Result of Command |
+| --- | --- | --- |
+| Down and hold... | Down and Up | Open the file list |
+| ...hold... | Down and Up | Moving through the file list |
+| ...up | - | Selecting a position in list and closing the file list |
+
+Alternatively, you can use (to navigate between edit locations in one or different files):
 
 Navigate back: `kb(workbench.action.navigateBack)`
 
 Navigate forward: `kb(workbench.action.navigateForward)`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
+
+See [Quick file navigation](https://code.visualstudio.com/docs/editor/editingevolved#_quick-file-navigation) for details.
 
 ### File associations
 
