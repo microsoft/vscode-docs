@@ -243,6 +243,7 @@ An extension can opt-in to sponsorship by adding a `sponsor` field in the extens
   "url": "https://github.com/sponsors/nvaccess"
 }
 ```
+>**Note:** Make sure to use `vsce` version >= `2.9.1` when publishing your extension
 
 If an extension opts-into this VS Code will render a Sponsor button in the extension details page.
 
