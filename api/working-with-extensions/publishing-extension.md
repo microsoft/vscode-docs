@@ -144,6 +144,16 @@ vsce unpublish (publisher name).(extension name)
 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
 
+## Deprecating extensions
+
+An extension can be just deprecated or deprecated in favour of another extension or a setting. VS Code will not automatically migrate or uninstall deprecated extensions. VS Code will render extensions as deprecated in the UI, as shown in the search sample below where the first result is deprecated. If a deprecated extension has an alternative extension or a setting the VS Code UI will guide users to migrate to the new extension or setting.
+
+![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated.png)
+
+In order to mark your extension as deprecated please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
+
+> **Note:** For now the extension will not be rendered as deprecated in the Marketplace. Support for this will come later.
+
 ## Packaging extensions
 
 If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code Marketplace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release.
