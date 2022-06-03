@@ -235,6 +235,22 @@ Eligible domains meet the following criteria:
 - Your domain must use HTTPS protocol.
 - Your domain must be able to serve an HTTP 200 status response to a HEAD request.
 
+### Extension Sponsor
+
+An extension can opt-in to sponsorship by adding a `sponsor` field in the extension's `package.json`. For example:
+```json
+"sponsor": {
+  "url": "https://github.com/sponsors/nvaccess"
+}
+```
+
+If an extension opts-into this VS Code will render a Sponsor button in the extension details page.
+
+![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
+
+
+We hope this will allow our users to fund the extensions that they depend on to improve the extension's performance, reliability, and stability.
+
 ### Using .vscodeignore
 
 You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
