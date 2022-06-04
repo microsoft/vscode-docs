@@ -37,6 +37,18 @@ It's important to limit the number of notifications sent in order to respect the
 
 * Respect the user's attention by only sending notifications when absolutely necessary
 * Add a **Do not show again** option for every notification
+    * [The Live Server VSCode extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) [does this](https://github.com/ritwickdey/vscode-live-server/blob/53c0de47c3c11ea7374a675f867e36209c3ef937/src/appModel.ts#L177-L185).
+        ```ts
+        else if (!Config.getDonotShowInfoMsg) {
+            const donotShowMsg = 'Don\'t show again';
+            window.showInformationMessage(msg, donotShowMsg)
+                .then(choice => {
+                    if (choice && choice === donotShowMsg) {
+                        Config.setDonotShowInfoMsg(true, true);
+                    }
+                });
+        }
+        ```
 * Show one notification at a time
 
 **❌ Don't**
