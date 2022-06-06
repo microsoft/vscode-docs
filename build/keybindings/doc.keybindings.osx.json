@@ -1225,7 +1225,6 @@
                                          "when": "!isIOS" },
     { "key": "cmd+j",                 "command": "workbench.action.togglePanel" },
     { "key": "cmd+b",                 "command": "workbench.action.toggleSidebarVisibility" },
-    { "key": "ctrl+cmd+w",            "command": "workbench.action.toggleTabsVisibility" },
     { "key": "cmd+k z",               "command": "workbench.action.toggleZenMode" },
     { "key": "cmd+k shift+enter",     "command": "workbench.action.unpinEditor",
                                          "when": "activeEditorIsPinned" },

@@ -144,6 +144,16 @@ vsce unpublish (publisher name).(extension name)
 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
 
+## Deprecating extensions
+
+An extension can be just deprecated or deprecated in favour of another extension or a setting. VS Code will not automatically migrate or uninstall deprecated extensions. VS Code will render extensions as deprecated in the UI, as shown in the search sample below where the first result is deprecated. If a deprecated extension has an alternative extension or a setting the VS Code UI will guide users to migrate to the new extension or setting.
+
+![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated.png)
+
+In order to mark your extension as deprecated please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
+
+> **Note:** For now the extension will not be rendered as deprecated in the Marketplace. Support for this will come later.
+
 ## Packaging extensions
 
 If you want to test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code Marketplace, you can choose to package your extension. `vsce` can package your extension into a `VSIX` file, from which users can easily install. Some extensions publish VSIX files to each GitHub release.
@@ -224,6 +234,23 @@ Eligible domains meet the following criteria:
 - You must be able to manage the DNS configuration settings and add a TXT record.
 - Your domain must use HTTPS protocol.
 - Your domain must be able to serve an HTTP 200 status response to a HEAD request.
+
+### Extension Sponsor
+
+An extension can opt-in to sponsorship by adding a `sponsor` field in the extension's `package.json`. For example:
+```json
+"sponsor": {
+  "url": "https://github.com/sponsors/nvaccess"
+}
+```
+>**Note:** Make sure to use `vsce` version >= `2.9.1` when publishing your extension
+
+If an extension opts-into this VS Code will render a Sponsor button in the extension details page.
+
+![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
+
+
+We hope this will allow our users to fund the extensions that they depend on to improve the extension's performance, reliability, and stability.
 
 ### Using .vscodeignore
 
