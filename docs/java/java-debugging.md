@@ -167,6 +167,9 @@ Below are all the configurations available for `Launch` and `Attach`. For more i
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `modulePaths` - The modulepaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
 - `classPaths` - The classpaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
+  - `$Auto` - Automatically resolve the classpaths of current project.
+  - `$Runtime` - The classpaths within 'runtime' scope of current project.
+  - `$Test` - The classpaths within 'test' scope of current project.
 - `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in [Supported Encodings](https://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html).
 - `vmArgs` - The extra options and system properties for the JVM (for example -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>), it accepts a string or an array of string.
 - `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required when the workspace has multiple Java projects, otherwise the expression evaluation and conditional breakpoint may not work.
