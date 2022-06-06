@@ -236,7 +236,6 @@ More complex filtering can be done by typing a [regular expression](https://deve
 
 ![Data Viewer](images/jupyter/filter-regex.png)
 
-
 ## Saving plots
 
 To save a plot from your notebook, simply hover over the output and select the **Save** icon in the top right.

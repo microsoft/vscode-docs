@@ -1,4 +1,55 @@
 [
+      {
+      "title": "Excel Add-in Development",
+      "description": "Come learn about how easy it is to develop an Excel Add-in and make use of some of the cool new APIs available. In this livestream, we will connect Excel to a live service and create custom functions to make the data accessible in Excel.\n\nRecommended resources:\nhttps://docs.microsoft.com/office/dev/add-ins/excel/",
+      "speakers": [
+        {
+          "name": "Chris Gross",
+          "title": "Product Manager "
+        },
+        {
+          "name": "Jakob Nielsen",
+          "title": "Designer"
+        }
+      ],
+      "start": "2022-06-09T15:00:00Z",
+      "duration": 30,
+      "location": {
+        "isOnline": true,
+        "name": "YouTube",
+        "link": "https://youtu.be/7WvKgv0Aqhc"
+      },
+      "image": "https://vscodeassets.azureedge.net/public/livestreams/20220609.jpg",
+      "calendar": {
+        "ics": "https://aka.ms/vscodelive/20220609/ics",
+        "google": "https://aka.ms/vscodelive/20220609/google"
+      },
+      "youtubeId": "7WvKgv0Aqhc"
+    },
+    {
+    "title": "VS Code for XAML and C# Devs",
+    "description": "Who said Visual Studio Code is only for Web developers?! The open-source Uno Platform enables XAML and C# single-codebase apps to run on Web, Linux, Android, iOS, macOS, and Windows. The Uno Platforms VS Code extension provides language features such as XAML and C# completions, Hot Reload, and more. You can now develop a XAML and C# app, using WinUI, right in VS Code. Come learn what the Uno Platform is all about!",
+    "speakers": [
+      {
+        "name": "Jérôme Laban",
+        "link": "https://twitter.com/jlaban",
+        "title": "CTO, Uno Platform"
+      }
+    ],
+    "start": "2022-06-02T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/ddnfmhZ7Oec"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220602.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220602/ics",
+      "google": "https://aka.ms/vscodelive/20220602/google"
+    },
+    "youtubeId": "ddnfmhZ7Oec"
+  },
   {
     "title": "Ask Me Anything (AMA) with GitLens creator: Eric Amodio",
     "description": "Join this livestream for exclusive access to GitLens creator, Eric Amodio, as he participates in an AMA (ask me anything) to take community questions about one of the most popular Git extensions for VS Code. Fire away with questions about the recent launch of GitLens 12, including bringing GitLens to vscode.dev and github.dev, and the addition of optional GitLens+ features for enhanced visualization and team collaboration. ",
@@ -121,7 +172,7 @@
   {
     "isReleaseParty": "1.66",
     "title": "VS Code 1.66 Release Party",
-    "description": "Live event and Q & A with the VS Code team to discuss highlights from the March 2022, 1.66 release.",
+    "description": "Live event and Q&A with the VS Code team to discuss highlights from the March 2022, 1.66 release.",
     "speakers": [
       {
         "name": "VS Code team"
@@ -263,7 +314,7 @@
   },
   {
     "title": "Testing modern web apps with Playwright and VS Code",
-    "description": "Playwright is a framework for building end-to-end tests for modern web applications. It can help us create tests that are resilient and run on any browser and platform–and it now comes with a new VS Code extension! In this livestream, we'll scaffold a new project from scratch and create some tests for real web pages.",
+    "description": "Playwright is a framework for building end-to-end tests for modern web applications. It can help create tests that are resilient and run on any browser and platform–and it now comes with a new VS Code extension! In this livestream, we'll scaffold a new project from scratch and create some tests for real web pages.",
     "speakers": [
       {
         "name": "Marcus Felling",
@@ -489,29 +540,6 @@
       "google": "https://aka.ms/vscodelive/20211112/google"
     },
     "youtubeId": "7FltByLPnrg"
-  },
-  {
-    "isReleaseParty": "1.62",
-    "title": "VS Code 1.62 Release Party",
-    "description": "Live event and Q&A with the VS Code team to discuss highlights from the October 2021, 1.62 release.",
-    "speakers": [
-      {
-        "name": "VS Code team"
-      }
-    ],
-    "start": "2021-11-04T15:00:00Z",
-    "duration": 30,
-    "location": {
-      "isOnline": true,
-      "name": "Microsoft Learn TV",
-      "link": "https://aka.ms/live-vscode"
-    },
-    "image": "https://vscodeassets.azureedge.net/public/livestreams/20211104.jpg",
-    "calendar": {
-      "ics": "https://aka.ms/vscodelive/20211104/ics",
-      "google": "https://aka.ms/vscodelive/20211104/google"
-    },
-    "youtubeId": "IKvtYHfzE3g"
   },
   {
     "title": "VS Code for the Web: vscode.dev",

@@ -21,7 +21,7 @@ Live Share enables your team to quickly collaborate on the same codebase without
 
 When it comes to Live Share, seeing is believing.  Watch the following video to get an idea of what we are working on:
 
-<iframe src="https://aka.ms/vsls-video" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://aka.ms/vsls-video" allowFullScreen frameBorder="0" title="Introducing Visual Studio Live Share"></iframe>
 
 When you share a collaborative session, your teammate sees the context of the workspace in their editor. This means your teammate can read the code you shared without having to clone a repo or install any dependencies your code relies on. They can use rich language features to navigate within the code; not only just opening other files as text but using semantic analysis-based navigation like Go to Definition or Peek.
 

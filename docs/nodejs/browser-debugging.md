@@ -119,8 +119,8 @@ These attributes are only available for launch configurations of request type `l
 These attributes are only available for launch configurations of request type `attach`:
 
 * `url` - If given, VS Code will attach to a tab with this URL. If not provided, it will attach to all browser tabs.
-* `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-browsers).
-* `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](/docs/nodejs/nodejs-debugging.md#attaching-to-browsers).
+* `port` - Debug port to use. See the section on [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
+* `address` - TCP/IP address of the debug port. See the section on [Attaching to Browsers](#attaching-to-browsers).
 
 ## Next steps
 

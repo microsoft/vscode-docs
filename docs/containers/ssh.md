@@ -41,18 +41,18 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
 ## Tips
 
-- The "host" part in the Docker endpoint string (`ssh://username@host:port`) must be either a globally-resolvable DNS machine name, or an IP address. Docker extension will not be able to use host aliases defined in the [SSH configuration file](https://www.ssh.com/ssh/config/).
+* The "host" part in the Docker endpoint string (`ssh://username@host:port`) must be either a globally-resolvable DNS machine name, or an IP address. Docker extension will not be able to use host aliases defined in the [SSH configuration file](https://www.ssh.com/ssh/config/).
 
-- Make sure the remote machine host key is already memorized [in the known_hosts file](https://www.ssh.com/ssh/key/#known-host-keys). The simplest way to ensure this is to connect to the machine via `ssh` client program (run `ssh username@host:port` from the command line). Upon first-time connection, the `ssh` program will display the host key and let you approve it, updating the `known_hosts` file automatically.
+* Make sure the remote machine host key is already memorized [in the known_hosts file](https://www.ssh.com/ssh/key/#known-host-keys). The simplest way to ensure this is to connect to the machine via `ssh` client program (run `ssh username@host:port` from the command line). Upon first-time connection, the `ssh` program will display the host key and let you approve it, updating the `known_hosts` file automatically.
 
-- There is [an issue with ssh-keygen utility that comes with Windows 10 build 1909 and older](https://github.com/PowerShell/Win32-OpenSSH/issues/1263) that prevents it from working properly with newer SSH daemons (for example, the one that comes with Ubuntu 20.04 LTS and newer). The workaround is to use ECDSA-type key, not RSA-type key, for the SSH connection. You can generate an ECDSA SSH key and add it to SSH agent with following commands:
+* There is [an issue with ssh-keygen utility that comes with Windows 10 build 1909 and older](https://github.com/PowerShell/Win32-OpenSSH/issues/1263) that prevents it from working properly with newer SSH daemons (for example, the one that comes with Ubuntu 20.04 LTS and newer). The workaround is to use ECDSA-type key, not RSA-type key, for the SSH connection. You can generate an ECDSA SSH key and add it to SSH agent with following commands:
 
     ```shell
     ssh-keygen -t ecdsa -b 521
     ssh-add id_ecdsa
     ```
 
-- Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry to system configuration. Run the following from administrative PowerShell window:
+* Windows 10 build 1909 and older are affected by [an issue that prevents SSH from getting to your identities after Windows OS update](https://github.com/PowerShell/Win32-OpenSSH/issues/1234). The workaround is to add a dummy service entry to system configuration. Run the following from administrative PowerShell window:
 
     ```powershell
     New-Service sshd -BinaryPathName "C:\Windows\System32\OpenSSH\ssh.exe"

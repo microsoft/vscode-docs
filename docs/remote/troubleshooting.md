@@ -702,9 +702,9 @@ This is a [well known issue](https://github.com/debuerreotype/docker-debian-arti
 
 There are two ways to resolve this error:
 
-- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See [cleaning out unused containers and images](#cleaning-out-unused-containers-and-images) for details.
+* **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See [cleaning out unused containers and images](#cleaning-out-unused-containers-and-images) for details.
 
-- **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
+* **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
     ```Dockerfile
     # Add archived sources to source list if base image uses Debian 8 / Jessie
@@ -1063,8 +1063,8 @@ If an incompatible extension has been installed on a remote host, container, or 
 
 2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
 
-   - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
-   - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+   * If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
+   * If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
 3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for VS Code stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for VS Code Insiders to remove all extensions.
 

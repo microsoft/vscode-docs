@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 11/1/2021
+DateApproved: 5/26/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
@@ -61,14 +61,6 @@ With the solution file selected, you are now ready to start editing with VS Code
 Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references and more.
 
 ![editing evolved example](images/unity/peekreferences.png)
-
-## Unity Extensions
-
-The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can search for more extensions in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/search?term=Unity&target=VSCode).
-
-<div class="marketplace-extensions-unity"></div>
-
-The extensions shown above are dynamically queried. Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Enabling code completion (For recent versions of Unity)
 
@@ -201,7 +193,3 @@ To edit this directly within VS Code Settings editor, go to **File** > **Prefere
 **/ProjectSettings
 **/Temp
 ```
-
-### How can I debug Unity?
-
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.

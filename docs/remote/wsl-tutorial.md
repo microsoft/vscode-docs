@@ -194,7 +194,7 @@ If you want to switch back to the Windows, select the **Show Local** option and 
 
 You can end your session in WSL and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
-### Congratulations!
+### Congratulations
 
 Congratulations, you've successfully completed this tutorial!
 

@@ -80,7 +80,7 @@ The Status Bar also indicates if no interpreter is selected:
 
 ![Status bar showing no selected Python interpreter](images/python/no-interpreter-selected-statusbar.png)
 
-The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
+The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you run Python in a terminal.
 
 To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the Status Bar or use the **Python: Select Interpreter** command.
 

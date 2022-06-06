@@ -111,9 +111,9 @@ When in doubt, please check your compiler's documentation for the options necess
 
 ### Clang (C++)
 
-* If you invoke the compiler manually, add the `--debug` option.
-* If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="${CXXFLAGS} --debug"`.
-* If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=${CXXFLAGS}`.
+- If you invoke the compiler manually, add the `--debug` option.
+- If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="${CXXFLAGS} --debug"`.
+- If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=${CXXFLAGS}`.
 
 ### Clang (C)
 

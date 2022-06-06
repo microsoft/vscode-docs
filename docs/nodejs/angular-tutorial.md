@@ -80,7 +80,7 @@ Through the TypeScript language service, VS Code can also provide type definitio
 
 Press `kbstyle(Escape)` to close the Peek window.
 
-## Hello World!
+## Hello World
 
 Let's update the sample application to "Hello World". Go back to the `app.component.ts` file and change the `title` string in `AppComponent` to "Hello World".
 

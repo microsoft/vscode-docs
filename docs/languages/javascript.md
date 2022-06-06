@@ -287,7 +287,6 @@ Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
 
 ![Return type inlay hints](images/javascript/inlay-return-type.png)
 
-
 ## References CodeLens
 
 The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
@@ -364,11 +363,6 @@ Read on to find out about:
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
-
-Watch these introductory videos:
-
-* [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
-* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
 ## Common questions
 
