@@ -1,7 +1,7 @@
 [
       {
       "title": "Excel Add-in Development",
-      "description": "Come learn about how easy it is to develop an Excel Add-in and make use of some of the cool new APIs available. In today's stream, we will connect Excel to a live service and create custom functions to make this data accessible in Excel.\n\nRecommended resources:\nhttps://docs.microsoft.com/en-us/office/dev/add-ins/excel/",
+      "description": "Come learn about how easy it is to develop an Excel Add-in and make use of some of the cool new APIs available. In this livestream, we will connect Excel to a live service and create custom functions to make the data accessible in Excel.\n\nRecommended resources:\nhttps://docs.microsoft.com/office/dev/add-ins/excel/",
       "speakers": [
         {
           "name": "Chris Gross",
