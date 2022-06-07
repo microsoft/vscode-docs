@@ -167,7 +167,7 @@ Some languages provide inlay hints: that is additional information about source 
 
 ![Inlay hints for inferred types in TypeScript](images/editingevolved/inlay-hints.png)
 
-Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled`-setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
+Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
 
 ## Outgoing link protection
 

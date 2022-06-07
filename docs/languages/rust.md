@@ -179,7 +179,7 @@ You can learn more about rust-analyzer's semantic syntax customizations in the [
 
 Code navigation features are available in the context menu in the editor.
 
-* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
+* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
 * **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
 * **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
 * **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
