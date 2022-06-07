@@ -237,18 +237,17 @@ Eligible domains meet the following criteria:
 
 ### Extension Sponsor
 
-An extension can opt-in to sponsorship by adding a `sponsor` field in the extension's `package.json`. For example:
+An extension can opt-in to sponsorship by adding in `package.json` a `sponsor` field, with the `url` field that is a sponsorship link the extension author would like to use. For example:
 ```json
 "sponsor": {
   "url": "https://github.com/sponsors/nvaccess"
 }
 ```
->**Note:** Make sure to use `vsce` version >= `2.9.1` when publishing your extension
+>**Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work
 
-If an extension opts-into this VS Code will render a Sponsor button in the extension details page.
+If an extension opts-into this VS Code will render a **Sponsor** button in the extension details page.
 
 ![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
-
 
 We hope this will allow our users to fund the extensions that they depend on to improve the extension's performance, reliability, and stability.
 
