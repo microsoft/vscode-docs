@@ -150,7 +150,14 @@ An extension can be just deprecated or deprecated in favour of another extension
 
 ![Rust extension shown as deprecated in extension search](images/publishing-extension/deprecated.png)
 
+VS Code will not automatically migrate or uninstall already installed deprecated extensions. Instead it will provide the following Migrate UI:
+
+![Deprecated extensions showing a migrate button](images/publishing-extension/deprecated-migrate.png)
+
+
 In order to mark your extension as deprecated please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
+
+
 
 > **Note:** For now the extension will not be rendered as deprecated in the Marketplace. Support for this will come later.
 
