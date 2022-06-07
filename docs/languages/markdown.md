@@ -35,7 +35,7 @@ By default, Markdown previews automatically update to preview the currently acti
 
 ![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
 
-You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **[Preview]** in the title:
+You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
 
 ![A locked Markdown preview](images/Markdown/locked-preview-title.png)
 
