@@ -51,7 +51,7 @@ In addition to the default JSON mode following the [JSON specification](https://
 
 ## JSON schemas and settings
 
-To understand the structure of JSON files, we use [JSON schemas](https://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports JSON Schema Draft 7.
+To understand the structure of JSON files, we use [JSON schemas](https://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports all draft version from Draft 4 to JSON Schema Draft 2020-12.
 
 Servers like [JSON Schema Store](https://www.schemastore.org) provide schemas for most of the common JSON-based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
