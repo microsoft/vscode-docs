@@ -27,7 +27,7 @@ From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 
    **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
-1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
+1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace. Head to extension settings and set `useModernNet` to `false`.
 
 ## Setup VS Code as Unity Script Editor
 
