@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -167,7 +167,7 @@ Some languages provide inlay hints: that is additional information about source 
 
 ![Inlay hints for inferred types in TypeScript](images/editingevolved/inlay-hints.png)
 
-Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled`-setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
+Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
 
 ## Outgoing link protection
 

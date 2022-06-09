@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -717,6 +717,8 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.starForeground`: The icon color for extension ratings.
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
+- `extensionSponsorButton.background`: Background color for extension sponsor button.
+- `extensionSponsorButton.hoverBackground`: Background hover color for extension sponsor button.
 
 ## Quick picker colors
 
@@ -776,6 +778,7 @@ The following customizations are available:
 - `terminal.ansiWhite`: 'White' ANSI color in the terminal.
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 - `terminal.selectionBackground`: The selection background color of the terminal.
+- `terminal.selectionForeground`: The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.
 - `terminal.findMatchBackground`: Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content.
 - `terminal.findMatchBorder`: Border color of the current search match in the terminal.
 - `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -643,7 +643,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.hover.sticky": true,
 
     // Enables the inlay hints in the editor.
-    "editor.inlayHints.enabled": true,
+    //  - on: Inlay hints are enabled
+    //  - onUnlessPressed: Inlay hints are showing by default and hide when holding `Ctrl+Alt`
+    //  - offUnlessPressed: Inlay hints are hidden by default and show when holding `Ctrl+Alt`
+    //  - off: Inlay hints are disabled
+    "editor.inlayHints.enabled": "on",
 
     // Controls font family of inlay hints in the editor. When set to empty, the `editor.fontFamily` is used.
     "editor.inlayHints.fontFamily": "",
@@ -651,10 +655,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls font size of inlay hints in the editor. As default the `editor.fontSize` is used when the configured value is less than `5` or greater than the editor font size.
     "editor.inlayHints.fontSize": 0,
 
-    // Control if inlay hints temporarily show or hide when `Ctrl+Alt` is pressed and held.
-    //  - show: Inlay hints are hidden by default and only show when holding `Ctrl+Alt`
-    //  - hide: Inlay hints are showing by default and hide when holding `Ctrl+Alt`
-    "editor.inlayHints.toggle": null,
+    // Enables the padding around the inlay hints in the editor.
+    "editor.inlayHints.padding": false,
 
     // Controls whether to automatically show inline suggestions in the editor.
     "editor.inlineSuggest.enabled": true,
@@ -726,7 +728,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Zoom the font of the editor when using mouse wheel and holding `Ctrl`.
     "editor.mouseWheelZoom": false,
 
-    // The modifier to be used to add multiple cursors with the mouse. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+    // The modifier to be used to add multiple cursors with the mouse. The Go to Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
     //  - ctrlCmd: Maps to `Control` on Windows and Linux and to `Command` on macOS.
     //  - alt: Maps to `Alt` on Windows and Linux and to `Option` on macOS.
     "editor.multiCursorModifier": "alt",
@@ -1288,14 +1290,16 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.editor.languageDetection": true,
 
     // When enabled, shows a Status bar Quick Fix when the editor language doesn't match detected content language.
-    //  - always: Show show language detection Quick Fixes in both notebooks and untitled editors
-    //  - notebookEditors: Only show language detection Quick Fixes in notebooks
-    //  - textEditors: Only show language detection Quick Fixes in untitled editors
-    //  - never: Never show language Quick Fixes
-    "workbench.editor.languageDetectionHints": "always",
+    "workbench.editor.languageDetectionHints": {
+        "untitledEditors": true,
+        "notebookEditors": true
+    },
 
     // Controls if the number of opened editors should be limited or not. When enabled, less recently used editors will close to make space for newly opening editors.
     "workbench.editor.limit.enabled": false,
+
+    // Controls if the maximum number of opened editors should exclude dirty editors for counting towards the configured limit.
+    "workbench.editor.limit.excludeDirty": false,
 
     // Controls if the limit of maximum opened editors should apply per editor group or across all editor groups.
     "workbench.editor.limit.perEditorGroup": false,
@@ -1325,7 +1329,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.editor.pinnedTabSizing": "normal",
 
     // When enabled, a language detection model that takes into account editor history will be given higher precedence.
-    "workbench.editor.preferHistoryBasedLanguageDetection": false,
+    "workbench.editor.preferHistoryBasedLanguageDetection": true,
 
     // Restores the last editor view state (e.g. scroll position) when re-opening editors after they have been closed. Editor view state is stored per editor group and discarded when a group closes. Use the `workbench.editor.sharedViewState` setting to use the last known view state across all editor groups in case no previous view state was found for a editor group.
     "workbench.editor.restoreViewState": true,
@@ -1838,8 +1842,32 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the Explorer should support undoing file and folder operations.
     "explorer.enableUndo": true,
 
+    // Controls whether entries in .gitignore should be parsed and excluded from the Explorer.
+    "explorer.excludeGitIgnore": false,
+
     // Controls whether the Explorer should expand multi-root workspaces containing only one folder during initilization
     "explorer.expandSingleFolderWorkspaces": true,
+
+    // Controls whether file nesting is enabled in the Explorer. File nesting allows for related files in a directory to be visually grouped together under a single parent file.
+    "explorer.fileNesting.enabled": false,
+
+    // Controls whether file nests are automatically expanded. `explorer.fileNesting.enabled` must be set for this to take effect.
+    "explorer.fileNesting.expand": true,
+
+    // Controls nesting of files in the Explorer. Each __Item__ represents a parent pattern and may contain a single `*` character that matches any string. Each __Value__ represents a comma separated list of the child patterns that should be shown nested under a given parent. Child patterns may contain several special tokens:
+    // - `${capture}`: Matches the resolved value of the `*` from the parent pattern
+    // - `${basename}`: Matches the parent file's basename, the `file` in `file.ts`
+    // - `${extname}`: Matches the parent file's extension, the `ts` in `file.ts`
+    // - `${dirname}`: Matches the parent file's directory name, the `src` in `src/file.ts`
+    // - `*`:  Matches any string, may only be used once per child pattern
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+    },
 
     // Controls what naming strategy to use when a giving a new name to a duplicated explorer item on paste.
     //  - simple: Appends the word "copy" at the end of the duplicated name potentially followed by a number
@@ -1858,12 +1886,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The maximum number of editors shown in the Open Editors pane. Setting this to 0 hides the Open Editors pane.
     "explorer.openEditors.visible": 9,
 
-    // Controls the property-based sorting of files and folders in the explorer.
+    // Controls the property-based sorting of files and folders in the Explorer.
     //  - default: Files and folders are sorted by their names. Folders are displayed before files.
     //  - mixed: Files and folders are sorted by their names. Files are interwoven with folders.
     //  - filesFirst: Files and folders are sorted by their names. Files are displayed before folders.
     //  - type: Files and folders are grouped by extension type then sorted by their names. Folders are displayed before files.
     //  - modified: Files and folders are sorted by last modified date in descending order. Folders are displayed before files.
+    //  - foldersNestsFiles: Files and folders are sorted by their names. Folders are displayed before files. Files with nested children are displayed before other files.
     "explorer.sortOrder": "default",
 
     // Controls the lexicographic sorting of file and folder names in the Explorer.
@@ -2365,6 +2394,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable inlay hints for implicit variable types:
     "javascript.inlayHints.variableTypes.enabled": false,
+
+    // Suppress type hints on variables whose name is identical to the type name.
+    "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
 
     // Preferred path style for auto imports.
     //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
@@ -3077,6 +3109,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Notebooks
 
+    // Automatically scroll the interactive window to show the output of the last statement executed. If this value is false, the window will only scroll if the last cell was already the one scrolled to.
+    "interactiveWindow.alwaysScrollOnNewCell": true,
+
     // Controls whether code cells in the interactive window are collapsed by default.
     "interactiveWindow.collapseCellInputCode": "fromEditor",
 
@@ -3410,6 +3445,24 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Dispatches most keybindings to the terminal instead of the workbench, overriding `terminal.integrated.commandsToSkipShell`, which can be used alternatively for fine tuning.
     "terminal.integrated.sendKeybindingsToShell": false,
 
+    // Controls the icon that will be used for skipped/empty commands. Set to `''` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`
+    "terminal.integrated.shellIntegration.decorationIcon": "circle-outline",
+
+    // Controls the icon that will be used for each command in terminals with shell integration enabled that do have an associated exit code. Set to `''` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`.
+    "terminal.integrated.shellIntegration.decorationIconError": "error-small",
+
+    // Controls the icon that will be used for each command in terminals with shell integration enabled that do not have an associated exit code. Set to `''` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`
+    "terminal.integrated.shellIntegration.decorationIconSuccess": "primitive-dot",
+
+    // When shell integration is enabled, adds a decoration for each command.
+    "terminal.integrated.shellIntegration.decorationsEnabled": true,
+
+    // Enable features like enhanced command tracking and current working directory detection.
+    "terminal.integrated.shellIntegration.enabled": false,
+
+    // Controls the number of recently used commands to keep in the terminal command history. Set to 0 to disable terminal command history.
+    "terminal.integrated.shellIntegration.history": 100,
+
     // Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
     "terminal.integrated.showExitAlert": true,
 
@@ -3533,6 +3586,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Show Errors & Warnings on files and folder.
     "problems.decorations.enabled": true,
+
+    // Controls the default view mode of the Problems view.
+    "problems.defaultViewMode": "tree",
 
     // When enabled shows the current problem in the status bar.
     "problems.showCurrentInStatus": false,
@@ -4032,6 +4088,31 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Stash any changes before pulling and restore them after successful pull.
     "git.autoStash": false,
 
+    // Prefix used when creating a new branch.
+    "git.branchPrefix": "",
+
+    // List of protected branches. By default, a prompt is shown before changes are committed to a protected branch. The prompt can be controlled using the `git.branchProtectionPrompt`  setting.
+    "git.branchProtection": [],
+
+    // Controls whether a prompt is being before changes are committed to a protected branch.
+    //  - alwaysCommit: Always commit changes to the protected branch.
+    //  - alwaysCommitToNewBranch: Always commit changes to a new branch.
+    //  - alwaysPrompt: Always prompt before changes are committed to a protected branch.
+    "git.branchProtectionPrompt": "alwaysPrompt",
+
+    // List of dictionaries used for the randomly generated branch name. Each value represents the dictionary used to generate the segment of the branch name. Supported dictionaries: `adjectives`, `animals`, `colors` and `numbers`.
+    //  - adjectives: A random adjective
+    //  - animals: A random animal name
+    //  - colors: A random color name
+    //  - numbers: A random number between 100 and 999
+    "git.branchRandomName.dictionary": [
+        "adjectives",
+        "animals"
+    ],
+
+    // Controls whether a random name is generated when creating a new branch.
+    "git.branchRandomName.enable": false,
+
     // Controls the sort order for branches.
     "git.branchSortOrder": "committerdate",
 
@@ -4134,6 +4215,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `config.inputValidationLength`.
     "git.inputValidationSubjectLength": 50,
+
+    // Specifies how much information (if any) to log to the Git output.
+    "git.logLevel": "Info",
 
     // Controls whether to open a repository automatically after cloning.
     //  - always: Always open in current window.
@@ -4340,13 +4424,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configures whether sourcemapped file where the original file can't be read will automatically be unmapped. If this is false (default), a prompt is shown.
     "debug.javascript.unmapMissingSources": false,
 
-// References Search View
-
-    // Controls whether 'Peek References' or 'Find References' is invoked when selecting CodeLens references.
-    //  - peek: Show references in peek editor.
-    //  - view: Show references in separate view.
-    "references.preferredLocation": "peek",
-
 // Npm
 
     // Controls whether npm scripts should be automatically detected.
@@ -4379,6 +4456,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     "npm.scriptExplorerAction": "open",
 
     // An array of regular expressions that indicate which scripts should be excluded from the NPM Scripts view.
-    "npm.scriptExplorerExclude": []
+    "npm.scriptExplorerExclude": [],
+
+// References Search View
+
+// Controls whether 'Peek References' or 'Find References' is invoked when selecting CodeLens references
+    //  - peek: Show references in peek editor.
+    //  - view: Show references in separate view.
+    "references.preferredLocation": "peek"
 }
 ```
