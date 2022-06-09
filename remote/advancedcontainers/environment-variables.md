@@ -67,7 +67,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Option 2: Use an env file
 
-If you have a large number of environment variables that you need to set, you can use a `.env` file instead. VS Code will automatically pick up a file called `.env` in your workspace root, but you can also create one in another location.
+If you have a large number of environment variables that you need to set, you can use a `.env` file instead. `docker compose` will automatically pick up a file called `.env` in your workspace root, but you can also create one in another location.
 
 First, create an environment file somewhere in your source tree. Consider this `.devcontainer/devcontainer.env` file:
 
