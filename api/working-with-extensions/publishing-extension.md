@@ -154,10 +154,7 @@ VS Code will not automatically migrate or uninstall already installed deprecated
 
 ![Deprecated extensions showing a migrate button](images/publishing-extension/deprecated-migrate.png)
 
-
-In order to mark your extension as deprecated please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
-
-
+In order to mark your extension as deprecated, please reach out to us by commenting [here](https://github.com/microsoft/vscode-discussions/discussions/1).
 
 > **Note:** For now the extension will not be rendered as deprecated in the Marketplace. Support for this will come later.
 
@@ -244,15 +241,17 @@ Eligible domains meet the following criteria:
 
 ### Extension Sponsor
 
-An extension can opt-in to sponsorship by adding in `package.json` a `sponsor` field, with the `url` field that is a sponsorship link the extension author would like to use. For example:
+An extension can opt-in to sponsorship by adding a `sponsor` field in its `package.json`, with the `url` field for the sponsorship link the extension author would like to use. For example:
+
 ```json
 "sponsor": {
   "url": "https://github.com/sponsors/nvaccess"
 }
 ```
->**Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work
 
-If an extension opts-into this VS Code will render a **Sponsor** button in the extension details page.
+>**Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
+
+If an extension opts-into this VS Code will render a **Sponsor** button in the Extensions view Details page.
 
 ![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
 
