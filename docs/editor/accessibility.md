@@ -191,6 +191,10 @@ They are played when the primary cursor changes its line or the first time a mar
 
 The command **Help: List Audio Cues** lists all available audio cues, lets you hear each audio cue as you move through the list, and review which cues are currently enabled.
 
+## Hover accessibility
+
+Some hovers cannot be hovered normally which makes them hard to use with screen magnifiers. To work around this, while a hover is active hold the `kbstyle(Alt)` or `kbstyle(Option)` key to "lock" it in place such that it doesn't hide when hovered. Releasing the key will unlock the hover so it acts like normal.
+
 ## Current known issues
 
 VS Code has some known accessibility issues depending on the platform. Here's a [full list](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aaccessibility) of VS Code accessibility issues.

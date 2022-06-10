@@ -67,7 +67,7 @@ If you've already built the container and connected to it, run **Remote-Containe
 
 ## Option 2: Use an env file
 
-If you have a large number of environment variables that you need to set, you can use a `.env` file instead. VS Code will automatically pick up a file called `.env` in your workspace root, but you can also create one in another location.
+If you have a large number of environment variables that you need to set, you can use a `.env` file instead.
 
 First, create an environment file somewhere in your source tree. Consider this `.devcontainer/devcontainer.env` file:
 
@@ -93,6 +93,8 @@ Next, depending on what you reference in `devcontainer.json`:
         env_file: devcontainer.env
         # ...
   ```
+
+`docker compose` will automatically pick up a file called `.env` in the folder containing the `docker-compose.yml`, but you can also create one in another location.
 
 If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
 
