@@ -1,5 +1,28 @@
 [
       {
+        "isReleaseParty": "1.68",
+        "title": "VS Code 1.68 Release Party",
+        "description": "Live event and Q&A with the VS Code team to discuss highlights from the May 2022, 1.68 release.",
+        "speakers": [
+          {
+            "name": "VS Code team"
+          }
+        ],
+        "start": "2022-06-16T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/t01EtPOKd_4"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220616.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220616/ics",
+          "google": "https://aka.ms/vscodelive/20220616/google"
+        },
+        "youtubeId": "t01EtPOKd_4"
+      },
+      {
       "title": "Excel Add-in Development",
       "description": "Come learn about how easy it is to develop an Excel Add-in and make use of some of the cool new APIs available. In this livestream, we will connect Excel to a live service and create custom functions to make the data accessible in Excel.\n\nRecommended resources:\nhttps://docs.microsoft.com/office/dev/add-ins/excel/",
       "speakers": [
