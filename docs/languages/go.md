@@ -17,13 +17,13 @@ You can install the Go extension from the VS Code [Marketplace](https://marketpl
 
 Watch ["Getting started with VS Code Go"](https://youtu.be/1MXIGYrMk80) for an explanation of how to build your first Go application using VS Code Go.
 
-This article describes only a subset of the features the Go extension provides. See the extension's [documentation](https://github.com/golang/vscode-go/blob/master/docs/features.md) for the full, up-to-date list of supported features.
+This article describes only a subset of the features the Go extension provides. See the extension's [documentation](https://github.com/golang/vscode-go/wiki/features) for the full, up-to-date list of supported features.
 
 ## IntelliSense
 
 ![IntelliSense](images/go/completion-signature-help.gif)
 
-IntelliSense features are provided by the Go language server, [gopls](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/blob/master/docs/settings.md#settings-for-gopls).
+IntelliSense features are provided by the Go language server, [gopls](https://golang.org/s/gopls), maintained by the Go team. You can configure the behavior of `gopls` using the [`gopls` settings](https://github.com/golang/vscode-go/wiki/settings#settings-for-gopls).
 
 ### Semantic Syntax Highlighting
 
@@ -119,7 +119,7 @@ You can configure the extension to run tests and compute test coverage using:
 
 ## Import packages
 
-The extension organizes imports, and removes unused imports by default. For different behavior, please override per-language default settings following [the instruction](https://github.com/golang/vscode-go/blob/master/docs/advanced.md#formatting-code-and-organizing-imports).
+The extension organizes imports, and removes unused imports by default. For different behavior, please override per-language default settings following [the instruction](https://github.com/golang/vscode-go/wiki/advanced#formatting-code-and-organizing-imports).
 
 Run the command **Go: Add Import** to get a list of packages that can be imported to your Go file. Choose one and it will get added in the import block of your Go file.
 
@@ -131,13 +131,13 @@ Select the area for refactoring (e.g. variable, function body, etc). Click on th
 
 The Go extension lets you debug Go code by utilizing the [Delve](https://github.com/go-delve/delve) debugger.
 
-Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/blob/master/docs/debugging.md) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
+Read [Debug Go programs in VS Code](https://github.com/golang/vscode-go/debugging) for setup steps, supported features, configurations, information on remote debugging and a troubleshooting guide. For general debugging features such as inspecting variables, setting breakpoints, and other activities that aren't language-dependent, review [VS Code debugging](/docs/editor/debugging.md).
 
 Some features unique to Go are:
 
 * Local & remote debugging
 * Data inspection using [Delve's expression syntax](https://github.com/go-delve/delve/blob/master/Documentation/cli/expr.md)
-* Dynamic configuration change and inspection options with [`dlv` command](https://github.com/golang/vscode-go/blob/master/docs/debugging.md#dlv-command-from-debug-console) from DEBUG CONSOLE
+* Dynamic configuration change and inspection options with [`dlv` command](https://github.com/golang/vscode-go/wiki/debugging#dlv-command-from-debug-console) from DEBUG CONSOLE
 * Ability to hide/show system goroutines (use `hideSystemGoroutines` configuration)
 * Disassembly view support (right click your source code and select **Open Disassembly View**)
 * Experimental function call, core inspection, Mozilla `rr` support
