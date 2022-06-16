@@ -59,11 +59,9 @@ context.globalState.setKeysForSync([versionKey]);
 // later on show page
 const currentVersion = context.extension.packageJSON.version;
 const lastVersionShown = context.globalState.get(versionKey);
-if (!isHigher(currentVersion, lastVersionShown)) {
-    return;
+if (isHigher(currentVersion, lastVersionShown)) {
+    context.globalState.update(versionKey, currentVersion);
 }
-context.globalState.update(versionKey, currentVersion);
-// show page
 ```
 
 Sharing state across machines can help avoid the problem of users seeing multiple instances of a welcome or update page, by sharing dismissed or viewed flags.
