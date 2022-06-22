@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Office
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
 PageTitle: Office Add-ins with Visual Studio Code
-DateApproved: 3/5/2018
+DateApproved: 6/22/2022
 MetaDescription: See how to use the features of Visual Studio Code to develop Office Add-ins.
 ---
 # Office Add-ins with Visual Studio Code
