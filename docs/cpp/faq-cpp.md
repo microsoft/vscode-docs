@@ -101,7 +101,7 @@ From the main menu, select **Run** > **Add Configuration...**.
 
 The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
 
-See [Debug configuration](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
+See [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
 
 ## How do I enable debug symbols?
 

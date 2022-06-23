@@ -29,7 +29,7 @@ For example:
 
 Cygwin/MinGW debugging on Windows supports both attach and launch debugging scenarios.
 
-To learn more, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
+To learn more, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
 If you are debugging with GDB on Windows, see [Windows Debugging with MinGW64](/docs/cpp/config-mingw.md).
 
@@ -107,7 +107,7 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 
 For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
 
-For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
+For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
 ### Natvis framework
 
