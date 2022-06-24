@@ -14,7 +14,7 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 
 ![Welcome to React](images/reactjs/welcome-to-react.png)
 
-## Welcome to React
+## Say Hello to React
 
 We'll be using the `create-react-app` [generator](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) for this tutorial. To use the generator as well as run the React application server, you'll need [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (Node.js package manager) installed. npm is included with Node.js which you can download and install from [Node.js downloads](https://nodejs.org/en/download/).
 
