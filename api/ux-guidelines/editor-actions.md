@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: ce5c9fff-df86-454a-b4e8-4ae05c8158e2
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for editor actions in a Visual Studio Code extension.
@@ -25,4 +25,12 @@ MetaDescription: UX guidelines for editor actions in a Visual Studio Code extens
 
 ![Editor Actions](images/examples/editor-actions.png)
 
-*This example only uses a single icon that only appears on HTML pages to launch a preview.*
+*This example from the GitHub Pull Requests and Issues extension opens a diff view and only shows on files with changes.*
+
+## Links
+
+* [Custom Editor Extension Guide](/api/extension-guides/custom-editors)
+* [Custom Editor API Reference](/api/references/contribution-points#contributes.customEditors)
+* [Custom Editor Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample)
+* [Webview Extension Guide](/api/extension-guides/webview)
+* [Webview Extension Sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample)

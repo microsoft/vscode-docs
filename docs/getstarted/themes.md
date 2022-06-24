@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -62,7 +62,7 @@ To set the colors of VS Code UI elements such as list & trees (File Explorer, su
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
-You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
+You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/api/references/theme-color.md).
 
 To customize a specific theme only, use the following syntax:
 

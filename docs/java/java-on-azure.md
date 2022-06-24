@@ -28,5 +28,5 @@ The following tutorials below walk you through the details.  You can also check 
 | Tutorial | Description |
 | --- | --- |
 | [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. |
-| [Deploy Spring Microservices to Azure Spring Cloud](/docs/java/java-spring-cloud.md) | Deploy a web app using the [Azure Spring Cloud](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. |
+| [Deploy Spring Microservices to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a web app using the [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. |
 | [Create an Azure Functions project using Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |

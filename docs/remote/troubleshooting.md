@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 ---
 # Remote Development Tips and Tricks
 
@@ -29,7 +29,7 @@ To set up SSH key based authentication for your remote host. First we'll create 
 
 **Create your local SSH key pair**
 
- Check to see if you already have an SSH key on your **local** machine. This is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_rsa.pub`).
+ Check to see if you already have an SSH key on your **local** machine. This is typically located at `~/.ssh/id_ed25519.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_ed25519.pub`).
 
 If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
@@ -47,7 +47,7 @@ Run one of the following commands, in a **local terminal window** replacing user
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
-    export PUBKEYPATH="$HOME/.ssh/id_rsa.pub"
+    export PUBKEYPATH="$HOME/.ssh/id_ed25519.pub"
 
     ssh-copy-id -i "$PUBKEYPATH" "$USER_AT_HOST"
     ```
@@ -56,7 +56,7 @@ Run one of the following commands, in a **local terminal window** replacing user
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
-    export PUBKEYPATH="$HOME/.ssh/id_rsa.pub"
+    export PUBKEYPATH="$HOME/.ssh/id_ed25519.pub"
 
     ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
     ```
@@ -71,7 +71,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
-    $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
+    $PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
 
     $pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
     ```
@@ -80,7 +80,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
-    $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
+    $PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
 
     Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"New-Item -Force -ItemType Directory -Path `"`$HOME\.ssh`"; Add-Content -Force -Path `"`$HOME\.ssh\authorized_keys`" `""
     ```
@@ -96,16 +96,16 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     **macOS / Linux**: Run the following command in a **local terminal**:
 
     ```bash
-    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa-remote-ssh
+    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519-remote-ssh
     ```
 
     **Windows**: Run the following command in a **local PowerShell**:
 
     ```powershell
-    ssh-keygen -t rsa -b 4096 -f "$HOME\.ssh\id_rsa-remote-ssh"
+    ssh-keygen -t ed25519 -f "$HOME\.ssh\id_ed25519-remote-ssh"
     ```
 
-2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_rsa-remote-ssh.pub` file instead.
+2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_ed25519-remote-ssh.pub` file instead.
 
 3. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
@@ -113,10 +113,10 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     Host name-of-ssh-host-here
         User your-user-name-on-host
         HostName host-fqdn-or-ip-goes-here
-        IdentityFile ~/.ssh/id_rsa-remote-ssh
+        IdentityFile ~/.ssh/id_ed25519-remote-ssh
     ```
 
-    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_rsa`.
+    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_ed25519`.
 
 ### Reusing a key generated in PuTTYGen
 
@@ -362,7 +362,7 @@ On your local machine, make sure the following permissions are set:
 |---------------|---------------------------|
 | `.ssh` in your user folder | `chmod 700 ~/.ssh` |
 | `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` |
-| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` |
+| `.ssh/id_ed25519.pub` in your user folder | `chmod 600 ~/.ssh/id_ed25519.pub` |
 | Any other key file | `chmod 600 /path/to/key/file` |
 
 **Windows:**
@@ -702,9 +702,9 @@ This is a [well known issue](https://github.com/debuerreotype/docker-debian-arti
 
 There are two ways to resolve this error:
 
-- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See [cleaning out unused containers and images](#cleaning-out-unused-containers-and-images) for details.
+* **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See [cleaning out unused containers and images](#cleaning-out-unused-containers-and-images) for details.
 
-- **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
+* **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
     ```Dockerfile
     # Add archived sources to source list if base image uses Debian 8 / Jessie
@@ -1063,8 +1063,8 @@ If an incompatible extension has been installed on a remote host, container, or 
 
 2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
 
-   - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
-   - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+   * If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
+   * If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
 3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for VS Code stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for VS Code Insiders to remove all extensions.
 

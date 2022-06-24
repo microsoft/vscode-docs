@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -18,7 +18,7 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 
 * [Keyboard Shortcuts Reference](/docs/getstarted/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
 * [Install a Keymap extension](/docs/getstarted/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
-* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
+* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#keyboard-shortcuts-editor) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
 
@@ -45,7 +45,7 @@ The setting can be set to:
 
 There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
 
-The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
+The **Go to Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
 
 ### Shrink/expand selection
 
@@ -206,6 +206,53 @@ Example:
 
 The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
 
+## Search Editor
+
+Search Editors let you view workspace search results in a full-sized editor, complete with syntax highlighting and optional lines of surrounding context.
+
+Below is a search for the word 'SearchEditor' with two lines of text before and after the match for context:
+
+![Search Editor overview](images/codebasics/search-editor-overview.png)
+
+The **Open Search Editor** command opens an existing Search Editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
+
+In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+
+You can also use the **Open New Search Editor** button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in editor** link at the top of the results tree, or the **Search Editor: Open Results in Editor** command.
+
+![Search Editor Button](images/codebasics/search-editor-button.png)
+
+The Search Editor above was opened by selecting the **Open New Search Editor** button (third button) on the top of the Search view.
+
+### Search Editor commands and arguments
+
+* `search.action.openNewEditor` - Opens the Search Editor in a new tab.
+* `search.action.openInEditor` - Copy the current Search results into a new Search Editor.
+* `search.action.openNewEditorToSide` - Opens the Search Editor in a new window next to the window you currently have opened.
+
+There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keybindings to configure how a new Search Editor should behave:
+
+* `triggerSearch` - Whether a search be automatically run when a Search Editor is opened. Default is true.
+* `focusResults` - Whether to put focus in the results of a search or the query input. Default is true.
+
+For example, the following keybinding runs the search when the Search Editor is opened but leaves the focus in the search query control.
+
+```json
+{
+    "key": "ctrl+o",
+    "command": "search.action.openNewEditor",
+    "args": { "query": "VS Code", "triggerSearch":true, "focusResults": false }
+}
+```
+
+### Search Editor context default
+
+The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search Editor.
+
+### Reuse last Search Editor configuration
+
+The `search.searchEditor.reusePriorSearchConfiguration` setting (default is `false`) lets you reuse the last active Search Editor's configuration when creating a new Search Editor.
+
 ## IntelliSense
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
@@ -241,7 +288,7 @@ Along with manually invoking code formatting, you can also trigger formatting ba
 
 >Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
-In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Downloads). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
+In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
 ## Folding
 

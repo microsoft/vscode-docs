@@ -100,11 +100,11 @@ Alternatively, you can install just the Docker CLI inside your development envir
 
 ## Debugging in a container
 
-The Docker extension supports debugging .NET Core-based and Node.js-based services running inside a container. Other programming languages are not supported at this time.
+The Docker extension supports debugging .NET and Node.js-based services running inside a container. Other programming languages are not supported at this time.
 
 Debugging in a container may be harder to set up than regular debugging because a container is a stronger isolation mechanism than a process. In particular:
 
-- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET Core).
+- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET).
 - Source file information generated during build time is valid in the context of the build environment (where VS Code is running). The container filesystem is different from the build environment filesystem, and paths to source files need to be re-mapped in order for the debugger to display correct source file when a breakpoint is hit.
 
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.
@@ -116,4 +116,4 @@ For more information about how to set up debugging inside a container see [ASP.N
 Read on to learn more about
 
 - [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
-- [Build and run a .NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)
+- [Build and run a ASP.NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2bb06188-d394-4b98-872c-0bf26c8a674d
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -143,10 +143,10 @@ x               source.abc
     )           punctuation.paren.close, expression.group, expression.group, source.abc
 )               punctuation.paren.close, expression.group, source.abc
 (               punctuation.paren.open, expression.group, source.abc
-a               keyword.letter, source.abc
+a               keyword.letter, expression.group, source.abc
 ```
 
-Note that text that is not matched by one of the rules, such as the string `xyz`, is included in the current scope. The last parenthesis at the end of the file is not part of the `expression.group` since the `end` rule is not matched.
+Note that text that is not matched by one of the rules, such as the string `xyz`, is included in the current scope. The last parenthesis at the end of the file is part of the `expression.group` even if the `end` rule is not matched, as `end-of-document` was found before the `end` rule was.
 
 ### Embedded languages
 

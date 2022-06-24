@@ -5,7 +5,7 @@ TOCTitle: Attach to Container
 PageTitle: Attach to a running container using Visual Studio Code Remote Development
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
 MetaDescription: Attach to a running container using Visual Studio Code Remote Development
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 ---
 # Attach to a running container
 
@@ -34,16 +34,15 @@ Both of these files support a subset of `devcontainer.json` properties:
     // Default path to open when attaching to a new container.
     "workspaceFolder": "/path/to/code/in/container/here",
 
-    // An array of extension IDs that specify the extensions to
-    // install inside the container when you first attach to it.
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
-
-    // Any *default* container specific VS Code settings
+    // Set *default* container specific settings.json values on container create.
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
+
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "dbaeumer.vscode-eslint"
+    ],
 
     // An array port numbers to forward
     "forwardPorts": [8000],

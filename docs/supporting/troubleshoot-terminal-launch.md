@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -15,7 +15,7 @@ After having worked with hundreds of developers to diagnose their terminal launc
 
 ## Integrated Terminal user guide
 
-If you are new to using the VS Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/editor/integrated-terminal.md) user guide. There you can read how to [configure](/docs/editor/integrated-terminal.md#configuration) the terminal, as well as review answers to [common questions](/docs/editor/integrated-terminal.md#common-questions).
+If you are new to using the VS Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/editor/integrated-terminal.md) user guide. There you can read how to [configure](/docs/editor/integrated-terminal.md#configuring-profiles) the terminal, as well as review answers to [common questions](/docs/editor/integrated-terminal.md#common-questions).
 
 Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure. The troubleshooting steps, such as checking your settings and enabling logging, apply to all platforms that support VS Code; macOS, Linux, and Windows.
 
@@ -107,6 +107,12 @@ Typically this error occurs due to anti-virus software intercepting and blocking
 ```
 
 Reporting this issue to the Anti-virus team can also help stamp out the issue all together.
+
+### Terminal exits with code 259
+
+Exit code **259** can mean `STILL_ACTIVE` when the terminal is trying to start a new process such as PowerShell.exe. You can try killing unused programs and processes on your machine in case one of them is keeping a terminal shell process active and unable to relaunch.
+
+Anti-virus software running on your machine may also interfere with starting your terminal shell.
 
 ### Terminal exits with code 3221225786 (or similar)
 

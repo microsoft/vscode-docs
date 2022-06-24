@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Rust in Visual Studio Code
 
-[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.
+[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension.
 
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
@@ -179,7 +179,7 @@ You can learn more about rust-analyzer's semantic syntax customizations in the [
 
 Code navigation features are available in the context menu in the editor.
 
-* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
+* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
 * **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
 * **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
 * **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.

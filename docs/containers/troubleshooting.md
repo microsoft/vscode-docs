@@ -9,11 +9,11 @@ DateApproved: 12/16/2021
 ---
 # Docker Tools Tips and Tricks
 
-This article covers troubleshooting tips and tricks for the Visual Studio Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension. See the [Overview](/docs/containers/overview.md) and quickstart articles for [Node.js](/docs/containers/quickstart-node.md), [Python](/docs/containers/python.md), or [ASP.NET](/docs/containers/quickstart-aspnet-core.md) for details on setting up and working with Docker.
+This article covers troubleshooting tips and tricks for the Visual Studio Code [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension. See the [Overview](/docs/containers/overview.md) and quickstart articles for [Node.js](/docs/containers/quickstart-node.md), [Python](/docs/containers/quickstart-python.md), or [ASP.NET](/docs/containers/quickstart-aspnet-core.md) for details on setting up and working with Docker.
 
 ## Running as a non-root user
 
-For security reasons, we recommend selecting the default ports when executing the **Add Dockerfiles to Workspace** command, or otherwise opting for a port **greater than** 1023 whenever possible. This will allow VS Code to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container. In some cases, there is no port selection, so the Docker extension configures non-root access by default. In all cases, you must ensure each resource (such as ports and files) modified or used by your application [can be accessed](#invalid-file-permissions-in-the-container) by a non-root user in your container.
+For security reasons, we recommend selecting the default ports when executing the **Add Dockerfiles to Workspace** command, or otherwise opting for a port **greater than** 1023 whenever possible. This will allow VS Code to configure the Dockerfile with non-root access and prevent a malicious user from elevating permissions in the container. In some cases, there is no port selection, so the Docker extension configures non-root access by default. In all cases, you must ensure each resource (such as ports and files) modified or used by your application can be accessed by a non-root user in your container.
 
 If you select a port less than 1024 when adding Dockerfiles to the workspace, the Docker extension **cannot** create a Dockerfile that runs the container as a non-root user. This is because ports in this range are called **well-known** or **system** ports and must execute with root privileges in order to bind a network socket to an IP address.
 

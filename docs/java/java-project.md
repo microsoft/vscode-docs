@@ -94,9 +94,11 @@ To see which JDKs are used for your projects, you can trigger the command **Java
 If you want to change the JDK version for your Maven or Gradle projects, you need to update it in your build scripts (`pom.xml` or `build.gradle`). You can click <span class="codicon codicon-info"></span> to see how to make such changes. Click <span class="codicon codicon-edit"></span> will navigate to the build script file of the project.
 
 ### Change JDK for unmanaged folders
+
 To change the JDK for unmanaged folders (with out any build tools), you can click the <span class="codicon codicon-edit"></span> button. It will list all the JDKs and you can select one for your unmanaged folders.
 
 ### Download JDKs
+
 If you want to download a new JDK, you can click the `download` link, or trigger the command **Java: Install New JDK** in **Command Palette** (`kb(workbench.action.showCommands)`). It will open a new view guiding you to download JDKs.
 
 ![Download-jdk](images/java-project/download-jdk.png)

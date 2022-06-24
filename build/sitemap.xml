@@ -656,7 +656,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-spring-cloud</loc>
+        <loc>https://code.visualstudio.com/docs/java/java-spring-apps</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1180,6 +1180,26 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/activity-bar</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/panel</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/sidebars</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/walkthroughs</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/ux-guidelines/notifications</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -1205,9 +1225,9 @@
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/ux-guidelines/editor-actions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+         <loc>https://code.visualstudio.com/api/ux-guidelines/editor-actions</loc>
+         <changefreq>weekly</changefreq>
+         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/ux-guidelines/context-menus</loc>

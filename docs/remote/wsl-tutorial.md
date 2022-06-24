@@ -5,7 +5,7 @@ TOCTitle: WSL Tutorial
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
 MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 ---
 # Remote development in WSL
 
@@ -194,7 +194,7 @@ If you want to switch back to the Windows, select the **Show Local** option and 
 
 You can end your session in WSL and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
-### Congratulations!
+### Congratulations
 
 Congratulations, you've successfully completed this tutorial!
 

@@ -5,7 +5,7 @@ TOCTitle: devcontainer CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the VS Code development container (devcontainer) command line interface with the Visual Studio Code Remote - Containers extension
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 ---
 # Development container CLI
 
@@ -62,15 +62,15 @@ You may also install the CLI from the command line. Currently this doesn't suppo
 Global install:
 
 ```bash
-$ npm install -g @vscode/dev-container-cli
-$ devcontainer --help
+npm install -g @vscode/dev-container-cli
+devcontainer --help
 ```
 
 Local install:
 
 ```bash
-$ npm install @vscode/dev-container-cli
-$ npx @vscode/dev-container-cli --help
+npm install @vscode/dev-container-cli
+npx @vscode/dev-container-cli --help
 ```
 
 ## Opening a folder directly within a dev container
@@ -187,7 +187,7 @@ The following options can be used with the `build` command:
 
 You can also type `devcontainer build --help` to see a full list of available options.
 
-### [Optional] Avoiding problems with images built using Docker
+### **Optional:** Avoiding problems with images built using Docker
 
 Given Dockerfiles and Docker Compose files can be used without VS Code or the VS Code `devcontainer` CLI, you may want to let users know that they should not try to build the image directly if it will not work as expected. To solve this problem, you can add a build argument that needs to be specified for things to work.
 

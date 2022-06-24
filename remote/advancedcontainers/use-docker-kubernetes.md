@@ -5,7 +5,7 @@ TOCTitle: Use Docker or Kubernetes
 PageTitle: Use Docker or Kubernetes from a container
 ContentId: d324a29d-3f64-4331-9c34-a283719e9d7b
 MetaDescription: Use Docker or Kubernetes from a container
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 ---
 # Use Docker or Kubernetes from a container
 
@@ -61,4 +61,3 @@ The example below is from a `makefile` and mounts the `KUBECONFIG` file from the
 ```make
 docker run -p 8089:8089 -p 9090:9090 -v $(shell echo ${KUBECONFIG} | sed s#/workspace#${HOST_PROJECT_PATH}#):/kubeconfig.json -e KUBECONFIG=/kubeconfig.json ${IMG} -f behaviours/run_submit_locust.py
 ```
-

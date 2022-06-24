@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line options
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: Visual Studio Code command-line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -43,7 +43,7 @@ Argument|Description
 `-v` or `--version` | Print VS Code version (for example, 1.22.2), GitHub commit ID, and architecture (for example, x64).
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
-`-g` or `--goto` | When used with *file:line[:character]*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
+`-g` or `--goto` | When used with *file:line{:character}*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
 `-w` or `--wait` | Wait for the files to be closed before returning.
 `--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
@@ -67,7 +67,7 @@ If you specify more than one folder at the command line, VS Code will create a [
 Argument|Description
 ------------------|-----------
 `file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
-`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the `file:line[:character]` specifier.
+`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.
 `folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
 
 ![go to line and column](images/command-line/goto-line-column.png)

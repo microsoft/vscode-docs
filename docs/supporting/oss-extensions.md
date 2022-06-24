@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -44,7 +44,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Azure Terraform](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform/license) |
 | [Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) | ✔ | [MIT](https://marketplace.visualstudio.com/items/AzBlockchain.azure-blockchain/license) |
 | [C/C++](https://marketplace.visualstudio.com/items/ms-vscode.cpptools)  | | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.cpptools/license) |
-| [C# ](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
+| [C#](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
 | [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge/license) |

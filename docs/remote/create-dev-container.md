@@ -5,7 +5,7 @@ TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 ---
 # Create a development container
 
@@ -50,9 +50,14 @@ For this example, if you'd like to install the [ESLint extension](https://market
 ```json
 {
     "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
     "forwardPorts": [ 3000 ]
 }
 ```
@@ -161,9 +166,15 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 ```json
 {
     "build": { "dockerfile": "Dockerfile" },
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+
     "forwardPorts": [ 3000 ]
 }
 ```

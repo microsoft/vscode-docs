@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 1c1f6d51-5914-44fa-ae10-0360be0ae2a3
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for webviews in a Visual Studio Code extension.
@@ -18,6 +18,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 * Open webviews only for the active window
 * Ensure all elements in the view are themeable (see the [webview-view-sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/media/main.css) and [color tokens](/api/references/theme-color) documentation)
 * Ensure your views follow [accessibility guidance](/docs/editor/accessibility) (color contrast, ARIA labels, keyboard navigation)
+* Use the [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit) to align your extension with VS Code's styling, theme, behavior, and accessibility characteristics.
 * Use command actions in the toolbar and in the view
 
 ❌ Don't
@@ -31,23 +32,19 @@ If you need to display custom functionality that is beyond what the VS Code API 
 
 ## Webview examples
 
-**Browser preview**
+**Simple Browser**
 
 This extension opens a browser preview for the editor to the side.
 
 ![Weview Sample - Browser](images/examples/webview-browser.png)
 
-**Pull request**
+*This example shows VS Code Web being developed right inside VS Code. A Webview panel is used to render a browser-like window.*
+
+**Pull Request**
 
 This extension shows pull requests for the repository of the workspace in a custom tree view and then uses a webview for a detail view of the pull request.
 
-![Webview Sample - Pull Request](images/examples/webview-pullrequest.png)
-
-**Onboarding**
-
-This extension opens a quickstart webview with helpful actions and links for more information. The webview only appears the first time a user opens a certain file and checks if certain steps have already been completed (for example, install or create a file).
-
-![Webview Sample - Onboarding](images/examples/webview-onboarding.png)
+![Webview Sample - Pull Request](images/examples/webview-pull-request.png)
 
 ## Webview views
 
@@ -56,3 +53,10 @@ You can also place webviews into any view container (sidebar or panel) and these
 ![Webview View](images/examples/webview-view.png)
 
 *This webview view shows content for creating a pull request that uses dropdowns, inputs, and buttons.*
+
+## Links
+
+* [Webview Extension Guide](/api/extension-guides/webview)
+* [Webview Extension Sample](https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample)
+* [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+* [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit)

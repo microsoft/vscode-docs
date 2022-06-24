@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 92904eb4-6ef0-4801-80d2-6c2c3326ad82
-DateApproved: 5/5/2022
+DateApproved: 6/9/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for notifications in a Visual Studio Code extension.
@@ -9,7 +9,11 @@ MetaDescription: UX guidelines for notifications in a Visual Studio Code extensi
 
 # Notifications
 
-[Notifications](/api/extension-capabilities/common-capabilities#display-notifications) display brief information that is surfaced from the bottom right of VS Code. You can send three types of notifications:
+[Notifications](/api/extension-capabilities/common-capabilities#display-notifications) display brief information that is surfaced from the bottom right of VS Code.
+
+![Example of a notification](images/examples/notification.png)
+
+You can send three types of notifications:
 
 * [Information](/api/references/vscode-api#window.showInformationMessage)
 * [Warning](/api/references/vscode-api#window.showWarningMessage)
@@ -27,11 +31,11 @@ It's important to limit the number of notifications sent in order to respect the
 
 ![Warning notification](images/examples/notification-warning.png)
 
-*This example highlights a blocking error with a feature that requires user input and shows actions to resolve the issue.*
+*This example highlights an issue with a feature that requires user input and shows actions to resolve the issue.*
 
 ![Error notification](images/examples/notification-error.png)
 
-*This example shows a failure notification with no actions.*
+*This example shows a failure notification with an action to resolve the issue.*
 
 **✔️ Do**
 
@@ -48,7 +52,7 @@ It's important to limit the number of notifications sent in order to respect the
 
 ## Progress notification
 
-When needing to display progress for an undetermined timeframe (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
+When needing to display progress for an indeterminate timeframe (for example, setting up an environment), you can use the progress notification. This type of global progress notification should be used as a last resort as progress is best kept within context (within a view or editor).
 
 **✔️ Do**
 
@@ -64,3 +68,7 @@ When needing to display progress for an undetermined timeframe (for example, set
 ![Progress notification](images/examples/notification-progress.png)
 
 *This example uses the progress notification to show the setup involved for a remote connection, while also providing a link to the output logs (**details**).*
+
+## Links
+
+* [Hello World Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)
