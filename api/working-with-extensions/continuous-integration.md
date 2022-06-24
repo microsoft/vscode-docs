@@ -183,7 +183,7 @@ on:
 
 ```yaml
 - name: Publish
-  if: success() && startsWith( github.ref, 'refs/tags/releases/') && matrix.os == 'ubuntu-latest'
+  if: success() && startsWith(github.ref, 'refs/tags/') && matrix.os == 'ubuntu-latest'
   run: npm run deploy
   env:
     VSCE_PAT: $\{{ secrets.VSCE_PAT }}
@@ -194,7 +194,7 @@ The [if](https://help.github.com/actions/reference/workflow-syntax-for-github-ac
 In our example, the condition has three checks:
 
 - `success()` - Publish only if the tests pass.
-- `startsWith( github.ref, 'refs/tags/releases/')` - Publish only if a tagged (release) build.
+- `startsWith(github.ref, 'refs/tags/')` - Publish only if a tagged (release) build.
 - `matrix.os == 'ubuntu-latest'` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
 
 ## GitLab CI
