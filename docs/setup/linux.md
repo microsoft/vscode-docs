@@ -115,7 +115,7 @@ To get more information about the installation from the AUR, please consult the 
 
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 
-There is a community maintained [VS Code Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/default.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
+There is a community maintained [VS Code Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/vscode.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
 
 ```bash
 nix-env -i vscode
