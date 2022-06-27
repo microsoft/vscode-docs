@@ -255,6 +255,7 @@ Configurations can be overridden at multiple levels by the different setting sco
 * Language-specific remote settings - Same as Remote settings, but specific to a language.
 * Language-specific workspace settings - Same as Workspace settings, but specific to a language.
 * Language-specific workspace folder settings - Same as Workspace Folder settings, but specific to a language.
+* Policy settings - Set by the system administrator, these values always override other setting values.
 
 Setting values can be of various types:
 
