@@ -18,7 +18,7 @@ Most of these features just work out of the box, while some may require basic co
 
 ## IntelliSense
 
-IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
+IntelliSense shows you intelligent code completion, hover information, and signature information so that you can write code more quickly and correctly.
 
 <video src="/docs/languages/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -89,7 +89,7 @@ Hover over a JavaScript symbol to quickly see its type information and relevant 
 
 ![Hovering over a JavaScript variable to see its type information](images/javascript/hover.png)
 
-The `kb(editor.action.showHover)` keyboard shortcut shows this hover info at the current cursor position.
+The `kb(editor.action.showHover)` keyboard shortcut shows this hover information at the current cursor position.
 
 ## Signature Help
 
@@ -148,7 +148,7 @@ Code navigation lets you quickly navigate JavaScript projects.
 * **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 * **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
 * **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-* **Go to Type Definition** ` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 

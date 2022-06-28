@@ -13,7 +13,7 @@ Visual Studio Code has great editing support for [TypeScript](https://www.typesc
 
 ## IntelliSense
 
-IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
+IntelliSense shows you intelligent code completion, hover information, and signature help so that you can write code more quickly and correctly.
 
 ![TypeScript small completions for String type](images/editing/ts-intellisense.png)
 
@@ -25,7 +25,7 @@ Hover over a TypeScript symbol to quickly see its type information and relevant 
 
 ![Hover for a lodash function](images/editing/hover.png)
 
-You can also show the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+You can also show the hover information at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
 
 ### Signature help
 
@@ -137,7 +137,7 @@ Set `"typescript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 ## JSDoc support
 
-VS Code's TypeScript IntelliSense understands many standard [JSDoc](https://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover info](#hover-information), and [signature help](#signature-help).
+VS Code's TypeScript IntelliSense understands many standard [JSDoc](https://jsdoc.app) annotations, and uses them to show typing information and documentation in [suggestions](#intellisense), [hover information](#hover-information), and [signature help](#signature-help).
 
 ![TypeScript language within VS Code](images/editing/jsdocs.png)
 
@@ -156,7 +156,7 @@ Code navigation lets you quickly navigate TypeScript projects.
 * **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 * **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
 * **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-* **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 * **Go to Implementation** `kb(editor.action.goToImplementation)` - Go to the implementations of an interface or abstract method.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
