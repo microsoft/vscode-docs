@@ -63,7 +63,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
    ```python
    import pandas as pd
    import numpy as np
-   data = pd.read_csv('data.csv')
+   data = pd.read_csv('titanic3.csv')
    ```
 
 1. Now, run the cell using the Run cell icon or the `kbstyle(Shift+Enter)` shortcut.
