@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 2
 Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
