@@ -37,7 +37,7 @@ Another option is to install the TypeScript compiler locally in your project (`n
 
 Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
 
-```
+```bash
 mkdir HelloWorld
 cd HelloWorld
 code .
@@ -73,9 +73,7 @@ console.log(message);
 
 IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
 
-<video src="/docs/languages/typescript/intellisense.mp4" placeholder="images/typescript/intellisense-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
+![TypeScript small completions for String type](images/typescript/ts-intellisense.png)
 
 VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
 
@@ -95,21 +93,29 @@ As you write a TypeScript function call, VS Code shows information about the fun
 
 Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
 
-## Errors and warnings
-
-TBD
-
 ## Snippets
 
-In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
+In addition to smart code completions, VS Code also includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type.
 
-<video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
-    Sorry, your browser doesn't support HTML 5 video.
-</video>
+![TypeScript 'for' snippet suggestions](images/typescript/ts-snippets.png)
 
 You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
 > **Tip**: You can disable snippets by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+
+## Errors and warnings
+
+The TypeScript language service will analyze your program for coding problems and report errors and warnings:
+
+* In the Status bar, there is a summary of all errors and warnings counts.
+* You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
+* If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
+
+![Error in the editor and Problems panel](images/typescript/ts-error.png)
+
+To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)` which will show an inline zone detailing the problem and possible Code Actions (if available):
+
+![Error inline in the editor](images/typescript/ts-error-inline.png)
 
 ## Code navigation
 
@@ -136,11 +142,11 @@ For more specialized code formatting styles, try installing one of the formattin
 
 ## Refactoring
 
-VS Code includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+VS Code includes some handy refactorings for TypeScript such as **Extract function** and **Extract constant**. Just select the source code you'd like to extract and then click on the light bulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
 
 ![TypeScript refactoring](images/typescript/refactorings.png)
 
-See [Refactoring TypeScript](/docs/editor/typescript-refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
+See [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
 ### Rename
 
@@ -166,7 +172,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is
 
 [Linters](https://en.wikipedia.org/wiki/Lint_%28software%29) provides warnings for suspicious looking code. While VS Code does not include a built-in TypeScript linter, TypeScript linter [extensions](/docs/editor/extension-marketplace.md) available in the Marketplace.
 
-[ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [Quick Fixes](#quick-fixes). [The ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/README.md) details how to configure ESLint for your TypeScript projects.
+[ESLint](https://eslint.org) is a popular linter, which also supports TypeScript. The [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) integrates ESLint into VS Code so you can see linting errors right in the editor and even quickly many of fix them with [Quick Fixes](/docs/typescript/typescript-refactoring.md#quick-fixes). [The ESLint plugin guide](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/README.md) details how to configure ESLint for your TypeScript projects.
 
 ## TypeScript extensions
 
@@ -181,14 +187,16 @@ VS Code provides many features for TypeScript out of the box. In addition to wha
 To learn more, see:
 
 * [TypeScript tutorial](/docs/typescript/typescript-tutorial.md) - Create a simple Hello World TypeScript in VS Code.
+* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
+* [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
 * [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Compile TypeScript to a JavaScript target version.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Learn about debugging TypeScript both server and client-side with VS Code.
 
 ## Common questions
 
-### Can I use the version of TypeScript that ships with VS 2019? TBD is this still a problem?
+### Can I use the version of TypeScript that ships with VS 2022?
 
-No, the TypeScript language service that ships with Visual Studio 2017 and 2019 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
 
 ### How can I use the latest TypeScript beta with VS Code?
 

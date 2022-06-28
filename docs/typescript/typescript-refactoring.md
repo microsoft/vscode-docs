@@ -23,7 +23,7 @@ One of the simplest refactorings is to rename a method or variable. Press `kb(ed
 
 To see the available TypeScript refactorings, put your cursor on a region of your source code and either right-click to bring up the editor context menu and select **Refactor** or press `kb(editor.action.refactor)` directly.
 
-![TypeScript refactoring](images/refactoring/refactorings.png) TBD also show full refactor context menu
+![TypeScript refactoring](images/refactoring/refactorings.png)
 
 See [Refactorings](/docs/editor/refactoring.md) for more information about refactorings and how you can configure keyboard shortcuts for individual refactorings.
 
@@ -74,7 +74,7 @@ Quick Fixes are suggested edits that address simple coding errors. Example Quick
 * Removing unreachable code or unused imports
 * Declaring
 
-When you move your cursor on to a TypeScript error, VS Code shows a lightbulb that indicates that Quick Fixes are available. Click the lightbulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
+When you move your cursor on to a TypeScript error, VS Code shows a light bulb that indicates that Quick Fixes are available. Click the light bulb or press `kb(editor.action.quickFix)` to show a list of available Quick Fixes and [refactorings](#refactoring).
 
 ## Unused variables and unreachable code
 
@@ -82,7 +82,7 @@ Unused TypeScript code, such as the `else` block of an `if` statement that is al
 
 ![Unreachable source code faded out](images/refactoring/unreachable.png)
 
-You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the lightbulb.
+You can quickly remove this unused code by placing the cursor on it and triggering the Quick Fix command (`kb(editor.action.quickFix)`) or clicking on the light bulb.
 
 To disable fading out of unused code, set `"editor.showUnused"` to `false`. You can also disable fading of unused code only in TypeScript by setting:
 
@@ -125,7 +125,7 @@ The `typescript.updateImportsOnFileMove.enabled` setting controls this behavior.
 
 ## Code Actions on Save
 
-The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable organize imports on save by setting:
+The `editor.codeActionsOnSave` setting lets you configure a set of Code Actions that are run when a file is saved. For example, you can enable Organize Imports on save by setting:
 
 ```json
 // On save, run both fixAll and organizeImports source actions

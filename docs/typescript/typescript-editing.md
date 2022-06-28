@@ -9,13 +9,37 @@ MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
 
-Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code.
+Visual Studio Code has great editing support for [TypeScript](https://www.typescriptlang.org). This article goes into depth on the editing and programming language features that come built-in to VS Code. If you'd like to know more about general editing features in VS Code, such as keyboard shortcuts, multi-cursors, search, and find and replace, you can read [Basic Editing](/docs/editor/codebasics.md).
+
+## IntelliSense
+
+IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
+
+![TypeScript small completions for String type](images/editing/ts-intellisense.png)
+
+VS Code provides IntelliSense for individual TypeScript files as well as TypeScript `tsconfig.json` projects.
+
+### Hover information
+
+Hover over a TypeScript symbol to quickly see its type information and relevant documentation:
+
+![Hover for a lodash function](images/editing/hover.png)
+
+You can also show the hover info at the current cursor position with the `kb(editor.action.showHover)` keyboard shortcut.
+
+### Signature help
+
+As you write a TypeScript function call, VS Code shows information about the function signature and highlights the parameter that you are currently completing:
+
+![Signature help for the lodash capitalize function](images/editing/signature-help.png)
+
+Signature help is shown automatically when you type a `(` or `,` within a function call. Use `kb(editor.action.triggerParameterHints)`  to manually trigger signature help.
 
 ## Snippets
 
 VS Code includes basic TypeScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
 
-![Typescript snippets](images/editing/ts-snippets.png) TBD
+![Typescript snippets](images/editing/ts-snippets.png)
 
 You can install extensions to get additional snippets or define your own snippets for TypeScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) for more information.
 
@@ -154,7 +178,7 @@ In addition to syntax highlighting, TypeScript and JavaScript also provide seman
 
 Syntax highlighting colors the text based on lexical rules. Semantic highlighting enriches the syntax coloring based on resolved symbol information from the language service.
 
-Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
+Whether semantic highlighting is visible depends on the current color theme. Each theme can [configure](/docs/getstarted/themes.md#editor-semantic-highlighting) whether to display semantic highlighting and how it styles the semantic tokens.
 
 If semantic highlighting is enabled and the color theme has a corresponding styling rule defined, different colors and styles can be seen.
 

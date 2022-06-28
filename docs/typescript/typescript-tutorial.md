@@ -32,7 +32,7 @@ tsc --version
 
 Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
 
-```
+```bash
 mkdir HelloWorld
 cd HelloWorld
 code .
@@ -80,7 +80,7 @@ So far in this tutorial, you have been relying on the TypeScript compiler's defa
 
 **Important**: To use `tsconfig.json` for the rest of this tutorial, invoke `tsc` without input files. The TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
-Add a simple `tsconfig.json` which set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
+Add a simple `tsconfig.json` that set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
 
 ```json
 {
@@ -123,11 +123,11 @@ TypeScript helps you avoid common programming mistakes through strong type check
 
 ## Quick Fixes
 
-The TypeScript language service has a powerful set of diagnostics to find common coding issues. For example, it can analyze your source code and detect unreachable code which is displayed as dimmed in the editor. If you hover over the line of source code, you'll see a hover explaining and if you place your cursor on the line, you'll get a Quick Fix lightbulb.
+The TypeScript language service has a powerful set of diagnostics to find common coding issues. For example, it can analyze your source code and detect unreachable code which is displayed as dimmed in the editor. If you hover over the line of source code, you'll see a hover explaining and if you place your cursor on the line, you'll get a Quick Fix light bulb.
 
 ![unreachable code detected](images/tutorial/unreachable-code-detected.png)
 
-Clicking on the lightbulb or pressing `kb(editor.action.quickFix)` brings up the Quick Fix menu where you can select the **Remove unreachable code** fix.
+Clicking on the light bulb or pressing `kb(editor.action.quickFix)` brings up the Quick Fix menu where you can select the **Remove unreachable code** fix.
 
 ## Debugging
 
