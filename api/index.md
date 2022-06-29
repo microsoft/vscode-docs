@@ -60,6 +60,7 @@ To stay current with the Extension API, you can review the monthly release notes
 
 If you have questions for extension development, try asking on:
 
+* [VS Code Community Discussions](https://github.com/microsoft/vscode-discussions): The official place to discuss VS Code's extension platform, ask questions, help other members of the community, and get answers.
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are [thousands of questions](https://stackoverflow.com/questions/tagged/visual-studio-code) tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions, or help your fellow developers by answering VS Code extension development questions!
 * [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://aka.ms/vscode-dev-community): Public chatroom for extension developers. VS Code team members often join in the conversations.
 
