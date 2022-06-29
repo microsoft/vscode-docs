@@ -29,6 +29,8 @@ From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 
 1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
 
+1. In the VS Code Settings editor (`kb(workbench.action.openSettings)`), uncheck the C# extension's **Omnisharp: Use Modern Net** [setting](/docs/getstarted/settings.md) (`"omnisharp.useModernNet": false`).
+
 ## Setup VS Code as Unity Script Editor
 
 Open up **Unity Preferences**, **External Tools**, then browse for the Visual Studio Code executable as **External Script Editor**.

@@ -539,7 +539,7 @@ Conditional breakpoints are breakpoints that only pause when an expression retur
 
 ### Logpoints
 
-Something you want to just log a message or value when code hits a certain location, rather than pausing. You can do this with logpoints. Logpoints don't pause, but rather log a message to the Debug Console when hit. In the JavaScript debugger, you can use curly braces to interpolate expressions into the message, like `current value is: {myVariable.property}`.
+Sometimes you want to just log a message or value when code hits a certain location, rather than pausing. You can do this with logpoints. Logpoints don't pause, but rather log a message to the Debug Console when hit. In the JavaScript debugger, you can use curly braces to interpolate expressions into the message, like `current value is: {myVariable.property}`.
 
 You can create one by right-clicking in the gutter beside a line number and selecting "Logpoint". For example, this might log something like `location is /usr/local`:
 

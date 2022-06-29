@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 2
 Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
@@ -258,6 +258,8 @@ See the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/
 
 Read on to find out about:
 
+* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
+* [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
 
 ## Common questions

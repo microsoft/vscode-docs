@@ -129,6 +129,8 @@ The following variables can be used:
 * `CLIPBOARD` The contents of your clipboard
 * `WORKSPACE_NAME` The name of the opened workspace or folder
 * `WORKSPACE_FOLDER` The path of the opened workspace or folder
+* `CURSOR_INDEX` The zero-index based cursor number
+* `CURSOR_NUMBER` The one-index based cursor number
 
 For inserting the current date and time:
 

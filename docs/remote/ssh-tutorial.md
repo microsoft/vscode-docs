@@ -60,18 +60,20 @@ There are several authentication methods into a VM, including an SSH public/priv
 If you don't have an SSH key pair, open a bash shell or the command line and type in:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -t ed25519
 ```
 
 This will generate the SSH key. Press `kbstyle(Enter)` at the following prompt to save the key in the default location (under your user directory as a folder named `.ssh`).
 
 ![ssh-keygen output](images/ssh-tutorial/ssh-keygen.png)
 
-You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_rsa.pub` file which contains your new public SSH key.
+You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_ed25519.pub` file which contains your new public SSH key.
+
+>**Note**: If you are using a legacy system that doesn't support the Ed25519 algorithm, you can use rsa instead: `ssh-keygen -t rsa -b 4096`.
 
 ## Add SSH key to your VM
 
-In the previous step, you generated an SSH key pair. Select **Use existing public key** in the dropdown for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
+In the previous step, you generated an SSH key pair. Select **Use existing public key** in the dropdown for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_ed25519.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
 
 ![Add SSH public key to VM](images/ssh-tutorial/add-ssh-public-key.png)
 

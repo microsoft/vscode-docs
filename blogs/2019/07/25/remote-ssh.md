@@ -65,7 +65,7 @@ There are several authentication methods into a VM, including an SSH public/priv
 If you don't have an SSH key pair, open a bash shell or the command line and type in:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -t ed25519
 ```
 
 This will generate the SSH key. Press Enter at the following prompt to save the key in the default location.
@@ -76,7 +76,7 @@ You will then be prompted to enter a secure passphrase but you can leave that bl
 
 ## Add SSH keys to your VM
 
-In the previous step, we generated an SSH key pair. We'll take the public key and paste it into our VM setup, by copying the contents of the id_rsa.pub. You also want to allow your VM to accept inbound SSH traffic.
+In the previous step, we generated an SSH key pair. We'll take the public key and paste it into our VM setup, by copying the contents of the id_ed25519.pub. You also want to allow your VM to accept inbound SSH traffic.
 
 ![Add SSH public key to VM](add-ssh-public-key.png)
 

@@ -108,6 +108,12 @@ Typically this error occurs due to anti-virus software intercepting and blocking
 
 Reporting this issue to the Anti-virus team can also help stamp out the issue all together.
 
+### Terminal exits with code 259
+
+Exit code **259** can mean `STILL_ACTIVE` when the terminal is trying to start a new process such as PowerShell.exe. You can try killing unused programs and processes on your machine in case one of them is keeping a terminal shell process active and unable to relaunch.
+
+Anti-virus software running on your machine may also interfere with starting your terminal shell.
+
 ### Terminal exits with code 3221225786 (or similar)
 
 This can happen when you have legacy console mode enabled in conhost's properties. To change this, open cmd.exe from the start menu, right-click the title bar, go to **Properties** and under the **Options** tab, uncheck **Use legacy console**.

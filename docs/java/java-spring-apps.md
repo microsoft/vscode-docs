@@ -1,9 +1,9 @@
 ---
 Area: java
-TOCTitle: Java Spring Cloud
+TOCTitle: Java Spring Apps
 ContentId: d34d8d3a-2093-4c67-a0a8-e02525fae8ab
 PageTitle: Build and Deploy Java Spring Boot Apps to Azure Spring Cloud with Visual Studio Code
-DateApproved: 1/19/2021
+DateApproved: 6/14/2022
 MetaDescription: Java Spring app tutorial showing how to build and deploy a Java Spring Boot microservices to Azure Spring Cloud with Visual Studio Code
 ---
 
@@ -69,7 +69,7 @@ Test the web app by browsing to [http://localhost:8080](http://localhost:8080) u
 
 ## Make a change
 
-Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Navigate and edit Java](/docs/java/java-editing.md) to learn about VS Code's editing and code navigation features.
+Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provides a great editing experience for Java, check out [Editing and Navigating Code](/docs/languages/java.md#editing) to learn about VS Code's editing and code navigation features.
 
 Select the **Restart** button on the top of the editor to relaunch the app and see result by reloading the browser.
 

@@ -506,6 +506,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/typescript/typescript-editing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/typescript/typescript-refactoring</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/typescript/typescript-debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -646,7 +656,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-spring-cloud</loc>
+        <loc>https://code.visualstudio.com/docs/java/java-spring-apps</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
