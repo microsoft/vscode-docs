@@ -20,6 +20,8 @@ let uri = Uri.file('/some/path/to/folder');
 let success = await commands.executeCommand('vscode.openFolder', uri);
 ```
 
+>**Note**: You can review the full set of VS Code commands via the Keyboard Shortcuts editor **File** > **Preferences** > **Keyboard Shortcuts** (on macOS **Code** > **Preferences** > **Keyboard Shortcuts**). The Keyboard Shortcuts editor lists all commands built into VS Code or contributed by extensions, along with their keybindings and visibility when clauses.
+
 ## Commands
 
 `vscode.executeDocumentHighlights` - Execute document highlight provider.
