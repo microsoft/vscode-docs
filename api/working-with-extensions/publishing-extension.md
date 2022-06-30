@@ -251,7 +251,7 @@ An extension can opt-in to sponsorship by adding a `sponsor` field in its `packa
 
 >**Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
 
-If an extension opts-into this VS Code will render a **Sponsor** button in the Extensions view Details page.
+If an extension opts-into this VS Code will render a **Sponsor** button in the extension details page header.
 
 ![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
 
