@@ -299,13 +299,12 @@ Users can choose to install pre-release versions of extensions in VS Code or VS 
 
 ![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/pre-release.png)
 
-For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the publish step:
+For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the package and publish step:
 
 ```bash
+vsce package --pre-release
 vsce publish --pre-release
 ```
-
-Alternatively, the `pre-release` flag can also be passed in the `package` step.
 
 We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Support for this will arrive in the future.
 
