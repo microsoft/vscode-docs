@@ -101,7 +101,7 @@ The command decorations can be configured with the following settings:
 
 ### Command navigation
 
-The commands detected by shell integration feed into the command navigation feature (`ctrl/cmd+up`, `ctrl/cmd+down`) to give it more reliable command positions. This feature enables quick navigation between commands and selection of their output.
+The commands detected by shell integration feed into the command navigation feature (`ctrl/cmd+up`, `ctrl/cmd+down`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output.
 
 ### Run recent command
 
