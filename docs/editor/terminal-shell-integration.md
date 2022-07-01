@@ -21,7 +21,9 @@ Supported shells:
 
 ### Automatic script injection
 
-The standard way to activate shell integration is to simply set the `terminal.integrated.shellIntegration.enabled` setting to true. Enabling this setting will automatically "inject" the shell integration script into the shell session via shell arguments and/or environment variables when the setting is enabled. This is designed to be an easy way to get started with shell integration but it doesn't work in some more advanced use cases like in sub-shells, through ssh (when not using the [Remote - SSH extension](https://code.visualstudio.com/docs/remote/ssh)) or for some complex shell setups. For those the ability to [manually install the feature](#_manual-installation) is available.
+The standard way to activate shell integration is to set the `terminal.integrated.shellIntegration.enabled` setting to `true`. When enabled, the shell integration script is injected into the shell session via shell arguments and/or environment variables. 
+
+This standard, easy way will not work for some advanced use cases like in sub-shells, through ssh (when not using the [Remote - SSH extension](https://code.visualstudio.com/docs/remote/ssh)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#_manual-installation).
 
 ### Manual installation
 
