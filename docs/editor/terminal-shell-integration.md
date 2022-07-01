@@ -139,7 +139,7 @@ VS Code supports several custom escape sequences:
 
 ### VS Code custom sequences `OSC 633 ; ... ST`
 
-This is VS Code's custom escape sequences that are designed currently to only be triggered from within the shell integration script. We may document these in the future which would make it easier for shells to create their own VS Code shell integration scripts.
+VS Code's custom escape sequences are currently designed to only be triggered from within the shell integration script. We may document these in the future which would make it easier for shells to create their own VS Code shell integration scripts.
 
 ### Final Term shell integration `OSC 133 ; <...> ST`
 
