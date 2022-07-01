@@ -12,7 +12,7 @@ MetaDescription: Ensure VS Code is enterprise-ready.
 
 Visual Studio Code can be used as a development tool for enterprise teams of all sizes. As an IT admin, you can configure VS Code to achieve consistency and compatability across your organization.
 
-## Network: Specific hostnames
+## Network: Common hostnames
 
 A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
 
