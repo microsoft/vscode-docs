@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code's embedded terminal can integrate with some 
 
 # Terminal Shell Integration
 
-Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some [compelling features](#_features) such as command/directory detection, command decorations and command navigation.
+Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some [compelling features](#_features) such as working directory detection and command detection, decorations and navigation.
 
 Supported shells:
 
@@ -21,7 +21,7 @@ Supported shells:
 
 ### Automatic script injection
 
-The standard way to activate shell integration is to set the `terminal.integrated.shellIntegration.enabled` setting to `true`. When enabled, the shell integration script is injected into the shell session via shell arguments and/or environment variables. 
+The standard way to activate shell integration is to set the `terminal.integrated.shellIntegration.enabled` setting to `true`. When enabled, the shell integration script is injected into the shell session via shell arguments and/or environment variables.
 
 This standard, easy way will not work for some advanced use cases like in sub-shells, through ssh (when not using the [Remote - SSH extension](https://code.visualstudio.com/docs/remote/ssh)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#_manual-installation).
 
