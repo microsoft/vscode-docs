@@ -1,5 +1,28 @@
 [
       {
+        "isReleaseParty": "1.69",
+        "title": "VS Code 1.69 Release Party",
+        "description": "Live event and Q&A with the VS Code team to discuss highlights from the June, 1.69 release.",
+        "speakers": [
+          {
+            "name": "VS Code team"
+          }
+        ],
+        "start": "2022-07-07T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/eiRrggf1EF4"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220707.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220707/ics",
+          "google": "https://aka.ms/vscodelive/20220707/google"
+        },
+        "youtubeId": "eiRrggf1EF4"
+      },
+      {
         "title": "Machine Learning Experimentation with DVC Extension",
         "description": "Join us and learn how to manage and make your machine learning projects reproducible with an open source tool DVC and the new extension. We will see how to track datasets and models, run, compare, visualize, and track machine learning experiments right in VS Code.",
         "speakers": [
