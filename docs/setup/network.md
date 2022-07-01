@@ -11,31 +11,6 @@ MetaDescription: Setup VS Code's Network Connection.
 
 Visual Studio Code is built on top of [Electron](https://electron.atom.io/) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that VS Code users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
 
-## Common hostnames
-
-A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
-
-If you are behind a firewall that needs to allow specific domains used by VS Code, here's the list of hostnames you should allow communication to go through:
-
-* `update.code.visualstudio.com` - Visual Studio Code download and update server
-* `code.visualstudio.com` - Visual Studio Code documentation
-* `go.microsoft.com` - Microsoft link forwarding service
-* `vscode.blob.core.windows.net` - Visual Studio Code blob storage, used for remote server
-* `marketplace.visualstudio.com` - Visual Studio Marketplace
-* `*.gallery.vsassets.io` - Visual Studio Marketplace
-* `*.gallerycdn.vsassets.io` - Visual Studio Marketplace
-* `rink.hockeyapp.net` - Crash reporting service
-* `bingsettingssearch.trafficmanager.net` - In-product settings search
-* `vscode.search.windows.net` - In-product settings search
-* `raw.githubusercontent.com` - GitHub repository raw file access
-* `vsmarketplacebadge.apphb.com` - Visual Studio Marketplace badge service
-* `az764295.vo.msecnd.net` - Visual Studio Code download CDN
-* `download.visualstudio.microsoft.com` - Visual Studio download server, provides dependencies for some VS Code extensions (C++, C#)
-* `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
-* `vscode-sync-insiders.trafficmanager.net` - Visual Studio Code Settings Sync service (Insiders)
-* `vscode.dev` - Used when logging in with GitHub or Microsoft for an extension or Settings Sync
-* `default.exp-tas.com` - Visual Studio Code Experiment Service, used to provide experimental user experiences
-
 ## Proxy server support
 
 VS Code has exactly the same proxy server support as Google Chromium. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings):
