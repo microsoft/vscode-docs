@@ -107,7 +107,7 @@ The commands detected by shell integration feed into the command navigation feat
 
 The `Terminal: Run Recent Command` command surfaces history from various sources in a quick pick, providing similar functionality to a shell's reverse search (ctrl+r). The sources are the current session's history, previous session history for this shell type and the common shell history file.
 
-![The "run recent command" command shows a quick pick with commands ran previously that can be filtered similar to the go to file command](images/terminal-shell-integration/recent-command.png)
+![The "run recent command" command shows a quick pick with previously run commands  that can be filtered similar to the go to file command](images/terminal-shell-integration/recent-command.png)
 
 `Alt` can be held to write the text to the terminal without running it. The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
