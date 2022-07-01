@@ -109,7 +109,10 @@ The `Terminal: Run Recent Command` command surfaces history from various sources
 
 ![The "run recent command" command shows a quick pick with previously run commands  that can be filtered similar to the go to file command](images/terminal-shell-integration/recent-command.png)
 
-`Alt` can be held to write the text to the terminal without running it. The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
+Some other functionality of the command:
+- In the current session section there is a clipboard icon in the right of the quick pick which will open the command output in an editor.
+- `Alt` can be held to write the text to the terminal without running it.
+- The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
 There is currently no keybinding assigned by default but it can be hooked up to `ctrl+space` for example with the following keybinding:
 
