@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: setup
 TOCTitle: Uninstall
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
