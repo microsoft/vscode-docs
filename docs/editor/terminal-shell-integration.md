@@ -43,6 +43,7 @@ The script below contains `<InstallDir>` which must be replaced by VS Code's ins
 **pwsh**
 
   Add the following to your [PowerShell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2), replacing `<InstallDir>` with VS Code's installation directory. Run `code $Profile` in pwsh to open the file in VS Code.
+
   ```pwsh
   if ($env:TERM_PROGRAM -eq "vscode") {
     . "<InstallDir>\resources\app\out\vs\workbench\contrib\terminal\browser\media\shellIntegration.ps1"
@@ -59,22 +60,27 @@ The script below contains `<InstallDir>` which must be replaced by VS Code's ins
 **bash**
 
   Add the following to your `~/.bashrc` file, replacing `<InstallDir>` with VS Code's installation directory. Run `code ~/.bashrc` in bash to open the file in VS Code.
+
   ```sh
   if [ "$TERM_PROGRAM" == "vscode" ]; then
     . <InstallDir>/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
   fi
   ```
+
 **pwsh**
 
   Add the following to your [PowerShell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2), replacing `<InstallDir>` with VS Code's installation directory. Run `code $Profile` in pwsh to open the file in VS Code.
+
   ```pwsh
   if ($env:TERM_PROGRAM -eq "vscode") {
     . "<InstallDir>/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration.ps1"
   }
   ```
+
 **zsh**
 
   Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open the file in VS Code.
+
   ```sh
   if [[ "$TERM_PROGRAM" == "vscode" ]]; then
     . <vscode resources install path>/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-rc.zsh
@@ -85,7 +91,7 @@ The script below contains `<InstallDir>` which must be replaced by VS Code's ins
 
 ### Command decorations and the overview ruler
 
-One of the things shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded of failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
+One of the things shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
 
 ![Blue circles appear next to successful commands, red circles with crosses appear next to failed commands. The color of the circles appears in the scroll bar](images/terminal-shell-integration/decorations.png)
 
@@ -101,17 +107,18 @@ The command decorations can be configured with the following settings:
 
 ### Command navigation
 
-The commands detected by shell integration feed into the command navigation feature (`ctrl/cmd+up`, `ctrl/cmd+down`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output.
+The commands detected by shell integration feed into the command navigation feature (`Ctrl/Cmd+Up`, `Ctrl/Cmd+Down`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output.
 
 ### Run recent command
 
-The `Terminal: Run Recent Command` command surfaces history from various sources in a quick pick, providing similar functionality to a shell's reverse search (ctrl+r). The sources are the current session's history, previous session history for this shell type and the common shell history file.
+The **Terminal: Run Recent Command** command surfaces history from various sources in a Quick Pick, providing similar functionality to a shell's reverse search (`kbstyle(Ctrl+R)`). The sources are the current session's history, previous session history for this shell type and the common shell history file.
 
 ![The "run recent command" command shows a quick pick with previously run commands  that can be filtered similar to the go to file command](images/terminal-shell-integration/recent-command.png)
 
 Some other functionality of the command:
-- In the current session section there is a clipboard icon in the right of the quick pick which will open the command output in an editor.
-- `Alt` can be held to write the text to the terminal without running it.
+
+- In the current session section, there is a clipboard icon in the right of the Quick Pick that will open the command output in an editor.
+- `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
 There is currently no keybinding assigned by default but it can be hooked up to `ctrl+space` for example with the following keybinding:
@@ -128,7 +135,7 @@ There is currently no keybinding assigned by default but it can be hooked up to 
 
 Similar to the run recent command feature, the `Terminal: Go to Recent Directory` command keeps track of directories that have been visited and allows quick filtering and `cd`ing to them.
 
-`Alt` can be held to write the text to the terminal without running it.
+`kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
 ### Current working directory detection
 
@@ -140,11 +147,11 @@ The current working directory is used to resolve links against, showing the dire
 
 VS Code supports several custom escape sequences:
 
-### VS Code custom sequences `OSC 633 ; ... ST`
+### VS Code custom sequences 'OSC 633 ; ... ST'
 
 VS Code's custom escape sequences are currently designed to only be triggered from within the shell integration script. We may document these in the future which would make it easier for shells to create their own VS Code shell integration scripts.
 
-### Final Term shell integration `OSC 133 ; <...> ST`
+### Final Term shell integration 'OSC 133 ; <...> ST'
 
 VS Code supports Final Term's shell integration sequences which allows non-VS Code shell integration scripts to work in VS Code. This results in a somewhat degraded experience though as it doesn't support as many features as `OSC 633`. Here are the specific sequences that are supported:
 
@@ -168,11 +175,13 @@ These marks integrate with command navigation to make them easy to navigate to v
 There are several cases where automatic injection doesn't work, here are some common cases:
 
 - `$PROMPT_COMMAND` is in an unsupported format, changing it to point to a single function is an easy way to workaround this. For example:
+
   ```sh
   prompt() {
     printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
   }
   PROMPT_COMMAND=prompt
   ```
+
 - `$HISTCONTROL` contains the `erasedups` option, this changes functionality of the `history` command that shell integration depends upon.
 - Some shell plugins may disable VS Code's shell integration explicitly by unsetting `$VSCODE_SHELL_INTEGRATION` when they initialize.
