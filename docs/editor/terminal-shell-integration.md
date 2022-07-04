@@ -121,7 +121,7 @@ Some other functionality of the command:
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
-There is currently no keybinding assigned by default but it can be hooked up to `ctrl+space` for example with the following keybinding:
+There is currently no keybinding assigned by default but you can add your own keyboard shortcut. For example, below `Ctrl+Space` is set for `runRecentCommand`:
 
 ```json
 {
@@ -133,7 +133,7 @@ There is currently no keybinding assigned by default but it can be hooked up to 
 
 ### Go to recent directory
 
-Similar to the run recent command feature, the `Terminal: Go to Recent Directory` command keeps track of directories that have been visited and allows quick filtering and `cd`ing to them.
+Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them.
 
 `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
@@ -160,7 +160,7 @@ VS Code supports Final Term's shell integration sequences which allows non-VS Co
 - `OSC 133 ; C ST` - Mark pre-execution
 - `OSC 133 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code
 
-### SetMark `OSC 1337 ; SetMark ST`
+### SetMark 'OSC 1337 ; SetMark ST'
 
 This sequence adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
