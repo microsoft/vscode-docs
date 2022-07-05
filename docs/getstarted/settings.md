@@ -356,6 +356,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the diff editor shows +/- indicators for added/removed changes.
     "diffEditor.renderIndicators": true,
 
+    // When enabled, the diff editor shows arrows in its glyph margin to revert changes.
+    "diffEditor.renderMarginRevertIcon": true,
+
     // Controls whether the diff editor shows the diff side by side or inline.
     "diffEditor.renderSideBySide": true,
 
@@ -699,6 +702,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Highlight matching brackets.
     "editor.matchBrackets": "always",
 
+    // Controls whether the minimap is hidden automatically.
+    "editor.minimap.autohide": false,
+
     // Controls whether the minimap is shown.
     "editor.minimap.enabled": true,
 
@@ -827,7 +833,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "editor.scrollbar.verticalScrollbarSize": 14,
 
     // Controls the number of extra characters beyond which the editor will scroll horizontally.
-    "editor.scrollBeyondLastColumn": 5,
+    "editor.scrollBeyondLastColumn": 4,
 
     // Controls whether the editor will scroll beyond the last line.
     "editor.scrollBeyondLastLine": true,
@@ -1376,7 +1382,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - large: Increases the size, so it can be grabbed more easily with the mouse.
     "workbench.editor.titleScrollbarSizing": "default",
 
-    // Controls if the untitled hint should be inline text in the editor or a floating button or hidden.
+    // Controls if the untitled text hint should be visible in the editor.
     "workbench.editor.untitled.hint": "text",
 
     // Controls the format of the label for an untitled editor.
@@ -1575,6 +1581,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether closing the last editor should also close the window. This setting only applies for windows that do not show folders.
     "window.closeWhenEmpty": false,
+
+    // Show command launcher together with the window title.
+    "window.commandCenter": false,
 
     // Controls whether to show a confirmation dialog before closing the window or quitting the application.
     //  - always: Always ask for confirmation.
@@ -1796,10 +1805,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether turning on Zen Mode also hides workbench tabs.
     "zenMode.hideTabs": true,
 
-    // Controls whether a window should restore to zen mode if it was exited in zen mode.
+    // Controls whether a window should restore to Zen Mode if it was exited in Zen Mode.
     "zenMode.restore": true,
 
-    // Controls whether notifications are shown while in zen mode. If true, only error notifications will pop out.
+    // Controls whether notifications do not disturb mode should be enabled while in Zen Mode. If true, only error notifications will pop out.
     "zenMode.silentNotifications": true,
 
 // File Explorer
@@ -2170,9 +2179,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable default HTML formatter.
     "html.format.enable": true,
 
-    // End with a newline.
-    "html.format.endWithNewline": false,
-
     // List of tags, comma separated, that should have an extra newline before them. `null` defaults to `"head, body, /html"`.
     "html.format.extraLiners": "head, body, /html",
 
@@ -2399,6 +2405,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Suppress type hints on variables whose name is identical to the type name.
     "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
 
+    // Specify glob patterns of files to exclude from auto imports.
+    "javascript.preferences.autoImportFileExcludePatterns": [],
+
     // Preferred path style for auto imports.
     //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
     //  - relative: Prefers a relative path to the imported file location.
@@ -2490,7 +2499,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "js/ts.implicitProjectConfig.strictFunctionTypes": true,
 
     // Enable/disable strict null checks in JavaScript and TypeScript files that are not part of a project. Existing `jsconfig.json` or `tsconfig.json` files override this setting.
-    "js/ts.implicitProjectConfig.strictNullChecks": false,
+    "js/ts.implicitProjectConfig.strictNullChecks": true,
 
     // Set target JavaScript language version for emitted JavaScript and include library declarations.
     "js/ts.implicitProjectConfig.target": "ES2020",
@@ -2588,11 +2597,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable inlay hints for implicit variable types:
     "typescript.inlayHints.variableTypes.enabled": false,
 
+    // Suppress type hints on variables whose name is identical to the type name.
+    "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+
     // Sets the locale used to report JavaScript and TypeScript errors. Defaults to use VS Code's locale.
     "typescript.locale": "auto",
 
     // Specifies the path to the npm executable used for Automatic Type Acquisition.
     "typescript.npm": "",
+
+    // Specify glob patterns of files to exclude from auto imports.
+    "typescript.preferences.autoImportFileExcludePatterns": [],
 
     // Preferred path style for auto imports.
     //  - shortest: Prefers a non-relative import only if one is available that has fewer path segments than a relative import.
@@ -2725,6 +2740,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "typescript.workspaceSymbols.scope": "allOpenProjects",
 
 // Testing
+
+    // Always reveal the executed test when `testing.followRunningTest` is on. If this setting is turned off, only failed tests will be revealed.
+    "testing.alwaysRevealTestOnStateChange": false,
 
     // Configures when the error Peek view is automatically opened.
     //  - failureAnywhere: Open automatically no matter where the failure is.
@@ -3322,7 +3340,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // - The paste is handled by the shell's readline (in the case of pwsh)
     "terminal.integrated.enableMultiLinePasteWarning": true,
 
-    // Persist terminal sessions for the workspace across window reloads.
+    // Persist terminal sessions/history for the workspace across window reloads.
     "terminal.integrated.enablePersistentSessions": true,
 
     // Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux. Set to `null` to delete the environment variable.
@@ -3362,7 +3380,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - auto: Let VS Code detect which renderer will give the best experience.
     //  - on: Enable GPU acceleration within the terminal.
     //  - off: Disable GPU acceleration within the terminal.
-    //  - canvas: Use the fallback canvas renderer within the terminal. This uses a 2d context instead of webgl and may be better on some systems.
+    //  - canvas: Use the terminal's fallback canvas renderer which uses a 2d context instead of webgl which may perform better on some systems.
     "terminal.integrated.gpuAcceleration": "auto",
 
     // A set of process names to ignore when using the `terminal.integrated.confirmOnKill` setting.
@@ -3414,7 +3432,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A multiplier to be used on the `deltaY` of mouse wheel scroll events.
     "terminal.integrated.mouseWheelScrollSensitivity": 1,
 
-    // When the terminal process must be shutdown (for example, on window or application close), this determines when the previous terminal session contents should be restored and processes be recreated when the workspace is next opened.
+    // When the terminal process must be shutdown (for example, on window or application close), this determines when the previous terminal session contents/history should be restored and processes be recreated when the workspace is next opened.
     //  - onExit: Revive the processes after the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu).
     //  - onExitAndWindowClose: Revive the processes after the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (command palette, keybinding, menu), or when the window is closed.
     //  - never: Never restore the terminal buffers or recreate the process.
@@ -3423,7 +3441,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the maximum amount of lines that will be restored when reconnecting to a persistent terminal session. Increasing this will restore more lines of scrollback at the cost of more memory and increase the time it takes to connect to terminals on start up. This setting requires a restart to take effect and should be set to a value less than or equal to `terminal.integrated.scrollback`.
     "terminal.integrated.persistentSessionScrollback": 100,
 
-    // The Linux profiles to present when creating a new terminal via the terminal dropdown.
+    // The Linux profiles to present when creating a new terminal via the terminal dropdown. Set the `path` property manually with an optional `args`.
+    // Set an existing profile to `null` to hide the profile from the list, for example: `"bash": null`.
     "terminal.integrated.profiles.linux": { },
 
     // The macOS profiles to present when creating a new terminal via the terminal dropdown.
@@ -3576,6 +3595,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - never: Never saves editors before running.
     //  - prompt: Prompts whether to save editors before running.
     "task.saveBeforeRun": "always",
+
+    // Shows decorations at points of interest in the terminal buffer such as the first problem found via a watch task.
+    "task.showDecorations": true,
 
     // Configures whether a warning is shown when a provider is slow
     "task.slowProviderWarning": true,
@@ -4053,6 +4075,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, Emmet abbreviations are expanded when pressing TAB.
     "emmet.triggerExpansionOnTab": false,
 
+    // If `true`, Emmet will use inline completions to suggest expansions.
+    "emmet.useInlineCompletions": false,
+
     // Variables to be used in Emmet snippets.
     "emmet.variables": {},
 
@@ -4120,7 +4145,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A regular expression to validate new branch names.
     "git.branchValidationRegex": "",
 
-    // The character to replace whitespace in new branch names.
+    // The character to replace whitespace in new branch names, and to separate segments of a randomly generated branch name.
     "git.branchWhitespaceChar": "-",
 
     // Controls what type of git refs are listed when running `Checkout to...`.
@@ -4274,6 +4299,13 @@ Below are the Visual Studio Code default settings and their values. You can also
     // List of paths to search for git repositories in.
     "git.scanRepositories": [],
 
+    // Controls whether an action button can be shown in the Source Control view.
+    "git.showActionButton": {
+        "commit": true,
+        "publish": true,
+        "sync": true
+    },
+
     // Controls whether to show the commit input in the Git source control panel.
     "git.showCommitInput": true,
 
@@ -4285,12 +4317,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to show a notification when a push is successful.
     "git.showPushSuccessNotification": false,
-
-    // Controls whether to show an action button to sync or publish, if there are unpublished commits.
-    //  - always: Always shows the action button, if there are unpublished commits.
-    //  - whenEmpty: Only shows the action button if there are no other changes and there are unpublished commits.
-    //  - never: Never shows the action button.
-    "git.showUnpublishedCommitsButton": "whenEmpty",
 
     // Control which changes are automatically staged by Smart Commit.
     //  - all: Automatically stage all changes.
@@ -4308,6 +4334,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether to enable VS Code to be the authentication handler for git processes spawned in the integrated terminal. Note: terminals need to be restarted to pick up a change in this setting.
     "git.terminalAuthentication": true,
+
+    // Controls whether to enable VS Code to be the Git editor for Git processes spawned in the Integrated Terminal.
+    "git.terminalGitEditor": false,
 
     // Controls which date to use for items in the Timeline view.
     //  - committed: Use the committed date
@@ -4329,11 +4358,17 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether to use the message from the commit input box as the default stash message.
     "git.useCommitInputAsStashMessage": false,
 
+    // Controls whether a full text editor will be used to author commit messages, whenever no message is provided in the commit input box.
+    "git.useEditorAsCommitInput": true,
+
     // Controls whether force pushing uses the safer force-with-lease variant.
     "git.useForcePushWithLease": true,
 
     // Controls whether GIT_ASKPASS should be overwritten to use the integrated version.
     "git.useIntegratedAskPass": true,
+
+    // Enable verbose output when `git.useEditorAsCommitInput` is enabled.
+    "git.verboseCommit": false,
 
     // Controls whether to enable automatic GitHub authentication for git commands within VS Code.
     "github.gitAuthentication": true,
@@ -4412,12 +4447,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Default options used when debugging a process through the `Debug: Attach to Node.js Process` command.
     "debug.javascript.pickAndAttachOptions": {},
 
-    // Request options to use when loading resources, such as source maps, in the debugger. You may need to configure this if your sourcemaps require authentication or use a self-signed certificate, for instance. Options are used to create a request using the `got`library.
+    // Request options to use when loading resources, such as source maps, in the debugger. You may need to configure this if your sourcemaps require authentication or use a self-signed certificate, for instance. Options are used to create a request using the `got` library.
     // A common case to disable certificate verification can be done by passing `{ "https": { "rejectUnauthorized": false } }`.
     "debug.javascript.resourceRequestOptions": {},
-
-    // Whether to suggest pretty printing JavaScript code that looks minified when you step into it.
-    "debug.javascript.suggestPrettyPrinting": true,
 
     // Default launch options for the JavaScript debug terminal and npm scripts.
     "debug.javascript.terminalOptions": {},
@@ -4461,7 +4493,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // References Search View
 
-// Controls whether 'Peek References' or 'Find References' is invoked when selecting CodeLens references
+    // Controls whether 'Peek References' or 'Find References' is invoked when selecting CodeLens references.
     //  - peek: Show references in peek editor.
     //  - view: Show references in separate view.
     "references.preferredLocation": "peek"
