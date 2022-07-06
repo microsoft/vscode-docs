@@ -737,8 +737,6 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
 - `extensionIcon.sponsorForeground`: The icon color for extension sponsor.
-- `extensionSponsorButton.background`: Background color for extension sponsor button.
-- `extensionSponsorButton.hoverBackground`: Background hover color for extension sponsor button.
 
 ## Quick picker colors
 
