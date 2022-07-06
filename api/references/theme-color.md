@@ -160,6 +160,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.focusHighlightForeground`: List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree.
 - `list.focusOutline`: List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.focusAndSelectionOutline`: List/Tree outline color for the focused item when the list/tree is active and selected. An active list/tree has keyboard focus, an inactive does not.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
 - `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
@@ -608,6 +609,14 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
+- `mergeEditor.change.background`: The background color for changes.
+- `mergeEditor.change.word.background`: The background color for word changes.
+- `mergeEditor.conflict.unhandledUnfocused.border`: The border color of unhandled unfocused conflicts.
+- `mergeEditor.conflict.unhandledFocused.border`: The border color of unhandled focused conflicts.
+- `mergeEditor.conflict.handledUnfocused.border`: The border color of handled unfocused conflicts.
+- `mergeEditor.conflict.handledFocused.border`: The border color of handled focused conflicts.
+- `mergeEditor.conflict.handled.minimapOverViewRuler`: The foreground color for changes in input 1.
+- `mergeEditor.conflict.unhandled.minimapOverViewRuler`: The foreground color for changes in input 1.
 
 ## Panel colors
 
@@ -652,6 +661,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
+- `statusBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the status bar.
+- `statusBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the status bar.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
@@ -676,6 +687,14 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `menu.selectionBorder`: Border color of the selected menu item in menus.
 - `menu.separatorBackground`: Color of a separator menu item in menus.
 - `menu.border`: Border color of menus.
+
+## Command Center colors
+
+- `commandCenter.foreground`: Foreground color of the command center
+- `commandCenter.activeForeground`: Active foreground color of the command center
+- `commandCenter.background`: Background color of the command center
+- `commandCenter.activeBackground`: Active background color of the command center
+- `commandCenter.border`: Border color of the command center
 
 ## Notification colors
 
@@ -717,8 +736,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.starForeground`: The icon color for extension ratings.
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
-- `extensionSponsorButton.background`: Background color for extension sponsor button.
-- `extensionSponsorButton.hoverBackground`: Background hover color for extension sponsor button.
+- `extensionIcon.sponsorForeground`: The icon color for extension sponsor.
 
 ## Quick picker colors
 
@@ -965,6 +983,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 ## Notebook colors
 
+- `notebook.editorBackground`: Notebook background color.
 - `notebook.cellBorderColor`: The border color for notebook cells.
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.
