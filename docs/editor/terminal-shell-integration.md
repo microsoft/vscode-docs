@@ -183,5 +183,4 @@ There are several cases where automatic injection doesn't work, here are some co
   PROMPT_COMMAND=prompt
   ```
 
-- `$HISTCONTROL` contains the `erasedups` option, this changes functionality of the `history` command that shell integration depends upon.
 - Some shell plugins may disable VS Code's shell integration explicitly by unsetting `$VSCODE_SHELL_INTEGRATION` when they initialize.
