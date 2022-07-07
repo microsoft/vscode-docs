@@ -89,6 +89,14 @@ In some cases, you will want to access a different environment that has the abil
 
 The GitHub Repositories extension makes it easy for you to clone the repository locally with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kbstyle(F1)`) or by clicking on the Remote indicator in the Status bar.
 
+## Use your own compute power with the VS Code Server
+
+You may develop against another machine in VS Code for the Web using the VS Code Server.
+
+The VS Code Server is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+
+You may learn more about the VS Code Server in its [documentation](https://aka.ms/vscode-server-doc).
+
 ## Safe exploration
 
 VS Code for the Web runs entirely in your web browser's sandbox and offers a very limited execution environment.
