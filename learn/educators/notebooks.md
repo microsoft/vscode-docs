@@ -4,7 +4,7 @@ Area: educators
 TOCTitle: Jupyter Notebooks
 ContentId: 93f791e7-5723-4fc7-8061-7fa355d48a4d
 PageTitle: Jupyter Notebooks in Visual Studio Code
-DateApproved: 01/26/2021
+DateApproved: 1/26/2021
 MetaDescription: Jupyter Notebooks in Visual Studio Code
 ---
 

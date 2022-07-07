@@ -2,7 +2,7 @@
 Area: containers
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 PageTitle: Configure and troubleshoot debugging of Node.js apps running in a Docker container
-DateApproved: 09/23/2020
+DateApproved: 9/23/2020
 MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a Docker container, using Visual Studio Code.
 ---
 

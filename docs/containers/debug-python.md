@@ -2,7 +2,7 @@
 Area: containers
 ContentId: f9ffec31-9253-4f71-a4eb-79ea7b3a8f55
 PageTitle: Configure and troubleshoot debugging of Python apps running in a Docker container
-DateApproved: 07/26/2021
+DateApproved: 7/26/2021
 MetaDescription: How to configure and troubleshoot debugging of Python apps running in a Docker container, using Visual Studio Code.
 ---
 
