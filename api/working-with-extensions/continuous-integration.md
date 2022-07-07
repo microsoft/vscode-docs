@@ -143,11 +143,11 @@ jobs:
     runs-on: $\{{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Install Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.x
+        node-version: 16.x
     - run: npm install
     - run: xvfb-run -a npm test
       if: runner.os == 'Linux'
