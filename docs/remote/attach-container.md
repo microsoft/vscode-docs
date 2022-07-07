@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: remote
 TOCTitle: Attach to Container
 PageTitle: Attach to a running container using Visual Studio Code Remote Development
