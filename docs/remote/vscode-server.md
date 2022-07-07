@@ -21,7 +21,7 @@ We are now providing a standalone "VS Code Server," which is a service built off
 
 ### A preview of a larger journey
 
-VS Code Server is currently a private preview. In this early preview, the `code-server` CLI is distinct from the `code` CLI [you use today](/docs/editor/command-line.md#launching-from-command-line) to launch the desktop VS Code, to install extensions, and more (run `code -h` from the terminal to review the possible commands).
+The VS Code Server is currently a private preview. In this early preview, the `code-server` CLI is distinct from the `code` CLI [you use today](/docs/editor/command-line.md#launching-from-command-line) to launch the desktop VS Code, to install extensions, and more (run `code -h` from the terminal to review the possible commands).
 
 This is just the first step along the path towards a fully unified `code` CLI that lets you manage both the desktop and the server.
 
@@ -41,14 +41,14 @@ The VS Code Server experience includes a few components:
 The VS Code Server allows you to use VS Code in new ways, such as:
 
 * Developing on a remote machine where SSH support may be limited, or you need web-based access.
-* Developing on a machine that doesn’t support the installation of VS Code desktop, such as an iPad / tablet or Chromebook.
+* Developing on a machine that doesn't support the installation of VS Code desktop, such as an iPad / tablet or Chromebook.
 * Experiencing the client-side security benefit that all code can be executed in the browser sandbox.
 
 Continue reading to learn how to get started with the VS Code Server.
 
 ## Quick Start
 
-As the service that you use to securely connect to the VS Code Server is in private preview, you’ll need to request access through a [signup form](https://aka.ms/vscode-server-signup). You'll receive an email, hopefully only within a few weeks, once you can start using the service.
+As the service that you use to securely connect to the VS Code Server is in private preview, you'll need to request access through a [signup form](https://aka.ms/vscode-server-signup). You'll receive an email, hopefully only within a few weeks, once you can start using the service.
 
 At that point, here are step-by-step instructions to quickly get up and running:
 
@@ -104,7 +104,7 @@ Authenticate into the tunneling service by entering the device code at the provi
 
 > **Note:** You can also connect to your remote machine directly from vscode.dev: Open the command palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
 
-Congratulations, you’ve successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
+Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
 ## Things to try
 

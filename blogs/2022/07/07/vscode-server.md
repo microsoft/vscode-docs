@@ -7,13 +7,13 @@ Date: 2022-07-07
 Author: Brigit Murtaugh
 ---
 
-# The Visual Studio Code Server (private preview)
+# The Visual Studio Code Server
 
 July 7, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
 ## A remote present and future
 
-In 2019, we released the "Remote Development" extensions, which let you use VS Code locally to develop applications "remotely" on the Windows Subsystem for Linux (WSL), in Docker containers, and on remote physical or virtual machines you manage over SSH. In 2020, we took another step forward with remote development with GitHub Codespaces, which let you use VS Code locally or in a browser to develop applications on a remote virtual machine that is hosted and managed in the cloud for you.
+In 2019, we released the [Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) extensions, which let you use VS Code locally to develop applications "remotely" on the Windows Subsystem for Linux (WSL), in Docker containers, and on remote physical or virtual machines you manage over SSH. In 2020, we took another step forward with remote development with [GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces), which let you use VS Code locally or in a browser to develop applications on a remote virtual machine that is hosted and managed in the cloud for you.
 
 We can do this because VS Code is, by design, a multi-process application. Conceptually, the front end (where you type your code) runs in one process and a backend service (which hosts extensions, the terminal, debugging, etc.) runs in a separate process.
 
@@ -23,7 +23,7 @@ Today we are releasing a private preview of the backend service that makes this 
 
 ## Getting started
 
-As the service that you use to securely connect to the VS Code Server is in private preview, you’ll need to request access through a [signup form](https://aka.ms/vscode-server-signup). You'll receive an email, hopefully only within a few weeks, once you can start using the service.
+As the service that you use to securely connect to the VS Code Server is in private preview, you'll need to request access through a [signup form](https://aka.ms/vscode-server-signup). You'll receive an email, hopefully only within a few weeks, once you can start using the service.
 
 At that point, here are step-by-step instructions to quickly get up and running:
 
@@ -61,9 +61,9 @@ Authenticate into the tunneling service by entering the device code at the provi
 
 > **Note:** You can also connect to your WSL instance directly from vscode.dev: Open the command palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
 
-Congratulations, you’ve successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your WSL distro’s files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
+Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your WSL distro's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
-### A preview of a larger journey
+## A preview of a larger journey
 
 The VS Code Server is currently a private preview. In this early preview, the `code-server` CLI is distinct from the `code` CLI [you use today](https://code.visualstudio.com/docs/editor/command-line#_launching-from-command-line) to launch the desktop VS Code, to install extensions, and more (run `code -h` from the terminal 😊). This is just the first step along the path towards a fully unified `code` CLI that lets you manage both the desktop and the server.
 
