@@ -54,7 +54,7 @@ The script below contains `<InstallDir>` which must be replaced by VS Code's ins
 
 The script below contains `<InstallDir>` which must be replaced by VS Code's installation directory. This defaults to:
 
-- Linux: Find by running `echo "$(readlink -f "$(which code)")../resources"`
+- Linux: Find by running `echo  $(dirname "$(readlink -f "$(which code)")")/../resources`
 - macOS: `/Applications/Visual\ Studio\ Code.app/Contents/Resources`
 
 **bash**
