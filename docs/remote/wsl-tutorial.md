@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: remote
 TOCTitle: WSL Tutorial
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code

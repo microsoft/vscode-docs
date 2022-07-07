@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 13
 Area: remote
 TOCTitle: devcontainer CLI
 PageTitle: Installing and working with the devcontainer CLI
