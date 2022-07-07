@@ -89,7 +89,7 @@ In some cases, you will want to access a different environment that has the abil
 
 The GitHub Repositories extension makes it easy for you to clone the repository locally with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kbstyle(F1)`) or by clicking on the Remote indicator in the Status bar.
 
-## Bring your own compute with the VS Code Server
+## Use your own compute power with the VS Code Server
 
 You may develop against another machine in VS Code for the Web using the VS Code Server.
 
