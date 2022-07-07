@@ -50,6 +50,10 @@ Tutorial | Description
 
 [GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
 
+## The VS Code Server (private preview)
+
+[The VS Code Server](https://aka.ms/vscode-server-doc) is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH.
+
 ## Questions or feedback
 
 - See [Tips and Tricks](/docs/remote/troubleshooting.md) or the [FAQ](/docs/remote/faq.md).
