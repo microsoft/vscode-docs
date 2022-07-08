@@ -54,55 +54,59 @@ At that point, here are step-by-step instructions to quickly get up and running:
 
 1. Install the VS Code Server on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).
 
-There are different install commands for different architectures:
+    There are different install commands for different architectures:
 
-**Linux or macOS:**
+    **Linux or macOS:**
 
-```bash
-wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
-```
+    ```bash
+    wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
+    ```
 
-**Windows (x64):**
+    **Windows (x64):**
 
-Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
+    Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
 
-```bash
-New-Item "${HOME}\.vscode-server-launcher\bin" -Force -ItemType "directory"
-Invoke-WebRequest "https://aka.ms/vscode-server-launcher/x86_64-pc-windows-msvc" -OutFile "${HOME}\.vscode-server-launcher\bin\code-server.exe"
-[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";${HOME}\.vscode-server-launcher\bin", "User")
-```
+    ```bash
+    New-Item "${HOME}\.vscode-server-launcher\bin" -Force -ItemType "directory"
+    Invoke-WebRequest "https://aka.ms/vscode-server-launcher/x86_64-pc-windows-msvc" -OutFile "${HOME}\.vscode-server-launcher\bin\code-server.exe"
+    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";${HOME}\.vscode-server-launcher\bin", "User")
+    ```
 
-**Windows (ARM):**
+    **Windows (ARM):**
 
-Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
+    Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
 
-```bash
-New-Item "${HOME}\.vscode-server-launcher\bin" -Force -ItemType "directory"
-Invoke-WebRequest "https://aka.ms/vscode-server-launcher/aarch64-pc-windows-msvc" -OutFile "${HOME}\.vscode-server-launcher\bin\code-server.exe"
-[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";${HOME}\.vscode-server-launcher\bin", "User")
-```
+    ```bash
+    New-Item "${HOME}\.vscode-server-launcher\bin" -Force -ItemType "directory"
+    Invoke-WebRequest "https://aka.ms/vscode-server-launcher/aarch64-pc-windows-msvc" -OutFile "${HOME}\.vscode-server-launcher\bin\code-server.exe"
+    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";${HOME}\.vscode-server-launcher\bin", "User")
+    ```
 
 2. Start the VS Code Server by running the following in a remote terminal:
 
-```bash
-code-server
-```
+    ```bash
+    code-server
+    ```
 
 3. Your remote machine will communicate with vscode.dev through a secure tunnel, which allows you to connect to your computer from vscode.dev, no matter what network you're on.
 
-You'll be provided a device code and URL to authenticate your GitHub account into the VS Code Server's secure tunneling service.
+    You'll be provided a device code and URL to authenticate your GitHub account into the VS Code Server's secure tunneling service.
 
-![GitHub auth prompt in the VS Code Server CLI](images/vscode-server/cli-auth.png)
+    ```bash
+    Please enter the code 7644-1186 on https://github.com/login/device
+    ```
 
-Authenticate into the tunneling service by entering the device code at the provided auth URL.
+    Authenticate into the tunneling service by entering the device code at the provided auth URL.
 
 4. If this is your first time launching the VS Code Server on this remote machine, you'll be prompted to enter a machine name. The CLI will suggest a fun default "adjective-noun" name (examples shown below), which you can choose to accept too.
 
-![Example adjective-noun name for the remote](images/vscode-server/server-name.png)
+    ```bash
+    ? What would you like to call this machine? (elegant-pitta) >
+    ```
 
 5. After authenticating and providing a machine name, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your remote machine, you can open this URL on any device.
 
-> **Note:** You can also connect to your remote machine directly from vscode.dev: Open the command palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
+    > **Note:** You can also connect to your remote machine directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
 
 Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
@@ -113,7 +117,7 @@ Congratulations, you've successfully installed and run the VS Code Server! The c
 Upon first run of the VS Code Server, you'll be prompted to accept the terms of the license. You can view the license for the VS Code Server [here](https://aka.ms/vscode-server-license).
 
 ```bash
-"Do you accept the terms in the License Agreement (Y/n)?"
+Do you accept the terms in the License Agreement (Y/n)?
 ```
 
 You can explore the CLI's other commands by running `code-server -h`. One of the many things you can do is automatically accept the license, by launching with `--accept-server-license-terms`.
@@ -128,7 +132,7 @@ As with the VS Code Server's CLI, the Remote-Server extension in VS Code has add
 
 **Remote Server: Connect to Remote...** allows you to connect to existing remote machines right from your local VS Code instance, rather than grabbing the vscode.dev link in the remote terminal. You can connect to a remote machine as long as the server is still running on it.
 
-![VS Code command palette with remote servers listed](images/vscode-server/remote-servers.png)
+![VS Code Command Palette with remote servers listed](images/vscode-server/remote-servers.png)
 
 You can also view your existing remote machines in the Remote Explorer view (which you can display with the command **View: Show Remote Explorer**).
 
