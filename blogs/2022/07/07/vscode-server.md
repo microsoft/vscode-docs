@@ -29,37 +29,41 @@ At that point, here are step-by-step instructions to quickly get up and running:
 
 1. Install the VS Code Server on your remote machine (or wherever you want to develop against).
 
-**Note:** There are different install commands for different remote architectures, which you can review in the [server documentation](https://aka.ms/vscode-server-arch). This post will set up the VS Code Server in a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/) (WSL) instance, which provides a true, isolated Linux environment on Windows and can server as our "remote," isolated machine.
+    **Note:** There are different install commands for different remote architectures, which you can review in the [server documentation](https://aka.ms/vscode-server-arch). This post will set up the VS Code Server in a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/) (WSL) instance, which provides a true, isolated Linux environment on Windows and can server as our "remote," isolated machine.
 
-Run the following command in a WSL terminal:
+    Run the following command in a WSL terminal:
 
-``` bash
-wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
-```
+    ``` bash
+    wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
+    ```
 
 2. Start the VS Code Server by running the following command in your WSL terminal:
 
-```bash
-code-server
-```
+    ```bash
+    code-server
+    ```
 
-> **Tip:** Run `code-server -h` to see all the available commands to launch and manage the server.
+    > **Tip:** Run `code-server -h` to see all the available commands to launch and manage the server.
 
 3. Your WSL distro will communicate with vscode.dev through a secure tunnel, which allows you to connect to your computer from vscode.dev, no matter what network you're on.
 
-You'll be provided a device code and URL to authenticate your GitHub account into the VS Code Server's secure tunneling service.
+    You'll be provided a device code and URL to authenticate your GitHub account into the VS Code Server's secure tunneling service.
 
-![GitHub auth prompt in the VS Code Server CLI](cli-auth.png)
+    ```bash
+    Please enter the code 7644-1186 on https://github.com/login/device
+    ```
 
-Authenticate into the tunneling service by entering the device code at the provided auth URL.
+    Authenticate into the tunneling service by entering the device code at the provided auth URL.
 
 4. If this is your first time launching the VS Code Server from this WSL instance, you'll be prompted to enter a name for your connection. The CLI will suggest a fun default "adjective-noun" name (examples shown below), which you can choose to accept too.
 
-![Adjective-noun name examples](server-name.png)
+    ```bash
+    ? What would you like to call this machine? (elegant-pitta) >
+    ```
 
 5. After authenticating and providing a machine name, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your WSL instance, you can open this URL on any device.
 
-> **Note:** You can also connect to your WSL instance directly from vscode.dev: Open the command palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
+    > **Note:** You can also connect to your WSL instance directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
 
 Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your WSL distro's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
