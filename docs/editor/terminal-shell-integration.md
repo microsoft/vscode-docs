@@ -97,7 +97,7 @@ One of the things shell integration enables is the ability to get the exit codes
 
 The decorations can be interacted with to give some contextual actions like re-running the command:
 
-![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?]((images/terminal-shell-integration/decoration-menu.png)
+![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/terminal-shell-integration/decoration-menu.png)
 
 The command decorations can be configured with the following settings:
 
