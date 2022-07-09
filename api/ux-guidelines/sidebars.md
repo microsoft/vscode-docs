@@ -9,7 +9,7 @@ MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extensio
 
 # Sidebars
 
-The Primary and Secondary Sidebars one of more [Views](api/ux-guidelines/views) contributed by a [View Container](api/ux-guidelines/views#view-containers). Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
+The Primary and Secondary Sidebars one of more [Views](/api/ux-guidelines/views) contributed by a [View Container](/api/ux-guidelines/views#view-containers). Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
 
 **✔️ Do**
 
