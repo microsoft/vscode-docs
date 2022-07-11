@@ -2,7 +2,7 @@
 Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
 PageTitle: Connect to Docker engine running on a remote machine
-DateApproved: 08/16/2021
+DateApproved: 8/16/2021
 MetaDescription: Connect via SSH to Docker engine running on a remote machine and use the remote machine as a development environment for Visual Studio Code.
 ---
 # Connect to remote Docker over SSH

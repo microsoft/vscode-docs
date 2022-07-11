@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -163,7 +163,7 @@ In the example above, an extension declares a new type `templateType` and a new 
 }
 ```
 
-The `semanticTokenColors` value `#ff0011"` shown above applies to both `type` and all it's subtypes, including `templateType`.
+The `semanticTokenColors` value `"#ff0011"` shown above applies to both `type` and all it's subtypes, including `templateType`.
 
 Along with custom token types, extensions can define how these are mapped to TextMate scopes. This is described in the [Custom Mappings](#custom-textmate-scope-mappings) section. Note that custom mapping rules are not automatically inherited from the super type. Instead, subtypes need to redefine the mapping, preferably to more specific scopes.
 

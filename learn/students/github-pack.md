@@ -4,7 +4,7 @@ Area: students
 TOCTitle: GitHub in VS Code
 ContentId: 683595d8-cf1f-4b24-a206-317b0855f284
 PageTitle: Get Started with GitHub in Visual Studio Code
-DateApproved: 01/07/2021
+DateApproved: 1/7/2021
 MetaDescription: Overview of resources for using GitHub in Visual Studio Code.
 ---
 # GitHub Student Developer Pack

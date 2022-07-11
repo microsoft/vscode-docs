@@ -1,11 +1,11 @@
 ---
-Order: 12
+Order: 13
 Area: remote
 TOCTitle: devcontainer CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the VS Code development container (devcontainer) command line interface with the Visual Studio Code Remote - Containers extension
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 ---
 # Development container CLI
 

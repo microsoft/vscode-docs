@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 1e37b895-d0b3-45b8-a071-107bd665248e
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for views in a Visual Studio Code extension.
@@ -34,13 +34,13 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 
 ## View Locations
 
-Views can be placed in [existing View Containers](/api/references/contribution-points#contributes.views), such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom [View Container](api/ux-guidelines/views#view-containers) via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.
+Views can be placed in [existing View Containers](/api/references/contribution-points#contributes.views), such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom [View Container](/api/ux-guidelines/views#view-containers) via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.
 
 ![View locations](images/examples/view-locations.png)
 
 ## View Containers
 
-View Containers, as the name implies, are the "parent" container in which Views are rendered. Extensions can contribute custom View Containers to the [Activity Bar](api/ux-guidelines/activity-bar)/[Primary Sidebar](api/ux-guidelines/sidebars) or to the Panel. Users can drag an entire View Container from the Activity Bar to the Panel (or vice versa) and can also move individual Views.
+View Containers, as the name implies, are the "parent" container in which Views are rendered. Extensions can contribute custom View Containers to the [Activity Bar](/api/ux-guidelines/activity-bar)/[Primary Sidebar](/api/ux-guidelines/sidebars) or to the Panel. Users can drag an entire View Container from the Activity Bar to the Panel (or vice versa) and can also move individual Views.
 
 ![Example of a View Container](images/examples/view-container.png)
 

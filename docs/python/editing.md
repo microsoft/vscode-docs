@@ -119,7 +119,7 @@ The following settings apply to the individual formatters. The Python extension 
 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
-| autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
+| autopep8 | pip install --upgrade autopep8 | autopep8Args | autopep8Path |
 | black (see note) | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
 

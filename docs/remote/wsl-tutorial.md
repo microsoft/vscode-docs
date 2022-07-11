@@ -1,11 +1,11 @@
 ---
-Order: 8
+Order: 9
 Area: remote
 TOCTitle: WSL Tutorial
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
 MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 ---
 # Remote development in WSL
 

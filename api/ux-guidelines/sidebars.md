@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 05bd995d-946e-4046-8816-c6d50dccb1b4
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extension.
@@ -9,7 +9,7 @@ MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extensio
 
 # Sidebars
 
-The Primary and Secondary Sidebars one of more [Views]((api/ux-guidelines/views) contributed by a [View Container](api/ux-guidelines/views#view-containers). Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
+The Primary and Secondary Sidebars one of more [Views](/api/ux-guidelines/views) contributed by a [View Container](/api/ux-guidelines/views#view-containers). Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
 
 **✔️ Do**
 

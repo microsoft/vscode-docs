@@ -1,11 +1,11 @@
 ---
-Order: 14
+Order: 15
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 ---
 # Remote Development Tips and Tricks
 

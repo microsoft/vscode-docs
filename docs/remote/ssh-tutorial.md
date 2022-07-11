@@ -1,11 +1,11 @@
 ---
-Order: 6
+Order: 7
 Area: remote
 TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 ---
 # Remote development over SSH
 

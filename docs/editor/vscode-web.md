@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
@@ -88,6 +88,14 @@ As a theme author, you can add the following badge to your extension readme to a
 In some cases, you will want to access a different environment that has the ability to run code. You can switch to working on a repository in a development environment that has support for a local file system and full language and development tooling.
 
 The GitHub Repositories extension makes it easy for you to clone the repository locally with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kbstyle(F1)`) or by clicking on the Remote indicator in the Status bar.
+
+## Use your own compute power with the VS Code Server
+
+You may develop against another machine in VS Code for the Web using the VS Code Server.
+
+The VS Code Server is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+
+You may learn more about the VS Code Server in its [documentation](https://aka.ms/vscode-server-doc).
 
 ## Safe exploration
 

@@ -161,6 +161,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/setup/enterprise</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/setup/uninstall</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -267,6 +272,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/editor/integrated-terminal</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/editor/terminal-shell-integration</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -792,6 +802,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/remote/codespaces</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/vscode-server</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

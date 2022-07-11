@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 06ce3b57-9fd5-428a-98aa-d730edbd2728
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for the Panel Bar in a Visual Studio Code extension.
@@ -25,7 +25,7 @@ The Panel functions as another main area to display [View Containers](/api/refer
 
 ## Panel Toolbar
 
-The Panel Toolbar can expose options scoped to the currently selected View. For example the Terminal view exposes [View Actions](/api/extension-guides/tree-view#view-actions) to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions. Similar to the [Sidebar Toolbar](api/ux-guidelines/sidebars#sidebar-toolbar), the toolbar will only render if there is just a single View. If more than one View is used, each View will render its own toolbar.
+The Panel Toolbar can expose options scoped to the currently selected View. For example the Terminal view exposes [View Actions](/api/extension-guides/tree-view#view-actions) to add a new terminal, split the view layout, and more. Switching to the Problems view exposes a different set of actions. Similar to the [Sidebar Toolbar](/api/ux-guidelines/sidebars#sidebar-toolbar), the toolbar will only render if there is just a single View. If more than one View is used, each View will render its own toolbar.
 
 **✔️ Do**
 

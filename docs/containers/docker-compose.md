@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Docker Compose
 ContentId: c63d86a0-48f8-4724-ba24-fa5ce4199632
 PageTitle: Use Docker Compose to work with multiple containers
-DateApproved: 07/16/2021
+DateApproved: 7/16/2021
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
 # Use Docker Compose

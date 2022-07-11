@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -225,21 +225,6 @@ Depending on the type of link, activating it will do one of the following:
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
 ![A branch link is hovered in the terminal](images/integrated-terminal/gitlens-link.png)
-
-## Shell integration
-
-Shell integration turns on features like enhanced command tracking and current working directory detection.
-
-![Command decorations show up on the left of the command as well as in the scroll bar when shell integration is enabled](images/integrated-terminal/shell-integration.png)
-
-Shell integration works by injecting a script that is run when the shell is initialized and lets VS Code gain insight into what is happening within the terminal. Note that the script injection may not work if you have custom arguments defined in the terminal profile.
-
-Supported shells:
-
-* Linux/macOS: bash, pwsh, zsh
-* Windows: pwsh
-
-You can try it out by setting `terminal.integrated.shellIntegration.enabled` to `true`.
 
 ### Complex bash $PROMPT_COMMAND
 

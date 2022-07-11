@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 6/9/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -251,7 +251,7 @@ An extension can opt-in to sponsorship by adding a `sponsor` field in its `packa
 
 >**Note:** Make sure to use the `vsce` version >= `2.9.1` when publishing your extension for sponsorship to work.
 
-If an extension opts-into this VS Code will render a **Sponsor** button in the Extensions view Details page.
+If an extension opts-into this VS Code will render a **Sponsor** button in the extension details page header.
 
 ![Sponsor button in extension details page](images/publishing-extension/sponsor.png)
 
@@ -299,13 +299,12 @@ Users can choose to install pre-release versions of extensions in VS Code or VS 
 
 ![GitHub PR extension pre-release version in the extensions view](images/publishing-extension/pre-release.png)
 
-For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the publish step:
+For extensions to publish a pre-release version, a `pre-release` flag needs to be passed in the package and publish step:
 
 ```bash
+vsce package --pre-release
 vsce publish --pre-release
 ```
-
-Alternatively, the `pre-release` flag can also be passed in the `package` step.
 
 We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Support for this will arrive in the future.
 
