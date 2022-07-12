@@ -105,7 +105,7 @@ Views can expose [View Actions](/api/extension-guides/tree-view#view-actions) on
 
 * [View Container API reference](/api/references/contribution-points#contributes.viewsContainers)
 * [View API reference](/api/references/contribution-points#contributes.views)
-* [View Actions](/api/extension-guides/tree-view#view-actions)
+* [View Actions extension guide](/api/extension-guides/tree-view#view-actions)
 * [Tree View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
 * [Welcome View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
 * [Webview View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)

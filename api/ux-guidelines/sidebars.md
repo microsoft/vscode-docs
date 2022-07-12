@@ -53,7 +53,7 @@ As with other toolbars, be careful to not add too many actions to reduce clutter
 
 - [View Container contribution point](/api/references/contribution-points#contributes.viewsContainers)
 - [View contribution point](/api/references/contribution-points#contributes.views)
-- [View Actions guide](/api/extension-guides/tree-view#view-actions)
+- [View Actions extension guide](/api/extension-guides/tree-view#view-actions)
 - [Welcome View contribution point](/api/references/contribution-points#contributes.viewsWelcome)
 - [Tree View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
 - [Webview View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)

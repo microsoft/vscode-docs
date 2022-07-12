@@ -49,4 +49,4 @@ The Panel Toolbar can expose options scoped to the currently selected View. For 
 
 - [View Container contribution point](/api/references/contribution-points#contributes.viewsContainers)
 - [View contribution point](/api/references/contribution-points#contributes.views)
-- [View Actions](/api/extension-guides/tree-view#view-actions)
+- [View Actions extension guide](/api/extension-guides/tree-view#view-actions)
