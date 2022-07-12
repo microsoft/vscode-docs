@@ -25,5 +25,5 @@ The Activity Bar is a core navigation surface in VS Code. Extensions can contrib
 
 ## Links Resources
 
-- [View Container Contribution Point](/api/references/contribution-points#contributes.viewsContainers)
-- [View API Contribution Point](/api/references/contribution-points#contributes.views)
+- [View Container contribution point](/api/references/contribution-points#contributes.viewsContainers)
+- [View contribution point](/api/references/contribution-points#contributes.views)

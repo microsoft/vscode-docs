@@ -28,9 +28,9 @@ Declarative language features are defined in configuration files. Examples inclu
 
 We have three guides for writing Language Extensions that provide Declarative Language Features.
 
-- [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through writing a simple TextMate grammar and converting it into a VS Code extension.
-- [Snippet Completion Guide](/api/language-extensions/snippet-guide): This guide explains how to bundle a set of snippets into an extension.
-- [Language Configuration Guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
+- [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through writing a simple TextMate grammar and converting it into a VS Code extension.
+- [Snippet Completion guide](/api/language-extensions/snippet-guide): This guide explains how to bundle a set of snippets into an extension.
+- [Language Configuration guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
 
 ## Programmatic language features
 
