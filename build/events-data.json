@@ -1,5 +1,34 @@
 [
       {
+        "title": "Accelerate cloud development in VS Code",
+        "description": "Join us and learn about new Azure extensions for VS Code. In this stream, we’ll cover managing apps in Azure from VS Code and introduce the new Azure Developer CLI extension that accelerates the time it takes for you to get started on Azure.\n",
+        "speakers": [
+          {
+            "name": "Savannah Ostrowski",
+            "link": "https://github.com/savannahostrowski",
+            "title": "Program Manager"
+          },
+          {
+            "name": "Matt Hernandez",
+            "link": "https://github.com/fiveisprime",
+            "title": "Program Manager"
+          }
+        ],
+        "start": "2022-07-14T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/8fNIe_rjy6s"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220714.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220714/ics",
+          "google": "https://aka.ms/vscodelive/20220714/google"
+        },
+        "youtubeId": "8fNIe_rjy6s"
+      },
+      {
         "isReleaseParty": "1.69",
         "title": "VS Code 1.69 Release Party",
         "description": "Live event and Q&A with the VS Code team to discuss highlights from the June, 1.69 release.",
