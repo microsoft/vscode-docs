@@ -185,3 +185,13 @@ There are several cases where automatic injection doesn't work, here are some co
 
 - `$HISTCONTROL` contains the `erasedups` option, this changes functionality of the `history` command that shell integration depends upon.
 - Some shell plugins may disable VS Code's shell integration explicitly by unsetting `$VSCODE_SHELL_INTEGRATION` when they initialize.
+
+### Why are command decorations showing when the feature is disabled?
+
+The likely cause of this is your system has shell integration for another terminal installed which [VS Code understands](#_final-term-shell-integration-osc-133-st). If you just don't like the decorations you can hide them with the following setting:
+
+```json
+"terminal.integrated.shellIntegration.decorationsEnabled": false
+```
+
+Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#_command-navigation).
