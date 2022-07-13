@@ -286,7 +286,7 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
-> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. Environment variables contained in the `.env` file specified by the `python.envFile` setting (user or workspace) will override variables defined in the `envFile` specified in `launch.json`, as well as any `env` variables defined in the `launch.json` file itself. Similarly, environment variables defined in the `envFile` specified in `launch.json` will override `env` variables defined in the `launch.json` file.
+> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. All `env` variables defined in the `launch.json` file will override variables contained in the `.env` file, specified by the `python.envFile` setting (user or workspace).Similarly, `env` variables defined in the `launch.json` file will override the environment variables defined in the `envFile` that are specified in `launch.json`.
 
 ### Variable substitution
 
