@@ -869,9 +869,9 @@ git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 
 ### Configure debugger
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and select **Debug: Open launch.json**, which will prompt you to select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
+From the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file**, which will prompt you to select the environment that matches your project (Node.js, Python, C++, etc). This will generate a `launch.json` file. Node.js support is built-in and other environments require installing the appropriate language extensions. See the debugging [documentation](/docs/editor/debugging.md) for more details.
 
-![configure debugging](images/tips-and-tricks/configure_debug.gif)
+![configure debugging](images/tips-and-tricks/configure-debug.png)
 
 ### Breakpoints and stepping through
 

@@ -59,7 +59,7 @@ Extensions can add items to the various containers listed above.
 
 ### View Toolbar
 
-Extensions can expose View-specific actions that appear as buttons on a [View Toolbar](/api/ux-guidelines/views#view-toolbars).
+Extensions can expose View-specific [actions](/api/ux-guidelines/views#view-actions) that appear as buttons on a View Toolbar.
 
 ### Sidebar Toolbar
 

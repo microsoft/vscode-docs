@@ -34,13 +34,13 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 
 ## View Locations
 
-Views can be placed in [existing View Containers](/api/references/contribution-points#contributes.views), such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom [View Container](api/ux-guidelines/views#view-containers) via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.
+Views can be placed in [existing View Containers](/api/references/contribution-points#contributes.views), such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom [View Container](/api/ux-guidelines/views#view-containers) via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.
 
 ![View locations](images/examples/view-locations.png)
 
 ## View Containers
 
-View Containers, as the name implies, are the "parent" container in which Views are rendered. Extensions can contribute custom View Containers to the [Activity Bar](api/ux-guidelines/activity-bar)/[Primary Sidebar](api/ux-guidelines/sidebars) or to the Panel. Users can drag an entire View Container from the Activity Bar to the Panel (or vice versa) and can also move individual Views.
+View Containers, as the name implies, are the "parent" container in which Views are rendered. Extensions can contribute custom View Containers to the [Activity Bar](/api/ux-guidelines/activity-bar)/[Primary Sidebar](/api/ux-guidelines/sidebars) or to the Panel. Users can drag an entire View Container from the Activity Bar to the Panel (or vice versa) and can also move individual Views.
 
 ![Example of a View Container](images/examples/view-container.png)
 
@@ -103,9 +103,9 @@ Views can expose [View Actions](/api/extension-guides/tree-view#view-actions) on
 
 ## Links
 
-* [View Container API Reference](/api/references/contribution-points#contributes.viewsContainers)
-* [View API Reference](/api/references/contribution-points#contributes.views)
-* [View Actions](/api/extension-guides/tree-view#view-actions)
-* [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
-* [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
-* [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+* [View Container API reference](/api/references/contribution-points#contributes.viewsContainers)
+* [View API reference](/api/references/contribution-points#contributes.views)
+* [View Actions extension guide](/api/extension-guides/tree-view#view-actions)
+* [Tree View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
+* [Welcome View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
+* [Webview View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)

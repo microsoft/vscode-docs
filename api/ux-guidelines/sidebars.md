@@ -9,7 +9,7 @@ MetaDescription: UX guidelines for the Side Bar in a Visual Studio Code extensio
 
 # Sidebars
 
-The Primary and Secondary Sidebars one of more [Views]((api/ux-guidelines/views) contributed by a [View Container](api/ux-guidelines/views#view-containers). Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
+The Primary and Secondary Sidebars one of more [Views](/api/ux-guidelines/views) contributed by a [View Container](/api/ux-guidelines/views#view-containers). Extensions can contribute Views to an existing View Container (for example, Explorer) or they can contribute an entirely new View Container.
 
 **✔️ Do**
 
@@ -51,10 +51,10 @@ As with other toolbars, be careful to not add too many actions to reduce clutter
 
 ## Links
 
-- [View Container Contribution Point](/api/references/contribution-points#contributes.viewsContainers)
-- [View Contribution Point](/api/references/contribution-points#contributes.views)
-- [View Actions Guide](/api/extension-guides/tree-view#view-actions)
-- [Welcome View Contribution Point](/api/references/contribution-points#contributes.viewsWelcome)
-- [Tree View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
-- [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
-- [Welcome View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)
+- [View Container contribution point](/api/references/contribution-points#contributes.viewsContainers)
+- [View contribution point](/api/references/contribution-points#contributes.views)
+- [View Actions extension guide](/api/extension-guides/tree-view#view-actions)
+- [Welcome View contribution point](/api/references/contribution-points#contributes.viewsWelcome)
+- [Tree View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample)
+- [Webview View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+- [Welcome View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample)

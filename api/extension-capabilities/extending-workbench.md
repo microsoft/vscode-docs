@@ -37,7 +37,7 @@ With the [`contributes.views`](/api/references/contribution-points#contributes.v
 
 ## Webview
 
-Webviews are highly customizable views built with HTML/CSS/JavaScript. They display next to text editors in the Editor Group areas. Read more about Webview in the [Webview Guide](/api/extension-guides/webview).
+Webviews are highly customizable views built with HTML/CSS/JavaScript. They display next to text editors in the Editor Group areas. Read more about Webview in the [Webview guide](/api/extension-guides/webview).
 
 ## Status Bar Item
 
@@ -46,4 +46,4 @@ Extensions can create custom [`StatusBarItem`](/api/references/vscode-api#Status
 - Show text and icons
 - Run a command on click
 
-A Status Bar extension sample can be found [here](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample).
+You can learn more by reviewing the [Status Bar extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample).

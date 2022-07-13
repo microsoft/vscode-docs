@@ -11,7 +11,7 @@ MetaDescription: UX guidelines for status bar and status bar items in a Visual S
 
 The [Status Bar](/api/extension-capabilities/extending-workbench#status-bar-item) sits at the bottom of the VS Code workbench and displays information and actions that relate to your workspace. Items are placed into two groups: Primary (left) and Secondary (right). Items that relate to the entire workspace (status, problems/warnings, sync) go on the left and items that are secondary or contextual (language, spacing, feedback) go on the right. Limit the number of items added, as other extensions contribute to the same area.
 
-![Status Bar Example](images/examples/status-bar.png)
+![Status Bar example](images/examples/status-bar.png)
 
 **✔️ Do**
 
@@ -56,5 +56,5 @@ If you need to show an item that is highly visible for warning or error purposes
 
 ## Links
 
-* [Status Bar Item API Reference](/api/references/vscode-api#StatusBarItem)
-* [Status Bar Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample)
+* [Status Bar Item API reference](/api/references/vscode-api#StatusBarItem)
+* [Status Bar extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample)
