@@ -151,7 +151,7 @@ VS Code supports several custom escape sequences:
 
 VS Code's custom escape sequences are currently designed to only be triggered from within the shell integration script. We may document these in the future which would make it easier for shells to create their own VS Code shell integration scripts.
 
-### Final Term shell integration 'OSC 133 ; <...> ST'
+### Final Term shell integration
 
 VS Code supports Final Term's shell integration sequences which allows non-VS Code shell integration scripts to work in VS Code. This results in a somewhat degraded experience though as it doesn't support as many features as `OSC 633`. Here are the specific sequences that are supported:
 
@@ -188,10 +188,10 @@ There are several cases where automatic injection doesn't work, here are some co
 
 ### Why are command decorations showing when the feature is disabled?
 
-The likely cause of this is your system has shell integration for another terminal installed which [VS Code understands](#_final-term-shell-integration-osc-133-st). If you just don't like the decorations you can hide them with the following setting:
+The likely cause of this is that your system has shell integration for another terminal installed that [VS Code understands](#final-term-shell-integration). If you don't want any decorations, you can hide them with the following setting:
 
 ```json
 "terminal.integrated.shellIntegration.decorationsEnabled": false
 ```
 
-Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#_command-navigation).
+Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#command-navigation).
