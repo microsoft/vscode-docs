@@ -29,6 +29,8 @@ This standard, easy way will not work for some advanced use cases like in sub-sh
 
 To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `terminal.integrated.shellIntegration.enabled` to `false`, though not mandatory.
 
+> **Tip:** When using the [Insiders build](https://code.visualstudio.com/insiders), replace `code` with `code-insiders` below.
+
 #### bash
 
 Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in VS Code.
