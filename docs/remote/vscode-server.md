@@ -66,20 +66,20 @@ At that point, here are step-by-step instructions to quickly get up and running:
 
     Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
 
-    ```bash
-    New-Item "${HOME}\.vscode-server-launcher\bin" -Force -ItemType "directory"
-    Invoke-WebRequest "https://aka.ms/vscode-server-launcher/x86_64-pc-windows-msvc" -OutFile "${HOME}\.vscode-server-launcher\bin\code-server.exe"
-    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";${HOME}\.vscode-server-launcher\bin", "User")
+    ```powershell
+    New-Item "$HOME\.vscode-server-launcher\bin" -ItemType "directory" -Force
+    Invoke-WebRequest "https://aka.ms/vscode-server-launcher/x86_64-pc-windows-msvc" -OutFile "$HOME\.vscode-server-launcher\bin\code-server.exe"
+    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$HOME\.vscode-server-launcher\bin", "User")
     ```
 
     **Windows (ARM):**
 
     Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
 
-    ```bash
-    New-Item "${HOME}\.vscode-server-launcher\bin" -Force -ItemType "directory"
-    Invoke-WebRequest "https://aka.ms/vscode-server-launcher/aarch64-pc-windows-msvc" -OutFile "${HOME}\.vscode-server-launcher\bin\code-server.exe"
-    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";${HOME}\.vscode-server-launcher\bin", "User")
+    ```powershell
+    New-Item "$HOME\.vscode-server-launcher\bin" -ItemType "directory" -Force
+    Invoke-WebRequest "https://aka.ms/vscode-server-launcher/aarch64-pc-windows-msvc" -OutFile "$HOME\.vscode-server-launcher\bin\code-server.exe"
+    [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$HOME\.vscode-server-launcher\bin", "User")
     ```
 
 2. Start the VS Code Server by running the following in a remote terminal:
