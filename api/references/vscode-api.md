@@ -15404,7 +15404,7 @@ a set of parameters.</p>
 <a name="SignatureInformation.activeParameter"></a><span class="ts" id=1042 data-target="#details-1042" data-toggle="collapse"><span class="ident">activeParameter</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span>
 <div class="details collapse" id="details-1042">
 <div class="comment"><p>The index of the active parameter.</p>
-<p>If provided, this is used in place of <a href="#SignatureHelp.activeSignature"><code>SignatureHelp.activeSignature</code></a>.</p>
+<p>If provided, this is used in place of <a href="#SignatureHelp.activeParameter"><code>SignatureHelp.activeParameter</code></a>.</p>
 </div>
 </div>
 
