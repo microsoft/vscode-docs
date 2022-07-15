@@ -58,6 +58,8 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | completeFunctionParens | false | Adds parentheses to function completions. Accepted values are `true` and `false`. |
 | useLibraryCodeForTypes | true | Parses the source code for a package when a type stub is not found. Available values are `true` and `false`. |
 | autoImportCompletions | true | Controls the offering of auto-imports in completions. Available values are `true` and `false`. |
+| inlayHints.variableTypes | false | Whether to display inlay hints for variable types. |
+| inlayHints.functionReturnTypes | false |  Whether to display inlay hints for function return types.|
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
 
 > **Note:** Similar to the core Python extension, Pylance has an Insiders program that offers early access to new features and improvements. To enable the Insiders program, set `pylance.insidersChannel` to `daily`. This setting enables a daily check for new builds. At startup or when the Insiders setting is changed, Pylance will automatically update and prompt you to reload. To leave the Insiders program, just remove the setting, or explicitly set it to `off` instead. You might be prompted to downgrade your extension to the latest stable version.
