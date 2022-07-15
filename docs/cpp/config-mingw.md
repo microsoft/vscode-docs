@@ -222,7 +222,7 @@ Before you start stepping through the code, let's take a moment to notice severa
 
    ![Initial breakpoint](images/playbutton/breakpoint-debug.png)
 
-- The Run view on the left shows debugging information. You'll see an example later in the tutorial.
+- The **Run and Debug** view on the left shows debugging information. You'll see an example later in the tutorial.
 
 - At the top of the code editor, a debugging control panel appears. You can move this around the screen by grabbing the dots on the left side.
 

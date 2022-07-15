@@ -10,7 +10,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 ---
 # Debugging in Visual Studio Code
 
-Debugging is a core feature of Visual Studio Code. In this tutorial, we will show you how to run and debug a program in VS Code. We’ll take a tour of the Run View, explore some debugging features, and end by setting a breakpoint.
+Debugging is a core feature of Visual Studio Code. In this tutorial, we will show you how to run and debug a program in VS Code. We'll take a tour of the **Run and Debug** view, explore some debugging features, and end by setting a breakpoint.
 
 > **Tip:** To use the debugging features demonstrated in this video for Node.js, you will need to first install [Node.js](https://nodejs.org/en/). To follow along with the Python portion of the video, you'll need to install [Python](https://www.python.org/downloads/).
 

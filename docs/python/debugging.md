@@ -177,7 +177,7 @@ There may be instances where you need to debug a Python script that's invoked lo
 
 1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `debugpy.wait_for_client()` call.
 
-1. Switch to the Run view, select the appropriate configuration from the debugger dropdown list, and start the debugger.
+1. Switch to the **Run and Debug** view (`kb(workbench.view.debug)`), select the appropriate configuration from the debugger dropdown list, and start the debugger.
 
 1. The debugger should stop on the `debugpy.breakpoint()` call, from which point you can use the debugger normally. You also have the option of setting other breakpoints in the script code using the UI instead of using `debugpy.breakpoint()`.
 
@@ -269,7 +269,7 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
     #debugpy.wait_for_client()
     ```
 
-1. Local computer: switch to the Run view in VS Code, select the **Python: Attach** configuration
+1. Local computer: switch to the **Run and Debug** view (`kb(workbench.view.debug)`) in VS Code, select the **Python: Attach** configuration
 
 1. Local computer: set a breakpoint in the code where you want to start debugging.
 

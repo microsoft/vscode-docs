@@ -26,7 +26,7 @@ MetaDescription: Debug a .NET app running in a Docker container, using Visual St
    ![csharpPrompt](images/debug/csharp-prompt.png)
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Docker: Add Docker Files to Workspace...**. If you have already dockerized your app, you can instead do **Docker: Initialize for Docker debugging**. Follow the prompts.
-1. Switch to the Run view (`kb(workbench.view.debug)`).
+1. Switch to the **Run and Debug** view (`kb(workbench.view.debug)`).
 1. Select the **Docker .NET Core Launch** launch configuration.
 1. Optionally, set a breakpoint.
 1. Start debugging! (`kb(workbench.action.debug.start)`)

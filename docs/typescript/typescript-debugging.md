@@ -31,9 +31,7 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 }
 ```
 
-For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the Run view (`kb(workbench.view.debug)`) and press the gear icon or **Create a launch.json** link to **Configure or Fix 'launch.json'**.
-
-![configure launch.json](images/debugging/configure-debugging.png)
+For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link. This will create a `launch.json` file in a `.vscode` folder with default values detected in your project.
 
 This will create a `launch.json` file in a `.vscode` folder with default values detected in your project.
 
@@ -112,7 +110,7 @@ tsconfig.json
 
 Run `tsc` to build the app and then test by opening `helloweb.html` in your browser (you can right-click `helloweb.html` in the File Explorer and select **Copy Path** to paste into your browser).
 
-In the Run view, press the gear icon to create a `launch.json` file selecting **Edge: launch** as the debugger, or **Chrome** if you prefer.
+In the Run and Debug view (`kb(workbench.view.debug)`), select **create a launch.json file** to create a `launch.json` file selecting **Web App (Edge)** as the debugger, or **Web App (Chrome)** if you prefer.
 
 Update the `launch.json` to specify the local file URL to `helloweb.html`:
 
@@ -121,17 +119,17 @@ Update the `launch.json` to specify the local file URL to `helloweb.html`:
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-msedge",
+            "type": "msedge",
             "request": "launch",
             "name": "Launch Edge against localhost",
-            "url": "file:///C:/Users/username/deleteMe/HelloWeb/helloweb.html",
+            "url": "file:///C:/Users/username/HelloWeb/helloweb.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
 }
 ```
 
-The Run view configuration dropdown will now show the new configuration **Launch Edge against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
+The **Run and Debug** view configuration dropdown will now show the new configuration **Launch Edge against localhost**. If you run that configuration, your browser will launch with your web page. Open `helloweb.ts` in the editor and click the left gutter to add a breakpoint (it will be displayed as a red circle). Press `kb(workbench.action.debug.start)` to start the debug session, which launches the browser and hits your breakpoint in `helloweb.ts`.
 
 ![client-side debug breakpoint](images/debugging/client-side-debug-breakpoint.png)
 

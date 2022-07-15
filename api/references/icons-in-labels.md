@@ -242,7 +242,7 @@ The ID of the icon identifies the location where the icon is used. The default c
 |<i class="codicon codicon-issues"></i>|remote-explorer-review-issues|issues|Review issue icon in the remote explorer view.|
 |<i class="codicon codicon-remote-explorer"></i>|remote-explorer-view-icon|remote-explorer|View icon of the remote explorer view.|
 |<i class="codicon codicon-chevron-up"></i>|review-comment-collapse|chevron-up|Icon to collapse a review comment.|
-|<i class="codicon codicon-debug-alt"></i>|run-view-icon|debug-alt|View icon of the run view.|
+|<i class="codicon codicon-debug-alt"></i>|run-view-icon|debug-alt|View icon of the Run and Debug view.|
 |<i class="codicon codicon-clear-all"></i>|search-clear-results|clear-all|Icon for clear results in the search view.|
 |<i class="codicon codicon-collapse-all"></i>|search-collapse-results|collapse-all|Icon for collapse results in the search view.|
 |<i class="codicon codicon-ellipsis"></i>|search-details|ellipsis|Icon to make search details visible.|
