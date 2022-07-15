@@ -1,5 +1,29 @@
 [
       {
+        "title": "Modern Debugging in VS Code with Lightrun",
+        "description": "VS Code offers a variety of tools for debugging difficult scenarios - in local environments, in far-away remote servers and beyond the boundaries of containers. In this hands-on session, we will review the available debugging tools built into VS Code and explore Lightrun - a VS Code plugin that allows you to debug live applications, without stopping them, wherever they may run.",
+        "speakers": [
+          {
+            "name": "Tom Granot",
+            "link": "https://twitter.com/TomGranot",
+            "title": "Director of Developer Relations"
+          }
+        ],
+        "start": "2022-07-21T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/IetCyWdtMx8"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220721.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220721/ics",
+          "google": "https://aka.ms/vscodelive/20220721/google"
+        },
+        "youtubeId": "IetCyWdtMx8"
+      },
+      {
         "title": "Accelerate cloud development in VS Code",
         "description": "Join us and learn about new Azure extensions for VS Code. In this stream, we’ll cover managing apps in Azure from VS Code and introduce the new Azure Developer CLI extension that accelerates the time it takes for you to get started on Azure.\n",
         "speakers": [
