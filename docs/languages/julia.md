@@ -37,7 +37,7 @@ There are several ways to run Julia code within VS Code. You can run a Julia fil
 
 ## Debugging
 
-You can start debugging by opening the Julia file that you would like to debug. Then, select the Debug view on the Activity bar (as shown below):
+You can start debugging by opening the Julia file that you would like to debug. Then, select the **Run and Debug** view on the Activity bar (as shown below):
 
 ![Getting started debugging Julia code](images/julia/debug1.png)
 

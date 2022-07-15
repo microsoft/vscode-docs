@@ -66,7 +66,7 @@ Here are some ideas for things for you to try:
 
 ## Debugging the extension
 
-VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the Run view in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
+VS Code's built-in debugging functionality makes it easy to debug extensions. Set a breakpoint by clicking the gutter next to a line, and VS Code will hit the breakpoint. You can hover over variables in the editor or use the **Run and Debug** view in the left to check a variable's value. The Debug Console allows you to evaluate expressions.
 
 <video loop muted playsinline controls title="Debug VS Code extension video">
   <source src="/api/get-started/your-first-extension/debug.mp4" type="video/mp4">
