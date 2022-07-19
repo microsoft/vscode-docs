@@ -44,6 +44,19 @@ Read more about setting up JavaScript linters in the VS Code [documentation](/do
 
 ![eslint animation](images/extensions/eslint.gif)
 
+### SonarLint
+
+Easy-to-use extension that helps you find & fix bugs and security issues as you code. The plugin runs in the background and just like a spell checker squiggles coding issues. The plugin not only tells you what the issue is but also provides in-context guidance on why it’s harmful and how to fix it, with easy-to-understand related examples. The IDE extension supports [200+ JS/TS rules](https://rules.sonarsource.com/javascript) and includes several [quick fixes](https://rules.sonarsource.com/javascript/quickfix) to automatically handle your coding issues.  
+
+Marketplace - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+
+Publisher - [Sonar](https://github.com/SonarSource/sonarlint-vscode)
+
+How to install - Search for SonarLint in the VS Code Marketplace and install. No configuration is required. You can start with a default profile that fits most users and customize it based on your specific needs. 
+
+<img src="images/extensions/sonarlint.gif" alt="sonarlint animation" width="931"/>
+
+
 ### JavaScript (ES6) code snippets
 
 Marketplace - [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
