@@ -388,7 +388,7 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 | Value                            | Where output is displayed                                          |
 |----------------------------------|--------------------------------------------------------------------|
 | `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                 |
-| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
+| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/terminal/basics.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
 | `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console. |
 
 ### `purpose`

@@ -13,7 +13,7 @@ Visual Studio Code has a powerful command-line interface built-in that lets you 
 
 ![command line example](images/command-line/hero.png)
 
-If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
+If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/terminal/basics.md).
 
 ## Command line help
 
@@ -142,7 +142,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 Read on to find out about:
 
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Run command-line tools from inside VS Code.
+* [Integrated Terminal](/docs/terminal/basics.md) - Run command-line tools from inside VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn the basics of the VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
 
@@ -156,7 +156,7 @@ On macOS, you need to manually run the **Shell Command: Install 'code' command i
 
 ### How do I get access to a command line (terminal) from within VS Code?
 
-VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command-line tools from within VS Code.
+VS Code has an [Integrated Terminal](/docs/terminal/basics.md) where you can run command-line tools from within VS Code.
 
 ### Can I specify the settings location for VS Code in order to have a portable version?
 

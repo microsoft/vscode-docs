@@ -15,7 +15,7 @@ After having worked with hundreds of developers to diagnose their terminal launc
 
 ## Integrated Terminal user guide
 
-If you are new to using the VS Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/editor/integrated-terminal.md) user guide. There you can read how to [configure](/docs/editor/integrated-terminal.md#configuring-profiles) the terminal, as well as review answers to [common questions](/docs/editor/integrated-terminal.md#common-questions).
+If you are new to using the VS Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/terminal/basics.md) user guide. There you can read how to [configure](/docs/terminal/basics.md#terminal-profiles) the terminal, as well as review answers to [common questions](/docs/terminal/basics.md#common-questions).
 
 Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure. The troubleshooting steps, such as checking your settings and enabling logging, apply to all platforms that support VS Code; macOS, Linux, and Windows.
 
@@ -122,4 +122,4 @@ This can happen when you have legacy console mode enabled in conhost's propertie
 
 ## Next steps
 
-* [Integrated Terminal user guide](/docs/editor/integrated-terminal.md) - Learn more about general terminal use and configuration.
+* [Integrated Terminal user guide](/docs/terminal/basics.md) - Learn more about general terminal use and configuration.

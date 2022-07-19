@@ -1,13 +1,13 @@
 ---
-Order: 11
-Area: editor
-TOCTitle: Integrated Terminal
+Order: 1
+Area: terminal
+TOCTitle: Terminal Basics
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
 DateApproved: 7/7/2022
 MetaDescription: Visual Studio Code has an integrated terminal to enable working in your shell of choice without leaving the editor.
 ---
-# Integrated Terminal
+# Terminal Basics
 
 Visual Studio Code includes a fully-featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md).
 
@@ -18,7 +18,7 @@ To open the terminal:
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
 * You can create a new terminal via the **Terminal** menu with **Terminal** > **New Terminal**.
 
-![Terminal](images/integrated-terminal/integrated-terminal.png)
+![Terminal](images/basics/integrated-terminal.png)
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
@@ -31,7 +31,7 @@ The integrated terminal can use various shells installed on your machine, with t
 
 You can select other available shells to use in terminal instances or as the default such as Command Prompt on Windows, and zsh on macOS and Linux.
 
-![Integrated terminal shell selection dropdown](images/integrated-terminal/select-shell-dropdown.png)
+![Integrated terminal shell selection dropdown](images/basics/select-shell-dropdown.png)
 
 You can learn more about configuring terminal shells in the [terminal profiles](#terminal-profiles) section below.
 
@@ -41,7 +41,7 @@ You can learn more about configuring terminal shells in the [terminal profiles](
 
 The terminal tabs UI is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
-![Terminal tabs](images/integrated-terminal/tabs.png)
+![Terminal tabs](images/basics/tabs.png)
 
 > **Tip:** Change the tabs location using the `terminal.integrated.tabs.location` setting.
 
@@ -80,7 +80,7 @@ Change the terminal's name, icon, and tab color via the right-click context menu
 
 >**Tip:** Go back to the old version by setting `terminal.integrated.tabs.enabled:false`
 
-![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
+![Multiple Terminals](images/basics/terminal-multiple-instances.png)
 
 ## Terminal profiles
 
@@ -108,7 +108,7 @@ You can use variables in terminal profiles as shown in the example above with th
 
 Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal dropdown.
 
-![Integrated terminal dropdown](images/integrated-terminal/terminal-dropdown.png)
+![Integrated terminal dropdown](images/basics/terminal-dropdown.png)
 
 The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. VS Code will automatically detect most standard shells that can then be configured as the default.
 
@@ -224,7 +224,7 @@ Depending on the type of link, activating it will do one of the following:
 
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
-![A branch link is hovered in the terminal](images/integrated-terminal/gitlens-link.png)
+![A branch link is hovered in the terminal](images/basics/gitlens-link.png)
 
 ### Complex bash $PROMPT_COMMAND
 
@@ -346,11 +346,11 @@ If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find c
 
 To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
 
-![Run selected text](images/integrated-terminal/terminal_run_selected.png)
+![Run selected text](images/basics/terminal_run_selected.png)
 
 The terminal will attempt to run the selected text.
 
-![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
+![Run selected text result](images/basics/terminal_run_selected_result.png)
 
 If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
 

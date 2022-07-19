@@ -36,4 +36,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 ## Related resources
 
 * [Debugging](/docs/editor/debugging.md) - Official documentation for VS Code debugging.
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Use the integrated terminal inside VS Code.
+* [Integrated Terminal](/docs/terminal/basics.md) - Use the integrated terminal inside VS Code.

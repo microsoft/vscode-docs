@@ -99,7 +99,7 @@ This simple Hello World program doesn't have any dependencies but you would add 
 
 ### Cargo build
 
-Cargo can be used to build your Rust project. Open a new VS Code [integrated terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
+Cargo can be used to build your Rust project. Open a new VS Code [integrated terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
 
 ```bash
 cargo build

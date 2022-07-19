@@ -398,7 +398,7 @@ Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 
 Further reading:
 
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) documentation
+* [Integrated Terminal](/docs/terminal/basics.md) documentation
 * [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
 ### Toggle Sidebar
