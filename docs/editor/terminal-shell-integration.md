@@ -36,7 +36,7 @@ To manually install shell integration, the VS Code shell integration script need
 Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in VS Code.
 
 ```sh
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --shell-integration bash)"
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
 ```
 
 #### pwsh
@@ -44,7 +44,7 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open
 Add the following to your [PowerShell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2). Run `code $Profile` in pwsh to open the file in VS Code.
 
 ```pwsh
-if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --shell-integration pwsh)" }
+if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path pwsh)" }
 ```
 
 #### zsh
@@ -52,7 +52,7 @@ if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --shell-integration pwsh)" }
 Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open the file in VS Code.
 
 ```sh
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --shell-integration zsh)"
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 ```
 
 ## Features
