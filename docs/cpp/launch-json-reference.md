@@ -41,7 +41,7 @@ Used only when launching the debuggee. For `attach`, this parameter does not cha
 
 - **Windows**: When set to true, it will spawn an external console. When set to false, it will use VS Code's integratedTerminal.
 - **Linux**: When set to true, it will notify VS Code to spawn an external console. When set to false, it will use VS Code's integratedTerminal.
-- **macOS**: When set to true, it will spawn an external console through `lldb-mi`. When set to false, the output can be seen in VS Code's debugConsole. Due to limitations within `lldb-mi`, integratedTerminal support is not available.
+- **macOS**: When set to true, it will spawn an external console through `lldb-mi`. When set to false, the output can be seen in VS Code's debugConsole.
 
 ### avoidWindowsConsoleRedirection
 
