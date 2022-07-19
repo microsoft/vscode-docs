@@ -26,5 +26,5 @@ Walkthroughs provide a consistent experience for onboarding users to an extensio
 
 ## Links
 
-- [Walkthroughs Contribution Point](/api/references/contribution-points#contributes.walkthroughs)
-- [SVG with Theme Color CSS Variable Example](https://github.com/microsoft/vscode/blob/a28eab68734e629c61590fae8c4b231c91f0eaaa/src/vs/workbench/contrib/welcomeGettingStarted/common/media/commandPalette.svg?short_path=52f2d6f#L11)
+- [Walkthroughs contribution point](/api/references/contribution-points#contributes.walkthroughs)
+- [SVG with Theme Color CSS variable example](https://github.com/microsoft/vscode/blob/a28eab68734e629c61590fae8c4b231c91f0eaaa/src/vs/workbench/contrib/welcomeGettingStarted/common/media/commandPalette.svg?short_path=52f2d6f#L11)

@@ -24,7 +24,7 @@ But if you're feeling ready and are thinking about all the cool custom editors y
 
 ## Links
 
-- [Custom Editor Sample][sample]
+- [Custom Editor sample][sample]
 
 ### VS Code API Usage
 

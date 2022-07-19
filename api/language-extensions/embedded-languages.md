@@ -10,7 +10,7 @@ MetaDescription: Learn how to create Language Servers to provide rich language f
 # Language Server for Embedded Programming Languages
 
 Visual Studio Code provides rich language features for programming languages. As you have read in the
-[Language Server Extension Guide](/api/language-extensions/language-server-extension-guide), you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.
+[Language Server extension guide](/api/language-extensions/language-server-extension-guide), you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.
 
 Today, there are an increasing number of embedded languages, such as:
 
@@ -19,7 +19,7 @@ Today, there are an increasing number of embedded languages, such as:
 - Interpolation in templating languages, for example Vue, Handlebars and Razor
 - HTML in PHP
 
-This guide focuses on implementing language features for embedded languages. If you are interested in providing syntax highlighting for embedded languages, you can find information in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide#embedded-languages).
+This guide focuses on implementing language features for embedded languages. If you are interested in providing syntax highlighting for embedded languages, you can find information in the [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide#embedded-languages).
 
 This guide includes two samples that illustrate two approaches to build such a language server: **Language Services** and **Request Forwarding**. We'll review both samples and conclude with each approach's pros and cons.
 
@@ -60,7 +60,7 @@ Let's examine the [lsp-embedded-language-service](https://github.com/microsoft/v
 
 ### Language Services sample
 
->**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
+>**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server extension guide](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
 The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-language-service).
 
@@ -179,7 +179,7 @@ Let's now review the sample code.
 
 ### Request Forwarding sample
 
->**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
+>**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server extension guide](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
 The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-request-forwarding).
 

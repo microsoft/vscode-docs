@@ -71,4 +71,4 @@ When needing to display progress for an indeterminate timeframe (for example, se
 
 ## Links
 
-* [Hello World Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)
+* [Hello World extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)

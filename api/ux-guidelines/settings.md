@@ -30,4 +30,4 @@ MetaDescription: UX guidelines for settings contributed by a Visual Studio Code 
 
 ## Links
 
-* [Configuration Contribution](/api/references/contribution-points#contributes.configuration)
+* [Configuration contribution point](/api/references/contribution-points#contributes.configuration)

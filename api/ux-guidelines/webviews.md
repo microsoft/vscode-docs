@@ -36,7 +36,7 @@ If you need to display custom functionality that is beyond what the VS Code API 
 
 This extension opens a browser preview for the editor to the side.
 
-![Weview Sample - Browser](images/examples/webview-browser.png)
+![Weview sample - Browser](images/examples/webview-browser.png)
 
 *This example shows VS Code Web being developed right inside VS Code. A Webview panel is used to render a browser-like window.*
 
@@ -44,7 +44,7 @@ This extension opens a browser preview for the editor to the side.
 
 This extension shows pull requests for the repository of the workspace in a custom tree view and then uses a webview for a detail view of the pull request.
 
-![Webview Sample - Pull Request](images/examples/webview-pull-request.png)
+![Webview sample - Pull Request](images/examples/webview-pull-request.png)
 
 ## Webview views
 
@@ -56,7 +56,7 @@ You can also place webviews into any view container (sidebar or panel) and these
 
 ## Links
 
-* [Webview Extension Guide](/api/extension-guides/webview)
-* [Webview Extension Sample](https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample)
-* [Webview View Extension Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+* [Webview extension guide](/api/extension-guides/webview)
+* [Webview extension sample](https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample)
+* [Webview View extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
 * [Webview UI Toolkit for Visual Studio Code](https://github.com/microsoft/vscode-webview-ui-toolkit)

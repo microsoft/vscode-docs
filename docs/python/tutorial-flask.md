@@ -69,7 +69,7 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     ![Flask tutorial: selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run [**Terminal: Create New Terminal**](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -262,7 +262,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Wednesday, 31 October, 2018 at 18:13:39'
     ```
 
-    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Run view, switch to the **Debug Console** to see the exception message.
+    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of **Run and Debug** view, switch to the **Debug Console** to see the exception message.
 
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 

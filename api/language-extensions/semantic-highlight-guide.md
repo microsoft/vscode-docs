@@ -9,7 +9,7 @@ MetaDescription: A guide to syntax highlighting
 
 # Semantic Highlight Guide
 
-Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide). Visual Studio Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.
+Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide). Visual Studio Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.
 
 Semantic tokenization allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project. Themes can opt in to use semantic tokens to improve and refine the syntax highlighting from grammars. The editor applies the highlighting from semantic tokens on top of the highlighting from grammars.
 
@@ -77,7 +77,7 @@ As seen in the example above, the provider names the types and modifiers it's go
 
 The output of a semantic token provider consists of tokens. Each token has a range and a token classification that describes what kind of syntax element the token represents. Optionally, the classification can also name a language, if the token is part of an embedded language.
 
-To describe the kind of syntax element, semantic token types and modifiers are used. This information is similar to the TextMate scopes described in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide), but we wanted to come up with a dedicated and cleaner classification system.
+To describe the kind of syntax element, semantic token types and modifiers are used. This information is similar to the TextMate scopes described in the [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide), but we wanted to come up with a dedicated and cleaner classification system.
 
 VS Code comes with a set of standard semantic token types and modifiers for all semantic token providers to use. Still, semantic token providers are free to define new types and modifiers and create a subtype of the standard types.
 

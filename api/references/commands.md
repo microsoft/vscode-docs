@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code built-in commands reference.
 
 This document lists a subset of Visual Studio Code commands that you might use with `vscode.commands.executeCommand` API.
 
-Read the [Commands Guide](/api/extension-guides/command) for how to use the commands API.
+Read the [Commands guide](/api/extension-guides/command) for how to use the commands API.
 
 The following is a sample of how to open a new folder in VS Code:
 

@@ -111,7 +111,7 @@ Once you save the `index.js` file, the running instance of the server will updat
 
 To debug the client side React code, we'll use the built-in JavaScript debugger.
 
->Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `pwa-chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
+>Note: This tutorial assumes you have the Edge browser installed. If you want to debug using Chrome, replace the launch `type` with `chrome`. There is also a debugger for the [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) browser.
 
 ### Set a breakpoint
 
@@ -121,7 +121,7 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 ### Configure the debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Run view (`kb(workbench.view.debug)`) and click on the gear button or **Create a launch.json** link to create a `launch.json` debugger configuration file. Choose **Edge: launch** from the **Select Environment** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link to create a `launch.json` debugger configuration file. Choose **Web App (Edge)** from the **Select debugger** dropdown list. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
 We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
 
@@ -130,7 +130,7 @@ We need to make one change for our example: change the port of the `url` from `8
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-msedge",
+            "type": "msedge",
             "request": "launch",
             "name": "Launch Edge against localhost",
             "url": "http://localhost:3000",

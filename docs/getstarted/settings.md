@@ -188,7 +188,7 @@ The workspace settings file is located under the `.vscode` folder in your root f
 
 When you add a Workspace Settings `settings.json` file to your project or source control, the settings for the project will be shared by all users of that project.
 
-## Language-specific editor settings
+## Language specific editor settings
 
 One way to customize language-specific settings is by opening the Settings editor, pressing on the filter button, and selecting the language option to add a language filter. Alternatively, one can directly type a language filter of the form `@lang:languageId` into the search widget. The settings that show up will be configurable for that specific language, and will show the setting value specific to that language, if applicable.
 

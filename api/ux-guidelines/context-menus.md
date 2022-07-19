@@ -27,4 +27,4 @@ MetaDescription: UX guidelines for using context menus in a Visual Studio Code e
 
 ## Links
 
-* [Context Menu API Reference](/api/references/contribution-points#contributes.menus)
+* [Context Menu API reference](/api/references/contribution-points#contributes.menus)

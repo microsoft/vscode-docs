@@ -43,7 +43,7 @@ In most cases, you'll want to start a new instance of the browser to debug your 
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-msedge",
+      "type": "msedge",
       "request": "launch",
       "name": "Launch my cool app",
       "url": "http://localhost:8000"
@@ -52,7 +52,7 @@ In most cases, you'll want to start a new instance of the browser to debug your 
 }
 ```
 
-When you hit `kb(workbench.action.debug.start)` or the **Start** button in the Debug view, `http://localhost:8000` will be opened in debug mode. If you'd like to use Chrome instead of Edge, replace `pwa-msedge` with `pwa-chrome`.
+When you hit `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view, `http://localhost:8000` will be opened in debug mode. If you'd like to use Chrome instead of Edge, replace `msedge` with `chrome`.
 
 You can also debug a single file without running a server, for example:
 
@@ -61,7 +61,7 @@ You can also debug a single file without running a server, for example:
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-msedge",
+      "type": "msedge",
       "request": "launch",
       "name": "Launch hello.html",
       "file": "${workspaceFolder}/hello.html"
@@ -87,7 +87,7 @@ Next, add a new section to the `vscode/launch.json` file as below:
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-msedge",
+      "type": "msedge",
       "request": "attach",
       "name": "Attach to browser",
       "port": 9222
@@ -96,7 +96,7 @@ Next, add a new section to the `vscode/launch.json` file as below:
 }
 ```
 
-Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the Debug view to attach to the running browser. You can even add a `host` property to debug a browser running on a different machine.
+Now, you can press `kb(workbench.action.debug.start)` or the **Start** button in the **Run and Debug** view to attach to the running browser. You can even add a `host` property to debug a browser running on a different machine.
 
 ## Launch configuration attributes
 

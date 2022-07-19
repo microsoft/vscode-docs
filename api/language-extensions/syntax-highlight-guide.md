@@ -30,7 +30,7 @@ Starting with release 1.43, VS Code also allows extensions to provide tokenizati
 
 Highlighting based on semantic tokens is considered an addition to the TextMate-based syntax highlighting. Semantic highlighting goes on top of the syntax highlighting. And as language servers can take a while to load and analyze a project, semantic token highlighting may appear after a short delay.
 
-This article focuses on the TextMate-based tokenization. Semantic tokenization and theming are explained in the [Semantic Highlighting Guide](semantic-highlight-guide).
+This article focuses on the TextMate-based tokenization. Semantic tokenization and theming are explained in the [Semantic Highlighting guide](semantic-highlight-guide).
 
 ### TextMate grammars
 
@@ -327,7 +327,7 @@ TextMate theme rules are defined in `tokenColors` and have the same syntax as re
 
 When evaluating the color and style of a token, the current token's scope is matched against the rule's selector to find the most specific rule for each style property (foreground, bold, italic, underline)
 
-The [Color Theme Guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme. Theming for semantic tokens is explained in the [Semantic Highlighting Guide](semantic-highlight-guide#theming).
+The [Color Theme guide](/api/extension-guides/color-theme#syntax-colors) describes how to create a color theme. Theming for semantic tokens is explained in the [Semantic Highlighting guide](semantic-highlight-guide#theming).
 
 ## Scope inspector
 

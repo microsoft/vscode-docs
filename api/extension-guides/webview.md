@@ -23,9 +23,9 @@ This page focuses on the basic webview panel API, although almost everything cov
 
 ## Links
 
-- [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md)
-- [Custom Editors Documentation](/api/extension-guides/custom-editors)
-- [Webview View Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+- [Webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md)
+- [Custom Editors documentation](/api/extension-guides/custom-editors)
+- [Webview View sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
 
 ### VS Code API Usage
 
