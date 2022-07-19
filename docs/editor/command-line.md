@@ -1,11 +1,11 @@
 ---
 Order: 17
 Area: editor
-TOCTitle: Command Line
+TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-PageTitle: The Visual Studio Code command-line options
+PageTitle: The Visual Studio Code command-line interface
 DateApproved: 7/7/2022
-MetaDescription: Visual Studio Code command-line options (switches).
+MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
 
