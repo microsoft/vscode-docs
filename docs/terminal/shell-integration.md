@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code's embedded terminal can integrate with some 
 
 # Terminal Shell Integration
 
-Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some [compelling features](#_features) such as working directory detection and command detection, decorations and navigation.
+Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some useful [features](#features) such as working directory and command detection, status decorations, and navigation.
 
 Supported shells:
 
