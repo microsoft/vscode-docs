@@ -67,7 +67,7 @@ Actions scoped to an entire View Container can also be exposed in the [Sidebar T
 
 ### Editor Toolbar
 
-Extensions can contribution [Editor Actions](/api/ux-guidelines/editor-actions) scoped to an editor directly in the Editor Toolbar.
+Extensions can contribute [Editor Actions](/api/ux-guidelines/editor-actions) scoped to an editor directly in the Editor Toolbar.
 
 ### Panel Toolbar
 
