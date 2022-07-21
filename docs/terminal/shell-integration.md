@@ -1,7 +1,7 @@
 ---
-Order: 12
-Area: editor
-TOCTitle: Terminal Shell Integration
+Order: 2
+Area: terminal
+TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
 DateApproved: 7/7/2022
@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code's embedded terminal can integrate with some 
 
 # Terminal Shell Integration
 
-Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some [compelling features](#_features) such as working directory detection and command detection, decorations and navigation.
+Visual Studio Code has the ability to integrate with common shells, allowing the terminal to understand more about what's actually happening inside the shell. This additional information enables some useful [features](#features) such as working directory and command detection, status decorations, and navigation.
 
 Supported shells:
 
@@ -23,7 +23,7 @@ Supported shells:
 
 The standard way to activate shell integration is to set the `terminal.integrated.shellIntegration.enabled` setting to `true`. When enabled, the shell integration script is injected into the shell session via shell arguments and/or environment variables.
 
-This standard, easy way will not work for some advanced use cases like in sub-shells, through ssh (when not using the [Remote - SSH extension](https://code.visualstudio.com/docs/remote/ssh)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#_manual-installation).
+This standard, easy way will not work for some advanced use cases like in sub-shells, through ssh (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
 ### Manual installation
 
@@ -54,7 +54,7 @@ The script below contains `<InstallDir>` which must be replaced by VS Code's ins
 
 The script below contains `<InstallDir>` which must be replaced by VS Code's installation directory. This defaults to:
 
-- Linux: Find by running `echo "$(readlink -f "$(which code)")../resources"`
+- Linux: Find by running `echo  $(dirname "$(readlink -f "$(which code)")")/../resources`
 - macOS: `/Applications/Visual\ Studio\ Code.app/Contents/Resources`
 
 **bash**
@@ -93,11 +93,11 @@ The script below contains `<InstallDir>` which must be replaced by VS Code's ins
 
 One of the things shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
 
-![Blue circles appear next to successful commands, red circles with crosses appear next to failed commands. The color of the circles appears in the scroll bar](images/terminal-shell-integration/decorations.png)
+![Blue circles appear next to successful commands, red circles with crosses appear next to failed commands. The color of the circles appears in the scroll bar](images/shell-integration/decorations.png)
 
 The decorations can be interacted with to give some contextual actions like re-running the command:
 
-![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/terminal-shell-integration/decoration-menu.png)
+![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/shell-integration/decoration-menu.png)
 
 The command decorations can be configured with the following settings:
 
@@ -113,7 +113,7 @@ The commands detected by shell integration feed into the command navigation feat
 
 The **Terminal: Run Recent Command** command surfaces history from various sources in a Quick Pick, providing similar functionality to a shell's reverse search (`kbstyle(Ctrl+R)`). The sources are the current session's history, previous session history for this shell type and the common shell history file.
 
-![The "run recent command" command shows a quick pick with previously run commands  that can be filtered similar to the go to file command](images/terminal-shell-integration/recent-command.png)
+![The "run recent command" command shows a quick pick with previously run commands  that can be filtered similar to the go to file command](images/shell-integration/recent-command.png)
 
 Some other functionality of the command:
 
@@ -164,7 +164,7 @@ VS Code supports Final Term's shell integration sequences which allows non-VS Co
 
 This sequence adds a mark to the left of the line it was triggered on and also adds an annotation to the scroll bar:
 
-![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/terminal-shell-integration/setmark.png)
+![When the sequence is written to the terminal a small grey circle will appear to the left of the command, with a matching annotation in the scroll bar](images/shell-integration/setmark.png)
 
 These marks integrate with command navigation to make them easy to navigate to via ctrl/cmd+up and ctrl/cmd+down by default.
 

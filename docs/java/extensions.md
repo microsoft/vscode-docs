@@ -30,7 +30,7 @@ If you are looking for core Java development experience on Visual Studio Code (i
 
 To get started with this extension pack, you can visit [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
-You can also install the standalone [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension that detects quality and security issues in your code.
+You can also install the [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode) extension that detects quality and security issues in your code.
 
 ## Spring Boot extensions
 
