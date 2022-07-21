@@ -4,30 +4,28 @@ Area: remote
 TOCTitle: devcontainer CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
-MetaDescription: Documentation on using the development container (devcontainer) command-line interface
+MetaDescription: Documentation on using the development container (dev container) command-line interface
 DateApproved: 7/7/2022
 ---
 # Development container CLI
 
-This topic covers the development container command-line interface (devcontainer CLI), which allows you to build and manage development containers, and is a companion to the [Development Containers Specification](https://containers.dev).
+This topic covers the development container command-line interface (dev container CLI), which allows you to build and manage development containers, and is a companion to the [Development Containers Specification](https://containers.dev).
 
 ## Development containers
 
 A consistent, predictable environment is key to a productive and enjoyable software development experience.
 
-Containers (such as [Docker](https://www.docker.com)) have historically been used to standardize apps when they're deployed, but there's a great opportunity to support additional scenarios, including continuous integration (CI), test automation, and full-featured coding environments. A **development container** provides this working environment and ensures your project has the tools and software it needs, whether it's complex and distributed or just has a few requirements.
+Containers (for example [Docker](https://www.docker.com) containers) have historically been used to standardize apps when they're deployed, but there's a great opportunity to support additional scenarios, including continuous integration (CI), test automation, and full-featured coding environments. A **development container** provides this working environment and ensures your project has the tools and software it needs, whether it's complex and distributed or just has a few requirements.
 
 ![Diagram comparing dev versus production containers](images/devcontainer-cli/dev-container-stages.png)
 
-Develop containers are supported in Visual Studio Code via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](/docs/remote/devcontainerjson-reference.md), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Development containers are supported in Visual Studio Code via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](/docs/remote/devcontainerjson-reference.md), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
-As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. As a companion to the specification, there is the open-source **dev container CLI**.
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
 ## The dev container CLI
 
-The dev container CLI is a reference implementation for the dev container specification.
-
-When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. The devcontainer CLI is a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
+When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. The dev container CLI is a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
 
 This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Remote - Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
@@ -35,7 +33,7 @@ The CLI is available for review in a new [devcontainers/cli](https://github.com/
 
 ## System requirements
 
-To use the VS Code `devcontainer` CLI, you'll need the following on your system or CI/DevOps environment:
+To use the VS Code dev container CLI, you'll need the following on your system or CI/DevOps environment:
 
 1. [Node.js (version 14 or greater)](https://nodejs.org).
 1. [The `docker` CLI](/docs/remote/containers#installation).
@@ -46,7 +44,7 @@ The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-
 
 ## Installation
 
-You can try out the devcontainer CLI, either by installing its npm package or building the CLI repo from sources.
+You can try out the dev container CLI, either by installing its npm package or building the CLI repo from sources.
 
 To learn more about building the CLI from sources, go to the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out).
 
@@ -126,15 +124,15 @@ These steps above are also provided in the CLI repo's [README](https://github.co
 
 ## Automation
 
-If you'd like to use the devcontainer CLI in your CI/CD builds or test automation, you can find examples of GitHub Actions and Azure DevOps Tasks in the [devcontainers/ci](https://github.com/devcontainers/ci) repository.
+If you'd like to use the dev container CLI in your CI/CD builds or test automation, you can find examples of GitHub Actions and Azure DevOps Tasks in the [devcontainers/ci](https://github.com/devcontainers/ci) repository.
 
 ## Feedback
 
-The devcontainer CLI and specification are under active development and we welcome your feedback, which you can provide in [this issue](https://github.com/devcontainers/cli/issues/7), or through new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
+The dev container CLI and specification are under active development and we welcome your feedback, which you can provide in [this issue](https://github.com/devcontainers/cli/issues/7), or through new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
 ## Next steps
 
-* [Dev container specification repository](https://github.com/devcontainers/spec) - File and review issues to shape the direction of development containers and the dev container CLI.
+* [Dev container specification repository](https://github.com/devcontainers/spec) - Read and contribute to the open specification.
 * [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
