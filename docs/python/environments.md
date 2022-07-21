@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 4/20/2022
+DateApproved: 7/13/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -286,7 +286,7 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
-> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. Environment variables contained in the `.env` file specified by the `python.envFile` setting (user or workspace) will override variables defined in the `envFile` specified in `launch.json`, as well as any `env` variables defined in the `launch.json` file itself. Similarly, environment variables defined in the `envFile` specified in `launch.json` will override `env` variables defined in the `launch.json` file.
+> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. All `env` variables defined in the `launch.json` file will override variables contained in the `.env` file, specified by the `python.envFile` setting (user or workspace). Similarly, `env` variables defined in the `launch.json` file will override the environment variables defined in the `envFile` that are specified in `launch.json`.
 
 ### Variable substitution
 
