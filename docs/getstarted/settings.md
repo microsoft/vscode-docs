@@ -4209,7 +4209,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, fetch all branches when pulling. Otherwise, fetch just the current one.
     "git.fetchOnPull": false,
 
-    // Follow push all tags when running the sync command.
+    // Push all annotated tags when running the sync command.
     "git.followTagsWhenSync": false,
 
     // List of git repositories to ignore.
