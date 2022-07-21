@@ -394,7 +394,7 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 ### `purpose`
 
  There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
-However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Debug Python File in Terminal** button on the top-right of the editor.
+However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
 **Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
 
 ### `autoReload`
