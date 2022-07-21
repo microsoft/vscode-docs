@@ -209,9 +209,9 @@ vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```
 
-## 'in' conditional operator
+## 'in' and 'not in' conditional operators
 
-The `in` operator for `when` clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it.
+The `in` operator for `when` clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it. You can use the `not in` operator to check the opposite condition.
 
 First, determine which folders should support the command, and the folder name to an array. Then, use the `setContext` command to turn the array into a context key:
 
