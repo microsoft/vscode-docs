@@ -153,11 +153,11 @@ As you type in a Rust file, IntelliSense provides you with suggested completions
 
 ## Semantic syntax highlighting
 
-rust-analyzer is able to use [semantic syntax highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) and styling due to it's rich understanding of a project source code. For example, you may have noticed that mutable variables are underlined in the editor.
+rust-analyzer is able to use [semantic syntax highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) and styling due to its rich understanding of a project source code. For example, you may have noticed that mutable variables are underlined in the editor.
 
 ![Mutable variable underline in the editor](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code but you can also change the styling with VS Code `editor.semanticTokenColorCustomizations` setting in your user [settings](/docs/getstarted/settings.md).
+Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `editor.semanticTokenColorCustomizations` setting in your user [settings](/docs/getstarted/settings.md).
 
 In `settings.json`, you would add:
 
@@ -205,7 +205,7 @@ When the linter finds errors and warnings in your source code, rust-analyzer can
 
 ## Refactoring
 
-Due to rust-analyzers semantic understanding of your source code, it can also provide smart renames, across your Rust files. With your cursor on a variable, select **Rename Symbol** from the context menu, Command Palette, or via `kb(editor.action.rename)`.
+Due to rust-analyzer's semantic understanding of your source code, it can also provide smart renames, across your Rust files. With your cursor on a variable, select **Rename Symbol** from the context menu, Command Palette, or via `kb(editor.action.rename)`.
 
 The rust-analyzer extension also supports other code refactorings and code generation, which the extension calls [Assists](https://rust-analyzer.github.io/manual.html#assists-code-actions).
 
