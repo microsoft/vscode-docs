@@ -9,7 +9,7 @@ MetaDescription: The Visual Studio Code Extension Host is responsible for managi
 
 # Extension Host
 
-The **Extension Host** is responsible for running extensions.
+The **Extension Host** is a node process responsible for running extensions.
 
 ## Extension Host configurations
 
