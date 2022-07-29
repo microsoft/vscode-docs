@@ -5,6 +5,5 @@
     "files.trimTrailingWhitespace": true,
     "files.associations": {
         "**/toc.json": "jsonc"
-    },
-    "terminal.integrated.tabs.defaultColor": "terminal.ansiMagenta"
+    }
 }
