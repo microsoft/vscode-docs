@@ -55,7 +55,7 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 ```
 
-#### Portability vs performance
+#### Portability versus performance
 
 The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great at it works cross-platform and also with all install types provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
 
@@ -197,7 +197,7 @@ There are several cases where automatic injection doesn't work, here are some co
 The likely cause of this is that your system has shell integration for another terminal installed that [VS Code understands](#final-term-shell-integration). If you don't want any decorations, you can hide them with the following setting:
 
 ```json
-"terminal.integrated.shellIntegration.decorationsEnabled": false
+"terminal.integrated.shellIntegration.decorationsEnabled": never
 ```
 
 Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#command-navigation).
