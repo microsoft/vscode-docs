@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order: 14
 Area: cpp
 TOCTitle: FAQ
 ContentId: 652c9cec-b8fa-4597-a894-f2ea9a095c31
 PageTitle: C/C++ extension FAQ
-DateApproved: 05/22/2020
+DateApproved: 5/22/2020
 MetaDescription: Frequently asked questions about the C/C++ extension in Visual Studio Code.
 ---
 # Frequently asked questions
@@ -101,7 +101,7 @@ From the main menu, select **Run** > **Add Configuration...**.
 
 The file `launch.json` will now be open for editing with a new configuration. The default settings will *probably* work except that you need to specify the `program` setting.
 
-See [Debug configuration](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
+See [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md) for more in-depth documentation on how to configure the debugger.
 
 ## How do I enable debug symbols?
 
@@ -111,9 +111,9 @@ When in doubt, please check your compiler's documentation for the options necess
 
 ### Clang (C++)
 
-* If you invoke the compiler manually, add the `--debug` option.
-* If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="${CXXFLAGS} --debug"`.
-* If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=${CXXFLAGS}`.
+- If you invoke the compiler manually, add the `--debug` option.
+- If you're using a script, make sure the `CXXFLAGS` environment variable is set. For example, `export CXXFLAGS="${CXXFLAGS} --debug"`.
+- If you're using CMake, make sure the `CMAKE_CXX_FLAGS` is set. For example, `export CMAKE_CXX_FLAGS=${CXXFLAGS}`.
 
 ### Clang (C)
 

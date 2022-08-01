@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: f470466d-89b0-4115-ab7a-2448023b0a6d
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to creating Product Icon Theme in Visual Studio Code
@@ -110,4 +110,4 @@ To find out which icon is used at a certain location in the VS Code UI, open Dev
 
 ## Sample
 
-The [Product Color Theme Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/product-icon-theme-sample) can be used as a playground.
+The [Product Color Theme sample](https://github.com/microsoft/vscode-extension-samples/tree/main/product-icon-theme-sample) can be used as a playground.

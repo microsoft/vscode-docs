@@ -5,7 +5,7 @@ TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
 MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 ---
 # Remote Development with Linux
 
@@ -157,7 +157,7 @@ RUN  wget -q https://copr-be.cloud.fedoraproject.org/results/mosquito/myrepo-el6
 
 ## Questions or feedback
 
-* See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
+* See [Tips and Tricks](/docs/remote/troubleshooting.md#container-tips) or the [FAQ](/docs/remote/faq.md).
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.

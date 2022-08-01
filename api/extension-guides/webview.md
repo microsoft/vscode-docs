@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -23,9 +23,9 @@ This page focuses on the basic webview panel API, although almost everything cov
 
 ## Links
 
-- [Webview Sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md)
-- [Custom Editors Documentation](/api/extension-guides/custom-editors)
-- [Webview View Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
+- [Webview sample](https://github.com/microsoft/vscode-extension-samples/blob/main/webview-sample/README.md)
+- [Custom Editors documentation](/api/extension-guides/custom-editors)
+- [Webview View sample](https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample)
 
 ### VS Code API Usage
 

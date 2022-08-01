@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
@@ -89,6 +89,14 @@ In some cases, you will want to access a different environment that has the abil
 
 The GitHub Repositories extension makes it easy for you to clone the repository locally with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kbstyle(F1)`) or by clicking on the Remote indicator in the Status bar.
 
+## Use your own compute power with the VS Code Server
+
+You may develop against another machine in VS Code for the Web using the VS Code Server.
+
+The VS Code Server is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH. This lets you "bring your own compute" to vscode.dev, enabling additional scenarios like running your code in the browser.
+
+You may learn more about the VS Code Server in its [documentation](https://aka.ms/vscode-server-doc).
+
 ## Safe exploration
 
 VS Code for the Web runs entirely in your web browser's sandbox and offers a very limited execution environment.
@@ -99,7 +107,7 @@ When working with local files, VS Code for the Web loads them through your brows
 
 ## Saving and sharing work
 
-When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#saveauto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
+When working on a local file in the web, your work is saved automatically if you have [Auto Save](/docs/editor/codebasics.md#save-auto-save) enabled. You can also save manually as you do when working in desktop VS Code (for example **File** > **Save**).
 
 When working on a remote repository, your work is saved in the browser's local storage until you commit it. If you open a repo or pull request using GitHub Repositories, you can push your changes in the Source Control view to persist any new work.
 

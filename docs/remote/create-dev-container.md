@@ -1,11 +1,11 @@
 ---
-Order: 10
+Order: 11
 Area: remote
 TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 ---
 # Create a development container
 
@@ -50,9 +50,14 @@ For this example, if you'd like to install the [ESLint extension](https://market
 ```json
 {
     "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
     "forwardPorts": [ 3000 ]
 }
 ```
@@ -161,9 +166,15 @@ A Dockerfile will also live in the `.devcontainer` folder. You can replace the `
 ```json
 {
     "build": { "dockerfile": "Dockerfile" },
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ],
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+
     "forwardPorts": [ 3000 ]
 }
 ```
@@ -175,7 +186,7 @@ In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install git
+    && apt-get -y install git
 ```
 
 > Note: The `DEBIAN_FRONTEND` export avoids warnings when you go on to work with your container.

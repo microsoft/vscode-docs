@@ -1,10 +1,10 @@
 ---
-Order: 19
+Order: 20
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -18,6 +18,8 @@ You can adjust the Zoom level in VS Code with the **View** > **Appearance** > **
 * **View** > **Appearance** > **Zoom In** (`kb(workbench.action.zoomIn)`) - increase the Zoom level.
 * **View** > **Appearance** > **Zoom Out** (`kb(workbench.action.zoomOut)`) - decrease the Zoom level.
 * **View** > **Appearance** > **Reset Zoom** (`kb(workbench.action.zoomReset)`) - reset the Zoom level to 0.
+
+>**Note**: If you are using a magnifier make sure to hold the `alt` key while viewing the hover to allow the mouse to move over the hover.
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
@@ -159,7 +161,9 @@ Output in the Integrated Terminal can be navigated through by using the "navigat
 
 ### Minimum contrast ratio
 
-The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color either increase or reduce luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color to adjust luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.
+
+Note that the `terminal.integrated.minimumContrastRatio` will not apply to `powerline` characters.
 
 ## Status Bar accessibility
 
@@ -175,9 +179,21 @@ The VS Code debugger UI is user accessible and has the following features:
 
 * Changes in debug state are read out (for example 'started', 'breakpoint hit', 'terminated', ...).
 * All debug actions are keyboard accessible.
-* Both the Run view and Debug Console support Tab navigation.
+* Both the Run and Debug view and Debug Console support Tab navigation.
 * Debug hover is keyboard accessible (`kb(editor.action.showHover)`).
 * Keyboard shortcuts can be created to set focus to each debugger area.
+
+## Audio Cues
+
+Audio cues indicate if the current line has certain markers such as: errors, warnings, breakpoints, folded text regions or inline suggestions.
+
+They are played when the primary cursor changes its line or the first time a marker is added to the current line. Audio cues are enabled automatically when a screen reader is attached, but can also be controlled by the settings `audioCues.*`.
+
+The command **Help: List Audio Cues** lists all available audio cues, lets you hear each audio cue as you move through the list, and review which cues are currently enabled.
+
+## Hover accessibility
+
+Some hovers cannot be hovered normally which makes them hard to use with screen magnifiers. To work around this, while a hover is active hold the `kbstyle(Alt)` or `kbstyle(Option)` key to "lock" it in place such that it doesn't hide when hovered. Releasing the key will unlock the hover so it acts like normal.
 
 ## Current known issues
 
@@ -189,11 +205,8 @@ There is screen reader support for the editor with VoiceOver.
 
 ### Linux
 
-Screen reader support for the editor is still work in progress because the accessibility implementation for Chrome on Linux is work in progress.
-Thus there are a couple of things needed in order to have screen reader Orca working with VS Code:
+VS Code works well with the Orca screen reader. If on your Linux distribution Orca does not read the editor content:
 
-* Make sure to use the latest version of Orca out of the master branch. More details can be found on the [Orca page](https://gitlab.gnome.org/GNOME/orca/-/blob/master/README.md).
-* We have tested that VS Code works well with Orca on Ubuntu 18, Fedora 31, Arch Linux. With Ubuntu 19, we have encountered issues.
 * Make sure to have the setting `"editor.accessibilitySupport": "on"` in VS Code. You can do this using settings, or by running the **Show Accessibility Help** command and pressing `kbstyle(Ctrl+E)` to turn on accessibilitySupport.
 * If Orca is still silent, try setting `ACCESSIBILITY_ENABLED=1` as an environment variable.
 

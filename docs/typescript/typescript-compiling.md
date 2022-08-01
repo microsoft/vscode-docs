@@ -1,10 +1,10 @@
 ---
-Order: 3
+Order: 2
 Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
@@ -116,7 +116,7 @@ You can also define the TypeScript build task as the default build task so that 
 
 Notice that the task has a `group` JSON object that sets the task `kind` to `build` and makes it the default. Now when you select the **Run Build Task** command or press (`kb(workbench.action.tasks.build)`), you are not prompted to select a task and your compilation starts.
 
-> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found in the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
+> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found in the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app)
 
 ### Step 4: Reviewing build issues
 
@@ -258,6 +258,8 @@ See the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/
 
 Read on to find out about:
 
+* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
+* [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
 
 ## Common questions
@@ -268,7 +270,7 @@ If you get that error, resolve it by creating a `tsconfig.json` file in the root
 
 ### Why do I get different errors and warnings with VS Code than when I compile my TypeScript project?
 
-VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](/docs/languages/typescript.md#using-newer-typescript-versions) for details on installing a matching TypeScript version.
+VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](#using-newer-typescript-versions) for details on installing a matching TypeScript version.
 
 ### Can I use the version of TypeScript that ships with VS 2015?
 

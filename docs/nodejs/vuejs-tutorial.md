@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Vue Tutorial
 ContentId: 85ce0bcc-d2b8-4b7c-b744-5eddce9a8d00
 PageTitle: Vue JavaScript Tutorial in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Vue JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 ---
 # Using Vue in Visual Studio Code
@@ -91,7 +91,7 @@ VS Code through the Vue extension language service can also provide type definit
 
 Press `kbstyle(Escape)` to close the Peek window.
 
-## Hello World!
+## Hello World
 
 Let's update the sample application to "Hello World!". In `App.vue` replace the HelloWorld component `msg` custom attribute text with "Hello World!".
 

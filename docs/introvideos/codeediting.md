@@ -10,7 +10,7 @@ MetaSocialImage:
 ---
 # Code editing in Visual Studio Code
 
-In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Learn More](/docs/introvideos/codeediting.md#learn-more) section to see more features.
+In this Visual Studio Code tutorial, we cover how to edit and run a small piece of code, including the features outlined below. After viewing this overview, read on in the [Related Resources](/docs/introvideos/codeediting.md#related-resources) section to see more features.
 
 >**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
 
@@ -58,6 +58,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
 * [Tasks](/docs/editor/tasks.md) - Create tasks to use external tools inside VS Code.
-* [JavaScript Linters](/docs/languages/javascript.md#javascript-linters) - Install linters for JavaScript.
+* [JavaScript Linters](/docs/languages/javascript.md#linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editor/codebasics.md#folding) - See the details of source code folding.
 * [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.

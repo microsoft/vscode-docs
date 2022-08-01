@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 891072bb-c46d-4392-800a-84d747072ce3
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use Continuous Integration for testing Visual Studio Code extensions (plug-ins).
@@ -143,11 +143,11 @@ jobs:
     runs-on: $\{{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Install Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 10.x
+        node-version: 16.x
     - run: npm install
     - run: xvfb-run -a npm test
       if: runner.os == 'Linux'
@@ -183,7 +183,7 @@ on:
 
 ```yaml
 - name: Publish
-  if: success() && startsWith( github.ref, 'refs/tags/releases/') && matrix.os == 'ubuntu-latest'
+  if: success() && startsWith(github.ref, 'refs/tags/') && matrix.os == 'ubuntu-latest'
   run: npm run deploy
   env:
     VSCE_PAT: $\{{ secrets.VSCE_PAT }}
@@ -194,7 +194,7 @@ The [if](https://help.github.com/actions/reference/workflow-syntax-for-github-ac
 In our example, the condition has three checks:
 
 - `success()` - Publish only if the tests pass.
-- `startsWith( github.ref, 'refs/tags/releases/')` - Publish only if a tagged (release) build.
+- `startsWith(github.ref, 'refs/tags/')` - Publish only if a tagged (release) build.
 - `matrix.os == 'ubuntu-latest'` - Include if your build runs on multiple agents (Windows, Linux, etc.). If not, remove that part of the condition.
 
 ## GitLab CI
@@ -292,7 +292,7 @@ The [deploy](https://docs.travis-ci.com/user/deployment) property tells the CI t
 
 In our example, the condition that is checked:
 
-- `tags: true` - Publish only if the build is triggered from a git tag (releast) 
+- `tags: true` - Publish only if the build is triggered from a git tag (releast)
 - `skip_cleanup: true` - Prevents travis from removing any files created during the build that may be needed for deployment.
 
 ## Common questions

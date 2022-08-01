@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, SCSS and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, SCSS, and Less support in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Find out how Visual Studio Code can support your CSS, SCSS and Less development.
 ---
 # CSS, SCSS and Less
@@ -103,6 +103,17 @@ There is jump to definition for `@import` and `url()` links in CSS, SCSS and Les
 You can extend VS Code's CSS support through a declarative [custom data format](https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md). By setting `css.customData` to a list of JSON files following the custom data format, you can enhance VS Code's understanding of new CSS properties, at-directives, pseudo-classes and pesudo-elements. VS Code will then offer language support such as completion & hover information for the provided properties, at-directives, pseudo-classes and pesudo-elements.
 
 You can read more about using custom data in the [vscode-custom-data](https://github.com/microsoft/vscode-custom-data) repository.
+
+## Formatting
+
+The CSS Languages Features extension also provides a formatter. The formatter works with CSS, LESS and SCSS. It is implemented by the [JS Beautify library](https://github.com/beautify-web/js-beautify) and comes with the following settings:
+
+* `css.format.enable` - Enable/disable default CSS formatter.
+* `css.format.newlineBetweenRules` - Separate rulesets by a blank line.
+* `css.format.newlineBetweenSelectors` - Separate selectors with a new line.
+* `css.format.spaceAroundSelectorSeparator` - Ensure a space character around selector separators '>', '+', '~' (for example, `a > b`).
+
+The same settings also exist for `less` and `scss`.
 
 ## Transpiling Sass and Less into CSS
 
@@ -272,7 +283,7 @@ What is happening here?
 
 ### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to make things even more streamlined.
 
 If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list.
 

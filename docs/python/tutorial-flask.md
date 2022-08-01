@@ -69,11 +69,11 @@ In this section, you create a virtual environment in which Flask is installed. U
 
     ![Flask tutorial: selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
-1. Run [**Terminal: Create New Terminal**](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
+1. Run [**Terminal: Create New Terminal**](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`)) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 
     > **Note**: On Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
-1. The selected environment appears on the left side of the VS Code status bar, and notice the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
+1. The selected environment appears on the right side of the VS Code status bar, and notice the **('.venv': venv)** indicator that tells you that you're using a virtual environment:
 
     ![Flask tutorial: selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
@@ -262,7 +262,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     'Wednesday, 31 October, 2018 at 18:13:39'
     ```
 
-    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Run view, switch to the **Debug Console** to see the exception message.
+    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of **Run and Debug** view, switch to the **Debug Console** to see the exception message.
 
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
@@ -587,7 +587,7 @@ Although you can create the file by hand, you can also use the `pip freeze` comm
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 
-Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original the environment. (The recipient still needs to create their own virtual environment, however.)
+Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original environment. (The recipient still needs to create their own virtual environment, however.)
 
 > **Note**: `pip freeze` lists all the Python packages you have installed in the current environment, including packages you aren't currently using. The command also lists packages with exact version numbers, which you might want to convert to ranges for more flexibility in the future. For more information, see [Requirements Files](https://pip.pypa.io/en/stable/user_guide/#requirements-files) in the pip command documentation.
 

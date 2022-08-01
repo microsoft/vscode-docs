@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Julia
 ContentId: d7ec8e7c-de5e-42b3-86df-a48660f1f6e1
 PageTitle: Julia in Visual Studio Code
-DateApproved: 08/27/2021
+DateApproved: 8/27/2021
 MetaDescription: Learn about working with the Julia programming language in Visual Studio Code.
 ---
 # Julia in Visual Studio Code
@@ -37,7 +37,7 @@ There are several ways to run Julia code within VS Code. You can run a Julia fil
 
 ## Debugging
 
-You can start debugging by opening the Julia file that you would like to debug. Then, select the Debug view on the Activity bar (as shown below):
+You can start debugging by opening the Julia file that you would like to debug. Then, select the **Run and Debug** view on the Activity bar (as shown below):
 
 ![Getting started debugging Julia code](images/julia/debug1.png)
 

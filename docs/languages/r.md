@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: R
 ContentId: 1eb31e23-be14-4613-be84-621a51cb59d7
 PageTitle: R in Visual Studio Code
-DateApproved: 03/23/2022
+DateApproved: 3/23/2022
 MetaDescription: Learn about working with the R programming language in Visual Studio Code.
 ---
 
@@ -12,7 +12,7 @@ MetaDescription: Learn about working with the R programming language in Visual S
 
 The [R programming language](https://www.r-project.org/) is a dynamic language built for statistical computing and graphics. R is commonly used in statistical analysis, scientific computing, machine learning, and data visualization.
 
-The [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r) for Visual Studio Code supports extended syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
+The [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r) for Visual Studio Code supports extended syntax highlighting, code completion, linting, formatting, interacting with R terminals, viewing data, plots, workspace variables, help pages, managing packages and working with [R Markdown](https://github.com/REditorSupport/vscode-R/wiki/R-Markdown) documents.
 
 [![Overview](images/r/overview.png)](/assets/docs/languages/r/overview.png)
 
@@ -26,7 +26,7 @@ The [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r
     install.packages("languageserver")
     ```
 
-3. Install the [R extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r).
+3. Install the [R extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r).
 
 4. Create an R file and start coding.
 

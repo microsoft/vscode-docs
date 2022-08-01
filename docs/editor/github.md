@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Working with GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Working with GitHub in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Working with GitHub in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -13,7 +13,7 @@ MetaDescription: Working with GitHub in Visual Studio Code
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/GitHub.vscode-pull-request-github">Install the GitHub Pull Requests and Issues extension</a>
 
-To get started with the GitHub in VS Code, you'll need to [create a GitHub account](https://help.github.com/github/getting-started-with-github/signing-up-for-a-new-github-account) and install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.
+To get started with the GitHub in VS Code, you'll need to install [Git](https://git-scm.com/download), [create a GitHub account](https://help.github.com/github/getting-started-with-github/signing-up-for-a-new-github-account) and install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.
 
 If you're new to source control or want to learn more about VS Code's basic Git support, you can start with the [Version Control](/docs/editor/versioncontrol.md) topic.
 

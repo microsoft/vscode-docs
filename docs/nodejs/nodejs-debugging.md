@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -127,14 +127,13 @@ These attributes are only available for launch configurations of request type `l
 * `runtimeArgs` - optional arguments passed to the runtime executable.
 * `runtimeVersion` - if "[nvm](https://github.com/creationix/nvm)" (or "[nvm-windows](https://github.com/coreybutler/nvm-windows)") or "[nvs](https://github.com/jasongin/nvs)" is used for managing Node.js versions, this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support) below.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
-* `envFile` - optional path to a file containing environment variable definitions. See section [Load environment variables from external file](/docs/nodejs/nodejs-debugging.md#load-environment-variables-from-external-file-node) below.
+* `envFile` - optional path to a file containing environment variable definitions. See section [Load environment variables from external file](/docs/nodejs/nodejs-debugging.md#load-environment-variables-from-external-file) below.
 * `console` - the console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
 * `outputCapture` - if set to `std`, output from the process stdout/stderr will be shown in the Debug Console, instead of listening to output over the debug port. This is useful for programs or log libraries that write directly to the stdout/stderr streams instead of using `console.*` APIs.
 
 This attribute is only available for launch configurations of request type `attach`:
 
 * `restart` - restart the connection on termination. See section [Restarting debug session automatically](/docs/nodejs/nodejs-debugging.md#restarting-debug-sessions-automatically-when-source-is-edited).
-* `protocol` - debug protocol to use. See section [Supported Node-like runtimes](/docs/nodejs/nodejs-debugging.md#supported-nodelike-runtimes) above.
 * `port` - debug port to use. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `address` - TCP/IP address of the debug port. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `processId` - the debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode. When using the `processId` attribute, the debug port is determined automatically based on the Node.js version (and the used protocol) and cannot be configured explicitly. So don't specify a `port` attribute.
@@ -472,7 +471,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 
 ## Access Loaded Scripts
 
-If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the Run view:
+If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the **Run and Debug** view:
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
@@ -540,7 +539,7 @@ Conditional breakpoints are breakpoints that only pause when an expression retur
 
 ### Logpoints
 
-Something you want to just log a message or value when code hits a certain location, rather than pausing. You can do this with logpoints. Logpoints don't pause, but rather log a message to the Debug Console when hit. In the JavaScript debugger, you can use curly braces to interpolate expressions into the message, like `current value is: {myVariable.property}`.
+Sometimes you want to just log a message or value when code hits a certain location, rather than pausing. You can do this with logpoints. Logpoints don't pause, but rather log a message to the Debug Console when hit. In the JavaScript debugger, you can use curly braces to interpolate expressions into the message, like `current value is: {myVariable.property}`.
 
 You can create one by right-clicking in the gutter beside a line number and selecting "Logpoint". For example, this might log something like `location is /usr/local`:
 
@@ -630,7 +629,7 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 ## Supported Node-like runtimes
 
-The current VS Code JavaScript debugger supports Node version at or above 8.x, recent Chrome versions, and recent Edge versions (via the `pwa-msedge` launch type).
+The current VS Code JavaScript debugger supports Node version at or above 8.x, recent Chrome versions, and recent Edge versions (via the `msedge` launch type).
 
 ## Next steps
 

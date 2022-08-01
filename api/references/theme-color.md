@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -42,6 +42,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
+- `disabledForeground`: Overall foreground for disabled elements. This color is only used if not overridden by a component.
 - `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
@@ -159,6 +160,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.focusHighlightForeground`: List/Tree foreground color of the match highlights on actively focused items when searching inside the list/tree.
 - `list.focusOutline`: List/Tree outline color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.focusAndSelectionOutline`: List/Tree outline color for the focused item when the list/tree is active and selected. An active list/tree has keyboard focus, an inactive does not.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
 - `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
@@ -256,6 +258,10 @@ Editor Groups are the containers of editors. There can be many editor groups. A 
 - `editorGroupHeader.border`: Border color between editor group header and editor (below breadcrumbs if enabled).
 - `editorGroup.emptyBackground`: Background color of an empty editor group.
 - `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
+- `editorGroup.dropIntoPromptForeground`: Foreground color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+- `editorGroup.dropIntoPromptBackground`: Background color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+- `editorGroup.dropIntoPromptBorder`: Border color of text shown over editors when dragging files. This text informs the user that they can hold shift to drop into the editor.
+
 - `tab.activeBackground`: Active Tab background color in an active group.
 - `tab.unfocusedActiveBackground`: Active Tab background color in an inactive editor group.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
@@ -351,6 +357,7 @@ The current line is typically shown as either background highlight or a border (
 The color for unicode highlights
 
 - `editorUnicodeHighlight.border`: Border color used to highlight unicode characters.
+- `editorUnicodeHighlight.background`: Background color used to highlight unicode characters.
 
 
 The link color is visible when clicking on a link.
@@ -493,6 +500,16 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 
+
+The editor comments widget can be seen when reviewing pull requests:
+
+- `editorCommentsWidget.resolvedBorder`: Color of borders and arrow for resolved comments.
+- `editorCommentsWidget.unresolvedBorder`: Color of borders and arrow for unresolved comments.
+- `editorCommentsWidget.rangeBackground`: Color of background for comment ranges.
+- `editorCommentsWidget.rangeBorder`: Color of border for comment ranges.
+- `editorCommentsWidget.rangeActiveBackground`: Color of background for currently selected or hovered comment range.
+- `editorCommentsWidget.rangeActiveBorder`: Color of border for currently selected or hovered comment range.
+
 ## Diff editor colors
 
 For coloring inserted and removed text, use either a background or a border color but not both.
@@ -592,6 +609,14 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
+- `mergeEditor.change.background`: The background color for changes.
+- `mergeEditor.change.word.background`: The background color for word changes.
+- `mergeEditor.conflict.unhandledUnfocused.border`: The border color of unhandled unfocused conflicts.
+- `mergeEditor.conflict.unhandledFocused.border`: The border color of unhandled focused conflicts.
+- `mergeEditor.conflict.handledUnfocused.border`: The border color of handled unfocused conflicts.
+- `mergeEditor.conflict.handledFocused.border`: The border color of handled focused conflicts.
+- `mergeEditor.conflict.handled.minimapOverViewRuler`: The foreground color for changes in input 1.
+- `mergeEditor.conflict.unhandled.minimapOverViewRuler`: The foreground color for changes in input 1.
 
 ## Panel colors
 
@@ -636,6 +661,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
+- `statusBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the status bar.
+- `statusBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the status bar.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
@@ -660,6 +687,14 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `menu.selectionBorder`: Border color of the selected menu item in menus.
 - `menu.separatorBackground`: Color of a separator menu item in menus.
 - `menu.border`: Border color of menus.
+
+## Command Center colors
+
+- `commandCenter.foreground`: Foreground color of the command center
+- `commandCenter.activeForeground`: Active foreground color of the command center
+- `commandCenter.background`: Background color of the command center
+- `commandCenter.activeBackground`: Active background color of the command center
+- `commandCenter.border`: Border color of the command center
 
 ## Notification colors
 
@@ -701,6 +736,7 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionIcon.starForeground`: The icon color for extension ratings.
 - `extensionIcon.verifiedForeground`: The icon color for extension verified publisher.
 - `extensionIcon.preReleaseForeground`: The icon color for pre-release extension.
+- `extensionIcon.sponsorForeground`: The icon color for extension sponsor.
 
 ## Quick picker colors
 
@@ -760,6 +796,11 @@ The following customizations are available:
 - `terminal.ansiWhite`: 'White' ANSI color in the terminal.
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 - `terminal.selectionBackground`: The selection background color of the terminal.
+- `terminal.selectionForeground`: The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.
+- `terminal.findMatchBackground`: Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content.
+- `terminal.findMatchBorder`: Border color of the current search match in the terminal.
+- `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.
+- `terminal.findMatchHighlightBorder`: Border color of the other search matches in the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
@@ -767,6 +808,8 @@ The following customizations are available:
 - `terminalCommandDecoration.defaultBackground`: The default terminal command decoration background color.
 - `terminalCommandDecoration.successBackground`: The terminal command decoration background color for successful commands.
 - `terminalCommandDecoration.errorBackground`: The terminal command decoration background color for error commands.
+- `terminalOverviewRuler.cursorForeground`: The overview ruler cursor color.
+- `terminalOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches in the terminal.
 
 ## Debug colors
 
@@ -940,6 +983,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 
 ## Notebook colors
 
+- `notebook.editorBackground`: Notebook background color.
 - `notebook.cellBorderColor`: The border color for notebook cells.
 - `notebook.cellHoverBackground`: The background color of a cell when the cell is hovered.
 - `notebook.cellInsertionIndicator`: The color of the notebook cell insertion indicator.

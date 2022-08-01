@@ -5,13 +5,13 @@ TOCTitle: devcontainer.json
 PageTitle: devcontainer.json reference
 ContentId: 52eaec33-21c6-410c-8e10-1ee3658a854f
 MetaDescription: devcontainer.json reference
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 ---
 # devcontainer.json reference
 
 A `devcontainer.json` file in your project tells Visual Studio Code (and other services and tools that support the format) how to access (or create) a **development container** with a well-defined tool and runtime stack. It's currently supported by the [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension and [GitHub Codespaces](https://github.com/features/codespaces).
 
-[Set up a folder to run in a container](/docs/remote/create-dev-container.md#set-up-a-folder-to-run-in-a-container) has more information on configuring a dev container or you can use the **Remote-Containers: Add Development Container Configuration Files...** or **Codespaces: Add Development Container Configuration Files...** commands from the Command Palette (`kbstyle(F1)`) to add a wide variety of base configurations from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/main/containers).
+[Create a development container](/docs/remote/create-dev-container.md) has more information on configuring a dev container or you can use the **Remote-Containers: Add Development Container Configuration Files...** or **Codespaces: Add Development Container Configuration Files...** commands from the Command Palette (`kbstyle(F1)`) to add a wide variety of base configurations from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/main/containers).
 
 > **Tip:** If you've already built a container and connected to it, be sure to run **Remote-Containers: Rebuild Container** or **Codespaces: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up any changes you make.
 
@@ -23,7 +23,7 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `image` | string | **Required** when [using an image](/docs/remote/create-dev-container.md#using-an-image-or-dockerfile). The name of an image in a container registry ([DockerHub](https://hub.docker.com), [GitHub Container Registry](https://docs.github.com/packages/guides/about-github-container-registry), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code and other `devcontainer.json` supporting services / tools should use to create the dev container. |
+| `image` | string | **Required** when [using an image](/docs/remote/create-dev-container.md#dockerfile). The name of an image in a container registry ([DockerHub](https://hub.docker.com), [GitHub Container Registry](https://docs.github.com/packages/guides/about-github-container-registry), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) that VS Code and other `devcontainer.json` supporting services / tools should use to create the dev container. |
 | `build.dockerfile` / `dockerFile`  | string |**Required** when [using a Dockerfile](/docs/remote/create-dev-container.md#dockerfile). The location of a [Dockerfile](https://docs.docker.com/engine/reference/builder/) that defines the contents of the container. The path is relative to the `devcontainer.json` file. You can find Dockerfiles for different runtimes in the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/tree/main/containers). |
 | `build.context` / `context` | string | Path that the Docker build should be run from relative to `devcontainer.json`. For example, a value of `".."` would allow you to reference content in sibling directories. Defaults to `"."`. |
 | `build.args` | Object | A set of name-value pairs containing [Docker image build arguments](https://docs.docker.com/engine/reference/commandline/build/#set-build-time-variables---build-arg) that should be passed when building a Dockerfile.  Environment and [pre-defined variables](#variables-in-devcontainerjson) may be referenced in the values. Defaults to not set. For example: `"build": { "args": { "MYARG": "MYVALUE", "MYARGFROMENVVAR": "${localEnv:VARIABLE_NAME}" } }` |
@@ -41,8 +41,8 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `dockerComposeFile` | string,<br>array | **Required** when [using Docker Compose](/docs/remote/create-dev-container.md#use-a-dockerfile). Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. Using an array is useful [when extending your Docker Compose configuration](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development). The order of the array matters since the contents of later files can override values set in previous ones.<br>The default `.env` file is picked up from the root of the project, but you can use `env_file` in your Docker Compose file to specify an alternate location.<br>Note that the array syntax will execute the command without a shell. You can [learn more](#formatting-string-vs-array-properties) about formatting string vs array properties. |
-| `service` | string | **Required** when [using Docker Compose](/docs/remote/create-dev-container.md#use-a-dockerfile). The name of the service VS Code and other `devcontainer.json` supporting services / tools should connect to once running.  |
+| `dockerComposeFile` | string,<br>array | **Required** when [use Docker Compose](/docs/remote/create-dev-container.md#use-docker-compose). Path or an ordered list of paths to Docker Compose files relative to the `devcontainer.json` file. Using an array is useful [when extending your Docker Compose configuration](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development). The order of the array matters since the contents of later files can override values set in previous ones.<br>The default `.env` file is picked up from the root of the project, but you can use `env_file` in your Docker Compose file to specify an alternate location.<br>Note that the array syntax will execute the command without a shell. You can [learn more](#formatting-string-vs-array-properties) about formatting string vs array properties. |
+| `service` | string | **Required** when [use Docker Compose](/docs/remote/create-dev-container.md#use-docker-compose). The name of the service VS Code and other `devcontainer.json` supporting services / tools should connect to once running.  |
 | `runServices` | array | An array of services in your Docker Compose configuration that should be started by VS Code and other `devcontainer.json` supporting services / tools. These will also be stopped when you disconnect unless `"shutdownAction"` is `"none"`. Defaults to all services. |
 | `workspaceFolder` | string | Sets the default path that VS Code and other `devcontainer.json` supporting services / tools should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to `"/"`. |
 
@@ -64,7 +64,19 @@ The focus of `devcontainer.json` is to describe how to enrich a container for th
 
 ## VS Code specific properties
 
-While most properties apply to any `devcontainer.json` supporting tool or service, a few are specific to VS Code.
+While most properties apply to any `devcontainer.json` supporting tool or service, a few are specific to VS Code. To configure them, you may use the `customizations.vscode` property. Below is an example:
+
+```json
+// Configure tool-specific properties.
+"customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+        "settings": {},
+        "extensions": [],
+        "devPort": {}
+        }
+    },
+```
 
 | Property | Type | Description |
 |----------|------|-------------|

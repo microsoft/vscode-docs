@@ -5,7 +5,7 @@ TOCTitle: Containers
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 ---
 # Developing inside a Container
 
@@ -141,7 +141,7 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 To do so:
 
 1. Follow the [installation](/docs/remote/ssh.md#installation) and SSH [host setup](/docs/remote/ssh.md#ssh-host-setup) steps for the Remote - SSH extension.
-1. **[Optional]** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
+1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. [Install Docker](#installation) on your SSH host. You do not need to install Docker locally.
 1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
 1. Use the **Remote-Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
@@ -244,9 +244,15 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 {
     "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
     "forwardPorts": [ 3000 ],
-    "extensions": [
-        "dbaeumer.vscode-eslint"
-    ]
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    }
 }
 ```
 
@@ -290,9 +296,9 @@ The **Remote-Containers: Configure Container Features** command allows you to up
 
 We recommend pre-building images with the tools you need rather than creating and building a container image each time you open your project in a dev container. Using pre-built images will result in a faster container startup,  simpler configuration, and allows you to pin to a specific version of tools to improve supply-chain security and avoid potential breaks. You can automate pre-building your image by scheduling the build using a DevOps or continuous integration (CI) service like GitHub Actions.
 
-We recommend using the [VS Code devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
+We recommend using the [devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
-See the [VS Code devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#building-a-dev-container-image) for more information.
+See the [devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#building-a-dev-container-image) for more information.
 
 ## Inspecting volumes
 
@@ -322,7 +328,7 @@ Local extensions that actually need to run remotely will appear **Disabled** in 
 
 ![Disabled Extensions w/Install Button](images/containers/containers-disabled-extensions.png)
 
-You can also install all locally installed extensions inside the Dev Container by going to the Extensions view and selecting **Install Local Extensions in Dev Container: [Name]** using the cloud button at the right of the **Local - Installed** title bar. This will display a dropdown where you can select which locally installed extensions to install in your container.
+You can also install all locally installed extensions inside the Dev Container by going to the Extensions view and selecting **Install Local Extensions in Dev Container: {Name}** using the cloud button at the right of the **Local - Installed** title bar. This will display a dropdown where you can select which locally installed extensions to install in your container.
 
 ![Install all extensions](images/containers/install-all-extn-containers.png)
 
@@ -437,8 +443,14 @@ You can include defaults for container specific settings in `devcontainer.json` 
 For example, adding this to `.devcontainer/devcontainer.json` will set the Java home path:
 
 ```json
-"settings": {
-    "java.home": "/docker-java-home"
+// Configure tool-specific properties.
+"customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+        "settings": {
+            "java.home": "/docker-java-home"
+        }
+    }
 }
 ```
 
@@ -486,9 +498,6 @@ Get-Service ssh-agent
 
 **Linux:**
 
-* On **WSL**:
-  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
-
 First, start the SSH Agent in the background by running the following in a terminal:
 
 ```bash
@@ -520,7 +529,6 @@ If you do not have GPG set up, you can configure it for your platform:
 * On **Linux**, **locally** install the `gnupg2` package using your system's package manager.
 * On **WSL**:
   * Install [Gpg4win](https://www.gpg4win.org/) on the Windows side.
-  * Install [socat](https://linux.die.net/man/1/socat) in your WSL distro. `sudo apt install socat`
   * Install `gpg` in your WSL distro. `sudo apt install gpg`
   * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
   * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
@@ -680,7 +688,7 @@ The VS Code extension API hides most of the implementation details of running re
 
 The following articles may help answer your question:
 
-* [Advanced container configuration](/remote/advancedcontainers/overview.md) or [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips)
+* [Advanced container configuration](/remote/advancedcontainers/overview.md) or [Tips and Tricks](/docs/remote/troubleshooting.md#container-tips)
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 * [Docker Compose file reference](https://docs.docker.com/compose/compose-file/)
 * [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-windows/faqs/)
@@ -689,11 +697,11 @@ The following articles may help answer your question:
 
 ## Questions or feedback
 
-* See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
+* See [Tips and Tricks](/docs/remote/troubleshooting.md#container-tips) or the [FAQ](/docs/remote/faq.md).
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-* Help [shape the direction](https://github.com/microsoft/dev-container-spec) of development containers and the dev container CLI.
+* Review and provide feedback on the [Development Containers Specification](https://github.com/devcontainers/spec).
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
 

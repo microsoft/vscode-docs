@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # Extension Marketplace
@@ -191,7 +191,7 @@ code --enable-proposed-api (<extension-id>)
     Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
 ```
 
-You can see the extension ID on the extension details page next to the extension name.
+You can see the extension ID on the extension details page under the Marketplace Info.
 
 ![extension identifier](images/extension-marketplace/extension-identifier.png)
 

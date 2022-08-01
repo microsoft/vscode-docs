@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 9
 Area: cpp
 TOCTitle: Editing
 ContentId: 61D63E54-67E2-4743-B5CB-C6E7F582982A
 PageTitle: Edit and navigate C++ code in Visual Studio Code
-DateApproved: 07/25/2019
+DateApproved: 7/25/2019
 MetaDescription: How to edit and navigate C++ source files in Visual Studio Code.
 ---
 # Edit C++ in Visual Studio Code

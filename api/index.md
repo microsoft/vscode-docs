@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code has a rich extension API. Learn how to create your own extensions for VS Code.
@@ -36,7 +36,7 @@ If you'd like to have a more comprehensive overview of the Extension API, refer 
 
 ## How to build extensions?
 
-Building a good extension can take a lot of effort. Here is what each section of the API doc can help you with:
+Building a good extension can take a lot of time and effort. Here is what each section of the API docs can help you with:
 
 * **Get Started** teaches fundamental concepts for building extensions with the [Hello World](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample) sample.
 * **Extension Capabilities** dissects VS Code's vast API into smaller categories and points you to more detailed topics.
@@ -60,8 +60,9 @@ To stay current with the Extension API, you can review the monthly release notes
 
 If you have questions for extension development, try asking on:
 
+* [VS Code Discussions](https://github.com/microsoft/vscode-discussions): GitHub community to discuss VS Code's extension platform, ask questions, help other members of the community, and get answers.
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code): There are [thousands of questions](https://stackoverflow.com/questions/tagged/visual-studio-code) tagged `visual-studio-code`, and over half of them already have answers. Search for your issue, ask questions, or help your fellow developers by answering VS Code extension development questions!
-* [Gitter Channel](https://gitter.im/Microsoft/vscode) and [VS Code Dev Slack](https://aka.ms/vscode-dev-community): Public chatroom for extension developers. VS Code team members often join in the conversations.
+* [VS Code Dev Slack](https://aka.ms/vscode-dev-community): Public chatroom for extension developers. VS Code team members often join in the conversations.
 
 To provide feedback on the documentation, create new issues at [Microsoft/vscode-docs](https://github.com/microsoft/vscode-docs/issues).
 If you have extension questions that you cannot find an answer for, or issues with the VS Code Extension API, please open new issues at [Microsoft/vscode](https://github.com/microsoft/vscode/issues).

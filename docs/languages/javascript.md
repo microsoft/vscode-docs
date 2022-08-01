@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -18,7 +18,7 @@ Most of these features just work out of the box, while some may require basic co
 
 ## IntelliSense
 
-IntelliSense shows you intelligent code completion, hover info, and signature information so that you can write code more quickly and correctly.
+IntelliSense shows you intelligent code completion, hover information, and signature information so that you can write code more quickly and correctly.
 
 <video src="/docs/languages/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
@@ -89,7 +89,7 @@ Hover over a JavaScript symbol to quickly see its type information and relevant 
 
 ![Hovering over a JavaScript variable to see its type information](images/javascript/hover.png)
 
-The `kb(editor.action.showHover)` keyboard shortcut shows this hover info at the current cursor position.
+The `kb(editor.action.showHover)` keyboard shortcut shows this hover information at the current cursor position.
 
 ## Signature Help
 
@@ -145,10 +145,10 @@ Set `"javascript.autoClosingTags"` to `false` to disable JSX tag closing.
 
 Code navigation lets you quickly navigate JavaScript projects.
 
-* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
+* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of a symbol definition.
 * **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window that shows the definition of a symbol.
 * **Go to References** `kb(editor.action.goToReferences)` - Show all references to a symbol.
-* **Go to Type Definition** `kb(editor.action.goToTypeDefinition)` - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
+* **Go to Type Definition** - Go to the type that defines a symbol. For an instance of a class, this will reveal the class itself instead of where the instance is defined.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
@@ -287,7 +287,6 @@ Setting: `javascript.inlayHints.functionLikeReturnTypes.enabled`
 
 ![Return type inlay hints](images/javascript/inlay-return-type.png)
 
-
 ## References CodeLens
 
 The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
@@ -342,7 +341,7 @@ You can debug your client-side code using a browser debugger such as our built-i
 
 ### Debug server side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application) to help you.
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and there is a [Node.js debugging tutorial](/docs/nodejs/nodejs-tutorial.md#debug-your-express-app) to help you.
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
@@ -364,11 +363,6 @@ Read on to find out about:
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript, which brings structure and strong typing to your JavaScript code.
-
-Watch these introductory videos:
-
-* [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
-* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
 ## Common questions
 

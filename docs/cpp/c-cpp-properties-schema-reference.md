@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: c_cpp_properties.json
 ContentId: EC1BA944-09B5-41EA-AAED-779A02C90C98
 PageTitle: c_cpp_properties.json reference
-DateApproved: 06/26/2020
+DateApproved: 6/26/2020
 MetaDescription: Schema reference for C++ project settings in Visual Studio Code.
 ---
 # c_cpp_properties.json reference
@@ -109,7 +109,7 @@ For more information about changing these settings, see [Customizing Default Set
   For more information about the file format, see the [Clang documentation](https://clang.llvm.org/docs/JSONCompilationDatabase.html). Some build systems, such as CMake, [simplify generating this file](https://cmake.org/cmake/help/v3.5/variable/CMAKE_EXPORT_COMPILE_COMMANDS.html).
 
 - `browse`
-  The set of properties used when `"C_Cpp.intelliSenseEngine"` is set to `"Tag Parser"` (also referred to as "fuzzy" IntelliSense, or the "browse" engine). These properties are also used by the Go To Definition/Declaration features, or when the "Default" IntelliSense engine is unable to resolve the #includes in your source files.
+  The set of properties used when `"C_Cpp.intelliSenseEngine"` is set to `"Tag Parser"` (also referred to as "fuzzy" IntelliSense, or the "browse" engine). These properties are also used by the **Go to Definition/Declaration** features, or when the "default" IntelliSense engine is unable to resolve the `#includes` in your source files.
 
 ### Browse properties
 

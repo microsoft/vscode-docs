@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -32,13 +32,13 @@ The following documentation is based on the built-in [Node.js](https://nodejs.or
 
 It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application set up, this page will take you through VS Code debugging features.
 
-## Run view
+## Run and Debug view
 
-To bring up the Run view, select the Run icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
+To bring up the **Run and Debug** view, select the **Run and Debug** icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
 
-![Debug icon](images/debugging/run.png)
+![Run and Debug icon](images/debugging/run.png)
 
-The Run view displays all information related to running and debugging and has a top bar with debugging commands and configuration settings.
+The **Run and Debug** view displays all information related to running and debugging and has a top bar with debugging commands and configuration settings.
 
 If running and debugging is not yet configured (no `launch.json` has been created), VS Code shows the Run start view.
 
@@ -119,7 +119,7 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 VS Code also supports compound launch configurations for starting multiple configurations at the same time; for more details, please read this [section](#compound-launch-configurations).
 
-In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the Run view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
+In order to start a debug session, first select the configuration named **Launch Program** using the **Configuration dropdown** in the **Run and Debug** view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
 Alternatively, you can run your configuration through the **Command Palette** (`kb(workbench.action.showCommands)`) by filtering on **Debug: Select and Start Debugging** or typing `'debug '` and selecting the configuration you want to debug.
 
@@ -127,7 +127,7 @@ As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed 
 
 ![debug session](images/debugging/debug-session.png)
 
-In addition, the **debug status** appears in the Status Bar showing the active debug configuration. By selecting the debug status, a user can change the active launch configuration and start debugging without needing to open the Run view.
+In addition, the **debug status** appears in the Status Bar showing the active debug configuration. By selecting the debug status, a user can change the active launch configuration and start debugging without needing to open the **Run and Debug** view.
 
 ![Debug status](images/debugging/debug-status.png)
 
@@ -144,7 +144,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 * Restart `kb(workbench.action.debug.restart)`
 * Stop `kb(workbench.action.debug.stop)`
 
->**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the Run view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
+>**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
 
 ### Run mode
 
@@ -154,7 +154,7 @@ In addition to debugging a program, VS Code supports **running** the program. Th
 
 ## Breakpoints
 
-Breakpoints can be toggled by clicking on the **editor margin** or using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Finer breakpoint control (enable/disable/reapply) can be done in the Run view's **BREAKPOINTS** section.
+Breakpoints can be toggled by clicking on the **editor margin** or using `kb(editor.debug.action.toggleBreakpoint)` on the current line. Finer breakpoint control (enable/disable/reapply) can be done in the **Run and Debug** view's **BREAKPOINTS** section.
 
 * Breakpoints in the editor margin are normally shown as red filled circles.
 * Disabled breakpoints have a filled gray circle.
@@ -184,13 +184,13 @@ Just like regular breakpoints, Logpoints can be enabled or disabled and can also
 
 ## Data inspection
 
-Variables can be inspected in the **VARIABLES** section of the Run view or by hovering over their source in the editor. Variable values and expression evaluation are relative to the selected stack frame in the **CALL STACK** section.
+Variables can be inspected in the **VARIABLES** section of the **Run and Debug** view or by hovering over their source in the editor. Variable values and expression evaluation are relative to the selected stack frame in the **CALL STACK** section.
 
 ![Debug Variables](images/debugging/variables.png)
 
 Variable values can be modified with the **Set Value** action from the variable's context menu. Additionally, you can use the **Copy Value** action to copy the variable's value, or **Copy as Expression** action to copy an expression to access the variable.
 
-Variables and expressions can also be evaluated and watched in the Run view's **WATCH** section.
+Variables and expressions can also be evaluated and watched in the **Run and Debug** view's **WATCH** section.
 
 ![Debug Watch](images/debugging/watch.png)
 
@@ -431,7 +431,7 @@ Compound launch configurations are displayed in the launch configuration dropdow
 
 ## Remote debugging
 
-VS Code does not itself support remote debugging: this is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Downloads) for support and details.
+VS Code does not itself support remote debugging: this is a feature of the debug extension you are using, and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Installs) for support and details.
 
 There is, however, one exception: the Node.js debugger included in VS Code supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure this.
 
@@ -529,8 +529,8 @@ To write your own debugger extension, visit:
 
 ### What are the supported debugging scenarios?
 
-Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available in the Marketplace.
+Debugging of Node.js-based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Installs) available in the Marketplace.
 
-### I do not see any launch configurations in the Run view dropdown. What is wrong?
+### I do not see any launch configurations in the Run and Debug view dropdown. What is wrong?
 
 The most common problem is that you did not set up `launch.json` or there is a syntax error in that file. Alternatively, you might need to open a folder, since no-folder debugging does not support launch configurations.

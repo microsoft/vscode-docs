@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Visual Studio Code Remote Development
 ContentId: eceea3f0-feee-47c2-8b65-1f1b0825355b
 MetaDescription: Visual Studio Code Remote Development
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 ---
 # VS Code Remote Development
 
@@ -49,6 +49,10 @@ Tutorial | Description
 ## GitHub Codespaces
 
 [GitHub Codespaces](/docs/remote/codespaces.md) provides remote development environments that are managed for you. You can configure and create a development environment hosted in the cloud, which is spun up and available when you need it.
+
+## The VS Code Server (private preview)
+
+[The VS Code Server](https://aka.ms/vscode-server-doc) is a private preview service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a vscode.dev URL, without the requirement of SSH.
 
 ## Questions or feedback
 

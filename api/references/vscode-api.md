@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 VSCodeCommitHash: 96d03d1ecc393a047d549dc8bd13c74dc174f20a
 VSCodeVersion: 1.51.0
@@ -11377,7 +11377,7 @@ does not want to participate or was cancelled.</p>
 (like <code>**/*.{ts,js}</code> or <code>*.{ts,js}</code>) or a <a href="#RelativePattern">relative pattern</a>.</p>
 <p>Glob patterns can have the following syntax:</p>
 <ul>
-<li><code>*</code> to match one or more characters in a path segment</li>
+<li><code>*</code> to match zero or more characters in a path segment</li>
 <li><code>?</code> to match on one character in a path segment</li>
 <li><code>**</code> to match any number of path segments, including none</li>
 <li><code>{}</code> to group conditions (e.g. <code>**/*.{ts,js}</code> matches all TypeScript and JavaScript files)</li>

@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
 PageTitle: Python and Data Science Tutorial in Visual Studio Code
-DateApproved: 12/31/2021
+DateApproved: 6/27/2022
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -18,7 +18,7 @@ This tutorial demonstrates using Visual Studio Code and the Microsoft Python ext
 The following installations are required for the completion of this tutorial. Make sure to install them if you haven't already.
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. By default, the Python extension installs the Jupyter extension for you. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-gallery.md). Both extensions are published by Microsoft.
+- The [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) from the Visual Studio Marketplace. By default, the Python extension installs the Jupyter extension for you. For more details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). Both extensions are published by Microsoft.
 
 - [Miniconda with Python 3.9](https://docs.conda.io/en/latest/miniconda.html)
 
@@ -54,16 +54,16 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
 ## Prepare the data
 
-This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.html) available on [OpenML.org](https://www.openml.org/d/40945), which is obtained from Vanderbilt University's Department of Biostatistics at [https://hbiostat.org/data](https://hbiostat.org/data/). The Titanic data provides information about the survival of passengers on the Titanic and characteristics about the passengers such as age and ticket class. Using this data, the tutorial will establish a model for predicting whether a given passenger would have survived the sinking of the Titanic. This section shows how to load and manipulate data in your Jupyter notebook.
+This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.html) available on [OpenML.org](https://www.openml.org/d/40945), which is obtained from Vanderbilt University's Department of Biostatistics at [https://hbiostat.org/data](https://hbiostat.org/data). The Titanic data provides information about the survival of passengers on the Titanic and characteristics about the passengers such as age and ticket class. Using this data, the tutorial will establish a model for predicting whether a given passenger would have survived the sinking of the Titanic. This section shows how to load and manipulate data in your Jupyter notebook.
 
-1. To begin, download the Titanic data from [OpenML.org](https://www.openml.org/d/40945) as a CSV file (download links in the upper right) named `data.csv` and save it to the `hello_ds` folder that you created in the previous section.
+1. To begin, download the Titanic data from [hbiostat.org](https://hbiostat.org/data/repo/titanic3.csv) as a CSV file (download links in the upper right) named `titanic3.csv` and save it to the `hello_ds` folder that you created in the previous section.
 1. If you haven't already opened the file in VS Code, open the `hello_ds` folder and the Jupyter notebook (`hello.ipynb`), by going to **File** > **Open Folder**.
 1. Within your Jupyter notebook, begin by importing the [pandas](https://pandas.pydata.org/) and [numpy](https://numpy.org/) libraries, two common libraries used for manipulating data, and loading the Titanic data into a pandas [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html). To do so, copy the code below into the first cell of the notebook. For more guidance about working with Jupyter notebooks in VS Code, see the [Working with Jupyter Notebooks](/docs/datascience/jupyter-notebooks.md) documentation.
 
    ```python
    import pandas as pd
    import numpy as np
-   data = pd.read_csv('data.csv')
+   data = pd.read_csv('titanic3.csv')
    ```
 
 1. Now, run the cell using the Run cell icon or the `kbstyle(Shift+Enter)` shortcut.

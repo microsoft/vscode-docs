@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML in Visual Studio Code
@@ -109,7 +109,6 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
 * `html.format.extraLiners`: List of tags that should have an extra newline before them.
 * `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
 * `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
-* `html.format.endWithNewline`: End with a newline.
 * `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.
 * `html.format.wrapAttributes`: Wrapping strategy for attributes:
   * `auto`: Wrap when the line length is exceeded

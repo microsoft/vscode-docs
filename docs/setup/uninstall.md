@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 9
 Area: setup
 TOCTitle: Uninstall
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
 PageTitle: Uninstall Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Uninstall Visual Studio Code and clean up.
 ---
 # Uninstall Visual Studio Code

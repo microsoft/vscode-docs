@@ -4,12 +4,12 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 11/1/2021
+DateApproved: 5/26/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
 
-Visual Studio Code can be a great companion to Unity for editing and debugging C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
+Visual Studio Code can be a great companion to Unity for editing C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
 
 ![Unity Example](images/unity/wow.gif)
 
@@ -17,9 +17,9 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 ## Prerequisites
 
-From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
+From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 
-1. Install the [.NET Core SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
+1. Install the [.NET SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
 
 1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 
@@ -28,6 +28,8 @@ From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
    **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
 1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
+
+1. In the VS Code Settings editor (`kb(workbench.action.openSettings)`), uncheck the C# extension's **Omnisharp: Use Modern Net** [setting](/docs/getstarted/settings.md) (`"omnisharp.useModernNet": false`).
 
 ## Setup VS Code as Unity Script Editor
 
@@ -61,14 +63,6 @@ With the solution file selected, you are now ready to start editing with VS Code
 Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) and [C#](/docs/languages/csharp.md). In the image below, you can see VS Code showing hover context, peeking references and more.
 
 ![editing evolved example](images/unity/peekreferences.png)
-
-## Unity Extensions
-
-The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can search for more extensions in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/search?term=Unity&target=VSCode).
-
-<div class="marketplace-extensions-unity"></div>
-
-The extensions shown above are dynamically queried. Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Enabling code completion (For recent versions of Unity)
 
@@ -137,7 +131,6 @@ Read on to learn more about:
 
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - how to use the debugger with your project
 * [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
 
 ## Common questions
@@ -201,7 +194,3 @@ To edit this directly within VS Code Settings editor, go to **File** > **Prefere
 **/ProjectSettings
 **/Temp
 ```
-
-### How can I debug Unity?
-
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.

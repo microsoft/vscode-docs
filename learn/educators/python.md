@@ -4,7 +4,7 @@ Area: educators
 TOCTitle: Python
 ContentId: e58523d5-e243-45c2-8306-7114077d81ae
 PageTitle: Python in Visual Studio Code
-DateApproved: 02/17/2021
+DateApproved: 2/17/2021
 MetaDescription: Python in Visual Studio Code
 ---
 

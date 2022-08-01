@@ -161,6 +161,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/setup/enterprise</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/setup/uninstall</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -266,7 +271,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/integrated-terminal</loc>
+        <loc>https://code.visualstudio.com/docs/terminal/basics</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/terminal/shell-integration</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -327,6 +337,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/azure/kubernetes</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/azure/aksextensions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -501,6 +516,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/typescript/typescript-editing</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/typescript/typescript-refactoring</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/typescript/typescript-debugging</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -641,7 +666,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/java/java-spring-cloud</loc>
+        <loc>https://code.visualstudio.com/docs/java/java-spring-apps</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -777,6 +802,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/remote/codespaces</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/remote/vscode-server</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -1155,7 +1185,32 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/api/extension-guides/telemetry</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/api/ux-guidelines/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/activity-bar</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/panel</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/sidebars</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/ux-guidelines/walkthroughs</loc>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -1185,9 +1240,9 @@
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/api/ux-guidelines/editor-actions</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+         <loc>https://code.visualstudio.com/api/ux-guidelines/editor-actions</loc>
+         <changefreq>weekly</changefreq>
+         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/ux-guidelines/context-menus</loc>

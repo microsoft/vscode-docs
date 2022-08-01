@@ -4,12 +4,12 @@ Area: containers
 TOCTitle: Docker Compose
 ContentId: c63d86a0-48f8-4724-ba24-fa5ce4199632
 PageTitle: Use Docker Compose to work with multiple containers
-DateApproved: 07/16/2021
+DateApproved: 7/16/2021
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
 # Use Docker Compose
 
-Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in Visual Studio Code for these scenarios.
+Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET, and also helps you configure debugging in Visual Studio Code for these scenarios.
 
 Also, for single-container scenarios, using Docker Compose provides tool-independent configuration in a way that a single Dockerfile does not. Configuration settings such as volume mounts for the container, port mappings, and environment variables can be declared in the docker-compose YML files.
 
@@ -49,11 +49,11 @@ First, refer to the debugging documentation for your target platform, to underst
 
 - [Node.js debugging](/docs/containers/debug-node.md)
 - [Python Docker debugging](/docs/containers/debug-python.md)
-- [.NET Core debugging](/docs/containers/debug-netcore.md)
+- [.NET debugging](/docs/containers/debug-netcore.md)
 
 If you want to debug in Docker Compose, run the command **Docker Compose Up** using one of the two Docker Compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
 
-Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET Core) is described in the following sections.
+Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET) is described in the following sections.
 
 ### Node.js
 
@@ -187,7 +187,7 @@ For debugging Python with Docker Compose, follow these steps:
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 
-1. If you try to attach to a .NET Core app running in a container, you'll see a prompt ask to select your app's container.
+1. If you try to attach to a .NET app running in a container, you'll see a prompt ask to select your app's container.
 
    ![Screenshot of container selection](images/compose/select-container.png)
 
@@ -201,13 +201,13 @@ For debugging Python with Docker Compose, follow these steps:
 
    ![Screenshot of debugger prompt](images/compose/docker-compose-netcore-debugger-prompt.png)
 
-If everything is configured correctly, the debugger should be attached to your .NET Core app.
+If everything is configured correctly, the debugger should be attached to your .NET app.
 
 ![Screenshot of debug session](images/compose/docker-compose-debugging.png)
 
 ## Volume mounts
 
-By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET Core or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the `docker-compose*.yml` files.
+By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the `docker-compose*.yml` files.
 
 ```yml
 volumes:

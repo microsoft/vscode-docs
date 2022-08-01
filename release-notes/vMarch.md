@@ -170,7 +170,6 @@ The HTML formatter is based on the **beautifyjs** library. The formatting option
 * `html.format.extraLiners`: List of tags that should have an extra newline before them.
 * `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
 * `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
-* `html.format.endWithNewline`: End with a newline.
 * `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.
 
 ## Localization

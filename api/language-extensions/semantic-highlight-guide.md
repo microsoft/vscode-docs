@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8308017a-75de-430a-b420-d9d2064162b9
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to syntax highlighting
@@ -9,7 +9,7 @@ MetaDescription: A guide to syntax highlighting
 
 # Semantic Highlight Guide
 
-Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide). Visual Studio Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.
+Semantic highlighting is an addition to syntax highlighting as described in the [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide). Visual Studio Code uses TextMate grammars as the main tokenization engine. TextMate grammars work on a single file as input and break it up based on lexical rules expressed in regular expressions.
 
 Semantic tokenization allows language servers to provide additional token information based on the language server's knowledge on how to resolve symbols in the context of a project. Themes can opt in to use semantic tokens to improve and refine the syntax highlighting from grammars. The editor applies the highlighting from semantic tokens on top of the highlighting from grammars.
 
@@ -77,7 +77,7 @@ As seen in the example above, the provider names the types and modifiers it's go
 
 The output of a semantic token provider consists of tokens. Each token has a range and a token classification that describes what kind of syntax element the token represents. Optionally, the classification can also name a language, if the token is part of an embedded language.
 
-To describe the kind of syntax element, semantic token types and modifiers are used. This information is similar to the TextMate scopes described in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide), but we wanted to come up with a dedicated and cleaner classification system.
+To describe the kind of syntax element, semantic token types and modifiers are used. This information is similar to the TextMate scopes described in the [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide), but we wanted to come up with a dedicated and cleaner classification system.
 
 VS Code comes with a set of standard semantic token types and modifiers for all semantic token providers to use. Still, semantic token providers are free to define new types and modifiers and create a subtype of the standard types.
 
@@ -163,7 +163,7 @@ In the example above, an extension declares a new type `templateType` and a new 
 }
 ```
 
-The `semanticTokenColors` value `#ff0011"` shown above applies to both `type` and all it's subtypes, including `templateType`.
+The `semanticTokenColors` value `"#ff0011"` shown above applies to both `type` and all it's subtypes, including `templateType`.
 
 Along with custom token types, extensions can define how these are mapped to TextMate scopes. This is described in the [Custom Mappings](#custom-textmate-scope-mappings) section. Note that custom mapping rules are not automatically inherited from the super type. Instead, subtypes need to redefine the mapping, preferably to more specific scopes.
 

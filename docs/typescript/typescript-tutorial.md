@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Tutorial
 ContentId: cb4f3742-733c-49d8-96db-d4bf8403bf64
 PageTitle: TypeScript tutorial with Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: TypeScript tutorial with Visual Studio Code.
 MetaSocialImage: images/typescript-tutorial/Languages_typescript.png
 ---
@@ -32,7 +32,7 @@ tsc --version
 
 Let's start with a simple Hello World Node.js example. Create a new folder `HelloWorld` and launch VS Code.
 
-```
+```bash
 mkdir HelloWorld
 cd HelloWorld
 code .
@@ -49,7 +49,7 @@ let message : string = "Hello World";
 console.log(message);
 ```
 
-To compile your TypeScript code, you can open the [Integrated Terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
+To compile your TypeScript code, you can open the [Integrated Terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.toggleTerminal)`) and type `tsc helloworld.ts`. This will compile and create a new `helloworld.js` JavaScript file.
 
 ![compiled hello world](images/tutorial/compiled-hello-world.png)
 
@@ -80,7 +80,7 @@ So far in this tutorial, you have been relying on the TypeScript compiler's defa
 
 **Important**: To use `tsconfig.json` for the rest of this tutorial, invoke `tsc` without input files. The TypeScript compiler knows to look at your `tsconfig.json` for project settings and compiler options.
 
-Add a simple `tsconfig.json` which set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
+Add a simple `tsconfig.json` that set the options to compile to ES5 and use **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0).
 
 ```json
 {
@@ -123,11 +123,11 @@ TypeScript helps you avoid common programming mistakes through strong type check
 
 ## Quick Fixes
 
-The TypeScript language service has a powerful set of diagnostics to find common coding issues. For example, it can analyze your source code and detect unreachable code which is displayed as dimmed in the editor. If you hover over the line of source code, you'll see a hover explaining and if you place your cursor on the line, you'll get a Quick Fix lightbulb.
+The TypeScript language service has a powerful set of diagnostics to find common coding issues. For example, it can analyze your source code and detect unreachable code which is displayed as dimmed in the editor. If you hover over the line of source code, you'll see a hover explaining and if you place your cursor on the line, you'll get a Quick Fix light bulb.
 
 ![unreachable code detected](images/tutorial/unreachable-code-detected.png)
 
-Clicking on the lightbulb or pressing `kb(editor.action.quickFix)` brings up the Quick Fix menu where you can select the **Remove unreachable code** fix.
+Clicking on the light bulb or pressing `kb(editor.action.quickFix)` brings up the Quick Fix menu where you can select the **Remove unreachable code** fix.
 
 ## Debugging
 
@@ -152,7 +152,7 @@ The debugger will start a session, run your code, and display the "Hello World" 
 
 ![debug console output](images/tutorial/debug-console.png)
 
-In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the Run view (`kb(workbench.view.debug)`).
+In `helloworld.ts`, set a breakpoint by clicking on the left gutter of the editor. You will see a red circle if the breakpoint is set. Press `kb(workbench.action.debug.start)` again. Execution will stop when the breakpoint is hit and you'll be able to see debugging information such as variable values and the call stack in the **Run and Debug** view (`kb(workbench.view.debug)`).
 
 ![debug breakpoint](images/tutorial/debug-breakpoint.png)
 
@@ -163,6 +163,8 @@ See [Debugging TypeScript](/docs/typescript/typescript-debugging.md) to learn mo
 This tutorial was a quick introduction to using VS Code for TypeScript development. Read on to learn more about using VS Code's compiling and debugging support for TypeScript:
 
 * [Compiling TypeScript](/docs/typescript/typescript-compiling.md) - Use VS Code's powerful task system for compiling TypeScript.
+* [Editing TypeScript](/docs/typescript/typescript-editing.md) - Specific editing features for TypeScript.
+* [Refactoring TypeScript](/docs/typescript/typescript-refactoring.md) - Useful refactorings from the TypeScript language service.
 * [Debugging TypeScript](/docs/typescript/typescript-debugging.md) - Configure the debugger for your TypeScript project.
 
 ## Common questions

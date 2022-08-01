@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Rust in Visual Studio Code
 
-[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.
+[Rust](https://www.rust-lang.org) is a powerful programming language, often used for systems programming where performance and correctness are high priorities. If you are new to Rust and want to learn more, [The Rust Programming Language](https://doc.rust-lang.org/book) online book is a great place to start. This topic goes into detail about setting up and using Rust within Visual Studio Code, with the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension.
 
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
@@ -61,7 +61,7 @@ When you install Rust with rustup, the toolset includes the rustc compiler, the 
 
 ### Cargo new
 
-A good way to create your first Rust program is to use Cargo to scaffold a new project by typing `cargo new`. This will create a simple Hello World program along with a default `Cargo.tml` dependency file. You pass `cargo new` the folder where you'd like to create the project.
+A good way to create your first Rust program is to use Cargo to scaffold a new project by typing `cargo new`. This will create a simple Hello World program along with a default `Cargo.toml` dependency file. You pass `cargo new` the folder where you'd like to create the project.
 
 Let's create Hello World. Navigate to a folder where you'd like to create your project and type:
 
@@ -99,7 +99,7 @@ This simple Hello World program doesn't have any dependencies but you would add 
 
 ### Cargo build
 
-Cargo can be used to build your Rust project. Open a new VS Code [integrated terminal](/docs/editor/integrated-terminal.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
+Cargo can be used to build your Rust project. Open a new VS Code [integrated terminal](/docs/terminal/basics.md) (`kb(workbench.action.terminal.new)`) and type `cargo build`.
 
 ```bash
 cargo build
@@ -153,11 +153,11 @@ As you type in a Rust file, IntelliSense provides you with suggested completions
 
 ## Semantic syntax highlighting
 
-rust-analyzer is able to use [semantic syntax highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) and styling due to it's rich understanding of a project source code. For example, you may have noticed that mutable variables are underlined in the editor.
+rust-analyzer is able to use [semantic syntax highlighting](https://github.com/microsoft/vscode/wiki/Semantic-Highlighting-Overview) and styling due to its rich understanding of a project source code. For example, you may have noticed that mutable variables are underlined in the editor.
 
 ![Mutable variable underline in the editor](images/rust/mutable-underline.png)
 
-Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code but you can also change the styling with VS Code `editor.semanticTokenColorCustomizations` setting in your user [settings](/docs/getstarted/settings.md).
+Being able to quickly tell which Rust variables are mutable or not can help your understanding of source code, but you can also change the styling with VS Code `editor.semanticTokenColorCustomizations` setting in your user [settings](/docs/getstarted/settings.md).
 
 In `settings.json`, you would add:
 
@@ -179,7 +179,7 @@ You can learn more about rust-analyzer's semantic syntax customizations in the [
 
 Code navigation features are available in the context menu in the editor.
 
-* **Go To Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
+* **Go to Definition** `kb(editor.action.revealDefinition)` - Go to the source code of the type definition.
 * **Peek Definition** `kb(editor.action.peekDefinition)` - Bring up a Peek window with the type definition.
 * **Go to References** `kb(editor.action.goToReferences)` - Show all references for the type.
 * **Show Call Hierarchy** `kb(editor.showCallHierarchy)` - Show all calls from or to a function.
@@ -191,9 +191,11 @@ You can navigate via symbol search using the **Go to Symbol** commands from the 
 
 ## Linting
 
-The Rust toolset includes a linter, clippy, to detect issues with your source code. While you can run clippy directly from the command line (`cargo clippy`), the rust-analyzer extension integrates clippy warnings and errors directly in the editor and Problems view.
+The Rust toolset includes linting, provided by rustc and clippy, to detect issues with your source code.
 
 ![linter warning about an unused variable](images/rust/linter-warning.png)
+
+The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check on Save: Command** (`rust-analyzer.checkOnSave.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
 
 ## Quick Fixes
 
@@ -203,7 +205,7 @@ When the linter finds errors and warnings in your source code, rust-analyzer can
 
 ## Refactoring
 
-Due to rust-analyzers semantic understanding of your source code, it can also provide smart renames, across your Rust files. With your cursor on a variable, select **Rename Symbol** from the context menu, Command Palette, or via `kb(editor.action.rename)`.
+Due to rust-analyzer's semantic understanding of your source code, it can also provide smart renames, across your Rust files. With your cursor on a variable, select **Rename Symbol** from the context menu, Command Palette, or via `kb(editor.action.rename)`.
 
 The rust-analyzer extension also supports other code refactorings and code generation, which the extension calls [Assists](https://rust-analyzer.github.io/manual.html#assists-code-actions).
 
@@ -217,7 +219,7 @@ Here are just a few of the refactorings available:
 
 ## Formatting
 
-The Rust toolset includes a formatter, `rustfmt.exe`, which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
+The Rust toolset includes a formatter, [rustfmt](https://github.com/rust-lang/rustfmt), which can format your source code to conform to Rust conventions. You can format your Rust file using `kb(editor.action.formatDocument)` or by running the **Format Document** command from the **Command Palette** or the context menu in the editor.
 
 You also have the option to run the formatter on each save (**Editor: Format On Save**) or paste (**Format On Paste**) to keep your Rust code properly formatted automatically while you are working.
 

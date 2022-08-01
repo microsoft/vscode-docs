@@ -2,7 +2,7 @@
 Area: containers
 ContentId: F0C800DD-C477-492D-9545-745F570FE042
 PageTitle: Configure and troubleshoot debugging of Node.js apps running in a Docker container
-DateApproved: 09/23/2020
+DateApproved: 9/23/2020
 MetaDescription: How to configure and troubleshoot debugging of Node.js apps running in a Docker container, using Visual Studio Code.
 ---
 
@@ -180,7 +180,7 @@ The corresponding `uriFormat` in the debug launch configuration (in `launch.json
 
 By default, the Docker extension assumes the application source files in the running Docker container are located in an `/usr/src/app` folder, and the debugger then maps those files back to the root of the opened workspace, in order to translate breakpoints from the container back to Visual Studio Code.
 
-If the application source files are in a different location (for example, different Node.js frameworks have different conventions), either within the Docker container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [node](/docs/containers/debug-node.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the Docker container, respectively.
+If the application source files are in a different location (for example, different Node.js frameworks have different conventions), either within the Docker container or within the opened workspace, then one or both of the `localRoot` and `remoteRoot` properties of the [node](/docs/containers/debug-common.md#node-object-properties) object of the debug launch configuration should be set the root source locations within the workspace and the Docker container, respectively.
 
 For example, if the application instead resides in `/usr/my-custom-location`, the corresponding `remoteRoot` property would be:
 

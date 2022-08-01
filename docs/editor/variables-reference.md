@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -15,6 +15,7 @@ Visual Studio Code supports variable substitution in [Debugging](/docs/editor/de
 
 The following predefined variables are supported:
 
+- **${userHome}** - the path of the user's home folder
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
@@ -41,6 +42,7 @@ Supposing that you have the following requirements:
 
 So you will have the following values for each variable:
 
+- **${userHome}** - `/home/your-username`
 - **${workspaceFolder}** - `/home/your-username/your-project`
 - **${workspaceFolderBasename}** - `your-project`
 - **${file}** - `/home/your-username/your-project/folder/file.ext`
@@ -108,7 +110,7 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
 
-This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
+This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
 
 The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
@@ -179,7 +181,7 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
             "type": "pickString",
             "id": "componentType",
             "description": "What type of component do you want to create?",
-            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum", "enum"],
+            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum"],
             "default": "component"
         },
         {
@@ -272,7 +274,7 @@ The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` 
 
 ### Why aren't variables in tasks.json being resolved?
 
-Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
+Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution. Input variables in the `inputs` section will not be resolved as nesting of input variables is not supported.
 
 ### How can I know a variable's actual value?
 

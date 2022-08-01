@@ -5,7 +5,7 @@ TOCTitle: Questions or feedback
 PageTitle: Remote - Containers questions or feedback
 ContentId: 6e283295-8039-4b60-854a-809bd8612ee4
 MetaDescription: Remote - Containers questions or feedback
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 ---
 # Questions or feedback
 
@@ -13,7 +13,7 @@ The links below can provide you with more help configuring your development cont
 
 ## Resources
 
-* See [Tips and Tricks](/docs/remote/troubleshooting.md#containers-tips) or the [FAQ](/docs/remote/faq.md).
+* See [Tips and Tricks](/docs/remote/troubleshooting.md#container-tips) or the [FAQ](/docs/remote/faq.md).
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 
 ## Feedback

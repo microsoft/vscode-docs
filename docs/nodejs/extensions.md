@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -36,13 +36,25 @@ If you are just getting started, here are the extensions we recommend trying out
 
 Marketplace - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-Publisher - [Dirk Baeumer](https://marketplace.visualstudio.com/search?term=publisher%3A%22Dirk%20Baeumer%22&target=VSCode)
+Publisher - [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft)
 
 Easily integrate [ESLint](https://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 
-![eslint animation](images/extensions/eslint.gif)
+![ESLint animation](images/extensions/eslint.gif)
+
+### SonarLint
+
+Marketplace - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+
+Publisher - [SonarSource](https://marketplace.visualstudio.com/publishers/SonarSource)
+
+SonarLint helps you find and fix bugs and security issues as you code. The extension runs in the background and, just like a spell checker, highlights coding issues. SonarLint not only tells you what the issue is but also provides in-context guidance on why an issue is harmful and how to fix it, with related examples. The extension supports [200+ JS/TS rules](https://rules.sonarsource.com/javascript) and includes several [Quick Fixes](https://rules.sonarsource.com/javascript/quickfix) to automatically handle your coding issues.
+
+Search for 'SonarLint' in the VS Code Marketplace and install. No configuration is required. You can start with a default profile that fits most users and customize it based on your specific needs.
+
+![SonarLint animation](images/extensions/sonarlint.gif)
 
 ### JavaScript (ES6) code snippets
 
@@ -54,7 +66,7 @@ VS Code comes with many built-in code snippets. The **JavaScript (ES6) code snip
 
 ![javascript snippets](images/extensions/javascript_snippets.png)
 
-You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Downloads).
+You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Installs).
 
 ### npm IntelliSense
 
@@ -65,5 +77,3 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 This extension provides IntelliSense for npm modules when using `import` or `require`.
 
 ![npm intellisense](images/extensions/npm_intellisense.gif)
-
-

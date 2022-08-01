@@ -1,11 +1,11 @@
 ---
-Order: 16
+Order: 17
 Area: editor
-TOCTitle: Command Line
+TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-PageTitle: The Visual Studio Code command-line options
-DateApproved: 3/30/2022
-MetaDescription: Visual Studio Code command-line options (switches).
+PageTitle: The Visual Studio Code command-line interface
+DateApproved: 7/7/2022
+MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
 
@@ -13,7 +13,7 @@ Visual Studio Code has a powerful command-line interface built-in that lets you 
 
 ![command line example](images/command-line/hero.png)
 
-If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
+If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/terminal/basics.md).
 
 ## Command line help
 
@@ -43,7 +43,7 @@ Argument|Description
 `-v` or `--version` | Print VS Code version (for example, 1.22.2), GitHub commit ID, and architecture (for example, x64).
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
-`-g` or `--goto` | When used with *file:line[:character]*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
+`-g` or `--goto` | When used with *file:line{:character}*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
 `-w` or `--wait` | Wait for the files to be closed before returning.
 `--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
@@ -67,7 +67,7 @@ If you specify more than one folder at the command line, VS Code will create a [
 Argument|Description
 ------------------|-----------
 `file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
-`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the `file:line[:character]` specifier.
+`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.
 `folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
 
 ![go to line and column](images/command-line/goto-line-column.png)
@@ -142,7 +142,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 Read on to find out about:
 
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Run command-line tools from inside VS Code.
+* [Integrated Terminal](/docs/terminal/basics.md) - Run command-line tools from inside VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn the basics of the VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
 
@@ -156,7 +156,7 @@ On macOS, you need to manually run the **Shell Command: Install 'code' command i
 
 ### How do I get access to a command line (terminal) from within VS Code?
 
-VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command-line tools from within VS Code.
+VS Code has an [Integrated Terminal](/docs/terminal/basics.md) where you can run command-line tools from within VS Code.
 
 ### Can I specify the settings location for VS Code in order to have a portable version?
 

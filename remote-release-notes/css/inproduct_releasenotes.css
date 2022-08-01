@@ -7,7 +7,6 @@ body {
 }
 
 h1,h2,h3 {
-    font-weight: lighter;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -28,8 +27,8 @@ h3 {
 }
 
 h4 {
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-size: 1.5rem;
+	font-weight: 600;
     margin-top: 3rem;
     margin-bottom: 1rem;
 }

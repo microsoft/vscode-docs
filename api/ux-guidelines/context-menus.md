@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: fdd5476c-13e2-4f78-9dd3-0157eed36a29
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for using context menus in a Visual Studio Code extension.
@@ -23,4 +23,8 @@ MetaDescription: UX guidelines for using context menus in a Visual Studio Code e
 
 ![Context Menu](images/examples/context-menu.png)
 
-*This example places a **Copy GitHub Link** next to the other copy commands. This action only appears on files that are from a GitHub repository.*
+*This example places a **Copy GitHub Permalink** next to the other copy commands. This action only appears on files that are from a GitHub repository.*
+
+## Links
+
+* [Context Menu API reference](/api/references/contribution-points#contributes.menus)

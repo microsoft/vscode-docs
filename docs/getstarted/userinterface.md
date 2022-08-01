@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -373,7 +373,7 @@ Now that you know the overall layout of VS Code, start to customize the editor t
 
 ### How can I change the color of the indent guides?
 
-The indent guide colors are customizable as are most VS Code UI elements. To [customize](/docs/getstarted/theme-color-reference.md) the indent guides color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
+The indent guide colors are customizable as are most VS Code UI elements. To [customize](/api/references/theme-color.md) the indent guides color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
 
 For example, to make the indent guides bright blue, add the following to your `settings.json`:
 

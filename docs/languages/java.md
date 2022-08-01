@@ -88,8 +88,9 @@ We recommend you to consider installing the JDK from one of these sources:
 
 > **Note**: If you have multiple JDKs installed and need to use a specific JDK version for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
-For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code
-Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
+For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code.
+
+Open the Command Palette (`kb(workbench.action.showCommands)`) and type "java tips" to select the command.
 
 ![Java Getting Started](images/java/beginner-tips.png)
 
@@ -181,7 +182,7 @@ See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about s
 
 [Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also the [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions provided by Microsoft, to further improve your experience with Spring Boot in Visual Studio Code.
 
-See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support in VS Code, and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spring Cloud](/docs/java/java-spring-cloud.md) to learn more about deploying Spring apps to Azure from VS Code.
+See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support in VS Code, and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spring Apps](/docs/java/java-spring-apps.md) to learn more about deploying Spring apps to Azure from VS Code.
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9c48dfbf-e49d-4f33-aadc-5ebf06d5dde0
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Common capabilities that Visual Studio Code extensions (plug-ins) can take advantage of
@@ -59,11 +59,9 @@ context.globalState.setKeysForSync([versionKey]);
 // later on show page
 const currentVersion = context.extension.packageJSON.version;
 const lastVersionShown = context.globalState.get(versionKey);
-if (!isHigher(currentVersion, lastVersionShown)) {
-    return;
+if (isHigher(currentVersion, lastVersionShown)) {
+    context.globalState.update(versionKey, currentVersion);
 }
-context.globalState.update(versionKey, currentVersion);
-// show page
 ```
 
 Sharing state across machines can help avoid the problem of users seeing multiple instances of a welcome or update page, by sharing dismissed or viewed flags.
@@ -78,7 +76,7 @@ Almost all extensions need to present information to the user at some point. VS 
 
 ## Quick Pick
 
-With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample) illustrates the API.
+With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can easily collect user input or let the user make a selection from multiple options. The [QuickInput sample](https://github.com/microsoft/vscode-extension-samples/tree/main/quickinput-sample) illustrates the API.
 
 ## File Picker
 
@@ -98,4 +96,4 @@ Progress can be shown in different locations using the [`ProgressLocation`](/api
 - In the Source Control view
 - General progress in the VS Code window
 
-The [Progress Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/progress-sample) illustrates this API.
+The [Progress sample](https://github.com/microsoft/vscode-extension-samples/tree/main/progress-sample) illustrates this API.

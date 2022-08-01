@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 4/1/2022
+DateApproved: 7/13/2022
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -177,7 +177,7 @@ There may be instances where you need to debug a Python script that's invoked lo
 
 1. In the terminal, start Python with the script, for example, `python3 myscript.py`. You should see the "Waiting for debugger attach" message that's included in the code, and the script halts at the `debugpy.wait_for_client()` call.
 
-1. Switch to the Run view, select the appropriate configuration from the debugger dropdown list, and start the debugger.
+1. Switch to the **Run and Debug** view (`kb(workbench.view.debug)`), select the appropriate configuration from the debugger dropdown list, and start the debugger.
 
 1. The debugger should stop on the `debugpy.breakpoint()` call, from which point you can use the debugger normally. You also have the option of setting other breakpoints in the script code using the UI instead of using `debugpy.breakpoint()`.
 
@@ -269,7 +269,7 @@ Now that an SSH tunnel has been set up to the remote computer, you can begin you
     #debugpy.wait_for_client()
     ```
 
-1. Local computer: switch to the Run view in VS Code, select the **Python: Attach** configuration
+1. Local computer: switch to the **Run and Debug** view (`kb(workbench.view.debug)`) in VS Code, select the **Python: Attach** configuration
 
 1. Local computer: set a breakpoint in the code where you want to start debugging.
 
@@ -353,7 +353,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 
 ### `module`
 
-Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. The `code` option is also a possible alternative. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
+Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
 
 ### `python`
 
@@ -388,14 +388,14 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 | Value                            | Where output is displayed                                          |
 |----------------------------------|--------------------------------------------------------------------|
 | `"internalConsole"`              | **VS Code debug console.** If `redirectOutput` is set to False, no output is displayed.                                 |
-| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
+| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/terminal/basics.md). If `redirectOutput` is set to True, output is also displayed in the debug console.|
 | `"externalTerminal"`             | **Separate console window**. If `redirectOutput` is set to True, output is also displayed in the debug console. |
 
 ### `purpose`
 
- If set to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
- If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the **Debug Python File in Terminal** button on the top-right of the editor.
- Note that the `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
+ There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
+However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
+**Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
 
 ### `autoReload`
 
@@ -492,7 +492,7 @@ The configuration dropdown provides various different options for general app ty
 
 | Configuration | Description |
 | --- | --- |
-| Attach | See [Remote debugging](#remote-debugging) in the previous section. |
+| Attach | See [Remote debugging](#debugging-by-attaching-over-a-network-connection) in the previous section. |
 | Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver"]`. Also adds `"django": true` to enable debugging of Django HTML templates. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
@@ -567,7 +567,7 @@ There are many reasons why the debugger may not work. Sometimes the debug consol
 - If you are working with a **Linux** system, you may receive a "timed out" error message when trying to apply a debugger to any running process. To prevent this, you can temporarily run the following command:
 
     ```bash
-    $ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
     ```
 
 ## Next steps

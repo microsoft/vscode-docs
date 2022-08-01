@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code built-in commands reference.
 
 This document lists a subset of Visual Studio Code commands that you might use with `vscode.commands.executeCommand` API.
 
-Read the [Commands Guide](/api/extension-guides/command) for how to use the commands API.
+Read the [Commands guide](/api/extension-guides/command) for how to use the commands API.
 
 The following is a sample of how to open a new folder in VS Code:
 
@@ -19,6 +19,8 @@ The following is a sample of how to open a new folder in VS Code:
 let uri = Uri.file('/some/path/to/folder');
 let success = await commands.executeCommand('vscode.openFolder', uri);
 ```
+
+>**Note**: You can review the full set of VS Code commands via the Keyboard Shortcuts editor **File** > **Preferences** > **Keyboard Shortcuts** (on macOS **Code** > **Preferences** > **Keyboard Shortcuts**). The Keyboard Shortcuts editor lists all commands built into VS Code or contributed by extensions, along with their keybindings and visibility when clauses.
 
 ## Commands
 

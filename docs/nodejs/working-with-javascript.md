@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Working with JavaScript
 PageTitle: Working with JavaScript in Visual Studio Code
 ContentId: 3e5af2a6-7669-4b5d-b19f-78077af14fda
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Working with JavaScript in Visual Studio Code
 ---
 # Working with JavaScript
@@ -140,7 +140,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To start migrat
 
 ## Type checking JavaScript
 
-VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting [Quick Fixes]() for JavaScript, including **Add missing import** and **Add missing property**.
+VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting Quick Fixes for JavaScript, including **Add missing import** and **Add missing property**.
 
 ![Using type checking and Quick Fixes in a JavaScript file](images/working-with-javascript/checkjs-example.gif)
 
@@ -241,7 +241,7 @@ If you try to use `// @ts-check` with the above code, you'll see a number of err
 
 If you want to continue using `// @ts-check` but are confident that these are not actual issues with your application, you have to let TypeScript know about these global variables.
 
-To start, [create a `jsconfig.json`](#javascript-project-jsconfigjson) at the root of your project:
+To start, [create a `jsconfig.json`](#javascript-projects-jsconfigjson) at the root of your project:
 
 ```json
 {
@@ -275,7 +275,7 @@ One of the key features of TypeScript is the ability to use the latest JavaScrip
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then use the –p argument to make `tsc` use your `jsconfig.json` file, for example `tsc -p jsconfig.json` to down-level compile.
 
-Read more about the compiler options for down level compilation in the [jsconfig documentation](/docs/languages/jsconfig.md#down-level-compilation-with-typescript-compiler).
+Read more about the compiler options for down level compilation in the [jsconfig documentation](/docs/languages/jsconfig.md#jsconfig-options).
 
 ### Running Babel
 

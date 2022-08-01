@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to provide debugger extensions (plug-ins) for Visual Studio Code through a Debug Adapter.
@@ -82,9 +82,9 @@ To try Mock Debug:
 
 - Create a new empty folder `mock test` and open it in VS Code.
 - Create a file `readme.md` and enter several lines of arbitrary text.
-- Switch to the Run view and press the gear icon.
-- VS Code will let you select an "environment" in order to create a default launch configuration. Pick "Mock Debug".
-- Press the green Start button and then Enter to confirm the suggested file `readme.md`.
+- Switch to the Run and Debug view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link.
+- VS Code will let you select an "debugger" in order to create a default launch configuration. Pick "Mock Debug".
+- Press the green **Start** button and then `kbstyle(Enter)` to confirm the suggested file `readme.md`.
 
 A debug session starts and you can "step" through the readme file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
@@ -298,7 +298,7 @@ Since VS Code runs on different platforms, we have to make sure that the DA prog
 
 **configurationAttributes** declares the schema for the `launch.json` attributes that are available for this debugger. This schema is used for validating the `launch.json` and supporting IntelliSense and hover help when editing the launch configuration.
 
-The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the Run view. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
+The **initialConfigurations** define the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or selects the **create a launch.json file** link in the Run and Debug view. In this case VS Code lets the user pick a debug environment and then creates the corresponding `launch.json`:
 
 ![Debugger Quickpick](images/debugger-extension/debug-init-config.png)
 

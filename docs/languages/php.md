@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 3/30/2022
+DateApproved: 7/7/2022
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP in Visual Studio Code
@@ -29,7 +29,7 @@ To change the PHP settings, open your **User or Workspace Settings** (`kb(workbe
 
 To set the PHP executable path, select the **Edit in settings.json** link under **PHP > Validate: Executable Path**, which will open your user `settings.json` file. Add the `php.validate.executablePath` setting with the path to your PHP installation:
 
-### Windows:
+### Windows
 
 ```json
 {
@@ -37,7 +37,7 @@ To set the PHP executable path, select the **Edit in settings.json** link under 
 }
 ```
 
-### Linux and macOS:
+### Linux and macOS
 
 ```json
 {

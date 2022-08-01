@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Getting started
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 PageTitle:  Getting started with Visual Studio Code
-DateApproved: 11/12/2021
+DateApproved: 5/4/2022
 MetaDescription: Download and learn the basics of Visual Studio Code.
 MetaSocialImage: images/opengraph/introvideos.png
 ---
@@ -12,9 +12,7 @@ MetaSocialImage: images/opengraph/introvideos.png
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
->**Linux users**: Make sure you have the correct multimedia codecs installed for your Linux distribution. For example, on Ubuntu, you may need to install `ubuntu-restricted-extras` to get the necessary codecs to play the videos.
-
-<iframe src="https://www.microsoft.com/videoplayer/embed/RWz32O?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
+<iframe src="https://www.youtube.com/embed/B-s71n0dHUk?autoplay=true" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Getting Started with Visual Studio Code"></iframe>
 
 Here's the next video we recommend: [Code Editing in Visual Studio Code](/docs/introvideos/codeediting.md)
 
@@ -24,31 +22,45 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 * Download and install VS Code.
   * From [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
-* Create a new file.
-  * **File** > **New File** (`kb(workbench.action.files.newUntitledFile)`)
-* Save a file.
-  * **File** > **Save** (`kb(workbench.action.files.save)`)
+* Open a folder
+  * **File** > **Open Folder** (`kb(workbench.action.files.openFolder)`)
+* File Explorer
+  * **View** > **Explorer** (`kb(workbench.view.explorer)`)
+* Search view
+  * **View** > **Search** (`kb(workbench.view.search)`)
+* Source Control
+  * **View** > **Source Control (SCM)** (`kb(workbench.view.scm)`)
+* Run and Debug
+  * **View** > **Run** (`kb(workbench.view.debug)`)
+* Extensions view
+  * **View** > **Extensions** (`kb(workbench.view.extensions)`)
 * Open the Command Palette.
   * **View** > **Command Palette...** (`kb(workbench.action.showCommands)`)
-* See an overview of the user interface.
-  * **Help: User Interface Overview** in the Command Palette.
-* Install support for your favorite programming language from the Extensions view.
-  * **View** > **Extensions** (`kb(workbench.view.extensions)`)
-* Change your keyboard shortcuts and easily migrate from other editors using keymap extensions.
-  * **File** > **Preferences** > **Migrate Keyboard Shortcuts from...**
-  * **Code** > **Preferences** > **Migrate Keyboard Shortcuts from...** on macOS
-* Open the Keyboard Shortcuts editor.
-  * **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`)
-  * **Code** > **Preferences** > **Keyboard Shortcuts** on macOS
-* Printable keyboard cheat sheet.
-  * **Help** >  **Keyboard Shortcuts Reference** (`kb(workbench.action.keybindingsReference)`)
+* Output panel
+  * **View** > **Output** (`kb(workbench.action.output.toggleOutput)`)
+* Debug Console
+  * **View** > **Debug Console** (`kb(workbench.debug.action.toggleRepl)`)
+* Problems panel
+  * **View** > **Problems** (`kb(workbench.actions.view.problems)`)
+* Integrated Terminal
+  * **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)`)
+* Create a new file
+  * **File** > **New File** (`kb(workbench.action.files.newUntitledFile)`)
+* Save a file
+  * **File** > **Save** (`kb(workbench.action.files.save)`)
+* Auto Save
+  * **File** > **Auto Save**
+* Run
+  * **Run** > **Start Debugging** (`kb(workbench.action.debug.start)`)
+* Programming language extensions
+  * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, debugging, code formatting, refactoring, and more.
+  * [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) - Hosts a local server to preview your webpages.
+* Zoom
+  * Zoom out (`kb(workbench.action.zoomOut)`)
+  * Zoom in (`kb(workbench.action.zoomIn)`)
 * Customize your editor with color themes.
   * **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`)
   * **Code** > **Preferences** > **Color Theme** on macOS
-* Show all commands.
-  * **Help** > **Show All Commands** (`kb(workbench.action.showCommands)`)
-* Explore VS Code features in the **Interactive Editor Playground**.
-  * **Help** > **Editor Playground**
 
 ## Next video
 
@@ -59,5 +71,4 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [Keyboard Shortcuts](/docs/getstarted/keybindings.md) - Customize your own shortcuts, download a reference sheet, or install a Keymap extension.
-* [Keybinding extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) - Install a Keymap extension to bring the keybindings from your previous editor to VS Code.
+* [IntelliSense](/docs/editor/intellisense.md) -VS Code brings smart code completions as you type.
