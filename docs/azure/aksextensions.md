@@ -45,7 +45,7 @@ Once you successfully sign in with your Azure Account, you can view all AKS clus
 
 ![Cloud explorer extension menu](images/aksextensions/right-click-menu-workflow.png)
 
-![Cloud explorer extension menu](resources/right-click-subscription.png)
+![Cloud explorer extension menu](images/aksextensions/right-click-subscription.png)
 
 ### Merge into Kubeconfig
 
@@ -135,7 +135,7 @@ Right click on your AKS sunscription and click on **Create cluster from Azure Po
 
 Right click on your AKS cluster and click on **Show Properties** to display the AKS cluster properties, within the page there will be **Stop/Start Cluster** button to perform the start or stop the cluster operation.
 
-![Start or Stop Cluster From Properties Webview](resources/aks-startstop-cluster.png)
+![Start or Stop Cluster From Properties Webview](images/aksextensions/aks-startstop-cluster.png)
 
 Congratulations! You now know how to navigate through this VS Code extension.
 
