@@ -45,6 +45,8 @@ Once you successfully log in with your Azure Account, you can view all AKS clust
 
 ![Cloud explorer extension menu](images/aksextensions/right-click-menu-workflow.png)
 
+![Cloud explorer extension menu](resources/right-click-subscription.png)
+
 ### Merge into Kubeconfig
 
 Right click on your AKS cluster and click on **Merge into Kubeconfig** to add the selected AKS cluster to your default local kubeconfig file.
@@ -117,6 +119,15 @@ Right click on your AKS cluster and click on **Create GitHub Workflow** to easil
 - [Kompose Workflow](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service-kompose.yml)
 - [Kustomize Workflow](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service-kustomize.yml)
 
+### Create cluster from Azure Portal
+
+Right click on your AKS sunscription and click on **Create cluster from Azure Portal** to easily navigate to AKS create cluster page in Azure Portal.
+
+### Start or Stop AKS cluster
+
+Right click on your AKS cluster and click on **Show Properties** to display the AKS cluster properties, within the page there will be **Stop/Start Cluster** button to perform the start or stop the cluster operation.
+
+![Start or Stop Cluster From Properties Webview](resources/aks-startstop-cluster.png)
 
 Congratulations! You now know how to navigate through this VS Code extension.
 
