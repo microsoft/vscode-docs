@@ -123,6 +123,12 @@ There is currently no keybinding assigned by default but you can add your own ke
   "command": "workbench.action.terminal.sendSequence",
   "args": { "text": "\u0012"/*^R*/ },
   "when": "terminalFocus"
+},
+// Have ctrl+c close the quick pick
+{
+  "key": "ctrl+c",
+  "command": "workbench.action.closeQuickOpen",
+  "when": "inQuickOpen && inTerminalRunCommandPicker"
 }
 ```
 
