@@ -1,5 +1,28 @@
 [
       {
+        "isReleaseParty": "1.70",
+        "title": "VS Code 1.70 Release Party",
+        "description": "Live event and Q&A with the VS Code team to discuss highlights from the July 2022, 1.70 release.",
+        "speakers": [
+          {
+            "name": "VS Code team"
+          }
+        ],
+        "start": "2022-08-04T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/wFmAyna4r5E"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220804.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220804/ics",
+          "google": "https://aka.ms/vscodelive/20220804/google"
+        },
+        "youtubeId": "wFmAyna4r5E"
+      },
+      {
         "title": "Intro to the Stripe CLI and Stripe VS Code extension",
         "description": "Systems that accept payments involve many moving parts from resource management, security, logging and asynchronicity to name a few — having the right tools to hand is essential for increasing developer productivity. In this session we'll learn about the fundamentals to leverage the Stripe CLI and the Stripe VS Code extension to build, test, and manage a Stripe integration.\n",
         "speakers": [
