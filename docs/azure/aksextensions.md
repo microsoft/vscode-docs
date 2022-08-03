@@ -41,11 +41,13 @@ To install the Azure Kubernetes Services VS Code extension, open the Extensions 
 
 Once you successfully sign in with your Azure Account, you can view all AKS clusters in your Azure subscriptions(s) under the section named **Azure**. You can right-click on your AKS cluster and select a menu item to perform the following actions.
 
-![Cloud explorer extension menu](images/aksextensions/right-click-menu.png)
+Run AKS diagnostics on a cluster:
 
-![Cloud explorer extension menu](images/aksextensions/right-click-menu-workflow.png)
+![Cloud explorer extension Run AKS Diagnostics menu](images/aksextensions/right-click-menu.png)
 
-![Cloud explorer extension menu](images/aksextensions/right-click-subscription.png)
+Start a GitHub workflow:
+
+![Cloud explorer extension Create GitHub Workflow menu](images/aksextensions/right-click-menu-workflow.png)
 
 ### Merge into Kubeconfig
 
@@ -129,13 +131,15 @@ Right-click on your AKS cluster and select **Create GitHub Workflow** to easily 
 
 ### Create cluster from Azure Portal
 
-Right click on your AKS sunscription and click on **Create cluster from Azure Portal** to easily navigate to AKS create cluster page in Azure Portal.
+Right-click on your AKS subscription and select **Create Cluster From Azure Portal** to easily navigate to the AKS create cluster page in the Azure Portal.
 
-### Start or Stop AKS cluster
+![Create Cluster From Azure Portal command on an AKS subscription](images/aksextensions/right-click-subscription.png)
 
-Right click on your AKS cluster and click on **Show Properties** to display the AKS cluster properties, within the page there will be **Stop/Start Cluster** button to perform the start or stop the cluster operation.
+### Start or stop an AKS cluster
 
-![Start or Stop Cluster From Properties Webview](images/aksextensions/aks-startstop-cluster.png)
+Right-click on your AKS cluster and select **Show Properties** to display the AKS cluster properties. On the page, there is a **Stop/Start Cluster** button to start or stop the cluster.
+
+![Start or Stop Cluster from properties webview](images/aksextensions/aks-startstop-cluster.png)
 
 Congratulations! You now know how to navigate through this VS Code extension.
 

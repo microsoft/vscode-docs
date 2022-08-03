@@ -86,7 +86,7 @@ Behind the scenes, this is simply automating the same Git CLI commands you would
 
 ## Project / Code navigation
 
-In order to orient ourselves within the codebase, let's play around with some examples of some of the navigation capabilities that VS Code provides:
+In order to familiarize ourselves within the codebase, let's play around with some examples of some of the navigation capabilities that VS Code provides:
 
 1. Type `CMD+P` and enter `.js`, which lets you see all of the JavaScript/JSON files in the project, along with the directory they're within. Once again, this dialog supports the same "fuzzy search" as the command palette, so it's pretty flexible.
 
