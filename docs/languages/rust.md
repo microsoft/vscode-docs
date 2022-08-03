@@ -13,7 +13,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 ![Rust extension banner](images/rust/rust-analyzer-extension.png)
 
->**Note**: There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension will soon be deprecated and rust-analyzer will be the recommended VS Code Rust extension by rust-lang.org.
+>**Note**: There is also another popular Rust extension in the VS Code Marketplace (extension ID: rust-lang.rust) but this extension is deprecated and rust-analyzer is the recommended VS Code Rust extension by rust-lang.org.
 
 ## Installation
 
