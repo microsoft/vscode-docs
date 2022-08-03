@@ -367,7 +367,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - inherit: Lines will wrap according to the `editor.wordWrap` setting.
     "diffEditor.wordWrap": "inherit",
 
-    // Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`; `) can be a commit character that accepts a suggestion and types that character.
+    // Controls whether suggestions should be accepted on commit characters. For example, in JavaScript, the semi-colon (`;`) can be a commit character that accepts a suggestion and types that character.
     "editor.acceptSuggestionOnCommitCharacter": true,
 
     // Controls whether suggestions should be accepted on `Enter`, in addition to `Tab`. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
@@ -487,9 +487,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the editor should allow moving selections via drag and drop.
     "editor.dragAndDrop": true,
-
-    // Controls whether you can drag and drop a file into a text editor by holding down `shift` (instead of opening the file in an editor).
-    "editor.dropIntoEditor.enabled": true,
 
     // Controls whether copying without a selection copies the current line.
     "editor.emptySelectionClipboard": true,
@@ -864,7 +861,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls when the folding controls on the gutter are shown.
     //  - always: Always show the folding controls.
-    //  - never: Never show the folding controls and reduce the gutter size.
     //  - mouseover: Only show the folding controls when the mouse is over the gutter.
     "editor.showFoldingControls": "mouseover",
 
@@ -876,9 +872,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the editor will scroll using an animation.
     "editor.smoothScrolling": false,
-
-    // Controls if surround-with-snippets or file template snippets show as Code Actions.
-    "editor.snippets.codeActions.enabled": true,
 
     // Controls whether snippets are shown with other suggestions and how they are sorted.
     //  - top: Show snippet suggestions on top of other suggestions.
@@ -1245,8 +1238,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // If an editor matching one of the listed types is opened as the first in an editor group and more than one group is open, the group is automatically locked. Locked groups will only be used for opening editors when explicitly chosen by user gesture (e.g. drag and drop), but not by default. Consequently the active editor in a locked group is less likely to be replaced accidentally with a different editor.
     "workbench.editor.autoLockGroups": {
         "default": false,
-        "mergeEditor.Input": false,
-        "vscode-interactive-input": false,
+        "workbench.input.interactive": false,
         "interactive": false,
         "workbench.editorinputs.searchEditorInput": false,
         "imagePreview.previewEditor": false,
@@ -1432,16 +1424,20 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - both: Shows both the dropdown and toggle buttons.
     "workbench.layoutControl.type": "both",
 
-    // Controls the default find mode for lists and trees in the workbench.
-    //  - highlight: Highlight elements when searching. Further up and down navigation will traverse only the highlighted elements.
-    //  - filter: Filter elements when searching.
-    "workbench.list.defaultFindMode": "highlight",
+    // Controls whether keyboard navigation in lists and trees is automatically triggered simply by typing. If set to `false`, keyboard navigation is only triggered when executing the `list.toggleKeyboardNavigation` command, for which you can assign a keyboard shortcut.
+    "workbench.list.automaticKeyboardNavigation": true,
 
     // Scrolling speed multiplier when pressing `Alt`.
     "workbench.list.fastScrollSensitivity": 5,
 
     // Controls whether lists and trees support horizontal scrolling in the workbench. Warning: turning on this setting has a performance implication.
     "workbench.list.horizontalScrolling": false,
+
+    // Controls the keyboard navigation style for lists and trees in the workbench. Can be simple, highlight and filter.
+    //  - simple: Simple keyboard navigation focuses elements which match the keyboard input. Matching is done only on prefixes.
+    //  - highlight: Highlight keyboard navigation highlights elements which match the keyboard input. Further up and down navigation will traverse only the highlighted elements.
+    //  - filter: Filter keyboard navigation will filter out and hide all the elements which do not match the keyboard input.
+    "workbench.list.keyboardNavigation": "highlight",
 
     // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events.
     "workbench.list.mouseWheelScrollSensitivity": 1,
@@ -2246,9 +2242,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Enable/disable default JSON formatter
     "json.format.enable": true,
 
-    // Keep all existing new lines when formatting.
-    "json.format.keepLines": false,
-
     // The maximum number of outline symbols and folding regions computed (limited for performance reasons).
     "json.maxItemsComputed": 5000,
 
@@ -2313,7 +2306,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "markdown.suggest.paths.enabled": true,
 
     // Enable debug logging for the Markdown extension.
-    "markdown.trace.extension": "off",
+    "markdown.trace": "off",
 
 // PHP
 
@@ -3135,6 +3128,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Notebooks
 
+    // Automatically scroll the interactive window to show the output of the last statement executed. If this value is false, the window will only scroll if the last cell was already the one scrolled to.
+    "interactiveWindow.alwaysScrollOnNewCell": true,
+
     // Controls whether code cells in the interactive window are collapsed by default.
     "interactiveWindow.collapseCellInputCode": "fromEditor",
 
@@ -3210,7 +3206,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // The font family for the output text for notebook cells. When set to empty, the `editor.fontFamily` is used.
     "notebook.outputFontFamily": "",
 
-    // Font size for the output text for notebook cells. When set to 0, `editor.fontSize` is used.
+    // Font size for the output text for notebook cells. When set to 0 `editor.fontSize` is used.
     "notebook.outputFontSize": 0,
 
     // Line height of the output text for notebook cells.
@@ -3226,15 +3222,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls when the Markdown header folding arrow is shown.
     //  - always: The folding controls are always visible.
-    //  - never: Never show the folding controls and reduce the gutter size.
     //  - mouseover: The folding controls are visible only on mouseover.
     "notebook.showFoldingControls": "mouseover",
 
     // Whether to use separate undo/redo stack for each cell.
     "notebook.undoRedoPerCell": true,
-
-    // Automatically scroll the interactive window to show the output of the last statement executed. If this value is false, the window will only scroll if the last cell was already the one scrolled to.
-    "interactiveWindow.alwaysScrollOnNewCell": true,
 
 // Terminal
 
@@ -3259,19 +3251,19 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether or not to allow chord keybindings in the terminal. Note that when this is true and the keystroke results in a chord it will bypass `terminal.integrated.commandsToSkipShell`, setting this to false is particularly useful when you want ctrl+k to go to your shell (not VS Code).
     "terminal.integrated.allowChords": true,
 
-    // Whether to allow menubar mnemonics (for example, Alt+F) to trigger the open of the menubar. Note that this will cause all alt keystrokes to skip the shell when true. This does nothing on macOS.
+    // Whether to allow menubar mnemonics (eg. alt+f) to trigger the open of the menubar. Note that this will cause all alt keystrokes to skip the shell when true. This does nothing on macOS.
     "terminal.integrated.allowMnemonics": false,
 
     // If enabled, alt/option + click will reposition the prompt cursor to underneath the mouse when `editor.multiCursorModifier` is set to `'alt'` (the default value). This may not work reliably depending on your shell.
     "terminal.integrated.altClickMovesCursor": true,
 
-    // The terminal profile to use on Linux for automation-related terminal usage like tasks and debug. This setting will currently be ignored if `terminal.integrated.automationShell.linux` is set.
+    // The terminal profile to use on Linux for automation-related terminal usage like tasks and debug. This setting will currently be ignored if #terminal.integrated.automationShell.linux# is set.
     "terminal.integrated.automationProfile.linux": null,
 
-    // The terminal profile to use on macOS for automation-related terminal usage like tasks and debug. This setting will currently be ignored if `terminal.integrated.automationShell.osx` is set.
+    // The terminal profile to use on macOS for automation-related terminal usage like tasks and debug. This setting will currently be ignored if #terminal.integrated.automationShell.osx# is set.
     "terminal.integrated.automationProfile.osx": null,
 
-    // The terminal profile to use for automation-related terminal usage like tasks and debug. This setting will currently be ignored if `terminal.integrated.automationShell.windows` is set.
+    // The terminal profile to use for automation-related terminal usage like tasks and debug. This setting will currently be ignored if #terminal.integrated.automationShell.windows# is set.
     "terminal.integrated.automationProfile.windows": null,
 
     // A set of messages that when encountered in the terminal will be automatically responded to. Provided the message is specific enough, this can help automate away common responses.
@@ -3473,24 +3465,20 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Dispatches most keybindings to the terminal instead of the workbench, overriding `terminal.integrated.commandsToSkipShell`, which can be used alternatively for fine tuning.
     "terminal.integrated.sendKeybindingsToShell": false,
 
-    // Controls the icon that will be used for skipped/empty commands. Set to `""` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`.
+    // Controls the icon that will be used for skipped/empty commands. Set to `''` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`
     "terminal.integrated.shellIntegration.decorationIcon": "circle-outline",
 
-    // Controls the icon that will be used for each command in terminals with shell integration enabled that do have an associated exit code. Set to `""` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`.
+    // Controls the icon that will be used for each command in terminals with shell integration enabled that do have an associated exit code. Set to `''` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`.
     "terminal.integrated.shellIntegration.decorationIconError": "error-small",
 
-    // Controls the icon that will be used for each command in terminals with shell integration enabled that do not have an associated exit code. Set to `""` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`.
+    // Controls the icon that will be used for each command in terminals with shell integration enabled that do not have an associated exit code. Set to `''` to hide the icon or disable decorations with `terminal.integrated.shellIntegration.decorationsEnabled`
     "terminal.integrated.shellIntegration.decorationIconSuccess": "primitive-dot",
 
     // When shell integration is enabled, adds a decoration for each command.
-    //  - both: Show decorations in the gutter (left) and overview ruler (right)
-    //  - gutter: Show gutter decorations to the left of the terminal
-    //  - overviewRuler: Show overview ruler decorations to the right of the terminal
-    //  - never: Do not show decorations
-    "terminal.integrated.shellIntegration.decorationsEnabled": "both",
+    "terminal.integrated.shellIntegration.decorationsEnabled": true,
 
-    // Determines whether or not shell integration is auto-injected to support features like enhanced command tracking and current working directory detection.
-    "terminal.integrated.shellIntegration.enabled": true,
+    // Enable features like enhanced command tracking and current working directory detection.
+    "terminal.integrated.shellIntegration.enabled": false,
 
     // Controls the number of recently used commands to keep in the terminal command history. Set to 0 to disable terminal command history.
     "terminal.integrated.shellIntegration.history": 100,
@@ -3506,12 +3494,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - initial: A new split terminal will use the working directory that the parent terminal started with.
     //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
     "terminal.integrated.splitCwd": "inherited",
-
-    // A theme color ID to associate with terminal icons by default.
-    "terminal.integrated.tabs.defaultColor": null,
-
-// A codicon ID to associate with terminal icons by default.
-    "terminal.integrated.tabs.defaultIcon": "terminal",
 
     // Controls the terminal description, which appears to the right of the title. Variables are substituted based on the context:
     // - `${cwd}`: the terminal's current working directory
@@ -3589,12 +3571,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’",
 
 // Tasks
-
-    // Enable automatic tasks in the folder.
-    //  - on: Always
-    //  - auto: Prompt for permission for each folder
-    //  - off: Never
-    "task.allowAutomaticTasks": "auto",
 
     // Controls enablement of `provideTasks` for all task provider extension. If the Tasks: Run Task command is slow, disabling auto detect for task providers may help. Individual extensions may also provide settings that disable auto detection.
     "task.autoDetect": "on",
@@ -4269,9 +4245,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Specifies how much information (if any) to log to the Git output.
     "git.logLevel": "Info",
 
-    // Open the merge editor for files that are currently under conflict.
-    "git.mergeEditor": true,
-
     // Controls whether to open a repository automatically after cloning.
     //  - always: Always open in current window.
     //  - alwaysNewWindow: Always open in a new window.
@@ -4326,7 +4299,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // List of paths to search for git repositories in.
     "git.scanRepositories": [],
 
-    // Controls whether an action button is shown in the Source Control view.
+    // Controls whether an action button can be shown in the Source Control view.
     "git.showActionButton": {
         "commit": true,
         "publish": true,
