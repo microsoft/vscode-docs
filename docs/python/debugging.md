@@ -47,7 +47,7 @@ The details of configuration properties are covered later in this article under 
 
 ## Additional configurations
 
-By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to click on the "Python" option):
+By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to select the **Python** option):
 
 ![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
 
