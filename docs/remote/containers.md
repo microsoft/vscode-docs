@@ -296,9 +296,9 @@ The **Remote-Containers: Configure Container Features** command allows you to up
 
 We recommend pre-building images with the tools you need rather than creating and building a container image each time you open your project in a dev container. Using pre-built images will result in a faster container startup,  simpler configuration, and allows you to pin to a specific version of tools to improve supply-chain security and avoid potential breaks. You can automate pre-building your image by scheduling the build using a DevOps or continuous integration (CI) service like GitHub Actions.
 
-We recommend using the [devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
+We recommend using the [VS Code devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
-See the [devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#building-a-dev-container-image) for more information.
+See the [VS Code devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#building-a-dev-container-image) for more information.
 
 ## Inspecting volumes
 
@@ -701,7 +701,7 @@ The following articles may help answer your question:
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
 * Create a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
-* Review and provide feedback on the [Development Containers Specification](https://github.com/devcontainers/spec).
+* Help [shape the direction](https://github.com/microsoft/dev-container-spec) of development containers and the dev container CLI.
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
 
