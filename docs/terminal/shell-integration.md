@@ -21,71 +21,51 @@ Supported shells:
 
 ### Automatic script injection
 
-The standard way to activate shell integration is to set the `terminal.integrated.shellIntegration.enabled` setting to `true`. When enabled, the shell integration script is injected into the shell session via shell arguments and/or environment variables.
+By default, the shell integration script should automatically activate on supported shells launched from VS Code. This is done by injecting arguments and/or environment variables when the shell session launches. This automatic injection can be disabled by setting `terminal.integrated.shellIntegration.enabled` to `false`.
 
-This standard, easy way will not work for some advanced use cases like in sub-shells, through ssh (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
+This standard, easy way will not work for some advanced use cases like in sub-shells, through a regular `ssh` session (when not using the [Remote - SSH extension](/docs/remote/ssh.md)) or for some complex shell setups. The recommended way to enable shell integration for those is [manual installation](#manual-installation).
 
 ### Manual installation
 
-To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using.
+To manually install shell integration, the VS Code shell integration script needs to run during your shell's initialization. Where and how to do this depends on the shell and OS you're using. When using manual install it's recommended to set `terminal.integrated.shellIntegration.enabled` to `false`, though not mandatory.
 
-When using manual install it's recommended to set `terminal.integrated.shellIntegration.enabled` to `false`, though not mandatory.
+> **Tip:** When using the [Insiders build](https://code.visualstudio.com/insiders), replace `code` with `code-insiders` below.
 
-> ℹ️ The method for calling the script will be simplified in the future (see [vscode#153921](https://github.com/microsoft/vscode/issues/153921))
+#### bash
 
-#### Windows
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in VS Code.
 
-The script below contains `<InstallDir>` which must be replaced by VS Code's installation directory. This defaults to:
+```sh
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+```
 
-- User install: `$env:HOMEPATH\AppData\Local\Programs\Microsoft VS Code\`
-- System install: `C:\Program Files\Microsoft VS Code`
+#### pwsh
 
-**pwsh**
+Add the following to your [PowerShell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2). Run `code $Profile` in pwsh to open the file in VS Code.
 
-  Add the following to your [PowerShell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2), replacing `<InstallDir>` with VS Code's installation directory. Run `code $Profile` in pwsh to open the file in VS Code.
+```pwsh
+if ($env:TERM_PROGRAM -eq "vscode") { . "$(code --locate-shell-integration-path pwsh)" }
+```
 
-  ```pwsh
-  if ($env:TERM_PROGRAM -eq "vscode") {
-    . "<InstallDir>\resources\app\out\vs\workbench\contrib\terminal\browser\media\shellIntegration.ps1"
-  }
-  ```
+#### zsh
 
-#### Linux and macOS
+Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open the file in VS Code.
 
-The script below contains `<InstallDir>` which must be replaced by VS Code's installation directory. This defaults to:
+```sh
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+```
 
-- Linux: Find by running `echo  $(dirname "$(readlink -f "$(which code)")")/../resources`
-- macOS: `/Applications/Visual\ Studio\ Code.app/Contents/Resources`
+#### Portability versus performance
 
-**bash**
+The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great at it works cross-platform and also with all install types provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
 
-  Add the following to your `~/.bashrc` file, replacing `<InstallDir>` with VS Code's installation directory. Run `code ~/.bashrc` in bash to open the file in VS Code.
+```sh
+# Output the executable's path first:
+code --locate-shell-integration-path bash
 
-  ```sh
-  if [ "$TERM_PROGRAM" == "vscode" ]; then
-    . <InstallDir>/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
-  fi
-  ```
-
-**pwsh**
-
-  Add the following to your [PowerShell profile](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2), replacing `<InstallDir>` with VS Code's installation directory. Run `code $Profile` in pwsh to open the file in VS Code.
-
-  ```pwsh
-  if ($env:TERM_PROGRAM -eq "vscode") {
-    . "<InstallDir>/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration.ps1"
-  }
-  ```
-
-**zsh**
-
-  Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open the file in VS Code.
-
-  ```sh
-  if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-    . <vscode resources install path>/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-rc.zsh
-  fi
-  ```
+# Add the result of the above to the source statement:
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
+```
 
 ## Features
 
@@ -101,34 +81,55 @@ The decorations can be interacted with to give some contextual actions like re-r
 
 The command decorations can be configured with the following settings:
 
+- `terminal.integrated.shellIntegration.decorationsEnabled`
 - `terminal.integrated.shellIntegration.decorationIcon`
 - `terminal.integrated.shellIntegration.decorationIconSuccess`
 - `terminal.integrated.shellIntegration.decorationIconError`
 
 ### Command navigation
 
-The commands detected by shell integration feed into the command navigation feature (`Ctrl/Cmd+Up`, `Ctrl/Cmd+Down`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output.
+The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. Hold `kbStyle(Shift)` as well to select from the current position to the command.
 
 ### Run recent command
 
 The **Terminal: Run Recent Command** command surfaces history from various sources in a Quick Pick, providing similar functionality to a shell's reverse search (`kbstyle(Ctrl+R)`). The sources are the current session's history, previous session history for this shell type and the common shell history file.
 
-![The "run recent command" command shows a quick pick with previously run commands  that can be filtered similar to the go to file command](images/shell-integration/recent-command.png)
+![The "run recent command" command shows a quick pick with previously run commands that can be filtered similar to the go to file command](images/shell-integration/recent-command.png)
 
 Some other functionality of the command:
 
+- By default the search mode is "contiguous search", meaning the search term must exactly match. The button on the right of the search input allows switching to fuzzy search.
 - In the current session section, there is a clipboard icon in the right of the Quick Pick that will open the command output in an editor.
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
-There is currently no keybinding assigned by default but you can add your own keyboard shortcut. For example, below `Ctrl+Space` is set for `runRecentCommand`:
+There is currently no keybinding assigned by default but you can add your own keyboard shortcut. For example, the below replaces `kbstyle(Ctrl+R)` with `runRecentCommand`, with `kbstyle(Ctrl+Alt+R)` available to fallback to the shell's regular behavior:
 
-```json
+```jsonc
 {
-    "key": "ctrl+space",
+    "key": "ctrl+r",
     "command": "workbench.action.terminal.runRecentCommand",
     "when": "terminalFocus"
 },
+// Allow ctrl+r again to go to the next command in the quick pick
+{
+  "key": "ctrl+r",
+  "command": "workbench.action.quickOpenNavigateNextInViewPicker",
+  "when": "inQuickOpen && inTerminalRunCommandPicker"
+},
+// Fallback to the shell's native ctrl+r
+{
+  "key": "ctrl+alt+r",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u0012"/*^R*/ },
+  "when": "terminalFocus"
+},
+// Have ctrl+c close the quick pick
+{
+  "key": "ctrl+c",
+  "command": "workbench.action.closeQuickOpen",
+  "when": "inQuickOpen && inTerminalRunCommandPicker"
+}
 ```
 
 ### Go to recent directory
@@ -139,9 +140,21 @@ Similar to the run recent command feature, the **Terminal: Go to Recent Director
 
 ### Current working directory detection
 
-Shell integration tells us what the current working directory is. This information was impossible on Windows previously without a bunch of hacks and required polling on macOS and Linux which isn't good for performance.
+Shell integration tells VS Code what the current working directory of the shell is. This information is not possible to get on Windows without trying to detect the prompt through regex and required polling on macOS and Linux which isn't good for performance.
 
-The current working directory is used to resolve links against, showing the directory a recent command ran within as well as the `"terminal.integrated.splitCwd": "inherited"` feature.
+One of the biggest features this enables is enhanced resolving of links in the terminal. Take a link `package.json` for example, when the link is activated while shell integration is disabled this will open a search quick pick with `package.json` as the filter if there are multiple `package.json` files in the workspace. When shell integration is enabled however, it will open the `package.json` file in the current folder directly because the current location is known. This allows the output of `ls` for example to reliabily open the correct file.
+
+The current working directory is also used to show the directory in the terminal tab, in the run recent command quick pick and for the `"terminal.integrated.splitCwd": "inherited"` feature.
+
+### Extended PowerShell keybindings
+
+Windows' console API allows for more keybindings than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keybindings that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keybindings to send a special sequence to PowerShell which then gets handled in the shell integration script and forwarded to the proper key handler.The following keybindings should work in PowerShell when shell integration is enabled:
+
+- `kbstyle(Ctrl+Space)`: Defaults to `MenuComplete` on Windows only
+- `kbstyle(Alt+Space)`: Defaults to `SetMark` on all platforms
+- `kbstyle(Shift+Enter)`: Defaults to `AddLine` on all platforms
+- `kbstyle(Shift+End)`: Defaults to `SelectLine` on all platforms
+- `kbstyle(Shift+Home)`: Defaults to `SelectBackwardsLine` on all platforms
 
 ## Supported escape sequences
 
@@ -183,7 +196,6 @@ There are several cases where automatic injection doesn't work, here are some co
   PROMPT_COMMAND=prompt
   ```
 
-- `$HISTCONTROL` contains the `erasedups` option, this changes functionality of the `history` command that shell integration depends upon.
 - Some shell plugins may disable VS Code's shell integration explicitly by unsetting `$VSCODE_SHELL_INTEGRATION` when they initialize.
 
 ### Why are command decorations showing when the feature is disabled?
@@ -191,7 +203,7 @@ There are several cases where automatic injection doesn't work, here are some co
 The likely cause of this is that your system has shell integration for another terminal installed that [VS Code understands](#final-term-shell-integration). If you don't want any decorations, you can hide them with the following setting:
 
 ```json
-"terminal.integrated.shellIntegration.decorationsEnabled": false
+"terminal.integrated.shellIntegration.decorationsEnabled": never
 ```
 
 Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#command-navigation).

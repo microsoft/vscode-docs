@@ -86,6 +86,7 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
 - `button.border`: Button border color.
+- `button.separator`: Button separator color.
 - `button.hoverBackground`: Button background color when hovering.
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
