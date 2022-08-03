@@ -68,7 +68,7 @@ If you're only interested in debugging a Python script, the simplest way is to s
 
 ![Debug button on the top-right of the editor](images/debugging/debug-button-editor.png)
 
-If you're looking to debug a web application using Flask, Django or FastAPI, the Python extension provides  dynamically created debug configurations based on your project structure under the **Show all automatic debug configurations** option through the **Run and Debug** view.
+If you're looking to debug a web application using Flask, Django or FastAPI, the Python extension provides dynamically created debug configurations based on your project structure under the **Show all automatic debug configurations** option through the **Run and Debug** view.
 
 ![Show all automatic debug configurations option on the run view](images/debugging/debug-auto-config.png)
 
