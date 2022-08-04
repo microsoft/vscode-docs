@@ -5,7 +5,7 @@ TOCTitle: Docker options
 PageTitle: Remote - Containers Docker options
 ContentId: 5098c2a8-5aba-4a48-9e9b-5dabf1db93ca
 MetaDescription: Remote - Containers Docker options
-DateApproved: 7/7/2022
+DateApproved: 8/4/2022
 ---
 
 # Alternate ways to install Docker
