@@ -454,7 +454,7 @@ Currently, the terminal consumes many key bindings, preventing Visual Studio Cod
 
 ### Can I use Cmder's shell with the terminal on Windows?
 
-Yes, to use the [Cmder](https://cmder.net/) shell in VS Code, you need to add the following settings to your `settings.json` file:
+Yes, to use the [Cmder](https://cmder.app) shell in VS Code, you need to add the following settings to your `settings.json` file:
 
 ```json
 {
