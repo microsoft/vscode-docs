@@ -86,7 +86,6 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
 - `button.border`: Button border color.
-- `button.separator`: Button separator color.
 - `button.hoverBackground`: Button background color when hovering.
 - `button.secondaryForeground`: Secondary button foreground color.
 - `button.secondaryBackground`: Secondary button background color.
@@ -557,6 +556,8 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 - `editorGhostText.background`: Background color of the ghost text in the editor.
 - `editorGhostText.foreground`: Foreground color of the ghost text shown by inline completion providers and the suggest preview.
 
+- `editorStickyScroll.background`: Editor sticky scroll background color
+- `editorStickyScrollHover.background`: Editor sticky scroll on hover background color
 
 The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
 

@@ -1,5 +1,52 @@
 [
       {
+        "isReleaseParty": "1.70",
+        "title": "VS Code 1.70 Release Party",
+        "description": "Live event and Q&A with the VS Code team to discuss highlights from the July 2022, 1.70 release.",
+        "speakers": [
+          {
+            "name": "VS Code team"
+          }
+        ],
+        "start": "2022-08-04T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/wFmAyna4r5E"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220804.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220804/ics",
+          "google": "https://aka.ms/vscodelive/20220804/google"
+        },
+        "youtubeId": "wFmAyna4r5E"
+      },
+      {
+        "title": "Intro to the Stripe CLI and Stripe VS Code extension",
+        "description": "Systems that accept payments involve many moving parts from resource management, security, logging and asynchronicity to name a few — having the right tools to hand is essential for increasing developer productivity. In this session we'll learn about the fundamentals to leverage the Stripe CLI and the Stripe VS Code extension to build, test, and manage a Stripe integration.\n",
+        "speakers": [
+          {
+            "name": "Matthew Ling",
+            "link": "https://twitter.com/mattling_dev",
+            "title": "Developer Advocate at Stripe"
+          }
+        ],
+        "start": "2022-07-28T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/5Ej0-Ce-fxM"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220728.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220728/ics",
+          "google": "https://aka.ms/vscodelive/20220728/google"
+        },
+        "youtubeId": "5Ej0-Ce-fxM"
+      },
+      {
         "title": "Modern Debugging in VS Code with Lightrun",
         "description": "VS Code offers a variety of tools for debugging difficult scenarios - in local environments, in far-away remote servers and beyond the boundaries of containers. In this hands-on session, we will review the available debugging tools built into VS Code and explore Lightrun - a VS Code plugin that allows you to debug live applications, without stopping them, wherever they may run.",
         "speakers": [

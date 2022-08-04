@@ -31,6 +31,13 @@ From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 
 1. In the VS Code Settings editor (`kb(workbench.action.openSettings)`), uncheck the C# extension's **Omnisharp: Use Modern Net** [setting](/docs/getstarted/settings.md) (`"omnisharp.useModernNet": false`).
 
+### Install Build Tools for Visual Studio (Windows only)
+
+The C# extension no longer ships with Microsoft Build Tools so they must be installed manually.
+
+1. Download the [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
+1. Install the **.NET desktop build tools** workload. No other components are required.
+
 ## Setup VS Code as Unity Script Editor
 
 Open up **Unity Preferences**, **External Tools**, then browse for the Visual Studio Code executable as **External Script Editor**.

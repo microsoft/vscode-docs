@@ -156,6 +156,8 @@ If the keychain throws the error "No such interface "org.freedesktop.Secret.Coll
 
 If the error is "Writing login information to the keychain failed with error 'Unknown or unsupported transport “disabled” for address “disabled:”'", check that `dbus-launch` has been started by following the instructions in [issue #120392](https://github.com/microsoft/vscode/issues/120392#issuecomment-814210643).
 
+If the error is "The name org.freedesktop.secrets was not provided by any .service files", make sure that you have a package that implements the [Secret Storage API](https://www.gnu.org/software/emacs/manual/html_node/auth/Secret-Service-API.html) installed, such as `gnome-keyring`. VS Code expects such a package for storing credentials on the machine. More information can be found in [issue #104319](https://github.com/microsoft/vscode/issues/104319#issuecomment-1057588052).
+
 If the error is "Writing login information to the keychain failed with error 'Cannot create an item in a locked collection'.", you need to:
 
 1. Add the following lines to your `~/.xinitrc`:

@@ -88,8 +88,9 @@ We recommend you to consider installing the JDK from one of these sources:
 
 > **Note**: If you have multiple JDKs installed and need to use a specific JDK version for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
-For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code
-Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
+For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code.
+
+Open the Command Palette (`kb(workbench.action.showCommands)`) and type "java tips" to select the command.
 
 ![Java Getting Started](images/java/beginner-tips.png)
 

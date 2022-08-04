@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 5/17/2022
+DateApproved: 7/13/2022
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -393,9 +393,9 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 
 ### `purpose`
 
- If set to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
- If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the **Debug Python File in Terminal** button on the top-right of the editor.
- Note that the `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
+ There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
+However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
+**Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
 
 ### `autoReload`
 

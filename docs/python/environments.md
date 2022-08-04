@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 4/20/2022
+DateApproved: 7/21/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -240,7 +240,7 @@ For more details on debug configuration, see [Debugging configurations](/docs/py
 
 ### Limited support for Python 2.7
 
-The Python extension no longer offers IntelliSense support for Python 2.7 with [Jedi](https://pypi.org/project/jedi/) as it only supports Python 3 at this point. When using Python 2.7 with the Python extension you can customize the [language server setting](/docs/python/settings-reference#_intellisense-engine-settings) to either turn off auto-completions or select Pylance as your language server, as it may provide a good experience if the code is compatible enough with Python 3.
+The Python extension no longer offers IntelliSense support for Python 2.7 with [Jedi](https://pypi.org/project/jedi/) as it only supports Python 3 at this point. When using Python 2.7 with the Python extension you can customize the [language server setting](/docs/python/settings-reference.md#intellisense-engine-settings) to either turn off auto-completions or select Pylance as your language server, as it may provide a good experience if the code is compatible enough with Python 3.
 
 We currently support selecting Python 2.7 as an interpreter in your workspace. Because [Python 2.7 is no longer maintained as of January 2020](https://www.python.org/doc/sunset-python-2/), we strongly suggest you to upgrade your code to Python 3 as soon as you can. You can [learn how to port your code to Python 3](https://docs.python.org/3/howto/pyporting.html) if you need help.
 
@@ -251,6 +251,8 @@ We currently support selecting Python 2.7 as an interpreter in your workspace. B
 An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution). Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
 
 By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
+
+>**Note**: Environment definition files are not used in all situations where environment variables are available for use. Unless Visual Studio Code documentation states otherwise, these only affect certain scenarios as per their definition. For example: The extension doesn't use environment definition files when resolving setting values.
 
 A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - Set configuration options](/docs/python/debugging.md#set-configuration-options)). This property allows you to easily set variables for debugging purposes that replace variables specified in the default `.env` file.
 
@@ -286,7 +288,7 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
-> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. Environment variables contained in the `.env` file specified by the `python.envFile` setting (user or workspace) will override variables defined in the `envFile` specified in `launch.json`, as well as any `env` variables defined in the `launch.json` file itself. Similarly, environment variables defined in the `envFile` specified in `launch.json` will override `env` variables defined in the `launch.json` file.
+> **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. All `env` variables defined in the `launch.json` file will override variables contained in the `.env` file, specified by the `python.envFile` setting (user or workspace). Similarly, `env` variables defined in the `launch.json` file will override the environment variables defined in the `envFile` that are specified in `launch.json`.
 
 ### Variable substitution
 
