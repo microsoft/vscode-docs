@@ -226,21 +226,6 @@ Extensions make use of links in the terminal, such as GitLens, to identify branc
 
 ![A branch link is hovered in the terminal](images/basics/gitlens-link.png)
 
-### Complex bash $PROMPT_COMMAND
-
-In bash, shell integration is achieved by wrapping the `$PROMPT_COMMAND` environment variable after initialization scripts have finished running. VS Code takes a conservative approach and if something in the prompt command is detected as potentially causing conflicting with the feature, shell integration is disabled with the following message:
-
-> `Shell integration cannot be activated due to complex PROMPT_COMMAND: ...`
-
-If you hit this error, it can typically be worked around by moving what was in PROMPT_COMMAND to a function, for example:
-
-```sh
-prompt() {
-   printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
-}
-PROMPT_COMMAND=prompt
-```
-
 ## Local echo
 
 On some remote connections, there's a delay between typing and seeing the characters on the terminal as a result of the round trip the data has to make from VS code to the process. Local echo attempts to predict modifications and cursor movements made locally in the terminal to decrease this lag.
