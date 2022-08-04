@@ -344,8 +344,13 @@ To fold and unfold only the regions defined by markers use:
 * Fold Marker Regions (`kb(editor.foldAllMarkerRegions)`) folds all marker regions.
 * Unfold Marker Regions (`kb(editor.unfoldAllMarkerRegions)`) unfolds all marker regions.
 
-The command `Create Manual Folding Ranges from Selection` allows to create a folding range from the currently selected lines and collapses it. That range is called a *manual* folding range that goes on top of the ranges computed by folding providers.
-Manual folding ranges can be removed again with the command `Remove Manual Folding Ranges`.
+### Fold selection
+
+The command **Create Manual Folding Ranges from Selection** (`kb(editor.createFoldingRangeFromSelection)`) creates a folding range from the currently selected lines and collapses it. That range is called a **manual** folding range that goes on top of the ranges computed by folding providers.
+
+Manual folding ranges can be removed with the command **Remove Manual Folding Ranges** (`kb(editor.removeManualFoldingRanges)`).
+
+Manual folding ranges are especially useful for cases when there isn't programming language support for folding.
 
 ## Indentation
 
