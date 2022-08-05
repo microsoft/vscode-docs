@@ -5,7 +5,7 @@ TOCTitle: Avoid extension reinstalls
 PageTitle: Avoid Visual Studio Code extension reinstalls in containers
 ContentId: bddbdddd-917a-42d0-a32a-0503716656d5
 MetaDescription: Avoid Visual Studio Code extension reinstalls in containers
-DateApproved: 7/7/2022
+DateApproved: 8/4/2022
 ---
 # Avoiding VS Code extension reinstalls
 
