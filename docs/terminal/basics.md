@@ -82,109 +82,6 @@ Change the terminal's name, icon, and tab color via the right-click context menu
 
 ![Multiple Terminals](images/basics/terminal-multiple-instances.png)
 
-## Terminal profiles
-
-Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations.
-
-Example profile:
-
-```jsonc
-{
-  "terminal.integrated.profiles.windows": {
-    "My PowerShell": {
-      "path": "pwsh.exe",
-      "args": [
-         "-noexit",
-         "-file",
-         "${env:APPDATA}\PowerShell\my-init-script.ps1"
-      ]
-    }
-  },
-  "terminal.integrated.defaultProfile.windows": "My PowerShell"
-}
-```
-
-You can use variables in terminal profiles as shown in the example above with the `APPDATA` environment variable. You can find a list of available variables in the [Variables Reference](/docs/editor/variables-reference.md) topic.
-
-Configure your default integrated terminal by running the **Terminal: Select Default Profile** command, which is also accessible via the terminal dropdown.
-
-![Integrated terminal dropdown](images/basics/terminal-dropdown.png)
-
-The terminal's shell defaults to `$SHELL` on Linux and macOS and PowerShell on Windows. VS Code will automatically detect most standard shells that can then be configured as the default.
-
-### Configuring profiles
-
-To create a new profile, run the **Terminal: Select Default Profile** command and activate the configure button on the right side of the shell to base it on. This will add a new entry to your settings that can be tweaked manually in your `settings.json` file.
-
-Profiles can be created using either a `path` or a `source`, as well as a set of optional arguments. A `source` is available only on Windows and can be used to let VS Code detect the install of either `PowerShell` or `Git Bash`. Alternatively, a `path` pointing directly to the shell executable can be used. Here are some example profile configurations:
-
-```json
-{
-  "terminal.integrated.profiles.windows": {
-    "PowerShell -NoProfile": {
-      "source": "PowerShell",
-      "args": ["-NoProfile"]
-    }
-  },
-  "terminal.integrated.profiles.linux": {
-    "zsh (login)": {
-      "path": "zsh",
-      "args": ["-l"]
-    }
-  }
-}
-```
-
-Other arguments supported in profiles include:
-
-* `overrideName`: A boolean indicating whether or not to replace the dynamic terminal title that detects what program is running with the static profile name.
-* `env`: A map defining environment variables and their values, set the variable to `null` to delete it from the environment. This can be configured for all profiles using the `terminal.integrated.env.<platform>` setting.
-* `icon`: An icon ID to use for the profile.
-* `color`: A theme color ID to style the icon.
-
->**Tip:** Path, args, and env all support [resolving variables](https://code.visualstudio.com/docs/editor/variables-reference)
-
-The **default profile** can be defined manually with the `terminal.integrated.defaultProfile.*` settings. This should be set to the name of an existing profile:
-
-```json
-{
-  "terminal.integrated.profiles.windows": {
-    "my-pwsh": {
-      "source": "PowerShell",
-      "args": ["-NoProfile"]
-    }
-  },
-  "terminal.integrated.defaultProfile.windows": "my-pwsh"
-}
-```
-
->**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
-
-### Removing built-in profiles
-
-To remove entries from the terminal dropdown, set the name of the profile to `null`. For example, to remove the `Git Bash` profile on Windows, use this setting:
-
-```json
-{
-  "terminal.integrated.profiles.windows": {
-    "Git Bash": null
-  }
-}
-```
-
-### Configuring the task/debug profile
-
-By default, the task/debug features will use the default profile. To override that, use the `terminal.integrated.automationShell.<platform>` setting:
-
-```jsonc
-{
-    "terminal.integrated.defaultProfile.osx": "fish",
-    // Use a fully POSIX-compatible shell and avoid running a complex ~/.config/fish/config.fish
-    // for tasks and debug
-    "terminal.integrated.automationShell.osx": "/bin/sh"
-}
-```
-
 ## Working directory
 
 By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
@@ -429,29 +326,9 @@ The basics of the terminal have been covered in this document. Read on to find o
 
 There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
 
-### Can I use the integrated terminal with the Windows Subsystem for Linux?
-
-Yes. Select the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) (WSL) bash shell as your terminal default. If you have WSL enabled (through Windows Features), select **WSL Bash** from the terminal **Select Default Shell** dropdown. See [Developing in WSL](/docs/remote/wsl.md) for details on working in WSL and the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
-
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
 Currently, the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. Use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
-
-### Can I use Cmder's shell with the terminal on Windows?
-
-Yes, to use the [Cmder](https://cmder.app) shell in VS Code, you need to add the following settings to your `settings.json` file:
-
-```json
-{
-  "terminal.integrated.profiles.windows": {
-    "cmder": {
-      "path": "C:\\WINDOWS\\System32\\cmd.exe",
-      "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
-    }
-  },
-  "terminal.integrated.defaultProfile.windows": "cmder"
-}
-```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
@@ -559,29 +436,6 @@ EOF
 
 The terminal can have problems rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Workaround these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
 
-### Why are there duplicate paths in the terminal's `$PATH` environment variable and/or why are they reversed?
-
-This can happen on macOS because of how the terminal launches using VS Code's environment. When VS Code launches for the first time, to source your "development environment," it launches your configured shell as a **login shell**, which runs your `~/.profile`/`~/.bash_profile`/`~/.zprofile` scripts. Now when the terminal launches, it also runs as a login shell, which will put the standard paths to the front (for example, `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin`) and reinitialize your shell environment.
-
-To get a better understanding, you can simulate what is happening by launching an inner login shell within your operating system's built-in terminal:
-
-```sh
-# Add /test to the beginning of $PATH
-export PATH=/test:$PATH
-# Echo $PATH, /test should be at the beginning
-echo $PATH
-# Run bash as a login shell
-bash -l
-# Echo $PATH, the values should be jumbled
-echo $PATH
-```
-
-Unfortunately, unlike in Linux, standalone macOS terminals all run as login shells by default, since macOS does not run a login shell when the user logs into the system. This encourages "bad behavior," like initializing aliases in your profile script when they should live in your `rc` script as that runs on non-login shells.
-
-There are two direct fixes for this. The first is to set `"terminal.integrated.inheritEnv": false`, which will strip most environment variables from the terminal's environment, except for some important ones (like `HOME`, `SHELL`, `TMPDIR`, etc.).
-
-The other fix is to no longer run a login shell in the terminal by creating a terminal profile and setting its `args` to `[]`. If you go with this fix, you will want to make sure any aliases in your profile scripts are moved over to your `~/.bashrc`/`~/.zshrc` file since aliases only apply to the shell they're set in.
-
 ### I'm having problems with the terminal rendering. What can I do?
 
 By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that changes often. The terminal features 3 renderers that fallback if they are detected to perform poorly in this order:
@@ -596,14 +450,6 @@ Unfortunately, some issues cannot be automatically detected. If you experience i
 {
     "terminal.integrated.gpuAcceleration": "off"
 }
-```
-
-### Git Bash isn't saving history when I close the terminal
-
-This is a [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal). You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile`:
-
-```bash
-export PROMPT_COMMAND='history -a'
 ```
 
 ### I see `1~` or `[201~` when I paste something
