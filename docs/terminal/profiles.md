@@ -1,3 +1,12 @@
+---
+Order: 2
+Area: terminal
+TOCTitle: Terminal Profiles
+ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
+PageTitle: Terminal Profiles in Visual Studio Code
+DateApproved: 7/7/2022
+MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
+---
 # Terminal Profiles
 
 Terminal profiles are platform-specific shell configurations comprised of an executable path, arguments, and other customizations. By default several profiles are automatically detected which can be customized or added to.

@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
