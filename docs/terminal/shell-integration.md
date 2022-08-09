@@ -61,7 +61,7 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 
 ⚠️ This is an experimental feature and automatic injection is not supported
 
-Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in VS Code.
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git bash to open the file in VS Code.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
