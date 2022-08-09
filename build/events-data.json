@@ -1,5 +1,29 @@
 [
       {
+        "title": "Using VS Code to develop C, COBOL and RPGLE",
+        "description": "VS Code has extensions that let users write code, navigate the database, and more, to make developing on IBM i (an OS running on Power Systems) easier.",
+        "speakers": [
+          {
+            "name": "Liam Allan",
+            "link": "https://twitter.com/notesofbarry",
+            "title": "Advisory Softward Engineer, IBM"
+          }
+        ],
+        "start": "2022-08-11T15:00:00Z",
+        "duration": 30,
+        "location": {
+          "isOnline": true,
+          "name": "YouTube",
+          "link": "https://youtu.be/JRI7K8Y7cjQ"
+        },
+        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220811.jpg",
+        "calendar": {
+          "ics": "https://aka.ms/vscodelive/20220811/ics",
+          "google": "https://aka.ms/vscodelive/20220811/google"
+        },
+        "youtubeId": "JRI7K8Y7cjQ"
+      },
+      {
         "isReleaseParty": "1.70",
         "title": "VS Code 1.70 Release Party",
         "description": "Live event and Q&A with the VS Code team to discuss highlights from the July 2022, 1.70 release.",
