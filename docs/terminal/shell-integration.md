@@ -57,6 +57,16 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 ```
 
+**Git Bash**
+
+⚠️ This is an experimental feature and automatic injection is not supported
+
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open the file in VS Code.
+
+```sh
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+```
+
 #### Portability versus performance
 
 The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great at it works cross-platform and also with all install types provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
