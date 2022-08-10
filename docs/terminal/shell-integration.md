@@ -59,12 +59,23 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 
 **Git Bash**
 
-⚠️ This is an experimental feature and automatic injection is not supported
+⚠️ This is currently experimental and automatic injection is not supported
 
-Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git bash to open the file in VS Code.
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to open the file in VS Code.
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+```
+
+**fish**
+
+⚠️ This is currently experimental and automatic injection is not supported
+
+Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
+
+```sh
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
 ```
 
 #### Portability versus performance
