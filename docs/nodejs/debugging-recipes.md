@@ -49,7 +49,7 @@ You can read more about debugging browsers works in the [Browser Debugging docum
 
 ## Electron - Debug Electron applications
 
-The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in JavaScript debugger.
+The Visual Studio Code editor supports debugging [Electron](https://www.electronjs.org) applications via the built-in JavaScript debugger.
 
 ![electron logo](images/recipes/electron.png)
 
