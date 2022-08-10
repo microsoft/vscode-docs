@@ -55,6 +55,25 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ![Expand selection](images/codebasics/expandselection.gif)
 
+### Insert cursors on Logical Lines
+
+If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keybinding like this:
+
+```json
+{
+  "key": "shift+alt+down",
+  "command": "editor.action.insertCursorBelow",
+  "when": "textInputFocus",
+  "args": { "logicalLine": true },
+},
+{
+  "key": "shift+alt+up",
+  "command": "editor.action.insertCursorAbove",
+  "when": "textInputFocus",
+  "args": { "logicalLine": true },
+},
+```
+
 ## Column (box) selection
 
 Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
