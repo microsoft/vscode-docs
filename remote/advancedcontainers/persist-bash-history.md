@@ -17,7 +17,7 @@ If you have a root user, update your `Dockerfile` with the following:
 
 ```Dockerfile
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
-    && echo $SNIPPET >> "/root/.bashrc"
+    && echo "$SNIPPET" >> "/root/.bashrc"
 ```
 
 If you have a non-root user, update your `Dockerfile` with the following. Replace `user-name-goes-here` with the name of a [non-root user](/remote/advancedcontainers/add-nonroot-user.md) in the container.
@@ -29,7 +29,7 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
     && mkdir /commandhistory \
     && touch /commandhistory/.bash_history \
     && chown -R $USERNAME /commandhistory \
-    && echo $SNIPPET >> "/home/$USERNAME/.bashrc"
+    && echo "$SNIPPET" >> "/home/$USERNAME/.bashrc"
 ```
 
 Next, add a local volume to store the command history. This step varies depending on whether or not you are using Docker Compose.
