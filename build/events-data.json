@@ -1,226 +1,255 @@
 [
+  {
+    "title": "AKS VS Code Tools Extension",
+    "description": "The AKS extension in VS Code enables Azure resources to reduce the heavy lifting and enhance the DevOps experience for developers. Features like Sart or Stop AKS Cluster without leaving VS Code, create clusters in Azure Portal, check cluster properties and navigate to the clusters quickly. The Create GitHub workflow also makes deployment easier.",
+    "speakers": [
       {
-        "title": "Using VS Code to develop C, COBOL and RPGLE",
-        "description": "VS Code has extensions that let users write code, navigate the database, and more, to make developing on IBM i (an OS running on Power Systems) easier.",
-        "speakers": [
-          {
-            "name": "Liam Allan",
-            "link": "https://twitter.com/notesofbarry",
-            "title": "Advisory Software Engineer, IBM"
-          }
-        ],
-        "start": "2022-08-11T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/JRI7K8Y7cjQ"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220811.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220811/ics",
-          "google": "https://aka.ms/vscodelive/20220811/google"
-        },
-        "youtubeId": "JRI7K8Y7cjQ"
+        "name": "Tatsat Mishra",
+        "link": "https://twitter.com/tats_innit",
+        "title": "Software Engineer"
       },
       {
-        "isReleaseParty": "1.70",
-        "title": "VS Code 1.70 Release Party",
-        "description": "Live event and Q&A with the VS Code team to discuss highlights from the July 2022, 1.70 release.",
-        "speakers": [
-          {
-            "name": "VS Code team"
-          }
-        ],
-        "start": "2022-08-04T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/wFmAyna4r5E"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220804.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220804/ics",
-          "google": "https://aka.ms/vscodelive/20220804/google"
-        },
-        "youtubeId": "wFmAyna4r5E"
-      },
-      {
-        "title": "Intro to the Stripe CLI and Stripe VS Code extension",
-        "description": "Systems that accept payments involve many moving parts from resource management, security, logging and asynchronicity to name a few — having the right tools to hand is essential for increasing developer productivity. In this session we'll learn about the fundamentals to leverage the Stripe CLI and the Stripe VS Code extension to build, test, and manage a Stripe integration.\n",
-        "speakers": [
-          {
-            "name": "Matthew Ling",
-            "link": "https://twitter.com/mattling_dev",
-            "title": "Developer Advocate at Stripe"
-          }
-        ],
-        "start": "2022-07-28T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/5Ej0-Ce-fxM"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220728.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220728/ics",
-          "google": "https://aka.ms/vscodelive/20220728/google"
-        },
-        "youtubeId": "5Ej0-Ce-fxM"
-      },
-      {
-        "title": "Modern Debugging in VS Code with Lightrun",
-        "description": "VS Code offers a variety of tools for debugging difficult scenarios - in local environments, in far-away remote servers and beyond the boundaries of containers. In this hands-on session, we will review the available debugging tools built into VS Code and explore Lightrun - a VS Code plugin that allows you to debug live applications, without stopping them, wherever they may run.",
-        "speakers": [
-          {
-            "name": "Tom Granot",
-            "link": "https://twitter.com/TomGranot",
-            "title": "Director of Developer Relations"
-          }
-        ],
-        "start": "2022-07-21T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/IetCyWdtMx8"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220721.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220721/ics",
-          "google": "https://aka.ms/vscodelive/20220721/google"
-        },
-        "youtubeId": "IetCyWdtMx8"
-      },
-      {
-        "title": "Accelerate cloud development in VS Code",
-        "description": "Join us and learn about new Azure extensions for VS Code. In this stream, we’ll cover managing apps in Azure from VS Code and introduce the new Azure Developer CLI extension that accelerates the time it takes for you to get started on Azure.\n",
-        "speakers": [
-          {
-            "name": "Savannah Ostrowski",
-            "link": "https://github.com/savannahostrowski",
-            "title": "Program Manager"
-          },
-          {
-            "name": "Matt Hernandez",
-            "link": "https://github.com/fiveisprime",
-            "title": "Program Manager"
-          }
-        ],
-        "start": "2022-07-14T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/8fNIe_rjy6s"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220714.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220714/ics",
-          "google": "https://aka.ms/vscodelive/20220714/google"
-        },
-        "youtubeId": "8fNIe_rjy6s"
-      },
-      {
-        "isReleaseParty": "1.69",
-        "title": "VS Code 1.69 Release Party",
-        "description": "Live event and Q&A with the VS Code team to discuss highlights from the June, 1.69 release.",
-        "speakers": [
-          {
-            "name": "VS Code team"
-          }
-        ],
-        "start": "2022-07-07T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/eiRrggf1EF4"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220707.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220707/ics",
-          "google": "https://aka.ms/vscodelive/20220707/google"
-        },
-        "youtubeId": "eiRrggf1EF4"
-      },
-      {
-        "title": "Machine Learning Experimentation with DVC Extension",
-        "description": "Join us and learn how to manage and make your machine learning projects reproducible with an open source tool DVC and the new extension. We will see how to track datasets and models, run, compare, visualize, and track machine learning experiments right in VS Code.",
-        "speakers": [
-          {
-            "name": "Alex Kim ",
-            "link": "https://github.com/alex000kim",
-            "title": "Solutions Engineer, Iterative"
-          }
-        ],
-        "start": "2022-06-30T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/Eq3100S3aHw"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220630.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220630/ics",
-          "google": "https://aka.ms/vscodelive/20220630/google"
-        },
-        "youtubeId": "Eq3100S3aHw"
-      },
-      {
-        "isReleaseParty": "1.68",
-        "title": "VS Code 1.68 Release Party",
-        "description": "Live event and Q&A with the VS Code team to discuss highlights from the May 2022, 1.68 release.",
-        "speakers": [
-          {
-            "name": "VS Code team"
-          }
-        ],
-        "start": "2022-06-16T15:00:00Z",
-        "duration": 30,
-        "location": {
-          "isOnline": true,
-          "name": "YouTube",
-          "link": "https://youtu.be/t01EtPOKd_4"
-        },
-        "image": "https://vscodeassets.azureedge.net/public/livestreams/20220616.jpg",
-        "calendar": {
-          "ics": "https://aka.ms/vscodelive/20220616/ics",
-          "google": "https://aka.ms/vscodelive/20220616/google"
-        },
-        "youtubeId": "t01EtPOKd_4"
-      },
-      {
-      "title": "Excel Add-in Development",
-      "description": "Come learn about how easy it is to develop an Excel Add-in and make use of some of the cool new APIs available. In this livestream, we will connect Excel to a live service and create custom functions to make the data accessible in Excel.\n\nRecommended resources:\nhttps://docs.microsoft.com/office/dev/add-ins/excel/",
-      "speakers": [
-        {
-          "name": "Chris Gross",
-          "title": "Product Manager "
-        },
-        {
-          "name": "Jakob Nielsen",
-          "title": "Designer"
-        }
-      ],
-      "start": "2022-06-09T15:00:00Z",
-      "duration": 30,
-      "location": {
-        "isOnline": true,
-        "name": "YouTube",
-        "link": "https://youtu.be/7WvKgv0Aqhc"
-      },
-      "image": "https://vscodeassets.azureedge.net/public/livestreams/20220609.jpg",
-      "calendar": {
-        "ics": "https://aka.ms/vscodelive/20220609/ics",
-        "google": "https://aka.ms/vscodelive/20220609/google"
-      },
-      "youtubeId": "7WvKgv0Aqhc"
+        "name": "Rong Zhang",
+        "link": "https://twitter.com/RongZhang817 ",
+        "title": "Program Manager"
+      }
+    ],
+    "start": "2022-08-18T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/SMNpowToWaI"
     },
-    {
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220818.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220818/ics",
+      "google": "https://aka.ms/vscodelive/20220818/google"
+    },
+    "youtubeId": "SMNpowToWaI"
+  },
+  {
+    "title": "Using VS Code to develop C, COBOL and RPGLE",
+    "description": "VS Code has extensions that let users write code, navigate the database, and more, to make developing on IBM i (an OS running on Power Systems) easier.",
+    "speakers": [
+      {
+        "name": "Liam Allan",
+        "link": "https://twitter.com/notesofbarry",
+        "title": "Advisory Software Engineer, IBM"
+      }
+    ],
+    "start": "2022-08-11T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/JRI7K8Y7cjQ"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220811.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220811/ics",
+      "google": "https://aka.ms/vscodelive/20220811/google"
+    },
+    "youtubeId": "JRI7K8Y7cjQ"
+  },
+  {
+    "isReleaseParty": "1.70",
+    "title": "VS Code 1.70 Release Party",
+    "description": "Live event and Q&A with the VS Code team to discuss highlights from the July 2022, 1.70 release.",
+    "speakers": [
+      {
+        "name": "VS Code team"
+      }
+    ],
+    "start": "2022-08-04T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/wFmAyna4r5E"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220804.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220804/ics",
+      "google": "https://aka.ms/vscodelive/20220804/google"
+    },
+    "youtubeId": "wFmAyna4r5E"
+  },
+  {
+    "title": "Intro to the Stripe CLI and Stripe VS Code extension",
+    "description": "Systems that accept payments involve many moving parts from resource management, security, logging and asynchronicity to name a few — having the right tools to hand is essential for increasing developer productivity. In this session we'll learn about the fundamentals to leverage the Stripe CLI and the Stripe VS Code extension to build, test, and manage a Stripe integration.\n",
+    "speakers": [
+      {
+        "name": "Matthew Ling",
+        "link": "https://twitter.com/mattling_dev",
+        "title": "Developer Advocate at Stripe"
+      }
+    ],
+    "start": "2022-07-28T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/5Ej0-Ce-fxM"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220728.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220728/ics",
+      "google": "https://aka.ms/vscodelive/20220728/google"
+    },
+    "youtubeId": "5Ej0-Ce-fxM"
+  },
+  {
+    "title": "Modern Debugging in VS Code with Lightrun",
+    "description": "VS Code offers a variety of tools for debugging difficult scenarios - in local environments, in far-away remote servers and beyond the boundaries of containers. In this hands-on session, we will review the available debugging tools built into VS Code and explore Lightrun - a VS Code plugin that allows you to debug live applications, without stopping them, wherever they may run.",
+    "speakers": [
+      {
+        "name": "Tom Granot",
+        "link": "https://twitter.com/TomGranot",
+        "title": "Director of Developer Relations"
+      }
+    ],
+    "start": "2022-07-21T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/IetCyWdtMx8"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220721.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220721/ics",
+      "google": "https://aka.ms/vscodelive/20220721/google"
+    },
+    "youtubeId": "IetCyWdtMx8"
+  },
+  {
+    "title": "Accelerate cloud development in VS Code",
+    "description": "Join us and learn about new Azure extensions for VS Code. In this stream, we’ll cover managing apps in Azure from VS Code and introduce the new Azure Developer CLI extension that accelerates the time it takes for you to get started on Azure.\n",
+    "speakers": [
+      {
+        "name": "Savannah Ostrowski",
+        "link": "https://github.com/savannahostrowski",
+        "title": "Program Manager"
+      },
+      {
+        "name": "Matt Hernandez",
+        "link": "https://github.com/fiveisprime",
+        "title": "Program Manager"
+      }
+    ],
+    "start": "2022-07-14T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/8fNIe_rjy6s"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220714.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220714/ics",
+      "google": "https://aka.ms/vscodelive/20220714/google"
+    },
+    "youtubeId": "8fNIe_rjy6s"
+  },
+  {
+    "isReleaseParty": "1.69",
+    "title": "VS Code 1.69 Release Party",
+    "description": "Live event and Q&A with the VS Code team to discuss highlights from the June, 1.69 release.",
+    "speakers": [
+      {
+        "name": "VS Code team"
+      }
+    ],
+    "start": "2022-07-07T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/eiRrggf1EF4"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220707.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220707/ics",
+      "google": "https://aka.ms/vscodelive/20220707/google"
+    },
+    "youtubeId": "eiRrggf1EF4"
+  },
+  {
+    "title": "Machine Learning Experimentation with DVC Extension",
+    "description": "Join us and learn how to manage and make your machine learning projects reproducible with an open source tool DVC and the new extension. We will see how to track datasets and models, run, compare, visualize, and track machine learning experiments right in VS Code.",
+    "speakers": [
+      {
+        "name": "Alex Kim ",
+        "link": "https://github.com/alex000kim",
+        "title": "Solutions Engineer, Iterative"
+      }
+    ],
+    "start": "2022-06-30T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/Eq3100S3aHw"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220630.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220630/ics",
+      "google": "https://aka.ms/vscodelive/20220630/google"
+    },
+    "youtubeId": "Eq3100S3aHw"
+  },
+  {
+    "isReleaseParty": "1.68",
+    "title": "VS Code 1.68 Release Party",
+    "description": "Live event and Q&A with the VS Code team to discuss highlights from the May 2022, 1.68 release.",
+    "speakers": [
+      {
+        "name": "VS Code team"
+      }
+    ],
+    "start": "2022-06-16T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/t01EtPOKd_4"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220616.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220616/ics",
+      "google": "https://aka.ms/vscodelive/20220616/google"
+    },
+    "youtubeId": "t01EtPOKd_4"
+  },
+  {
+    "title": "Excel Add-in Development",
+    "description": "Come learn about how easy it is to develop an Excel Add-in and make use of some of the cool new APIs available. In this livestream, we will connect Excel to a live service and create custom functions to make the data accessible in Excel.\n\nRecommended resources:\nhttps://docs.microsoft.com/office/dev/add-ins/excel/",
+    "speakers": [
+      {
+        "name": "Chris Gross",
+        "title": "Product Manager "
+      },
+      {
+        "name": "Jakob Nielsen",
+        "title": "Designer"
+      }
+    ],
+    "start": "2022-06-09T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/7WvKgv0Aqhc"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220609.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220609/ics",
+      "google": "https://aka.ms/vscodelive/20220609/google"
+    },
+    "youtubeId": "7WvKgv0Aqhc"
+  },
+  {
     "title": "VS Code for XAML and C# Devs",
     "description": "Who said Visual Studio Code is only for Web developers?! The open-source Uno Platform enables XAML and C# single-codebase apps to run on Web, Linux, Android, iOS, macOS, and Windows. The Uno Platforms VS Code extension provides language features such as XAML and C# completions, Hot Reload, and more. You can now develop a XAML and C# app, using WinUI, right in VS Code. Come learn what the Uno Platform is all about!",
     "speakers": [
