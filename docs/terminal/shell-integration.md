@@ -80,7 +80,7 @@ and . (code --locate-shell-integration-path fish)
 
 #### Portability versus performance
 
-The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great at it works cross-platform and also with all install types provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
+The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great as it works cross-platform and also with all install types, provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
 
 ```sh
 # Output the executable's path first:
