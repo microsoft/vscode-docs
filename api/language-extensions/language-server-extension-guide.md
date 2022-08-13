@@ -900,6 +900,12 @@ connection.onDidCloseTextDocument((params) => {
     // A text document was closed in VS Code.
     // params.uri uniquely identifies the document.
 });
+
+// Make the text document manager listen on the connection
+// for open, change and close text document events
+// Comment out this line to allow `connection.onDidOpenTextDocument`,
+// `connection.onDidChangeTextDocument`, and `connection.onDidCloseTextDocument` to handle the events
+// documents.listen(connection);
 ```
 
 ### Using VS Code API directly to implement Language Features
