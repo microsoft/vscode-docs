@@ -901,10 +901,13 @@ connection.onDidCloseTextDocument((params) => {
     // params.uri uniquely identifies the document.
 });
 
-// Make the text document manager listen on the connection
-// for open, change and close text document events
-// Comment out this line to allow `connection.onDidOpenTextDocument`,
-// `connection.onDidChangeTextDocument`, and `connection.onDidCloseTextDocument` to handle the events
+/*
+Make the text document manager listen on the connection
+for open, change and close text document events.
+
+Comment out this line to allow `connection.onDidOpenTextDocument`,
+`connection.onDidChangeTextDocument`, and `connection.onDidCloseTextDocument` to handle the events
+*/
 // documents.listen(connection);
 ```
 
