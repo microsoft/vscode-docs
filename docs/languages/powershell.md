@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: PowerShell
 ContentId: 8688bb6d-793e-4a37-aed2-5af4cfe89940
 PageTitle: PowerShell editing with Visual Studio Code
-DateApproved: 9/17/2018
+DateApproved: 08/15/2022
 MetaDescription: Learn about using PowerShell in Visual Studio Code
 ---
 # PowerShell in Visual Studio Code
