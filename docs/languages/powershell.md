@@ -20,8 +20,8 @@ of Windows PowerShell.
 
 Our test matrix includes the following configurations:
 
-- **Windows Server 2022** with Windows PowerShell 5.1 and PowerShell Core 7.2
-- **Windows Server 2019** with Windows PowerShell 5.1 and PowerShell Core 7.2
+- **Windows Server 2022** with Windows PowerShell 5.1 and PowerShell 7.2
+- **Windows Server 2019** with Windows PowerShell 5.1 and PowerShell 7.2
 - **macOS 11** with PowerShell Core 7.2
 - **Ubuntu 20.04** with PowerShell Core 7.2
 
@@ -30,18 +30,18 @@ Our test matrix includes the following configurations:
 There are two versions of the extension:
 
 - [PowerShell][4] - the fully-tested stable release
-- [PowerShell Preview][5] - a preview release
-  containing new features and other changes, but not fully tested
+- [PowerShell Preview][5] - a preview release containing new features and other changes, but not
+  fully tested
 
-Both extensions can be installed, but only one should be enabled. This allows you to choose switch
-from the stable to the preview version to try out new features.
+Both extensions can be installed, but only one should be enabled. This allows you to switch from the
+stable to the preview version to try out new features.
 
 ### Installing from within VS Code
 
-The PowerShell extension can be installed Visual Studio Code Marketplace by clicking the
-[Install Button][6]. You can also install the PowerShell extension from within Visual Studio Code by
-opening the Extensions view with keyboard shortcut `kb(workbench.view.extensions)` and typing
-"PowerShell" and select the PowerShell extension:
+The PowerShell extension can be installed from the Visual Studio Code Marketplace by clicking the
+[Install Button][6]. You can also install the PowerShell extension from within VS Code by opening
+the Extensions view with keyboard shortcut `kb(workbench.view.extensions)`, typing "PowerShell", and
+selecting the PowerShell extension:
 
 ![PowerShell extension][7]
 
@@ -122,10 +122,10 @@ are based on PowerShell best practices identified by the PowerShell Team and the
 potential code defects and suggests possible solutions for improvements.
 
 The PowerShell extension includes **PSScriptAnalyzer** by default, and automatically performs
-analysis on PowerShell script files being edited in VS Code.
+analysis on PowerShell script files you edit in VS Code.
 
 **PSScriptAnalyzer** comes with a collection of built-in rules that check various aspects of
-PowerShell source code such as presence of uninitialized variables, usage of PSCredential Type,
+PowerShell source code such as presence of uninitialized variables, usage of **PSCredential** type,
 usage of `Invoke-Expression`, and others. The module also allows you to include or exclude specific
 rules.
 
@@ -134,8 +134,8 @@ extension and deselect the checkbox for **PSScriptAnalyzer**.
 
 ![PSScriptAnalyzer Settings][17]
 
-**PSScriptAnalyzer** also provided code formatting. Automatic document formatting can be invoked
-using the **Format Document** command or the (`kb(editor.action.formatDocument)`) keyboard shortcut.
+**PSScriptAnalyzer** also provides code formatting. You can invoke automatic document formatting
+with the **Format Document** command or the (`kb(editor.action.formatDocument)`) keyboard shortcut.
 
 ### Pester integration
 
@@ -146,7 +146,7 @@ platforms follow the [Pester installation instructions][19].
 ### Plaster integration
 
 Plaster is a template-based file and project generator written in PowerShell. Its purpose is to
-streamline the creation of PowerShell module projects, Pester tests, DSC configurations and more.
+streamline the creation of PowerShell module projects, Pester tests, DSC Configurations and more.
 See the [GitHub Plaster repository][20] for more information, for documentation on Plaster's cmdlets
 see [Cmdlet Documentation][21].
 
@@ -213,13 +213,12 @@ This tells the XML extension to use the official XML schemas from the PowerShell
 
 Example scripts are included with the extension and can be found at the following path.
 
-`C:\Users\<yourusername>\.vscode\extensions\ms-vscode.PowerShell-<version>\examples`
+`~/.vscode/extensions/ms-vscode.PowerShell-<version>/examples`
 
-To open or view the examples in Visual Studio Code, run the following from your PowerShell command
-prompt:
+To open or view the examples in VS Code, run the following from your PowerShell command prompt:
 
 ```powershell
-code (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
+code (Get-ChildItem ~\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 ```
 
 You can also open the examples from the Command Palette (`kb(workbench.action.showCommands)`) with
