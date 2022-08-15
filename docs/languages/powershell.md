@@ -29,7 +29,7 @@ Our test matrix includes the following configurations:
 
 There are two versions of the extension:
 
-- [PowerShell][4] - the fully-tested stable release
+- [PowerShell][4] - the fully tested stable release
 - [PowerShell Preview][5] - a preview release containing new features and other changes, but not
   fully tested
 
@@ -66,13 +66,13 @@ code-insiders --install-extension ms-vscode.powershell
 - Code snippets
 - IntelliSense for cmdlets and more
 - Rule-Based analysis provided by PowerShell Script Analyzer
-- "Go to definition" of cmdlets and variables
+- **Go to Definition** of cmdlets and variables
 - Find references of cmdlets and variables
 - Document and Workspace symbol discovery
 - Run selected section of PowerShell code using `kbstyle(F8)`
 - Launch online help for the symbol under the cursor using `kbstyle(Ctrl + F1)`
 - Local script debugging and basic interactive console support
-- Enable ISE mode using `kbstyle(Ctrl + Shift + P)` then search for "Enable ISE Mode"
+- Enable ISE mode using `kb(workbench.action.showCommands)` then search for "Enable ISE Mode"
 
 ### Debugging
 
@@ -129,8 +129,8 @@ PowerShell source code such as presence of uninitialized variables, usage of **P
 usage of `Invoke-Expression`, and others. The module also allows you to include or exclude specific
 rules.
 
-To disable **PSScriptAnalyzer**, open your settings, browse Extensions, select the PowerShell
-extension and deselect the checkbox for **PSScriptAnalyzer**.
+To disable **PSScriptAnalyzer**, open your settings (`kb(workbench.action.openSettings)`), browse **Extensions**, select the **PowerShell**
+extension, and deselect the checkbox for **Script Analysis: Enable** (`powershell.scriptAnalysis.enable`).
 
 ![PSScriptAnalyzer Settings][17]
 
@@ -145,10 +145,8 @@ platforms follow the [Pester installation instructions][19].
 
 ### Plaster integration
 
-Plaster is a template-based file and project generator written in PowerShell. Its purpose is to
+[Plaster][20] is a template-based file and project generator written in PowerShell. Its purpose is to
 streamline the creation of PowerShell module projects, Pester tests, DSC Configurations and more.
-See the [GitHub Plaster repository][20] for more information, for documentation on Plaster's cmdlets
-see [Cmdlet Documentation][21].
 
 The PowerShell extension allows the creation of new Plaster projects using the **PowerShell: Create
 New Project from Plaster Template** command from the Command Palette
@@ -161,14 +159,11 @@ New Project from Plaster Template** command from the Command Palette
 You can customize VS Code [settings][23] from the **File** > **Preferences** > **Settings** menu
 item (**Code** > **Preferences** > **Settings** on macOS).
 
-You can also click the gear icon located in the lower left corner of the Activity Bar.
+You can also select the gear icon located in the lower left corner of the Activity Bar.
 
 ![codeGear][24]
 
 You can also use the keyboard shortcut `kb(workbench.action.openSettings)` to open your settings.
-The VS Code team has introduced a settings GUI in version 1.27.1 as the new default interface for
-customizing settings. In VS Code versions prior to 1.27.1, this will open your `settings.json` file.
-
 You can still open the `settings.json` file by using **Preferences: Open Settings (JSON)** command
 from the Command Palette (`kb(workbench.action.showCommands)`) or by changing the default settings
 editor with the `"workbench.settings.editor"` setting.
@@ -228,11 +223,10 @@ the **PowerShell: Open Examples Folder** command.
 
 ## Additional resources
 
-More detailed documentation can be found in the PowerShell documenation. Start with
+More detailed documentation can be found in the PowerShell documentation. Start with
 [Using VS Code][30].
 
-Check out the FAQ page on the
-[PowerShell extensions Wiki][31].
+Check out the [troubleshooting guide][31] for answers to common questions.
 
 For more information on debugging, check out the _Hey, Scripting Guy!_ two-part blog post series
 written by [@keithHill][32] on debugging with the PowerShell extension:
@@ -261,7 +255,6 @@ written by [@keithHill][32] on debugging with the PowerShell extension:
 [18]: https://pester.dev/
 [19]: https://pester.dev/docs/introduction/installation
 [20]: https://github.com/PowerShell/Plaster
-[21]: https://github.com/PowerShell/Plaster/blob/master/docs/Plaster.md
 [22]: images/powershell/cpPlasterCommand.png
 [23]: /docs/getstarted/settings.md
 [24]: images/powershell/codeGear.png
@@ -271,7 +264,7 @@ written by [@keithHill][32] on debugging with the PowerShell extension:
 [28]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 [29]: images/powershell/pwshExamples.png
 [30]: https://docs.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode
-[31]: https://github.com/PowerShell/vscode-powershell/wiki/FAQ
+[31]: https://github.com/PowerShell/vscode-powershell/blob/main/docs/troubleshooting.md#troubleshooting-powershell-extension-issues
 [32]: https://twitter.com/r_keith_hill
 [33]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/
 [34]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-2/

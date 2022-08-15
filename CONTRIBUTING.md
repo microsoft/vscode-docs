@@ -89,7 +89,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **TOCTitle** - The title used in the left rail Table of Contents for this page.
 * **PageTitle** - The title used in the HTML title for the page and in search results.
 * **ContentId** - A GUID that uniquely identifies the topic to DevDiv doc reporting.
-* **DateApproved** - This is set when the page is published on the VS Code website. You can ignore it.
+* **DateApproved** - The date of the most recent update or review. It is displayed at the bottom of an article to indicate freshness. The date should be updated in a significant PR.
 * **MetaDescription** - The meta description for this page, which helps for search. Use sentence structure limited to 300 characters.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
