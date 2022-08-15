@@ -1,7 +1,7 @@
 [
   {
     "title": "AKS VS Code Tools Extension",
-    "description": "The AKS extension in VS Code enables Azure resources to reduce the heavy lifting and enhance the DevOps experience for developers. Features like Sart or Stop AKS Cluster without leaving VS Code, create clusters in Azure Portal, check cluster properties and navigate to the clusters quickly. The Create GitHub workflow also makes deployment easier.",
+    "description": "The AKS extension for VS Code reduces the heavy lifting and enhances the DevOps experience for developers working with Azure resources. You can manage AKS Clusters without leaving VS Code, quickly create and navigate to clusters on the Azure Portal, and the integrated GitHub workflow makes deployment easy.",
     "speakers": [
       {
         "name": "Tatsat Mishra",
