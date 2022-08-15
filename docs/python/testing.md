@@ -221,6 +221,12 @@ Support for running tests in parallel with pytest is available through the `pyte
     addopts=-n4
    ```
 
+   Or, if you are using a `pyproject.toml` file
+   ```toml
+    [tool.pytest.ini_options]
+    addopts="-n 4"
+   ```
+
 3. Run your tests, which will now be run in parallel.
 
 ## Debug tests
