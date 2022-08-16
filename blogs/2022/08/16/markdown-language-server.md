@@ -31,13 +31,13 @@ Back before I discovered VS Code, I mostly coded with a simple text editor. This
 
 I recently had the same realization with Markdown. For years I'd been fine using VS Code's relatively simple Markdown editor. I was content with syntax highlighting and the built-in Markdown preview. Document outlines and clickable editor links were just bonuses. I'd gotten used to writing out links by hand. I'd come to accept that if I changed a header name, I would need to do a text search to update all the links to that header. And because I saw Markdown as little more than fancy plaintext, I couldn't even imagine that a better way was possible.
 
-But one day after mistyping an image path for what felt like the hundredth time, it finally hit me: this isn't fun! Why am I wasting my life manually typing out and validating these links? That's what tools are for! I knew I didn't want just any tool, I wanted one that would help me read and write my Markdown as text instead of hiding the Markdown source behind some WYSIWYG-style UI magic. That's very much in keeping with the ethos of VS Code and how we think about support for programming languages. Why shouldn't many of the same smarts we offer for traditional programming languages apply to Markdown too? I started work on link completions the very next day.
+But one day after mistyping an image path for what felt like the hundredth time, it finally hit me: **this isn't fun**! Why am I wasting my life manually typing out and validating these links? That's what tools are for! I knew I didn't want just any tool, I wanted one that would help me read and write my Markdown as text instead of hiding the Markdown source behind some WYSIWYG-style UI magic. That's very much in keeping with the ethos of VS Code and how we think about support for programming languages. Why shouldn't many of the same smarts we offer for traditional programming languages apply to Markdown too? I started work on link completions the very next day.
 
 Link completions are suggestions that help you write links to headers within the current file or to other files in the workspace. I even added support for completing links to headers within other Markdown files. Neat! It was a small addition but one that made a huge difference in my productivity. Soon I couldn't imagine how I'd ever lived without it.
 
 Giddy with the success of Markdown completions, I swooned as I imagined what other language smarts I could next bring to Markdown. I envisioned myself confidently pressing F2 on headers to safely rename them. I daydreamed of red squigglies beaming out through murky seas of text to help identify invalid links. It all seemed so obvious! Why hadn't I thought of it years ago? I was starting to understand Markdown as structured text instead of just plain text, and the possibilities for better Markdown tooling seemed endless.
 
-### Markdown language features
+## Markdown language features
 
 I won't bore you with the story behind every new feature or dive into all gory details of how they were all implemented. Suffice it to say, I took an incremental approach, which made all the effort possible with the limited time I had to devote to VS Code's Markdown support. For instance, instead of jumping directly to building rename support, I first got a solid version of **Find All References** up and running (because if you want to rename a symbol, you first need to know all the places where it is referenced). Working incrementally and building each feature on top of each other also helped me test old features as I implemented new ones. For example, implementing rename on links helped me catch tons of bugs with link detection. (The only downside to this approach is the realization that you've built your "oh so elegant" tower atop a few very hairy regular expressions).
 
@@ -94,5 +94,5 @@ Happy Coding!
 Matt Bierner, [@MattBierner](https://twitter.com/MattBierner)
 
 [ls]: https://microsoft.github.io/language-server-protocol/
-[server]: https://github.com/microsoft/vscode/tree/main/extensions/Markdown-language-features/server
-[service]: https://github.com/microsoft/vscode-Markdown-languageservice
+[server]: https://github.com/microsoft/vscode/tree/main/extensions/markdown-language-features/server
+[service]: https://github.com/microsoft/vscode-markdown-languageservice
