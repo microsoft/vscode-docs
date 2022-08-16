@@ -257,10 +257,6 @@ If you do not add the `pricing` field to your `package.json`, the default label 
 
 >**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for pricing label to work.
 
-### Extension ID
-
-The `publisher.name` field in `package.json` is used to uniquely identify the extension. It is also used to determine the extension's location on disk. For example, if the `publisher.name` is `vscode.csharp`, then the extension is located
-
 ### Extension Sponsor
 
 An extension can opt-in to sponsorship by adding a `sponsor` field in its `package.json`, with the `url` field for the sponsorship link the extension author would like to use. For example:
