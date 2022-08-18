@@ -157,7 +157,7 @@ If you prefer to always work directly with `settings.json`, you can set `"workbe
 Depending on your platform, the user settings file is located here:
 
 * **Windows** `%APPDATA%\Code\User\settings.json`
-* **macOS** `$HOME/Library/Application\ Support/Code/User/settings.json`
+* **macOS** `$HOME/Library/Application Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
 ### Reset all settings
