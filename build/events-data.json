@@ -1,5 +1,29 @@
 [
   {
+    "title": "TypeScript Crash Course with Matt Pocock",
+    "description": "Become a TypeScript wizard from scratch with Matt Pocock - the \"Rodney Mullen of TypeScript\".",
+    "speakers": [
+      {
+        "name": "Matt Pocock",
+        "link": "https://twitter.com/mattpocockuk",
+        "title": "Developer Advocate at Vercel"
+      }
+    ],
+    "start": "2022-08-25T15:00:00Z",
+    "duration": 30,
+    "location": {
+      "isOnline": true,
+      "name": "YouTube",
+      "link": "https://youtu.be/p6dO9u0M7MQ"
+    },
+    "image": "https://vscodeassets.azureedge.net/public/livestreams/20220825.jpg",
+    "calendar": {
+      "ics": "https://aka.ms/vscodelive/20220825/ics",
+      "google": "https://aka.ms/vscodelive/20220825/google"
+    },
+    "youtubeId": "p6dO9u0M7MQ"
+  },
+  {
     "title": "AKS VS Code Tools Extension",
     "description": "The AKS extension for VS Code reduces the heavy lifting and enhances the DevOps experience for developers working with Azure resources. You can manage AKS Clusters without leaving VS Code, quickly create and navigate to clusters on the Azure Portal, and the integrated GitHub workflow makes deployment easy.",
     "speakers": [
