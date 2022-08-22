@@ -152,8 +152,7 @@ In a nutshell, request forwarding works in a similar way as language services. T
 
 The major differences are:
 
-- While the language service approach uses libraries to calculate language server responses, request forwarding sends the request back to VS Code to query all language servers and forward their responses.
-- The dispatching happens in the **language client**, not the **language server**.
+- While the language service approach uses libraries to calculate language server responses, request forwarding sends the request back to VS Code to use extensions that are active and have registered a completion provider for the embedded language.
 
 Here is the simple example again:
 
@@ -210,7 +209,7 @@ let clientOptions: LanguageClientOptions = {
         return await next(document, position, context, token);
       }
 
-      const originalUri = document.uri.toString();
+      const originalUri = document.uri.toString(true);
       virtualDocumentContents.set(originalUri, getCSSVirtualContent(htmlLanguageService, document.getText()));
 
       const vdocUriString = `embedded-content://css/${encodeURIComponent(
