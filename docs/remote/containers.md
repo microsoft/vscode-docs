@@ -105,7 +105,7 @@ This quick start covers how to set up a dev container for an existing project to
 
     The list will be automatically sorted based on the contents of the folder you open.
 
-    You may be able to customize your dev container with additional features, which [you can read more about below](#dev-container-features-preview).
+    You may be able to customize your dev container with additional Features, which [you can read more about below](#dev-container-features-preview).
 
     The dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
@@ -260,15 +260,15 @@ Selecting the **Remote-Containers: Add Development Container Configuration Files
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
 
-## Dev container features (preview)
+## Dev Container Features (preview)
 
-Dev container features provide a smooth path for customizing your container definitions.
+Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for you or your collaborators to use.
 
 When you use **Remote-Containers: Add Development Container Configuration Files**, you're presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
 
 ![Dev container features in Command Palette](images/containers/container-features.png)
 
-When you rebuild and reopen in your container, the features you selected will be available in your `devcontainer.json`:
+When you rebuild and reopen in your container, the Features you selected will be available in your `devcontainer.json`:
 
 ```json
 "features": {
@@ -278,19 +278,28 @@ When you rebuild and reopen in your container, the features you selected will be
 
 You'll get IntelliSense when editing the `"features"` property in the `devcontainer.json` directly:
 
-![Intellisense when modifying terraform feature](images/containers/features-intellisense.png)
-
-Built-in features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) folder in the vscode-dev-containers repo, but the Remote - Containers extension and GitHub Codespaces include an **early preview** for creating your own dev container features. For example, you can reference these as follows:
-
-```json
-"features": {
-    "your-github-id-or-org/your-repository/feature-name@v0.0.1": "latest"
-}
-```
-
-The form and format of these custom features is still in flux, but you can try creating your own dev container feature using the [dev-container-features-template](https://github.com/microsoft/dev-container-features-template) sample repository.  Let us know what you think!
+![Intellisense when modifying terraform Feature](images/containers/features-intellisense.png)
 
 The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
+
+The Features sourced in VS Code UI come from the [`devcontainers/features` repository](https://github.com/devcontainers/features).
+
+### Folder structure
+
+A feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
+
+```
++-- feature
+|    +-- devcontainer-feature.json
+|    +-- install.sh
+|    +-- (other files)
+```
+
+### Features proposal and distribution
+
+Features are an active proposal in the [open dev container specification](https://containers.dev). You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61) and [greater information about how Features work](https://containers.dev/implementors/features/).
+
+You can try creating your own dev container feature using the [feature-template](https://github.com/devcontainers/feature-template) sample repository. There is also [more information about their distribution](https://containers.dev/implementors/features-distribution/) in the spec.
 
 ## Pre-building dev container images
 
