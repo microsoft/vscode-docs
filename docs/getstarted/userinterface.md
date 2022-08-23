@@ -106,11 +106,22 @@ You can select multiple files in the **File Explorer** and **OPEN EDITORS** view
 
 ### Filtering the document tree
 
-You can type to filter the currently visible files in the **File Explorer**. With the focus on the **File Explorer** start to type part of the file name you want to match. You will see a filter box in the top-right of the **File Explorer** showing what you have typed so far and matching file names will be highlighted. When you press the cursor keys to move up and down the file list, it will jump between matching files or folders.
+Tree views, such as the File Explorer, now support the Find control. You can press `kb(list.find)` inside trees to pop up the Find control. You can use the Find control to highlight matched elements or toggle the **Filter** button to hide all elements that do not match the search term.
 
-Hovering over the filter box and selecting **Enable Filter on Type** will show only matching files/folders. Use the 'X' **Clear** button to clear the filter.
+![Tree Find control showing search and filter](../../release-notes/images/1_70/tree-filter.gif)
 
-![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
+**Note:** If you are used to opening the Find control in the editor when invoking `kb(list.find)` while the File Explorer has focus, you can configure your keybindings accordingly:
+
+```json
+{
+    "key": "cmd+f", // "ctrl+f" on Windows/Linux
+    "command": "-list.find",
+    "when": "listFocus && listSupportsFind"
+}
+```
+
+**Note**: This feature works like this starting from [v1.70](../../release-notes/v1_70.md#tree-find-control). The old way of `focus + type to search` is deprecated. And no more works. 
+
 
 ### Outline view
 
