@@ -31,7 +31,7 @@ For a simple example of source maps in action, see the [TypeScript tutorial](/do
 }
 ```
 
-For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link. This will create a `launch.json` file in a `.vscode` folder with default values detected in your project.
+For more advanced debugging scenarios, you can create your own debug configuration `launch.json` file. To see the default configuration, go to the **Run and Debug** view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link.
 
 This will create a `launch.json` file in a `.vscode` folder with default values detected in your project.
 

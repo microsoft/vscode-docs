@@ -64,7 +64,7 @@ Out of the box VS Code adds actions to navigate in editor history as well as the
 
 ## Mojave privacy protections
 
-After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs may be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders. You can read a more detailed explanation in this [blog post](https://discuss.atom.io/t/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc).
+After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs may be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders.
 
 ## Updates
 
