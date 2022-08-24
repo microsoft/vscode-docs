@@ -19,6 +19,76 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
+## Editing Markdown
+
+### Document outline
+
+The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
+
+![Markdown Outline view](images/Markdown/markdown-outline-view.png)
+
+The Outline view is a great way to review your document's header structure and outline.
+
+### Snippets for Markdown
+
+There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
+
+>**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+
+### Go to header in file
+
+Use `kb(workbench.action.gotoSymbol)` to quickly jump to a header in the current file.
+
+You can browse through all headers in the file or start typing a header name to find just the one you are after. Once you've found the header you what, press `kbstyle(Enter)` to move your cursor to it. Press `kbstyle(Esc)` to cancel jumping to the header.
+
+### Go to header in workspace
+
+Use `kb(workbench.action.showAllSymbols)` to search through headers across all Markdown files in the current workspace.
+
+Start typing a header name to filter down the list and find the header you are after.
+
+### Path completions
+
+Path completions help with create links to files and images. These paths are shown bu [IntelliSense](/docs/editor/intellisense.md) automatically as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+
+![Path completions in a Markdown link](images/Markdown/path-completions.png)
+
+Paths starting with `/` are resolved relative to the current workspace root, while paths staring with `./` or without any prefix are resolved relative to the current file. Path suggestions are automatically shown when you type `/` or can be manually invoked by using `kb(editor.action.triggerSuggest)`.
+
+Path IntelliSense can also help you link to headers within the current file or within another Markdown file. Start the path with `#` to see completions for all the headers in the file (depending on your settings, you may need to use `kb(editor.action.triggerSuggest)` to see these):
+
+![Header section suggestions in a Markdown link](images/Markdown/path-completions-header.png)
+
+You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`.
+
+### Drag and drop to insert links and images
+
+Quickly insert images and file links by dragging and dropping. To start, drag a file from VS Code's explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
+
+![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
+
+Dropped images insert a Markdown image `![](path/to/image.png)`. Dropped files insert a normal markdown link `[](path/to/file.md)`.
+
+### Smart selection
+
+Smart selection lets you quickly expand and shrink selection in Markdown documents. This can be used to quickly select entire block elements (such as codeblocks or tables) and to select the entire contents of a header section in the markdown file.
+
+Smart selection uses the following comands:
+
+* Expand: `kb(editor.action.smartSelect.expand)`
+* Shrink: `kb(editor.action.smartSelect.shrink)`
+
+Selection applies to the following, and follows a traditional hierarchical pattern:
+
+* Headers
+* Lists
+* Block quotes
+* Fenced code blocks
+* Html code blocks
+* Paragraphs
+
+![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
+
 ## Markdown preview
 
 VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
@@ -54,14 +124,6 @@ The currently selected line in the editor is indicated in the Markdown preview b
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
-
-## Outline view
-
-The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
-
-![Markdown Outline view](images/Markdown/markdown-outline-view.png)
-
-The Outline view is a great way to review your document's header structure and outline.
 
 ## Extending the Markdown preview
 
@@ -125,12 +187,6 @@ Keeps scripts disabled but allows content to be loaded over `http`.
 ### Disable
 
 Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
-
-## Snippets for Markdown
-
-There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
-
->**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
 ## Compiling Markdown into HTML
 
