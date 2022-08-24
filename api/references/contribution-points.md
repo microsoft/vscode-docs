@@ -320,7 +320,7 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 
 You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
 
-To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`:
+To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`. In the screenshot below, the hovered option has the item label "None", with enum description "No file icons" and enum value `null`.
 ![The workbench.iconTheme setting in the Settings UI with the dropdown expanded showing the enum item labels and one enum description](images/contribution-points/settings-ui-icon-theme.png)
 
 **deprecationMessage** / **markdownDeprecationMessage**
