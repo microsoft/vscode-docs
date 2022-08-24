@@ -11,14 +11,6 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
-## Markdown extensions
-
-In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
-
-<div class="marketplace-extensions-markdown-curated"></div>
-
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
-
 ## Editing Markdown
 
 ### Document outline
@@ -187,6 +179,14 @@ Keeps scripts disabled but allows content to be loaded over `http`.
 ### Disable
 
 Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
+
+## Markdown extensions
+
+In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
+
+<div class="marketplace-extensions-markdown-curated"></div>
+
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
