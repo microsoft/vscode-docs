@@ -296,7 +296,7 @@ If two settings within the same category have `order` properties, the setting wi
 
 If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
 
-**enum** / **enumDescriptions**
+**enum** / **enumDescriptions** / **enumItemLabels**
 
 If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
 
@@ -319,6 +319,9 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 ```
 
 You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
+
+To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`. In the screenshot below, the hovered option has the item label "None", with enum description "No file icons" and enum value `null`.
+![The workbench.iconTheme setting in the Settings UI with the dropdown expanded showing the enum item labels and one enum description](images/contribution-points/settings-ui-icon-theme.png)
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
