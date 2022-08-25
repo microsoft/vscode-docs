@@ -106,9 +106,9 @@ You can select multiple files in the **File Explorer** and **OPEN EDITORS** view
 
 ### Advanced tree navigation
 
-You can filter the currently visible files in the **File Explorer**. With the focus on the **File Explorer** press `kbstyle(Ctrl/Cmd+F)` to open the tree find widget and type part of the file name you want to match. You will see a find widget in the top-right of the **File Explorer** showing what you have typed so far and matching file names will be highlighted. Pressing the filter icon will toggle between the two modes: highlighting and filtering. Pressing `kbstyle(DownArrow)` will let you focus the first matched element and jump between matching elements.
+You can filter the currently visible files in the **File Explorer**. With the focus on the **File Explorer**, press `kbstyle(Ctrl/Cmd+F)` to open the tree Find control and type part of the file name you want to match. You will see a Find control in the top-right of the **File Explorer** showing what you have typed and matching file names will be highlighted. Pressing the **Filter** button will toggle between the two modes: highlighting and filtering. Pressing `kbstyle(DownArrow)` will let you focus the first matched element and jump between matching elements.
 
-This pattern is ubiquitous across trees in the workbench, so feel free to try it out in other areas of the product.
+This navigation feature is available for all tree views in VS Code, so feel free to try it out in other areas of the product.
 
 ![Filtering files in the File Explorer](images/userinterface/file-explorer-filter.png)
 
