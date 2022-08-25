@@ -704,6 +704,12 @@ The following articles may help answer your question:
 * [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/docker-for-mac/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-mac/faqs/)
 * [Docker Support Resources](https://success.docker.com/article/best-support-resources)
 
+### Can I use dev containers outside of VS Code?
+
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. We're creating the **Development Containers Specification** to empower anyone in any tool to configure a consistent dev environment. It seeks to find ways to enrich existing formats with common development specific settings, tools, and configuration while still providing a simplified, un-orchestrated single container option – so that they can be used as coding environments or for continuous integration and testing.
+
+You can learn more and review the spec on [containers.dev](https://containers.dev), and you can review active proposals and contribute to the spec in the [devcontainers/spec](https://github.com/devcontainers/spec) repository on GitHub.
+
 ## Questions or feedback
 
 * See [Tips and Tricks](/docs/remote/troubleshooting.md#container-tips) or the [FAQ](/docs/remote/faq.md).
@@ -719,4 +725,4 @@ The following articles may help answer your question:
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference/) - Review the `devcontainer.json` schema.
