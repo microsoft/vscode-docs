@@ -103,7 +103,9 @@ The terminal features 3 different renderers, each of which have different trade 
 - Canvas renderer - GPU acceleration by leveraging the [`CanvasRenderingContext2D` web API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D), slower than webgl but faster than DOM
 - DOM renderer - A fallback renderer that's much slower but has great compatibility
 
-GPU acceleration driven by the Webgl renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spend rendering each frame. This typically works without issue but for certain environments it may not work properly, common examples of this are Linux VMs, browsers that don't support webgl and machines with outdated drivers.
+GPU acceleration driven by the Webgl renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame. 
+
+When on Linux VMs, browsers that don't support webgl, or machines with outdated drivers, webgl may not work properly.
 
 The default `terminal.integrated.gpuAcceleration` value of `"auto"` work by first selecting the webgl renderer, if it detects issues it will fallback to the canvas renderer, and if it detect issues there it will fallback to the DOM renderer. Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
 
