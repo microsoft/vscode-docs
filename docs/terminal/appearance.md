@@ -89,7 +89,7 @@ Terminals often have contrast issues due to some conflict with dark/light themes
 
 The minimum contrast ratio feature solves this problem by either increasing or reducing the luminance of the text's foreground color until a 4.5:1 contrast ratio is met.
 
-One downside of this is that colored text may sometimes lose some of its saturation. This feature can be disabled to get the original colors with:
+One downside of this is that colored text may sometimes lose some of its saturation. This feature can be configured or disabled to get the original colors with:
 
 ```json
 "terminal.integrated.minimumContrastRatio": 1
