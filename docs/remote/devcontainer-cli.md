@@ -126,6 +126,80 @@ These steps above are also provided in the CLI repo's [README](https://github.co
 
 If you'd like to use the dev container CLI in your CI/CD builds or test automation, you can find examples of GitHub Actions and Azure DevOps Tasks in the [devcontainers/ci](https://github.com/devcontainers/ci) repository.
 
+## Pre-building
+
+The `devcontainer build` command allows you to build quickly build dev container image following the same steps the Remote - Containers extension or GitHub Codespaces will. This is particularly useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
+
+`build` accepts a path to the folder containing a `.devcontainer` folder or `.devcontainer.json` file. For example, `devcontainer build --workspace-folder <my_repo>` will build the container image for `my_repo`.
+
+### Example of building and publishing an image
+
+For example, you may want to pre-build a number of images that you then reuse across multiple projects or repositories. To do so, follow these steps:
+
+1. [Create](/docs/editor/versioncontrol.md#initialize-a-repository) a source code repository.
+
+1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](#dev-container-features-preview)). For example, consider this devcontainer.json file:
+
+    ```json
+    {
+        "build": {
+            "dockerfile": "Dockerfile"
+        },
+        "features": {
+            "docker-in-docker": "latest"
+        }
+    }
+    ```
+
+1. Use the `devcontainer build` command to build the image. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
+
+    ```bash
+    devcontainer build --workspace-folder <my_repo>
+    ```
+
+1. Next [push](https://docs.docker.com/engine/reference/commandline/push/) the image to your registry.
+
+    ```bash
+    docker push ghcr.io/your-org/your-image-name
+    ```
+
+1. Finally, for each project or repository that will use your image, craft a simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container features you added in your pre-build configuration in step 2. For example:
+
+    ```json
+    {
+        "image": "ghcr.io/your-org/your-image-name",
+        "features": {
+            "docker-in-docker": "latest"
+        }
+    }
+    ```
+
+That's it!
+
+### [Optional] Avoiding problems with images built using Docker
+
+Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly if it will not work as expected. To solve this problem, you can add a build argument that needs to be specified for things to work.
+
+For example, you could add the following to your Dockerfile:
+
+```bash
+ARG vscode
+RUN if [[ -z "$vscode" ]] ; then printf "\nERROR: This Dockerfile needs to be built with VS Code !" && exit 1; else printf "VS Code is detected: $vscode"; fi
+```
+
+And the following in your `devcontainer.json`:
+```json
+"build": {
+      "dockerfile": "Dockerfile",
+      "args": {
+          // set vscode arg for Dockerfile
+          "vscode": "true"
+      },
+    }
+```
+
+In the Docker Compose case, you can add this argument to a separate [override file to extend your configuration](https://github.com/microsoft/vscode-docs/blob/a55ae5b286196b495e2b3ea9f0b3e211beb7c925/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development) that is located in a different place in your source tree than the primary Docker Compose file.
+
 ## Feedback
 
 The dev container CLI and specification are under active development and we welcome your feedback, which you can provide in [this issue](https://github.com/devcontainers/cli/issues/7), or through new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
