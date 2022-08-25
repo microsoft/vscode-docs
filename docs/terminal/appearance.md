@@ -67,7 +67,7 @@ Each terminal has an associated icon which is determined by its [terminal profil
 
 ### Status
 
-A tab's "status" is the icon that appears on the right of the tab. Some statuses such as those displays by tabs animate. If this is distracting the animation can be disabled with:
+A terminal's "status", if any, is signified by an icon that appears on the right of the tab. Some statuses involve animation. If this is distracting the animation can be disabled with:
 
 ```json
 "terminal.integrated.tabs.enableAnimation": false
