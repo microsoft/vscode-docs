@@ -75,7 +75,7 @@ A terminal's "status", if any, is signified by an icon that appears on the right
 
 ### Visual bell
 
-The terminal features a visual bell which displays a yellow bell icon briefly when the terminal's bell is triggered. This can be disabled with `terminal.integrated.enableBell` and the duration can be configured with `terminal.integrated.bellDuration`.
+When the terminal's bell is triggered, a yellow bell icon is briefly shown. This can be disabled with `terminal.integrated.enableBell` and the duration can be configured with `terminal.integrated.bellDuration`.
 
 ## Terminal colors
 
