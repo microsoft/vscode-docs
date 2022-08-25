@@ -87,7 +87,7 @@ Whether bold text uses the normal ANSI colors or the bright varient can be confi
 
 Terminals often have contrast issues due to some conflict with dark/light themes, ANSI colors or shells/programs running, and more.
 
-The minimum contrast ratio feature aims to solve this problem in a general way by always displaying text such that a certain contrast ratio is met. This is done by either increasing or reducing the luminance of the text's foreground color. By default this is set to ensure a 4.5:1 contrast ratio is met for reasonable contrast on all text.
+The minimum contrast ratio feature solves this problem by either increasing or reducing the luminance of the text's foreground color until a 4.5:1 contrast ratio is met.
 
 One downside of this is that colored text may sometimes lose some of its saturation. This feature can be disabled to get the original colors with:
 
