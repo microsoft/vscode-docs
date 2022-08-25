@@ -63,7 +63,7 @@ To change the title to display the escape sequence sent by the shell, use:
 
 ### Icons
 
-Each terminal has an associated icon which is determined by its [terminal profile](https://code.visualstudio.com/docs/terminal/profiles). The default icon and its color can be configured with the `terminal.integrated.tabs.defaultIcon` and `terminal.integrated.tabs.defaultColor` settings.
+Each terminal has an associated icon which is determined by its [terminal profile](https://code.visualstudio.com/docs/terminal/profiles). The default icon and its color, which will be used if not defined in a profile, can be configured with the `terminal.integrated.tabs.defaultIcon` and `terminal.integrated.tabs.defaultColor` settings.
 
 ### Status
 
