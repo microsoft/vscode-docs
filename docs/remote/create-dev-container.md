@@ -489,4 +489,4 @@ The path used for looking up the configuration is derived from the output of `gi
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference/) - Review the `devcontainer.json` schema.

@@ -207,6 +207,6 @@ The dev container CLI and specification are under active development and we welc
 ## Next steps
 
 * [Dev container specification repository](https://github.com/devcontainers/spec) - Read and contribute to the open specification.
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference/) - Review the `devcontainer.json` schema.
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
