@@ -12,7 +12,7 @@ MetaDescription: Visual Studio Code's integrated terminal allows customizing its
 
 Text in the terminal can be customized with the following settings:
 
-- `terminal.integrated.fontFamily`: The font family to use, this takes a string in the format that fontFamily in CSS takes. For example, `'Fira Code', monospace` will configure `Fira Code` as the primary font and `monospace` as the fallback when it lacks glyphs.
+- `terminal.integrated.fontFamily`: The font family to use, this takes a string in the format that fontFamily in CSS takes. For example, `"'Fira Code', monospace"` will configure `Fira Code` as the primary font and `monospace` as the fallback when it lacks glyphs.
 - `terminal.integrated.fontSize`: Changes the font size of text in the terminal.
 - `terminal.integrated.letterSpacing`: Configures additional horizontal spacing between characters in pixels.
 - `terminal.integrated.lineHeight`: Configures additional spacing vertical between characters as a multiplier of the regular line height. For example, `1.1` will add 10% additional vertical space.
@@ -33,15 +33,63 @@ Nerd Fonts work the same and typically have a `" NF"` suffix, the following is a
 "terminal.integrated.fontFamily": "'Hack NF'"
 ```
 
+## Terminal cursor
+
 ## Customizing tabs
+
+### Visibility
+
+Terminal tabs appear on the right of the terminal view when there are two or more terminals by default, showing the active terminal in the view header when there is only one. This is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
+
+- `terminal.integrated.tabs.hideCondition`: When to hide the tabs to the right, set to `"never"` to always show them.
+- `terminal.integrated.tabs.showActiveTerminal`: When to show the active terminal in the terminal view header.
+- `terminal.integrated.tabs.showActions`: When to show the active terminal's actions in the view header.
+- `terminal.integrated.tabs.location`: Whether the tabs should be shown on the left or right of the terminal.
+- `terminal.integrated.tabs.enabled`: Whether to use tabs, disabling will show the original dropdown view.
+
+### Tab text
+
+The text on each tab is determined by the `terminal.integrated.tabs.title`, `terminal.integrated.tabs.description` and `terminal.integrated.tabs.separator` settings. By default, the title displays what the shell's detected process name.
+
+To change the title to display the escape sequence sent by the shell, use:
+
+```json
+"terminal.integrated.tabs.title": "${sequence}"
+```
+
+### Icons
+
+Each terminal has an associated icon which is determined by its [terminal profile](https://code.visualstudio.com/docs/terminal/profiles). The default icon and its color can be configured with the `terminal.integrated.tabs.defaultIcon` and `terminal.integrated.tabs.defaultColor` settings.
+
+### Status
+
+A tab's "status" is the icon that appears on the right of the tab. Some statuses such as those displays by tabs animate. If this is distracting the animation can be disabled with:
+
+```json
+"terminal.integrated.tabs.enableAnimation": false
+```
+
+### Visual bell
+
+The terminal features a visual bell which displays a yellow bell icon briefly when the terminal's bell is triggered. This can be disabled with `terminal.integrated.enableBell` and the duration can be configured with `terminal.integrated.bellDuration`.
 
 ## Terminal colors
 
-## Terminal cursor
+While the terminal is capable of displaying true color, programs commonly use 8 ANSI colors (black, red, green, yellow, blue, magenta, cyan and white) and bright variants of each. These ANSI colors are determined by the active [color theme](https://code.visualstudio.com/docs/getstarted/themes), but they can also be configured independently from the theme with the [`workbench.colorCustomizations` setting](https://code.visualstudio.com/docs/getstarted/themes#_workbench-colors).
 
-## Minimum contrast ratio
+Whether bold text uses the normal ANSI colors or the bright varient can be configured with the `terminal.integrated.drawBoldTextInBrightColors` setting.
 
-## Power
+### Minimum contrast ratio
+
+Terminals often have contrast issues because of how they were designed, these issues often arise due to some conflict with dark/light themes, ANSI colors or shells/programs running in the terminal.
+
+The minimum contrast ratio feature aims to solve this problem in a general way by always displaying text such that a certain contrast ratio is met. This is done by either increasing or reducing the luminance of the text's foreground color. By default this is set to ensure a 4.5:1 contrast ratio is met for reasonable contrast on all text.
+
+One downside of this is that colored text may sometimes lose some of its saturation. This feature can be disabled to get the original colors with:
+
+```json
+"terminal.integrated.minimumContrastRatio": 1
+```
 
 ## GPU acceleration
 
