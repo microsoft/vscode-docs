@@ -432,10 +432,6 @@ cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
 EOF
 ```
 
-### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
-
-The terminal can have problems rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Workaround these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
-
 ### I'm having problems with the terminal rendering. What can I do?
 
 By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that changes often. The terminal features 3 renderers that fallback if they are detected to perform poorly in this order:

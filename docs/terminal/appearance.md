@@ -8,3 +8,40 @@ MetaDescription: Visual Studio Code's integrated terminal allows customizing its
 ---
 # Terminal Appearance
 
+## Text style
+
+### Powerline symbols and Nerd Fonts
+
+## Customizing tabs
+
+## Terminal colors
+
+## Terminal cursor
+
+## Minimum contrast ratio
+
+## Power
+
+## GPU acceleration
+
+## Custom glyphs
+
+When [GPU acceleration](#_gpu-acceleration) is enabled, various special characters use custom rendering instead of the font to improve how they display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of powerline symbols (`U+E0B0-U+E0B7`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
+
+Here are some examples of these character when using with line height and letter spacing configured, notice how there are no gaps between cells thanks to the custom glyphs:
+
+![](images/appearance/custom-glyphs.png)
+
+This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
+
+## Customizing your prompt
+
+## Common questions
+
+### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
+
+The terminal can have problems with GPU accelerated rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Workaround these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal. See the [GPU acceleration](#_gpu-acceleration) section for more information.
+
+### Why are the colors in the terminal not correct?
+
+TODO: Link back to min contrast section
