@@ -107,7 +107,9 @@ GPU acceleration driven by the Webgl renderer is enabled in the terminal by defa
 
 When on Linux VMs, browsers that don't support webgl, or machines with outdated drivers, webgl may not work properly.
 
-The default `terminal.integrated.gpuAcceleration` value of `"auto"` work by first selecting the webgl renderer, if it detects issues it will fallback to the canvas renderer, and if it detect issues there it will fallback to the DOM renderer. Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
+The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the webgl, canvas, and DOM renderers sequentially, settling at the first without detected issues. 
+
+Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
 
 ### Custom glyphs
 
