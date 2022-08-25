@@ -8,6 +8,8 @@ MetaDescription: Visual Studio Code's integrated terminal allows customizing its
 ---
 # Terminal Appearance
 
+TODO: Initial description and screenshot
+
 ## Text style
 
 Text in the terminal can be customized with the following settings:
@@ -34,6 +36,8 @@ Nerd Fonts work the same and typically have a `" NF"` suffix, the following is a
 ```
 
 ## Terminal cursor
+
+TODO: ...
 
 ## Customizing tabs
 
@@ -93,7 +97,17 @@ One downside of this is that colored text may sometimes lose some of its saturat
 
 ## GPU acceleration
 
-## Custom glyphs
+The terminal features 3 different renderers, each of which have different trade offs:
+
+- Webgl renderer - True GPU acceleration
+- Canvas renderer - GPU acceleration by leveraging the [`CanvasRenderingContext2D` web API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D), slower than webgl but faster than DOM
+- DOM renderer - A fallback renderer that's much slower but has great compatibility
+
+GPU acceleration driven by the Webgl renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spend rendering each frame. This typically works without issue but for certain environments it may not work properly, common examples of this are Linux VMs, browsers that don't support webgl and machines with outdated drivers.
+
+The default `terminal.integrated.gpuAcceleration` value of `"auto"` work by first selecting the webgl renderer, if it detects issues it will fallback to the canvas renderer, and if it detect issues there it will fallback to the DOM renderer. Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
+
+### Custom glyphs
 
 When [GPU acceleration](#_gpu-acceleration) is enabled, various special characters use custom rendering instead of the font to improve how they display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of powerline symbols (`U+E0B0-U+E0B7`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
 
@@ -104,6 +118,8 @@ Here are some examples of these character when using with line height and letter
 This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
 
 ## Customizing your prompt
+
+TODO: ...
 
 ## Common questions
 
