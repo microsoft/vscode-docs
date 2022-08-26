@@ -159,7 +159,9 @@ For example, you may want to pre-build a number of images that you then reuse ac
     devcontainer build --workspace-folder <my_repo> --push <my_org>/<my_image_name>:<optional_image_version>
     ```
 
-1. For each project or repository that will use your image, craft a simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container features you added in your pre-build configuration in step 2. For example:
+1. You have a couple of options for projects that will use your pre-built image:
+
+     1. Craft a secondary, simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
 
     ```json
     {
@@ -168,6 +170,20 @@ For example, you may want to pre-build a number of images that you then reuse ac
             "ghcr.io/devcontainers/features/docker-in-docker:1": {
             "version": "latest"
             }
+        }
+    }
+    ```
+
+    2. Use the `cacheFrom` property in your existing devcontainer.json. Like the option above, be sure to include any dev container Features. For example:
+
+    ```json
+    {
+        "build": {
+            "dockerfile": "Dockerfile",
+            "cacheFrom": "ghcr.io/your-org/your-image-name"
+        },
+        "features": {
+            "ghcr.io/devcontainers/features/docker-in-docker": {}
         }
     }
     ```
