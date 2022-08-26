@@ -9,7 +9,7 @@ DateApproved: 8/4/2022
 ---
 # devcontainer.json reference
 
-A `devcontainer.json` file in your project tells Visual Studio Code (and other services and tools that support the format) how to access (or create) a **development container** with a well-defined tool and runtime stack.
+**TL;DR - This document has moved to the [dev container spec site](https://containers.dev/implementors/json_reference/)! This page simply now exists as a redirect to the spec site, which will contain the latest information.**
 
 ## Dev container specification
 
