@@ -153,19 +153,13 @@ For example, you may want to pre-build a number of images that you then reuse ac
     }
     ```
 
-1. Use the `devcontainer build` command to build the image. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
+1. Use the `devcontainer build` command to build the image and [push](https://docs.docker.com/engine/reference/commandline/push/) it to your image registry. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
 
     ```bash
-    devcontainer build --workspace-folder <my_repo>
+    devcontainer build --workspace-folder <my_repo> --push <my_org>/<my_image_name>:<optional_image_version>
     ```
 
-1. Next [push](https://docs.docker.com/engine/reference/commandline/push/) the image to your registry.
-
-    ```bash
-    docker push ghcr.io/your-org/your-image-name
-    ```
-
-1. Finally, for each project or repository that will use your image, craft a simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container features you added in your pre-build configuration in step 2. For example:
+1. For each project or repository that will use your image, craft a simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container features you added in your pre-build configuration in step 2. For example:
 
     ```json
     {
