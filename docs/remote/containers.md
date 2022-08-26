@@ -272,7 +272,9 @@ When you rebuild and reopen in your container, the Features you selected will be
 
 ```json
 "features": {
-    "github-cli": "latest"
+    "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        }
 }
 ```
 
@@ -284,9 +286,11 @@ The **Remote-Containers: Configure Container Features** command allows you to up
 
 The Features sourced in VS Code UI come from the [`devcontainers/features` repository](https://github.com/devcontainers/features).
 
-### Folder structure
+### Creating your own feature
 
-A feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
+It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features.html).
+
+A Feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
 
 ```
 +-- feature
@@ -295,11 +299,11 @@ A feature is a self contained entity in a folder with at least a `devcontainer-f
 |    +-- (other files)
 ```
 
+See the [latest template](https://github.com/devcontainers/feature-template) for instructions on using the dev container CLI to publish your own public or private Features!
+
 ### Features proposal and distribution
 
-Features are an active proposal in the [open dev container specification](https://containers.dev). You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61) and [greater information about how Features work](https://containers.dev/implementors/features/).
-
-You can try creating your own dev container feature using the [feature-template](https://github.com/devcontainers/feature-template) sample repository. There is also [more information about their distribution](https://containers.dev/implementors/features-distribution/) in the spec.
+Features are an active proposal in the open dev container specification. You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61), along with [greater information about how Features work](https://containers.dev/implementors/features/) and their [distribution](https://containers.dev/implementors/features-distribution/).
 
 ## Pre-building dev container images
 
