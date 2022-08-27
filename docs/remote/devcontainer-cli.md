@@ -156,7 +156,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
 1. Use the `devcontainer build` command to build the image and [push](https://docs.docker.com/engine/reference/commandline/push/) it to your image registry. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
 
     ```bash
-    devcontainer build --workspace-folder <my_repo> --push <my_org>/<my_image_name>:<optional_image_version>
+    devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
     ```
 
 1. You have a couple of options for projects that will use your pre-built image:
