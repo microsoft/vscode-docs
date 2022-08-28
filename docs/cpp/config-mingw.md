@@ -29,10 +29,8 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command.
 
-1. Install the Mingw-w64 toolset:
-   1. Have an open MSYS2 terminal. (Run "MSYS2 MinGW x64" from the Start menu.)
-   1. Run the `pacman` command (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
-      - Note: Leave the "members in group" prompt blank to install all missing packages in the group.
+1. Install the Mingw-w64 toolchain (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`). Run the `pacman` command in a MSYS2 terminal.
+   - Note: Leave the "members in group" prompt blank to install all missing packages in the group.
 
 1. Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment variable by using the following steps:
    1. In the Windows search bar, type 'settings' to open your Windows Settings.
@@ -51,8 +49,8 @@ g++ --version
 gdb --version
 ```
 
-- If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compilers are located. If the compilers do not exist at that PATH entry, make sure you followed the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
-- If `gcc` has the correct output but not `gdb` then you need to install the packages you are missing from the Mingw-w64 toolset.
+1. If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compilers are located. If the compilers do not exist at that PATH entry, make sure you followed the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
+2. If `gcc` has the correct output but not `gdb` then you need to install the packages you are missing from the Mingw-w64 toolset.
    - Missing the `mingw-w64-gdb` package is one cause of the "The value of miDebuggerPath is invalid." message upon attempted compilation if your PATH is correct.
 
 ## Create Hello World
