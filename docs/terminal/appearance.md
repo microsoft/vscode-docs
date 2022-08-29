@@ -55,7 +55,7 @@ Terminal tabs appear on the right of the terminal view when there are two or mor
 
 The text on each tab is determined by the `terminal.integrated.tabs.title`, `terminal.integrated.tabs.description` and `terminal.integrated.tabs.separator` settings. By default, the title displays what the shell's detected process name.
 
-To change the title to display the escape sequence sent by the shell, use:
+Other terminals often display the escape sequence sent by the shell as the title which can be configured with:
 
 ```json
 "terminal.integrated.tabs.title": "${sequence}"
@@ -133,4 +133,8 @@ The terminal can have problems with GPU accelerated rendering in some environmen
 
 ### Why are the colors in the terminal not correct?
 
-TODO: Link back to min contrast section
+The [minimum contrast ratio feature](_minimum-contrast-ratio) can cause colors to not be displayed as expected. It can be disabled with:
+
+```json
+"terminal.integrated.minimumContrastRatio": 1
+```
