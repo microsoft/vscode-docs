@@ -12,7 +12,7 @@ The look of Visual Studio Code's terminal can be customized extensively.
 
 ![An example of a custom UI, using Powerline and Nerd Font symbols in the prompt and a custom workbench theme](images/appearance/terminal_appearance.png)
 
-_[Sapphire](https://marketplace.visualstudio.com/items?itemName=tyriar.theme-sapphire) theme with custom [Starship](https://starship.rs/) prompt_
+_[Sapphire](https://marketplace.visualstudio.com/items?itemName=tyriar.theme-sapphire) theme with custom [Starship](https://starship.rs/) prompt using Powerline and Nerd Font symbols_
 
 ## Text style
 
