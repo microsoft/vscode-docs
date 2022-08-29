@@ -127,7 +127,7 @@ Sometimes this detection doesn't work and requires manual intervention, setting 
 
 When [GPU acceleration](#_gpu-acceleration) is enabled, custom rendering, rather than the font, improves how some characters display in the terminal. These include box drawing characters (`U+2500-U+257F`), block elements (`U+2580-U+259F`) and a subset of powerline symbols (`U+E0B0-U+E0B7`). This means that the configured font does not need to support these characters as well as having the characters draw pixel perfect and stretch to the size of the entire cell.
 
-Here are some examples of these character when using with line height and letter spacing configured, notice how there are no gaps between cells thanks to the custom glyphs:
+Below are some examples of these characters with custom line height and letter spacing configured. Notice how there are no gaps between cells thanks to the custom glyphs:
 
 ![Box drawing, block characters and some powerline symbols fill the entire cell in the terminal](images/appearance/custom-glyphs.png)
 
