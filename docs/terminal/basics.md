@@ -131,14 +131,6 @@ When enabled, dimmed characters appear as you type. The dimmed style can be chan
 
 To disable the feature, set `terminal.integrated.localEchoLatencyThreshold` to `-1`. To enable it all of the time, set it to `0`.
 
-## Terminal appearance
-
-Customize the terminal's appearance using the following [settings](https://code.visualstudio.com/docs/getstarted/settings):
-
-* Font: family, size, and weight
-* Spacing: line height and letter spacing
-* Cursor: style, width, and blinking
-
 ## Copy & Paste
 
 The keybindings for copy and paste follow platform standards:
