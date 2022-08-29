@@ -176,6 +176,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
 - `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+- `listFilterWidget.shadow`: Shadown color of the type filter widget in lists and tree
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
@@ -620,6 +621,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `mergeEditor.conflict.handledFocused.border`: The border color of handled focused conflicts.
 - `mergeEditor.conflict.handled.minimapOverViewRuler`: The foreground color for changes in input 1.
 - `mergeEditor.conflict.unhandled.minimapOverViewRuler`: The foreground color for changes in input 1.
+- `mergeEditor.conflictingLines.background`: The background of the "Conflicting Lines" text.
 
 ## Panel colors
 
@@ -800,6 +802,7 @@ The following customizations are available:
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 - `terminal.selectionBackground`: The selection background color of the terminal.
 - `terminal.selectionForeground`: The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.
+- `terminal.inactiveSelectionBackground`: The selection background color of the terminal when it does not have focus.
 - `terminal.findMatchBackground`: Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content.
 - `terminal.findMatchBorder`: Border color of the current search match in the terminal.
 - `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.
