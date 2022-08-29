@@ -102,12 +102,7 @@ The decorations can be interacted with to give some contextual actions like re-r
 
 ![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/shell-integration/decoration-menu.png)
 
-The command decorations can be configured with the following settings:
-
-- `terminal.integrated.shellIntegration.decorationsEnabled`
-- `terminal.integrated.shellIntegration.decorationIcon`
-- `terminal.integrated.shellIntegration.decorationIconSuccess`
-- `terminal.integrated.shellIntegration.decorationIconError`
+The command and overview ruler decorations can be configured with the setting `terminal.integrated.shellIntegration.decorationsEnabled` setting.
 
 ### Command navigation
 
