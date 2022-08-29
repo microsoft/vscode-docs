@@ -8,7 +8,11 @@ MetaDescription: Visual Studio Code's integrated terminal allows customizing its
 ---
 # Terminal Appearance
 
-TODO: Initial description and screenshot
+The look of Visual Studio Code's terminal can be customized extensively.
+
+![An example of a custom UI, using Powerline and Nerd Font symbols in the prompt and a custom workbench theme](images/appearance/terminal_appearance.png)
+
+_[Sapphire](https://marketplace.visualstudio.com/items?itemName=tyriar.theme-sapphire) theme with custom [Starship](https://starship.rs/) prompt_
 
 ## Text style
 
@@ -37,13 +41,21 @@ Nerd Fonts work the same and typically have a `" NF"` suffix, the following is a
 
 ## Terminal cursor
 
-TODO: ...
+The terminal cursor style and whether it blinks can be customized with the following settings:
+
+- `terminal.integrated.cursorStyle`: Defines the shape of the cursor, can be block, line or underline.
+- `terminal.integrated.cursorWidth`: How wide in pixels the cursor should be when the cursor style is set to `line`.
+- `terminal.integrated.cursorBlinking`: Whether the cursor should blink when the terminal is focused.
 
 ## Customizing tabs
 
+Terminal tabs appear on the right of the terminal view when there are two or more terminals by default, showing the active terminal in the view header when there is only one.
+
+![](images/appearance/tabs.png)
+
 ### Visibility
 
-Terminal tabs appear on the right of the terminal view when there are two or more terminals by default, showing the active terminal in the view header when there is only one. This is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
+The default visibility is designed to save horizontal space, but may not be desirable. How tabs are presented can be configured with the following settings:
 
 - `terminal.integrated.tabs.hideCondition`: When to hide the tabs to the right, set to `"never"` to always show them.
 - `terminal.integrated.tabs.showActiveTerminal`: When to show the active terminal in the terminal view header.
@@ -103,11 +115,11 @@ The terminal features 3 different renderers, each of which have different trade 
 - Canvas renderer - GPU acceleration by leveraging the [`CanvasRenderingContext2D` web API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D), slower than webgl but faster than DOM
 - DOM renderer - A fallback renderer that's much slower but has great compatibility
 
-GPU acceleration driven by the Webgl renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame. 
+GPU acceleration driven by the Webgl renderer is enabled in the terminal by default. This helps the terminal work faster and display at a high FPS by significantly reducing the time the CPU spends rendering each frame.
 
 When on Linux VMs, browsers that don't support webgl, or machines with outdated drivers, webgl may not work properly.
 
-The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the webgl, canvas, and DOM renderers sequentially, settling at the first without detected issues. 
+The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the webgl, canvas, and DOM renderers sequentially, settling at the first without detected issues.
 
 Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
 
@@ -117,13 +129,15 @@ When [GPU acceleration](#_gpu-acceleration) is enabled, custom rendering, rather
 
 Here are some examples of these character when using with line height and letter spacing configured, notice how there are no gaps between cells thanks to the custom glyphs:
 
-![](images/appearance/custom-glyphs.png)
+![Box drawing, block characters and some powerline symbols fill the entire cell in the terminal](images/appearance/custom-glyphs.png)
 
 This feature can be disabled by setting `"terminal.integrated.customGlyphs": false`.
 
 ## Customizing your prompt
 
-TODO: ...
+Most shells allow extensive customization of the terminal prompt. This is done by configuring your shell outside VS Code, typically by modifying the `$PS1` variable, setting a `$PROMPT_COMMAND` or installing a plugin.
+
+Some prompts like [Starship](https://starship.rs/) and [oh-my-posh](https://ohmyposh.dev/) show things like git status and work with most shells, so they're a good choice when starting out.
 
 ## Common questions
 
