@@ -159,14 +159,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
     devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
     ```
 
-1. You have a couple of options for using your pre-built image:
-
-     1. You'd like to use your image in a variety of projects, separate from the repo where you build the image:
-         * Reference the published image in your other projects' dev containers, and that's it!
-
-     1. You'd like a pre-built version of the image in the same repository where you build it:
-
-          1. As one option, you may craft a secondary, simplified devcontainer.json file that either uses the `image` property or references it in a Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
+1. Create simplified devcontainer.json in repositories where you'd like to use the image that either uses the `image` property or references the image it in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
 
         ```json
         {
@@ -179,19 +172,18 @@ For example, you may want to pre-build a number of images that you then reuse ac
         }
         ```
 
-         2. As an alternative, you may use the `cacheFrom` property in your existing devcontainer.json. Like the option above, be sure to include any dev container Features. For example:
+On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in devcontainer.json or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is your first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
 
-        ```json
-        {
-            "build": {
-                "dockerfile": "Dockerfile",
-                "cacheFrom": "ghcr.io/your-org/your-image-name"
-            },
-            "features": {
-                "ghcr.io/devcontainers/features/docker-in-docker": {}
-            }
-        }
-        ```
+```json
+{
+    "build": {
+        "dockerfile": "Dockerfile",
+        "cacheFrom": "ghcr.io/your-org/your-image-name"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker": {}
+    }
+}
 
 ### [Optional] Avoiding problems with images built using Docker
 
