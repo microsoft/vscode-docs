@@ -1,7 +1,7 @@
 ---
 Order: 4
 Area: terminal
-TOCTitle: Terminal Appearance
+TOCTitle: Appearance
 ContentId: F1AA7F3E-E078-4C02-B2DE-EC3F5F36F751
 PageTitle: Terminal Appearance in Visual Studio Code
 DateApproved: 8/4/2022
