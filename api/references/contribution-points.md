@@ -35,6 +35,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`submenus`](/api/references/contribution-points#contributes.submenus)
 - [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
+- [`terminal`](/api/references/contribution-points#contributes.terminal)
 - [`themes`](/api/references/contribution-points#contributes.themes)
 - [`typescriptServerPlugins`](/api/references/contribution-points#contributes.typescriptServerPlugins)
 - [`views`](/api/references/contribution-points#contributes.views)
@@ -1161,6 +1162,38 @@ When the extension actually creates a Task, it needs to pass a `TaskDefinition` 
 
 ```ts
 let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
+```
+
+## contributes.terminal
+
+Contribute a terminal profile to VS Code, allowing extensions to handle the creation of the profiles. When defined, the profile should appear when creating the terminal profile
+
+```json
+{
+  "activationEvents": [
+    "onTerminalProfile:my-ext.terminal-profile"
+  ],
+  "contributes": {
+    "terminal": {
+      "profiles": [
+        {
+          "title": "Profile from extension",
+          "id": "my-ext.terminal-profile"
+        }
+      ]
+    },
+  }
+}
+```
+
+When defined, the profile will show up in the terminal profile selector. When activated, handle the creation of the profile by returning terminal options:
+
+```ts
+vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
+	provideProfileOptions(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+		return { name: 'Profile from extension', shellPath: 'bash' };
+	}
+});
 ```
 
 ## contributes.themes
