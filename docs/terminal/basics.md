@@ -131,14 +131,6 @@ When enabled, dimmed characters appear as you type. The dimmed style can be chan
 
 To disable the feature, set `terminal.integrated.localEchoLatencyThreshold` to `-1`. To enable it all of the time, set it to `0`.
 
-## Terminal appearance
-
-Customize the terminal's appearance using the following [settings](https://code.visualstudio.com/docs/getstarted/settings):
-
-* Font: family, size, and weight
-* Spacing: line height and letter spacing
-* Cursor: style, width, and blinking
-
 ## Copy & Paste
 
 The keybindings for copy and paste follow platform standards:
@@ -431,10 +423,6 @@ cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
 }
 EOF
 ```
-
-### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
-
-The terminal can have problems rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Workaround these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
 
 ### I'm having problems with the terminal rendering. What can I do?
 
