@@ -209,3 +209,7 @@ The likely cause of this is that your system has shell integration for another t
 ```
 
 Alternatively, you could remove the shell integration script from your shell rc/startup script but you will lose access to command-aware features like [command navigation](#command-navigation).
+
+### Why does the command decoration jump around on Windows?
+
+Windows uses an emulated pseudoterminal (pty) backend called ConPTY. It works a little differently to a regular pty because it needs to maintain compatibility with the Windows Console API. One of the impacts of this is the pty handles rendering specially in such a way that the shell integration sequences that identify the commands in the terminal buffer may be misplaced. When the command jumps around it's typically after a command has run and VS Code's heuristics have kicked in to improve the position of the command decorations.
