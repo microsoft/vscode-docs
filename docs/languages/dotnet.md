@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: .NET
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET and Visual Studio Code
-DateApproved: 3/6/2019
+DateApproved: 8/30/2022
 MetaDescription: Get started writing and debugging .NET apps with Visual Studio Code.
 ---
 # Using .NET in Visual Studio Code
@@ -13,35 +13,34 @@ MetaDescription: Get started writing and debugging .NET apps with Visual Studio 
 
 ## Setting up VS Code for .NET development
 
-### Coding Pack for .NET
+### .NET Coding Pack
 
-To help you set up quickly, you can install the **Coding Pack for .NET**, which includes VS Code, the .NET Software Development Kit, and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
+To help you set up quickly, you can install the **.NET Coding Pack**, which includes VS Code, the .NET Software Development Kit, and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the Coding Pack for .NET - Windows</a>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the .NET Coding Pack - Windows</a>
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the Coding Pack for .NET - macOS</a><br>
+<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the .NET Coding Pack - macOS</a><br>
 
-> **Note**: The Coding Pack for .NET is only available for Windows and macOS. For other operating systems, you will need to manually install the .NET SDK, VS Code, and .NET extensions.
+> **Note**: The .NET Coding Pack is only available for Windows and macOS. For other operating systems, you will need to manually install the .NET SDK, VS Code, and .NET extensions.
 
 ### Installing extensions
 
-If you are an existing VS Code user, you can also add .NET support by installing the [Extension Pack for .NET](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-pack), which includes these extensions:
+If you are an existing VS Code user, you can also add .NET support by installing the [.NET Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.vscode-dotnet-pack), which includes these extensions:
 
 * [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Ionide for F#](https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp)
 * [Jupyter Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 * [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/ms-dotnettools.vscode-dotnet-pack">Install the Extension Pack for .NET</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/ms-dotnettools.vscode-dotnet-pack">Install the .NET Extension Pack</a>
 
 You can also install extensions separately.
 
-## Installing and setting up the .NET Software Development Kit
+## Installing the .NET Software Development Kit
 
 If you download the extensions separately, ensure that you also have the .NET SDK on your local environment. The .NET SDK is a software development environment used for developing .NET applications.
 
 <a class="tutorial-install-extension-btn" href="https://aka.ms/vscDocs/dotnet/download">Install the .NET SDK</a>
-
 
 ## Create a C# "Hello World" app
 
