@@ -159,7 +159,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
     devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
     ```
 
-1. Create simplified devcontainer.json in repositories where you'd like to use the image that either uses the `image` property or references the image it in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
+1. Create a simplified devcontainer.json in repositories where you'd like to use the image - the devcontainer.json should either use the `image` property or reference the image in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
 
         ```json
         {
@@ -172,7 +172,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
         }
         ```
 
-On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in devcontainer.json or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is your first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
+On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in devcontainer.json or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is the first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
 
 ```json
 {
@@ -181,7 +181,7 @@ On the other hand, if you only intend to use the pre-built image from one reposi
         "cacheFrom": "ghcr.io/your-org/your-image-name"
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
     }
 }
 
