@@ -33,7 +33,7 @@ You can select other available shells to use in terminal instances or as the def
 
 ![Integrated terminal shell selection dropdown](images/basics/select-shell-dropdown.png)
 
-You can learn more about configuring terminal shells in the [terminal profiles](#terminal-profiles) section below.
+You can learn more about configuring terminal shells in the [terminal profiles](/docs/terminal/profiles.md) article.
 
 >**Note**: If you're having trouble launching your preferred shell in the integrated terminal, it may be due to your shell's configuration or a VS Code terminal setting. There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) to help you with these sorts of problems.
 
