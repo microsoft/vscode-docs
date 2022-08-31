@@ -148,9 +148,9 @@ Settings Sync persists authentication information to the system keychain. Writin
 
 ### Windows
 
-If the keychain throws the error "Not enough memory resources are available to process this command", open the Credential Manager application, click on Windows Credentialsm and go through the list to see if there are some you can delete. This error was first reported in [issue #130893](https://github.com/microsoft/vscode/issues/130893) and happens when you have too many credentials in your Credential Manager.
+If the keychain throws the error "Not enough memory resources are available to process this command", open the Credential Manager application, click on Windows Credentials and go through the list to see if there are some you can delete. This error was first reported in [issue #130893](https://github.com/microsoft/vscode/issues/130893) and happens when you have too many credentials in your Credential Manager.
 
-If you're not sure what credentials to delete, try deleting all of the vscode specific credetials which all start with `vscode`. Here is a PowerShell one-liner that does exactly that:
+If you're not sure what credentials to delete, try deleting all of the vscode specific credentials which all start with `vscode`. Here is a PowerShell one-liner that does exactly that:
 
 ```pwsh
 cmdkey /list | Select-String -Pattern "LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
