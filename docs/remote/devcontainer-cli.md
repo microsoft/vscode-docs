@@ -185,6 +185,10 @@ On the other hand, if you only intend to use the pre-built image from one reposi
     }
 }
 
+## Avoiding problems with images built using Docker
+
+Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](../../remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
+
 ## Feedback
 
 The dev container CLI and specification are under active development and we welcome your feedback, which you can provide in [this issue](https://github.com/devcontainers/cli/issues/7), or through new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
