@@ -147,7 +147,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
         },
         "features": {
             "ghcr.io/devcontainers/features/docker-in-docker:1": {
-            "version": "latest"
+                 "version": "latest"
             }
         }
     }
@@ -166,7 +166,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
             "image": "ghcr.io/your-org/your-image-name",
             "features": {
                 "ghcr.io/devcontainers/features/docker-in-docker:1": {
-                "version": "latest"
+                     "version": "latest"
                  }
             }
         }
