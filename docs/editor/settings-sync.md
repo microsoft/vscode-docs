@@ -153,7 +153,7 @@ If the keychain throws the error "Not enough memory resources are available to p
 If you're not sure what credentials to delete, try deleting all of the vscode specific credetials which all start with `vscode`. Here is a PowerShell one-liner that does exactly that:
 
 ```pwsh
-cmdkey /list | Select-String -Pattern "Target: LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
+cmdkey /list | Select-String -Pattern "LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
 ```
 
 For more troubleshooting steps, please refer to [issue #130893](https://github.com/microsoft/vscode/issues/130893).
