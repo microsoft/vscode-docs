@@ -11,13 +11,75 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
-## Markdown extensions
+## Editing Markdown
 
-In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
+### Document outline
 
-<div class="marketplace-extensions-markdown-curated"></div>
+The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+![Markdown Outline view](images/Markdown/markdown-outline-view.png)
+
+The Outline view is a great way to review your document's header structure and outline.
+
+### Snippets for Markdown
+
+There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
+
+>**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+
+### Go to header in file
+
+Use `kb(workbench.action.gotoSymbol)` to quickly jump to a header in the current file.
+
+You can browse through all headers in the file or start typing a header name to find just the one you are after. Once you've found the header you what, press `kbstyle(Enter)` to move your cursor to it. Press `kbstyle(Esc)` to cancel jumping to the header.
+
+### Go to header in workspace
+
+Use `kb(workbench.action.showAllSymbols)` to search through headers across all Markdown files in the current workspace.
+
+Start typing a header name to filter down the list and find the header you are after.
+
+### Path completions
+
+Path completions help with create links to files and images. These paths are shown bu [IntelliSense](/docs/editor/intellisense.md) automatically as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+
+![Path completions in a Markdown link](images/Markdown/path-completions.png)
+
+Paths starting with `/` are resolved relative to the current workspace root, while paths staring with `./` or without any prefix are resolved relative to the current file. Path suggestions are automatically shown when you type `/` or can be manually invoked by using `kb(editor.action.triggerSuggest)`.
+
+Path IntelliSense can also help you link to headers within the current file or within another Markdown file. Start the path with `#` to see completions for all the headers in the file (depending on your settings, you may need to use `kb(editor.action.triggerSuggest)` to see these):
+
+![Header section suggestions in a Markdown link](images/Markdown/path-completions-header.png)
+
+You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`.
+
+### Drag and drop to insert links and images
+
+Quickly insert images and file links by dragging and dropping. To start, drag a file from VS Code's explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
+
+![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
+
+Dropped images insert a Markdown image `![](path/to/image.png)`. Dropped files insert a normal markdown link `[](path/to/file.md)`.
+
+### Smart selection
+
+Smart selection lets you quickly expand and shrink selection in Markdown documents. This can be used to quickly select entire block elements (such as codeblocks or tables) and to select the entire contents of a header section in the markdown file.
+
+Smart selection uses the following comands:
+
+* Expand: `kb(editor.action.smartSelect.expand)`
+* Shrink: `kb(editor.action.smartSelect.shrink)`
+
+Selection applies to the following, and follows a traditional hierarchical pattern:
+
+* Headers
+* Lists
+* Block quotes
+* Fenced code blocks
+* Html code blocks
+* Paragraphs
+
+![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
 
 ## Markdown preview
 
@@ -54,14 +116,6 @@ The currently selected line in the editor is indicated in the Markdown preview b
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
-
-## Outline view
-
-The Outline view is a separate section in the bottom of the File Explorer. When expanded, it will show the symbol tree of the currently active editor. For Markdown files, the symbol tree is the Markdown file's header hierarchy.
-
-![Markdown Outline view](images/Markdown/markdown-outline-view.png)
-
-The Outline view is a great way to review your document's header structure and outline.
 
 ## Extending the Markdown preview
 
@@ -126,195 +180,13 @@ Keeps scripts disabled but allows content to be loaded over `http`.
 
 Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
 
-## Snippets for Markdown
+## Markdown extensions
 
-There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
+In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown. Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+<div class="marketplace-extensions-markdown-curated"></div>
 
-## Compiling Markdown into HTML
-
-VS Code integrates with Markdown compilers through the integrated [task runner](/docs/editor/tasks.md). We can use this to compile `.md` files into `.html` files. Let's walk through compiling a simple Markdown document.
-
-### Step 1: Install a Markdown compiler
-
-For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [markdown-it](https://github.com/markdown-it/markdown-it).
-
-```bash
-npm install -g markdown-it
-```
-
-> **Note:** There are many Markdown compilers to choose from beyond **markdown-it**. Pick the one that best suits your needs and environment.
-
-### Step 2: Create a simple MD file
-
-Open VS Code on an empty folder and create a `sample.md` file.
-
-> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder** or navigating to the folder and typing 'code .' at the command line.
-
-Place the following source code in that file:
-
-```markdown
-# Hello Markdown in VS Code!
-
-This is a simple introduction to compiling Markdown in VS Code.
-
-Things you'll need:
-
-* [Node.js](https://nodejs.org)
-* [markdown-it](https://www.npmjs.com/package/markdown-it)
-* [tasks.json](/docs/editor/tasks.md)
-
-## Section Title
-
-> This block quote is here for your information.
-```
-
-### Step 3: Create tasks.json
-
-The next step is to set up the task configuration file `tasks.json`. To do this, run **Terminal** > **Configure Tasks** and click **Create tasks.json file from templates**. VS Code then presents a list of possible `tasks.json` templates to choose from. Select **Others** since we want to run an external command.
-
-This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
-
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "echo",
-            "type": "shell",
-            "command": "echo Hello"
-        }
-    ]
-}
-```
-
-To use **markdown-it** to compile the Markdown file, change the contents as follows:
-
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Compile Markdown",
-            "type": "shell",
-            "command": "markdown-it sample.md -o sample.html",
-            "group": "build"
-        }
-    ]
-}
-```
-
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along. Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-### Step 4: Run the Build Task
-
-Since there can be more than one build task in more complex environments, we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML, select **Never scan the build output** from the presented list.
-
-At this point, you should see an additional file show up in the file list `sample.html`.
-
-If you want to make the **Compile Markdown** task the default build task to run, execute **Configure Default Build Task** from the global **Terminal** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
-
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Compile Markdown",
-            "type": "shell",
-            "command": "markdown-it sample.md -o sample.html",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-```
-
-## Automating Markdown compilation
-
-Let's take things a little further and automate Markdown compilation with VS Code. We can do so with the same task runner integration as before, but with a few modifications.
-
-### Step 1: Install Gulp and some plug-ins
-
-We use [Gulp](https://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
-
-We need to install gulp both globally (`-g` switch) and locally:
-
-```
-npm install -g gulp
-npm install gulp gulp-markdown-it
-```
-
-> **Note:** gulp-markdown-it is a Gulp plug-in for the **markdown-it** module we were using before. There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
-
-You can test that your gulp installation was successful by typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
-
-### Step 2: Create a simple Gulp task
-
-Open VS Code on the same folder from before (contains `sample.md` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.
-
-Place the following source code in that file:
-
-```javascript
-var gulp = require('gulp');
-var markdown = require('gulp-markdown-it');
-
-gulp.task('markdown', function() {
-    return gulp.src('**/*.md')
-        .pipe(markdown())
-        .pipe(gulp.dest(function(f) {
-            return f.base;
-        }));
-});
-
-gulp.task('default', function() {
-    return gulp.watch('**/*.md', gulp.series(['markdown']));
-});
-```
-
-What is happening here?
-
-1. We are watching for changes to any Markdown file in our workspace, i.e. the current folder open in VS Code.
-2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, `gulp-markdown-it`.
-3. We now have a set of HTML files, each named respectively after their original Markdown file. We then put these files in the same directory.
-
-### Step 3: Run the gulp default Task
-
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it, only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Terminal** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML, select **Never scan the build output** from the presented list. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#save-auto-save) to make things even more streamlined.
-
-If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)`, run **Configure Default Build Task** from the global **Terminal** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
-
-```json
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "gulp",
-            "task": "default",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
-    ]
-}
-```
-
-### Step 4: Terminate the gulp default Task
-
-The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use **Terminate Task** from the global **Terminal** menu.
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
@@ -331,7 +203,3 @@ Not installed with VS Code but there are spell checking extensions. Check the [V
 ### Does VS Code support GitHub Flavored Markdown?
 
 No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification, which you can read about in this [update](https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/).
-
-### In the walkthrough above, I didn't find the Configure Task command in the Command Palette?
-
-You may have opened a file in VS Code rather than a folder. You can open a folder by either selecting the folder with **File** > **Open Folder** or navigating to the folder and typing 'code .' at the command line.

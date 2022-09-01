@@ -7,7 +7,7 @@ DateApproved: 8/4/2022
 MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
 ---
 
-# Language Server for Embedded Programming Languages
+# Embedded Programming Languages
 
 Visual Studio Code provides rich language features for programming languages. As you have read in the
 [Language Server extension guide](/api/language-extensions/language-server-extension-guide), you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.

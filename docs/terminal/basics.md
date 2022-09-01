@@ -33,7 +33,7 @@ You can select other available shells to use in terminal instances or as the def
 
 ![Integrated terminal shell selection dropdown](images/basics/select-shell-dropdown.png)
 
-You can learn more about configuring terminal shells in the [terminal profiles](#terminal-profiles) section below.
+You can learn more about configuring terminal shells in the [terminal profiles](/docs/terminal/profiles.md) article.
 
 >**Note**: If you're having trouble launching your preferred shell in the integrated terminal, it may be due to your shell's configuration or a VS Code terminal setting. There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) to help you with these sorts of problems.
 
@@ -130,14 +130,6 @@ On some remote connections, there's a delay between typing and seeing the charac
 When enabled, dimmed characters appear as you type. The dimmed style can be changed using the setting `terminal.integrated.localEchoStyle`.
 
 To disable the feature, set `terminal.integrated.localEchoLatencyThreshold` to `-1`. To enable it all of the time, set it to `0`.
-
-## Terminal appearance
-
-Customize the terminal's appearance using the following [settings](https://code.visualstudio.com/docs/getstarted/settings):
-
-* Font: family, size, and weight
-* Spacing: line height and letter spacing
-* Cursor: style, width, and blinking
 
 ## Copy & Paste
 
@@ -431,10 +423,6 @@ cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
 }
 EOF
 ```
-
-### Why is my terminal showing a multi-colored triangle or a completely black rectangle?
-
-The terminal can have problems rendering in some environments. For example, you might see a big multi-colored triangle instead of text. This is typically caused by driver/VM graphics issues and the same also happens in Chromium. Workaround these issues by launching `code` with the `--disable-gpu` flag or by using the setting `"terminal.integrated.gpuAcceleration": "off"` to avoid using the canvas in the terminal.
 
 ### I'm having problems with the terminal rendering. What can I do?
 

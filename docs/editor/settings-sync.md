@@ -146,6 +146,18 @@ Settings Sync uses a dedicated service to store settings and coordinate updates.
 
 Settings Sync persists authentication information to the system keychain. Writing to the keychain can fail in some cases if the keychain is misconfigured.
 
+### Windows
+
+If the keychain throws the error "Not enough memory resources are available to process this command", open the Credential Manager application, click on Windows Credentials and go through the list to see if there are some you can delete. This error was first reported in [issue #130893](https://github.com/microsoft/vscode/issues/130893) and happens when you have too many credentials in your Credential Manager.
+
+If you're not sure what credentials to delete, try deleting all of the vscode specific credentials which all start with `vscode`. Here is a PowerShell one-liner that does exactly that:
+
+```pwsh
+cmdkey /list | Select-String -Pattern "LegacyGeneric:target=(vscode.+)" | ForEach-Object { cmdkey.exe /delete $_.Matches.Groups[1].Value }
+```
+
+For more troubleshooting steps, please refer to [issue #130893](https://github.com/microsoft/vscode/issues/130893).
+
 ### macOS
 
 If the keychain throws the error "The user name or passphrase you entered is not correct.", open the Keychain Access app, right-click on the `login` keychain, and lock and unlock it again. This error was first reported in [issue #76](https://github.com/atom/node-keytar/issues/76) as a problem after upgrading to macOS High Sierra, but it has also been reported on more recent macOS versions.

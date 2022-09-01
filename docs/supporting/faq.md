@@ -266,6 +266,10 @@ When you open a folder, VS Code will search for typical project files to offer y
     }
 ```
 
+## Can I run VS Code on Windows 7?
+
+Microsoft [ended support for Windows 7](https://docs.microsoft.com/lifecycle/products/windows-7) in January, 2020 and no longer provides security updates. VS Code desktop versions starting with 1.71 (August 2022) will no longer run on Windows 7 and you will need to upgrade to a newer Windows version to use later versions of VS Code. VS Code will no longer provide product updates or security fixes on Windows 7. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962).
+
 ## Technical Support
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md).

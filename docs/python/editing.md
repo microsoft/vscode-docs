@@ -131,11 +131,11 @@ When using custom arguments, each top-level element of an argument string that's
 
 ```json
 "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
-"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"],
+"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"],
 "python.formatting.blackArgs": ["--line-length", "100"]
 ```
 
-In the second example, the top-level element `{based_on_style: chromium, indent_width: 20}` is a single value contained in braces, so the spaces within that value don't delineate a separate element.
+In the second example, the top-level element `{based_on_style: chromium, indent_width: 2}` is a single value contained in braces, so the spaces within that value don't delineate a separate element.
 
 ### Troubleshooting formatting
 
@@ -146,7 +146,7 @@ If formatting fails, check the following possible causes:
 | The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
 | The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selected interpreter is, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`. |
+| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"]`. |
 | Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 
 ## Refactoring
