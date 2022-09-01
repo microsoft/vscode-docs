@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b76a223a-a210-4bdb-b537-36c1ea6814ae
-DateApproved: 8/4/2022
+DateApproved: 9/1/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
@@ -152,8 +152,7 @@ In a nutshell, request forwarding works in a similar way as language services. T
 
 The major differences are:
 
-- While the language service approach uses libraries to calculate language server responses, request forwarding sends the request back to VS Code to query all language servers and forward their responses.
-- The dispatching happens in the **language client**, not the **language server**.
+- While the language service approach uses libraries to calculate language server responses, request forwarding sends the request back to VS Code to use extensions that are active and have registered a completion provider for the embedded language.
 
 Here is the simple example again:
 
@@ -210,7 +209,7 @@ let clientOptions: LanguageClientOptions = {
         return await next(document, position, context, token);
       }
 
-      const originalUri = document.uri.toString();
+      const originalUri = document.uri.toString(true);
       virtualDocumentContents.set(originalUri, getCSSVirtualContent(htmlLanguageService, document.getText()));
 
       const vdocUriString = `embedded-content://css/${encodeURIComponent(

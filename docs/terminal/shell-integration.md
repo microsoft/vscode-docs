@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 9/1/2022
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -57,9 +57,30 @@ Add the following to your `~/.zshrc` file. Run `code ~/.zshrc` in bash to open t
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 ```
 
+**Git Bash**
+
+⚠️ This is currently experimental and automatic injection is not supported
+
+Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to open the file in VS Code.
+
+```sh
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
+```
+
+**fish**
+
+⚠️ This is currently experimental and automatic injection is not supported
+
+Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
+
+```sh
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
+```
+
 #### Portability versus performance
 
-The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great at it works cross-platform and also with all install types provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
+The recommended approach above to install shell integration relies on executing our CLI to find the path to the shell integration script, this is great as it works cross-platform and also with all install types, provided `code` in on the `$PATH`. This currently launches Node.js in order to fetch the path though which can add a small delay to shell startup. To reduce this, you can inline the script above by resolving the path ahead of time and adding it directly into your init script.
 
 ```sh
 # Output the executable's path first:
@@ -81,12 +102,7 @@ The decorations can be interacted with to give some contextual actions like re-r
 
 ![Clicking a successful command decoration shows a context menu containing items: Copy Output, Copy Output as HTML, Rerun Command and How does this work?](images/shell-integration/decoration-menu.png)
 
-The command decorations can be configured with the following settings:
-
-- `terminal.integrated.shellIntegration.decorationsEnabled`
-- `terminal.integrated.shellIntegration.decorationIcon`
-- `terminal.integrated.shellIntegration.decorationIconSuccess`
-- `terminal.integrated.shellIntegration.decorationIconError`
+The command and overview ruler decorations can be configured with the setting `terminal.integrated.shellIntegration.decorationsEnabled` setting.
 
 ### Command navigation
 
