@@ -105,7 +105,7 @@ This quick start covers how to set up a dev container for an existing project to
 
     The list will be automatically sorted based on the contents of the folder you open.
 
-    You may be able to customize your dev container with additional features, which [you can read more about below](#dev-container-features-preview).
+    You may be able to customize your dev container with additional Features, which [you can read more about below](#dev-container-features-preview).
 
     The dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
@@ -260,45 +260,58 @@ Selecting the **Remote-Containers: Add Development Container Configuration Files
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/remote/create-dev-container.md).
 
-## Dev container features (preview)
+## Dev Container Features (preview)
 
-Dev container features provide a smooth path for customizing your container definitions.
+Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for you or your collaborators to use.
 
 When you use **Remote-Containers: Add Development Container Configuration Files**, you're presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
 
-![Dev container features in Command Palette](images/containers/container-features.png)
+![Dev container Features in Command Palette](images/containers/container-features.png)
 
-When you rebuild and reopen in your container, the features you selected will be available in your `devcontainer.json`:
+When you rebuild and reopen in your container, the Features you selected will be available in your `devcontainer.json`:
 
 ```json
 "features": {
-    "github-cli": "latest"
+    "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        }
 }
 ```
 
 You'll get IntelliSense when editing the `"features"` property in the `devcontainer.json` directly:
 
-![Intellisense when modifying terraform feature](images/containers/features-intellisense.png)
-
-Built-in features are sourced from the [script library](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) folder in the vscode-dev-containers repo, but the Remote - Containers extension and GitHub Codespaces include an **early preview** for creating your own dev container features. For example, you can reference these as follows:
-
-```json
-"features": {
-    "your-github-id-or-org/your-repository/feature-name@v0.0.1": "latest"
-}
-```
-
-The form and format of these custom features is still in flux, but you can try creating your own dev container feature using the [dev-container-features-template](https://github.com/microsoft/dev-container-features-template) sample repository.  Let us know what you think!
+![Intellisense when modifying terraform Feature](images/containers/features-intellisense.png)
 
 The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
+
+The Features sourced in VS Code UI come from the [`devcontainers/features` repository](https://github.com/devcontainers/features).
+
+### Creating your own feature
+
+It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features.html).
+
+A Feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
+
+```
++-- feature
+|    +-- devcontainer-feature.json
+|    +-- install.sh
+|    +-- (other files)
+```
+
+See the [latest template](https://github.com/devcontainers/feature-template) for instructions on using the dev container CLI to publish your own public or private Features!
+
+### Features proposal and distribution
+
+Features are an active proposal in the open dev container specification. You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61), along with [greater information about how Features work](https://containers.dev/implementors/features/) and their [distribution](https://containers.dev/implementors/features-distribution/).
 
 ## Pre-building dev container images
 
 We recommend pre-building images with the tools you need rather than creating and building a container image each time you open your project in a dev container. Using pre-built images will result in a faster container startup,  simpler configuration, and allows you to pin to a specific version of tools to improve supply-chain security and avoid potential breaks. You can automate pre-building your image by scheduling the build using a DevOps or continuous integration (CI) service like GitHub Actions.
 
-We recommend using the [devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
+We recommend using the [devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container Features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
-See the [devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#building-a-dev-container-image) for more information.
+See the [devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#pre-building) for more information.
 
 ## Inspecting volumes
 
@@ -695,6 +708,12 @@ The following articles may help answer your question:
 * [Docker Desktop for Mac troubleshooting guide](https://docs.docker.com/docker-for-mac/troubleshoot) and [FAQ](https://docs.docker.com/docker-for-mac/faqs/)
 * [Docker Support Resources](https://success.docker.com/article/best-support-resources)
 
+### Can I use dev containers outside of VS Code?
+
+As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. We're creating the **Development Containers Specification** to empower anyone in any tool to configure a consistent dev environment. It seeks to find ways to enrich existing formats with common development specific settings, tools, and configuration while still providing a simplified, un-orchestrated single container option – so that they can be used as coding environments or for continuous integration and testing.
+
+You can learn more and review the spec on [containers.dev](https://containers.dev), and you can review active proposals and contribute to the spec in the [devcontainers/spec](https://github.com/devcontainers/spec) repository on GitHub.
+
 ## Questions or feedback
 
 * See [Tips and Tricks](/docs/remote/troubleshooting.md#container-tips) or the [FAQ](/docs/remote/faq.md).
@@ -710,4 +729,4 @@ The following articles may help answer your question:
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference/) - Review the `devcontainer.json` schema.
