@@ -21,13 +21,13 @@ To get started with VS Code and learn how to best use GitHub, check out the reso
 
 In this 20-minute tutorial, you'll learn how to search GitHub for repositories, clone them, and publish your own projects onto GitHub right from VS Code.
 
-[![Introduction to GitHub Microsoft Learn module](images/github-classroom/learn-1.png)](https://docs.microsoft.com/learn/modules/introduction-to-github-visual-studio-code)
+[![Learn module for Introduction to GitHub](images/github-classroom/learn-1.png)](https://docs.microsoft.com/learn/modules/introduction-to-github-visual-studio-code)
 
 [Introduction to Git](https://docs.microsoft.com/learn/modules/intro-to-git)
 
 In this module, learn the fundamentals of version control systems like Git.
 
-[![Introduction to Git Microsoft Learn module](images/github-classroom/learn-2.png)](https://docs.microsoft.com/learn/modules/intro-to-git)
+[![Learn module for Introduction to Git](images/github-classroom/learn-2.png)](https://docs.microsoft.com/learn/modules/intro-to-git)
 
 ## Tutorials
 

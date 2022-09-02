@@ -7,9 +7,9 @@ PageTitle: Visual Studio Code Learn modules
 DateApproved: 10/22/2020
 MetaDescription: Visual Studio Code Microsoft Learn modules
 ---
-# Microsoft Learn modules
+# Learn modules
 
-If you're looking for resources for your students to get started with Visual Studio Code, check out this curated list of Microsoft Learn modules. These modules are designed to walk you through step-by-step to set up your work environment or finish a small project, all while familiarizing you with the VS Code interface.
+If you're looking for resources for your students to get started with Visual Studio Code, check out this curated list of Learn modules. These modules are designed to walk you through step-by-step to set up your work environment or finish a small project, all while familiarizing you with the VS Code interface.
 
 <div class="module">
     <div class="info">
