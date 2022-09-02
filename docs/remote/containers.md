@@ -286,7 +286,7 @@ The **Remote-Containers: Configure Container Features** command allows you to up
 
 The Features sourced in VS Code UI come from the [devcontainers/features repository](https://github.com/devcontainers/features).
 
-### Creating your own feature
+### Creating your own Feature
 
 It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features).
 
@@ -311,7 +311,7 @@ We recommend pre-building images with the tools you need rather than creating an
 
 We recommend using the [devcontainer CLI](/docs/remote/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Remote - Container extension's latest capabilities - including [dev container Features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
-See the [devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#pre-building) for more information.
+See the [devcontainer CLI article on pre-building images](/docs/remote/devcontainer-cli.md#prebuilding) for more information.
 
 ## Inspecting volumes
 
