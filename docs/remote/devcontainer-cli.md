@@ -19,7 +19,7 @@ Containers (for example [Docker](https://www.docker.com) containers) have histor
 
 ![Diagram comparing dev versus production containers](images/devcontainer-cli/dev-container-stages.png)
 
-Development containers are supported in Visual Studio Code via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](/docs/remote/devcontainerjson-reference.md), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Development containers are supported in Visual Studio Code via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
 As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
@@ -128,7 +128,7 @@ If you'd like to use the dev container CLI in your CI/CD builds or test automati
 
 ## Pre-building
 
-The `devcontainer build` command allows you to build quickly build dev container image following the same steps the Remote - Containers extension or GitHub Codespaces will. This is particularly useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
+The `devcontainer build` command allows you to quickly build a dev container image following the same steps as used by the Remote - Containers extension or GitHub Codespaces. This is particularly useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
 
 `build` accepts a path to the folder containing a `.devcontainer` folder or `.devcontainer.json` file. For example, `devcontainer build --workspace-folder <my_repo>` will build the container image for `my_repo`.
 
@@ -138,7 +138,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 1. [Create](/docs/editor/versioncontrol.md#initialize-a-repository) a source code repository.
 
-1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](#dev-container-features-preview)). For example, consider this devcontainer.json file:
+1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/remote/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
 
     ```json
     {
@@ -153,26 +153,26 @@ For example, you may want to pre-build a number of images that you then reuse ac
     }
     ```
 
-1. Use the `devcontainer build` command to build the image and [push](https://docs.docker.com/engine/reference/commandline/push/) it to your image registry. See documentation for your image registry (like the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
+1. Use the `devcontainer build` command to build the image and [push](https://docs.docker.com/engine/reference/commandline/push/) it to your image registry. See documentation for your image registry (such as [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) for information on image naming and additional steps like authentication.
 
     ```bash
     devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
     ```
 
-1. Create a simplified devcontainer.json in repositories where you'd like to use the image - the devcontainer.json should either use the `image` property or reference the image in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
+1. Create a simplified `devcontainer.json` file in repositories where you'd like to use the image - the `devcontainer.json` should either use the `image` property or reference the image in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
 
-        ```json
-        {
-            "image": "ghcr.io/your-org/your-image-name",
-            "features": {
-                "ghcr.io/devcontainers/features/docker-in-docker:1": {
-                     "version": "latest"
-                 }
-            }
+    ```json
+    {
+        "image": "ghcr.io/your-org/your-image-name",
+        "features": {
+            "ghcr.io/devcontainers/features/docker-in-docker:1": {
+                    "version": "latest"
+                }
         }
-        ```
+    }
+    ```
 
-On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in devcontainer.json or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is the first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
+On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in `devcontainer.json` or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is the first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
 
 ```json
 {
@@ -184,10 +184,11 @@ On the other hand, if you only intend to use the pre-built image from one reposi
         "ghcr.io/devcontainers/features/docker-in-docker:1": {}
     }
 }
+```
 
 ## Avoiding problems with images built using Docker
 
-Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](../../remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
+Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](/remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
 
 ## Feedback
 
@@ -196,6 +197,6 @@ The dev container CLI and specification are under active development and we welc
 ## Next steps
 
 * [Dev container specification repository](https://github.com/devcontainers/spec) - Read and contribute to the open specification.
-* [devcontainer.json reference](https://containers.dev/implementors/json_reference/) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.

@@ -851,11 +851,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/remote/devcontainerjson-reference</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/remote/attach-container</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

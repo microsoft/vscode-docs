@@ -56,15 +56,18 @@ RUN apt-get -y install --no-install-recommends apt-utils dialog 2>&1
 If the command fails, you will still be able to see the errors but they won't be in red.
 
 ## Avoiding problems with images built using Docker
+
 Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly if it will not work as expected. To solve this problem, you can add a build argument that needs to be specified for things to work.
 
 For example, you could add the following to your Dockerfile:
+
 ```bash
 ARG vscode
 RUN if [[ -z "$devcontainercli" ]] ; then printf "\nERROR: This Dockerfile needs to be built with VS Code !" && exit 1; else printf "VS Code is detected: $devcontainercli"; fi
 ```
 
 And the following in your `devcontainer.json`:
+
 ```json
 "build": {
       "dockerfile": "Dockerfile",

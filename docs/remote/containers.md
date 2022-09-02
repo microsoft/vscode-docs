@@ -236,7 +236,7 @@ This implies trusting [the machine the Docker daemon runs on](/remote/advancedco
 
 ## Create a devcontainer.json file
 
-VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
+VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
 You can use any image, Dockerfile, or set of Docker Compose files as a starting point. Here is a simple example that uses one of the pre-built [VS Code Development Container images](https://hub.docker.com/_/microsoft-vscode-devcontainers):
 
@@ -262,11 +262,11 @@ To learn more about creating `devcontainer.json` files, see [Create a Developmen
 
 ## Dev Container Features (preview)
 
-Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for you or your collaborators to use.
+Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for use by you or your collaborators.
 
 When you use **Remote-Containers: Add Development Container Configuration Files**, you're presented a list of scripts to customize the existing dev container configurations, such as installing Git or the Azure CLI:
 
-![Dev container Features in Command Palette](images/containers/container-features.png)
+![Dev container Features list drop down](images/containers/container-features.png)
 
 When you rebuild and reopen in your container, the Features you selected will be available in your `devcontainer.json`:
 
@@ -284,11 +284,11 @@ You'll get IntelliSense when editing the `"features"` property in the `devcontai
 
 The **Remote-Containers: Configure Container Features** command allows you to update an existing configuration.
 
-The Features sourced in VS Code UI come from the [`devcontainers/features` repository](https://github.com/devcontainers/features).
+The Features sourced in VS Code UI come from the [devcontainers/features repository](https://github.com/devcontainers/features).
 
 ### Creating your own feature
 
-It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features.html).
+It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features).
 
 A Feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
 
@@ -299,11 +299,11 @@ A Feature is a self contained entity in a folder with at least a `devcontainer-f
 |    +-- (other files)
 ```
 
-See the [latest template](https://github.com/devcontainers/feature-template) for instructions on using the dev container CLI to publish your own public or private Features!
+See the [latest template](https://github.com/devcontainers/feature-template) for instructions on using the dev container CLI to publish your own public or private Features.
 
 ### Features proposal and distribution
 
-Features are an active proposal in the open dev container specification. You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61), along with [greater information about how Features work](https://containers.dev/implementors/features/) and their [distribution](https://containers.dev/implementors/features-distribution/).
+Features are an active proposal in the open-source [Development Containers Specification](https://containers.dev). You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61), along with [more information about how Features work](https://containers.dev/implementors/features) and their [distribution](https://containers.dev/implementors/features-distribution).
 
 ## Pre-building dev container images
 
@@ -614,8 +614,7 @@ See the [Advanced container configuration](/remote/advancedcontainers/overview.m
 
 ## devcontainer.json reference
 
-There is a full [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md), where you can review
-the file schema to help you customize your development containers and control how you attach to running containers.
+There is a full [devcontainer.json reference](https://containers.dev/implementors/json_reference), where you can review the file schema to help you customize your development containers and control how you attach to running containers.
 
 ## Known limitations
 
@@ -710,9 +709,9 @@ The following articles may help answer your question:
 
 ### Can I use dev containers outside of VS Code?
 
-As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. We're creating the **Development Containers Specification** to empower anyone in any tool to configure a consistent dev environment. It seeks to find ways to enrich existing formats with common development specific settings, tools, and configuration while still providing a simplified, un-orchestrated single container option – so that they can be used as coding environments or for continuous integration and testing.
+As containerizing production workloads becomes commonplace, dev containers have become useful for scenarios beyond VS Code. We're creating the [Development Container Specification](https://containers.dev/implementors/spec) to empower anyone in any tool to configure a consistent development environment. It seeks to find ways to enrich existing formats with common development specific settings, tools, and configurations while still providing a simplified, un-orchestrated single container option – so that they can be used as coding environments or for continuous integration and testing.
 
-You can learn more and review the spec on [containers.dev](https://containers.dev), and you can review active proposals and contribute to the spec in the [devcontainers/spec](https://github.com/devcontainers/spec) repository on GitHub.
+You can learn more and review the specification at [containers.dev](https://containers.dev), and you can review active proposals and contribute to the specification in the [devcontainers/spec](https://github.com/devcontainers/spec) repository on GitHub.
 
 ## Questions or feedback
 
@@ -729,4 +728,4 @@ You can learn more and review the spec on [containers.dev](https://containers.de
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
-* [devcontainer.json reference](https://containers.dev/implementors/json_reference/) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.

@@ -9,7 +9,7 @@ DateApproved: 9/1/2022
 ---
 # Attach to a running container
 
-Visual Studio Code can create and start containers for you but that may not match your workflow and you may prefer to "attach" VS Code to an already running Docker container - regardless of how it was started. Once attached, you can install extensions, edit, and debug like you can when you open a folder in a container using [devcontainer.json](/docs/remote/devcontainerjson-reference.md).
+Visual Studio Code can create and start containers for you but that may not match your workflow and you may prefer to "attach" VS Code to an already running Docker container - regardless of how it was started. Once attached, you can install extensions, edit, and debug like you can when you open a folder in a container using [devcontainer.json](https://containers.dev/implementors/json_reference).
 
 ## Attach to a Docker container
 
@@ -55,13 +55,38 @@ Both of these files support a subset of `devcontainer.json` properties:
 }
 ```
 
-See the [attached container config reference](/docs/remote/devcontainerjson-reference.md#attached-container-configuration-reference) for a complete list of properties and their uses.
+See the [attached container config reference](#attached-container-configuration-reference) for a complete list of properties and their uses.
 
 Once saved, whenever you open a container for the first time with the same image / container name, these properties will be used to configure the environment.
 
 > **Tip:** If something is wrong with your configuration, you can also edit it when not attached to the container by selecting **Remote-Containers: Open Attached Container Configuration File...** from the Command Palette (`kbstyle(F1)`) and then picking the image / container name from the presented list.
 
 Finally, if you have extensions you want installed regardless of the container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](/docs/remote/containers.md#always-installed-extensions).
+
+## Attached container configuration reference
+
+Attached container configuration files are similar to [devcontainer.json](https://containers.dev/implementors/json_reference) and supports a subset of its properties.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `workspaceFolder` | string | Sets the default path that VS Code should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Not set by default (an empty window is opened). |
+| `extensions` | array | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. Defaults to `[]`. |
+| `settings` | object | Adds default `settings.json` values into a container/machine specific settings file.  |
+| `forwardPorts` | array | A list of ports that should be forwarded from inside the container to the local machine. |
+| `portsAttributes` | object | Object that maps a port number, `"host:port"` value, range, or regular expression to a set of default options. See [port attributes](https://containers.dev/implementors/json_reference/#port-attributes) for available options. For example: <br />`"portsAttributes": {"3000": {"label": "Application port"}}` |
+| `otherPortsAttributes` | object | Default options for ports, port ranges, and hosts that aren't configured using `portsAttributes`. See [port attributes](https://containers.dev/implementors/json_reference/#port-attributes) for available options. For example: <br /> `"otherPortsAttributes": {"onAutoForward": "silent"}` |
+| `remoteEnv` | object | A set of name-value pairs that sets or overrides environment variables for VS Code (or sub-processes like terminals) but not the container as a whole. Environment and [pre-defined variables](#variables-in-attached-container-configuration-files) may be referenced in the values.<br>For example: `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path" }` |
+| `remoteUser` | string | Overrides the user that VS Code runs as in the container (along with sub-processes like terminals, tasks, or debugging). Defaults to the user the container as a whole is running as (often `root`). |
+| `userEnvProbe` | enum | Indicates the type of shell to use to "probe" for user environment variables to include in VS Code or other connected tool's processes: `none`, `interactiveShell`, `loginShell`, or `loginInteractiveShell` (default). The specific shell used is based on the default shell for the user (typically bash). For example, bash interactive shells will typically include variables set in `/etc/bash.bashrc` and `~/.bashrc` while login shells usually include variables from `/etc/profile` and `~/.profile`. Setting this property to `loginInteractiveShell` will get variables from all four files. |
+| `postAttachCommand` | string,<br>array | A command string or list of command arguments to run after VS Code attaches to the container. Use `&&` in a string to execute multiple commands. For example, `"yarn install"` or `"apt-get update && apt-get install -y curl"`. The array syntax `["yarn", "install"]` will invoke the command (in this case `yarn`) directly without using a shell. Not set by default. <br>Note that the array syntax will execute the command without a shell. You can [learn more](https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties) about formatting string vs array properties. |
+
+### Variables in attached container configuration files
+
+Variables can be referenced in certain string values in attached configuration files in the following format: **${variableName}**. The following table is a list of available variables you can use.
+
+| Variable | Properties | Description |
+|----------|---------|----------------------|
+| `${containerEnv:VAR_NAME}` | `remoteEnv` | Value of an existing environment variable inside the container (in this case, `VAR_NAME`) once it is up and running. For example: `"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path" }` |
 
 ## Attach to a container in a Kubernetes cluster
 
@@ -75,4 +100,4 @@ To attach to a container in a Kubernetes cluster, first install the [Kubernetes 
 
 * [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.

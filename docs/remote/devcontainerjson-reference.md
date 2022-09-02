@@ -9,15 +9,15 @@ DateApproved: 9/1/2022
 ---
 # devcontainer.json reference
 
-**TL;DR - This document has moved to the [dev container spec site](https://containers.dev/implementors/json_reference/)! This page simply now exists as a redirect to the spec site, which will contain the latest information.**
+**TL;DR - This document has moved to the [Development Containers Specification](https://containers.dev/implementors/json_reference) site! This page now exists as a redirect to the specification site, which contains the latest information.**
 
 ## Dev container specification
 
 As mentioned in the main [Remote - Containers documentation](/docs/remote/containers.md), we're creating the **Development Containers Specification** to empower anyone in any tool to configure a consistent dev environment.
 
-The devcontainer.json reference is [now hosted on the specification site](https://containers.dev/implementors/json_reference/). Here you may also review the [devcontainer.json schema](https://containers.dev/implementors/json_schema/).
+The `devcontainer.json` reference is [hosted on the specification site](https://containers.dev/implementors/json_reference). Here you can also review the [devcontainer.json schema](https://containers.dev/implementors/json_schema).
 
-You may also review the spec documents and latest proposals in the [devcontainers/spec](https://github.com/devcontainers/spec/tree/main/docs/specs) repository.
+You can also review the specification documents and latest proposals in the [devcontainers/spec](https://github.com/devcontainers/spec/tree/main/docs/specs) repository.
 
 ## Additional resources
 
