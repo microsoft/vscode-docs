@@ -322,8 +322,6 @@ There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-termin
 
 Currently, the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. Use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
 
-You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
-
 ### Why is Cmd+k/Ctrl+k not clearing the terminal?
 
 Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system that defines which keybinding is active at any given time (user > extension > default). To fix this, you need to redefine your user keybinding that will have priority, preferably at the bottom of your user `keybindings.json` file:
