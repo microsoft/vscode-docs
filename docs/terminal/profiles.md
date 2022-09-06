@@ -17,7 +17,6 @@ Example profile:
 
 ```jsonc
 {
-
   "terminal.integrated.profiles.windows": {
     "Custom Init": {
       "path": "pwsh.exe",

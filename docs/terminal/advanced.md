@@ -25,6 +25,7 @@ terminal.integrated.commandsToSkipShell
 
 ### Chords
 
+Chord keybindings are those that are made up of two keybindings, for example Ctrl+K followed by Ctrl+C to change the line to a comment. TODO: ...
 ⚡ 👐 ⚙️ Chord keybindings in the terminal
 terminal.integrated.allowChords
 
@@ -34,7 +35,7 @@ Merge into keybindings section
 
 ### Mnemonics
 
-terminal.integrated.allowMnemonics
+Using mnemonics to access VS Code's menu (eg. alt+f for File menu) is disabled by default as these key events are often important hotkeys in shells. Set `terminal.integrated.allowMnemonics` to enable mnemonics, note that this will disallow any alt key events to go to the shell. This setting does nothing on macOS.
 
 ### Custom sequence keybindings
 
@@ -57,10 +58,6 @@ terminal.integrated.autoReplies
 
 terminal.integrated.unicodeVersion
 
-## Windows and ConPTY
-
-terminal.integrated.windowsEnableConpty
-
 ## Process environment
 
 TODO: Brief description of what the shell environment is
@@ -76,6 +73,10 @@ terminal.integrated.detectLocale
 ### Extension environment contributions
 
 terminal.integrated.environmentChangesRelaunch
+
+## Windows and ConPTY
+
+terminal.integrated.windowsEnableConpty
 
 ## Remote development
 
