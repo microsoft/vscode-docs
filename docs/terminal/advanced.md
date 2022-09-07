@@ -9,11 +9,18 @@ MetaDescription: Visual Studio Code's integrated terminal has several advanced f
 ---
 # Terminal Advanced
 
-## Process reconnection
+## Persistent sessions
 
-terminal.integrated.enablePersistentSessions
-terminal.integrated.persistentSessionReviveProcess
-terminal.integrated.persistentSessionScrollback
+The terminal supports two different types of persistent sessions:
+
+- Process reconnection: When reloading a window (eg. after installing an extension), _reconnect_ to the previous process and restore its content.
+- Process revive: When restarting VS Code, a terminal's content is restored and the process is _relaunched_ using its original environment.
+
+Both of these can be disabled by setting `terminal.integrated.enablePersistentSessions` to `false`, and the amount of scrollback restored is determined by `terminal.integrated.persistentSessionScrollback`. Process revive can be configured independently with `terminal.integrated.persistentSessionReviveProcess`.
+
+### Moving terminals between windows
+
+It's possible to drag terminal tabs across different windows to move them under that window. This can also be done manually through the command palette and the `Terminal: Detach Session` and `Terminal: Attach to Session` commands.
 
 ## Keybinding and the shell
 
