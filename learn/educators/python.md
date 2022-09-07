@@ -101,12 +101,12 @@ Give an introduction to Python with "Wonder Woman 1984"-inspired lessons that he
 
 ### Python in Notebooks
 
-Learn the basics of Python. View the full lesson on [Microsoft Learn: Write basic Python in Notebooks in Visual Studio Code](https://docs.microsoft.com/learn/modules/basic-python-nasa/).
+Learn the basics of Python. View the full lesson at [Write basic Python in Notebooks in Visual Studio Code](https://docs.microsoft.com/learn/modules/basic-python-nasa/).
 
 ![Basics of Python lesson](images/python/basic-python-lesson.png)
 
 ### Set up your Python beginner development environment
 
-A step-by-step guide to installing and setting up your Python and VS Code environment. View the full lesson on [Microsoft Learn: Set up your Python beginner development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode/).
+A step-by-step guide to installing and setting up your Python and VS Code environment. View the full lesson at [Set up your Python beginner development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode/).
 
 ![Set up Python lesson](images/python/setup-python-lesson.png)
