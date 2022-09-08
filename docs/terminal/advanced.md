@@ -24,21 +24,45 @@ It's possible to drag terminal tabs across different windows to move them under 
 
 ## Keybinding and the shell
 
-TODO: Explain the conflicts that can occur when hosting a terminal inside another application
-➡️ Why is VS Code shortcut X not working when the terminal has focus?
+An issue when embedding a terminal within another application is the question of where to send each keybinding; to the shell hosted in the terminal or to the application? VS Code answers this by having some sane defaults that use a hardcoded list of commands that should always "skip the shell" and be handled by VS Codes keybinding system. This list is fully configurable to fine tune what commands should and shouldn't work:
 
-terminal.integrated.sendKeybindingsToShell
-terminal.integrated.commandsToSkipShell
+```jsonc
+{
+  "terminal.integrated.commandsToSkipShell": [
+    // Ensure the toggle sidebar visibility keybinding skips the shell
+    "workbench.action.toggleSidebarVisibility",
+    // Send quick open's keybinding to the shell
+    "-workbench.action.quickOpen",
+  ]
+}
+```
+
+Look at the setting details to see the complete list of default commands.
+
+>**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell.
 
 ### Chords
 
-Chord keybindings are those that are made up of two keybindings, for example Ctrl+K followed by Ctrl+C to change the line to a comment. TODO: ...
-⚡ 👐 ⚙️ Chord keybindings in the terminal
-terminal.integrated.allowChords
+Chord keybindings are those that are made up of two keybindings, for example Ctrl+K followed by Ctrl+C to change the line to a comment. Chords always skip the shell by default  but can be disabled with `terminal.integrated.allowChords`.
 
-Special case of chords:
-➡️ Why is Cmd+k/Ctrl+k not clearing the terminal?
-Merge into keybindings section
+On macOS `kbstyle(Cmd+K)` is a common keybindings in terminals to clear the screen so VS Code also respects that, which means `kbstyle(Cmd+K)` chords will not work. `kbstyle(Cmd+K)` chords can be enabled by [removing the clear keybinding](https://code.visualstudio.com/docs/getstarted/keybindings#_removing-a-specific-key-binding-rule):
+
+```json
+{
+    "key": "cmd+k",
+    "command": "-workbench.action.terminal.clear"
+}
+```
+
+Additionally, this will be overridden automatically if any extensions contribute `kbstyle(Cmd+K)` keybindings due to how keybinding priority works. The `kbstyle(Cmd+K)` to clear keybinding can be brought back in this case by re-defining it in user keybindings which have a higher priority than extension keybindings:
+
+```json
+{
+    "key": "cmd+k",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+}
+```
 
 ### Mnemonics
 
@@ -46,10 +70,24 @@ Using mnemonics to access VS Code's menu (eg. alt+f for File menu) is disabled b
 
 ### Custom sequence keybindings
 
-⚡ ⚙️ Send text via a keybinding
-workbench.action.terminal.sendSequence
-➡️ ⚙️ How do I configure zsh on macOS to jump words with Ctrl+Left/Right arrow?
-Include example in keybindings section
+The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, this includes escape sequences that are interpreted specially by the shell. This enables things like sending arrow keys, enter, cursor moves, etc. For example, the below sequence jumps over the word to the left of the cursor (`kbstyle(Ctrl+Left)`) and presses backspace:
+
+```jsonc
+{
+  "key": "ctrl+u",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": {
+    "text": "\u001b[1;5D\u007f"
+  }
+}
+```
+
+This feature supports [variable substitution](/docs/editor/variables-reference.md).
+
+Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and the sequences terminals work with on the following resources:
+
+* [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
+* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
 
 ## Confirmation dialogs
 
