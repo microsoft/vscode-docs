@@ -97,7 +97,19 @@ terminal.integrated.showExitAlert
 
 ## Auto replies
 
-terminal.integrated.autoReplies
+The terminal is capable of providing an input response to the shell automatically if an exact sequence of output is received. This could be used for all sorts of things but the most common use case is to automatically reply to the quirk when hitting `kbstyle(Ctrl+C)` in batch scripts that asks whether the user wants to terminate the batch job. To automatically dismiss this message, add this setting:
+
+```json
+{
+  "terminal.integrated.autoReplies": {
+    "Terminate batch job (Y/N)": "Y\r"
+  }
+}
+```
+
+Notice the `\r` here which means `kbstyle(Enter)`, much like [custom sequence keybindings](#_custom-sequence-keybindings) this supports sending escape sequences to the shell.
+
+No auto replies are configured by default as this deals with shell input which is sensitive.
 
 ## Unicode and emoji support
 
