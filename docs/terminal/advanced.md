@@ -113,10 +113,15 @@ No auto replies are configured by default as this deals with shell input which i
 
 ## Unicode and emoji support
 
-terminal.integrated.unicodeVersion
+The terminal has both unicode and emoji support, since these are being used in a terminal environment there are some caveats to that support:
+
+- Some unicode symbols have ambiguous width that may have changed between unicode versions. Currently we support unicode version 6 and 11 widths which can be configured with the `terminal.integrated.unicodeVersion` setting, this version should match the unicode version used by the shell/operating system, otherwise there could be rendering issues. Note that the unicode version of the shell/OS may not match the font's actual width.
+- Some emoji that are made up of multiple combined characters may not render correctly, for example skin tone modifiers.
+- Emoji support on Windows is limited on Windows.
 
 ## Process environment
 
+The shell's process environment
 TODO: Brief description of what the shell environment is
 
 ### Environment inheritance
@@ -125,15 +130,31 @@ terminal.integrated.inheritEnv
 
 ### Interaction with `$LANG`
 
-terminal.integrated.detectLocale
+There is some special interaction with the `$LANG` environment variable which determines how characters are presented in the terminal. This feature is configured with the `terminal.integrated.detectLocale` setting:
+
+| Value            | Behavior
+|------------------|---
+| `on`             | Always set `$LANG` to the most commonly desired value. The chosen value is based on the operating system locale (falling back to `en-US`) with UTF-8 encoding.
+| `auto` (default) | Set `$LANG` like when `on` is set, only when it looks like `$LANG` is not properly configured (is not set to a utf or euc encoding).
+| `off`            | Do not modify `$LANG`.
 
 ### Extension environment contributions
 
-terminal.integrated.environmentChangesRelaunch
+Extensions are able to [contribute to terminal environments](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext.environmentVariableCollection), allowing them to provide some integration with the terminal. The built-in git extension is an example of this which injects the `GIT_ASKPASS` environment variable to allow VS Code to handle authentication to the git remote.
+
+If an extension changes the terminal environment, any existing terminals will be relaunched if it is safe to do so, otherwise a warning will show in the terminal status. More information about the change can be viewed in the hover which also includes a relaunch button.
+
+![A warning icon appears next to the terminal tab when a relaunch is required, information on the changes can be viewed by hovering it](images/advanced/envvarcollection-warning.png)
 
 ## Windows and ConPTY
 
-terminal.integrated.windowsEnableConpty
+VS Code's terminal is built on the [xterm.js](https://github.com/xtermjs/xterm.js) project to implement a Unix-style terminal which serializes all data into a string and pipes it through a "pseudoterminal". Historically, this was not how things on Windows worked which used the [Console API](https://docs.microsoft.com/en-us/windows/console/console-functions) to implement its console called conhost.
+
+An open source project called [winpty](https://github.com/rprichard/winpty) was created to try to fix this issue by providing an emulation/translation layer between a Unix-style terminal and a Windows console. VS Code's terminal was originally implemented using only winpty which was great for its time but in 2018, Windows 10 received [the ConPTY API](https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/) which took the idea pioneered by winpty and baked it into Windows, providing a more reliable and supported system to leverage Unix-style terminals and apps on Windows.
+
+VS Code defaults to ConPTY on Windows 10+ (from build number 18309) and falls back to winpty as a legacy option for older versions of Windows. ConPTY can be explicitly disabled via the `terminal.integrated.windowsEnableConpty` settings but this should normally be avoided.
+
+Since Conpty is an emulation layer it does come with some quirks, the most common of which is that ConPTY considers itself the owner of the viewport and because of that will reprint the screen sometimes. This reprinting can cause some unexpected behavior such as old content showing back up after running the `Terminal: Clear` command.
 
 ## Remote development
 
