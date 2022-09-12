@@ -158,13 +158,26 @@ Since Conpty is an emulation layer it does come with some quirks, the most commo
 
 ## Remote development
 
+This section outlines some topics specific to windows connected to a remote machine using a [remote development extension](https://code.visualstudio.com/docs/remote/remote-overview).
+
 ### Reducing remote input latency
 
-terminal.integrated.localEchoLatencyThreshold
-terminal.integrated.localEchoEnabled
-terminal.integrated.localEchoExcludePrograms
-terminal.integrated.localEchoStyle
+Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote.
+
+TODO: Image
+
+By default the feature kicks in when latency is detected to be above 30ms which can be configured with `terminal.integrated.localEchoLatencyThreshold`. The color of the unconfirmed characters is defined by `terminal.integrated.localEchoStyle`.
+
+Local echo disables itself dynamically depending on the active program in the terminal, this is driven by `terminal.integrated.localEchoExcludePrograms` which defaults to `['vim', 'vi', 'nano', 'tmux']`. It's recommended to disable the feature for any application or shell that is highly dynamic and/or does a lot of reprinting of the screen when typing.
+
+To disable the feature completely use:
+
+```json
+{
+  "terminal.integrated.localEchoEnabled": false
+}
+```
 
 ### Local terminals in remote windows
 
-workbench.action.terminal.newLocal
+The default _local_ terminal profile can be launched in remote windows with the `Terminal: Create New Integrated Terminal (Local)` command via the command palette. Currently non-default profiles cannot be launched from remote windows.
