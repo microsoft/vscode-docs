@@ -269,7 +269,7 @@ A best practice among Python developers is to avoid installing packages into a g
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
 
-   **Virtual Environment Creation for macOS/Linux**
+   **Virtual environment creation for macOS/Linux**
 
    ```bash
    python3 -m venv .venv
