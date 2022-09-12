@@ -431,11 +431,13 @@ On Linux, you can use your distribution's package manager to install SSHFS. For 
 > **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL 2 does include FUSE and SSHFS support**, so this will change soon.
 
 On macOS, you can install SSHFS using [Homebrew](https://brew.sh/):
-    ```bash
-    brew install --cask macfuse
-    brew install gromgit/fuse/sshfs-mac
-    brew link --overwrite sshfs-mac
-    ```
+
+```bash
+brew install --cask macfuse
+brew install gromgit/fuse/sshfs-mac
+brew link --overwrite sshfs-mac
+```
+    
 In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
 
 To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
