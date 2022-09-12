@@ -254,7 +254,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
 1. Create and activate the virtual environment
 
-   **Virtual Environment Creation for Windows**
+   **Virtual environment creation for Windows**
 
    ```cmd
    py -3 -m venv .venv
