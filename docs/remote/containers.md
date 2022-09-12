@@ -273,8 +273,8 @@ When you rebuild and reopen in your container, the Features you selected will be
 ```json
 "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {
-            "version": "latest"
-        }
+        "version": "latest"
+    }
 }
 ```
 
