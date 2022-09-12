@@ -11,11 +11,11 @@ Author: Brigit Murtaugh
 
 September 15, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
-We’ve all had that moment when setting up our development environment – “Oh, I just need one more thing!” – that “thing” being one more language or toolset (or maybe a few more 😊) to work on your project.
+We’ve all had that moment when setting up our development environment – "Oh, I just need one more thing!" – that "thing" being one more language or toolset (or maybe a few more 😊) to work on your project.
 
 Development containers are a great way to simplify environment set up - they provide a full-featured coding environment with the tools your project needs. They’re configured using an image, Dockerfile, or Docker Compose file and `devcontainer.json`, which is a metadata format used to enrich containers with development specific content and settings.
 
-When creating a dev container, you may encounter the same “I just need one more thing!” – maybe you’re using a Node.js image in your Dockerfile and just need to add Git. Or maybe you need to add something more complex, like working with Docker or Kubernetes from within your dev container. Dev containers are great since anyone accessing your code will have the same, consistent experience with all those tools you added – but what’s the best way to add them?
+When creating a dev container, you may encounter the same "I just need one more thing!" – maybe you’re using a Node.js image in your Dockerfile and just need to add Git. Or maybe you need to add something more complex, like working with Docker or Kubernetes from within your dev container. Dev containers are great since anyone accessing your code will have the same, consistent experience with all those tools you added – but what’s the best way to add them?
 
 What if there was an easy way to install that extra tool in your dev container, simply by mentioning the tool’s name and version? Or what if as a tool user or author, you could create an easy way for others to install it? Sharing manual scripts can help with reuse, but when referencing one, you may forget to reference container or tooling settings, such as enabling ptrace support for Go, Rust, or C++ debugging, adding a specific entry point to fire on container start, or ensuring the right VS Code extensions are included.
 
@@ -72,7 +72,7 @@ The source code of a Feature has two components: An install script (`install.sh`
 
 `install.sh`: The installation entry point script – it’s conceptually added as a layer of the image’s Dockerfile and executed during build-time. This entry point script can install tools such as languages (ruby) and tools (GitHub CLI).
 
-`devcontainer-feature.json`: This contains metadata about the Feature, a set of options that can be passed to a Feature’s install script during installation, as well as “pieces” of devcontainer.json that will be merged into the final dev container. For example, if any Feature indicates `privileged`: true in their config, the entire dev container will be started with the `--privileged` flag.
+`devcontainer-feature.json`: This contains metadata about the Feature, a set of options that can be passed to a Feature’s install script during installation, as well as "pieces" of devcontainer.json that will be merged into the final dev container. For example, if any Feature indicates `privileged`: true in their config, the entire dev container will be started with the `--privileged` flag.
 
 Features can be authored in a variety of languages, the most straightforward being shell scripts. If a Feature is authored in a different language, information about it should be included in the metadata so that users can make an informed choice about it.
 
@@ -90,7 +90,7 @@ The [Open Container Initiative](https://opencontainers.org/), aka OCI, defines i
 
 The [Features template repository](https://github.com/devcontainers/feature-template) mentioned above includes a [GitHub Actions workflow](https://github.com/marketplace/actions/dev-container-publish) to automate the publishing process. It packages each feature into a tarball and publishes the assets as an OCI artifact to GHCR. Trigger the `release.yaml` workflow from the template repository by selecting it on the left of the repository’s Actions tab on GitHub. This will publish each feature to GHCR under the `<owner>/<repo>` namespace. A Feature is only republished when the version property in its `devcontainer-feature.json` is updated.
 
-> **Note:** One manual step with GHCR is to mark the OCI [package as “public”](https://github.com/devcontainers/feature-template#marking-feature-public). This only has to be done once per Feature. Private features do not require this step and may be accessed as long as you’ve logged into the Docker CLI using the credentials for your registry.
+> **Note:** One manual step with GHCR is to mark the OCI [package as "public"](https://github.com/devcontainers/feature-template#marking-feature-public). This only has to be done once per Feature. Private features do not require this step and may be accessed as long as you’ve logged into the Docker CLI using the credentials for your registry.
 
 ### Sharing your Features with the community
 
@@ -122,7 +122,7 @@ You may read more about Feature execution and installation order [in the spec](h
 
 Along with the new Features repo, we recently open sourced a new [devcontainers/images](https://github.com/devcontainers/images) repository where we host a specific set of images that were previously in the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers/issues/1589).
 
-We’re developing a community distribution plan for dev container templates (aka what we refer to as “definitions” in [vscode-dev-containers](https://github.com/microsoft/vscode-dev-containers/issues/1589)), which we anticipate to be similar to Features. We’ll be sure to post an update in the vscode-dev-containers repo, as we did when [announcing the new Features and images repos](https://github.com/microsoft/vscode-dev-containers/issues/1589).
+We’re developing a community distribution plan for dev container templates (aka what we refer to as "definitions" in [vscode-dev-containers](https://github.com/microsoft/vscode-dev-containers/issues/1589)), which we anticipate to be similar to Features. We’ll be sure to post an update in the vscode-dev-containers repo, as we did when [announcing the new Features and images repos](https://github.com/microsoft/vscode-dev-containers/issues/1589).
 
 ## How can I learn more?
 
