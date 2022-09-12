@@ -171,7 +171,7 @@ What happens if you want to use Restricted Mode but your favorite extension does
 
 If you open the Settings editor (`kb(workbench.action.openSettings)`) and search for "trust extensions", you can find the **Extensions: Support Untrusted Workspaces** setting, which has an **Edit in settings.json** link.
 
-![Extension support ](images/workspace-trust/extensions-support-untrusted.png)
+![Extension support](images/workspace-trust/extensions-support-untrusted.png)
 
 Select that link and you will go to your user `settings.json` file with a new entry for `extensions.supportUntrustedWorkspaces`. This setting takes an object that has a list of extension IDs and their support status and version. You can select any of your installed extensions via IntelliSense suggestions.
 

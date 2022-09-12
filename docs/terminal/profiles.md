@@ -145,7 +145,7 @@ This will cause the shell to call `history -a` whenever the prompt is printed wh
 
 ## Windows PowerShell
 
-When PowerShell 6+ is installed, Windows PowerShell is not included in the profiles list by default. To add Windows PowerShell as a profile, choose the `Select Default Profile` option in the new terminal dropdown and select the Windows PowerShell item. This will configure the profile and set it as your default.
+When PowerShell 6+ is installed, Windows PowerShell is not included in the profiles list by default. To add Windows PowerShell as a profile, choose the **Select Default Profile** option in the new terminal dropdown and select the Windows PowerShell item. This will configure the profile and set it as your default.
 
 ## WSL
 
