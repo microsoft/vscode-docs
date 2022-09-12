@@ -111,6 +111,8 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 
 The command presents a list of available interpreters that VS Code can find automatically, including virtual environments. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
+![Select an Interpreter](images/tutorial/interpreter.png)
+
 > **Note**: When using an Anaconda distribution, the correct interpreter should have the suffix `('base':conda)`, for example `Python 3.7.3 64-bit ('base':conda)`.
 
 Selecting an interpreter sets which interpreter will be used by the Python extension for that workspace.
@@ -251,11 +253,8 @@ A best practice among Python developers is to avoid installing packages into a g
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#creating-environments).
 
 1. Create and activate the virtual environment
-   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
 
-   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
-
-   **For Windows**
+   **Virtual environment creation for Windows**
 
    ```cmd
    py -3 -m venv .venv
@@ -270,15 +269,19 @@ A best practice among Python developers is to avoid installing packages into a g
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
 
-   **For macOS/Linux**
+   **Virtual environment creation for macOS/Linux**
 
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate
    ```
+   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+
+   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
+
 
 1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
-
+![Select an Interpreter](images/tutorial/interpreter-venv.png)
 1. Install the packages
 
    ```bash
