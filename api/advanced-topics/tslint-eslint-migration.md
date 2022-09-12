@@ -17,6 +17,12 @@ You need to install ESLint. ESLint doesn't natively support TypeScript, so you w
 npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
+or if you're using yarn as your package manager:
+
+```bash
+yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev
+```
+
 The command above adds ESLint, adds a parser that makes ESLint understand TypeScript, and adds some TypeScript-specific rules.
 
 Now, to make the actual migration simpler, run the [tslint-to-eslint-config](https://github.com/typescript-eslint/tslint-to-eslint-config) utility. This tool will take your TSLint configuration and create the "closest" ESLint configuration from it.
