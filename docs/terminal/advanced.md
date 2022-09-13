@@ -91,9 +91,11 @@ Note that the command only works with the `\u0000` format for using characters v
 
 ## Confirmation dialogs
 
-terminal.integrated.confirmOnExit
-terminal.integrated.confirmOnKill
-terminal.integrated.showExitAlert
+In order to avoid additional noise and user actions, the terminal does not show warning dialogs when exiting processes. If warnings are desirable they can be configured with the following settings:
+
+- `terminal.integrated.confirmOnExit` - Controls whether to confirm when the window closes if there are active debug sessions.
+- `terminal.integrated.confirmOnKill` - Controls whether to confirm killing terminals when they have child processes.
+- `terminal.integrated.showExitAlert` - Controls whether to show the alert "The terminal process terminated with exit code" when exit code is non-zero.
 
 ## Auto replies
 
@@ -121,12 +123,13 @@ The terminal has both unicode and emoji support, since these are being used in a
 
 ## Process environment
 
-The shell's process environment
-TODO: Brief description of what the shell environment is
+The process environment of the application running within the terminal can be influenced by various settings and extensions. Values in the environment is a common reason why output may look different in other terminals.
 
 ### Environment inheritance
 
-terminal.integrated.inheritEnv
+When VS Code is opened, it launches a login shell environment in order to source a shell environment. This is done because developer tools are often added to the `$PATH` in a shell launch script like `~/.bash_profile`. By default, the terminal inherits this environments, depending on your [profile shell arguments](/docs/terminal/profiles#_configuring-profiles) this means that multiple profile scripts may have run which could cause unexpected behavior.
+
+This environment inheritance can be disabled on macOS and Linux via the `terminal.integrated.inheritEnv` setting.
 
 ### Interaction with `$LANG`
 
@@ -162,11 +165,7 @@ This section outlines some topics specific to windows connected to a remote mach
 
 ### Reducing remote input latency
 
-Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote.
-
-TODO: Image
-
-By default the feature kicks in when latency is detected to be above 30ms which can be configured with `terminal.integrated.localEchoLatencyThreshold`. The color of the unconfirmed characters is defined by `terminal.integrated.localEchoStyle`.
+Local echo is a feature that helps mitigate the effect of input latency on remote windows. It writes the keystrokes in the terminal in a dimmed color before the result is confirmed by the remote. By default the feature kicks in when latency is detected to be above 30ms which can be configured with `terminal.integrated.localEchoLatencyThreshold`. The color of the unconfirmed characters is defined by `terminal.integrated.localEchoStyle`.
 
 Local echo disables itself dynamically depending on the active program in the terminal, this is driven by `terminal.integrated.localEchoExcludePrograms` which defaults to `['vim', 'vi', 'nano', 'tmux']`. It's recommended to disable the feature for any application or shell that is highly dynamic and/or does a lot of reprinting of the screen when typing.
 
