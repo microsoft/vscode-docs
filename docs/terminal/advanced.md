@@ -24,7 +24,7 @@ Terminal tabs can be dragged and dropped between VS Code windows. This can also 
 
 ## Keybinding and the shell
 
-As an embedded application, the integrated terminal should intercept some, but not all, keybindings dispatched within VS Code. 
+As an embedded application, the integrated terminal should intercept some, but not all, keybindings dispatched within VS Code.
 
 The configurable `"terminal.integrated.commandsToSkipShell"` setting determines which command's keybindings should always "skip the shell" and instead be handled by VS Codes keybinding system. By default, it contains a hard coded list of commands that are integral to the VS Code experience.
 
@@ -117,7 +117,7 @@ No auto replies are configured by default as this deals with shell input which i
 
 ## Unicode and emoji support
 
-The terminal has both unicode and emoji support, since these are being used in a terminal environment there are some caveats to that support:
+The terminal has both Unicode and emoji support. When these characters are used in the terminal, there are some caveats to that support:
 
 - Some unicode symbols have ambiguous width that may have changed between unicode versions. Currently we support unicode version 6 and 11 widths which can be configured with the `terminal.integrated.unicodeVersion` setting. That version should match the unicode version used by the shell/operating system, otherwise there could be rendering issues. Note that the unicode version of the shell/OS may not match the font's actual width.
 - Some emojis comprised of multiple characters may not render correctly, for example skin tone modifiers.
@@ -125,7 +125,7 @@ The terminal has both unicode and emoji support, since these are being used in a
 
 ## Process environment
 
-The process environment of the application running within the terminal is influenced by various settings and extensions which can explain why output may look different in other terminals. 
+The process environment of the application running within the terminal is influenced by various settings and extensions which can explain why output may look different in other terminals.
 
 ### Environment inheritance
 
