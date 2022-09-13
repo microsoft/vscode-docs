@@ -9,7 +9,7 @@ MetaDescription: Overview of resources for using GitHub in Visual Studio Code.
 ---
 # GitHub Student Developer Pack
 
-Welcome to Visual Studio Code! VS Code is a free coding editor that helps you start coding quickly. Use it to code in any programming language, without switching editors. VS Code comes with built-in source control, so you can compare versions of your code side-by-side and save your work over time by backing it up on [GitHub](https://github.com). We have resources specifically created for students and educators, including our [Python and Java Coding Packs](/learntocode), programming lessons built in partnership with [NASA](/learn/students/nasa-python.md) and [Netflix](/learn/students/spacejam-python.md), and [videos](/learn/get-started/basics.md) to quickly get up to speed.
+Welcome to Visual Studio Code! VS Code is a free coding editor that helps you start coding quickly. Use it to code in any programming language, without switching editors. VS Code comes with built-in source control, so you can compare versions of your code side-by-side and save your work over time by backing it up on [GitHub](https://github.com). We have resources specifically created for students and educators, including our [Java and .NET Coding Packs](/learntocode), programming lessons built in partnership with [NASA](/learn/students/nasa-python.md) and [Netflix](/learn/students/spacejam-python.md), and [videos](/learn/get-started/basics.md) to quickly get up to speed.
 
 ![GitHub Classroom + VS Code](images/github-classroom/banner.png)
 
