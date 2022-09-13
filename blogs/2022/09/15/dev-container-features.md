@@ -58,7 +58,7 @@ You can even use dev containers with features from your favorite CI system using
 If you’d like to not only use publicly available feature packs but also create your own private or public ones to share, continue reading!
 
 ## Authoring
-A great place to get started with creating your own feature packs is the new [Features template repository](https://github.com/devcontainers/feature-template). Beyond including a good template for the contents of a given feature pack, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for your account to get you up and running as fast as possible. We’ll talk more about publishing in a minute.
+A great place to get started with creating your own feature packs is the new [Features template repository](https://github.com/devcontainers/feature-template). Beyond including a good template for the contents of a given feature pack, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) (GHCR) for your account to get you up and running as fast as possible. We’ll talk more about publishing in a minute.
 
 The source code of a feature pack has two components: An install script (`install.sh`) and a configuration file (`devcontainer-feature.json`).
 
