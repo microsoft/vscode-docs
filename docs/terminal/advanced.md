@@ -93,7 +93,7 @@ Note that the command only works with the `\u0000` format for using characters v
 
 ## Confirmation dialogs
 
-In order to avoid additional noise and user actions, the terminal does not show warning dialogs when exiting processes. If warnings are desirable they can be configured with the following settings:
+In order to avoid additional noise and user actions, the terminal does not show warning dialogs when processes exit. If warnings are desirable they can be configured with the following settings:
 
 - `terminal.integrated.confirmOnExit` - Controls whether to confirm when the window closes if there are active debug sessions.
 - `terminal.integrated.confirmOnKill` - Controls whether to confirm killing terminals when they have child processes.
