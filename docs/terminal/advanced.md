@@ -125,7 +125,7 @@ The terminal has both unicode and emoji support, since these are being used in a
 
 ## Process environment
 
-The process environment of the application running within the terminal can be influenced by various settings and extensions. Values in the environment is a common reason why output may look different in other terminals.
+The process environment of the application running within the terminal is influenced by various settings and extensions which can explain why output may look different in other terminals. 
 
 ### Environment inheritance
 
