@@ -101,7 +101,7 @@ In order to avoid additional noise and user actions, the terminal does not show 
 
 ## Auto replies
 
-The terminal is capable of providing an input response to the shell automatically if an exact sequence of output is received. This could be used for all sorts of things but the most common use case is to automatically reply to the quirk when hitting `kbstyle(Ctrl+C)` in batch scripts that asks whether the user wants to terminate the batch job. To automatically dismiss this message, add this setting:
+The terminal is capable of providing a configurable input response to the shell automatically if an exact sequence of output is received. The most common use case is to automatically reply to the quirk when hitting `kbstyle(Ctrl+C)` in batch scripts that asks whether the user wants to terminate the batch job. To automatically dismiss this message, add this setting:
 
 ```json
 {
