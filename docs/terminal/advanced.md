@@ -20,7 +20,7 @@ Both of these can be disabled by setting `terminal.integrated.enablePersistentSe
 
 ### Moving terminals between windows
 
-It's possible to drag terminal tabs across different windows to move them under that window. This can also be done manually through the command palette and the `Terminal: Detach Session` and `Terminal: Attach to Session` commands.
+Terminal tabs can be dragged and dropped between VS Code windows. This can also be done manually through the command palette and the `Terminal: Detach Session` and `Terminal: Attach to Session` commands.
 
 ## Keybinding and the shell
 
