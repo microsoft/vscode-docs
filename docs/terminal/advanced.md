@@ -24,7 +24,9 @@ Terminal tabs can be dragged and dropped between VS Code windows. This can also 
 
 ## Keybinding and the shell
 
-An issue when embedding a terminal within another application is the question of where to send each keybinding; to the shell hosted in the terminal or to the application? VS Code answers this by having some sane defaults that use a hardcoded list of commands that should always "skip the shell" and be handled by VS Codes keybinding system. This list is fully configurable to fine tune what commands should and shouldn't work:
+As an embedded application, the integrated terminal should intercept some, but not all, keybindings dispatched within VS Code. 
+
+The configurable `"terminal.integrated.commandsToSkipShell"` setting determines which command's keybindings should always "skip the shell" and instead be handled by VS Codes keybinding system. By default, it contains a hard coded list of commands that are integral to the VS Code experience.
 
 ```jsonc
 {
