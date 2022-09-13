@@ -121,7 +121,7 @@ The terminal has both unicode and emoji support, since these are being used in a
 
 - Some unicode symbols have ambiguous width that may have changed between unicode versions. Currently we support unicode version 6 and 11 widths which can be configured with the `terminal.integrated.unicodeVersion` setting. That version should match the unicode version used by the shell/operating system, otherwise there could be rendering issues. Note that the unicode version of the shell/OS may not match the font's actual width.
 - Some emoji that are made up of multiple combined characters may not render correctly, for example skin tone modifiers.
-- Emoji support on Windows is limited on Windows.
+- Emoji support is limited on Windows
 
 ## Process environment
 
