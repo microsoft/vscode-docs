@@ -102,12 +102,6 @@ Split terminals on Windows will start in the directory that the parent terminal 
 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
-## Terminal process reconnection
-
-Local and remote terminal processes are restored on window reload, such as when an extension install requires a reload. The terminal will be reconnected and the UI state of the terminals will be restored, including the active tab and split terminal relative dimensions.
-
-The setting `terminal.integrated.persistentSessionReviveProcess` determines when the previous terminal session contents should be restored and processes be recreated after a terminal process has been shut down (for example, on window or application close). Restoring of the process's current working directory depends on whether it is supported by the shell.
-
 ## Links
 
 The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as low confidence "workspace search" links, which only show an underline when hovered if the modifier is down. These low confidence links will search the workspace for the term, opening the match if one is found.
@@ -122,14 +116,6 @@ Depending on the type of link, activating it will do one of the following:
 Extensions make use of links in the terminal, such as GitLens, to identify branches.
 
 ![A branch link is hovered in the terminal](images/basics/gitlens-link.png)
-
-## Local echo
-
-On some remote connections, there's a delay between typing and seeing the characters on the terminal as a result of the round trip the data has to make from VS code to the process. Local echo attempts to predict modifications and cursor movements made locally in the terminal to decrease this lag.
-
-When enabled, dimmed characters appear as you type. The dimmed style can be changed using the setting `terminal.integrated.localEchoStyle`.
-
-To disable the feature, set `terminal.integrated.localEchoLatencyThreshold` to `-1`. To enable it all of the time, set it to `0`.
 
 ## Copy & Paste
 
@@ -154,53 +140,6 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 ### Alt click
 
 `kbstyle(Alt)` left click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may fail for some shells or programs. This feature can be disabled.
-
-## Keybindings and the shell
-
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. There is a hardcoded list of commands, which skip being processed by the shell and instead get sent to the VS Code keybinding system. Customize this list with the `terminal.integrated.commandsToSkipShell` setting. Commands can be added to this list by adding the command name to the list and removed by adding the command name to the list prefixed with a `-`.
-
-```jsonc
-{
-  "terminal.integrated.commandsToSkipShell": [
-    // Ensure the toggle sidebar visibility keybinding skips the shell
-    "workbench.action.toggleSidebarVisibility",
-    // Send quick open's keybinding to the shell
-    "-workbench.action.quickOpen",
-  ]
-}
-```
-
-Look at the setting details to see the complete list of default commands.
->**Tip:** To override `terminal.integrated.commandsToSkipShell` and send keybindings to the shell instead of the workbench, set `terminal.integrated.sendKeybindingsToShell`.
-
-### Chord keybindings in the terminal
-
-By default, when a chord keybinding is the highest priority keybinding, it will always skip the terminal shell (bypassing `terminal.integrated.commandsToSkipShell`) and be evaluated by VS Code instead of the terminal. This is typically the desired behavior unless you're on Windows/Linux and want your shell to use ctrl+k (for bash, this cuts the line after the cursor). This can be disabled with the following setting:
-
-```json
-{
-  "terminal.integrated.allowChords": false
-}
-```
-
-### Send text via a keybinding
-
-The `workbench.action.terminal.sendSequence` command can be used to send a specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. For example, the below sequence jumps over the word to the left of the cursor (`kbstyle(Ctrl+Left)`) and presses backspace:
-
-```json
-{
-  "key": "ctrl+u",
-  "command": "workbench.action.terminal.sendSequence",
-  "args": { "text": "\u001b[1;5D\u007f" }
-}
-```
-
-This feature supports [variable substitution](/docs/editor/variables-reference.md).
-
-Note that the command only works with the `\u0000` format for using characters via their character code (not `\x00`). Read more about these hex codes and the sequences terminals work with on the following resources:
-
-* [XTerm Control Sequences](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html)
-* [List of C0 and C1 control codes](https://github.com/xtermjs/xterm.js/blob/0e45909c7e79c83452493d2cd46d99c0a0bb585f/src/common/data/EscapeSequences.ts)
 
 ## Find
 
@@ -322,24 +261,6 @@ There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-termin
 
 Currently, the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. Use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
 
-### Why is Cmd+k/Ctrl+k not clearing the terminal?
-
-Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system that defines which keybinding is active at any given time (user > extension > default). To fix this, you need to redefine your user keybinding that will have priority, preferably at the bottom of your user `keybindings.json` file:
-
-macOS:
-
-```json
-{ "key": "cmd+k",                 "command": "workbench.action.terminal.clear",
-                                     "when": "terminalFocus" },
-```
-
-Windows:
-
-```json
-{ "key": "ctrl+k",                "command": "workbench.action.terminal.clear",
-                                     "when": "terminalFocus" },
-```
-
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
 nvm (Node Version Manager) users often see this error for the first time inside VS Code's integrated terminal:
@@ -387,25 +308,6 @@ Yes. Specify [Powerline](https://powerline.readthedocs.io) fonts with the `termi
 ```
 
 Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
-
-### How do I configure zsh on macOS to jump words with Ctrl+Left/Right arrow?
-
-By default, `kbstyle(Ctrl+Left/Right)` arrow will jump words in bash. Configure the same for zsh by adding these keybindings:
-
-```json
-[
-  {
-    "key": "ctrl+left",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": { "text": "\u001bb" }
-  },
-  {
-    "key": "ctrl+right",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": { "text": "\u001bf" }
-  }
-]
-```
 
 ### Why does macOS make a ding sound when I resize terminal split panes?
 
