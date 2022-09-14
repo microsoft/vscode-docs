@@ -31,11 +31,15 @@ There are several built-in Markdown snippets included in VS Code - press `kb(edi
 
 Use `kb(workbench.action.gotoSymbol)` to quickly jump to a header in the current file.
 
+![Jumping to a header in a Markdown file](images/Markdown/go-to-symbol.png)
+
 You can browse through all headers in the file or start typing a header name to find just the one you are after. Once you've found the header you what, press `kbstyle(Enter)` to move your cursor to it. Press `kbstyle(Esc)` to cancel jumping to the header.
 
 ### Go to header in workspace
 
 Use `kb(workbench.action.showAllSymbols)` to search through headers across all Markdown files in the current workspace.
+
+![Jumping to a header across all Markdown files in a workspace](images/Markdown/go-to-symbol-in-workspace.png)
 
 Start typing a header name to filter down the list and find the header you are after.
 
@@ -80,6 +84,32 @@ Selection applies to the following, and follows a traditional hierarchical patte
 * Paragraphs
 
 ![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
+
+### Find all references to headers and links
+
+Use the `kb(references-view.findReferences)` command to find all locations in the current workspace where a markdown header or link is referenced:
+
+![Jumping to a header in a Markdown file](images/Markdown/find-all-references.png)
+
+Find all references is supported for:
+
+- Headers: `# My Header`. Shows all links to `#my-header`.
+- External links: `[text](http://example.com)`. Shows all links to `http://example.com`.
+- Internal links: `[text](./path/to/file.md)`. Shows all links to `./path/to/file.md`
+- Fragments in links: `[text](./path/to/file.md#my-header)`. Shows all links to `#my-header` in `./path/to/file.md`
+
+### Rename headers and links
+
+Tired of accidentally breaking links when you change a Markdown header? Try using `kb(editor.action.rename)` instead. After you type the new header name and press `kbstyle(Enter)`, VS Code will update the header as well as automatically updating all links to that header:
+
+![Renaming a Markdown header to update all links to it](images/Markdown/rename-header.gif)
+
+You can also use `kb(editor.action.rename)` on:
+
+- Headers: `# My Header`. This will update all links to `#my-header`.
+- External links: `[text](http://example.com/page)`. This will update all places that linked to `http://example.com/page`
+- Internal links: `[text](./path/to/file.md)`. This will rename the file `./path/to/file.md` and also update all links to it.
+- Fragments in links: `[text](./path/to/file.md#my-header)`. This will rename the header in `./path/to/file.md` and also update all links to it.
 
 ## Markdown preview
 
