@@ -45,7 +45,7 @@ Start typing a header name to filter down the list and find the header you are a
 
 ### Path completions
 
-Path completions help with create links to files and images. These paths are shown bu [IntelliSense](/docs/editor/intellisense.md) automatically as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
+Path completions help with create links to files and images. These paths are shown automatically by [IntelliSense](/docs/editor/intellisense.md) as you type the path of an image or link, and can also be manually requested by using `kb(editor.action.triggerSuggest)`.
 
 ![Path completions in a Markdown link](images/Markdown/path-completions.png)
 
@@ -63,13 +63,13 @@ Quickly insert images and file links by dragging and dropping. To start, drag a 
 
 ![Inserting a Markdown link by dragging and dropping from the explorer](images/Markdown/drop-link.gif)
 
-Dropped images insert a Markdown image `![](path/to/image.png)`. Dropped files insert a normal markdown link `[](path/to/file.md)`.
+Dropped images insert a Markdown image `![](path/to/image.png)`. Dropped files insert a normal Markdown link `[](path/to/file.md)`.
 
 ### Smart selection
 
-Smart selection lets you quickly expand and shrink selection in Markdown documents. This can be used to quickly select entire block elements (such as codeblocks or tables) and to select the entire contents of a header section in the markdown file.
+Smart selection lets you quickly expand and shrink selection in Markdown documents. This can be used to quickly select entire block elements (such as codeblocks or tables) and to select the entire contents of a header section in the Markdown file.
 
-Smart selection uses the following comands:
+Smart selection uses the following commands:
 
 * Expand: `kb(editor.action.smartSelect.expand)`
 * Shrink: `kb(editor.action.smartSelect.shrink)`
@@ -85,37 +85,37 @@ Selection applies to the following, and follows a traditional hierarchical patte
 
 ![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
 
-### Find all references to headers and links
+### Find All References to headers and links
 
-Use the `kb(references-view.findReferences)` command to find all locations in the current workspace where a markdown header or link is referenced:
+Use the **Find All References** (`kb(references-view.findReferences)`) command to find all locations in the current workspace where a Markdown header or link is referenced:
 
 ![Jumping to a header in a Markdown file](images/Markdown/find-all-references.png)
 
-Find all references is supported for:
+**Find All References** is supported for:
 
-- Headers: `# My Header`. Shows all links to `#my-header`.
-- External links: `[text](http://example.com)`. Shows all links to `http://example.com`.
-- Internal links: `[text](./path/to/file.md)`. Shows all links to `./path/to/file.md`
-- Fragments in links: `[text](./path/to/file.md#my-header)`. Shows all links to `#my-header` in `./path/to/file.md`
+* Headers: `# My Header`. Shows all links to `#my-header`.
+* External links: `[text](http://example.com)`. Shows all links to `http://example.com`.
+* Internal links: `[text](./path/to/file.md)`. Shows all links to `./path/to/file.md`
+* Fragments in links: `[text](./path/to/file.md#my-header)`. Shows all links to `#my-header` in `./path/to/file.md`
 
 ### Rename headers and links
 
-Tired of accidentally breaking links when you change a Markdown header? Try using `kb(editor.action.rename)` instead. After you type the new header name and press `kbstyle(Enter)`, VS Code will update the header as well as automatically updating all links to that header:
+Tired of accidentally breaking links when you change a Markdown header? Try using **Rename Symbol** (`kb(editor.action.rename)`) instead. After you type the new header name and press `kbstyle(Enter)`, VS Code will update the header as well as automatically updating all links to that header:
 
 ![Renaming a Markdown header to update all links to it](images/Markdown/rename-header.gif)
 
 You can also use `kb(editor.action.rename)` on:
 
-- Headers: `# My Header`. This will update all links to `#my-header`.
-- External links: `[text](http://example.com/page)`. This will update all places that linked to `http://example.com/page`
-- Internal links: `[text](./path/to/file.md)`. This will rename the file `./path/to/file.md` and also update all links to it.
-- Fragments in links: `[text](./path/to/file.md#my-header)`. This will rename the header in `./path/to/file.md` and also update all links to it.
+* Headers: `# My Header`. This will update all links to `#my-header`.
+* External links: `[text](http://example.com/page)`. This will update all places that linked to `http://example.com/page`
+* Internal links: `[text](./path/to/file.md)`. This will rename the file `./path/to/file.md` and also update all links to it.
+* Fragments in links: `[text](./path/to/file.md#my-header)`. This will rename the header in `./path/to/file.md` and also update all links to it.
 
 ## Markdown preview
 
 VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
-Here is an example with a very simple file.
+Here is an example with a simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
@@ -216,7 +216,7 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 <div class="marketplace-extensions-markdown-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> Tip: Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next steps
 
