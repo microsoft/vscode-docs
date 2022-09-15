@@ -21,7 +21,7 @@ What if there was an easy way to install that extra tool in your dev container, 
 
 We’re happy to share that dev container feature packs help you smoothly get the tools you need in your dev container!
 
-Features are self-contained units of installation code, container config, and/or settings and extensions designed to enable new development features in your dev container. They're installed through feature packs, which can be built to work with a wide range of base container images. As part of our work on the [open dev container specification](https://containers.dev/), we’ve made some improvements to where you can grab pre-created feature packs and how you can author and distribute your own.
+Feature packs are self-contained units of installation code, designed to install new features in your dev container atop a wide-range of base container images. As part of our work on the [open dev container specification](https://containers.dev/), we’ve made some improvements to where you can grab pre-created feature packs and how you can author and distribute your own.
 
 Let’s see what’s new and how you can get started with features from any dev container supporting tool or service (like the [VS Code Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://github.com/features/codespaces))!
 
