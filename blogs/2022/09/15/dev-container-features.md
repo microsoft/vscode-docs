@@ -76,7 +76,7 @@ The source code of a feature pack has two components: An install script (`instal
 
 Feature packs can be authored in a variety of languages, the most straightforward being shell scripts. If a feature is authored in a different language, information about it should be included in the metadata so that users can make an informed choice about it.
 
-> **Note:** You should be sure that feature packs you release publicly check and install dependencies in addition to the feature. Furthermore, public features are very likely to be used from both arm64 or x86_64 machines - so be sure to adapt to this when possible.
+> **Note:** You should be that feature packs you release publicly check and install dependencies in addition to the feature. Furthermore, public features are very likely to be used from both arm64 or x86_64 machines - so be sure to adapt to this when possible.
 
 You may review `devcontainer-feature.json` properties [in the spec](https://containers.dev/implementors/features/#devcontainer-feature-json-properties), along with public examples in the [devcontainers/features](https://github.com/devcontainers/features) repo.
 
