@@ -15,23 +15,23 @@ We’ve all had that moment when setting up our development environment – "Oh,
 
 Development containers are a great way to simplify environment set up - they provide a full-featured coding environment with the tools your project needs. They’re configured using an image, Dockerfile, or Docker Compose file and `devcontainer.json`, which is a metadata format used to enrich containers with development specific content and settings.
 
-When creating a dev container, you may encounter the same "I just need one more thing!" – maybe you’re using a Node.js image in your Dockerfile and just need to add Git. Or maybe you need to add something more complex, like working with Docker or Kubernetes from within your dev container. Dev containers are great since anyone accessing your code will have the same, consistent experience with all those tools you added – but what’s the best way to add them?
+When creating dev containers, you may have the same "I just need one more thing!" reaction repeatedly – maybe you’re using a Node.js image in your Dockerfile and just need to add Git. Or maybe you need to add something more complex, like working with Docker or Kubernetes from within your dev container. Dev containers are great since anyone accessing your code will have the same, consistent experience with all those tools you added – but what’s the best way to add them?
 
 What if there was an easy way to install that extra tool in your dev container, simply by mentioning the tool’s name and version? Or what if as a tool user or author, you could create an easy way for others to install it? Sharing manual scripts can help with reuse, but when referencing one, you may forget to reference container or tooling settings, such as enabling ptrace support for Go, Rust, or C++ debugging, adding a specific entry point to fire on container start, or ensuring the right VS Code extensions are included.
 
 We’re happy to share that dev container Features help you smoothly get the tools you need in your dev container!
 
-Features are self-contained units of installation code, designed to install atop a wide-range of base container images. As part of our work on the [open dev container specification](https://containers.dev/), we’ve made some improvements to where you can grab pre-created Features and how you can author and distribute your own.
+Features are self-contained units of installation code, container config, and/or settings and extensions designed to enable new development features in your dev container. They can be built to work with a wide range of base container images. As part of our work on the [open dev container specification](https://containers.dev/), we’ve made some improvements to where you can grab pre-created Features and how you can author and distribute your own.
 
 Let’s see what’s new and how you can get started with Features from any dev container supporting tool or service (like the [VS Code Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://github.com/features/codespaces))!
 
-## Using Features
+## Adding Features to your dev container
 
 Dev Container Features provide a quick way to associate dev container metadata with some install steps. You can add them to your dev containers through a simple reference.
 
 These Features can now be stored as [OCI Artifacts](https://github.com/opencontainers/artifacts) in any supporting container registry, which means you can reference them using the same types of identifiers you would use to reference a container image. We’ve moved some early Features that were in the [vscode-dev-containers](https://github.com/microsoft/vscode-dev-containers/issues/1589) repository into a new [devcontainers/features](https://github.com/devcontainers/features) repository where they are published using this new approach.
 
-Referencing Features from devcontainers/features is as simple as adding a `features` property to your `devcontainer.json`. Each Feature has a `README.md` that shows how to reference the Feature and which options are available for it.
+Referencing different Features from the devcontainers/features repository is as simple as adding a `features` property to your `devcontainer.json`. Each Feature has a `README.md` that shows how to reference the Feature and which options are available for it.
 
 The example below installs the [go](https://github.com/devcontainers/features/tree/main/src/go) and [docker-in-docker](https://github.com/devcontainers/features/tree/main/src/docker-in-docker) Features:
 
@@ -58,7 +58,7 @@ You can even use dev containers with Features from your favorite CI system using
 If you’d like to not only use publicly available Features but also create your own private or public ones to share, continue reading!
 
 ## Authoring
-A great place to get started with creating your own Features is the new [Features template repository](https://github.com/devcontainers/feature-template).  Beyond including a good template for the contents of a given Feature, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for your account to get you up and running as fast as possible. We’ll talk more about publishing in a minute.
+A great place to get started with creating your own Features is the new [Features template repository](https://github.com/devcontainers/feature-template).  Beyond including a good template for the contents of a given Feature, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) (GHCR) for your account to get you up and running as fast as possible. We’ll talk more about publishing in a minute.
 
 The source code of a Feature has two components: An install script (`install.sh`) and a configuration file (`devcontainer-feature.json`).
 
@@ -76,7 +76,7 @@ The source code of a Feature has two components: An install script (`install.sh`
 
 Features can be authored in a variety of languages, the most straightforward being shell scripts. If a Feature is authored in a different language, information about it should be included in the metadata so that users can make an informed choice about it.
 
-> **Note:** You should be that Features you release publicly check and install dependencies in addition to the Feature. Furthermore, public Features are very likely to be used from both arm64 or x86_64 machines - so be sure to adapt to this when possible.
+> **Note:** You should be sure that Features you release publicly check and install dependencies in addition to the Feature. Furthermore, public Features are very likely to be used from both arm64 or x86_64 machines - so be sure to adapt to this when possible.
 
 You may review `devcontainer-feature.json` properties [in the spec](https://containers.dev/implementors/features/#devcontainer-feature-json-properties), along with public examples in the [devcontainers/features](https://github.com/devcontainers/features) repo.
 
