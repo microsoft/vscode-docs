@@ -7,7 +7,7 @@ Date: 2022-09-15
 Author: Brigit Murtaugh
 ---
 
-# Dev Container Features
+# Custom Dev Container Features
 
 September 15, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
