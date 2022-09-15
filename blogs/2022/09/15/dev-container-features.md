@@ -76,7 +76,7 @@ The source code of a Feature has two components: An install script (`install.sh`
 
 Features can be authored in a variety of languages, the most straightforward being shell scripts. If a Feature is authored in a different language, information about it should be included in the metadata so that users can make an informed choice about it.
 
-> **Note:** While the install.sh will run Features in any language, if you wrote a Feature in an interpreted language that wasn't present on the build machine, the code would fail to execute.
+> **Note:** While install.sh will run Features in any language, if you wrote a Feature in an interpreted language that wasn't present in the dev container, the code would fail to execute.
 
 > You should be sure that Features you release publicly check and install dependencies in addition to the Feature.
 
