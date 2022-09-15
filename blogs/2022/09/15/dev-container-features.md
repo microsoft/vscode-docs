@@ -92,7 +92,7 @@ Features are distributed as tarballs. The tarball contains the entire contents o
 
 The [Open Container Initiative](https://opencontainers.org/), aka OCI, defines industry standards for containers and container resources. We treat Features as OCI Artifacts and use the concept of an [OCI Registry](https://containers.dev/implementors/features-distribution/#oci-registry) to distribute Features.
 
-The [Features template repository](https://github.com/devcontainers/feature-template) mentioned above includes a [GitHub Actions workflow](https://github.com/marketplace/actions/dev-container-publish) to automate the publishing process. It packages each feature into a tarball and publishes the assets as an OCI artifact to GHCR. Trigger the `release.yaml` workflow from the template repository by selecting it on the left of the repository’s Actions tab on GitHub. This will publish each feature to GHCR under the `<owner>/<repo>` namespace. A Feature is only republished when the version property in its `devcontainer-feature.json` is updated.
+The [Features template repository](https://github.com/devcontainers/feature-template) mentioned above includes a [GitHub Actions workflow](https://github.com/marketplace/actions/dev-container-publish) to automate the publishing process. It package the Feature into a tarball and publishes the assets as an OCI artifact to GHCR. Trigger the `release.yaml` workflow from the template repository by selecting it on the left of the repository’s Actions tab on GitHub. The GitHub Action will publish the Feature to GHCR under the `<owner>/<repo>` namespace. A Feature is only republished when the version property in its `devcontainer-feature.json` is updated.
 
 > **Note:** One manual step with GHCR is to mark the OCI [package as "public"](https://github.com/devcontainers/feature-template#marking-feature-public). This only has to be done once per Feature. Private features do not require this step and may be accessed as long as you’ve logged into the Docker CLI using the credentials for your registry.
 
@@ -104,8 +104,6 @@ If you'd like your contributions to appear in the [VS Code Remote-Containers](ht
 * Open a PR to modify the [`collection-index.yml`](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml) file
 
 Once merged, your change will appear at [containers.dev/collections](https://containers.dev/collections).
-
-![Feature collections page of containers.dev](./features-collections.png)
 
 ## What if my Feature should only install after another one?
 As a Feature author, you may find that your Feature should install before or after other Features. In your `devcontainer-feature.json`, you may use the `installsAfter` property to list Features that should execute before it.
