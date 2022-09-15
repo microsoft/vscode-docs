@@ -31,7 +31,7 @@ Dev container feature packs provide a quick way to associate dev container metad
 
 Feature packs can now be stored as [OCI Artifacts](https://github.com/opencontainers/artifacts) in any supporting container registry, which means you can reference them using the same types of identifiers you would use to reference a container image. We’ve moved some early feature packs that were in the [vscode-dev-containers](https://github.com/microsoft/vscode-dev-containers/issues/1589) repository into a new [devcontainers/features](https://github.com/devcontainers/features) repository where they are published using this new approach.
 
-Adding different features from the feature packs in the devcontainers/features repository is as simple as adding a `features` property to your `devcontainer.json`. Each feature pack has a `README.md` that shows how to reference its feature and which options are available for it.
+Referencing features from devcontainers/features is as simple as adding a `features` property to your `devcontainer.json`. Each feature pack has a `README.md` that shows how to reference its feature and which options are available for it.
 
 The example below installs the [go](https://github.com/devcontainers/features/tree/main/src/go) and [docker-in-docker](https://github.com/devcontainers/features/tree/main/src/docker-in-docker) feature packs:
 
