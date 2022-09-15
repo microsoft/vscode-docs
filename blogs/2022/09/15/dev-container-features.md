@@ -33,7 +33,7 @@ Feature packs can now be stored as [OCI Artifacts](https://github.com/opencontai
 
 Adding different features from the feature packs in the devcontainers/features repository is as simple as adding a `features` property to your `devcontainer.json`. Each feature pack has a `README.md` that shows how to reference its feature and which options are available for it.
 
-The example below installs the [go](https://github.com/devcontainers/features/tree/main/src/go) and [docker-in-docker](https://github.com/devcontainers/features/tree/main/src/docker-in-docker) features using these feature packs:
+The example below installs the [go](https://github.com/devcontainers/features/tree/main/src/go) and [docker-in-docker](https://github.com/devcontainers/features/tree/main/src/docker-in-docker) feature packs:
 
 ```json
 "name": "my-project-devcontainer",
