@@ -76,7 +76,11 @@ The source code of a Feature has two components: An install script (`install.sh`
 
 Features can be authored in a variety of languages, the most straightforward being shell scripts. If a Feature is authored in a different language, information about it should be included in the metadata so that users can make an informed choice about it.
 
-> **Note:** You should be sure that Features you release publicly check and install dependencies in addition to the Feature. Furthermore, public Features are very likely to be used from both arm64 or x86_64 machines - so be sure to adapt to this when possible.
+> **Note:** While the install.sh will run Features in any language, if you wrote a Feature in an interpreted language that wasn't present on the build machine, the code would fail to execute.
+
+> You should be sure that Features you release publicly check and install dependencies in addition to the Feature.
+
+> Furthermore, public Features are very likely to be used from both arm64 or x86_64 machines - so be sure to adapt to this when possible.
 
 You may review `devcontainer-feature.json` properties [in the spec](https://containers.dev/implementors/features/#devcontainer-feature-json-properties), along with public examples in the [devcontainers/features](https://github.com/devcontainers/features) repo.
 
@@ -105,6 +109,8 @@ Once merged, your change will appear at [containers.dev/collections](https://con
 
 ## What if my Feature should only install after another one?
 As a Feature author, you may find that your Feature should install before or after other Features. In your `devcontainer-feature.json`, you may use the `installsAfter` property to list Features that should execute before it.
+
+> **Note:** We recommend to first creating your Feature without `installsAfter` - the dev container CLI will attempt to intelligently pick an order to execute Features. But in cases where ordering explicitly matters and the CLI won't be able to figure it out, `installsAfter` is a good choice.
 
 As an end user, you may further control the order of execution with the `overrideFeatureInstallOrder` property in your `devcontainer.json`. Any Feature IDs in this array will be installed before all other Features, in the provided order. As an example:
 
