@@ -128,7 +128,7 @@ We’re developing a community distribution plan for dev container templates (ak
 
 This post just touches the surface of what you can do with dev container features, and we’re excited for you to try them out!
 
-As linked throughout the above content, the best spots to learn more about what goes into feature packs and how to distribute them are the [features](https://containers.dev/implementors/features/) and [features distribution](https://containers.dev/implementors/features-distribution/) pages of the dev container spec.
+As linked throughout the above content, the best spots to learn more about what goes into features and how to distribute them are the [features](https://containers.dev/implementors/features/) and [features distribution](https://containers.dev/implementors/features-distribution/) pages of the dev container spec.
 
 We look forward to your feedback as you use, create, and publish feature packs – we’d love to hear how they’re working for you in the [features](https://github.com/devcontainers/spec/issues/61) and [features distribution](https://github.com/devcontainers/spec/issues/70) issue proposals.
 
