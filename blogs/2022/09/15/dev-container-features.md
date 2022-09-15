@@ -51,7 +51,7 @@ The example below installs the [go](https://github.com/devcontainers/features/tr
 
 You can also explore official and publicly contributed Features [on the spec site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (like what you’d see in the [VS Code Remote - Containers extension](https://code.visualstudio.com/docs/remote/containers#_dev-container-features-preview)).
 
-![Spec site list of available Features](./site-feature-list.png)
+![Spec site list of available Features](./features-list-site.png)
 
 You can even use dev containers with Features from your favorite CI system using the [dev container CLI](https://github.com/devcontainers/cli), a GitHub Action, or an Azure DevOps tasks. We have a GitHub Action and Azure DevOps task available in the [devcontainers/ci repo](https://github.com/devcontainers/ci). The dev container CLI, GitHub Action, or Azure DevOps task can also be used to [pre-build images](https://code.visualstudio.com/docs/remote/devcontainer-cli#_prebuilding) that include Feature contents to speed up start times.
 
@@ -98,6 +98,8 @@ If you'd like your contributions to appear in the [VS Code Remote-Containers](ht
 
 * Go to [devcontainers.github.io](https://github.com/devcontainers/devcontainers.github.io) (the GitHub repo backing [containers.dev](https://containers.dev))
 * Open a PR to modify the [`collection-index.yml`](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml) file
+
+Once merged, your change will appear at [containers.dev/collections](https://containers.dev/collections).
 
 ![Feature collections page of containers.dev](./features-collections.png)
 
