@@ -108,8 +108,6 @@ Once merged, your change will appear at [containers.dev/collections](https://con
 ## What if my Feature should only install after another one?
 As a Feature author, you may find that your Feature should install before or after other Features. In your `devcontainer-feature.json`, you may use the `installsAfter` property to list Features that should execute before it.
 
-> **Note:** We recommend to first creating your Feature without `installsAfter` - the dev container CLI will attempt to intelligently pick an order to execute Features. But in cases where ordering explicitly matters and the CLI won't be able to figure it out, `installsAfter` is a good choice.
-
 As an end user, you may further control the order of execution with the `overrideFeatureInstallOrder` property in your `devcontainer.json`. Any Feature IDs in this array will be installed before all other Features, in the provided order. As an example:
 
 ```json
@@ -121,6 +119,13 @@ As an end user, you may further control the order of execution with the `overrid
     "ghcr.io/devcontainers/features/node"
   ]
 ```
+
+By default, Features are installed on top of a base image in an order determined as optimal by the implementing tool.
+
+If any of the following properties are provided in the Feature’s `devcontainer-feature.json`, or the user’s `devcontainer.json`, the order indicated by these propert(ies) are respected (with decreasing precedence).
+
+1. The `overrideFeatureInstallOrder` property in user's `devcontainer.json`. Allows users to control the order of execution of their Features.
+2. The `installsAfter` property defined as part of a Feature's `devcontainer-feature.json`.
 
 You may read more about Feature execution and installation order [in the spec](https://containers.dev/implementors/features/#execution).
 
