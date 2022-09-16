@@ -161,7 +161,7 @@ Rather than referencing an image directly in `devcontainer.json` or installing s
 
 ## Dockerfile
 
-A Dockerfile will also live in the `.devcontainer` folder. You can replace the `image` property in `devcontainer.json` with `dockerFile`:
+A Dockerfile will also live in the `.devcontainer` folder. You can replace the `image` property in `devcontainer.json` with `dockerfile`:
 
 ```json
 {
