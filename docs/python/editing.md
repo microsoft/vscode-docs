@@ -65,9 +65,6 @@ For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense
 
 ### Troubleshooting IntelliSense
 
-Or maybe you may want to exclude some subfolders from Pylance's analysis  when working on large projects to improve performance, which can be done through the `python.analysis.exclude` setting (or pehaps even disable Pylance's indexing engine completely through the `python.analysis.indexing` setting).
-
-
 For autocomplete and IntelliSense issues related to custom modules, check the following causes:
 
 | Cause | Solution |
