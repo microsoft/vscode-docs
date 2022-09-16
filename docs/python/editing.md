@@ -16,15 +16,24 @@ In this overview, we will describe the specific editing features provided by the
 
 ## Autocomplete and IntelliSense
 
-IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of options when they begin to type the variable named, **greeting**.
+IntelliSense is a general term for code editing features that relate to code completion. Take a moment to look at the example below. When **print** is typed, notice how IntelliSense populates auto-completion options. The user is also given a list of options when they begin to type the variable named **greeting**.
 
 ![Hello World Example for IntelliSense](images/editing/hello-world.gif)
 
 Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
+### Auto Imports
+
+ Pylance offers auto import suggestions for modules on your workspace and/or packages you have installed on your environment. This enables import statements to be conviniently added automatically as you're typing.
+
+ By default, only top-level symbols/packages are suggested, but you can customize this behavior through the `python.analysis.packageIndexDepths` setting. See the section below on "Customize IntelliSense behavior" to learn more about IntelliSense controls.
+
+
 ### Customize IntelliSense behavior
 
-To customize the behavior of the analysis engine, see the Python extension [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
+Because enabling the full set of IntelliSense features by default could end up making your development experience feel slower, we enable a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behaviour of the analysis engine to your liking through multiple settings.
+
+For the full list of available IntelliSense controls, you can reference the Python extension [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
 
 You can also customize the general behavior of autocomplete and IntelliSense, even to disable these VS Code features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
@@ -56,10 +65,14 @@ For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense
 
 ### Troubleshooting IntelliSense
 
-If autocomplete and IntelliSense aren't working for a custom module, check the following causes:
+Or maybe you may want to exclude some subfolders from Pylance's analysis  when working on large projects to improve performance, which can be done through the `python.analysis.exclude` setting (or pehaps even disable Pylance's indexing engine completely through the `python.analysis.indexing` setting).
+
+
+For autocomplete and IntelliSense issues related to custom modules, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
+| Pylance seems slow or consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their path to the `python.analysis.exclude` setting to see if performance improvets. Alternatively, you can try setting  `python.analysis.indexing` to `false` to disable Pylance's indexer  (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
 | The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
@@ -77,8 +90,7 @@ While editing, you can right-click different identifiers to take advantage of se
 
 ## Quick Fixes
 
-The add imports Quick Fix allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports. **Note:** The functionality in the below examples is provided by the Pylance language server.
-
+The add imports Quick Fix when using Pylance allows you to quickly complete import statements. First, begin by typing a package name within the editor. You will notice a Code Action is available to automatically complete the line of source code (as long as you have the module installed within the environment). Hover over the text (marked with a squiggle) and then select the Code Action light bulb when it appears. You can then select from a list of potential imports.
 ![Adding an import](images/editing/quickFix.gif)
 
 The add imports Code Action also recognizes some of the popular abbreviations for the following common Python packages: `numpy` as np, `tensorflow` as tf, `pandas` as pd, `matplotlib.pyplot` as plt, `matplotlib`, as mpl, `math` as m, `scipi.io` as spio, and `scipy` as sp, `panel` as pn, and `holoviews` as hv.
@@ -86,6 +98,8 @@ The add imports Code Action also recognizes some of the popular abbreviations fo
 ![Common package abbreviations](images/editing/packageAbbreviations.gif)
 
 The import suggestions list is ordered with import statements for packages (or modules) at the top. It will also include statements for more modules and/or members (classes, objects, etc.) from specified packages.
+
+Just like with auto imports, only top-levels symbols are suggested by default. You can customize this behavior through the `python.analysis.packageIndexDepths` setting.
 
 ## Run Selection/Line in Terminal (REPL)
 
