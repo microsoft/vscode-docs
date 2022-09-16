@@ -65,7 +65,7 @@ For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense
 
 ### Troubleshooting IntelliSense
 
-For autocomplete and IntelliSense issues related to custom modules, check the following causes:
+For autocomplete and IntelliSense issues, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
