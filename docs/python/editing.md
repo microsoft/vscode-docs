@@ -69,7 +69,8 @@ For autocomplete and IntelliSense issues, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
-| Pylance seems slow or consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their path to the `python.analysis.exclude` setting to see if performance improvets. Alternatively, you can try setting  `python.analysis.indexing` to `false` to disable Pylance's indexer  (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
+| Pylance seems slow or consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their path to the `python.analysis.exclude` setting to see if performance improves. Alternatively, you can try setting  `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
+| Pylance is only offering top-level symbol options when adding imports. | Try increase the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings).     |
 | The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
