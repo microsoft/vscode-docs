@@ -251,7 +251,7 @@ A neural network is a model that uses weights and activation functions, modeling
    print(metrics.accuracy_score(y_test, y_pred))
    ```
 
-   ![Evaluate the neural network]()
+   ![Evaluate the neural network](images/data-science-tutorial/jupyter-cell-08.png)
 
    Similar to the training, you'll notice that you now have 79% accuracy in predicting survival of passengers. Using this simple neural network, the result is better than the 75% accuracy from the Naive Bayes Classifier tried previously.
 
