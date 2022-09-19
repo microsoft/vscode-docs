@@ -36,7 +36,7 @@ Both of these files support a subset of `devcontainer.json` properties:
 
     // Set *default* container specific settings.json values on container create.
     "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.defaultProfile.linux": "bash"
     },
 
     // Add the IDs of extensions you want installed when the container is created.
