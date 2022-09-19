@@ -131,7 +131,7 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
+                "terminal.integrated.defaultProfile.linux": "bash"
             },
 
             "extensions": [
