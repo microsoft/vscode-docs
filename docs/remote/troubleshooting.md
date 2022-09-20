@@ -910,12 +910,11 @@ To get even more verbose logging, enable the setting `remote.WSL.debug` in the u
 
 You can help us investigate this problem by sending us the core dump file. To get the core dump file, follow these steps:
 
-In a Windows command prompt:
-
-* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
+* Open a Windows command prompt,
+* run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
 * `cd` to the path that is returned.
 * Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
-* On the 3rd last line (before `export VSCODE_AGENT_FOLDER="$HOME/$DATAFOLDER"`), add
+* Before the last line (before `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"`), add
 `ulimit -C unlimited`.
 * Start the Remote-WSL window running the remote server and wait for the segmentation fault.
 
