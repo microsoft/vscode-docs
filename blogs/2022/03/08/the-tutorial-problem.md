@@ -17,7 +17,7 @@ As it turns out making a great tutorial isn't about **what** you write, it's abo
 
 ## Nobody reads
 
-Our very own tutorial on [how to use Remote Containers in Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
+Our very own tutorial on [how to use Remote Containers in Visual Studio Code](https://learn.microsoft.com/training/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
 
 ![dev containers learn module screenshot](dev-containers-tutorial-screenshot.png)
 
@@ -136,7 +136,7 @@ For VS Code and Laravel, extensions are suggested in the `devcontainer.json`, bu
 
 ## Read less, do more
 
-People don't read. And that should be OK. Laravel's tutorials aren't necessarily shorter than any others, but the important thing is that if you skip to the code and just run the commands, it works. Dev containers make that possible. Now if only we could figure out how to make a dev container for our own [Use a Docker container as a development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/use-docker-container-dev-env-vs-code/) tutorial...
+People don't read. And that should be OK. Laravel's tutorials aren't necessarily shorter than any others, but the important thing is that if you skip to the code and just run the commands, it works. Dev containers make that possible. Now if only we could figure out how to make a dev container for our own [Use a Docker container as a development environment with Visual Studio Code](https://learn.microsoft.com/training/modules/use-docker-container-dev-env-vs-code/) tutorial...
 
 Happy Coding!
 

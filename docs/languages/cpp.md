@@ -170,7 +170,7 @@ You can find more documentation on using the Microsoft C/C++ extension under the
 
 ## Remote Development
 
-VS Code and the C++ extension support [Remote Development](/docs/remote/remote-overview.md) allowing you to work over SSH on a remote machine or VM, inside a Docker container, or in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl) (WSL).
+VS Code and the C++ extension support [Remote Development](/docs/remote/remote-overview.md) allowing you to work over SSH on a remote machine or VM, inside a Docker container, or in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL).
 
 To install support for Remote Development:
 

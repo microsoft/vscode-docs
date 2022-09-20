@@ -23,10 +23,10 @@ If you are interested in a specific Azure service, you can also directly search 
 
 ## Deployment tutorials
 
-The following tutorials below walk you through the details.  You can also check the [Java Azure Developer's Center](https://docs.microsoft.com/azure/java) for all things on Azure for Java developers.
+The following tutorials below walk you through the details.  You can also check the [Java Azure Developer's Center](https://learn.microsoft.com/azure/java) for all things on Azure for Java developers.
 
 | Tutorial | Description |
 | --- | --- |
 | [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. |
 | [Deploy Spring Microservices to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a web app using the [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. |
-| [Create an Azure Functions project using Visual Studio Code](https://docs.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |
+| [Create an Azure Functions project using Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |

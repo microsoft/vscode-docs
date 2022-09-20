@@ -82,7 +82,7 @@ Failure in the gating module will prevent an index ingestion and notifies the te
 
 ### Search Service
 
-Finally, at runtime, the query from our users hits the [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) service that selects one of our geo-replicated servers to handle the query, based on its physical proximity or current load. The Search Service hosted at that location retrieves the relevant results with a lookup in the index, applies manual ranking overrides in some cases, and returns them to the VS Code client.
+Finally, at runtime, the query from our users hits the [Azure Load Balancer](https://learn.microsoft.com/azure/load-balancer/load-balancer-overview) service that selects one of our geo-replicated servers to handle the query, based on its physical proximity or current load. The Search Service hosted at that location retrieves the relevant results with a lookup in the index, applies manual ranking overrides in some cases, and returns them to the VS Code client.
 
 ## Putting it all together
 

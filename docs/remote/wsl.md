@@ -9,7 +9,7 @@ DateApproved: 9/1/2022
 ---
 # Developing in WSL
 
-The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux-specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
+The **Visual Studio Code Remote - WSL** extension lets you use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl) as your full-time development environment right from VS Code. You can develop in a Linux-based environment, use Linux-specific toolchains and utilities, and run and debug your Linux-based applications all from the comfort of Windows.
 
 The extension runs commands and other extensions directly in WSL so you can edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`) without worrying about pathing issues, binary compatibility, or other cross-OS challenges.
 
@@ -25,7 +25,7 @@ This lets VS Code provide a **local-quality development experience** — includi
 
 To get started, you need to:
 
-1. Install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) along with your preferred Linux distribution.
+1. Install the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) along with your preferred Linux distribution.
 
     > **Note:** WSL 1 does have some [known limitations](#known-limitations) for certain types of development. Also, extensions installed in Alpine Linux may not work due to `glibc` dependencies in native source code inside the extension. See the [Remote Development and Linux](https://aka.ms/vscode-remote/linux) article for details.
 
@@ -183,7 +183,7 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 
 For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
-[WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
+[WSL 2](https://learn.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
 
 ### Golang in WSL 1
 
@@ -219,7 +219,7 @@ In addition, some extensions installed in an WSL when using an Alpine Linux-base
 
 When using **Remote-WSL: New Window using Distro** and running on WSL older than Windows 10, May 2019 Update (version 1903) you will be asked to switch the **default distribution** as the WSL command can only work on the default distro as it does not support the `-d` option yet.
 
-You can always manually switch the default distro by using [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config).
+You can always manually switch the default distro by using [wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config).
 
 For example:
 
@@ -247,7 +247,7 @@ The Remote - WSL extension and VS Code Server require outbound HTTPS (port 443) 
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+Some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 All other communication between the server and the VS Code client is accomplished through an random local TCP port. You can find a list of locations VS Code itself needs access to in the [network connections article](/docs/setup/network.md#common-hostnames).
 

@@ -18,10 +18,10 @@ Get a glimpse into the Python programming language with this introductory learni
 
 <div class="module">
     <div class="info">
-        <a href="https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa"><h2 class="title faux-h3">Use basketball stats to optimize game play with Visual Studio Code</h2></a>
+        <a href="https://learn.microsoft.com/training/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa"><h2 class="title faux-h3">Use basketball stats to optimize game play with Visual Studio Code</h2></a>
     </div>
     <p class="description">Analyze basketball stats and create an app in this learning path inspired by the film "Space Jam: A New Legacy."</p>
-    <a href="https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa" title="Space Jam module">
+    <a href="https://learn.microsoft.com/training/paths/optimize-basketball-games-with-machine-learning/?WT.mc_id=LearnDrG-c9-niner&WT.mc_id=SpaceJam_Learn_-all-cxa" title="Space Jam module">
         <img src="/assets/learn/students/spacejam-python/spacejam-python.png" aria-hidden="true" class="thumb"/>
     </a>
 </div><br/>

@@ -11,7 +11,7 @@ MetaDescription: Learn to use development in the Windows Subsystem for Linux (WS
 
 ## What is WSL?
 
-The [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) lets you run a Linux environment, including command-line tools and applications, directly on Windows, without the overhead of a traditional virtual machine or dual boot setup.
+The [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) lets you run a Linux environment, including command-line tools and applications, directly on Windows, without the overhead of a traditional virtual machine or dual boot setup.
 
 WSL especially helps web developers and those working with Bash and Linux-first tools (for example, Ruby and Python) to use their tools on Windows and ensure consistency between development and production environments.
 
@@ -21,7 +21,7 @@ To get started with using WSL in VS Code, you'll need to download the [Remote - 
 
 ![Remote WSL extension](images/wsl/remote-wsl.png)
 
-You'll also need WSL and a Linux distribution installed. We recommend using WSL 2, which is the newest version of WSL, as you will benefit from significant [performance advantages](https://docs.microsoft.com/windows/wsl/compare-versions) over WSL 1.
+You'll also need WSL and a Linux distribution installed. We recommend using WSL 2, which is the newest version of WSL, as you will benefit from significant [performance advantages](https://learn.microsoft.com/windows/wsl/compare-versions) over WSL 1.
 
 Check out Remote - WSL in action:
 

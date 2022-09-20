@@ -171,7 +171,7 @@ sudo update-alternatives --install /usr/bin/editor editor $(which code) 10
 
 ## Windows as a Linux developer machine
 
-Another option for Linux development with VS Code is to use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) (WSL).
+Another option for Linux development with VS Code is to use a Windows machine with the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL).
 
 ### Windows Subsystem for Linux
 

@@ -10,4 +10,4 @@ MetaDescription: Learn how to use Bridge to Kubernetes.
 
 # Develop with Kubernetes
 
-This page is redirected to https://docs.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs-code and only exists to keep the "Develop with Kubernetes" TOC item.
+This page is redirected to https://learn.microsoft.com/visualstudio/bridge/bridge-to-kubernetes-vs-code and only exists to keep the "Develop with Kubernetes" TOC item.

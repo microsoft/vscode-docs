@@ -13,14 +13,14 @@ A container registry is a storage and content delivery system, holding named Doc
 
 Users can connect to Docker registries from the following sources:
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)
+- [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/)
 - [Docker Hub](https://hub.docker.com/)
 - [GitLab](https://gitlab.com/) container registry
 - Any generic private registry that supports the [Docker V2 api](https://docs.docker.com/registry/spec/api/)
 
 ## Push an image to a container registry
 
-Before you can deploy a Docker image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to DockerHub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
+Before you can deploy a Docker image, the image must be uploaded to a container registry. The image can be uploaded to [Docker Hub](https://hub.docker.com/), [Azure Container Registry (ACR)](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-portal) or another registry. You can follow the same steps to push the image regardless of whether you're pushing to DockerHub, Azure Container Registries, or any other registry. If you don't already have an Azure Container Registry, you can create one during the **Push** step.
 
 1. Open the Docker Explorer and select **Connect Registry...** icon under **Registries** group and follow the prompt. Choose the provider (for example, Azure or Docker Hub) and provide the credential to connect to the registry. If prompted, install the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension.
 

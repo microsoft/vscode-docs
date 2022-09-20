@@ -119,6 +119,6 @@ The extension pack contains:
 
 ## Free lesson: Build a Node.js app for Azure Cosmos DB
 
-Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js. View full details of the lessons at [Build a Node.js app for Azure Cosmos DB](https://docs.microsoft.com/learn/modules/build-node-cosmos-app-vscode).
+Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js. View full details of the lessons at [Build a Node.js app for Azure Cosmos DB](https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode).
 
-[![Build a Node.js app for Azure Cosmos DB](images/nodejs/learn-build-node-app.png)](https://docs.microsoft.com/learn/modules/build-node-cosmos-app-vscode)
+[![Build a Node.js app for Azure Cosmos DB](images/nodejs/learn-build-node-app.png)](https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode)

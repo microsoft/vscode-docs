@@ -42,7 +42,7 @@ We want collaboration to become simpler and more natural for everyone so that ad
 
   ![VSLS configuration file](vsls.json.png)
 
-These enhancements represent some of our most [frequently requested](https://github.com/MicrosoftDocs/live-share/issues/52) items so you can collaborate with confidence, without adding unnecessary friction. For more information on how to share your projects securely, refer to the [Live Share documentation](https://docs.microsoft.com/visualstudio/liveshare/reference/security).
+These enhancements represent some of our most [frequently requested](https://github.com/MicrosoftDocs/live-share/issues/52) items so you can collaborate with confidence, without adding unnecessary friction. For more information on how to share your projects securely, refer to the [Live Share documentation](https://learn.microsoft.com/visualstudio/liveshare/reference/security).
 
 ## We need your feedback!
 

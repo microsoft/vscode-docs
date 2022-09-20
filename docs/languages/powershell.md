@@ -235,8 +235,8 @@ written by [@keithHill][32] on debugging with the PowerShell extension:
 - [Debugging PowerShell script in Visual Studio Code - Part 2][34]
 
 <!-- link references -->
-[1]: https://docs.microsoft.com/powershell/
-[2]: https://docs.microsoft.com/dotnet
+[1]: https://learn.microsoft.com/powershell/
+[2]: https://learn.microsoft.com/dotnet
 [3]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell
 [4]: vscode:extension/ms-vscode.PowerShell
 [5]: vscode:extension/ms-vscode.PowerShell-Preview
@@ -244,13 +244,13 @@ written by [@keithHill][32] on debugging with the PowerShell extension:
 [7]: images/powershell/PowerShellExtension.png
 [8]: /insiders
 [9]: /docs/editor/debugging.md
-[10]: https://docs.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode#debugging-with-visual-studio-code
-[11]: https://docs.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension
+[10]: https://learn.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode#debugging-with-visual-studio-code
+[11]: https://learn.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension
 [12]: https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/changelog
 [13]: images/powershell/pesterCodeLens.png
 [14]: images/powershell/codeLensPesterSymbol.gif
 [15]: images/powershell/codeLensFuncRef.gif
-[16]: https://docs.microsoft.com/powershell/utility-modules/psscriptanalyzer/overview
+[16]: https://learn.microsoft.com/powershell/utility-modules/psscriptanalyzer/overview
 [17]: images/powershell/pssaExtensionSetting.png
 [18]: https://pester.dev/
 [19]: https://pester.dev/docs/introduction/installation
@@ -259,11 +259,11 @@ written by [@keithHill][32] on debugging with the PowerShell extension:
 [23]: /docs/getstarted/settings.md
 [24]: images/powershell/codeGear.png
 [25]: /docs/getstarted/settings.md
-[26]: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml
-[27]: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml
+[26]: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_types.ps1xml
+[27]: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_format.ps1xml
 [28]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 [29]: images/powershell/pwshExamples.png
-[30]: https://docs.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode
+[30]: https://learn.microsoft.com/powershell/scripting/dev-cross-plat/vscode/using-vscode
 [31]: https://github.com/PowerShell/vscode-powershell/blob/main/docs/troubleshooting.md#troubleshooting-powershell-extension-issues
 [32]: https://twitter.com/r_keith_hill
 [33]: https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/

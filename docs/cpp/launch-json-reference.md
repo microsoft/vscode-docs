@@ -60,7 +60,7 @@ Optional flags to determine what types of messages should be logged to the Debug
 
 ### visualizerFile
 
-`.natvis` file to be used when debugging. See [Create custom views of native objects](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) for information on how to create Natvis files.
+`.natvis` file to be used when debugging. See [Create custom views of native objects](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) for information on how to create Natvis files.
 
 ### showDisplayString
 

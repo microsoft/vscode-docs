@@ -13,7 +13,7 @@ In this video, we walk you through installing Visual Studio Code extensions.
 
 <iframe src="https://www.youtube-nocookie.com/embed/SKcZ3cwX8lA" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Unlock the power of VS Code's extensions"></iframe>
 
-Next video: [Personalize Visual Studio Code](/learn/get-started/personalize.md)
+Next video: [Personalize Visual Studio Code](/training/get-started/personalize.md)
 
 ## Outline
 
@@ -24,7 +24,7 @@ Next video: [Personalize Visual Studio Code](/learn/get-started/personalize.md)
 
 ## Next video
 
-* [Personalize Visual Studio Code](/learn/get-started/personalize.md) - Make VS Code yours with custom themes and colors
+* [Personalize Visual Studio Code](/training/get-started/personalize.md) - Make VS Code yours with custom themes and colors
 
 ## Learn more
 
