@@ -253,7 +253,7 @@ Learn more at:
 
 * [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md) - Learn how extension authors can support Workspace Trust.
 * [What is a VS Code "workspace"?](/docs/editor/workspaces.md) - Find out more details about the VS Code "workspace" concept.
-* [GitHub Repositories extension](/docs/editor/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
+* [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
 
 ## Common questions
 

@@ -41,7 +41,7 @@ In this video, you'll see how GitHub is used when building a project. After comp
 
 [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
-With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/editor/github.md).
+With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/sourcecontrol/github.md).
 
 <iframe src="https://www.youtube-nocookie.com/embed/T6sW1Dk9B4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="What every GitHub user should know about VS Code"></iframe>
 

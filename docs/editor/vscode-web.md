@@ -41,7 +41,7 @@ If you're already in VS Code for the Web at [https://vscode.dev](https://vscod
 
 GitHub Repositories is the core component that provides the ability to remotely browse and edit a repository from within the editor.
 
-Rather than cloning your work, GitHub Repositories creates a virtual file system to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/editor/github.md#github-repositories-extension) guide.
+Rather than cloning your work, GitHub Repositories creates a virtual file system to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
 
 >**Note**: The GitHub Repositories extension works in VS Code desktop as well to provide fast repository browsing and editing.
 

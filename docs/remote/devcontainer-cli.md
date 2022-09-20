@@ -136,7 +136,7 @@ The `devcontainer build` command allows you to quickly build a dev container ima
 
 For example, you may want to pre-build a number of images that you then reuse across multiple projects or repositories. To do so, follow these steps:
 
-1. [Create](/docs/editor/versioncontrol.md#initialize-a-repository) a source code repository.
+1. [Create](/docs/sourcecontrol/overview.md#initialize-a-repository) a source code repository.
 
 1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/remote/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
 

@@ -184,7 +184,7 @@ Once our container is built, we have all the same files, but now the bottom-left
 
 Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a `README`, as well as any base or template code needed for the assignment, and a `.devcontainer` folder so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
 
-Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
+Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](/docs/sourcecontrol/overview.md#initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
 
 The next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
 
