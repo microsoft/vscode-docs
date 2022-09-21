@@ -49,7 +49,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
    * Open a terminal/command prompt and navigate to the folder in which you'd like to create the app.
    * Enter the following command in the command shell:
 
-   ```cmd
+   ```bat
      dotnet new console
    ```
 
@@ -60,7 +60,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
 
 3. Run the app by entering the following command in the command shell:
 
-   ```cmd
+   ```bat
    dotnet run
    ```
 
@@ -71,19 +71,19 @@ If you download the extensions separately, ensure that you also have the .NET SD
    * Open a terminal/command prompt and navigate to the folder in which you'd like to create the app.
    * Enter the following command in the command shell:
 
-   ```cmd
+   ```bat
    dotnet new console -lang "F#"
    ```
 
 2. Once it completes, open the project in Visual Studio Code:
 
-   ```cmd
+   ```bat
    code .
    ```
 
 3. Run the app by entering the following command in the command shell:
 
-   ```cmd
+   ```bat
     dotnet run
    ```
 

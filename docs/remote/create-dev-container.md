@@ -474,7 +474,7 @@ In the Settings editor:
 
 Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub folder that mirrors the remote location of the repository. For example, if you wanted to create a configuration for `github.com/microsoft/vscode-dev-containers`, you would create the following folder structure:
 
-```text
+```
 📁 github.com
     📁 microsoft
         📁 vscode-dev-containers

@@ -202,7 +202,7 @@ A fix has been merged so this problem should be resolved in a version of the ser
 
 Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the **Remote - SSH** category in the output window and check for the following message:
 
-```text
+```
 open failed: administratively prohibited: open failed
 ```
 
@@ -699,7 +699,7 @@ docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}
 
 When building containers that use images based on Debian 8/Jessie — such as older versions of the `node:8` image — you may encounter the following error:
 
-```text
+```
 ...
 W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease  Unable to find expected entry 'main/binary-amd64/Packages' in Release file (Wrong sources.list entry or malformed file)
 E: Some index files failed to download. They have been ignored, or old ones used instead.

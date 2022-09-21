@@ -50,7 +50,7 @@ sudo apt-get install build-essential gdb
 
 From the terminal window, create an empty folder called `projects` to store your VS Code projects. Then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-```cmd
+```bash
 mkdir projects
 cd projects
 mkdir helloworld

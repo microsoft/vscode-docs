@@ -42,7 +42,7 @@ First, make sure Docker CLI is installed into your development container. The ex
 
 Here is an example for Ubuntu-based distros (from a `.devcontainer/Dockerfile`):
 
-```cli
+```sh
     ...
     && apt-get -y install software-properties-common \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 2>/dev/null \

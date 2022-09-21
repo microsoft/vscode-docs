@@ -63,7 +63,7 @@ The Docker extension helps you author Dockerfiles by using [IntelliSense](/docs/
 1. Open a terminal (`kb(workbench.action.terminal.toggleTerminal)`).
 1. Enter `npm run start` to start the application:
 
-   ```output
+   ```
    > express-app@0.0.0 start /Users/user/code/scratch/express-app
    > node ./bin/www
    ```
