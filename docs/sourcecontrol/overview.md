@@ -7,7 +7,7 @@ PageTitle: Source Control with Git in Visual Studio Code
 DateApproved: 9/1/2022
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
-# Using Source Control with Git in VS Code
+# Using Git source control in VS Code
 
 Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
 
@@ -19,7 +19,7 @@ Visual Studio Code has integrated source control management (SCM) and includes [
 
 ![Overview of Git](images/overview/overview.png)
 
->**Make sure Git is installed.** VS Code will leverage your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
+>**Make sure Git is installed.** VS Code will use your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
 
 The Source Control icon in the Activity Bar on the left will always indicate an **overview of how many changes** you currently have in your repository. Selecting the icon will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -85,7 +85,7 @@ The **Git: Create Branch** command lets you quickly create a new branch. Just pr
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull**, and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **Views and More Actions** `...` menu, along with the option to **add or remove a remote**.
 
-VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. Starting with VS Code 1.19, this feature is disabled by default and you can use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
+VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. This feature is disabled by default and you can use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
 
 >**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
 
@@ -157,7 +157,7 @@ If your workspace is on your local machine, you can enable Git source control by
 
 ![Git initialize repository](images/overview/initialize-repository.png)
 
-You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between a private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
+You can also run the **Git: Initialize Repository** and **Publish to GitHub** commands from the **Command Palette** (`kb(workbench.action.showCommands)`). Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged. **Publish to GitHub** will directly publish your workspace folder to a GitHub repository, allowing you to choose between private and public repositories. Check out our [publishing repos](https://www.youtube.com/watch?v=3BBvBwDW4CY) video for more information about publishing to GitHub.
 
 ## VS Code as Git editor
 
@@ -169,14 +169,14 @@ Here are the steps to do so:
     * if you do not see help, please follow these steps:
         * macOS: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
         * Windows: Make sure you selected **Add to PATH** during the installation.
-        * Linux: Make sure you installed Code via our new .deb or .rpm packages.
+        * Linux: Make sure you installed Code via our new `.deb` or `.rpm` packages.
 2. From the command line, run `git config --global core.editor "code --wait"`
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
 ### VS Code as Git difftool and mergetool
 
-You can use VS Code's amazing diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
+You can use VS Code's diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
 
 ```bash
 [diff]
@@ -189,7 +189,7 @@ You can use VS Code's amazing diff and merge capabilities even when using Git fr
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 ```
 
-This leverages the `--diff` option you can pass to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
+This uses the `--diff` option that can be passed to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
 
 To summarize, here are some examples of where you can use VS Code as the editor:
 

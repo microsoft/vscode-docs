@@ -114,7 +114,7 @@ Remember, Python is installed in the Linux distro, which means if you're editing
 
 ## Run in WSL
 
-In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder. If you use the Insiders version of VS Code, you will have to run `'code-insiders .'` instead.
+In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder. If you use the [Insiders](/insiders) version of VS Code, you will have to run `'code-insiders .'` instead.
 
 > **Note:** If this command does not work, you may need to restart your terminal, or you may not have added VS Code to your path when it was installed.
 
