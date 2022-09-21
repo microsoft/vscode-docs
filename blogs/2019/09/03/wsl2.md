@@ -18,13 +18,13 @@ It's been a couple of months since the initial betas for the [Windows Subsystem 
 
 The first version implemented system calls natively on Windows. System calls are essentially functions provided by the kernel, which means that only the calls that were implemented were supported in the WSL environment. You may have noticed this if you used early versions of WSL and found libraries and tools that were attempting to access system calls that hadn't been implemented (for example, the [Go debugger](https://github.com/microsoft/WSL/issues/2977)). While incremental improvements were made to add support for more functions, WSL 2 takes a completely different approach to this by shipping a lightweight virtual machine with a **complete** Linux kernel.
 
-That's right, [WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-about) now ships a VM, but it's not the experience you might expect from a VM. Where traditional VMs may be slow to start and feel isolated, WSL 2 is just as seamless as the previous version. Expect high levels of integration between Windows and Linux, extremely fast boot times, a small resource footprint, and absolutely no VM configuration or management.
+That's right, [WSL 2](https://learn.microsoft.com/windows/wsl/wsl2-about) now ships a VM, but it's not the experience you might expect from a VM. Where traditional VMs may be slow to start and feel isolated, WSL 2 is just as seamless as the previous version. Expect high levels of integration between Windows and Linux, extremely fast boot times, a small resource footprint, and absolutely no VM configuration or management.
 
 All of this translates to increased IO performance – up to 20x faster compared to WSL 1 - and full system call capability. Your modules will install quicker, your repositories will clone quicker, and your favorite libraries will work reliably. The increase in performance means you can also run alternate shells such as Zsh and even use your favorite Node.js version management utility.
 
 ## WSL 2 and Visual Studio Code
 
-If you're following along, make sure you've opted into Windows Insiders builds and enabled WSL 2. You can learn more about how to get started in the [Installation instructions for WSL 2](https://docs.microsoft.com/windows/wsl/install).
+If you're following along, make sure you've opted into Windows Insiders builds and enabled WSL 2. You can learn more about how to get started in the [Installation instructions for WSL 2](https://learn.microsoft.com/windows/wsl/install).
 
 You'll also need to install [Visual Studio Code](https://code.visualstudio.com/download) and the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Optionally, check out the [beta Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701) for the best possible terminal experience on Windows.
 

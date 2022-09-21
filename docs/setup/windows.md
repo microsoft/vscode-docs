@@ -39,7 +39,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Windows Subsystem for Linux
 
-Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) (WSL) and the new Windows Terminal.
+Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and the new Windows Terminal.
 
 ### Recent Windows build
 

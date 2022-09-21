@@ -9,7 +9,7 @@ MetaDescription: Get started writing and debugging .NET apps with Visual Studio 
 ---
 # Using .NET in Visual Studio Code
 
-[.NET](https://dotnet.microsoft.com) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://docs.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
+[.NET](https://dotnet.microsoft.com) provides a fast and modular platform for creating many different types of applications that run on Windows, Linux, and macOS. Use Visual Studio Code with the C# and F# extensions to get a powerful editing experience with [C# IntelliSense](https://learn.microsoft.com/visualstudio/ide/visual-csharp-intellisense), F# IntelliSense (smart code completion), and debugging.
 
 ## Setting up VS Code for .NET development
 
@@ -89,11 +89,11 @@ If you download the extensions separately, ensure that you also have the .NET SD
 
 ## Next steps
 
-* Continue exploring C# development: [Debug with VS Code and .NET](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
+* Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt, and Jake.  Showing Errors and Warnings
-* [.NET Docs](https://docs.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.
+* [.NET Docs](https://learn.microsoft.com/dotnet) - Visit the .NET docs for more information on this powerful cross-platform development solution.
 * [Deploying Applications to Azure](/docs/azure/deployment.md) - Deploy your app to [Azure](https://azure.microsoft.com).
-* [Get Started with F# in Visual Studio Code](https://docs.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)
+* [Get Started with F# in Visual Studio Code](https://learn.microsoft.com/dotnet/fsharp/get-started/get-started-vscode)
