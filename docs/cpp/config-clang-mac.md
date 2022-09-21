@@ -43,7 +43,7 @@ xcode-select --install
 
 From the macOS Terminal, create an empty folder called `projects` where you can store all your VS Code projects, then create a subfolder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-```cmd
+```bash
 mkdir projects
 cd projects
 mkdir helloworld

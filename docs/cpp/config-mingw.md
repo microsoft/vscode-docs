@@ -56,7 +56,7 @@ gdb --version
 
 From a Windows command prompt, create an empty folder called `projects` where you can place all your VS Code projects. Then create a sub-folder called `helloworld`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-```cmd
+```bat
 mkdir projects
 cd projects
 mkdir helloworld

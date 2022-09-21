@@ -77,7 +77,7 @@ To verify that you've installed Python successfully on your machine, run one of 
 
 - Windows: open a command prompt and run the following command:
 
-    ```ps
+    ```bat
     py -3 --version
     ```
 
@@ -256,7 +256,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
    **Virtual environment creation for Windows**
 
-   ```cmd
+   ```bat
    py -3 -m venv .venv
    .venv\scripts\activate
    ```
@@ -265,7 +265,7 @@ A best practice among Python developers is to avoid installing packages into a g
    current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
    run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
 
-   ```cmd
+   ```pwsh
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
 

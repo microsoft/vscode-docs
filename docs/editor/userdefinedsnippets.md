@@ -303,7 +303,7 @@ To have a variable in the pasted script, you need to escape the '$' of the `$var
 
 This results in the pasted snippet as:
 
-```text
+```
 $MyVar = 2
 ```
 

@@ -143,7 +143,7 @@ Finally, you'll be asked to pick a config file to use. You can also set the `"re
 
 For example, entering `ssh -i ~/.ssh/id_rsa-remote-ssh yourname@remotehost.yourcompany.com` in the input box would generate this entry:
 
-```text
+```sshconfig
 Host remotehost.yourcompany.com
     User yourname
     HostName another-host-fqdn-or-ip-goes-here
@@ -244,7 +244,7 @@ If you have ports that you **always want to forward**, you can use the `LocalFor
 
 For example, if you wanted to forward ports 3000 and 27017, you could update the file as follows:
 
-```text
+```sshconfig
 Host remote-linux-machine
     User myuser
     HostName remote-linux-machine.mydomain

@@ -13,7 +13,7 @@ While development containers often are tied to a single folder, repository, or p
 
 For example:
 
-```text
+```
 📁 Repos
    📁 node
    📁 python

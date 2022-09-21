@@ -141,7 +141,7 @@ pylint --generate-rcfile > .pylintrc
 
 If you are running Pylint in PowerShell, you have to explicitly specify a UTF-8 output encoding. This file contains sections for all the Pylint options, along with documentation in the comments.
 
-```ps
+```powershell
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
 
