@@ -49,6 +49,7 @@ Once you have installed a color theme from the Marketplace, you can change the [
 * [Gotthard](https://marketplace.visualstudio.com/items?itemName=janbiasi.gotthard-theme) - Optimized for approximately 20 programming languages.
 * [Blinds](https://marketplace.visualstudio.com/items?itemName=tankashing.blinds-theme) - Created with Deuteranopia in mind and possesses a high contrast color ratio.
 * [Greative](https://marketplace.visualstudio.com/items?itemName=Greative.greative) - Considers both colorblindness and light sensitivity.
+* [Pitaya Smoothie](https://marketplace.visualstudio.com/items?itemName=trallard.pitaya-smoothie) - Accessible to most forms of colorblindness and compliant with [WCAG 2.1 criteria for color contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html).
 
 ## Customizing warning colors
 
