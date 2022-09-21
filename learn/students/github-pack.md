@@ -9,7 +9,7 @@ MetaDescription: Overview of resources for using GitHub in Visual Studio Code.
 ---
 # GitHub Student Developer Pack
 
-Welcome to Visual Studio Code! VS Code is a free coding editor that helps you start coding quickly. Use it to code in any programming language, without switching editors. VS Code comes with built-in source control, so you can compare versions of your code side-by-side and save your work over time by backing it up on [GitHub](https://github.com). We have resources specifically created for students and educators, including our [Java and .NET Coding Packs](/learntocode), programming lessons built in partnership with [NASA](/training/students/nasa-python.md) and [Netflix](/training/students/spacejam-python.md), and [videos](/training/get-started/basics.md) to quickly get up to speed.
+Welcome to Visual Studio Code! VS Code is a free coding editor that helps you start coding quickly. Use it to code in any programming language, without switching editors. VS Code comes with built-in source control, so you can compare versions of your code side-by-side and save your work over time by backing it up on [GitHub](https://github.com). We have resources specifically created for students and educators, including our [Java and .NET Coding Packs](/learntocode), programming lessons built in partnership with [NASA](/learn/students/nasa-python.md) and [Netflix](/learn/students/spacejam-python.md), and [videos](/learn/get-started/basics.md) to quickly get up to speed.
 
 ![GitHub Classroom + VS Code](images/github-classroom/banner.png)
 
@@ -41,7 +41,7 @@ In this video, you'll see how GitHub is used when building a project. After comp
 
 [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
-With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/editor/github.md).
+With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/sourcecontrol/github.md).
 
 <iframe src="https://www.youtube-nocookie.com/embed/T6sW1Dk9B4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="What every GitHub user should know about VS Code"></iframe>
 
