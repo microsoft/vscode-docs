@@ -3,41 +3,23 @@ Order: 1
 Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-PageTitle: Source Control in Visual Studio Code
+PageTitle: Source Control with Git in Visual Studio Code
 DateApproved: 9/1/2022
-MetaDescription: Visual Studio Code source code support with integrated Git support.
+MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
-# Using Source Control in VS Code
+# Using Source Control with Git in VS Code
 
 Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
 
-<div class="marketplace-extensions-scm-curated"></div>
+<iframe src="https://www.youtube.com/embed/i_23KUAEtUM" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Using Git with Visual Studio Code (Official Beginner Tutorial)"></iframe>
 
-> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+## Working in a Git repository
 
-## SCM Providers
-
-VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your Azure DevOps Server local workspace and seamlessly work across your projects. To turn on the **Source Control Providers** view, select the overflow menu in the **Source Control** view (`kb(workbench.view.scm)`), hover over **Views**, and make sure that **Source Control Repositories** is marked with a check. The **Source Control Providers** view shows the detected providers and repositories, and you can scope the display of your changes by selecting a specific provider.
-
-![Source Control Repositories view option in overflow menu](images/overview/scm-providers-list.png)
-
-### SCM Provider extensions
-
-If you would like to install another SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
-
-![SCM Provider category in the marketplace](images/overview/scm-provider-category.png)
-
-## Git support
-
-VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions, so reading about the general Git support in VS Code will help you understand how to use another provider.
-
->**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+>**Just getting started with Git?** The [git-scm](https://git-scm.com/documentation) website is a good place to start, with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
 ![Overview of Git](images/overview/overview.png)
 
->**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
-
->**👉** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
+>**Make sure Git is installed.** VS Code will leverage your machine's Git installation (at least version `2.0.0`), so you need to [install Git](https://git-scm.com/download) first before you get these features.
 
 The Source Control icon in the Activity Bar on the left will always indicate an **overview of how many changes** you currently have in your repository. Selecting the icon will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -51,6 +33,8 @@ You can also find indicators of the **status of your repository** in the bottom-
 
 **Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
 
+>**Configure your Git username and email.** When you commit, be aware that if your username and/or email is not set in your Git configuration, Git will fall back to using information from your local machine. You can find the details in [Git commit information](https://git-scm.com/docs/git-commit#_commit_information).
+
 ![Stage all changes button](images/overview/stage-changes.png)
 
 You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those changes will be committed. Otherwise, you'll get a prompt asking you to select what changes you'd like to commit and get the option to change your commit settings.
@@ -62,6 +46,8 @@ More specific **Commit** actions can be found in the **Views and More Actions** 
 ![views and more actions button](images/overview/scm-more-actions.png)
 
 > **Tip:** If you commit your change to the wrong branch, undo your commit using the **Git: Undo Last Commit** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
+
+<iframe src="https://www.youtube.com/embed/E6ADS2k8oNQ" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Git: Commits in Visual Studio Code"></iframe>
 
 ## Cloning a repository
 
@@ -84,6 +70,8 @@ You'll also see the option to **Clone from GitHub**. Once you authenticate with 
 >**Note**: If you'd like to work on a repository without cloning the contents to your local machine, you can install the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=github.remotehub) extension to browse and edit directly on GitHub. You can learn more in the [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) section.
 
 ## Branches and Tags
+
+<iframe src="https://www.youtube.com/embed/b9LTz6joMf8?clip=Ugkxcq7zDGA4aMi8p7lICNMzTANn_8ozU5gK&amp;clipt=EPiBAxj08QU" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Create Git Branches in Visual Studio Code"></iframe>
 
 You can create and checkout branches directly within VS code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
@@ -186,18 +174,22 @@ Here are the steps to do so:
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
-### VS Code as Git diff tool
+### VS Code as Git difftool and mergetool
 
-Add the following to your Git configurations to use VS Code as the diff tool:
+You can use VS Code's amazing diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
 
 ```bash
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
     cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  tool = code
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 ```
 
-This leverages the `--diff` option you can pass to VS Code to compare two files side by side.
+This leverages the `--diff` option you can pass to VS Code to compare two files side by side. The merge tool will be used the next time Git discovers a merge conflict.
 
 To summarize, here are some examples of where you can use VS Code as the editor:
 
@@ -206,9 +198,25 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 * `git add -p` followed by `kbstyle(e)` for interactive add
 * `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
 
-## Working with pull requests
+## Working with GitHub Pull Requests and Issues
 
-Visual Studio Code also supports pull request workflows through the [GitHub Pull Requests and Issues extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) available on the VS Code Marketplace. Pull request extensions let you review, comment, and verify source code contributions directly within VS Code.
+Visual Studio Code can also bring in GitHub's pull requests and issues. Create your PRs in VS Code, review with comments, and approve them without switching context. Learn more about [GitHub PRs and Issues in VS Code](/docs/sourcecontrol/github.md).
+
+## SCM Providers
+
+<div class="marketplace-extensions-scm-curated"></div>
+
+> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+
+VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your Azure DevOps Server local workspace and seamlessly work across your projects. To turn on the **Source Control Providers** view, select the overflow menu in the **Source Control** view (`kb(workbench.view.scm)`), hover over **Views**, and make sure that **Source Control Repositories** is marked with a check. The **Source Control Providers** view shows the detected providers and repositories, and you can scope the display of your changes by selecting a specific provider.
+
+![Source Control Repositories view option in overflow menu](images/overview/scm-providers-list.png)
+
+### SCM Provider extensions
+
+If you would like to install another SCM provider, you can search on the **scm providers** extension category in the **Extensions** view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
+
+![SCM Provider category in the marketplace](images/overview/scm-provider-category.png)
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 Order: 3
 Area: sourcecontrol
-TOCTitle: Working with GitHub
+TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
-PageTitle: Working with GitHub in Visual Studio Code
+PageTitle: Collaborate on GitHub
 DateApproved: 9/1/2022
-MetaDescription: Working with GitHub in Visual Studio Code
+MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
 
