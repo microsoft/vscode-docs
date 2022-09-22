@@ -178,7 +178,7 @@ Now you can run `git config --global -e` and use VS Code as editor for configuri
 
 You can use VS Code's diff and merge capabilities even when using Git from command-line. Add the following to your Git configurations to use VS Code as the diff and merge tool:
 
-```bash
+```ini
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]

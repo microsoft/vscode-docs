@@ -550,13 +550,13 @@ Next, install `gnupg2` in your container by updating your Dockerfile.
 
 For example:
 
-```bash
+```docker
 RUN apt-get update && apt-get install gnupg2 -y
 ```
 
 Or if running as a [non-root user](/remote/advancedcontainers/add-nonroot-user.md):
 
-```bash
+```docker
 RUN sudo apt-get update && sudo apt-get install gnupg2 -y
 ```
 
