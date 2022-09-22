@@ -27,7 +27,7 @@ To get started:
 
 You also install the **Extension Pack for Java** directly from this blog post:
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 After reloading VS Code, open a folder that contains a Java project and follow below steps:
 

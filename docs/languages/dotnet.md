@@ -17,9 +17,9 @@ MetaDescription: Get started writing and debugging .NET apps with Visual Studio 
 
 To help you set up quickly, you can install the **.NET Coding Pack**, which includes VS Code, the .NET Software Development Kit, and essential .NET extensions. The Coding Pack can be used as a clean installation, or to update or repair an existing development environment.
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the .NET Coding Pack - Windows</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Install the .NET Coding Pack - Windows</a>
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the .NET Coding Pack - macOS</a><br>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Install the .NET Coding Pack - macOS</a><br>
 
 > **Note**: The .NET Coding Pack is only available for Windows and macOS. For other operating systems, you will need to manually install the .NET SDK, VS Code, and .NET extensions.
 
@@ -32,7 +32,7 @@ If you are an existing VS Code user, you can also add .NET support by installing
 * [Jupyter Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 * [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/ms-dotnettools.vscode-dotnet-pack">Install the .NET Extension Pack</a>
+<a class="install-extension-btn" href="vscode:extension/ms-dotnettools.vscode-dotnet-pack">Install the .NET Extension Pack</a>
 
 You can also install extensions separately.
 
@@ -40,7 +40,7 @@ You can also install extensions separately.
 
 If you download the extensions separately, ensure that you also have the .NET SDK on your local environment. The .NET SDK is a software development environment used for developing .NET applications.
 
-<a class="tutorial-install-extension-btn" href="https://aka.ms/vscDocs/dotnet/download">Install the .NET SDK</a>
+<a class="install-extension-btn" href="https://aka.ms/vscDocs/dotnet/download">Install the .NET SDK</a>
 
 ## Create a C# "Hello World" app
 

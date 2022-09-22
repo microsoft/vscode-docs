@@ -19,7 +19,7 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 The Remote - WSL extension enables you to run Visual Studio Code within the Windows Subsystem for Linux (WSL).
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
 
 ![Remote - WSL extension](images/wsl-tutorial/remote-wsl-extension.png)
 
