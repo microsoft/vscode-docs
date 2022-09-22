@@ -265,7 +265,7 @@ A best practice among Python developers is to avoid installing packages into a g
    current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
    run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
 
-   ```pwsh
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
 

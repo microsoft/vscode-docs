@@ -201,7 +201,7 @@ In our example, the condition has three checks:
 
 GitLab CI can be used to test and publish the extension in headless Docker containers. This can be done by pulling a preconfigured Docker image, or installing `xvfb` and the libraries required to run Visual Studio Code during the pipeline.
 
-```yml
+```yaml
 image: node:12-buster
 
 before_script:

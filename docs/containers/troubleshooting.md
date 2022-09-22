@@ -19,7 +19,7 @@ If you select a port less than 1024 when adding Dockerfiles to the workspace, th
 
 The **Add Dockerfiles to Workspace** command sets up non-root privileges if you choose a non-system port. If your current Dockerfile and `tasks.json` is not set up for non-root usage, try running the command **Add Dockerfiles to Workspace**, and select a port **greater than** 1023. This command overwrites your current Dockerfile and `tasks.json`. For some project types, such as **Python: General**, you might still need to modify your Dockerfile and `tasks.json`. Within the Dockerfile, you must expose a **non-system port**, create a working directory for your app code, and then add a non-root user with access to the app directory. Ensure that your exposed port is updated wherever it is referenced. In the example below, the Gunicorn port had to be updated to match the exposed port:
 
-``` dockerfile
+```docker
 # 1024 or higher
 EXPOSE 1024
 

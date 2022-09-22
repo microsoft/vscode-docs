@@ -223,13 +223,13 @@ You can always manually switch the default distro by using [wslconfig.exe](https
 
 For example:
 
-```bash
+```bat
 wslconfig /setdefault Ubuntu
 ```
 
 You can see which distributions you have installed using:
 
-```bash
+```bat
 wslconfig /l
 ```
 

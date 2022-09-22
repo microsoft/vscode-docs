@@ -15,7 +15,7 @@ The following are some tips for eliminating warnings that may be appearing in yo
 
 This error can typically be safely ignored and is tricky to get rid of completely. However, you can reduce it to one message in stdout when installing the needed package by adding the following to your Dockerfile:
 
-```Dockerfile
+```docker
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1
@@ -29,14 +29,14 @@ This occurs in Dockerfiles because the `apt-key` command is not running from a t
 
 For example:
 
-```Dockerfile
+```docker
 # (OUT=$(apt-key add - 2>&1) || echo $OUT) will only print the output with non-zero exit code is hit
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | (OUT=$(apt-key add - 2>&1) || echo $OUT)
 ```
 
 You can also set the `APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE` environment variable to suppress the warning, but it looks a bit scary so be sure to add comments in your Dockerfile if you use it:
 
-```Dockerfile
+```docker
 # Suppress an apt-key warning about standard out not being a terminal. Use in this script is safe.
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ```
@@ -49,7 +49,7 @@ If the messages are harmless, you can pipe the output of the command from standa
 
 For example:
 
-```Dockerfile
+```docker
 RUN apt-get -y install --no-install-recommends apt-utils dialog 2>&1
 ```
 
