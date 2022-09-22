@@ -437,7 +437,7 @@ brew install --cask macfuse
 brew install gromgit/fuse/sshfs-mac
 brew link --overwrite sshfs-mac
 ```
-    
+
 In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
 
 To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
@@ -714,7 +714,7 @@ There are two ways to resolve this error:
 
 * **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
 
-    ```Dockerfile
+    ```docker
     # Add archived sources to source list if base image uses Debian 8 / Jessie
     RUN cat /etc/*-release | grep -q jessie && printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
     ```

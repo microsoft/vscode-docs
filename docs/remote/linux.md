@@ -123,7 +123,7 @@ sudo rpm -Uh \
 
 In a container environment, you can add similar contents to a Dockerfile:
 
-```Dockerfile
+```docker
 FROM centos:6
 
 RUN yum -y install wget tar
