@@ -128,4 +128,4 @@ Opening local files and folders in VS Code from a browser requires the browser t
 
 ## Questions or feedback
 
-If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Discussions](https://github.com/github/feedback/discussions/categories/codespaces-feedback).
+If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Discussions](https://github.com/community/community/discussions/categories/codespaces).
