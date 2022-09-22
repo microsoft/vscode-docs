@@ -40,7 +40,7 @@ async function printDefinitionsForActiveEditor() {
     return;
   }
 
-  const definitions = await vscode.commands.executeCommand<vscode.Location[]>(
+  const definitions = await vscode.commands.executeCommand<vscode.LocationLink[]>(
     'vscode.executeDefinitionProvider',
     activeEditor.document.uri,
     activeEditor.selection.active
