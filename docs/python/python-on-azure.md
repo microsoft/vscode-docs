@@ -16,10 +16,10 @@ The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.
 
 ## Deployment tutorials
 
-The following tutorials on the [Python Azure Developer's Center](https://learn.microsoft.com/azure/python) walk you though the details.
+The following tutorials on the [Python Azure Developer's Center](https://learn.microsoft.com/azure/developer/python) walk you though the details.
 
 Tutorial | Description
 --- | ---
 [Deploy Python web apps to Azure App Service](https://learn.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
-[Deploy Python containers to Azure App Service](https://learn.microsoft.com/azure/python/tutorial-deploy-containers-01) | Deploy a Docker container using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension.
-[Deploy Python to Azure Functions](https://learn.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension.
+[Deploy Python containers to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01) | Deploy a Docker container using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension.
+[Deploy Python to Azure Functions](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension.

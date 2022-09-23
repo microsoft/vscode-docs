@@ -64,7 +64,7 @@ Next, ensure that Docker socket is mapped into the development container (in `.d
 
 ### Windows Subsystem for Linux
 
-Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://learn.microsoft.com/windows/wsl/wsl2-index) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
+Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
 
 ![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 

@@ -13,7 +13,7 @@ A container registry is a storage and content delivery system, holding named Doc
 
 Users can connect to Docker registries from the following sources:
 
-- [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/)
+- [Azure Container Registry](https://learn.microsoft.com/azure/container-registry)
 - [Docker Hub](https://hub.docker.com/)
 - [GitLab](https://gitlab.com/) container registry
 - Any generic private registry that supports the [Docker V2 api](https://docs.docker.com/registry/spec/api/)

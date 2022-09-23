@@ -19,9 +19,9 @@ The tutorials below, hosted on the Microsoft Docs platform, walk you through dif
 
 Tutorial | Description
 --- | ---
-[Deploy Azure Functions](https://learn.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
-[Deploy using the App Service extension](https://learn.microsoft.com/azure/javascript/tutorial-vscode-azure-app-service-node-01) | Manage Azure resources directly in VS Code with the Azure App Service extension.
-[Deploy using Docker](https://learn.microsoft.com/azure/javascript/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container.
+[Deploy Azure Functions](https://learn.microsoft.com/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
+[Deploy using the App Service extension](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app) | Manage Azure resources directly in VS Code with the Azure App Service extension.
+[Deploy using Docker](https://learn.microsoft.com/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container.
 [Deploy a static website](https://learn.microsoft.com/azure/static-web-apps/getting-started) | Create, deploy, and update a static website.
 
 You can find additional tutorials and walkthroughs on the

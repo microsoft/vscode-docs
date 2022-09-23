@@ -89,7 +89,7 @@ If you download the extensions separately, ensure that you also have the .NET SD
 
 ## Next steps
 
-* Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
+* Continue exploring C# development: [Debug with VS Code and .NET](https://learn.microsoft.com/dotnet/core/tutorials/debugging-with-visual-studio-code)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET application.

@@ -324,5 +324,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](https://learn.microsoft.com/azure/python/tutorial-deploy-containers-01)
-- [Deploy Python to Azure App Service on Linux](https://learn.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)
+- [Deploy Python to Azure App Service using containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01)
+- [Deploy Python to Azure App Service on Linux](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-local-environment)

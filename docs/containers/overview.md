@@ -11,7 +11,7 @@ MetaDescription: Tools for developing and debugging with Docker containers, usin
 
 The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code.
 
-This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the [Docker tutorial](https://learn.microsoft.com/visualstudio/docker) first to understand key Docker concepts.
+This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the [Docker tutorial](https://learn.microsoft.com/visualstudio/docker/tutorials/docker-tutorial) first to understand key Docker concepts.
 
 ## Installation
 
@@ -77,7 +77,7 @@ Once your `Compose Up` command completes, navigate to the Docker Explorer to vie
 
 ## Using image registries
 
-You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/), [Docker Hub](https://hub.docker.com/), [GitLab](https://gitlab.com/), and more:
+You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), [GitLab](https://gitlab.com/), and more:
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 
@@ -89,7 +89,7 @@ You can debug services built using .NET (C#) and Node.js that are running inside
 
 ## Azure CLI integration
 
-You can start Azure CLI (command-line interface) in a standalone, Linux-based container with **Docker Images: Run Azure CLI** command. This gives you access to the full Azure CLI command set in an isolated environment. For more information on available commands, see [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest#sign-in).
+You can start Azure CLI (command-line interface) in a standalone, Linux-based container with **Docker Images: Run Azure CLI** command. This gives you access to the full Azure CLI command set in an isolated environment. For more information on available commands, see [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 ## Next steps
 

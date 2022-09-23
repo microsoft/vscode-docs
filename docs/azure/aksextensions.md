@@ -108,7 +108,7 @@ Running the AKS Periscope requires you to have a storage account associated with
 
 7. When ready, select **Save** to enable collection of the selected logs.
 
-For more information on Diagnostics settings, visit [Create diagnostic settings to send platform logs and metrics to different destinations](https://learn.microsoft.com/azure/azure-monitor/platform/diagnostic-settings).
+For more information on Diagnostics settings, visit [Create diagnostic settings to send platform logs and metrics to different destinations](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings).
 
 ### Install Azure Service Operator
 

@@ -183,7 +183,7 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 
 For large workspace you want to increase the polling interval: `remote.WSL.fileWatcher.pollingInterval` and control the folders that are watched: `files.watcherExclude`.
 
-[WSL 2](https://learn.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem is also not affected by the new setting.
+[WSL 2](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) does not have that file watcher problem is also not affected by the new setting.
 
 ### Golang in WSL 1
 

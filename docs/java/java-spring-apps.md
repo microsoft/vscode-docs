@@ -101,7 +101,7 @@ The [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscj
 * Config application settings such as environment variables and JVM options
 * Stream logs from the app
 
-To install the Azure Spring Apps extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure spring apps` to filter the results. Select the Microsoft [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. For a command-line experience, you can also check out the [Azure Spring Apps quickstart with Azure CLI](https://learn.microsoft.com/azure/spring-cloud/spring-cloud-quickstart).
+To install the Azure Spring Apps extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure spring apps` to filter the results. Select the Microsoft [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. For a command-line experience, you can also check out the [Azure Spring Apps quickstart with Azure CLI](https://learn.microsoft.com/azure/spring-apps/quickstart).
 
 ### Sign in to your Azure subscription
 
@@ -143,7 +143,7 @@ mvn clean package
 
     ![Deploy App](images/java-spring-cloud/deploy-app.png)
 
-2. You can watch the deployment status on the bottom right. Once done, select **Access Public Endpoint** to test the app running on Azure and **Yes** when prompted to assign a public endpoint. Be aware that only Spring Boot fat Jar is supported, [learn more about apps on Azure Spring Apps](https://learn.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment?pivots=programming-language-java).
+2. You can watch the deployment status on the bottom right. Once done, select **Access Public Endpoint** to test the app running on Azure and **Yes** when prompted to assign a public endpoint. Be aware that only Spring Boot fat Jar is supported, [learn more about apps on Azure Spring Apps](https://learn.microsoft.com/azure/spring-apps/how-to-prepare-app-deployment?pivots=programming-language-java&tabs=basic-standard-tier).
 
     ![Access public endpoint](images/java-spring-cloud/access-public-endpoint.png)
 
@@ -165,5 +165,5 @@ mvn clean package
 
 ## Next steps
 
-* Explore more powerful features of [Azure Spring Apps with Microservices](https://learn.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-sample-app-introduction?pivots=programming-language-java).
+* Explore more powerful features of [Azure Spring Apps with Microservices](https://learn.microsoft.com/azure/spring-apps/quickstart-sample-app-introduction?pivots=programming-language-java&tabs=basic-standard-tier).
 * To learn more about Java Debugging features, read the [Java Debugging Tutorial](/docs/java/java-debugging.md).

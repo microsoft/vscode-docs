@@ -937,7 +937,7 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 
 For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
 
-[WSL 2](https://learn.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
+[WSL 2](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) does not have that file watcher problem and is not affected by the new setting.
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 

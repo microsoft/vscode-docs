@@ -28,10 +28,10 @@ Earlier this year, we were reached out by the Azure Pipelines (then Visual Studi
 
 There's a lot of cool stuff which needed to happen in order for us to make the move. Let's break it down:
 
-1. Azure Pipelines [support for public projects](https://learn.microsoft.com/azure/devops/organizations/public) enable us to run a [public-facing Visual Studio Code project](https://dev.azure.com/vscode/VSCode/_build?definitionId=1) in which all our continuous integration builds run;
+1. Azure Pipelines [support for public projects](https://learn.microsoft.com/azure/devops/organizations/public/about-public-projects) enable us to run a [public-facing Visual Studio Code project](https://dev.azure.com/vscode/VSCode/_build?definitionId=1) in which all our continuous integration builds run;
 2. [Build Agents](https://learn.microsoft.com/azure/devops/pipelines/agents/agents) in Azure Pipelines have long supported the Windows, macOS, and Linux platform matrix;
 3. [Microsoft-hosted agents](https://learn.microsoft.com/azure/devops/pipelines/agents/hosted) in Azure Pipelines running macOS, Linux, and Windows provide a great stack of software to build projects without worrying about build machine maintenance;
-4. [YAML CI](https://learn.microsoft.com/azure/devops/pipelines/get-started-yaml) allows creating YAML definitions which are kept close to the project's sources (for which Visual Studio Code provides [great extensions](https://marketplace.visualstudio.com/search?term=yaml&target=VSCode&category=All%20categories&sortBy=Relevance)).
+4. [YAML CI](https://learn.microsoft.com/azure/devops/pipelines/create-first-pipeline) allows creating YAML definitions which are kept close to the project's sources (for which Visual Studio Code provides [great extensions](https://marketplace.visualstudio.com/search?term=yaml&target=VSCode&category=All%20categories&sortBy=Relevance)).
 
 Putting all of this together, we're finally able to focus on a single CI solution. The [Visual Studio Code build on Azure Pipelines](https://dev.azure.com/vscode/VSCode/_build/results?buildId=5876&view=logs) runs our compilation, hygiene checks and test suites in a single build, automatically distributing the build across different platforms. Since we're using Microsoft-hosted build agents, we don't have to worry about maintaining those machines.
 
@@ -41,7 +41,7 @@ Azure Pipelines also provides GitHub integration which gives us build result ind
 
 ![Pull Request Integration](pr.png)
 
-We've also built a chat bot which hooks up to [Azure Pipeline's REST API](https://learn.microsoft.com/rest/api/vsts/build/?view=vsts-rest-4.1) and provides notifications to our internal chat when builds break.
+We've also built a chat bot which hooks up to [Azure Pipeline's REST API](https://learn.microsoft.com/rest/api/azure/devops/build) and provides notifications to our internal chat when builds break.
 
 ![Chat Bot Automation](slack.png)
 
