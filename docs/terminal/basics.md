@@ -460,11 +460,12 @@ To workaround this you have two options:
 ### How can I configure `Cmd+.` to map to `Ctrl+C` like macOS' built-in terminal?
 
 ```json
-// Break: ctrl+C
-registerSendSequenceKeybinding(String.fromCharCode('C'.charCodeAt(0) - 64), {
-	mac: { primary: KeyMod.CtrlCmd | KeyCode.Period }
-});
-```
+{
+	"key": "cmd+.",
+	"command": "workbench.action.terminal.sendSequence",
+	"when": "terminalFocus",
+	"args": { "text": "\u0003" }
+}
 
 ### Why are the colors in the terminal not correct?
 
