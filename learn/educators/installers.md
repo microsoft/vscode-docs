@@ -15,8 +15,8 @@ As educators, we know it's frustrating to install all the different software to 
 
 This coding pack includes everything you need to start coding in Java.
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Download - Windows</a>
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Download - macOS</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Download - Windows</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Download - macOS</a>
 
 This will install:
 
@@ -30,8 +30,8 @@ This will install:
 
 The .NET coding pack includes everything you need to start coding with .NET.
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Download - Windows</a>
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Download - macOS</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'win')" href="https://aka.ms/dotnet-coding-pack-win">Download - Windows</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('dotnet', 'mac')" href="https://aka.ms/dotnet-coding-pack-mac">Download - macOS</a>
 
 This will install:
 

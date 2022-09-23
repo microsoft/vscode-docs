@@ -13,7 +13,7 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
-<a class="tutorial-next-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
+<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
 
 ## Install Python and the Python extension
 
