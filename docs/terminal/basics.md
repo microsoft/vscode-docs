@@ -457,9 +457,9 @@ To workaround this you have two options:
 * Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
 * Add `bindkey -e` to your init script to set Emacs explicitly.
 
-### How can I configure `Cmd+.` to map to `Ctrl+C` like macOS' built-in terminal?
+### How can I configure Cmd+. to map to Ctrl+C like macOS' built-in terminal?
 
-The macOS default terminal uses `kbstyle(cmd+.)` to perform the same as `kbstyle(ctrl+c)`. To get this behavior in VS Code, add this [custom keybinding](https://code.visualstudio.com/docs/getstarted/keybindings):
+The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in VS Code, add this [custom keybinding](/docs/getstarted/keybindings.md):
 
 ```json
 {
