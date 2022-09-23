@@ -457,9 +457,9 @@ To workaround this you have two options:
 * Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
 * Add `bindkey -e` to your init script to set Emacs explicitly.
 
-How can I configure a keybinding which maps `Cmd+C` to `Ctrl+C` in order to align with behavior in the macOS terminal?
+How can I configure a keybinding which maps `Cmd+.` to `Ctrl+C` in order to align with behavior in the macOS terminal?
 
-```
+```json
 // Break: ctrl+C
 registerSendSequenceKeybinding(String.fromCharCode('C'.charCodeAt(0) - 64), {
 	mac: { primary: KeyMod.CtrlCmd | KeyCode.Period }
