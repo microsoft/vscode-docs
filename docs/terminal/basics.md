@@ -459,6 +459,8 @@ To workaround this you have two options:
 
 ### How can I configure `Cmd+.` to map to `Ctrl+C` like macOS' built-in terminal?
 
+The macOS default terminal uses `kbstyle(cmd+.)` to perform the same as `kbstyle(ctrl+c)`. To get this behavior in VS Code, add this [custom keybinding](https://code.visualstudio.com/docs/getstarted/keybindings):
+
 ```json
 {
 	"key": "cmd+.",
