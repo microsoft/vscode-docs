@@ -457,6 +457,15 @@ To workaround this you have two options:
 * Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
 * Add `bindkey -e` to your init script to set Emacs explicitly.
 
+How can I configure a keybinding which maps `Cmd+C` to `Ctrl+C` in order to align with behavior in the macOS terminal?
+
+```
+// Break: ctrl+C
+registerSendSequenceKeybinding(String.fromCharCode('C'.charCodeAt(0) - 64), {
+	mac: { primary: KeyMod.CtrlCmd | KeyCode.Period }
+});
+```
+
 ### Why are the colors in the terminal not correct?
 
 One of our accessibility features we enable by default is to ensure a minimum contrast ratio of at least 4.5 is met for the foreground text. This feature ensures that text is readable regardless of the shell and theme used which is not possible otherwise. To disable this feature you can set:
