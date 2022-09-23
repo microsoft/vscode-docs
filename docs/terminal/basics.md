@@ -457,6 +457,18 @@ To workaround this you have two options:
 * Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
 * Add `bindkey -e` to your init script to set Emacs explicitly.
 
+### How can I configure Cmd+. to map to Ctrl+C like macOS' built-in terminal?
+
+The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle(Ctrl+C)`. To get this behavior in VS Code, add this [custom keybinding](/docs/getstarted/keybindings.md):
+
+```json
+{
+	"key": "cmd+.",
+	"command": "workbench.action.terminal.sendSequence",
+	"when": "terminalFocus",
+	"args": { "text": "\u0003" }
+}
+
 ### Why are the colors in the terminal not correct?
 
 One of our accessibility features we enable by default is to ensure a minimum contrast ratio of at least 4.5 is met for the foreground text. This feature ensures that text is readable regardless of the shell and theme used which is not possible otherwise. To disable this feature you can set:
