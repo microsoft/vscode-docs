@@ -1,14 +1,14 @@
 ---
 Order: 12
 Area: python
-TOCTitle: Python on Azure
+TOCTitle: Deploy Python apps
 ContentId: 12bf713e-5f20-46ac-81bb-8e05565aba3a
-PageTitle: Deploy Python to Azure
+PageTitle: Deploy Python Web Apps
 DateApproved: 10/20/2021
 MetaDescription: How to deploy Python applications to Azure with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
-# Deploy Python to Azure
+# Deploy Python Web Apps
 
 The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions for Visual Studio Code make it easy to deploy Python applications (including containers) to [Azure App Service](https://azure.microsoft.com/services/app-service) and to deploy serverless code to [Azure Functions](https://azure.microsoft.com/services/functions).
 

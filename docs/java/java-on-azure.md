@@ -1,13 +1,13 @@
 ---
 Order: 11
 Area: java
-TOCTitle: Java on Azure
+TOCTitle: Deploy Java apps
 ContentId: 01210769-05be-4854-9482-13e342850ad7
-PageTitle: Deploy Java to Azure
+PageTitle: Deploy Java Web Apps
 DateApproved: 12/22/2021
 MetaDescription: How to deploy Java applications to Azure with Visual Studio Code
 ---
-# Deploy Java to Azure
+# Deploy Java Web Apps
 
 The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack contains a rich set of extensions that make it easy to discover and interact with the cloud services that power your Java applications.
 
