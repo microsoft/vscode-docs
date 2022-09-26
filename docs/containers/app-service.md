@@ -11,6 +11,10 @@ MetaDescription: Using Visual Studio Code, build a container image for your appl
 
 The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions and the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension make it easy to build, manage, and deploy containers to [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
 
+![Azure Tools extension](images/azure/azure-tools.png)
+
+![Azure App Service extension](images/azure/azure-app-service.png)
+
 In this guide you will learn how to:
 
 - Create a container image for your application.
