@@ -9,9 +9,7 @@ MetaDescription: Using Visual Studio Code, build a container image for your appl
 ---
 # Deploy to Azure App Service
 
-The [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extensions and the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension make it easy to build, manage, and deploy containers to [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
-
-![Azure Tools extension](images/azure/azure-tools.png)
+The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) and [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extensions make it easy to build, manage, and deploy containers to [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/).
 
 ![Azure App Service extension](images/azure/azure-app-service.png)
 
