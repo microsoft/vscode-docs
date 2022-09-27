@@ -15,7 +15,7 @@ Whether your workflow is through the [Azure CLI](https://learn.microsoft.com/cli
 
 ## Deployment tutorials
 
-The tutorials below, hosted on the Microsoft Docs platform, walk you through different ways of creating and deploying apps to Azure using Visual Studio Code:
+These tutorials from Microsoft Learn describe different ways of creating and deploying apps to Azure via Visual Studio Code:
 
 Tutorial | Description
 --- | ---
