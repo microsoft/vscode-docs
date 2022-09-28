@@ -569,6 +569,24 @@ body[data-vscode-theme-id="One Dark Pro"] {
 }
 ```
 
+### Supported media formats
+
+Webviews support audio and video, however not every media codec or media file container type is supported.
+
+The following audio formats can be used in Webviews:
+
+- Wav
+- Mp3
+- Ogg
+- Flac
+
+The following video formats can be used in webviews:
+
+- H.264
+- VP8
+
+For video files, make sure that both the video and audio track's media formats are supported. Many `.mp4` files for example use `H.264` for video and `AAC` audio. VS Code will be able to play the video part of the `mp4`, but since `AAC` audio is not supported there won't be any sound. Instead you need to use `mp3` for the audio track.
+
 ## Scripts and message passing
 
 Webviews are just like iframes, which means that they can also run scripts. JavaScript is disabled in webviews by default, but it can easily re-enable by passing in the `enableScripts: true` option.
