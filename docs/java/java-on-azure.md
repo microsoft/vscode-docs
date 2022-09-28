@@ -1,7 +1,7 @@
 ---
 Order: 11
 Area: java
-TOCTitle: Deploy Java apps
+TOCTitle: Deploy Java Apps
 ContentId: 01210769-05be-4854-9482-13e342850ad7
 PageTitle: Deploy Java Web Apps
 DateApproved: 12/22/2021
