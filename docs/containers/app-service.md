@@ -1,17 +1,13 @@
 ---
 Order: 8
 Area: containers
-TOCTitle: Deploy Containers
+TOCTitle: Deploy to Azure
 ContentId: 044913F5-F99D-4228-A916-0443260AB7FB
 PageTitle: Deploy a containerized app to Azure App Service
 DateApproved: 10/28/2020
 MetaDescription: Using Visual Studio Code, build a container image for your application, push the image to a container registry, and deploy to Azure App Service.
 ---
 # Deploy to Azure App Service
-
-The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) and [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extensions make it easy to build, manage, and deploy containers to [Azure App Service](https://azure.microsoft.com/en-us/products/app-service/).
-
-![Azure App Service extension](images/azure/azure-app-service.png)
 
 In this guide you will learn how to:
 
