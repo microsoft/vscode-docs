@@ -27,7 +27,7 @@ The TypeScript part handles working with VS Code and its UI. The extension templ
 1. npm >= 8.3.0 (`npm` is installed with node, check npm version, use `npm install -g npm@8.3.0` to update)
 1. Python extension for VS Code
 
-You should know to create and work with Python virtual environments.
+You should know how to create and work with Python virtual environments.
 
 ## Getting started
 
@@ -61,8 +61,10 @@ The generated `bundled/tool/server.py` file is where you will make most of your 
 
 There are several example implementations created from the template:
 
-* [Pylint](https://github.com/microsoft/vscode-pylint/tree/main/bundled/tool) - implements linting on file `open`, `save`, and `close`.
+* [Pylint](https://github.com/microsoft/vscode-pylint/tree/main/bundled/tool) - implements linting and Code Actions on file `open`, `save`, and `close`.
+* [Flake8](https://github.com/microsoft/vscode-flake8/tree/main/bundled/tool) - implements linting and Code Actions.
 * [Black Formatter](https://github.com/microsoft/vscode-black-formatter/tree/main/bundled/tool) - integrates the [*Black*](https://github.com/python/black) formatter.
+* [autopep8](https://github.com/microsoft/vscode-autopep8/tree/main/bundled/tool) - integrates the [autopep8](https://pypi.org/project/autopep8) formatter.
 * [isort](https://github.com/microsoft/vscode-isort/blob/main/bundled/tool) - adds Code Actions to sort imports.
 
 You can also review the [Language Server Protocol specification](https://microsoft.github.io/language-server-protocol/specifications/specification-3-16) to better understand the `pygls` language server integration.
