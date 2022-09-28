@@ -212,4 +212,4 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [i
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.
 - [Jupyter Support](/docs/datascience/jupyter-notebooks.md) - Learn how to get started with Jupyter Notebooks.
-- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite Python tools into VS Code.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite Python tools.

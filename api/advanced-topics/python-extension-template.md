@@ -25,7 +25,7 @@ The TypeScript part handles working with VS Code and its UI. The extension templ
 1. Python 3.7 or greater
 1. node >= 14.19.0
 1. npm >= 8.3.0 (`npm` is installed with node, check npm version, use `npm install -g npm@8.3.0` to update)
-1. Python extension for VS Code
+1. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension for VS Code
 
 You should know how to create and work with Python virtual environments.
 
@@ -53,7 +53,7 @@ After creating your extension via the template, it will include the following ex
     * On Command `mytool.restart`.
 1. Output channel for logging **Output** > **My Tool**.
 
-## Adding features from your tool
+## Integrating your tool
 
 The generated `bundled/tool/server.py` file is where you will make most of your changes. `TODO` comments in the file point out the various customization points. Also search for `TODO` comments in other locations in the template, such as other Python and Markdown files. You will want to review the LICENSE file, even if you want to keep it MIT License.
 
