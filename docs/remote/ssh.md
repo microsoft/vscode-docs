@@ -214,13 +214,13 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or click on the **Add Port** button in the **Ports view**. You can see the Ports view in the bottom panel, or by running the command **Ports: Focus on Ports View**.
 
-![Remote Explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
+![Forward port button](images/ssh/forward-port-ssh.png)
 
 You'll be asked to enter the port you would like to forward and you can give it a name.
 
-![Forward port input](images/ssh/forward-port-ssh.png)
+![Adding a new port](images/ssh/add-new-port.png)
 
 A notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost since 3000 was already in use. You can then connect to this remote HTTP server using `http://localhost:4123`.
 
@@ -236,7 +236,7 @@ If you would like the local port of the tunnel to be different than the remote s
 
 Right-click the tunnel you want to modify, and select **Change Local Port** in the context menu.
 
-![Change Local Port](images/ssh/ssh-tunnel-different-local-port.png)
+![Change Local Port](images/ssh/change-local-port.png)
 
 ### Always forwarding a port
 
