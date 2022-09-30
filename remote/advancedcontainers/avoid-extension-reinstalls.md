@@ -62,7 +62,7 @@ To create the named local volume, follow these steps:
       unique-vol-name-here-insiders:
     ```
 
-3. Finally, if you've already built the container and connected to it, you'll need to run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Reopen Folder in Container** to connect to the container for the first time.
+3. Finally, if you've already built the container and connected to it, you'll need to run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Reopen in Container** to connect to the container for the first time.
 
 After the container is up and running, subsequent rebuilds will not reacquire any extensions or the VS Code server. The build will also **not use the latest extensions list** from `devcontainer.json`.
 

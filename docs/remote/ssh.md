@@ -106,16 +106,16 @@ From here, [install any extensions](#managing-extensions) you want to use when c
 
 ### Open a folder on a remote SSH host in a container
 
-If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Remote - Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Dev Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
 
 To do so:
 
-1. Follow the [installation](/docs/remote/containers.md#installation) steps for the Remote - Containers extension on your remote host.
+1. Follow the [installation](/docs/remote/containers.md#installation) steps for the Dev Containers extension on your remote host.
 1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. Follow the [quick start](#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
-1. Use the **Remote-Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
 
-The rest of the [Remote - Containers quick start](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Remote - Containers extension in its documentation](/docs/remote/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
+The rest of the [Dev Containers quick start](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Dev Containers extension in its documentation](/docs/remote/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
 
 ### Disconnect from a remote host
 
@@ -291,7 +291,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
-- You cannot use Remote - Containers from a Remote - SSH connection to a Windows machine.
+- You cannot use Dev Containers from a Remote - SSH connection to a Windows machine.
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
 ### Docker Extension limitations

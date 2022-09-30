@@ -30,9 +30,9 @@ Dev containers provide a separate coding environment from your computer. For exa
 
 As an instructor, you can create a specific image for an assignment. Each student will get the exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
-## Remote – Containers in VS Code
+## Developement Containers in VS Code
 
-The Visual Studio Code [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/main/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code's full feature set, including IntelliSense and debugging, while coding.
+The Visual Studio Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/main/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code's full feature set, including IntelliSense and debugging, while coding.
 
 The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
@@ -62,15 +62,15 @@ Let's start off by launching VS Code, which we can do by typing `code` in the co
 
 ![Launch VS Code from command prompt](2-code-ps-cropped.png)
 
-Once VS Code launches, ensure you've installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension:
+Once VS Code launches, ensure you've installed the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension:
 
-![Remote containers extension](3-extension.png)
+![Dev Containers extension](3-extension.png)
 
 When we install any of the Remote extensions, the green Remote indicator is added to the bottom left of the Status bar:
 
 ![Remote indicator in VS Code](4-remote-indicator.png)
 
-You can click on it to open the Command Palette and verify the Remote-Containers commands are listed:
+You can click on it to open the Command Palette and verify the Dev Containers commands are listed:
 
 ![List of remote commands in Command Palette](5-commands-list.png)
 
@@ -80,7 +80,7 @@ Let's walk through an example dev container to help students get a consistent co
 
 We have an example [vscode-course-sample GitHub repo](https://github.com/microsoft/vscode-course-sample) with a Python dev container and two Python intro assignments. Let's open it in VS Code.
 
-You can select the Remote indicator in the bottom left, or use the Command Palette, to bring up the Remote-Containers commands.
+You can select the Remote indicator in the bottom left, or use the Command Palette, to bring up the Dev Containers commands.
 
 Let's call **Clone Repository in Container Volume...**
 
@@ -120,7 +120,7 @@ Now that we've seen a fantastic example of a container, let's set up our first c
 
 ![Hello world Python app](14-helloworld-cropped.png)
 
-We'll select **Remote-Containers: Add Development Container Configuration Files…** to begin setting up the files necessary for a development container:
+We'll select **Dev Containers: Add Development Container Configuration Files…** to begin setting up the files necessary for a development container:
 
 ![Add Development Container Configuration Files command](15-add-config.png)
 
@@ -128,7 +128,7 @@ Container configuration files are what's needed to create and customize a develo
 
 ![Select Python 3 config file in Command Palette](16-python-config.png)
 
-The Remote - Containers extension automatically adds a `.devcontainer` folder and two configuration files within it: `devcontainer.json` and a Dockerfile. Let's take a closer look at both files.
+The Dev Containers extension automatically adds a `.devcontainer` folder and two configuration files within it: `devcontainer.json` and a Dockerfile. Let's take a closer look at both files.
 
 #### devcontainer.json
 
