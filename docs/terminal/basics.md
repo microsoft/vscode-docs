@@ -94,18 +94,24 @@ Scrolling will happen instantaneously, but can be configured to animate over a s
 
 ## Links
 
-The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Links are activated by mousing over the link so an underline appears, then hold `kb(Ctrl/Cmd)` and click.
+The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Links are activated by mousing over the link so an underline appears, then hold `kbstyle(Ctrl)`/`kbstyle(Cmd)` and click.
 
 There are several built-in link handlers which are used in the following priority order:
 
 - URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
+  TODO: Image
 - File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and have support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+  TODO: Image
 - Folder links: These are similar to file links but will open a new VS Code window at the folder.
+  TODO: Image
 - Word links: This is the fallback link type which uses the `terminal.integrated.wordSeparators` setting to define a words boundaries and make virtually all text into a word. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kb(Ctrl/Cmd)` is held.
+  TODO: Image
 
 ### Extensions handling links
 
-Extensions can contribute _link providers_ which allow the extension to define what happens when clicked. An example of this is the GitLens extension giving custom behavior to git commit hashes to get handled in the UI.
+Extensions can contribute _link providers_ which allow the extension to define what happens when clicked. An example of this is the GitLens extension detecting git branch links.
+
+![When GitLens is installed, hovering a branch name will provide custom behavior to open the branch in the UI](images/basics/gitlens-link.png)
 
 ### Keyboard accessibility
 
@@ -140,21 +146,6 @@ Split terminals on Windows will start in the directory that the parent terminal 
 ```
 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
-
-## Links
-
-The terminal features link detection, showing an underline when files or URLs are hovered with the mouse that will go to the target when `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. If a file or URL cannot be detected, they are still surfaced as low confidence "workspace search" links, which only show an underline when hovered if the modifier is down. These low confidence links will search the workspace for the term, opening the match if one is found.
-
-Depending on the type of link, activating it will do one of the following:
-
-* Open the file in an editor.
-* Focus the folder in the workspace.
-* Open a new window with a folder outside the workspace.
-* Search the workspace using a Quick Pick with all matches.
-
-Extensions make use of links in the terminal, such as GitLens, to identify branches.
-
-![A branch link is hovered in the terminal](images/basics/gitlens-link.png)
 
 ## Copy & Paste
 
