@@ -92,6 +92,28 @@ _Command_ navigation is also available (see [shell integration](/docs/terminal/s
 
 Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `terminal.integrated.smoothScrolling` setting.
 
+## Links
+
+The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Links are activated by mousing over the link so an underline appears, then hold `kb(Ctrl/Cmd)` and click.
+
+There are several built-in link handlers which are used in the following priority order:
+
+- URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
+- File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and have support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+- Folder links: These are similar to file links but will open a new VS Code window at the folder.
+- Word links: This is the fallback link type which uses the `terminal.integrated.wordSeparators` setting to define a words boundaries and make virtually all text into a word. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kb(Ctrl/Cmd)` is held.
+
+### Extensions handling links
+
+Extensions can contribute _link providers_ which allow the extension to define what happens when clicked. An example of this is the GitLens extension giving custom behavior to git commit hashes to get handled in the UI.
+
+### Keyboard accessibility
+
+Links are keyboard accessible through several commands which open links based on the type of link. These commands do not have default keybindings.
+
+- **Terminal: Open Last Local File Link** opens the most recent local file link
+- **Terminal: Open Last URL link** opens the most recent URI/URL link
+- **Terminal: Open Detected Link...** opens a searchable quick pick with all links (including word links)
 
 
 
