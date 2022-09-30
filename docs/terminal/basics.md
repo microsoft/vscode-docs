@@ -14,36 +14,28 @@ Visual Studio Code includes a fully-featured integrated terminal that convenient
 To open the terminal:
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
-* Use the **View** > **Terminal** menu command.
+* Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
-* You can create a new terminal via the **Terminal** menu with **Terminal** > **New Terminal**.
 
+TODO: Refreshed image with good alt text
 ![Terminal](images/basics/integrated-terminal.png)
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
 ## Terminal shells
 
-The integrated terminal can use various shells installed on your machine, with the defaults being:
+The integrated terminal can use various shells installed on your machine, with the default being pulled from your system defaults. Shells are detected and presented in the terminal profiles dropdown.
 
-* PowerShell on Windows
-* bash on macOS and Linux
-
-You can select other available shells to use in terminal instances or as the default such as Command Prompt on Windows, and zsh on macOS and Linux.
-
-![Integrated terminal shell selection dropdown](images/basics/select-shell-dropdown.png)
+![A detected profile can be chosen in the dropdown next to the new terminal button. Some examples on Windows include PowerShell, Command Prompt, Git Bash and WSL](images/basics/select-shell-dropdown.png)
 
 You can learn more about configuring terminal shells in the [terminal profiles](/docs/terminal/profiles.md) article.
-
->**Note**: If you're having trouble launching your preferred shell in the integrated terminal, it may be due to your shell's configuration or a VS Code terminal setting. There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) to help you with these sorts of problems.
 
 ## Managing terminals
 
 The terminal tabs UI is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
+TODO: New image with more standard theme and colors
 ![Terminal tabs](images/basics/tabs.png)
-
-> **Tip:** Change the tabs location using the `terminal.integrated.tabs.location` setting.
 
 Terminal instances can be added by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
@@ -53,34 +45,59 @@ Navigate between terminal groups using focus next `kb(workbench.action.terminal.
 
 Icons may appear to the right of the terminal title on the tab label when a terminal's status changes. Some examples are a bell (macOS) and for tasks, displaying a check mark when there are no errors and an X otherwise. Hover the icon to read status information, which may contain actions.
 
-### Grouping
+### Groups (split panes)
 
-Split the terminal by:
+Multiple terminals can be placed side-by-side are called a group and are created by splitting a terminal:
 
 * On hover, selecting the inline split button.
 * Right-clicking the context menu and selecting the **Split** menu option.
 * `kbstyle(Alt)` click on a tab, the **+** button, or the single tab on the terminal panel.
 * Triggering the `kb(workbench.action.terminal.split)` command.
 
-Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, and focusing the next pane, `kb(workbench.action.terminal.focusNextPane)`.
+> **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` setting.
 
-Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows joining a group.
+Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Unsplit a split terminal by triggering the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
+Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
 
-### Customizing Tabs
+Moving a terminal into its own group can be done with the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
-Change the terminal's name, icon, and tab color via the right-click context menu or by triggering the following commands:
+## Terminals in editor area
 
-| Command                | Command ID                              |
-| ---------------------- | --------------------------------------- |
-| Terminal: Rename       | `workbench.action.terminal.rename`      |
-| Terminal: Change Icon  | `workbench.action.terminal.changeIcon`  |
-| Terminal: Change Color | `workbench.action.terminal.changeColor` |
+Terminal in the editor area, also known as terminal editors, can be created through the **Terminal: Create New Terminal in Editor Area** and ****Terminal: Create New Terminal in Editor Area to the Side** commands or by dragging a terminal from the terminal view into the editor area.
 
->**Tip:** Go back to the old version by setting `terminal.integrated.tabs.enabled:false`
+TODO: Single tab
 
-![Multiple Terminals](images/basics/terminal-multiple-instances.png)
+Terminal editors are ideal if you want a complex setup such as terminals on 2 sides of an editor or terminal splits that are arranged in 2 dimensions. The `terminal.integrated.defaultLocation` setting can changing the default terminal location.
+
+TODO: Grid setup image
+
+## Navigating the buffer
+
+The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `terminal.integrated.scrollback` setting which defaults to `1000`.
+
+There are various commands available to navigate around the terminal buffer:
+
+- Scroll up a line: `kb(workbench.action.terminal.scrollUp)`
+- Scroll down a line: `kb(workbench.action.terminal.scrollDown)`
+- Scroll up a page: `kb(workbench.action.terminal.scrollUpPage)`
+- Scroll down a page: `kb(workbench.action.terminal.scrollDownPage)`
+- Scroll to the top: `kb(workbench.action.terminal.scrollToTop)`
+- Scroll to the bottom: `kb(workbench.action.terminal.scrollToBottom)`
+
+_Command_ navigation is also available (see [shell integration](/docs/terminal/shell-integration.md)):
+
+- Scroll to the previous command: `kb(workbench.action.terminal.scrollToPreviousCommand)`
+- Scroll to the previous command: `kb(workbench.action.terminal.scrollToNextCommand)`
+
+Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `terminal.integrated.smoothScrolling` setting.
+
+
+
+
+
+
+
 
 ## Working directory
 
