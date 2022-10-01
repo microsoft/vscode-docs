@@ -121,7 +121,7 @@ Links are keyboard accessible through several commands which open links based on
 - **Terminal: Open Last URL link** opens the most recent URI/URL link
 - **Terminal: Open Detected Link...** opens a searchable quick pick with all links (including word links)
 
-## Copy & Paste
+## Copy & paste
 
 The keybindings for copy and paste follow platform standards:
 
@@ -133,7 +133,53 @@ Copying is be done automatically on selection when `terminal.integrated.copyOnSe
 
 By default there is a warning when pasting multiple lines which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode," when enabled it's essentially the shell declaring that it can handle multiple line pasting.
 
+## Using the mouse
 
+### Right-click behavior
+
+The right-click behavior differs based on the platform:
+
+* Linux: Show the context menu.
+* macOS: Select the word under the cursor and show the context menu.
+* Windows: Copy and drop selection if there is a selection, otherwise paste.
+
+This can be configured using the `terminal.integrated.rightClickBehavior` setting.
+
+### Reposition the cursor with alt
+
+`kbstyle(Alt)` left click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `terminal.integrated.altClickMovesCursor` setting.
+
+### Mouse events mode
+
+When applications running in the terminal turn on mouse events mode, such as vim mouse mode, mouse interaction is sent to the application instead of the terminal. This means that clicking and dragging will no longer create a selection. Terminal selection can be forced by holding the `kb(Alt)` key on Windows and Linux, this can also be done with the `kb(Option)` key on macOS but requires enabling the `terminal.integrated.macOptionClickForcesSelection` setting first.
+
+## Find
+
+The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
+
+TODO: Image
+
+> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](https://code.visualstudio.com/docs/terminal/advanced#_keybinding-and-the-shell).
+
+## Run selected text
+
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
+
+![Run selected text](images/basics/terminal_run_selected.png)
+
+The terminal will attempt to run the selected text.
+
+![Run selected text result](images/basics/terminal_run_selected_result.png)
+
+If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
+
+>**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
+
+## Maximizing the terminal
+
+The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some users use VS Code as a standalone terminal by opening a new window, maximizing the panel and hiding the side bar.
+
+TODO: Image of maximized terminal
 
 
 
@@ -159,49 +205,6 @@ Split terminals on Windows will start in the directory that the parent terminal 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
 
-## Using the mouse
-
-### Right-click behavior
-
-The right-click behavior differs based on the platform:
-
-* Linux: Show the context menu.
-* macOS: Select the word under the cursor and show the context menu.
-* Windows: Copy and drop selection if there is a selection, otherwise paste.
-
-This can be configured using the `terminal.integrated.rightClickBehavior` setting.
-
-### Alt click
-
-`kbstyle(Alt)` left click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may fail for some shells or programs. This feature can be disabled.
-
-## Find
-
-The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
-
-If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find control on Linux and Windows, you will need to add the following to your `settings.json`, which will tell the terminal not to skip the shell for keybindings matching the `workbench.action.terminal.focusFind` command:
-
-```json
-{
-  "terminal.integrated.commandsToSkipShell": [
-    "-workbench.action.terminal.focusFind"
-  ],
-}
-```
-
-## Run selected text
-
-To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
-
-![Run selected text](images/basics/terminal_run_selected.png)
-
-The terminal will attempt to run the selected text.
-
-![Run selected text result](images/basics/terminal_run_selected_result.png)
-
-If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
-
->**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
 
 ## Automating launching of terminals
 
