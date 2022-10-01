@@ -121,6 +121,17 @@ Links are keyboard accessible through several commands which open links based on
 - **Terminal: Open Last URL link** opens the most recent URI/URL link
 - **Terminal: Open Detected Link...** opens a searchable quick pick with all links (including word links)
 
+## Copy & Paste
+
+The keybindings for copy and paste follow platform standards:
+
+* Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`; selection paste is available with `kbstyle(Shift+Insert)`
+* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+* Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
+
+Copying is be done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
+
+By default there is a warning when pasting multiple lines which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode," when enabled it's essentially the shell declaring that it can handle multiple line pasting.
 
 
 
@@ -147,13 +158,6 @@ Split terminals on Windows will start in the directory that the parent terminal 
 
 There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
-## Copy & Paste
-
-The keybindings for copy and paste follow platform standards:
-
-* Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`; selection paste is available with `kbstyle(Shift+Insert)`
-* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
-* Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
 ## Using the mouse
 
