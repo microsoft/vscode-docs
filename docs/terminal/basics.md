@@ -181,32 +181,25 @@ The terminal view can be maximized by clicking the maximize panel size button wi
 
 TODO: Image of maximized terminal
 
+## Select all
 
-
-
-## Working directory
-
-By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
+There is a **Terminal: Select All** command which is bound to `kb(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kb(Ctrl+A)` to select all, add this custom keybinding:
 
 ```json
 {
-    "terminal.integrated.cwd": "/home/user"
-}
+  "key": "ctrl+a",
+  "command": "workbench.action.terminal.selectAll",
+  "when": "terminalFocus && !isMac"
+},
 ```
 
-Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
+## Drag and drop file paths
 
-```json
-{
-    "terminal.integrated.splitCwd": "workspaceRoot"
-}
-```
+Dragging a file into the terminal will input the path into the terminal, with escaping to match the active shell.
 
-There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
+TODO: Image
 
-
-
-## Automating launching of terminals
+## Automating terminals with tasks
 
 The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching of terminals, for example, the following `.vscode/tasks.json` file will launch a Command Prompt and PowerShell terminal in a single terminal group when the window starts:
 
@@ -280,6 +273,32 @@ The [Tasks](/docs/editor/tasks.md) feature can be used to automate the launching
 
 This file could be committed to the repository to share with other developers or created as a user task via the `workbench.action.tasks.openUserTasks` command.
 
+## Working directory
+
+By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
+
+```json
+{
+    "terminal.integrated.cwd": "/home/user"
+}
+```
+
+Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal. This behavior can be changed using the `terminal.integrated.splitCwd` setting:
+
+```json
+{
+    "terminal.integrated.splitCwd": "workspaceRoot"
+}
+```
+
+There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
+
+## Fixed dimension terminals
+
+The **Terminal: Set Fixed Dimensions** commands allows changing the number of columns and rows that the terminal and it's backing psuedoterminal uses. This will add scroll bars when necessary which may lead to an unpleasant UX and is generally not recommended, it's a common ask on Windows in particular for improved reading of logs or long lines when paging tools aren't available.
+
+You can also right click on a terminal tab and select `Toggle Size to Content Width` (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
+
 ## Next steps
 
 The basics of the terminal have been covered in this document. Read on to find out more about:
@@ -293,10 +312,6 @@ The basics of the terminal have been covered in this document. Read on to find o
 ### I'm having problems launching the terminal
 
 There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
-
-### Why is VS Code shortcut X not working when the terminal has focus?
-
-Currently, the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. An example of this is `kbstyle(Ctrl+B)` to open the Side Bar on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. Use the `terminal.integrated.commandsToSkipShell` setting to prevent specific key bindings from being handled by the terminal.
 
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
@@ -334,18 +349,6 @@ rm /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 rm /usr/local/bin/npx /usr/local/lib/node_modules/npm/bin/npx-cli.js
 ```
 
-### Can I use Powerline fonts in the integrated terminal?
-
-Yes. Specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
-
-```json
-{
-  "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
-}
-```
-
-Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.
-
 ### Why does macOS make a ding sound when I resize terminal split panes?
 
 The keybindings ⌃⌘← and ⌃⌘→ are the defaults for resizing individual split panes in the terminal. While they work, they also cause a system "invalid key" sound to play due to an issue in Chromium. The [recommended workaround](https://github.com/microsoft/vscode/issues/44070#issuecomment-799716362) is to tell macOS to no-op for these keybindings by running this in your terminal:
@@ -363,19 +366,15 @@ EOF
 
 ### I'm having problems with the terminal rendering. What can I do?
 
-By default, the integrated terminal will render using GPU acceleration on most machines. It does this using multiple `<canvas>` elements, which are better tuned than the DOM for rendering interactive text that changes often. The terminal features 3 renderers that fallback if they are detected to perform poorly in this order:
-
-1. WebGL - This is the fastest renderer that truly unlocks the GPU's power to render the terminal quickly.
-2. Canvas - This will be used if the WebGL context fails to load (for example, hardware/environment incapabilities). Its performance may vary depending on your environment, but in general, it's much faster than the DOM renderer.
-3. DOM - This is the slowest by quite a bit but arguably the most reliable since it just uses the DOM. If the canvas renderer is detected to run slowly, the DOM renderer will be activated.
-
-Unfortunately, some issues cannot be automatically detected. If you experience issues with the GPU acceleration, you can disable `terminal.integrated.gpuAcceleration` in your user or workspace [settings](/docs/getstarted/settings.md), which will use the DOM renderer. This can be driven by the following setting:
+By default, the integrated terminal will render using GPU acceleration on most machines. Typically when there are rendering problems it's an issue of something in your hardware/OS/drivers not playing nicely with the GPU renderer. The first thing to try is to disable it which will trade off rendering speed for DOM-based rendering which is very reliable:
 
 ```json
 {
     "terminal.integrated.gpuAcceleration": "off"
 }
 ```
+
+See the [GPU acceleration](/docs/terminal/appearance#_gpu-acceleration) section for more information.
 
 ### I see `1~` or `[201~` when I paste something
 
@@ -401,3 +400,5 @@ One of our accessibility features we enable by default is to ensure a minimum co
 ```json
 "terminal.integrated.minimumContrastRatio": 1
 ```
+
+See The [minimum contrast ratio](https://code.visualstudio.com/docs/terminal/appearance#_minimum-contrast-ratio) section for more information.
