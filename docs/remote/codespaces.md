@@ -64,7 +64,7 @@ Limitation: You may not be able to use the web-based editor if you are running y
 
 While working with Codespaces and specifically VS Code in the web, there are certain limitations to keep in mind. Some of these limitations have workarounds or adaptations in place to provide a consistent development experience.
 
-For several issues (especially keybindings or those listed with a workaround for the desktop), you can install and use a Codespace as a [progressive web application](https://docs.microsoft.com/microsoft-edge/progressive-web-apps-chromium/#pwas-on-microsoft-edge-chromium) (PWA).
+For several issues (especially keybindings or those listed with a workaround for the desktop), you can install and use a Codespace as a [progressive web application](https://learn.microsoft.com/microsoft-edge/progressive-web-apps-chromium) (PWA).
 
 ![Installing Codespaces as PWA in Microsoft Edge](images/codespaces/PWA-edge-install.png)
 
@@ -128,4 +128,4 @@ Opening local files and folders in VS Code from a browser requires the browser t
 
 ## Questions or feedback
 
-If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Discussions](https://github.com/github/feedback/discussions/categories/codespaces-feedback).
+If you have questions, you can consult the GitHub Codespaces [Troubleshooting guide](https://docs.github.com/github/developing-online-with-codespaces/troubleshooting-your-codespace). If you'd like to provide feedback, you can enter issues in the GitHub Codespaces [Discussions](https://github.com/community/community/discussions/categories/codespaces).

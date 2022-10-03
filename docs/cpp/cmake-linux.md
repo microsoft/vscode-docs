@@ -76,7 +76,7 @@ If you have an existing CMake project that already has a `CMakeLists.txt` file i
 
 Otherwise, create a folder for a new project. From the Terminal window, create an empty folder called `cmakeQuickStart`, navigate into it, and open VS Code in that folder by entering the following commands:
 
-```cmd
+```bash
 mkdir cmakeQuickStart
 cd cmakeQuickStart
 code .

@@ -19,7 +19,7 @@ This topic has guidelines for extension authors so that their extensions can con
 
 The VS Code team maintains the [@vscode/extension-telemetry](https://www.npmjs.com/package/@vscode/extension-telemetry) npm module that provides a consistent and safe way to collect telemetry within VS Code. The module reports telemetry to [Azure Monitor and Application Insights](https://azure.microsoft.com/services/monitor/) and guarantees backwards compatibility against previous versions of VS Code.
 
-Follow this guide to set up [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start) and get your Application Insights instrumentation key.
+Follow this guide to set up [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/app/nodejs) and get your Application Insights instrumentation key.
 
 ## Without the telemetry module
 

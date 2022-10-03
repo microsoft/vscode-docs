@@ -17,7 +17,6 @@ Example profile:
 
 ```jsonc
 {
-
   "terminal.integrated.profiles.windows": {
     "Custom Init": {
       "path": "pwsh.exe",
@@ -115,11 +114,7 @@ By default, the task/debug features will use the default profile. This may not b
 }
 ```
 
-## Shell-specific help
-
-Below are some tips for configuring and using various shells in the integrated terminal.
-
-### Cmder
+## Cmder
 
 Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell in VS Code with the following profile:
 
@@ -137,7 +132,7 @@ Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
-### Git Bash
+## Git Bash
 
 A [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal) is that history will not be retained across shell sessions. You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile` files:
 
@@ -147,7 +142,11 @@ export PROMPT_COMMAND='history -a'
 
 This will cause the shell to call `history -a` whenever the prompt is printed which flushes the session's current session commands to the backing history file.
 
-### WSL
+## Windows PowerShell
+
+When PowerShell 6+ is installed, Windows PowerShell is not included in the profiles list by default. To add Windows PowerShell as a profile, choose the **Select Default Profile** option in the new terminal dropdown and select the Windows PowerShell item. This will configure the profile and set it as your default.
+
+## WSL
 
 When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `terminal.integrated.useWslProfiles` setting, then here's an example of how to manually configure a WSL shell:
 

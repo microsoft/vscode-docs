@@ -63,7 +63,7 @@ You can watch this **What every GitHub user should know about VS Code** talk fro
 
 ---
 
-You can also read the [Working with GitHub](/docs/editor/github.md) topic, which describes VS Code's GitHub integration in more detail.
+You can also read the [Working with GitHub](/docs/sourcecontrol/github.md) topic, which describes VS Code's GitHub integration in more detail.
 
 ## Going forward
 

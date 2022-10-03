@@ -69,6 +69,8 @@ The following table provides a summary of available Python linters and their bas
 | pylama | [pylama](https://pypi.org/project/pylama/) | pylamaEnabled | pylamaArgs | pylamaPath |
 | bandit | [bandit](https://pypi.org/project/bandit/) | banditEnabled | banditArgs | banditPath  |
 
+> **Note**: If you don't find your preferred linter in the table above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
+
 To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, that using the **Select Linter** command overwrites those edits.
 
 Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
@@ -141,7 +143,7 @@ pylint --generate-rcfile > .pylintrc
 
 If you are running Pylint in PowerShell, you have to explicitly specify a UTF-8 output encoding. This file contains sections for all the Pylint options, along with documentation in the comments.
 
-```ps
+```powershell
 pylint --generate-rcfile | Out-File -Encoding utf8 .pylintrc
 ```
 
@@ -280,3 +282,4 @@ The Python extension maps mypy message categories to VS Code categories through 
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite linter into VS Code.

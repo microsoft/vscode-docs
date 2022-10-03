@@ -25,7 +25,7 @@ To get started, you need to have done the following steps:
 
 The Remote - SSH extension is used to connect to SSH hosts.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
 
 ![Remote - SSH extension](images/ssh-tutorial/remote-ssh-extension.png)
 

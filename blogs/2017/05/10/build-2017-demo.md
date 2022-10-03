@@ -64,15 +64,3 @@ code --install-extension vscode-mongodb-0.0.1.vsix
 * The [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) make it easy to develop and deploy containerized micro-service based applications using Docker containers.
 
 * [Docker multi-stage builds](https://codefresh.io/blog/node_docker_multistage/)
-
-## Azure
-
-**Note:** If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a **free** 30 day account and get **$200** in Azure Credits to try out any combination of Azure services.
-
-* The new cross platform [Azure CLI 2.0](https://aka.ms/GetTheAzureCLI).
-
-* [Azure CLI Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) provides a rich editing experience in VS Code for the  [Azure CLI 2.0](https://aka.ms/GetTheAzureCLI).
-
-* [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) let's you host your MongoDB databases in Azure.
-
-* [Kubernetes](https://kubernetes.io/) and [Kubernetes in Azure](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough).

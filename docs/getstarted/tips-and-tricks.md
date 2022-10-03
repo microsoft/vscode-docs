@@ -841,7 +841,7 @@ Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) a
 
 ### Gutter indicators
 
-View diff decorations in editor. See [documentation](/docs/editor/versioncontrol.md#gutter-indicators) for more details.
+View diff decorations in editor. See [documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
 
 ![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 

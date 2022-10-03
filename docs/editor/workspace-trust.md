@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
 
-Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The Workspace Trust feature lets you decide whether your project folders should allow or restrict automatic code execution.
+Visual Studio Code takes security seriously and wants to help you safely browse and edit code no matter the source or original authors. The Workspace Trust feature lets you decide whether code in your project folder can be executed by VS Code and extensions without your explicit approval.
 
 ![Trust this folder dialog](images/workspace-trust/workspace-trust-dialog.png)
 
@@ -19,7 +19,7 @@ Visual Studio Code takes security seriously and wants to help you safely browse 
 
 It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimize your code. However, using open-source code and tools does have risks, and you can leave yourself open to malicious code execution and exploits.
 
-Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution when a workspace is open in "Restricted Mode".
+Workspace Trust provides an extra layer of security when working with unfamiliar code, by preventing automatic code execution of any code in your workspace if the workspace is open in "Restricted Mode".
 
 > **Note**: The terms "workspace" and "folder" are used widely in the VS Code UI and documentation. You can think of a ["workspace"](/docs/editor/workspaces.md) as a folder with extra metadata created and used by VS Code.
 
@@ -38,6 +38,8 @@ Restricted Mode tries to prevent automatic code execution by disabling or limiti
 To see the full list of features disabled in Restricted Mode, you can open the Workspace Trust editor via the **Manage** link in the banner, or by clicking the Restricted Mode badge in the Status bar.
 
 ![Workspace Trust editor](images/workspace-trust/workspace-trust-editor.png)
+
+> **Note**: Workspace Trust can not prevent a malicious extension from executing code and ignoring **Restricted Mode**. You should only install and run extensions that come from a well-known publisher that you trust.
 
 ### Tasks
 
@@ -171,7 +173,7 @@ What happens if you want to use Restricted Mode but your favorite extension does
 
 If you open the Settings editor (`kb(workbench.action.openSettings)`) and search for "trust extensions", you can find the **Extensions: Support Untrusted Workspaces** setting, which has an **Edit in settings.json** link.
 
-![Extension support ](images/workspace-trust/extensions-support-untrusted.png)
+![Extension support](images/workspace-trust/extensions-support-untrusted.png)
 
 Select that link and you will go to your user `settings.json` file with a new entry for `extensions.supportUntrustedWorkspaces`. This setting takes an object that has a list of extension IDs and their support status and version. You can select any of your installed extensions via IntelliSense suggestions.
 
@@ -251,7 +253,7 @@ Learn more at:
 
 * [Workspace Trust Extension Guide](/api/extension-guides/workspace-trust.md) - Learn how extension authors can support Workspace Trust.
 * [What is a VS Code "workspace"?](/docs/editor/workspaces.md) - Find out more details about the VS Code "workspace" concept.
-* [GitHub Repositories extension](/docs/editor/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
+* [GitHub Repositories extension](/docs/sourcecontrol/github.md#github-repositories-extension) - Work directly on a repository without cloning the source code to your local machine.
 
 ## Common questions
 

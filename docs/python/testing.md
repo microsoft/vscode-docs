@@ -204,7 +204,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
    **For Windows**
 
-   ```cmd
+   ```bat
    py -3 -m pip install pytest-xdist
    ```
 
@@ -267,9 +267,9 @@ You can also change the default behavior of clicking on the gutter decoration to
 
 The debugger works the same for tests as for other Python code, including breakpoints, variable inspection, and so on. To customize settings for debugging tests, you can specify `"purpose": ["debug-test"]` in the `launch.json` file in the `.vscode` folder from your workspace. This configuration will be used when you run **Test: Debug All Tests**, **Test: Debug Tests in Current File** and **Test: Debug Test at Cursor** commands.
 
-For example, the configuration below in the ```launch.json``` file disables the ```justMyCode``` setting for debugging tests:
+For example, the configuration below in the `launch.json` file disables the `justMyCode` setting for debugging tests:
 
-```py
+```json
 {
     "name": "Python: Debug Tests",
     "type": "python",

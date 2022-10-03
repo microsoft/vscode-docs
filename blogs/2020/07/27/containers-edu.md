@@ -55,7 +55,7 @@ To save tremendous time and confusion, we can use dev containers to create a sta
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 * Install Docker Desktop.
      * Docker is the industry standard for building and sharing containers. We recommend Docker Desktop Stable 2.3.0.3 as it is the most recent and performant version of Docker Desktop.
-     * There is newly introduced [Docker Desktop support on Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/). It requires Windows 10, version 2004 and enabling the Windows Subsystem for Linux 2 (WSL 2) backend. Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/install).
+     * There is newly introduced [Docker Desktop support on Windows Home](https://docs.docker.com/docker-for-windows/install-windows-home/). It requires Windows 10, version 2004 and enabling the Windows Subsystem for Linux 2 (WSL 2) backend. Enable WSL 2 by following the [WSL 2 installation guide](https://learn.microsoft.com/windows/wsl/install).
      * For students who would prefer to not configure the WSL 2 backend, [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/#:~:text=System%20Requirements,Hyper%2DV%20on%20Windows%2010%3A&text=4GB%20system%20RAM) can alternatively be used on Windows 10 Pro, Enterprise, or Education (Build 16299 or later), and Hyper-V and Containers Windows features must be enabled.
 
 Let's start off by launching VS Code, which we can do by typing `code` in the command prompt or terminal (or just by selecting VS Code on your computer):
@@ -156,7 +156,7 @@ Variables we'd recommend starting off with in a `devcontainer.json` for educatio
 
 Setting up a handful of variables in this file will save your class time in the long run. For example, you can use the `extensions` variable to ensure all your students automatically get the same set of extensions installed. Setting paths can also be challenging or lead to issues on students' computers, but by specifying path information via the `settings` variable, you'll save your class time and ensure their computers' path variables aren't harmed in the process.
 
-There is a table in the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) of all available properties you can include in this configuration file.
+There are tables in the [devcontainer.json reference](https://containers.dev/implementors/json_reference) of all available properties you can include in this configuration file.
 
 #### Dockerfile
 
@@ -184,7 +184,7 @@ Once our container is built, we have all the same files, but now the bottom-left
 
 Now that you have a dev container, you can upload it to a repository so that your students can access it for their assignments. You can include assignment instructions in a `README`, as well as any base or template code needed for the assignment, and a `.devcontainer` folder so that they all have a consistent development experience. All of these files can be uploaded as a single repo.
 
-Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](https://code.visualstudio.com/docs/editor/versioncontrol#_initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
+Make sure you have [Git installed](https://git-scm.com/downloads). You can [initialize a new Git repository](/docs/sourcecontrol/overview.md#initialize-a-repository) from your container project in VS Code. Alternatively, you can use `git init` from your project's directory in the command line.
 
 The next step is to connect your local repository to a [new repo](https://github.com/new) from GitHub in your browser:
 

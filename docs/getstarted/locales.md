@@ -25,7 +25,7 @@ You can also override the default UI language by explicitly setting the VS Code 
 
 Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "display" to filter and display the **Configure Display Language** command.
 
-![configure display language command ](images/locales/configure-language-command.png)
+![configure display language command](images/locales/configure-language-command.png)
 
 Press `kbstyle(Enter)` and a list of installed languages by [locale](#available-locales) is displayed, with the current `locale` highlighted.
 

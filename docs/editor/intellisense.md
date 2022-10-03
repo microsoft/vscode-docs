@@ -51,7 +51,7 @@ The JavaScript code below illustrates IntelliSense completions. IntelliSense giv
 
 VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
 
-|       |         |       |
+| Icon | Name | Symbol type |
 | ----- | ------- | ----- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
 | ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |

@@ -256,6 +256,8 @@ If you use `markdownDescription` instead of `description`, your setting descript
 }
 ```
 
+For `markdownDescription`, in order to add newlines or multiple paragraphs, use the string `\n\n` to separate the paragraphs instead of just `\n`.
+
 **type**
 
 Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the settings UI.

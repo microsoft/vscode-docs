@@ -26,7 +26,7 @@ After any of the steps above, you'll have a fully functioning dev container, and
 
 ## Create a devcontainer.json file
 
-VS Code's container configuration is stored in a [devcontainer.json](/docs/remote/devcontainerjson-reference.md) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
+VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
 You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container image from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-vscode-devcontainers):
 
@@ -161,7 +161,7 @@ Rather than referencing an image directly in `devcontainer.json` or installing s
 
 ## Dockerfile
 
-A Dockerfile will also live in the `.devcontainer` folder. You can replace the `image` property in `devcontainer.json` with `dockerFile`:
+A Dockerfile will also live in the `.devcontainer` folder. You can replace the `image` property in `devcontainer.json` with `dockerfile`:
 
 ```json
 {
@@ -183,7 +183,7 @@ When you make changes like installing new software, changes made in the Dockerfi
 
 In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. You can use `&&` to string together multiple commands.
 
-```Dockerfile
+```docker
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install git
@@ -279,7 +279,7 @@ For example:
 }
 ```
 
-See the [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
+See the [devcontainer.json reference](https://containers.dev/implementors/json_reference) for information other available properties such as the `workspaceFolder` and `shutdownAction`.
 
 Once you have added a `.devcontainer/devcontainer.json` file to your folder, run the **Remote-Containers: Reopen in Container** command (or **Remote-Containers: Open Folder in Container...** if you are not yet in a container) from the Command Palette (`kbstyle(F1)`).
 
@@ -327,7 +327,7 @@ user: your-user-name-here
 
 If you aren't creating a custom Dockerfile for development, you may want to install additional developer tools such as `curl` inside the service's container. While less efficient than adding these tools to the container image, you can also use the `postCreateCommand` property for this purpose.
 
-See [install additional software](#install-additional-software) for more information on installing software and the [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) for more information about the `postCreateCommand` property.
+See [install additional software](#install-additional-software) for more information on installing software and the [devcontainer.json reference](https://containers.dev/implementors/json_reference) for more information about the `postCreateCommand` property.
 
 If your application was built using C++, Go, or Rust, or another language that uses a ptrace-based debugger, you will also need to add the following settings to your Docker Compose file:
 
@@ -474,7 +474,7 @@ In the Settings editor:
 
 Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub folder that mirrors the remote location of the repository. For example, if you wanted to create a configuration for `github.com/microsoft/vscode-dev-containers`, you would create the following folder structure:
 
-```text
+```
 📁 github.com
     📁 microsoft
         📁 vscode-dev-containers
@@ -489,4 +489,4 @@ The path used for looking up the configuration is derived from the output of `gi
 
 * [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
-* [devcontainer.json reference](/docs/remote/devcontainerjson-reference.md) - Review the `devcontainer.json` schema.
+* [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.

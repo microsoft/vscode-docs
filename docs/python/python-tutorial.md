@@ -63,7 +63,7 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 - **Data Science**: If your primary purpose for using Python is Data Science, then you might consider a download from [Anaconda](https://www.anaconda.com/download/). Anaconda provides not just a Python interpreter, but many useful libraries and tools for data science.
 
-- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
 
 ## Verify the Python installation
 
@@ -77,7 +77,7 @@ To verify that you've installed Python successfully on your machine, run one of 
 
 - Windows: open a command prompt and run the following command:
 
-    ```ps
+    ```bat
     py -3 --version
     ```
 
@@ -110,6 +110,8 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
 The command presents a list of available interpreters that VS Code can find automatically, including virtual environments. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+
+![Select an Interpreter](images/tutorial/interpreter.png)
 
 > **Note**: When using an Anaconda distribution, the correct interpreter should have the suffix `('base':conda)`, for example `Python 3.7.3 64-bit ('base':conda)`.
 
@@ -225,7 +227,7 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -251,13 +253,10 @@ A best practice among Python developers is to avoid installing packages into a g
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#creating-environments).
 
 1. Create and activate the virtual environment
-   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
 
-   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
+   **Virtual environment creation for Windows**
 
-   **For Windows**
-
-   ```cmd
+   ```bat
    py -3 -m venv .venv
    .venv\scripts\activate
    ```
@@ -266,19 +265,23 @@ A best practice among Python developers is to avoid installing packages into a g
    current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
    run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
 
-   ```cmd
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
 
-   **For macOS/Linux**
+   **Virtual environment creation for macOS/Linux**
 
    ```bash
    python3 -m venv .venv
    source .venv/bin/activate
    ```
+   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+
+   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
+
 
 1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
-
+![Select an Interpreter](images/tutorial/interpreter-venv.png)
 1. Install the packages
 
    ```bash
@@ -321,5 +324,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
-- [Deploy Python to Azure App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)
+- [Deploy Python to Azure App Service using containers](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01)
+- [Deploy Python to Azure App Service on Linux](https://learn.microsoft.com/azure/developer/python/configure-python-web-app-local-environment)

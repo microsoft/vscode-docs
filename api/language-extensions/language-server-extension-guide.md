@@ -217,7 +217,7 @@ The source code for the Language Server is at `/server`. The interesting section
 
 This pulls in the `vscode-languageserver` libraries.
 
-Below is a server implementation that uses the provided simple text document manager that synchronizes text documents by always sending the file's full content from VS Code to the server.
+Below is a server implementation that uses the provided text document manager that synchronizes text documents by always sending incremental deltas from VS Code to the server.
 
 ```typescript
 import {

@@ -49,7 +49,7 @@ You may use a [Cloud-Init](https://cloud-init.io/) file (which is an industry st
 
 `cloud-init.txt` file:
 
-``` bash
+```yaml
 #cloud-config
 
 apt:

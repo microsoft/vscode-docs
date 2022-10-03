@@ -888,10 +888,12 @@ That was tasks - let's keep going...
 
 ### Can a task use a different shell than the one specified for the Integrated Terminal?
 
-Yes. You can use the `"terminal.integrated.automationShell.*"` setting to set the shell that will be used for all automation in VS Code, which includes Tasks.
+Yes. You can use the `"terminal.integrated.automationProfile.*"` setting to set the shell that will be used for all automation in VS Code, which includes Tasks.
 
 ```json
-    "terminal.integrated.automationShell.windows": "cmd.exe",
+    "terminal.integrated.automationProfile.windows": {
+        "path": "cmd.exe"
+    }
 ```
 
 Alternatively, you can override a task's shell with the `options.shell` property. You can set this per task, globally, or per platform. For example, to use cmd.exe on Windows, your `tasks.json` would include:

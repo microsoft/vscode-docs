@@ -34,7 +34,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 - Visual Studio Code (version 1.59.0 or later)
 - [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 ## Project Setup
 

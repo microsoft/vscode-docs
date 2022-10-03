@@ -65,7 +65,7 @@ As an example, let's hide the Activity Bar from VS Code. The Activity Bar is the
 
 ![Activity Bar display on the left of the editor](images/settings/activity-bar.png)
 
-Open the Settings Editor (`kb((workbench.action.openSettings)`) and type "activity" in the Search bar. You should see at least five settings.
+Open the Settings Editor (`kb(workbench.action.openSettings)`) and type "activity" in the Search bar. You should see at least five settings.
 
 ![Settings editor with 'activity' in the Search bar with at least five settings](images/settings/search-for-activity.png)
 

@@ -236,16 +236,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/editor/versioncontrol</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://code.visualstudio.com/docs/editor/github</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/editor/vscode-web</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -271,6 +261,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/overview</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/github</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/faq</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/terminal/basics</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -287,6 +292,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/terminal/appearance</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/terminal/advanced</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -851,11 +861,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/docs/remote/devcontainerjson-reference</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://code.visualstudio.com/docs/remote/attach-container</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1321,6 +1326,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/advanced-topics/using-proposed-api</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/advanced-topics/python-extension-template</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -80,7 +80,7 @@ code .
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 
-```plaintext
+```
 src\
     main.rs
 .gitignore

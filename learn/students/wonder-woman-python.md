@@ -15,10 +15,10 @@ Get a glimpse into the Python programming language with this introductory learni
 
 <div class="module">
     <div class="info">
-        <a href="https://docs.microsoft.com/learn/paths/python-partnership/?WT.mc_id=python-0000-cxa"><h2 class="title faux-h3">Learn Python with Wonder Woman</h2></a>
+        <a href="https://learn.microsoft.com/training/paths/python-partnership/?WT.mc_id=python-0000-cxa"><h2 class="title faux-h3">Learn Python with Wonder Woman</h2></a>
     </div>
     <p class="description">Build a message decoder program and a personality quiz in these lessons inspired by the WONDER WOMAN 1984 film.</p>
-    <a href="https://docs.microsoft.com/learn/paths/python-partnership/?WT.mc_id=python-0000-cxa" title="Wonder Woman module">
+    <a href="https://learn.microsoft.com/training/paths/python-partnership/?WT.mc_id=python-0000-cxa" title="Wonder Woman module">
         <img src="/assets/learn/students/wonder-woman-python/ww-lesson.png" aria-hidden="true" class="thumb"/>
     </a>
 </div><br/>
