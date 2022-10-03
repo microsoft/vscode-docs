@@ -815,13 +815,13 @@ On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
 apk update && apk add bash
 ```
 
-### Selecting the distribution used by Remote - WSL
+### Selecting the distribution used by the WSL extension
 
-**Remote-WSL: New Window** will open the WSL distro registered as default.
+**WSL: New Window** will open the WSL distro registered as default.
 
-To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
+To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **WSL: New Window using Distro**.
 
- With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the Remote- WSL might prompt you if you agree to change the default distro.
+ With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the WSL extension might prompt you if you agree to change the default distro.
 
 You can always use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default.
 
@@ -839,7 +839,7 @@ wslconfig /l
 
 ### Configure the environment for the server startup
 
-When the Remote WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
+When the WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
 
 If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
 
@@ -900,7 +900,7 @@ Please file an issue and attach the full output.
 
 When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
 
-Open the WSL log by running the command **Remote-WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+Open the WSL log by running the command **WSL: Open Log**. The log will show in the terminal view under the WSL tab.
 
 ![WSL Log](images/troubleshooting/wsl-log.png)
 
@@ -911,14 +911,14 @@ To get even more verbose logging, enable the setting `remote.WSL.debug` in the u
 You can help us investigate this problem by sending us the core dump file. To get the core dump file, follow these steps:
 
 * Open a Windows command prompt,
-* run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
+* run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the WSL extension folder.
 * `cd` to the path that is returned.
 * Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
 * Before the last line (before `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"`), add
 `ulimit -C unlimited`.
-* Start the Remote-WSL window running the remote server and wait for the segmentation fault.
+* Start the WSL window running the remote server and wait for the segmentation fault.
 
-The core file will be in the Remote-WSL extension folder from above.
+The core file will be in the WSL extension folder from above.
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
@@ -1110,7 +1110,7 @@ You can get the Remote - SSH extension logs with **Remote-SSH: Show Log** from t
 
 Similarly, you can get the Remote - Containers extension logs with **Remote-Containers: Show Log**.
 
-Like the two above, you can get the Remote - WSL logs with **Remote WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the Remote - WSL extension).
+Like the two above, you can get the WSL extension logs with **WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the WSL extension).
 
 If you're experiencing issues using other extensions remotely (for example, other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the **Remote Extension Host** output channel (**Output: Focus on Output View**), and select **Log (Remote Extension Host)** from the dropdown.
 

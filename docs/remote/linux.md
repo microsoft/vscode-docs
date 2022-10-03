@@ -4,7 +4,7 @@ Area: remote
 TOCTitle: Linux Prerequisites
 PageTitle: Linux Prerequisites for Visual Studio Code Remote Development
 ContentId: 7ec8dedf-0659-437e-98f1-2d27f5e243eb
-MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and Remote - WSL
+MetaDescription: Linux Prerequisites for VS Code Remote - SSH, Remote - Containers, and WSL
 DateApproved: 9/1/2022
 ---
 # Remote Development with Linux
@@ -17,7 +17,7 @@ The extensions are known to work when connecting to recent stable/LTS version of
 * **Debian 64-bit x86, ARMv8l (AArch64)** (Stretch/9+)
 * **Raspberry Pi OS ARMv7l (AArch32) 32-bit** (Stretch/9+) (previously called Raspbian)
 * **CentOS / RHEL 64-bit x86** (7+)
-* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.9+) in Remote - Containers, Remote - WSL
+* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.9+) in Remote - Containers, WSL
 
 The following non-Linux SSH hosts are also supported:
 
@@ -48,7 +48,7 @@ You may encounter issues with certain extensions with native dependencies with *
 | General |  kernel >= 3.10, glibc >=2.17, libstdc++ >= 3.4.18, Python 2.6 or 2.7, tar | OpenSSH server, `bash`, and `curl` or `wget` | Run `ldd --version` to check the glibc version. Run `strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX` to see if libstdc++ 3.4.18 is available. |
 | Ubuntu 16.04+, Debian 8+, Raspberry Pi OS Stretch/9+ and downstream distributions | `libc6 libstdc++6 python-minimal ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18. Debian < 8 (Jessie) and Ubuntu < 14.04 do not meet this requirement.  |
 | RHEL / CentOS 7+ | `glibc libgcc libstdc++ python ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 3.10, glibc >= 2.17, libstdc++ >= 3.4.18.  RHEL / CentOS < 7 does not meet this requirement without using a [workaround to upgrade](#updating-glibc-and-libstdc-on-rhel-centos-6). |
-| Alpine Linux 3.9+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and Remote - WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| Alpine Linux 3.9+ | `musl libgcc libstdc++`. musl >= 1.1.18, glibc not required. | Not yet supported. | Supported in Remote - Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 python ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 3.10, glibc, libstdc++6|
 
 ## Tips by Linux distribution
@@ -63,7 +63,7 @@ The following is a list of distributions and any base requirements that may be m
 
 | Server Distribution | Docker Image | Missing libraries | Notes / additional steps |
 |---------------------|--------------|-------------------|------------------|
-| ⚠️ Alpine Linux 3.10 (64-bit) | `alpine:3.10` | `libgcc libstdc++` |  Supported in Remote - Containers and Remote - WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| ⚠️ Alpine Linux 3.10 (64-bit) | `alpine:3.10` | `libgcc libstdc++` |  Supported in Remote - Containers and WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | ✅ CentOS 7 Server (64-bit) | `centos:7` | &lt;none&gt; | &lt;none&gt; |
 | 🛑 CentOS 6 Server (64-bit) | `centos:6` | `glibc` >= 2.17, `libstdc++` >= 3.4.18 | [Requires a workaround](#updating-glibc-and-libstdc-on-rhel-centos-6). |
 | ✅ Debian 10 Server (64-bit) | `debian:10` | &lt;none&gt; | &lt;none&gt; |

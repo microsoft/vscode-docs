@@ -31,7 +31,7 @@ The [Remote Development extension pack](https://aka.ms/vscode-remote/download/ex
 
 - [Remote - SSH](/docs/remote/ssh.md) - Connect to any location by opening folders on a remote machine/VM using SSH.
 - [Remote - Containers](/docs/remote/containers.md) - Work with a separate toolchain or container-based application inside (or mounted into) a container.
-- [Remote - WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
+- [WSL](/docs/remote/wsl.md) - Get a Linux-powered development experience in the Windows Subsystem for Linux.
 
 While most VS Code extensions should work unmodified in a remote environment, extension authors can learn more at [Supporting Remote Development](/api/advanced-topics/remote-extensions.md).
 

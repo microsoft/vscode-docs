@@ -13,7 +13,7 @@ In this tutorial, you will configure Visual Studio Code to use the GCC C++ compi
 
 > **Note**: Much of this tutorial is applicable to working with C++ and VS Code directly on a Linux machine.
 
-Visual Studio Code has support for working directly in WSL with the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). We recommend this mode of [WSL development](/docs/remote/wsl.md), where all your source code files, in addition to the compiler, are hosted on the Linux distro. For more background, see [VS Code Remote Development](/docs/remote/remote-overview.md).
+Visual Studio Code has support for working directly in WSL with the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). We recommend this mode of [WSL development](/docs/remote/wsl.md), where all your source code files, in addition to the compiler, are hosted on the Linux distro. For more background, see [VS Code Remote Development](/docs/remote/remote-overview.md).
 
 After completing this tutorial, you will be ready to create and configure your own C++ project, and to explore the VS Code documentation for further information about its many features. This tutorial does not teach you about GCC or Linux or the C++ language. For those subjects, there are many good resources available on the Web.
 
@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following steps:
 
 1. Install [Visual Studio Code](/download).
 
-1. Install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
+1. Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
 
 1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) and then use the links on that same page to install your Linux distribution of choice. This tutorial uses Ubuntu. During installation, remember your Linux user password because you'll need it to install additional software.
 

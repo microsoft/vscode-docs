@@ -129,10 +129,10 @@ If you are using [Windows Subsystem for Linux v2 (WSL 2)](https://docs.microsoft
 
 Once the WSL 2 engine is enabled, you can either:
 
-* Use the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the [Remote - WSL](https://aka.ms/vscode-remote/download/wsl) extension.
+* Use the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the [WSL](https://aka.ms/vscode-remote/download/wsl) extension.
 * Select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and choose a WSL folder using the local `\\wsl$` share (from the Windows side).
 
-The rest of the quick start applies as-is! You can learn more about the [Remote - WSL extension in its documentation](/docs/remote/wsl.md).
+The rest of the quick start applies as-is! You can learn more about the [WSL extension in its documentation](/docs/remote/wsl.md).
 
 ### Open a folder on a remote SSH host in a container
 
@@ -628,7 +628,7 @@ See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docke
 
 ### Docker Extension limitations
 
-If you are using the Docker or Kubernetes extension from a Remote - WSL or Remote - SSH window, you will not be able to use the right-click **Attach to Container** option. This will only work if you are using it from your local machine.
+If you are using the Docker or Kubernetes extension from a WSL or Remote - SSH window, you will not be able to use the right-click **Attach to Container** option. This will only work if you are using it from your local machine.
 
 ### Extension limitations
 

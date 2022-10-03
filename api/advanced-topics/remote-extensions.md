@@ -89,7 +89,7 @@ The extension development host window that appears will include your extension r
 
 Follow these steps:
 
-1. After [installing and configuring the Remote - WSL extension](/docs/remote/wsl), select **Remote-WSL: New Window** from the Command Palette (`kbstyle(F1)`) in VS Code.
+1. After [installing and configuring the WSL extension](/docs/remote/wsl), select **WSL: New Window** from the Command Palette (`kbstyle(F1)`) in VS Code.
 
 2. In the new window that appears, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it in WSL.
 
