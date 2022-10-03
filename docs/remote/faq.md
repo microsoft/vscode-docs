@@ -121,7 +121,7 @@ As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you c
 
 ![List of settings in Feature Contributions](images/containers/feature-contributions.png)
 
-## Remote - WSL Extension
+## WSL Extension
 
 ### What is the advantage of the extension over using WSL as the terminal?
 
