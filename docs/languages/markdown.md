@@ -131,6 +131,8 @@ You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** c
 
 ![A locked Markdown preview](images/Markdown/locked-preview-title.png)
 
+>**Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
+
 ### Editor and preview synchronization
 
 VS Code automatically synchronizes the Markdown editor and the preview panes. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
