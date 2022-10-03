@@ -214,7 +214,7 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or click on the **Add Port** button in the **Ports view**. You can see the Ports view in the bottom panel, or by running the command **Ports: Focus on Ports View**.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or select the **Add Port** button in the **Ports view**. You can see the Ports view in the bottom panel, or by running the command **Ports: Focus on Ports View**.
 
 ![Forward port button](images/ssh/forward-port-ssh.png)
 
@@ -234,9 +234,9 @@ If you would like VS Code to remember any ports you have forwarded, check **Remo
 
 If you would like the local port of the tunnel to be different than the remote server's, you can change this via the **Forwarded Ports** panel.
 
-Right-click the tunnel you want to modify, and select **Change Local Port** in the context menu.
+Right-click the tunnel you want to modify, and select **Change Local Address Port** in the context menu.
 
-![Change Local Port](images/ssh/change-local-port.png)
+![Change Local Address Port](images/ssh/change-local-port.png)
 
 ### Always forwarding a port
 
