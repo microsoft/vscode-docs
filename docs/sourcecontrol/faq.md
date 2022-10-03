@@ -9,6 +9,8 @@ DateApproved: 9/1/2022
 ---
 # Source Control FAQ
 
+This topic answers frequently asked questions about using Git source control and GitHub in Visual Studio Code.
+
 ## Git
 
 ### How to revert or undo a Git commit?
@@ -67,7 +69,7 @@ Another option is to disable the auto fetch feature by changing the following se
 
 Yes, though VS Code works most easily with SSH keys without a passphrase. If you have an SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
 
-## GitHub Pull Requests & Issues
+## GitHub
 
 ### Is GitHub Enterprise supported?
 
