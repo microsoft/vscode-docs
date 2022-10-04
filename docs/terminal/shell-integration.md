@@ -121,7 +121,7 @@ Here are some of the built-in quick fixes:
 - When a `git` subcommand fails with a similar command error, suggest to use the similar command(s)
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link
 
-Quick fixes also supports [audio cues](https://code.visualstudio.com/docs/editor/accessibility#_audio-cues) for additional feedback when a quick fix is available.
+The quick fix feature also supports [audio cues](https://code.visualstudio.com/docs/editor/accessibility#_audio-cues) for additional feedback when a quick fix is available.
 
 ### Run recent command
 
