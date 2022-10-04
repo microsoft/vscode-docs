@@ -29,11 +29,11 @@ When you visit the Discussions repo, you'll notice that there are currently 3 ca
 
 This is where you can keep up with all of the latest information for extension authors from the VS Code team. This includes things like recently released features such as "Pre-release extensions" as well as some giveaways we have from time-to-time just for our extension author communities - like [free Azure Credits](https://github.com/microsoft/vscode-discussions/discussions/135)!
 
-### Extension Development Q&A
+### Extension Development QnA
 
-Ask your questions related to extension development and help your fellow developers by answering theirs. Questions regarding how to approach a specific problem, looking for more details on certain APIs, and seeking best practices are all great to post here. However, if you find yourself saying "I've gone through the documentation, and I am still unable to interact with the VS Code API to achieve the desired functionality...", then it might be better suited as an issue on the official VS Code repo.
+Ask your questions related to extension development and help your fellow developers by answering theirs. Questions regarding how to approach a specific problem, looking for more details on certain APIs, and seeking best practices are all great to post here. However, if you find yourself saying "I've gone through the documentation, and I am still unable to interact with the VS Code API to achieve the desired functionality...", then it might be better suited as an [issue](https://github.com/microsoft/vscode/issues) on the official VS Code repo.
 
-### Extension Show & Tell
+### Extension Show and Tell
 
 You've put time and effort into creating your extension; here's your chance to show it off! Share a link to your extension, give the community details about what it does, and get help with promotion. This is also a great place to discover new extensions and connect with developers whose work you appreciate.
 
@@ -41,7 +41,7 @@ You've put time and effort into creating your extension; here's your chance to s
 
 While platforms like Slack and Discord are terrific for real time interaction, there is a sacrifice in discoverability. Often, the same questions have already been asked in these places, but they are not easily found with a simple internet search. GitHub Discussions are easily indexed in search results, so the answer to the question that's been frustrating you all day could be just a quick search away.
 
-We created a new repo to house our GitHub Discussions community, rather than use the existing VS Code repo. People currently go to the VS Code repo to file issues via GitHub Issues, and we saw that the lines would be blurred between GitHub Issues and GitHub Discussions if hosted in the same place. We felt a form of separation between the main repo and the new community was the best way to establish our community as a distinct new place to gather.
+We created a new repo to house our GitHub Discussions community, rather than use the existing VS Code repo. People currently go to the VS Code repo to file issues via GitHub Issues, and we saw that the lines would be blurred between GitHub Issues and GitHub Discussions if hosted in the same place. We felt that separating the main repo and the new community was the best way to establish the community as a distinct gathering place.
 
 ## Join Today!
 
