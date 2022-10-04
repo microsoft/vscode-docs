@@ -17,8 +17,7 @@ To open the terminal:
 * Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
 
-TODO: Refreshed image with good alt text
-![Terminal](images/basics/integrated-terminal.png)
+![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
@@ -26,7 +25,7 @@ TODO: Refreshed image with good alt text
 
 The integrated terminal can use various shells installed on your machine, with the default being pulled from your system defaults. Shells are detected and presented in the terminal profiles dropdown.
 
-![A detected profile can be chosen in the dropdown next to the new terminal button. Some examples on Windows include PowerShell, Command Prompt, Git Bash and WSL](images/basics/select-shell-dropdown.png)
+![A detected profile can be chosen in the dropdown next to the new terminal button. Some examples on Windows include PowerShell, Command Prompt, Git Bash and WSL](images/basics/select-profile-dropdown.png)
 
 You can learn more about configuring terminal shells in the [terminal profiles](/docs/terminal/profiles.md) article.
 
@@ -34,8 +33,7 @@ You can learn more about configuring terminal shells in the [terminal profiles](
 
 The terminal tabs UI is on the right side of the terminal view. Each terminal has an entry with its name, icon, color, and group decoration (if any).
 
-TODO: New image with more standard theme and colors
-![Terminal tabs](images/basics/tabs.png)
+![Activating the Launch Profile button will show all detected and manually configured profiles](images/basics/tabs.png)
 
 Terminal instances can be added by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
@@ -66,11 +64,11 @@ Moving a terminal into its own group can be done with the **Terminal: Unsplit Te
 
 Terminal in the editor area, also known as terminal editors, can be created through the **Terminal: Create New Terminal in Editor Area** and ****Terminal: Create New Terminal in Editor Area to the Side** commands or by dragging a terminal from the terminal view into the editor area.
 
-TODO: Single tab
+![Terminal editors are presented like regular text file tabs](images/basics/terminal-editor.png)
 
 Terminal editors are ideal if you want a complex setup such as terminals on 2 sides of an editor or terminal splits that are arranged in 2 dimensions. The `terminal.integrated.defaultLocation` setting can changing the default terminal location.
 
-TODO: Grid setup image
+![Terminal editors are can be layed out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
 ## Navigating the buffer
 
@@ -99,19 +97,19 @@ The terminal features sophisticated link detection with editor integration and e
 There are several built-in link handlers which are used in the following priority order:
 
 - URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
-  TODO: Image
+  ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
 - File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and have support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
-  TODO: Image
+  ![Activating a file link will open it in an editor](images/basics/link-file.png)
 - Folder links: These are similar to file links but will open a new VS Code window at the folder.
-  TODO: Image
-- Word links: This is the fallback link type which uses the `terminal.integrated.wordSeparators` setting to define a words boundaries and make virtually all text into a word. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kb(Ctrl/Cmd)` is held.
-  TODO: Image
+  ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
+- Word links: This is the fallback link type which uses the `terminal.integrated.wordSeparators` setting to define a words boundaries and make virtually all text into a word. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kb(Ctrl/Cmd)` is held. They also have limited support for line and column suffixes.
+  ![Activating a word link 'terminal:15' will open a quick pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
 ### Extensions handling links
 
 Extensions can contribute _link providers_ which allow the extension to define what happens when clicked. An example of this is the GitLens extension detecting git branch links.
 
-![When GitLens is installed, hovering a branch name will provide custom behavior to open the branch in the UI](images/basics/gitlens-link.png)
+![When GitLens is installed, hovering a branch name will provide custom behavior to open the branch in the UI](images/basics/link-extension.png)
 
 ### Keyboard accessibility
 
@@ -157,29 +155,20 @@ When applications running in the terminal turn on mouse events mode, such as vim
 
 The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-TODO: Image
+
+![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
 > **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](https://code.visualstudio.com/docs/terminal/advanced#_keybinding-and-the-shell).
 
 ## Run selected text
 
-To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
-
-![Run selected text](images/basics/terminal_run_selected.png)
-
-The terminal will attempt to run the selected text.
-
-![Run selected text result](images/basics/terminal_run_selected_result.png)
-
-If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`), the terminal will attempt to run the selected text. If no text is selected in the active editor, the entire line that the cursor is on will run in the terminal.
 
 >**Tip:** Also run the active file using the command `workbench.action.terminal.runActiveFile`.
 
 ## Maximizing the terminal
 
 The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some users use VS Code as a standalone terminal by opening a new window, maximizing the panel and hiding the side bar.
-
-TODO: Image of maximized terminal
 
 ## Select all
 
@@ -196,8 +185,6 @@ There is a **Terminal: Select All** command which is bound to `kb(Cmd+A)` on mac
 ## Drag and drop file paths
 
 Dragging a file into the terminal will input the path into the terminal, with escaping to match the active shell.
-
-TODO: Image
 
 ## Automating terminals with tasks
 
