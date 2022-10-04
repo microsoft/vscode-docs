@@ -24,7 +24,7 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 ### Auto Imports
 
- Pylance offers auto import suggestions for modules on your workspace and/or packages you have installed on your environment. This enables import statements to be conviniently added automatically as you're typing.
+ Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be conveniently added automatically as you're typing.
 
  By default, only top-level symbols/packages are suggested, but you can customize this behavior through the `python.analysis.packageIndexDepths` setting. See the section below on "Customize IntelliSense behavior" to learn more about IntelliSense controls.
 
@@ -69,8 +69,8 @@ For autocomplete and IntelliSense issues, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
-| Pylance seems slow or consuming too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their path to the `python.analysis.exclude` setting to see if performance improves. Alternatively, you can try setting  `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
-| Pylance is only offering top-level symbol options when adding imports. | Try increase the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings).     |
+| Pylance seems slow or consuming is too much memory when working on a large workspace. | If there are subfolders you know can be excluded from Pylance's analysis, you can add their paths to the `python.analysis.exclude` setting to see if performance improves. Alternatively, you can try setting `python.analysis.indexing` to `false` to disable Pylance's indexer (**Note**: this will also impact the experience of completions and auto imports. Learn more about indexing in [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings)).  |
+| Pylance is only offering top-level symbol options when adding imports. | Try increasing the depth to which Pylance can index your installed libraries through the `python.analysis.packageIndexDepths`. Check [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings).     |
 | The path to the python interpreter is incorrect | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command (see [Environments](/docs/python/environments.md)). |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 
