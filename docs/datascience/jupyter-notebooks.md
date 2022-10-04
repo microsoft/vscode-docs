@@ -252,7 +252,7 @@ You can even customize what types of changes you want displayed within your diff
 
 ![Custom notebook diffing](images/jupyter/notebook-diffing.png)
 
-To learn more about Git integration within VS Code, visit [Version Control in VS Code](/docs/editor/versioncontrol.md).
+To learn more about Git integration within VS Code, visit [Source Control in VS Code](/docs/sourcecontrol/overview.md).
 
 ## Debug a Jupyter Notebook
 

@@ -53,7 +53,7 @@ While any images or Dockerfiles that come from the Remote - Containers extension
 
 Running your application as a non-root user is recommended even in production (since it is more secure), so this is a good idea even if you're reusing an existing Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
-```Dockerfile
+```docker
 ARG USERNAME=user-name-goes-here
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -84,7 +84,7 @@ In either case, if you've already built the container and connected to it, run *
 
 While the `remoteUser` property tries to automatically update the UID/GID as appropriate on Linux when using a **Dockerfile or image**, you can use this snippet in your Dockerfile to manually change the UID/GID of a user instead. Update the `ARG` values as appropriate.
 
-```Dockerfile
+```docker
 ARG USERNAME=user-name-goes-here
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -96,6 +96,6 @@ RUN groupmod --gid $USER_GID $USERNAME \
 
 Note that on Alpine Linux, you'll need to install the `shadow` package first.
 
-```Dockerfile
+```docker
 RUN apk add --no-cache shadow
 ```

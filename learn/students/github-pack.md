@@ -17,17 +17,17 @@ To get started with VS Code and learn how to best use GitHub, check out the reso
 
 ## Lessons
 
-[Introduction to GitHub in VS Code](https://docs.microsoft.com/learn/modules/introduction-to-github-visual-studio-code)
+[Introduction to GitHub in VS Code](https://learn.microsoft.com/training/modules/introduction-to-github-visual-studio-code)
 
 In this 20-minute tutorial, you'll learn how to search GitHub for repositories, clone them, and publish your own projects onto GitHub right from VS Code.
 
-[![Learn module for Introduction to GitHub](images/github-classroom/learn-1.png)](https://docs.microsoft.com/learn/modules/introduction-to-github-visual-studio-code)
+[![Learn module for Introduction to GitHub](images/github-classroom/learn-1.png)](https://learn.microsoft.com/training/modules/introduction-to-github-visual-studio-code)
 
-[Introduction to Git](https://docs.microsoft.com/learn/modules/intro-to-git)
+[Introduction to Git](https://learn.microsoft.com/training/modules/intro-to-git)
 
 In this module, learn the fundamentals of version control systems like Git.
 
-[![Learn module for Introduction to Git](images/github-classroom/learn-2.png)](https://docs.microsoft.com/learn/modules/intro-to-git)
+[![Learn module for Introduction to Git](images/github-classroom/learn-2.png)](https://learn.microsoft.com/training/modules/intro-to-git)
 
 ## Tutorials
 
@@ -41,7 +41,7 @@ In this video, you'll see how GitHub is used when building a project. After comp
 
 [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 
-With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/editor/github.md).
+With this extension, you can quickly create pull requests and review other pull requests or issues, right from VS Code. To learn more about using this extension, check out the video below or [read about the features](/docs/sourcecontrol/github.md).
 
 <iframe src="https://www.youtube-nocookie.com/embed/T6sW1Dk9B4E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="What every GitHub user should know about VS Code"></iframe>
 

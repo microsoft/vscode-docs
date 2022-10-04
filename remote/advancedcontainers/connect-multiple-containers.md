@@ -15,7 +15,7 @@ If you'd prefer to use `devcontainer.json` instead and are using Docker Compose,
 
 To see how this works, consider this example source tree:
 
-```text
+```
 📁 project-root
     📁 .git
     📁 container1-src

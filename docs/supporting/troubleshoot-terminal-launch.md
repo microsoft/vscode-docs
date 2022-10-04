@@ -27,12 +27,12 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
 1. **Check your user settings.** Review these `terminal.integrated` [settings](/docs/getstarted/settings.md) that could affect the launch:
 
-   * `terminal.integrated.shell.{platform}` - The path of the shell that the terminal uses.
-   * `terminal.integrated.shellArgs.{platform}` - The command-line arguments when launching the shell process.
+   * `terminal.integrated.defaultProfile.{platform}` - The default shell profile that the terminal uses.
+   * `terminal.integrated.profiles.{platform}` - The defined shell profiles. Sets the shell path and arguments.
    * `terminal.integrated.cwd` - The current working directory (cwd) for the shell process.
    * `terminal.integrated.env.{platform}` - Environment variables that will be added to the shell process.
    * `terminal.integrated.inheritEnv` - Whether new shells should inherit their environment from VS Code.
-   * `terminal.integrated.automationShell.{platform}` - Shell path for automation-related terminal usage like tasks and debug.
+   * `terminal.integrated.automationProfile.{platform}` - Shell profile for automation-related terminal usage like tasks and debug.
    * `terminal.integrated.splitCwd` - Controls the current working directory a split terminal starts with.
    * `terminal.integrated.windowsEnableConpty` - Whether to use ConPTY for Windows terminal process communication.
 
@@ -92,7 +92,13 @@ This can happen if Windows Subsystem for Linux (WSL) is not set up with a valid 
 The easy fix for this issue is to use the 64-bit version. If you must use the 32-bit version, you need to use the sysnative path when configuring your shell path instead of System32. Adding this setting should fix the issue:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe"
+{
+   "terminal.integrated.profiles.windows": {
+      "Command Prompt": {
+         "path": "${env:windir}\\Sysnative\\cmd.exe"
+      }
+   }
+}
 ```
 
 ### A native exception occurred

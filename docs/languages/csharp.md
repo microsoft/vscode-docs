@@ -43,9 +43,9 @@ On startup the best matching projects are loaded automatically but you can also 
 
 The available options include:
 
-* Selecting a ```project.json``` file will open a .NET project and VS Code will load that project plus the referenced projects.
-* Selecting a ```*.sln``` file opens a MSBuild-project. It will load the referenced ```*.csproj``` projects and sibling or descendant ```project.json``` files but no other project files that are referenced from the solution file.
-* Selecting a ```folder``` will make VS Code scan for ```*.sln```, ```project.json``` and ```*.csx``` files (C# scripts) and VS Code will attempt to load them all.
+* Selecting a `project.json` file will open a .NET project and VS Code will load that project plus the referenced projects.
+* Selecting a `*.sln` file opens a MSBuild-project. It will load the referenced `*.csproj` projects and sibling or descendant `project.json` files but no other project files that are referenced from the solution file.
+* Selecting a `folder` will make VS Code scan for `*.sln`, `project.json` and `*.csx` files (C# scripts) and VS Code will attempt to load them all.
 
 Once the project is loaded the enhanced experiences light up...
 

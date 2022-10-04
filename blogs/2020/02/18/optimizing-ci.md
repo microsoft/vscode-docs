@@ -39,7 +39,7 @@ In order to share cache results across build agents, we needed platform-independ
 
 Here's how VS Code uses the `platformIndependent` parameter:
 
-```yml
+```yaml
 - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
   inputs:
     keyfile: keyfile
@@ -54,7 +54,7 @@ Another missing feature was the ability to create multiple caches per build job.
 
 And here's how we use the `alias` parameter:
 
-```yml
+```yaml
 - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
   inputs:
     keyfile: "yarn.lock"
@@ -74,7 +74,7 @@ There was still room for one final optimization, given a specific use case: buil
 
 Using the `dryRun` parameter in our build looks like this:
 
-```yml
+```yaml
 - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
   inputs:
     keyfile: commit

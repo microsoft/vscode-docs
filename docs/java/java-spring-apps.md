@@ -37,11 +37,11 @@ Download and install the [Extension Pack for Java](https://marketplace.visualstu
 
 Download Apache Maven version 3 or greater:
 
-<a class="tutorial-next-btn" href="https://maven.apache.org/download.cgi" target="_blank" style="background-color:#68217A">Download Apache Maven</a>
+<a class="install-extension-btn" href="https://maven.apache.org/download.cgi" target="_blank" style="background-color:#68217A">Download Apache Maven</a>
 
 Install Apache Maven for your local development environment:
 
-<a class="tutorial-next-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
+<a class="install-extension-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Install Apache Maven</a>
 
 ## Download and test the Spring Boot app
 
@@ -101,7 +101,7 @@ The [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscj
 * Config application settings such as environment variables and JVM options
 * Stream logs from the app
 
-To install the Azure Spring Apps extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure spring apps` to filter the results. Select the Microsoft [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. For a command-line experience, you can also check out the [Azure Spring Apps quickstart with Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart).
+To install the Azure Spring Apps extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure spring apps` to filter the results. Select the Microsoft [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. For a command-line experience, you can also check out the [Azure Spring Apps quickstart with Azure CLI](https://learn.microsoft.com/azure/spring-apps/quickstart).
 
 ### Sign in to your Azure subscription
 
@@ -109,7 +109,7 @@ The deploy process uses the [Azure Account](https://marketplace.visualstudio.com
 
 If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
-<a class="tutorial-next-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
+<a class="install-extension-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
 
 To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign in to your account using the **Device Login** flow. Select **Copy & Open** to open your default browser.
 
@@ -143,7 +143,7 @@ mvn clean package
 
     ![Deploy App](images/java-spring-cloud/deploy-app.png)
 
-2. You can watch the deployment status on the bottom right. Once done, select **Access Public Endpoint** to test the app running on Azure and **Yes** when prompted to assign a public endpoint. Be aware that only Spring Boot fat Jar is supported, [learn more about apps on Azure Spring Apps](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment?pivots=programming-language-java).
+2. You can watch the deployment status on the bottom right. Once done, select **Access Public Endpoint** to test the app running on Azure and **Yes** when prompted to assign a public endpoint. Be aware that only Spring Boot fat Jar is supported, [learn more about apps on Azure Spring Apps](https://learn.microsoft.com/azure/spring-apps/how-to-prepare-app-deployment?pivots=programming-language-java&tabs=basic-standard-tier).
 
     ![Access public endpoint](images/java-spring-cloud/access-public-endpoint.png)
 
@@ -165,5 +165,5 @@ mvn clean package
 
 ## Next steps
 
-* Explore more powerful features of [Azure Spring Apps with Microservices](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-sample-app-introduction?pivots=programming-language-java).
+* Explore more powerful features of [Azure Spring Apps with Microservices](https://learn.microsoft.com/azure/spring-apps/quickstart-sample-app-introduction?pivots=programming-language-java&tabs=basic-standard-tier).
 * To learn more about Java Debugging features, read the [Java Debugging Tutorial](/docs/java/java-debugging.md).

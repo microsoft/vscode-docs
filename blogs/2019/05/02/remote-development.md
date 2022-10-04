@@ -14,7 +14,7 @@ May 2, 2019 by The VS Code Team, [@code](https://twitter.com/code)
 
 ## TL;DR
 
-Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless development in [Containers](https://www.docker.com/resources/what-container), remotely on physical or virtual machines, and with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
+Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless development in [Containers](https://www.docker.com/resources/what-container), remotely on physical or virtual machines, and with the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
 
 **Note**: You'll need to use the [Insiders](https://code.visualstudio.com/insiders/) build for now, but remote development support will eventually be available in the Stable release.
 
@@ -36,7 +36,7 @@ Because the code bases are so large, we see engineers at shops like Facebook (an
 
 Data Scientists building and training data models often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
 
-The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
+The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
 
 > ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
@@ -68,7 +68,7 @@ Over the past few months, we've been working hard re-establishing proper boundar
 
 ![Visual Studio Code Remote Extensions for WSL, Containers, and SSH](remote-extensions.png)
 
-The **[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
+The **[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
 
 * Use Windows to develop in a Linux-based environment, using platform-specific toolchains and utilities.
 * Edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`).

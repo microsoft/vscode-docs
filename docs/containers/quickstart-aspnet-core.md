@@ -52,7 +52,7 @@ In this guide you will learn how to:
 1. Open terminal prompt (`kb(workbench.action.terminal.toggleTerminal)`).
 1. Issue `dotnet build` command to build the application:
 
-   ``` output
+   ```
    ~/code/scratch/netcorerest$ dotnet build
    Microsoft (R) Build Engine version 17.2.0+41abc5629 for .NET
    Copyright (C) Microsoft Corporation. All rights reserved.

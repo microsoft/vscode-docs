@@ -323,7 +323,7 @@ An example of when to use PYTHONPATH would be if you have source code in a `src`
 
 To solve this problem, you could add the path to `src` to PYTHONPATH by creating an `.env` file within your VS Code workspace.
 
-```cmd
+```bat
 PYTHONPATH=src
 ```
 

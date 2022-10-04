@@ -46,7 +46,7 @@ docker --version
 
 The Remote - Containers extension lets you run Visual Studio Code inside a Docker container.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Remote - Containers extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Remote - Containers extension</a>
 
 ![Remote - Containers extension](images/containers-tutorial/containers-extension.png)
 
@@ -131,7 +131,7 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
+                "terminal.integrated.defaultProfile.linux": "bash"
             },
 
             "extensions": [

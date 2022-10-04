@@ -55,7 +55,7 @@ And at the same time, we open sourced the VS Code [repository](https://github.co
 
 ## Being "1.0"
 
-Today, Visual Studio Code delivers on many of the aspects that we imagined during incubation. VS Code has great editing and navigation [experiences](/docs/editor/editingevolved), streamlined [debugging](/docs/editor/debugging), and built-in [Git support](/docs/editor/versioncontrol).
+Today, Visual Studio Code delivers on many of the aspects that we imagined during incubation. VS Code has great editing and navigation [experiences](/docs/editor/editingevolved), streamlined [debugging](/docs/editor/debugging), and built-in [Git support](/docs/sourcecontrol/overview).
 
 Developers today love VS Code for its powerful set of built-in features, intuitive editing and debugging experiences, performance and responsiveness, and great language and platform support. The VS Code download is under 40MB including support for 9 additional [languages](/docs/getstarted/locales) (Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish) and it installs in seconds.  With the help of developers like [@zersiax](https://twitter.com/zersiax), VS Code is now [accessible](/docs/editor/accessibility) to visually impaired developers on Windows and soon on OS X and Linux.
 

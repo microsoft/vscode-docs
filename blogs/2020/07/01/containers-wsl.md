@@ -24,7 +24,7 @@ Both WSL 2 and the latest version of Docker Desktop change how virtualization wo
 
 ### WSL 2
 
-As discussed in a [prior post](https://code.visualstudio.com/blogs/2019/09/03/wsl2), WSL 2 takes a new approach on the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/wsl2-about) by using a real Linux kernel inside a lightweight virtual machine (VM). It has been optimized to feel seamless and deeply integrated into your Windows environment so that you have fast boot times, a small resource footprint, and no VM configuration or management requirements whatsoever.
+As discussed in a [prior post](https://code.visualstudio.com/blogs/2019/09/03/wsl2), WSL 2 takes a new approach on the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/wsl2-about) by using a real Linux kernel inside a lightweight virtual machine (VM). It has been optimized to feel seamless and deeply integrated into your Windows environment so that you have fast boot times, a small resource footprint, and no VM configuration or management requirements whatsoever.
 
 System calls allow you to perform functions such as accessing files, requesting memory, and creating processes. Since WSL 2 includes a complete Linux kernel, it has full system call capacity, meaning your favorite apps such as Docker will work fully and reliably.
 
@@ -43,7 +43,7 @@ Prerequisites:
 * Install Windows 10, version 2004.
     * To find out which version of Windows your device is running, press the **Windows logo** key + **R**, type **winver** in the **Open** box, and then select **OK**.
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
-* Enable WSL 2 by following the [WSL 2 installation guide](https://docs.microsoft.com/windows/wsl/install).
+* Enable WSL 2 by following the [WSL 2 installation guide](https://learn.microsoft.com/windows/wsl/install).
 * Install Ubuntu (or your preferred Linux distribution) from the [Microsoft store](https://www.microsoft.com/p/ubuntu/9nblggh4msv6).
 * Install [Docker Desktop Stable 2.3.0.2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/#download).
 
@@ -51,7 +51,7 @@ Once installed, Docker will recognize that you have WSL installed and prompt you
 
 ![Docker Desktop WSL integration dialog](1-docker-desktop-wsl-integration.png)
 
-Optional: Install the new [Windows Terminal](https://docs.microsoft.com/windows/terminal/) for the best experience, including the ability to open new PowerShell and Ubuntu terminals in the same interface.
+Optional: Install the new [Windows Terminal](https://learn.microsoft.com/windows/terminal/) for the best experience, including the ability to open new PowerShell and Ubuntu terminals in the same interface.
 
 ## Open VS Code in WSL 2
 

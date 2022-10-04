@@ -71,7 +71,7 @@ If you have a large number of environment variables that you need to set, you ca
 
 First, create an environment file somewhere in your source tree. Consider this `.devcontainer/devcontainer.env` file:
 
-```text
+```
 YOUR_ENV_VAR_NAME=your-value-goes-here
 ANOTHER_ENV_VAR_NAME=your-value-goes-here
 ```

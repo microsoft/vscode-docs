@@ -9,7 +9,7 @@ DateApproved: 9/1/2022
 ---
 # Remote development in WSL
 
-This tutorial walks you through enabling [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) (WSL) and running Visual Studio Code in WSL using the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+This tutorial walks you through enabling [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and running Visual Studio Code in WSL using the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 The Remote - WSL extension enables you to run Visual Studio Code within the Windows Subsystem for Linux (WSL).
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
 
 ![Remote - WSL extension](images/wsl-tutorial/remote-wsl-extension.png)
 
@@ -114,7 +114,7 @@ Remember, Python is installed in the Linux distro, which means if you're editing
 
 ## Run in WSL
 
-In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder.
+In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder. If you use the [Insiders](/insiders) version of VS Code, you will have to run `'code-insiders .'` instead.
 
 > **Note:** If this command does not work, you may need to restart your terminal, or you may not have added VS Code to your path when it was installed.
 

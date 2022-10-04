@@ -88,7 +88,7 @@ To give Python Web Developers a great starting point, we chose to use [Gunicorn]
 
 To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
 
-```dockerfile
+```docker
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]
 ```
 
@@ -107,7 +107,7 @@ app = Flask(__name__) # Flask instance named app
 
 To accomplish this binding, the final line in the Dockerfile says:
 
-```dockerfile
+```docker
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "{subfolder}.{module_file}:app"]
 ```
 
@@ -159,5 +159,5 @@ You're done! Now that your container is ready, you may want to:
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
-- [Deploy a containerized app to Azure App Service](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
+- [Deploy a containerized app to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)
