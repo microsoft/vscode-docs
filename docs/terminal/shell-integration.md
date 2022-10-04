@@ -108,6 +108,21 @@ The command and overview ruler decorations can be configured with the setting `t
 
 The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. Hold `kbStyle(Shift)` as well to select from the current position to the command.
 
+### Quick fixes
+
+When a command finished that meets certain criteria fails (for example an unsuccessful `git` command), VS Code has several quick fixes that will scan the output and present actions that have a high likelihood of being what the user will do.
+
+![Running 'git push --set-upstream' will present a lightbulb that opens a dropdown with an option to open a new PR on github.com](images/shell-integration/quick-fix.png)
+
+Here are some of the built-in quick fixes:
+
+- When it's detected that a port is already being listened to, suggest to kill the process and re-run the previous command
+- When `git push` fails due to an upstream not being set, suggest to push with the upstream set
+- When a `git` subcommand fails with a similar command error, suggest to use the similar command(s)
+- When `git push` results in a suggestion to create a GitHub PR, suggest to open the link
+
+Quick fixes also supports [audio cues](https://code.visualstudio.com/docs/editor/accessibility#_audio-cues) for additional feedback when a quick fix is available.
+
 ### Run recent command
 
 The **Terminal: Run Recent Command** command surfaces history from various sources in a Quick Pick, providing similar functionality to a shell's reverse search (`kbstyle(Ctrl+R)`). The sources are the current session's history, previous session history for this shell type and the common shell history file.
