@@ -110,7 +110,7 @@ The commands detected by shell integration feed into the command navigation feat
 
 ### Quick fixes
 
-When a command finished that meets certain criteria fails (for example an unsuccessful `git` command), VS Code has several quick fixes that will scan the output and present actions that have a high likelihood of being what the user will do.
+VS Code scans the output of a command and presents a quick fix with actions that have a high likelihood of being what the user will want to do next.
 
 ![Running 'git push --set-upstream' will present a lightbulb that opens a dropdown with an option to open a new PR on github.com](images/shell-integration/quick-fix.png)
 
