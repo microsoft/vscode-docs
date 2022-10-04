@@ -50,6 +50,7 @@ It is our hope that the VS Code Community Discussions turns into a thriving comm
 VS Code is what it is today because of our amazing contributors, and we want to continue to connect with and foster that community. As such, we have several channels where you can engage with us:
 
 - [VS Code Community Discussions](https://github.com/microsoft/vscode-discussions/discussions) for extension author Q&A and announcements, officially maintained by the VS Code team
+- The [Extension Authoring](https://code.visualstudio.com/updates#_extension-authoring) section of our monthly VS Code Release Notes where extension authors can learn about newly released APIs
 - [VS Code Dev Slack](https://aka.ms/vscode-dev-community) for extension author Q&A, maintained by the community
 - [GitHub Issues](https://github.com/Microsoft/vscode/issues) to file an issue in our VS Code repo
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio-code) to ask and answer questions tagged with visual-studio-code
