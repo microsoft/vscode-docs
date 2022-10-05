@@ -21,6 +21,6 @@ You can also review the specification documents and latest proposals in the [dev
 
 ## Additional resources
 
-[Create a development container](/docs/remote/create-dev-container.md) has more information on configuring a dev container, or you can use the **Dev Containers: Add Development Container Configuration Files...** or **Codespaces: Add Development Container Configuration Files...** commands from the Command Palette (`kbstyle(F1)`) to add a wide variety of base configurations.
+[Create a development container](/docs/remote/create-dev-container.md) has more information on configuring a dev container, or you can use the **Dev Containers: Add Dev Container Configuration Files...** or **Codespaces: Add Dev Container Configuration Files...** commands from the Command Palette (`kbstyle(F1)`) to add a wide variety of base configurations.
 
 > **Tip:** If you've already built a container and connected to it, be sure to run **Dev Containers: Rebuild Container** or **Codespaces: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up any changes you make.

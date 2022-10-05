@@ -22,7 +22,7 @@ In this document, we'll go through the steps for creating a development (dev) co
 
 After any of the steps above, you'll have a fully functioning dev container, and you can either continue to the next step of this tutorial to add more features, or stop and begin working in the dev environment you currently have.
 
-> Note: The Dev Containers extension has a **Dev Containers: Add Development Container Configuration Files...** command that lets you pick a pre-defined container configuration from a list. If you'd prefer to have a complete dev container immediately rather than building up the `devcontainer.json` and Dockerfile step-by-step, you can skip ahead to [Automate dev container creation](#automate-dev-container-creation).
+> Note: The Dev Containers extension has a **Dev Containers: Add Dev Container Configuration Files...** command that lets you pick a pre-defined container configuration from a list. If you'd prefer to have a complete dev container immediately rather than building up the `devcontainer.json` and Dockerfile step-by-step, you can skip ahead to [Automate dev container creation](#automate-dev-container-creation).
 
 ## Create a devcontainer.json file
 
@@ -193,7 +193,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 ### Automate dev container creation
 
-Rather than creating a `.devcontainer` by hand, selecting the **Dev Containers: Add Development Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs.
+Rather than creating a `.devcontainer` by hand, selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs.
 
 The command lets you pick a pre-defined container configuration from a list based on your folder's contents:
 
@@ -201,7 +201,7 @@ The command lets you pick a pre-defined container configuration from a list base
 
 All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
 
-At the end of using **Dev Containers: Add Development Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Dev Containers: Configure Container Features** allows you to update an existing configuration.
+At the end of using **Dev Containers: Add Dev Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Dev Containers: Configure Container Features** allows you to update an existing configuration.
 
 ![Dev container features in Command Palette](images/containers/container-features.png)
 
@@ -219,7 +219,7 @@ Here is the typical edit loop using these commands:
 
 ![Container edit loop illustration](images/containers/container-edit-loop.png)
 
-1. Start with **Dev Containers: Add Development Container Configuration Files...** in the Command Palette (`kbstyle(F1)`).
+1. Start with **Dev Containers: Add Dev Container Configuration Files...** in the Command Palette (`kbstyle(F1)`).
 2. Edit the contents of the `.devcontainer` folder as required.
 3. Try it with **Dev Containers: Reopen in Container**.
 4. If you see an error, select **Open Folder Locally** in the dialog that appears.
@@ -252,7 +252,7 @@ You can either:
 
 VS Code can be configured to **automatically start any needed containers** for a particular service in a Docker Compose file. If you've already started the configured containers using the command line, VS Code will **attach to the running service** you've specified instead. This gives your multi-container workflow the same quick setup advantages described for the Docker image and Dockerfile workflows above, while still allowing you to use the command line if you prefer.
 
-To get started quickly, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Development Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
+To get started quickly, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 
 ![Select Docker Compose File](images/containers/select-docker-compose.png)
 
@@ -453,7 +453,7 @@ You may also add a badge or link in your repository so that users can easily ope
 As an example, a badge to open [https://github.com/microsoft/vscode-remote-try-java](https://github.com/microsoft/vscode-remote-try-java) would look like:
 
 ```markdown
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-java)
 ```
 
 You can also include an `open in dev container` link directly:

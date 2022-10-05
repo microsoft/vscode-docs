@@ -24,7 +24,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Prerequisites
 
-This blog post presumes you have [Docker Desktop](https://www.docker.com/products/docker-desktop) and [Visual Studio Code](https://code.visualstudio.com/download) installed. You will also need the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). To install the De Containers extension, open the Extensions view (`kb(workbench.view.extensions)`), search for "Dev Containers", select **Install**, and restart VS Code if prompted.
+This blog post presumes you have [Docker Desktop](https://www.docker.com/products/docker-desktop) and [Visual Studio Code](https://code.visualstudio.com/download) installed. You will also need the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). To install the Dev Containers extension, open the Extensions view (`kb(workbench.view.extensions)`), search for "Dev Containers", select **Install**, and restart VS Code if prompted.
 
 ## The application
 
