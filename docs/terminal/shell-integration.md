@@ -180,7 +180,33 @@ VS Code supports several custom escape sequences:
 
 ### VS Code custom sequences 'OSC 633 ; ... ST'
 
-VS Code's custom escape sequences are currently designed to only be triggered from within the shell integration script. We may document these in the future which would make it easier for shells to create their own VS Code shell integration scripts.
+VS Code has a set of custom escape sequences designed to get the shell integration feature to light up when run in VS Code's terminal. These are used by the built-in scripts but can also be used by any application capable of sending seqeunces to the terminal, for example the [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia) uses these to support shell integration in the Julia REPL.
+
+These sequences should be ignored by other terminals, but unless other terminals end up adopting the sequences more widely it's recommended to check that `$TERM_PROGRAM` is `vscode` before writing them.
+
+- `OSC 633 ; A ST` - Mark prompt start
+- `OSC 633 ; B ST` - Mark prompt end
+- `OSC 633 ; C ST` - Mark pre-execution
+- `OSC 633 ; D [; <exitcode>] ST` - Mark execution finished with an optional exit code
+- `OSC 633 ; E ; <commandline> ST` - Explicitly set the command line.
+
+  This sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
+
+  The command line can escape ascii characters using the `\xAB` format, where AB are the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semi-colon (`0x3b`) and characters 0x20 and below, this is particularly important for new line and semi-colon.
+
+	Some examples:
+
+	```
+	"\"  -> "\\"
+	"\n" -> "\x0a"
+	";"  -> "\x3b"
+	```
+- `OSC 633 ; P ; <Property>=<Value> ST` - Set a property on the terminal, only known properties will be handles.
+
+  Known properties:
+
+  - `Cwd` - Reports the current working directory to the terminal.
+  - `IsWindows` - Indicates whether the terminal is using a Windows backend like winpty or conpty. This may be used to enable additional heuristics as the positioning of the shell integration sequences are not guaranteed to be correct. Valid values: `True`, `False`.
 
 ### Final Term shell integration
 
