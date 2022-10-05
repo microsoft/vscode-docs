@@ -55,6 +55,8 @@ When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organi
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
 
+Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in `vscode.dev`.
+
 ### Current limitations
 
 Azure Repos support is currently read-only. Commit, branch, fork, and PR actions are disabled in the Source Control view and Command Palette.
@@ -87,7 +89,7 @@ As a theme author, you can add the following badge to your extension readme to a
 
 In some cases, you will want to access a different environment that has the ability to run code. You can switch to working on a repository in a development environment that has support for a local file system and full language and development tooling.
 
-The GitHub Repositories extension makes it easy for you to clone the repository locally with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kbstyle(F1)`) or by clicking on the Remote indicator in the Status bar.
+The GitHub Repositories extension makes it easy for you to clone the repository locally, reopen it on the desktop, or create a GitHub codespace for the current repository (if you have the GitHub Codespaces extension installed and access to create [GitHub codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)). To do this, use the **Continue Working On...** command available from the Command Palette (`kbstyle(F1)`) or click on the Remote indicator in the Status bar.
 
 ## Use your own compute power with the VS Code Server
 
