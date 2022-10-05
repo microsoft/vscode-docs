@@ -194,13 +194,13 @@ These sequences should be ignored by other terminals, but unless other terminals
 
   The command line can escape ascii characters using the `\xAB` format, where AB are the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semi-colon (`0x3b`) and characters 0x20 and below, this is particularly important for new line and semi-colon.
 
-	Some examples:
+  Some examples:
 
-	```
-	"\"  -> "\\"
-	"\n" -> "\x0a"
-	";"  -> "\x3b"
-	```
+  ```
+  "\"  -> "\\"
+  "\n" -> "\x0a"
+  ";"  -> "\x3b"
+  ```
 - `OSC 633 ; P ; <Property>=<Value> ST` - Set a property on the terminal, only known properties will be handles.
 
   Known properties:
