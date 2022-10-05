@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code has an integrated terminal to enable working
 ---
 # Terminal Basics
 
-Visual Studio Code includes a fully-featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md).
+Visual Studio Code includes a full featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md).
 
 To open the terminal:
 
@@ -49,10 +49,10 @@ Multiple terminals can be placed side-by-side are called a group and are created
 
 * On hover, selecting the inline split button.
 * Right-clicking the context menu and selecting the **Split** menu option.
-* `kbstyle(Alt)` click on a tab, the **+** button, or the single tab on the terminal panel.
+* `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
 * Triggering the `kb(workbench.action.terminal.split)` command.
 
-> **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` setting.
+> **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` [setting](/docs/getstarted/settings.md).
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
@@ -62,31 +62,33 @@ Moving a terminal into its own group can be done with the **Terminal: Unsplit Te
 
 ## Terminals in editor area
 
-Terminal in the editor area, also known as terminal editors, can be created through the **Terminal: Create New Terminal in Editor Area** and ****Terminal: Create New Terminal in Editor Area to the Side** commands or by dragging a terminal from the terminal view into the editor area.
+Terminal in the editor area, also known as terminal editors, can be created through the **Terminal: Create New Terminal in Editor Area** and **Terminal: Create New Terminal in Editor Area to the Side** commands or by dragging a terminal from the terminal view into the editor area.
 
 ![Terminal editors are presented like regular text file tabs](images/basics/terminal-editor.png)
 
-Terminal editors are ideal if you want a complex setup such as terminals on 2 sides of an editor or terminal splits that are arranged in 2 dimensions. The `terminal.integrated.defaultLocation` setting can changing the default terminal location.
+Terminal editors are ideal if you want a complex workbench layout such as terminals on either side of an editor or terminals arranged in two dimensions. Below PowerShell and WSL terminals are stacked in an editor group to the right of a group of file editors.
 
 ![Terminal editors are can be layed out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
+The `terminal.integrated.defaultLocation` setting can change the default terminal location to be in either the `view` or `editor` areas.
+
 ## Navigating the buffer
 
-The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `terminal.integrated.scrollback` setting which defaults to `1000`.
+The content in the terminal is called the buffer, with the section right above the bottom viewport being called "scrollback". The amount of scrollback kept is determined by the `terminal.integrated.scrollback` [setting](/docs/getstarted/settings.md) and defaults to `1000` lines.
 
 There are various commands available to navigate around the terminal buffer:
 
-- Scroll up a line: `kb(workbench.action.terminal.scrollUp)`
-- Scroll down a line: `kb(workbench.action.terminal.scrollDown)`
-- Scroll up a page: `kb(workbench.action.terminal.scrollUpPage)`
-- Scroll down a page: `kb(workbench.action.terminal.scrollDownPage)`
-- Scroll to the top: `kb(workbench.action.terminal.scrollToTop)`
-- Scroll to the bottom: `kb(workbench.action.terminal.scrollToBottom)`
+* Scroll up a line - `kb(workbench.action.terminal.scrollUp)`
+* Scroll down a line - `kb(workbench.action.terminal.scrollDown)`
+* Scroll up a page - `kb(workbench.action.terminal.scrollUpPage)`
+* Scroll down a page - `kb(workbench.action.terminal.scrollDownPage)`
+* Scroll to the top - `kb(workbench.action.terminal.scrollToTop)`
+* Scroll to the bottom - `kb(workbench.action.terminal.scrollToBottom)`
 
-_Command_ navigation is also available (see [shell integration](/docs/terminal/shell-integration.md)):
+**Command** navigation is also available (see [shell integration](/docs/terminal/shell-integration.md)):
 
-- Scroll to the previous command: `kb(workbench.action.terminal.scrollToPreviousCommand)`
-- Scroll to the previous command: `kb(workbench.action.terminal.scrollToNextCommand)`
+* Scroll to the previous command - `kb(workbench.action.terminal.scrollToPreviousCommand)`
+* Scroll to the next command - `kb(workbench.action.terminal.scrollToNextCommand)`
 
 Scrolling will happen instantaneously, but can be configured to animate over a short duration with the `terminal.integrated.smoothScrolling` setting.
 
@@ -94,30 +96,37 @@ Scrolling will happen instantaneously, but can be configured to animate over a s
 
 The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Links are activated by mousing over the link so an underline appears, then hold `kbstyle(Ctrl)`/`kbstyle(Cmd)` and click.
 
-There are several built-in link handlers which are used in the following priority order:
+There are several built-in link handlers that are used in the following priority order:
 
-- URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
+* URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
+
   ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
-- File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and have support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+
+* File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+
   ![Activating a file link will open it in an editor](images/basics/link-file.png)
-- Folder links: These are similar to file links but will open a new VS Code window at the folder.
+
+* Folder links: These are similar to file links but will open a new VS Code window at the folder.
+
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
-- Word links: This is the fallback link type which uses the `terminal.integrated.wordSeparators` setting to define a words boundaries and make virtually all text into a word. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kb(Ctrl/Cmd)` is held. They also have limited support for line and column suffixes.
-  ![Activating a word link 'terminal:15' will open a quick pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
+
+* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
+
+  ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
 ### Extensions handling links
 
-Extensions can contribute _link providers_ which allow the extension to define what happens when clicked. An example of this is the GitLens extension detecting git branch links.
+Extensions can contribute **link providers** which allow the extension to define what happens when clicked. An example of this is the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension detecting Git branch links.
 
 ![When GitLens is installed, hovering a branch name will provide custom behavior to open the branch in the UI](images/basics/link-extension.png)
 
 ### Keyboard accessibility
 
-Links are keyboard accessible through several commands which open links based on the type of link. These commands do not have default keybindings.
+Links are keyboard accessible through several commands that open links based on the type of link. These commands do not have default keyboard shortcuts.
 
-- **Terminal: Open Last Local File Link** opens the most recent local file link
-- **Terminal: Open Last URL link** opens the most recent URI/URL link
-- **Terminal: Open Detected Link...** opens a searchable quick pick with all links (including word links)
+* **Terminal: Open Last Local File Link** - Opens the most recent local file link.
+* **Terminal: Open Last URL link** - Opens the most recent URI/URL link.
+* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all links (including word links).
 
 ## Copy & paste
 
@@ -127,9 +136,9 @@ The keybindings for copy and paste follow platform standards:
 * macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
 * Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
-Copying is be done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
+Copying is done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
 
-By default there is a warning when pasting multiple lines which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode," when enabled it's essentially the shell declaring that it can handle multiple line pasting.
+By default there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
 
 ## Using the mouse
 
@@ -141,24 +150,29 @@ The right-click behavior differs based on the platform:
 * macOS: Select the word under the cursor and show the context menu.
 * Windows: Copy and drop selection if there is a selection, otherwise paste.
 
-This can be configured using the `terminal.integrated.rightClickBehavior` setting.
+This can be configured using the `terminal.integrated.rightClickBehavior` setting. The options are:
 
-### Reposition the cursor with alt
+* `default` - Show the context menu.
+* `copyPaste` - Copy when there is a selection, otherwise paste.
+* `paste` - Paste on right-click.
+* `selectWord` - Select the word under the cursor and show the context menu.
+* `nothing` - Do nothing and pass event to terminal.
 
-`kbstyle(Alt)` left click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `terminal.integrated.altClickMovesCursor` setting.
+### Reposition the cursor with Alt
+
+`kbstyle(Alt)` and left-click will reposition the cursor to underneath the mouse. This works by simulating arrow keystrokes, which may not work reliably for some shells or programs. This feature can be disabled with the `terminal.integrated.altClickMovesCursor` setting.
 
 ### Mouse events mode
 
-When applications running in the terminal turn on mouse events mode, such as vim mouse mode, mouse interaction is sent to the application instead of the terminal. This means that clicking and dragging will no longer create a selection. Terminal selection can be forced by holding the `kb(Alt)` key on Windows and Linux, this can also be done with the `kb(Option)` key on macOS but requires enabling the `terminal.integrated.macOptionClickForcesSelection` setting first.
+When applications running in the terminal turn on mouse events mode, such as Vim mouse mode, mouse interaction is sent to the application instead of the terminal. This means that clicking and dragging will no longer create a selection. Terminal selection can be forced by holding the `kbstyle(Alt)` key on Windows and Linux, this can also be done with the `kbstyle(Option)` key on macOS but requires enabling the `terminal.integrated.macOptionClickForcesSelection` setting first.
 
 ## Find
 
 The integrated terminal has find functionality that can be triggered with `kb(workbench.action.terminal.focusFind)`.
 
-
 ![Find in the terminal will highlight all text matching the query](images/basics/terminal-find.png)
 
-> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](https://code.visualstudio.com/docs/terminal/advanced#_keybinding-and-the-shell).
+> **Tip:** `kbstyle(Ctrl+F)` can be sent to the shell by removing the `workbench.action.terminal.focusFind` command from [commands to skip shell](/docs/terminal/advanced.md#keybinding-and-the-shell).
 
 ## Run selected text
 
@@ -168,11 +182,11 @@ To use the `runSelectedText` command, select text in an editor and run the comma
 
 ## Maximizing the terminal
 
-The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some users use VS Code as a standalone terminal by opening a new window, maximizing the panel and hiding the side bar.
+The terminal view can be maximized by clicking the maximize panel size button with the upwards chevron icon. This will temporarily hide the editors and maximize the panel. This is useful to temporarily focus on a large amount of output. Some developers use VS Code as a standalone terminal by opening a new window, maximizing the panel, and hiding the side bar.
 
 ## Select all
 
-There is a **Terminal: Select All** command which is bound to `kb(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kb(Ctrl+A)` to select all, add this custom keybinding:
+There is a **Terminal: Select All** command, which is bound to `kbstyle(Cmd+A)` on macOS, but does not have a default keybinding on Windows and Linux as it may conflict with shell hotkeys. To use `kbstyle(Ctrl+A)` to select all, add this custom keybinding:
 
 ```json
 {
@@ -282,9 +296,9 @@ There are also extensions available that give more options such as [Terminal Her
 
 ## Fixed dimension terminals
 
-The **Terminal: Set Fixed Dimensions** commands allows changing the number of columns and rows that the terminal and it's backing psuedoterminal uses. This will add scroll bars when necessary which may lead to an unpleasant UX and is generally not recommended, it's a common ask on Windows in particular for improved reading of logs or long lines when paging tools aren't available.
+The **Terminal: Set Fixed Dimensions** command allows changing the number of columns and rows that the terminal and it's backing psuedoterminal uses. This will add scroll bars when necessary, which may lead to an unpleasant UX and is generally not recommended, but it is a common ask on Windows in particular for reading logs or long lines when paging tools aren't available.
 
-You can also right click on a terminal tab and select `Toggle Size to Content Width` (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
+You can also right-click on a terminal tab and select **Toggle Size to Content Width** (`kb(workbench.action.terminal.sizeToContentWidth)`) to resize the number of terminal columns to the largest wrapped line in the terminal.
 
 ## Next steps
 
@@ -292,7 +306,7 @@ The basics of the terminal have been covered in this document. Read on to find o
 
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
 * [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
-* Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
+* Explore terminal commands by browsing the keyboard shortcuts within VS Code (**Preferences: Open Keyboard Shortcuts** then search on 'terminal').
 
 ## Common questions
 
@@ -353,7 +367,7 @@ EOF
 
 ### I'm having problems with the terminal rendering. What can I do?
 
-By default, the integrated terminal will render using GPU acceleration on most machines. Typically when there are rendering problems it's an issue of something in your hardware/OS/drivers not playing nicely with the GPU renderer. The first thing to try is to disable it which will trade off rendering speed for DOM-based rendering which is very reliable:
+By default, the integrated terminal will render using GPU acceleration on most machines. Typically when there are rendering problems it's an issue of something in your hardware/OS/drivers not playing nicely with the GPU renderer. The first thing to try is to disable GPU acceleration, trading off rendering speed for DOM-based rendering, which is more reliable:
 
 ```json
 {
@@ -361,13 +375,13 @@ By default, the integrated terminal will render using GPU acceleration on most m
 }
 ```
 
-See the [GPU acceleration](/docs/terminal/appearance#_gpu-acceleration) section for more information.
+See the [GPU acceleration](/docs/terminal/appearance.md#gpu-acceleration) section for more information.
 
 ### I see `1~` or `[201~` when I paste something
 
-This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To workaround this you could run `printf "\e[?2004l"` to disable it for that session of add the following to your `~/.inputrc` file:
+This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To work around this, you could run `printf "\e[?2004l"` to disable it for that session or add the following to your `~/.inputrc` file:
 
-```
+```bash
 bind 'set enable-bracketed-paste off'
 ```
 
@@ -375,17 +389,17 @@ bind 'set enable-bracketed-paste off'
 
 This can happen if zsh is in Vim mode instead of Emacs mode, due to setting `$EDITOR` or `$VISUAL` to `vi`/`vim` in your init scripts.
 
-To workaround this you have two options:
+To work around this, you have two options:
 
 * Ensure that you don't set `$EDITOR` to `vi(m)`. However, this isn't an option if you want your Git editor to work.
 * Add `bindkey -e` to your init script to set Emacs explicitly.
 
 ### Why are the colors in the terminal not correct?
 
-One of our accessibility features we enable by default is to ensure a minimum contrast ratio of at least 4.5 is met for the foreground text. This feature ensures that text is readable regardless of the shell and theme used which is not possible otherwise. To disable this feature you can set:
+One of our accessibility features we enable by default is to ensure a minimum contrast ratio of at least 4.5 is met for the foreground text. This feature ensures that text is readable regardless of the shell and theme used which is not possible otherwise. To disable this feature, you can set:
 
 ```json
 "terminal.integrated.minimumContrastRatio": 1
 ```
 
-See The [minimum contrast ratio](https://code.visualstudio.com/docs/terminal/appearance#_minimum-contrast-ratio) section for more information.
+See the [minimum contrast ratio](/docs/terminal/appearance.md#minimum-contrast-ratio) section for more information.
