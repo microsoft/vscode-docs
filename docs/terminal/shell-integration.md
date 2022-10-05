@@ -90,9 +90,7 @@ code --locate-shell-integration-path bash
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "/path/to/shell/integration/script.sh"
 ```
 
-## Features
-
-### Command decorations and the overview ruler
+## Command decorations and the overview ruler
 
 One of the things shell integration enables is the ability to get the exit codes of the commands run within the terminal. Using this information, decorations are added to the left of the line to indicate whether the command succeeded or failed. These decorations also show up in the relatively new overview ruler in the scroll bar, just like in the editor.
 
@@ -104,11 +102,11 @@ The decorations can be interacted with to give some contextual actions like re-r
 
 The command and overview ruler decorations can be configured with the setting `terminal.integrated.shellIntegration.decorationsEnabled` setting.
 
-### Command navigation
+## Command navigation
 
 The commands detected by shell integration feed into the command navigation feature (`kbStyle(Ctrl/Cmd+Up)`, `kbStyle(Ctrl/Cmd+Down)`) to give it more reliable command positions. This feature allows for quick navigation between commands and selection of their output. Hold `kbStyle(Shift)` as well to select from the current position to the command.
 
-### Quick fixes
+## Quick fixes
 
 VS Code scans the output of a command and presents a Quick Fix with actions that have a high likelihood of being what the user will want to do next.
 
@@ -123,7 +121,7 @@ Here are some of the built-in Quick Fixes:
 
 The Quick Fix feature also supports [audio cues](/docs/editor/accessibility.md#audio-cues) for additional feedback when a Quick Fix is available.
 
-### Run recent command
+## Run recent command
 
 The **Terminal: Run Recent Command** command surfaces history from various sources in a Quick Pick, providing similar functionality to a shell's reverse search (`kbstyle(Ctrl+R)`). The sources are the current session's history, previous session history for this shell type and the common shell history file.
 
@@ -165,13 +163,13 @@ There is currently no keybinding assigned by default but you can add your own ke
 }
 ```
 
-### Go to recent directory
+## Go to recent directory
 
 Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them.
 
 `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-### Current working directory detection
+## Current working directory detection
 
 Shell integration tells VS Code what the current working directory of the shell is. This information is not possible to get on Windows without trying to detect the prompt through regex and required polling on macOS and Linux which isn't good for performance.
 
@@ -179,7 +177,7 @@ One of the biggest features this enables is enhanced resolving of links in the t
 
 The current working directory is also used to show the directory in the terminal tab, in the run recent command quick pick and for the `"terminal.integrated.splitCwd": "inherited"` feature.
 
-### Extended PowerShell keybindings
+## Extended PowerShell keybindings
 
 Windows' console API allows for more keybindings than Linux/macOS terminals, since VS Code's terminal emulates the latter even on Windows there are some PowerShell keybindings that aren't possible using the standard means due to lack of VT encoding such as `kbstyle(Ctrl+Space)`. Shell integration allows VS Code to attach a custom keybindings to send a special sequence to PowerShell which then gets handled in the shell integration script and forwarded to the proper key handler.The following keybindings should work in PowerShell when shell integration is enabled:
 
