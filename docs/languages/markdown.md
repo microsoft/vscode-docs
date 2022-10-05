@@ -89,15 +89,15 @@ Selection applies to the following, and follows a traditional hierarchical patte
 
 Link validation checks local links in your Markdown code to make sure they are valid. This can catch common mistakes, such linking to a header that has been renamed or to a file that no longer exists on disk.
 
-![A warning shown in the editor when linking to a file that does not exist](images/Markdown/link-validation.png)
+![A warning shown in the editor when linking to a file that does not exist](images/markdown/link-validation.png)
 
-Link validation is off by default. To enable it, just set `"markdown.validate.enabled": true`. This will make VS Code will analyze Markdown links to headers, images, and other local files. Invalid links will be reported as either warnings or errors. All link validation happens locally and we do not validate external http(s) links.
+Link validation is off by default. To enable it, just set `"markdown.validate.enabled": true`. VS Code will then analyze Markdown links to headers, images, and other local files. Invalid links will be reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
 
 There are a few settings you can use to customize link validation:
 
 * `markdown.validate.fileLinks.enabled` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
 * `markdown.validate.fragmentLinks.enabled` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
-* `markdown.validate.fileLinks.markdownFragmentLinks` — Enabled/disable validation of links to to headers in the other markdown file: `[link](other-file.md#some-header)`
+* `markdown.validate.fileLinks.markdownFragmentLinks` - Enabled/disable validation of links to to headers in the other markdown file: `[link](other-file.md#some-header)`
 * `markdown.validate.referenceLinks.enabled` - Enable/disable validation of reference links: `[link][ref]`.
 * `markdown.validate.ignoredLinks` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown has been published.
 

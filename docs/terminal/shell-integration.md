@@ -110,18 +110,18 @@ The commands detected by shell integration feed into the command navigation feat
 
 ### Quick fixes
 
-VS Code scans the output of a command and presents a quick fix with actions that have a high likelihood of being what the user will want to do next.
+VS Code scans the output of a command and presents a Quick Fix with actions that have a high likelihood of being what the user will want to do next.
 
 ![Running 'git push --set-upstream' will present a lightbulb that opens a dropdown with an option to open a new PR on github.com](images/shell-integration/quick-fix.png)
 
-Here are some of the built-in quick fixes:
+Here are some of the built-in Quick Fixes:
 
-- When it's detected that a port is already being listened to, suggest to kill the process and re-run the previous command
-- When `git push` fails due to an upstream not being set, suggest to push with the upstream set
-- When a `git` subcommand fails with a similar command error, suggest to use the similar command(s)
-- When `git push` results in a suggestion to create a GitHub PR, suggest to open the link
+- When it's detected that a port is already being listened to, suggest to kill the process and re-run the previous command.
+- When `git push` fails due to an upstream not being set, suggest to push with the upstream set.
+- When a `git` subcommand fails with a similar command error, suggest to use the similar command(s).
+- When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
 
-The quick fix feature also supports [audio cues](https://code.visualstudio.com/docs/editor/accessibility#_audio-cues) for additional feedback when a quick fix is available.
+The Quick Fix feature also supports [audio cues](/docs/editor/accessibility.md#audio-cues) for additional feedback when a Quick Fix is available.
 
 ### Run recent command
 

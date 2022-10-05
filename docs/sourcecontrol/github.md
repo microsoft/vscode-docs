@@ -223,14 +223,20 @@ Extension authors can learn more about running in a virtual file system and work
 
 ### Continue Working On...
 
-Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)), clone the repository locally or into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed) with the **Continue Working On...** command available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
+Sometimes you'll want to switch to working on a repository in a development environment with support for a local file system and full language and development tooling. The GitHub Repositories extension makes it easy for you to:
+
+* Create a GitHub codespace (if you have the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)).
+* Clone the repository locally.
+* Clone the repository into a Docker container (if you have [Docker](https://docker.com/) and the Microsoft [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) installed).
+
+To switch development environments, use the **Continue Working On...** command, available from the Command Palette (`kb(workbench.action.showCommands)`) or by clicking on the Remote indicator in the Status bar.
 
 ![Continue Working On command in Remote dropdown](images/github/continue-working.png)
 
-If you are using the [browser-based editor](/docs/remote/codespaces.md#browser-based-editor), the **"Continue Working On..."** command has the options to open the repository locally or within a cloud-hosted environment in [GitHub Codespaces](https://github.com/features/codespaces).
+If you are using the [browser-based editor](/docs/remote/codespaces.md#browserbased-editor), the **"Continue Working On..."** command has the options to open the repository locally or within a cloud-hosted environment in [GitHub Codespaces](https://github.com/features/codespaces).
 
 ![Continue Working On from web-based editor](images/github/codespaces-continue.png)
 
-The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Edit Sessions**, which leverages a VS Code service to store your pending changes.
+The first time that you use **Continue Working On** with uncommitted changes, you will have the option to bring your edits to your selected development environment using **Edit Sessions**, which uses a VS Code service to store your pending changes.
 
-These changes are deleted from our service once they are applied to your target development environment. If you choose to continue without your uncommitted changes, you can always change this preference in settings later by configuring `"workbench.editSessions.continueOn": "prompt"`.
+These changes are deleted from our service once they are applied to your target development environment. If you choose to continue without your uncommitted changes, you can always change this preference later by configuring the setting `"workbench.editSessions.continueOn": "prompt"`.
