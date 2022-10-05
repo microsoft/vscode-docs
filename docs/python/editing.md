@@ -149,6 +149,8 @@ If formatting fails, check the following possible causes:
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"]`. |
 | Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
 
+> **Note**: If you don't find your preferred formatter listed above, you can add support via an extension. The [Python Extension Template](/api/advanced-topics/python-extension-template.md) makes it easy to integrate new Python tools into VS Code.
+
 ## Refactoring
 
 The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method**, **Rename Module**, and **Sort Imports**.
@@ -210,3 +212,4 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [i
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.
 - [Jupyter Support](/docs/datascience/jupyter-notebooks.md) - Learn how to get started with Jupyter Notebooks.
+- [Python Extension Template](/api/advanced-topics/python-extension-template.md) - Create an extension to integrate your favorite Python tools.

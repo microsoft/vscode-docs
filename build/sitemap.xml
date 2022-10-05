@@ -271,6 +271,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/sourcecontrol/faq</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/terminal/basics</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1321,6 +1326,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/api/advanced-topics/using-proposed-api</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/api/advanced-topics/python-extension-template</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
