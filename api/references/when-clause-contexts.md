@@ -52,10 +52,10 @@ Context name | True when
 ------------ | ------------
 **Editor contexts** |
 `editorFocus` | An editor has focus, either the text or a widget.
-`editorTabMovesFocus` | Whether `Tab` will move focus out of the editor.
 `editorTextFocus` | The text in an editor has focus (cursor is blinking).
 `textInputFocus` | Any editor has focus (regular editor, debug REPL, etc.).
 `inputFocus` | Any text input area has focus (editors or text boxes).
+`editorTabMovesFocus` | Whether `kbstyle(Tab)` will move focus out of the editor.
 `editorHasSelection` | Text is selected in the editor.
 `editorHasMultipleSelections` | Multiple regions of text are selected (multiple cursors).
 `editorReadonly` | The editor is read only.
