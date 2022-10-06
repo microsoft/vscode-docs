@@ -17,19 +17,19 @@ WSL especially helps web developers and those working with Bash and Linux-first 
 
 ## Get started with WSL in VS Code
 
-To get started with using WSL in VS Code, you'll need to download the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) from the Extension Marketplace.
+To get started with using WSL in VS Code, you'll need to download the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) from the Extension Marketplace.
 
-![Remote WSL extension](images/wsl/remote-wsl.png)
+![WSL extension](images/wsl/remote-wsl.png) <!-- TBD new screenshot -->
 
 You'll also need WSL and a Linux distribution installed. We recommend using WSL 2, which is the newest version of WSL, as you will benefit from significant [performance advantages](https://learn.microsoft.com/windows/wsl/compare-versions) over WSL 1.
 
-Check out Remote - WSL in action:
+Check out the WSL extension in action:
 
-<img src="https://github.com/microsoft/vscode-remote-release/blob/main/docs/images/remote-wsl-open-code.gif?raw=true" alt="Using Remote - WSL with an Ubuntu distro on WSL" aria-hidden="true" class="thumb"/>
+<img src="https://github.com/microsoft/vscode-remote-release/blob/main/docs/images/remote-wsl-open-code.gif?raw=true" alt="Using the WSL extension with an Ubuntu distro on WSL" aria-hidden="true" class="thumb"/>
 
 The typical flow is you'll open a Linux command prompt, navigate to a folder of your choosing, and type `code .` to launch a new instance of VS Code connected to WSL. From there, you get the full experience of using VS Code as if you were developing on Linux, except you're on a Windows machine!
 
-<iframe src="https://youtube.com/embed/mIHprjsSO9o?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Visual Studio Code Remote - WSL"></iframe>
+<iframe src="https://youtube.com/embed/mIHprjsSO9o?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Visual Studio Code WSL"></iframe>
 
 ## Next steps
 

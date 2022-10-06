@@ -36,7 +36,7 @@ To get started with remote development in VS Code, you can download the [Remote 
 This extension pack includes three extensions (which can also be downloaded individually):
 
 - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) - Connect to any location by opening folders on a remote computer or virtual machine (VM) using SSH.
-- [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Develop within a container, which is a piece of software that includes your app and any dependencies your app needs to run.
-- [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) - Get a Linux-powered development experience while on Windows using the Windows Subsystem for Linux (WSL).
+- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Develop within a container, which is a piece of software that includes your app and any dependencies your app needs to run.
+- [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) - Get a Linux-powered development experience while on Windows using the Windows Subsystem for Linux (WSL).
 
 Check out the topics in this section to learn more about each of the remote development extensions in Visual Studio Code.

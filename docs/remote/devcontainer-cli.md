@@ -19,7 +19,7 @@ Containers (for example [Docker](https://www.docker.com) containers) have histor
 
 ![Diagram comparing dev versus production containers](images/devcontainer-cli/dev-container-stages.png)
 
-Development containers are supported in Visual Studio Code via the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Development containers are supported in Visual Studio Code via the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
 As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
@@ -27,7 +27,7 @@ As containerizing production workloads becomes commonplace, dev containers have 
 
 When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. The dev container CLI is a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
 
-This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Remote - Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
+This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Dev Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
 The CLI is available for review in a new [devcontainers/cli](https://github.com/devcontainers/cli) repository and you can read more about its development in [this issue in the spec repo](https://github.com/devcontainers/spec/issues/9).
 
@@ -116,7 +116,7 @@ This will compile and run the Rust sample, outputting:
    Compiling hello_remote_world v0.1.0 (/workspaces/vscode-remote-try-rust)
     Finished dev [unoptimized + debuginfo] target(s) in 1.06s
      Running `target/debug/hello_remote_world`
-Hello, VS Code Remote - Containers!
+Hello, VS Code Dev Containers!
 {"outcome":"success"}
 ```
 
@@ -128,7 +128,7 @@ If you'd like to use the dev container CLI in your CI/CD builds or test automati
 
 ## Pre-building
 
-The `devcontainer build` command allows you to quickly build a dev container image following the same steps as used by the Remote - Containers extension or GitHub Codespaces. This is particularly useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
+The `devcontainer build` command allows you to quickly build a dev container image following the same steps as used by the Dev Containers extension or GitHub Codespaces. This is particularly useful when you want to pre-build a dev container image using a CI or DevOps product like GitHub Actions.
 
 `build` accepts a path to the folder containing a `.devcontainer` folder or `.devcontainer.json` file. For example, `devcontainer build --workspace-folder <my_repo>` will build the container image for `my_repo`.
 

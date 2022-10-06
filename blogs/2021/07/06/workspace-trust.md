@@ -128,7 +128,7 @@ To smooth my workflow, I have the `"security.workspace.trust.startupPrompt"` set
 
 With this setting, I am not prompted by the modal dialog and the workspace opens directly in Restricted Mode. I've already decided that the `~src/scratch` folder is untrusted, so there is no need to prompt me every time I open a subfolder. If I decide that I do trust the code I'm reading or writing, I can enable it on the folder with two quick clicks (the Restricted Mode notification across the top of VS Code, then the Trust button).
 
-On my Windows machine, things are a little more interesting. I generally work in Ubuntu images running on the Windows Subsystem for Linux (WSL), using the [Remote WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). I trust the `~/src` folders on Linux and I trust the `d:\src` folder on the Windows side.
+On my Windows machine, things are a little more interesting. I generally work in Ubuntu images running on the Windows Subsystem for Linux (WSL), using the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). I trust the `~/src` folders on Linux and I trust the `d:\src` folder on the Windows side.
 
 ![Trust Folders & Workspaces list with WSL trusted folders](trust-folders-and-workspaces-list.png)
 

@@ -1,12 +1,12 @@
 ---
 Order: 59
-TOCTitle: Remote Containers in WSL 2
-PageTitle: Using Remote Containers in WSL 2
-MetaDescription: Using Remote Containers in WSL 2
+TOCTitle: Dev Containers in WSL 2
+PageTitle: Using Dev Containers in WSL 2
+MetaDescription: Using Dev Containers in WSL 2
 Date: 2020-07-01
 Author: Brigit Murtaugh
 ---
-# Using Remote Containers in WSL 2
+# Using Dev Containers in WSL 2
 
 July 1, 2020 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
@@ -16,7 +16,7 @@ May brought us a couple of exciting announcements in the world of virtualization
 
 In [earlier blog posts](https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2), we've explored how to use Docker in WSL 2. The first requirement was to install Windows Insiders, as WSL 2 support was not yet part of stable Windows releases, and the next was to install a Tech Preview of Docker WSL 2. Now, both Windows WSL 2 and Docker support are in stable GA releases!
 
-In this post, we'll take a look at how both of these tools work, and how you can leverage them in Visual Studio Code to productively use remote containers in WSL 2.
+In this post, we'll take a look at how both of these tools work, and how you can leverage them in Visual Studio Code to productively use dev containers in WSL 2.
 
 ## New era of virtualization
 
@@ -34,7 +34,7 @@ In WSL 1, due to fundamental differences between Windows and Linux, the Docker E
 
 The new May 2020 version of Docker Desktop can build containers much faster and consume fewer resources as it leverages WSL 2's dynamic memory allocation. It can take less than 10 seconds to cold start, as opposed to almost a minute in the previous version. Additionally, Hyper-V isn't a requirement anymore, so the steps detailed in this post work on Windows 10 Home.
 
-Since WSL 2 in Windows and Docker Desktop is now GA, you can feel even more confident using your remote containers in WSL 2.
+Since WSL 2 in Windows and Docker Desktop is now GA, you can feel even more confident using your dev containers in WSL 2.
 
 ## Getting started
 
@@ -59,9 +59,9 @@ Let's connect VS Code to our WSL 2 engine. Open an Ubuntu terminal, navigate to 
 
 ![Launch code . from Ubuntu terminal](2-ubuntu-launch.png)
 
-Once VS Code opens, it recognizes that we have WSL installed, and recommends we install the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension. I'll select **Install**:
+Once VS Code opens, it recognizes that we have WSL installed, and recommends we install the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension. I'll select **Install**:
 
-![Remote - WSL extension recommended](3-wsl-extension-recommended.png)
+![WSL extension recommended](3-wsl-extension-recommended.png)
 
 After installing the extension, we can reload VS Code to connect to WSL 2:
 
@@ -71,13 +71,14 @@ Once we've reloaded, we can confirm that we're connected to Ubuntu by checking t
 
 ![WSL: Ubuntu bottom left indicator](5-wsl-left-indicator.png)
 
-Installing the Remote - WSL extension added the Remote Explorer to VS Code. When we look inside the Explorer, we can see information about our Linux distros:
+Installing the WSL extension added the Remote Explorer to VS Code. When we look inside the Explorer, we can see information about our Linux distros:
 
 ![Remote Explorer with WSL Targets](6-remote-explorer-wsl-targets.png)
 
 ## Working with containers
 
-We can leverage the [Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension to view and attach to containers, in addition to a variety of other scenarios, such as:
+We can leverage the [Dev Containers](https://code.visualstudio.com/docs/remote/containers) extension to view and attach to containers, in addition to a variety of other scenarios, such as:
+
 * [Developing within a set of sample containers](https://code.visualstudio.com/docs/remote/containers-tutorial)
 * [Opening existing source code in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
 * [Working with a GitHub repository](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in an isolated container volume.
@@ -86,11 +87,11 @@ These configurations allow you to easily recreate the same development environme
 
 While you can access source code from both Windows and the WSL 2 filesystem when using the WSL 2 engine, we recommend using the WSL 2 file system because [performance is much better](https://www.docker.com/blog/docker-desktop-wsl-2-best-practices/). Since the performance is better when using the filesystem inside WSL 2, let's walk through how to use it.
 
-We need to select the folder we want to open in a container. First, make sure you've installed the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. We can then call the **Remote-Containers: Reopen Folder in Container** command from a folder already opened using the Remote - WSL extension.
+We need to select the folder we want to open in a container. First, make sure you've installed the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. We can then call the **Dev Containers: Reopen in Container** command from a folder already opened using the WSL extension.
 
-I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I'll select: **Remote-Containers: Reopen in Container…**:
+I have an existing HelloNode folder on my WSL 2 filesystem with my Node project in it. I'll select: **Dev Containers: Reopen in Container**:
 
-![Command Palette: Remote-Containers: Reopen in Container...](7-reopen-container.png)
+![Command Palette: Dev Containers: Reopen in Container](7-reopen-container.png)
 
 A list of container definitions will appear, since there is no DevContainer configuration in the repository yet. The list of container configuration definitions that appears is filtered based on my project type. I'll select **Node.js 14**:
 

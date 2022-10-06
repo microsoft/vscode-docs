@@ -26,9 +26,9 @@ For example:
 
 Let's set up a container for use with all of the Python projects in the `./Repos/python` folder.
 
-1. Start Visual Studio Code, select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the `./Repos/python` folder.
+1. Start Visual Studio Code, select **Dev Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the `./Repos/python` folder.
 
-    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Dev Containers: Add Dev Container Configuration Files...** instead.
 
     ![Quick actions Status bar item](images/configure-separate-containers/remote-dev-status-bar.png)
     <!-- TBD old image -->
