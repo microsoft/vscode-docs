@@ -5,7 +5,7 @@ TOCTitle: Add non-root user
 PageTitle: Add non-root user to a container
 ContentId: 59f77c6b-0800-41e6-b7c8-a2d8e749ea17
 MetaDescription: Add non-root user to a container
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 ---
 # Add a non-root user to a container
 

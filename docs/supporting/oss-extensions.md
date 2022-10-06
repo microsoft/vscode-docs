@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
