@@ -1,6 +1,6 @@
 ---
 ContentId: dd7207b0-cf8b-4ed6-8c75-941834179dca
-DateApproved: 9/1/2022
+DateApproved: 9/28/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Using the Python extension template to integrate linters, formatters, and language features into Visual Studio Code

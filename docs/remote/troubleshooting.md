@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 ---
 # Remote Development Tips and Tricks
 
@@ -538,7 +538,7 @@ You may want to use SSH to connect to a WSL distro running on your remote machin
 
 ## Container tips
 
-This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
+This section includes some tips and tricks for getting the Dev Containers extension up and running in different environments.
 
 If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [GitHub Codespaces managed cloud-based environments](https://github.com/features/codespaces). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
 
@@ -548,7 +548,7 @@ If you are running into Docker issues or would prefer not to run Docker locally,
 
 1. **Consider using the new Docker WSL 2 back-end on Windows 10 (2004+).** If you are using [Docker Desktop's WSL 2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl2), you can you to open folders inside WSL as well as locally. Containers are also shared between Windows and inside WSL and this new engine is less susceptible to file sharing issues. See the [quick start](/docs/remote/containers.md#open-a-wsl-2-folder-in-a-container-on-windows) for details.
 
-2. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Remote - Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
+2. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://learn.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Dev Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
 
 3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
 
@@ -564,7 +564,7 @@ If you are still having trouble, see the [Docker Desktop for Windows troubleshoo
 
 ### Enabling file sharing in Docker Desktop
 
-The VS Code [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
+The VS Code [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
 
 Note that this step is **not required** with [Docker Desktop's WSL 2 engine](https://aka.ms/vscode-remote/containers/docker-wsl2).
 
@@ -823,13 +823,13 @@ On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
 apk update && apk add bash
 ```
 
-### Selecting the distribution used by Remote - WSL
+### Selecting the distribution used by the WSL extension
 
-**Remote-WSL: New Window** will open the WSL distro registered as default.
+**WSL: New Window** will open the WSL distro registered as default.
 
-To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
+To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **WSL: New Window using Distro**.
 
- With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the Remote- WSL might prompt you if you agree to change the default distro.
+ With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the WSL extension might prompt you if you agree to change the default distro.
 
 You can always use [wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config) to change your default.
 
@@ -847,7 +847,7 @@ wslconfig /l
 
 ### Configure the environment for the server startup
 
-When the Remote WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
+When the WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
 
 If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
 
@@ -908,7 +908,7 @@ Please file an issue and attach the full output.
 
 When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
 
-Open the WSL log by running the command **Remote-WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+Open the WSL log by running the command **WSL: Open Log**. The log will show in the terminal view under the WSL tab.
 
 ![WSL Log](images/troubleshooting/wsl-log.png)
 
@@ -918,15 +918,16 @@ To get even more verbose logging, enable the setting `remote.WSL.debug` in the u
 
 You can help us investigate this problem by sending us the core dump file. To get the core dump file, follow these steps:
 
-* Open a Windows command prompt,
-* run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
+In a Windows command prompt:
+
+* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the WSL extension folder.
 * `cd` to the path that is returned.
 * Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
 * Before the last line (before `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"`), add
 `ulimit -C unlimited`.
-* Start the Remote-WSL window running the remote server and wait for the segmentation fault.
+* Start the WSL window running the remote server and wait for the segmentation fault.
 
-The core file will be in the Remote-WSL extension folder from above.
+The core file will be in the WSL extension folder from above.
 
 ### I see EACCESS: permission denied error trying to rename a folder in the open workspace
 
@@ -1116,9 +1117,9 @@ Each remote extension has a command to view its logs.
 
 You can get the Remote - SSH extension logs with **Remote-SSH: Show Log** from the Command Palette (`kbstyle(F1)`). When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
 
-Similarly, you can get the Remote - Containers extension logs with **Remote-Containers: Show Log**.
+Similarly, you can get the Dev Containers extension logs with **Dev Containers: Show Container Log**.
 
-Like the two above, you can get the Remote - WSL logs with **Remote WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the Remote - WSL extension).
+Like the two above, you can get the WSL extension logs with **WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the WSL extension).
 
 If you're experiencing issues using other extensions remotely (for example, other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the **Remote Extension Host** output channel (**Output: Focus on Output View**), and select **Log (Remote Extension Host)** from the dropdown.
 

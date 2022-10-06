@@ -17,7 +17,7 @@ As it turns out making a great tutorial isn't about **what** you write, it's abo
 
 ## Nobody reads
 
-Our very own tutorial on [how to use Remote Containers in Visual Studio Code](https://learn.microsoft.com/training/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
+Our very own tutorial on [how to use Dev Containers in Visual Studio Code](https://learn.microsoft.com/training/modules/use-docker-container-dev-env-vs-code/) has long had low completion rates - about 4 - 6%.
 
 ![dev containers learn module screenshot](dev-containers-tutorial-screenshot.png)
 
@@ -39,9 +39,9 @@ The idea behind containerized dev environments is that you develop inside of a [
 
 But how do you develop **inside** of a container? It's not like containers have a UI where you can just launch VS Code.
 
-The [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code does exactly this. It contains both the mechanism for configuring a Docker container as a dev environment, as well as allowing you to connect to that environment from VS Code. It does this by installing a small server component within the container that your local VS Code talks to. You then develop just like you would if you were local, but VS Code is attached to the container environment instead of your local environment.
+The [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code does exactly this. It contains both the mechanism for configuring a Docker container as a dev environment, as well as allowing you to connect to that environment from VS Code. It does this by installing a small server component within the container that your local VS Code talks to. You then develop just like you would if you were local, but VS Code is attached to the container environment instead of your local environment.
 
-![The remote containers extension screenshot from extension gallery](remote-containers-extension.png)
+![The Dev Containers extension screenshot from extension gallery](dev-containers-extension.png)
 
 In order to create a containerized dev environment, you would ordinarily have to know a thing or two about Docker. A lot of people do, but a lot of people **don't** (you can't see me, but my hand is in the air), so the extension tries to abstract the container setup process away as much as possible. I set up a new Python container. A wizard walks you through selecting the base image and Python version. It then gives you the opportunity to add additional software to the image via a picker list. In this case, I add the Azure CLI, Dotnet CLI and PowerShell…
 
@@ -83,9 +83,9 @@ If you connect an interactive terminal to the `sail-8.1/app container`, you'll s
 
 ![The file structure of the Laravel project in a container](container-file-structure.png)
 
-## Adding Remote Containers
+## Adding Dev Containers
 
-Support has also been added for the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. To add the proper dev container configuration to this project, you can scaffold the same project and add the `&devcontainer` flag.
+Support has also been added for the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. To add the proper dev container configuration to this project, you can scaffold the same project and add the `&devcontainer` flag.
 
 ```bash
     curl -s "https://laravel.build/example-app?with=mysql,redis&devcontainer" | bash
@@ -109,11 +109,11 @@ When connected to the container, the context you are developing in is the same a
 
 ![The VS Code terminal connected to the running container instance](terminal.png)
 
-The Remote - Containers extension also gives you a more complete view of what's going on, such as which ports are forwarded - just in case you forget where your application is running.
+The Dev Containers extension also gives you a more complete view of what's going on, such as which ports are forwarded - just in case you forget where your application is running.
 
 ![The port forwarding view in VS Code showing port 80 forwarded](port-forwarding.png)
 
-The Laravel application starts automatically, and the application logs are piped to the container logs. Since you probably want to see what's going on in the application, the Remote - Containers extension provides a new view in VS Code, where you can see all running containers, as well as connect to stream container logs.
+The Laravel application starts automatically, and the application logs are piped to the container logs. Since you probably want to see what's going on in the application, the Dev Containers extension provides a new view in VS Code, where you can see all running containers, as well as connect to stream container logs.
 
 ![The Laravel application container logs in VS Code](container-logs.png)
 

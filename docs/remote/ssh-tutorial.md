@@ -5,7 +5,7 @@ TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 ---
 # Remote development over SSH
 
@@ -245,8 +245,8 @@ Congratulations, you've successfully completed this tutorial!
 
 Next, check out the other Remote Development extensions.
 
-* [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
-* [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.
