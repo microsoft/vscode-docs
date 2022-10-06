@@ -42,6 +42,8 @@ extends:
       fetchDepth: 1
       lfs: true
       retryCount: 3
+    featureFlags:
+      skipPoliciesValidation: true
 
     globalSdl:
       credscan:
