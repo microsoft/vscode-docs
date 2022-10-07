@@ -181,7 +181,7 @@ See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a
 
 ## Remove default Color Themes
 
-If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** dropdown menu from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
+If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Click the **Filter Extensions** button from the top of the Extensions view, select the **Built-in** option, and you'll see a **THEMES** section listing the default themes.
 
 ![built-in themes](images/themes/built-in-themes.png)
 
