@@ -636,7 +636,7 @@ If this doesn't solve your problem, you may want to see if CPU usage is actually
 If you'd like this extension to always be installed, add this to your `settings.json`:
 
 ```json
-"remote.containers.defaultExtensions": [
+"dev.containers.defaultExtensions": [
     "mutantdino.resourcemonitor"
 ]
 ```
