@@ -468,9 +468,9 @@ In some cases, you may want to create a configuration for a repository that you 
 
 First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/getstarted/settings.md) with the local folder you want to use to store your repository container configuration files.
 
-In the Settings editor:
+In the Settings editor, you can search for 'dev containers repo' to find the setting:
 
-![Repository container folders setting](images/containers/repo-container-folder-setting.png) <!-- TBD update screenshot -->
+![Repository container folders setting](images/containers/repo-container-folder-setting.png)
 
 Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub folder that mirrors the remote location of the repository. For example, if you wanted to create a configuration for `github.com/microsoft/vscode-dev-containers`, you would create the following folder structure:
 
