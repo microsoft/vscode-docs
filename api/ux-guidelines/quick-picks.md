@@ -33,13 +33,13 @@ Quick Picks can be configured to feature multiple steps. Use these when you need
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-multi-step.png)
 
+*Notes the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
+
 ## Multiple Selections
 
 Use a multi-select quick pick for closely-related selections that need to be selected in one step.
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-multi-select.png)
-
-*Notes the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
 
 ## Title
 
