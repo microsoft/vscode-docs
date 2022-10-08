@@ -119,7 +119,7 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 
 As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
 
-![List of settings in Feature Contributions](images/containers/feature-contributions.png) <!-- TBD update screenshot -->
+![List of settings in Feature Contributions](images/containers/feature-contributions.png)
 
 ## WSL
 

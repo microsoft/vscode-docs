@@ -355,10 +355,10 @@ While you can edit your [devcontainer.json](/docs/remote/create-dev-container.md
 
 ### "Always installed" extensions
 
-If there are extensions that you would like always installed in any container, you can update the `remote.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
+If there are extensions that you would like always installed in any container, you can update the `dev.containers.defaultExtensions` User [setting](/docs/getstarted/settings.md). For example, if you wanted to install the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) and [Resource Monitor](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor) extensions, you would specify their extension IDs as follows:
 
 ```json
-"remote.containers.defaultExtensions": [
+"dev.containers.defaultExtensions": [
     "eamodio.gitlens",
     "mutantdino.resourcemonitor"
 ]

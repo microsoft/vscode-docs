@@ -29,7 +29,7 @@ In the diagram below, you'll see an example of three dev containers: one for Pyt
 
 To get started with using dev containers in VS Code, you'll need to download the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension from the VS Code Marketplace.
 
-![Dev Containers extension](images/containers/remote-containers.png) <!-- TBD update screenshot -->
+![Dev Containers extension](images/containers/dev-containers-extension.png)
 
 You'll also need to download [Docker](https://docs.docker.com/docker-for-windows/install-windows-home/), which is the industry standard for building and sharing containers.
 
