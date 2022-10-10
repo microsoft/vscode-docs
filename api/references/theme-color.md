@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -198,6 +198,9 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
+- `activityBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the activity bar.
+- `activityBarItem.settingsProfilesHoverForeground`: Foreground color for the settings profile entry on the activity bar when hovering.
+- `activityBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the activity bar.
 
 ## Side Bar
 
@@ -666,8 +669,6 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
-- `statusBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the status bar.
-- `statusBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the status bar.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.

@@ -5,7 +5,7 @@ TOCTitle: Environment variables
 PageTitle: Container environment variables
 ContentId: 031424a7-ab0e-42e0-ab7d-30a5371b9a50
 MetaDescription: Use environment variables in containers
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 ---
 # Environment variables
 
@@ -63,7 +63,7 @@ Depending on what you reference in `devcontainer.json`:
          # ...
     ```
 
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+If you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.
 
 ## Option 2: Use an env file
 
@@ -96,7 +96,7 @@ Next, depending on what you reference in `devcontainer.json`:
 
 `docker compose` will automatically pick up a file called `.env` in the folder containing the `docker-compose.yml`, but you can also create one in another location.
 
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+If you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.
 
 ### Video: Load variables from an .env file
 
