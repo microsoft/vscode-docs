@@ -406,6 +406,7 @@ The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle
 	"when": "terminalFocus",
 	"args": { "text": "\u0003" }
 }
+```
 
 ### Why are the colors in the terminal not correct?
 
