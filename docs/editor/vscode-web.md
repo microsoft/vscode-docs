@@ -35,6 +35,8 @@ GitHub: `https://vscode.dev/github/organization/repo`
 
 Azure Repos: `https://vscode.dev/azurerepos/organization/project/repo`
 
+From your browser's omnibox, you can easily open any GitHub repository in `vscode.dev`. Simply install the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
+
 If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev), you can alternatively navigate to different repos via the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
 
 ![GitHub Repositories](images/vscode-web/remote-repositories.png)
