@@ -105,6 +105,20 @@ Argument|Description
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 
+### Remote Tunnels
+
+Our goal is to provide a unified CLI experience that allows you to manage both local and remote machines from one spot.
+
+The Visual Studio Code [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH.
+
+We've built in functionality to initiative tunnels on remote machines through this `code` CLI. You can run:
+
+```bash
+code tunnel
+```
+
+For more information on Remote Tunnels, you may review the [Remote Tunnels documentation](../remote/tunnels.md).
+
 ## Opening VS Code with URLs
 
 You can also open projects and files using the platform's URL handling mechanism. Use the following URL formats to:
