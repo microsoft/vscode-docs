@@ -150,6 +150,46 @@ The Docker Explorer provides an interactive experience to examine and manage Doc
 
 1. The output will be displayed in the terminal.
 
+## Build the image in Azure
+
+You can use the command **Azure Container Registry: Build Image in Azure** to build an image that you can then deploy to Azure App Service.
+
+1. Install the [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). Open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure: Sign In**. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account).
+
+1. There are two ways to invoke the build in Azure command. You can right-click on the Dockerfile, and choose **Build Image in Azure**. You can also use the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure Container Registry: Build Image in Azure**.
+
+    ![Invoke the command Build Image in Azure](images/app-service/acr-build-image-in-azure.png)
+
+1. Choose the name and tag for the built image. You'll use this to identify it in the container registry.
+
+   ![Choose the name and tag for the built image.](images/app-service/acr-tag-image.png)
+
+1. Choose the Azure subscription you want to use.
+
+1. Choose an existing Azure Container Registry, or create a new one. When you create a new one, you're asked to provide the name, resource group, location, and an option for pricing, such as Basic, Standard, or Premium. You can read about the costs of these options at [Pricing - Container Registry](https://azure.microsoft.com/pricing/details/container-registry/).
+
+1. Specify the base OS, Linux or Windows. This choice must be consistent with the Dockerfile.
+
+   ![Choose the base OS for the built image](images/app-service/acr-build-image-select-base-os.png)
+
+The image builds; the process might take a few minutes. You can track progress in the terminal. If you encounter an error (`Error: failed to download context.`), try using the **Refresh** option on the container registry and then request another build. Before rebuilding, manually delete the old image.
+
+## Deploy to Azure App Service
+
+Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service. You don't need to install the Azure App Service extension to get started, although it might useful for managing the app service. You can install it from [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+
+1. Right-click on the image tag and choose **Deploy Image to to Azure App Service**.
+
+1. Provide the name of the web site. This must be a unique name, and it must also be listed as a valid host name in the ALLOWED_HOSTS list in the *settings.py* file.
+
+1. Provide a resource group, location, and App Service Plan. If you're just getting started, you can choose the free plan.
+
+1. The image is deployed; the process might take a few minutes. Once it's deployed, you can use the link to access the site. If it doesn't work at first, try again in a few minutes. It's not uncommon for the first few attempts to time out or return an error. It just means the App Service isn't ready yet to receive requests.
+
+## Free up resources
+
+In the [Azure portal](https://portal.azure.com), delete the Resource Group to free up all resources that you created during this exercise.
+
 ## Next steps
 
 You're done! Now that your container is ready, you may want to:
