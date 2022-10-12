@@ -5,7 +5,7 @@ TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers
 ContentId: 68111a8d-530c-4909-916d-3e68758e5e33
 MetaDescription: Persist bash history in containers
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 ---
 # Persist bash history
 
@@ -55,7 +55,7 @@ Next, add a local volume to store the command history. This step varies dependin
       projectname-bashhistory:
     ```
 
-Finally, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+Finally, if you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.
 
 ### Video: How to make your bash history persist in a dev container
 

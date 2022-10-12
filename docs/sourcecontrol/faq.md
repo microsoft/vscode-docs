@@ -3,11 +3,13 @@ Order: 16
 Area: sourcecontrol
 TOCTitle: FAQ
 PageTitle: Source Control, Git & GitHub in VS Code Frequently Asked Questions
-ContentId: -
+ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: -
+DateApproved: 10/6/2022
 ---
 # Source Control FAQ
+
+This topic answers frequently asked questions about using Git source control and GitHub in Visual Studio Code.
 
 ## Git
 
@@ -67,8 +69,8 @@ Another option is to disable the auto fetch feature by changing the following se
 
 Yes, though VS Code works most easily with SSH keys without a passphrase. If you have an SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
 
-## GitHub Pull Requests & Issues
+## GitHub
 
 ### Is GitHub Enterprise supported?
 
-Since 0.51.* VS Code has official support for authentication with GitHub Enterprise Servers. Open a local checkout of a GHES repository and you will be prompted to sign in with your GitHub Enterprise Server account.
+VS Code has official support for authentication with GitHub Enterprise Servers. Open a local checkout of a GHES repository and you will be prompted to sign in with your GitHub Enterprise Server account.

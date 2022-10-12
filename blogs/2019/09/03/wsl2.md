@@ -26,9 +26,9 @@ All of this translates to increased IO performance – up to 20x faster compared
 
 If you're following along, make sure you've opted into Windows Insiders builds and enabled WSL 2. You can learn more about how to get started in the [Installation instructions for WSL 2](https://learn.microsoft.com/windows/wsl/install).
 
-You'll also need to install [Visual Studio Code](https://code.visualstudio.com/download) and the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Optionally, check out the [beta Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701) for the best possible terminal experience on Windows.
+You'll also need to install [Visual Studio Code](https://code.visualstudio.com/download) and the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Optionally, check out the [beta Windows Terminal](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701) for the best possible terminal experience on Windows.
 
-![Remote - WSL extension](remote-wsl-extension.png)
+![WSL extension](remote-wsl-extension.png)
 
 Open WSL either by launching the Windows Terminal and creating a new WSL tab or by launching the Linux distro that you installed. You can also switch into Linux directly from the Command Prompt or PowerShell by entering `wsl` in the terminal - that's just one of the many ways WSL is so deeply integrated into Windows. You can also use WSL inline to do ridiculous things like…
 
@@ -42,11 +42,11 @@ Here's a look at my setup.
 
 ![Matt's WSL 2 setup](matts-setup.png)
 
-Notice in the screenshot that I'm connected to my WSL 2 instance (see 'Ubuntu-18.04' in the bottom-left as the remote source) and I've started a Node.js app from the debugger and it's at a breakpoint. In the Debug console, I've entered `process.platform` to show how the Remote - WSL extension defaults all editor interaction to the Linux environment. There is absolutely no configuration required to get this working, just connect to your WSL environment from the Remote - WSL extension and get to work. Also notice that my line endings are defaulted to LF (shown in the Status bar) without having to set any additional Git configuration options - if you're on Windows working in open source, you understand why this is a big deal.
+Notice in the screenshot that I'm connected to my WSL 2 instance (see 'Ubuntu-18.04' in the bottom-left as the remote source) and I've started a Node.js app from the debugger and it's at a breakpoint. In the Debug console, I've entered `process.platform` to show how the WSL extension defaults all editor interaction to the Linux environment. There is absolutely no configuration required to get this working, just connect to your WSL environment from the WSL extension and get to work. Also notice that my line endings are defaulted to LF (shown in the Status bar) without having to set any additional Git configuration options - if you're on Windows working in open source, you understand why this is a big deal.
 
 All my favorite extensions work and are targeting the correct environment. For example, the Source Control view is showing changes to my project using the version of Git that's installed in WSL 2 and the [Docker extension is configured](https://github.com/microsoft/vscode-docker/wiki/Docker-on-WSL-2) to access the Docker Desktop WSL 2 technical preview.
 
-All of this is made possible by using the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Editing, debugging, and even extensions all work exactly the way you've come to expect in your favorite editor.
+All of this is made possible by using the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). Editing, debugging, and even extensions all work exactly the way you've come to expect in your favorite editor.
 
 ## Benefits of WSL 2
 
@@ -56,7 +56,7 @@ To recap:
 * The original WSL was very connected, but had fairly poor performance compared to a VM.
 * WSL 2 brings a hybrid approach with a lightweight VM, a completely connected experience, and high performance.
 
-Add in the Remote - WSL extension in Visual Studio Code and you have the best of all worlds – Linux and Windows compatibility for your tools with excellent performance and a seamless development experience.
+Add in the WSL extension in Visual Studio Code and you have the best of all worlds – Linux and Windows compatibility for your tools with excellent performance and a seamless development experience.
 
 ## Further reading
 

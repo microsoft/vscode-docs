@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 85918f63-ff5d-4ab8-8a18-26ad00618eff
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
@@ -33,13 +33,13 @@ Quick Picks can be configured to feature multiple steps. Use these when you need
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-multi-step.png)
 
+*Notes the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
+
 ## Multiple Selections
 
 Use a multi-select quick pick for closely-related selections that need to be selected in one step.
 
 ![Multi-step Quick Pick example](images/examples/quick-pick-multi-select.png)
-
-*Notes the "1/3" text in the Quick Pick title that indicates the current and total number of steps in the flow.*
 
 ## Title
 

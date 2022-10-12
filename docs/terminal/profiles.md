@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
 PageTitle: Terminal Profiles in Visual Studio Code
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
@@ -131,6 +131,22 @@ Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell
 ```
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
+
+## Cygwin
+
+Cygwin itself is a terminal, but you can use the [Cygwin](https://www.cygwin.com/) shell in VS Code with the following profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "Cygwin": {
+      "path": "C:\\cygwin64\\bin\\bash.exe",
+      "args": ["--login"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Cygwin"
+}
+```
 
 ## Git Bash
 
