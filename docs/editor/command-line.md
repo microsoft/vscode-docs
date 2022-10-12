@@ -111,7 +111,7 @@ Our goal is to provide a unified CLI experience that allows you to manage both l
 
 The Visual Studio Code [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH.
 
-We've built in functionality to initiative tunnels on remote machines through this `code` CLI. You can run:
+We've built in functionality to initiate tunnels on remote machines through this `code` CLI. You can run:
 
 ```bash
 code tunnel
