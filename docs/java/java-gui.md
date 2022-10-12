@@ -30,9 +30,11 @@ You can create a new JavaFX application with just a few steps in VS Code:
 
 ### Run the JavaFX application
 
-> Note: The following guidance only works for projects managed by Maven.
+> Note: The following guidance only works for projects managed by Maven. The generated project requires at least JDK 11 to launch it. Please make sure you have JDK 11 installed locally and set the installation path to the setting [`java.configuration.runtimes`](https://github.com/redhat-developer/vscode-java#project-jdks).
 
 To run the JavaFX application, you can open the **Maven** Explorer, expand `hellofx` > `Plugins` > `javafx` and run the Maven goal: `javafx:run`.
+
+> Note: Make sure you have installed the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension. If you cannot find the **Maven** explorer, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Explorer: Focus on Maven View**.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-gui/run-javafx.mp4" type="video/mp4">

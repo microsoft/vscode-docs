@@ -175,9 +175,9 @@ VS Code and the C++ extension support [Remote Development](/docs/remote/remote-o
 To install support for Remote Development:
 
 1. Install the VS Code [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
-1. If the remote source files are hosted in WSL, use the **Remote - WSL** extension.
+1. If the remote source files are hosted in WSL, use the **WSL** extension.
 1. If you are connecting to a remote machine with SSH, use the **Remote - SSH** extension.
-1. If the remote source files are hosted in a container (for example, Docker), use the **Remote - Containers** extension.
+1. If the remote source files are hosted in a container (for example, Docker), use the **Dev Containers** extension.
 
 ## Feedback
 

@@ -28,13 +28,13 @@ Add T-SQL language support to VS Code by installing the [mssql] extension from t
 
 Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions, so you can quickly connect to your databases again.
 
-![execute tsql](images/tsql/execute.gif)
+![Execute T-SQL](images/tsql/execute.gif)
 
 ## View and Save Results
 
 View results and messages when you execute your T-SQL code. Save results as a JSON or CSV file to use the data in your applications with just a few clicks.
 
-![save tsql](images/tsql/save.gif)
+![Save T-SQL](images/tsql/save.gif)
 
 ## T-SQL IntelliSense
 

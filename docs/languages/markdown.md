@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -85,6 +85,22 @@ Selection applies to the following, and follows a traditional hierarchical patte
 
 ![Smart select within a Markdown document expands from a block element, to the block element containing it, to the rest of the content under a header, to the header itself](images/Markdown/smart-select.gif)
 
+### Link validation
+
+Link validation checks local links in your Markdown code to make sure they are valid. This can catch common mistakes, such linking to a header that has been renamed or to a file that no longer exists on disk.
+
+![A warning shown in the editor when linking to a file that does not exist](images/markdown/link-validation.png)
+
+Link validation is off by default. To enable it, just set `"markdown.validate.enabled": true`. VS Code will then analyze Markdown links to headers, images, and other local files. Invalid links will be reported as either warnings or errors. All link validation happens locally and there is no checking of external http(s) links.
+
+There are a few settings you can use to customize link validation:
+
+* `markdown.validate.fileLinks.enabled` - Enable/disable validation of links to local files: `[link](/path/to/file.md)`
+* `markdown.validate.fragmentLinks.enabled` - Enable/disable validation of links to headers in the current file: `[link](#some-header)`
+* `markdown.validate.fileLinks.markdownFragmentLinks` - Enabled/disable validation of links to to headers in the other markdown file: `[link](other-file.md#some-header)`
+* `markdown.validate.referenceLinks.enabled` - Enable/disable validation of reference links: `[link][ref]`.
+* `markdown.validate.ignoredLinks` - A list of link globs that skip validation. This is useful if you link to files that don't exist on disk but do exist once the Markdown has been published.
+
 ### Find All References to headers and links
 
 Use the **Find All References** (`kb(references-view.findReferences)`) command to find all locations in the current workspace where a Markdown header or link is referenced:
@@ -130,6 +146,8 @@ By default, Markdown previews automatically update to preview the currently acti
 You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
 
 ![A locked Markdown preview](images/Markdown/locked-preview-title.png)
+
+>**Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
 
 ### Editor and preview synchronization
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
@@ -35,6 +35,10 @@ GitHub: `https://vscode.dev/github/organization/repo`
 
 Azure Repos: `https://vscode.dev/azurerepos/organization/project/repo`
 
+From your browser's search bar (aka omnibox), you can easily open any GitHub repository in `vscode.dev`. Simply install the `vscode.dev` [extension](https://chrome.google.com/webstore/detail/vs-code/kobakmhnkfaghloikphojodjebdelppk) for Chrome and Edge. Then, type `code` to activate the omnibox, followed by your repository's name. Suggestions are populated by your browser search history, so if the repo you want doesn't come up, you can also type in the fully qualified `<owner>/<repo>` name to open it, for example `microsoft/vscode`.
+
+![Type `code` in your browser and search a GitHub repository to open in vscode.dev](images/vscode-web/chrome-omnibox-extension.png)
+
 If you're already in VS Code for the Web at [https://vscode.dev](https://vscode.dev), you can alternatively navigate to different repos via the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension commands. Select the remote indicator in the lower left of the Status bar, and you'll be presented with the **Open Remote Repository...** command.
 
 ![GitHub Repositories](images/vscode-web/remote-repositories.png)
@@ -54,6 +58,8 @@ Support for Azure Repos (part of Azure DevOps) in Visual Studio Code for the Web
 When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read and search the files in the repo. You can fetch, pull, and sync changes, and view branches.
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
+
+Alternatively, when you are on an Azure DevOps repository or pull request, you can press (`kbstyle(.)`) to open it in vscode.dev.
 
 ### Current limitations
 
@@ -87,7 +93,7 @@ As a theme author, you can add the following badge to your extension readme to a
 
 In some cases, you will want to access a different environment that has the ability to run code. You can switch to working on a repository in a development environment that has support for a local file system and full language and development tooling.
 
-The GitHub Repositories extension makes it easy for you to clone the repository locally with the **GitHub Repositories: Continue Working on...** command available from the Command Palette (`kbstyle(F1)`) or by clicking on the Remote indicator in the Status bar.
+The GitHub Repositories extension makes it easy for you to clone the repository locally, reopen it on the desktop, or create a GitHub codespace for the current repository (if you have the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension installed and access to create GitHub codespaces). To do this, use the **Continue Working On...** command available from the Command Palette (`kbstyle(F1)`) or click on the Remote indicator in the Status bar.
 
 ## Use your own compute power with the VS Code Server
 
