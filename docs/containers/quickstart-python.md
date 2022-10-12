@@ -80,7 +80,7 @@ For more information about setting and using environment variables in the Docker
 
 ## Gunicorn modifications for Django and Flask apps
 
-To give Python Web Developers a great starting point, we chose to use [Gunicorn](https://gunicorn.org/#docs) as the default web server. Since it is referenced in the default Dockerfile, it is included as a dependency in the `requirements.txt` file.
+To give Python Web Developers a great starting point, we chose to use [Gunicorn](https://gunicorn.org/#docs) as the default web server. Since it is referenced in the default Dockerfile, it is included as a dependency in the `requirements.txt` file. If you don't see it in `requirements.txt`, run `pip install gunicorn` and then run `pip freeze > requirements.txt` to regenerate the `requirements.txt` file.
 
 > **Note**: To use Gunicorn as your web server, it must be included in the `requirements.txt` file as an app dependency. It does not need to be installed in your virtual environment/host machine. The Gunicorn entry point is overridden locally if your app is run with **Python: Django** or **Python: Flask**.
 
@@ -180,11 +180,13 @@ Once the container image is built, it should appear in the Container Registry wi
 
 1. Right-click on the image tag and choose **Deploy Image to to Azure App Service**.
 
-1. Provide the name of the web site. This must be a unique name, and it must also be listed as a valid host name in the ALLOWED_HOSTS list in the *settings.py* file.
+1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the ALLOWED_HOSTS list in the *settings.py* file.
 
 1. Provide a resource group, location, and App Service Plan. If you're just getting started, you can choose the free plan.
 
-1. The image is deployed; the process might take a few minutes. Once it's deployed, you can use the link to access the site. If it doesn't work at first, try again in a few minutes. It's not uncommon for the first few attempts to time out or return an error. It just means the App Service isn't ready yet to receive requests.
+1. The image is deployed; the process might take a few minutes. Once it's deployed, a notification appears with a button you can use to access the site. You can also use the site's address, `{appname}.azurewebsites.net` where `{appname}` is the name you gave when creating it. If it doesn't work at first, try again in a few minutes. It's not uncommon for the first few attempts to time out or return an error. It just means the App Service isn't ready yet to receive requests.
+
+For continued development, install the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The Azure App Service extension simplifies deployment of updates and provides services for ongoing management of the App Service within VS Code.
 
 ## Free up resources
 
