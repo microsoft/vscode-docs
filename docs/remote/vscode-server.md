@@ -88,7 +88,7 @@ Here are step-by-step instructions to quickly get up and running:
 
 5. After authenticating and providing a machine name, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your remote machine, you can open this URL on any device.
 
-    > **Note:** You can also connect to your remote machine directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Tunnels: Connect to Remote**.
+    > **Note:** You can also connect to your remote machine directly from VS Code: Open the Command Palette (`F1`) in VS Code and run the command **Remote Tunnels: Connect to Remote**.
 
 Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
