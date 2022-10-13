@@ -188,7 +188,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
 1. The image is deployed; the process might take a few minutes. Once it's deployed, a notification appears with a button you can use to access the site. You can also use the site's address, `{appname}.azurewebsites.net` where `{appname}` is the name you gave when creating it. If it doesn't work at first, try again in a few minutes. It's not uncommon for the first few attempts to time out or return an error. It just means the App Service isn't ready yet to receive requests.
 
-1. For continued development, install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). The Azure Tools extension pack simplifies deployment of updates and provides services for ongoing management of the App Service, Azure Container Apps, Azure Functions, and more within VS Code.
+1. For continued development, install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). The Azure Tools extension pack simplifies deployment of updates and provides services for ongoing management of the App Service, Azure Functions, and more within VS Code.
 
 1. Now, make a small change in the application code that's visible on one of the pages, and save the file.
 
