@@ -192,7 +192,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
 1. Now, make a small change in the application code that's visible on one of the pages, and save the file.
 
-1. Use the Azure icon and expand the node for your subscription to find the App Service that you deployed in the previous step.
+1. Use the Azure icon to open the Resources view, and expand the node for your subscription to find the App Service that you deployed in the previous step.
 
 1. Right-click on the App Service node and look at the available options. Choose **Deploy to Web App**, and then specify your app folder to deploy it.
 
