@@ -176,9 +176,11 @@ The image builds; the process might take a few minutes. You can track progress i
 
 ## Deploy to Azure App Service
 
-Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service. You don't need to install the Azure App Service extension to get started, although it might useful for managing the app service. You can install it from [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service. You don't need to install the Azure App Service extension to get started, although it might useful for managing the app service. You can install it from [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), but we recommend you install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which includes a package of tools for a wide range of Azure scenarios, including deploying to App Service and Azure Container Apps.
 
 1. Right-click on the image tag and choose **Deploy Image to to Azure App Service**.
+
+   ![Deploy image to Azure App Service](images/app-service/deploy-image-to-azure-app-service.png)
 
 1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the ALLOWED_HOSTS list in the *settings.py* file.
 
@@ -186,7 +188,25 @@ Once the container image is built, it should appear in the Container Registry wi
 
 1. The image is deployed; the process might take a few minutes. Once it's deployed, a notification appears with a button you can use to access the site. You can also use the site's address, `{appname}.azurewebsites.net` where `{appname}` is the name you gave when creating it. If it doesn't work at first, try again in a few minutes. It's not uncommon for the first few attempts to time out or return an error. It just means the App Service isn't ready yet to receive requests.
 
-For continued development, install the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). The Azure App Service extension simplifies deployment of updates and provides services for ongoing management of the App Service within VS Code.
+1. For continued development, install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). The Azure Tools extension pack simplifies deployment of updates and provides services for ongoing management of the App Service, Azure Container Apps, Azure Functions, and more within VS Code.
+
+1. Now, make a small change in the application code that's visible on one of the pages, and save the file.
+
+1. You now have the Azure Tools extension pack installed. Use the Azure icon and expand the node for your subscription to find the App Service that you deployed in the previous step.
+
+1. Right-click on the App Service node and look at the available options. Choose **Deploy to Web App**, and then specify your app folder to deploy it.
+
+   ![Deploy to Web App](images/app-service/deploy-to-web-app.png)
+
+   When warned that this will overwrite the previous deployment, choose **Deploy** to confirm.
+
+   This might take a few minutes; you can monitor progress in the terminal window. When it finishes, a button with access to the site is given.
+
+   ![Browse website button](images/app-service/browse-website-button.png)
+
+   Use the button and verify that your change is reflected on the site.
+
+Congratulations, you've used Python in VS Code to create an deploy a web site that's hosted in the cloud and live on the Internet!
 
 ## Free up resources
 
@@ -203,3 +223,4 @@ You're done! Now that your container is ready, you may want to:
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
 - [Deploy a containerized app to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)
+- [Deploy to Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/deploy-visual-studio-code)
