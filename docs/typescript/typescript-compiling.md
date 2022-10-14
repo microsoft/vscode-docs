@@ -4,12 +4,12 @@ Area: typescript
 TOCTitle: Compiling
 ContentId: 59543856-da91-4a0d-9a98-9d5f2bf70c71
 PageTitle: TypeScript Compiling with Visual Studio Code
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Learn about TypeScript compiling with Visual Studio Code.
 ---
 # Compiling TypeScript
 
-[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that transpiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components.
 
 ## Install the TypeScript compiler
 
@@ -272,9 +272,9 @@ If you get that error, resolve it by creating a `tsconfig.json` file in the root
 
 VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](#using-newer-typescript-versions) for details on installing a matching TypeScript version.
 
-### Can I use the version of TypeScript that ships with VS 2015?
+### Can I use the version of TypeScript that ships with VS 2022?
 
-No, the TypeScript language service that ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
+No, the TypeScript language service that ships with Visual Studio 2019 and 2022 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).
 
 ### Why are some errors reported as warnings?
 

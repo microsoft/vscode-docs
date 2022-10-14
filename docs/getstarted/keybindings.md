@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -26,7 +26,7 @@ For doing more advanced keyboard shortcut customization, read [Advanced Customiz
 
 ## Keymap extensions
 
-Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Keymaps** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
+Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Migrate Keyboard Shortcuts from...** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
 
 <div class="marketplace-extensions-curated-keymaps"></div>
 

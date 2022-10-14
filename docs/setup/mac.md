@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -64,7 +64,7 @@ Out of the box VS Code adds actions to navigate in editor history as well as the
 
 ## Mojave privacy protections
 
-After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs may be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders. You can read a more detailed explanation in this [blog post](https://discuss.atom.io/t/why-does-macos-say-that-atom-wants-to-access-my-calendar-contacts-photos-etc).
+After upgrading to macOS Mojave version, you may see dialogs saying "Visual Studio Code would like to access your {calendar/contacts/photos}." This is due to the new privacy protections in Mojave and is not specific to VS Code. The same dialogs may be displayed when running other applications as well. The dialog is shown once for each type of personal data and it is fine to choose **Don't Allow** since VS Code does not need access to those folders.
 
 ## Updates
 
@@ -96,6 +96,6 @@ If you are running macOS Mojave version, you may see dialogs saying "Visual Stud
 
 If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.
 
-### Does VS Code run on Mac M1 machines?
+### Does VS Code run on Apple Silicon machines?
 
-Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple M1 chip. You can install the Universal build, which includes both Intel and Apple Silicon builds, or one of the platform specific builds.
+Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple Silicon chipsets. You can install the Universal build, which includes both Intel and Apple Silicon builds, or one of the platform specific builds.

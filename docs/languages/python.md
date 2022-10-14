@@ -13,7 +13,7 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
-<a class="tutorial-next-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
+<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
 
 ## Install Python and the Python extension
 
@@ -23,7 +23,7 @@ Once you have a version of Python installed, activate it using the **Python: Sel
 
 You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
 
->**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Run Python code
 
@@ -102,7 +102,7 @@ You can also convert and open the notebook as a Python code file. The notebook's
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://learn.microsoft.com/azure/notebooks).
 
 Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/datascience/jupyter-notebooks.md).
 

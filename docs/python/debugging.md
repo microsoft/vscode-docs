@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging configurations for Python apps in Visual Studio Code
-DateApproved: 5/17/2022
+DateApproved: 7/13/2022
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -47,11 +47,11 @@ The details of configuration properties are covered later in this article under 
 
 ## Additional configurations
 
-By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
+By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and the `launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to select the **Python** option):
 
 ![Adding a new Python debugging configuration](images/debugging/add-configuration.png)
 
-Selecting the **Node.js: Gulp task** yields the following result:
+Selecting the **Attach using Process ID** one yields the following result:
 ![Added a configuration](images/debugging/added-configuration.png)
 
 See [Debugging specific app types](#debugging-specific-app-types) for details on all of these configurations.
@@ -68,7 +68,11 @@ If you're only interested in debugging a Python script, the simplest way is to s
 
 ![Debug button on the top-right of the editor](images/debugging/debug-button-editor.png)
 
-But if you're looking to debug a module or a web application, you can start the debugger through the **Run** view by clicking on the **Run and Debug** button.
+If you're looking to debug a web application using Flask, Django or FastAPI, the Python extension provides dynamically created debug configurations based on your project structure under the **Show all automatic debug configurations** option, through the **Run and Debug** view.
+
+![Show all automatic debug configurations option on the run view](images/debugging/debug-auto-config.png)
+
+But if you're looking to debug other kinds of applications, you can start the debugger through the **Run** view by clicking on the **Run and Debug** button.
 
 ![Run the debugger](images/debugging/debug-run.png)
 
@@ -185,7 +189,7 @@ There may be instances where you need to debug a Python script that's invoked lo
 
 Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer. For added security, you may want or need to use a secure connection, such as SSH, to the remote computer when debugging.
 
-> **Note**: On Windows computers, you may need to install [Windows 10 OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
+> **Note**: On Windows computers, you may need to install [Windows 10 OpenSSH](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse) to have the `ssh` command.
 
 The following steps outline the general process to set up an SSH tunnel. An SSH tunnel allows you to work on your local machine as if you were working directly on the remote in a more secure manner than if a port was opened for public access.
 
@@ -393,9 +397,9 @@ Specifies how program output is displayed as long as the defaults for `redirectO
 
 ### `purpose`
 
- If set to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
- If set to `debug-in-terminal`, defines that the configuration should be used when and only when using the **Debug Python File in Terminal** button on the top-right of the editor.
- Note that the `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
+ There is more than one way to configure the **Run** button, using the `purpose` option. Setting the option to `debug-test`, defines that the configuration should be used when debugging tests in VS Code.
+However, setting the option to `debug-in-terminal`, defines that the configuration should only be used when accessing the **Run Python File** button on the top-right of the editor (regardless of whether the **Run Python File** or **Debug Python File** options the button provides is used).
+**Note**: The `purpose` option can't be used to start the debugger through `kbstyle(F5)` or **Run > Start Debugging**.
 
 ### `autoReload`
 

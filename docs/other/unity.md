@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 5/26/2022
+DateApproved: 8/3/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
@@ -30,6 +30,13 @@ From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
 
 1. In the VS Code Settings editor (`kb(workbench.action.openSettings)`), uncheck the C# extension's **Omnisharp: Use Modern Net** [setting](/docs/getstarted/settings.md) (`"omnisharp.useModernNet": false`).
+
+### Install Build Tools for Visual Studio (Windows only)
+
+The C# extension no longer ships with Microsoft Build Tools so they must be installed manually.
+
+1. Download the [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
+1. Install the **.NET desktop build tools** workload. No other components are required.
 
 ## Setup VS Code as Unity Script Editor
 
@@ -119,7 +126,7 @@ dotnet_diagnostic.IDE0051.severity = none
 
 `root=true` tells OmniSharp that this is your project root and it should stop looking for parent `.editorconfig` files outside of this folder.
 
-`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you want to this file.
+`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://learn.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you want to this file.
 
 `[*.cs]` indicates that our custom rules should apply to all C# scripts (files with the `.cs` extension).
 
@@ -180,7 +187,7 @@ Before|After
 
 To edit this directly within VS Code Settings editor, go to **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS). Switch to the **Workspace** tab and then type "files exclude" into the Settings editor search bar.  Add a glob pattern similar to the pattern shown below by clicking the **Add Pattern** button for the **Files: Exclude** setting.  You will need to add each pattern separately.
 
-```glob
+```
 **/.git
 **/*.fbx
 **/*.FBX

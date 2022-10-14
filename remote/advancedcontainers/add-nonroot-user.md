@@ -5,7 +5,7 @@ TOCTitle: Add non-root user
 PageTitle: Add non-root user to a container
 ContentId: 59f77c6b-0800-41e6-b7c8-a2d8e749ea17
 MetaDescription: Add non-root user to a container
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 ---
 # Add a non-root user to a container
 
@@ -49,11 +49,11 @@ In some cases, you may need all processes in the container to run as a different
 
 ## Creating a non-root user
 
-While any images or Dockerfiles that come from the Remote - Containers extension will include a non-root user with a UID/GID of 1000 (typically either called `vscode` or `node`), many base images and Dockerfiles do not.  Fortunately, you can update or create a Dockerfile that adds a non-root user into your container.
+While any images or Dockerfiles that come from the Dev Containers extension will include a non-root user with a UID/GID of 1000 (typically either called `vscode` or `node`), many base images and Dockerfiles do not.  Fortunately, you can update or create a Dockerfile that adds a non-root user into your container.
 
 Running your application as a non-root user is recommended even in production (since it is more secure), so this is a good idea even if you're reusing an existing Dockerfile. For example, this snippet for a Debian/Ubuntu container will create a user called `user-name-goes-here`, give it the ability to use `sudo`, and set it as the default:
 
-```Dockerfile
+```docker
 ARG USERNAME=user-name-goes-here
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -78,13 +78,13 @@ USER $USERNAME
 
 > **Tip:** If you hit an error when building about the GID or UID already existing, the image you selected likely already has a non-root user you can take advantage of directly.
 
-In either case, if you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+In either case, if you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.
 
 ## Change the UID/GID of an existing container user
 
 While the `remoteUser` property tries to automatically update the UID/GID as appropriate on Linux when using a **Dockerfile or image**, you can use this snippet in your Dockerfile to manually change the UID/GID of a user instead. Update the `ARG` values as appropriate.
 
-```Dockerfile
+```docker
 ARG USERNAME=user-name-goes-here
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -96,6 +96,6 @@ RUN groupmod --gid $USER_GID $USERNAME \
 
 Note that on Alpine Linux, you'll need to install the `shadow` package first.
 
-```Dockerfile
+```docker
 RUN apk add --no-cache shadow
 ```

@@ -111,7 +111,7 @@ For additional ways to configure the launch.json file so that you can debug your
 
 ### Natvis framework
 
-You create custom views of C++ object in the debugger with the [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
+You create custom views of C++ object in the debugger with the [Natvis](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
 
 ### Debug remotely
 

@@ -4,12 +4,12 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
 
-Visual Studio Code is built on top of [Electron](https://electron.atom.io/) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that VS Code users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
+Visual Studio Code is built on top of [Electron](https://www.electronjs.org) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that VS Code users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
 
 ## Common hostnames
 

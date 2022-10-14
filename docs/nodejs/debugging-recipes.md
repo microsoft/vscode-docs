@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: JavaScript Debugging Recipes for Visual Studio Code
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription:  Learn more about how to setup debugging in Visual Studio Code with debugging recipes
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -49,7 +49,7 @@ You can read more about debugging browsers works in the [Browser Debugging docum
 
 ## Electron - Debug Electron applications
 
-The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in JavaScript debugger.
+The Visual Studio Code editor supports debugging [Electron](https://www.electronjs.org) applications via the built-in JavaScript debugger.
 
 ![electron logo](images/recipes/electron.png)
 

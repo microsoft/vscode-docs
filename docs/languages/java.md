@@ -13,7 +13,7 @@ Support for Java in Visual Studio Code is provided through a wide range of [exte
 
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, use the **Java Getting Started Tutorial** button below.
 
-<a class="tutorial-next-btn" href="/docs/java/java-tutorial">Java Getting Started Tutorial</a>
+<a class="next-topic-btn" href="/docs/java/java-tutorial">Java Getting Started Tutorial</a>
 
 ## Overview
 
@@ -30,9 +30,9 @@ VS Code provides essential language features such as code completion, refactorin
 
 To help you set up quickly, we recommend you use the **Coding Pack for Java**, which is the bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
@@ -45,7 +45,7 @@ If you have already installed VS Code and want to add Java support to it, we rec
 5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 Alternatively, you can add Java language support to VS Code by installing the popular Java extensions by yourself.
 
@@ -88,8 +88,9 @@ We recommend you to consider installing the JDK from one of these sources:
 
 > **Note**: If you have multiple JDKs installed and need to use a specific JDK version for your projects, see [Configure Runtime for Projects](/docs/java/java-project.md#configure-runtime-for-projects). To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
-For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code
-Open the Command Palette (`kb(workbench.action.showCommands)`) and type "Java: Getting Started".
+For developers new to Java or new to VS Code, we do provide some tips in our extensions. Once you've installed the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), you can see the tips using the **Java: Tips for Beginners** command from the Command Palette in VS Code.
+
+Open the Command Palette (`kb(workbench.action.showCommands)`) and type "java tips" to select the command.
 
 ![Java Getting Started](images/java/beginner-tips.png)
 

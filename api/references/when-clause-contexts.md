@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -55,6 +55,7 @@ Context name | True when
 `editorTextFocus` | The text in an editor has focus (cursor is blinking).
 `textInputFocus` | Any editor has focus (regular editor, debug REPL, etc.).
 `inputFocus` | Any text input area has focus (editors or text boxes).
+`editorTabMovesFocus` | Whether `kbstyle(Tab)` will move focus out of the editor.
 `editorHasSelection` | Text is selected in the editor.
 `editorHasMultipleSelections` | Multiple regions of text are selected (multiple cursors).
 `editorReadonly` | The editor is read only.
@@ -209,9 +210,9 @@ vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
 vscode.commands.executeCommand('setContext', 'myExtension.numberOfCoolOpenThings', 4);
 ```
 
-## 'in' conditional operator
+## 'in' and 'not in' conditional operators
 
-The `in` operator for `when` clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it.
+The `in` operator for `when` clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it. You can use the `not in` operator to check the opposite condition.
 
 First, determine which folders should support the command, and the folder name to an array. Then, use the `setContext` command to turn the array into a context key:
 

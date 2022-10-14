@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -164,7 +164,7 @@ Additionally, you can install and change your File Icon themes.
 
 ### Keymaps
 
-Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Go to **Preferences** > **Keymaps** to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
+Are you used to keyboard shortcuts from another editor? You can install a Keymap extension that brings the keyboard shortcuts from your favorite editor to VS Code. Go to **Preferences** > **Migrate Keyboard Shortcuts from...** to see the current list on the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs). Some of the more popular ones:
 
 * [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 * [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
@@ -841,7 +841,7 @@ Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) a
 
 ### Gutter indicators
 
-View diff decorations in editor. See [documentation](/docs/editor/versioncontrol.md#gutter-indicators) for more details.
+View diff decorations in editor. See [documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
 
 ![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 

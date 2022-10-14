@@ -5,7 +5,7 @@ TOCTitle: Configure separate containers
 PageTitle: Configure separate containers for multiple projects
 ContentId: d3b13c08-3c78-4891-b80a-5a15784aeb1e
 MetaDescription: Configure separate containers for multiple projects
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 ---
 # Configure separate containers
 
@@ -13,7 +13,7 @@ While development containers often are tied to a single folder, repository, or p
 
 For example:
 
-```text
+```
 📁 Repos
    📁 node
    📁 python
@@ -26,12 +26,11 @@ For example:
 
 Let's set up a container for use with all of the Python projects in the `./Repos/python` folder.
 
-1. Start Visual Studio Code, select **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the `./Repos/python` folder.
-
-    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Remote-Containers: Add Development Container Configuration Files...** instead.
+1. Start Visual Studio Code, select **Dev Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) or quick actions Status bar item, and select the `./Repos/python` folder.
 
     ![Quick actions Status bar item](images/configure-separate-containers/remote-dev-status-bar.png)
-    <!-- TBD old image -->
+
+    > **Tip:** If you want to edit the container's contents or settings before opening the folder, you can run **Dev Containers: Add Dev Container Configuration Files...** instead.
 
 2. Now pick a starting point for your dev container. You can either select a base **dev container definition** from a filterable list, or use an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) if one exists in the folder you selected.
 

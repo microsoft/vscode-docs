@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.
 ---
 # Color Themes
@@ -181,7 +181,7 @@ See the [Create a new Color Theme](/api/extension-guides/color-theme.md#create-a
 
 ## Remove default Color Themes
 
-If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More Actions** dropdown menu from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
+If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Click the **Filter Extensions** button from the top of the Extensions view, select the **Built-in** option, and you'll see a **THEMES** section listing the default themes.
 
 ![built-in themes](images/themes/built-in-themes.png)
 

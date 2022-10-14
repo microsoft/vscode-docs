@@ -115,7 +115,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 1. In the Dockerfile, comment out the line that adds app code to the container.
 
-    ``` dockerfile
+    ```docker
     #ADD . /app
     ```
 
@@ -169,7 +169,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 
 1. In the Dockerfile, comment out the line that adds app code to the container.
 
-    ``` dockerfile
+    ```docker
     #ADD . /app
     ```
 

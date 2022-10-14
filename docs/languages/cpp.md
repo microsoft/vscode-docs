@@ -57,9 +57,11 @@ If you don't have a compiler installed, in the example below, we describe how to
 
 ## Example: Install MinGW-x64
 
-We will install Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-01-18/msys2-x86_64-20220118.exe).
+We will install Mingw-w64 via [MSYS2](https://www.msys2.org/), which provides up-to-date native builds of GCC, Mingw-w64, and other helpful C++ tools and libraries.  You can download the latest installer from the MSYS2 page or use this [link to the installer](https://github.com/msys2/msys2-installer/releases/download/2022-06-03/msys2-x86_64-20220603.exe).
 
-Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command, especially Step 7, when you will install the actual Mingw-w64 toolset (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`).
+Follow the **Installation** instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64. Take care to run each required Start menu and `pacman` command.
+
+You will need to install the full Mingw-w64 toolchain (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`) to get the `gdb` debugger.
 
 ### Add the MinGW compiler to your path
 
@@ -76,11 +78,14 @@ Add the path to your Mingw-w64 `bin` folder to the Windows `PATH` environment va
 To check that your Mingw-w64 tools are correctly installed and available, open a **new** Command Prompt and type:
 
 ```bash
+gcc --version
 g++ --version
 gdb --version
 ```
 
 If you don't see the expected output or `g++` or `gdb` is not a recognized command, make sure your PATH entry matches the Mingw-w64 binary location where the compiler tools are located.
+
+If the compilers do not exist at that PATH entry, make sure you followed the instructions on the [MSYS2 website](https://www.msys2.org/) to install Mingw-w64.
 
 ## Hello World
 
@@ -165,14 +170,14 @@ You can find more documentation on using the Microsoft C/C++ extension under the
 
 ## Remote Development
 
-VS Code and the C++ extension support [Remote Development](/docs/remote/remote-overview.md) allowing you to work over SSH on a remote machine or VM, inside a Docker container, or in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl) (WSL).
+VS Code and the C++ extension support [Remote Development](/docs/remote/remote-overview.md) allowing you to work over SSH on a remote machine or VM, inside a Docker container, or in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl) (WSL).
 
 To install support for Remote Development:
 
 1. Install the VS Code [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
-1. If the remote source files are hosted in WSL, use the **Remote - WSL** extension.
+1. If the remote source files are hosted in WSL, use the **WSL** extension.
 1. If you are connecting to a remote machine with SSH, use the **Remote - SSH** extension.
-1. If the remote source files are hosted in a container (for example, Docker), use the **Remote - Containers** extension.
+1. If the remote source files are hosted in a container (for example, Docker), use the **Dev Containers** extension.
 
 ## Feedback
 

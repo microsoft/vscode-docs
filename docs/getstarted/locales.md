@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language
@@ -25,7 +25,7 @@ You can also override the default UI language by explicitly setting the VS Code 
 
 Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "display" to filter and display the **Configure Display Language** command.
 
-![configure display language command ](images/locales/configure-language-command.png)
+![configure display language command](images/locales/configure-language-command.png)
 
 Press `kbstyle(Enter)` and a list of installed languages by [locale](#available-locales) is displayed, with the current `locale` highlighted.
 

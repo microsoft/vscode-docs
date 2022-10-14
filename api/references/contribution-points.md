@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -35,6 +35,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 - [`snippets`](/api/references/contribution-points#contributes.snippets)
 - [`submenus`](/api/references/contribution-points#contributes.submenus)
 - [`taskDefinitions`](/api/references/contribution-points#contributes.taskDefinitions)
+- [`terminal`](/api/references/contribution-points#contributes.terminal)
 - [`themes`](/api/references/contribution-points#contributes.themes)
 - [`typescriptServerPlugins`](/api/references/contribution-points#contributes.typescriptServerPlugins)
 - [`views`](/api/references/contribution-points#contributes.views)
@@ -255,6 +256,8 @@ If you use `markdownDescription` instead of `description`, your setting descript
 }
 ```
 
+For `markdownDescription`, in order to add newlines or multiple paragraphs, use the string `\n\n` to separate the paragraphs instead of just `\n`.
+
 **type**
 
 Entries of type `number` 4️⃣ , `string` 5️⃣ , `boolean` 6️⃣ can be edited directly in the settings UI.
@@ -296,7 +299,7 @@ If two settings within the same category have `order` properties, the setting wi
 
 If two categories have the same `order` property value, or if two settings within the same category have the same `order` property value, then they will be sorted in increasing alphabetical order within the settings UI.
 
-**enum** / **enumDescriptions**
+**enum** / **enumDescriptions** / **enumItemLabels**
 
 If you provide an array of items under the `enum` 7️⃣ property, the settings UI will render a dropdown menu.
 
@@ -319,6 +322,9 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 ```
 
 You can also use `markdownEnumDescriptions`, and your descriptions will be rendered as Markdown.
+
+To customize the dropdown options, you can use `enumItemLabels`. The `workbench.iconTheme` setting uses both `enumDescriptions` and `enumItemLabels`. In the screenshot below, the hovered option has the item label "None", with enum description "No file icons" and enum value `null`.
+![The workbench.iconTheme setting in the Settings UI with the dropdown expanded showing the enum item labels and one enum description](images/contribution-points/settings-ui-icon-theme.png)
 
 **deprecationMessage** / **markdownDeprecationMessage**
 
@@ -1161,6 +1167,38 @@ When the extension actually creates a Task, it needs to pass a `TaskDefinition` 
 
 ```ts
 let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
+```
+
+## contributes.terminal
+
+Contribute a terminal profile to VS Code, allowing extensions to handle the creation of the profiles. When defined, the profile should appear when creating the terminal profile
+
+```json
+{
+  "activationEvents": [
+    "onTerminalProfile:my-ext.terminal-profile"
+  ],
+  "contributes": {
+    "terminal": {
+      "profiles": [
+        {
+          "title": "Profile from extension",
+          "id": "my-ext.terminal-profile"
+        }
+      ]
+    },
+  }
+}
+```
+
+When defined, the profile will show up in the terminal profile selector. When activated, handle the creation of the profile by returning terminal options:
+
+```ts
+vscode.window.registerTerminalProfileProvider('my-ext.terminal-profile', {
+	provideProfileOptions(token: vscode.CancellationToken): vscode.ProviderResult<vscode.TerminalOptions | vscode.ExtensionTerminalOptions> {
+		return { name: 'Profile from extension', shellPath: 'bash' };
+	}
+});
 ```
 
 ## contributes.themes

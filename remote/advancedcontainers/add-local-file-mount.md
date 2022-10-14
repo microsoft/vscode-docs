@@ -5,7 +5,7 @@ TOCTitle: Add local file mount
 PageTitle: Add local file mount to a container
 ContentId: 1a14ff36-13ea-40ec-acc9-16bd0d6725f6
 MetaDescription: Add local file mount to a container
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 ---
 # Add another local file mount
 
@@ -49,4 +49,4 @@ You can add a volume bound to any local folder by using the following appropriat
          # ...
     ```
 
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+If you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.

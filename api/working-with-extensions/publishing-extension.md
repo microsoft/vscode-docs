@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -60,11 +60,11 @@ The publishing tool checks the following constraints:
 
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First off, follow the documentation to [create your own organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
+First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
 
 From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
@@ -313,7 +313,7 @@ Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for r
 
 If extension authors do not want their pre-release users to be updated to the release version, we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher. Note that while pre-release users will be updated to a release version if it is higher, they still remain eligible to automatically update to future pre-releases with higher version numbers than the release version.
 
-Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
+Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `engines.vscode` value in their `package.json` to `>= 1.63.0`.
 
 > **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install of the pre-release version of the main extension.
 

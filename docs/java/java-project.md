@@ -13,7 +13,7 @@ MetaSocialImage:
 
 The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension helps you to manage your Java projects and their dependencies. It also helps you to create new Java projects, packages, and classes. To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Project Manager for Java extension.
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 >For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 

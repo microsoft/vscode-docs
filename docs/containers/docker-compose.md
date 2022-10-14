@@ -61,7 +61,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 1. Configure the debugging port in `docker-compose.debug.yml`. This is set when you create the file, so you might not need to change it. In the example below, port 9229 is used for debugging on both the host and the container.
 
-   ```yml
+   ```yaml
     version: '3.4'
 
     services:
@@ -138,7 +138,7 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. Right-click on the `docker-compose.debug.yml` file (example shown below) and choose **Compose Up**.
 
-    ```yml
+    ```yaml
     version: '3.4'
 
     services:
@@ -209,7 +209,7 @@ If everything is configured correctly, the debugger should be attached to your .
 
 By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the `docker-compose*.yml` files.
 
-```yml
+```yaml
 volumes:
     - /host-folder-path:/container-folder-path
 ```

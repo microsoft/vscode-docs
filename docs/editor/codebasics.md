@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -310,7 +310,7 @@ You can also use the following actions:
 
 Folding regions are by default evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
-Since the 1.22 release, folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
+Folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
 
 If you prefer to switch back to indentation-based folding for one (or all) of the languages above, use:
 
@@ -343,6 +343,14 @@ To fold and unfold only the regions defined by markers use:
 
 * Fold Marker Regions (`kb(editor.foldAllMarkerRegions)`) folds all marker regions.
 * Unfold Marker Regions (`kb(editor.unfoldAllMarkerRegions)`) unfolds all marker regions.
+
+### Fold selection
+
+The command **Create Manual Folding Ranges from Selection** (`kb(editor.createFoldingRangeFromSelection)`) creates a folding range from the currently selected lines and collapses it. That range is called a **manual** folding range that goes on top of the ranges computed by folding providers.
+
+Manual folding ranges can be removed with the command **Remove Manual Folding Ranges** (`kb(editor.removeManualFoldingRanges)`).
+
+Manual folding ranges are especially useful for cases when there isn't programming language support for folding.
 
 ## Indentation
 

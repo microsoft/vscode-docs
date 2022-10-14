@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules, and runtime resources.
@@ -33,6 +33,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 | `badges`                                                |          | `array`                                    | Array of [approved](/api/references/extension-manifest#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.       |
 | `markdown`                                              |          | `string`                                   | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.                                                                                                                                                                                                               |
 | `qna`                                                   |          | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a string to provide the URL of a custom Q & A site. Set to `false` to disable Q & A altogether.                                                                                              |
+| `sponsor` |                                             | `object` | Specify the location from where users can sponsor your extension. This is an object with a single property `url`, which links to a page where users can sponsor your extension.                                                                                                                                                                                     |
 | `dependencies`                                          |          | `object`                                   | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies).                                                                                                                                                            |
 | `devDependencies`                                       |          | `object`                                   | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#devdependencies).                                                                                                                                                   |
 | `extensionPack`                                         |          | `array`                                    | An array with the ids of extensions that can be installed together. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.                                                                              |
@@ -285,7 +286,7 @@ To create an extension pack, you can use the `yo code` Yeoman generator and choo
 
 An Extension Pack should not have any functional dependencies with its bundled extensions and the bundled extensions should be manageable independent of the pack. If an extension has a dependency on another extension, that dependency should be declared with the `extensionDependencies` attribute.
 
-### Extension uninstall hook
+## Extension uninstall hook
 
 If your extension has some clean up to be done when it is uninstalled from VS Code, you can register a `node` script to the uninstall hook `vscode:uninstall` under `scripts` section in extension's package.json.
 

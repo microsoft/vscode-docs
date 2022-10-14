@@ -5,7 +5,7 @@ TOCTitle: Start processes
 PageTitle: Start a processes when a container starts
 ContentId: 5be7285b-998b-4378-bdc4-90915e858eb7
 MetaDescription: Start a process when a container starts
-DateApproved: 7/7/2022
+DateApproved: 10/6/2022
 ---
 # Start a process when the container starts
 
@@ -65,7 +65,7 @@ The `overrideCommand` property defaults to `true` because many images will immed
 
 Next, consider this Dockerfile:
 
-```Dockerfile
+```docker
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-focal
 
 COPY docker-entrypoint.sh /

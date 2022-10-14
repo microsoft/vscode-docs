@@ -55,4 +55,4 @@ Once `ALLOWED_HOSTS` have been declared, the next step is to push your Django im
 
   > **Tip**: The first time you push an image, you will see that VS Code uploads each layer the image is comprised of. Subsequent push operations, however, will only update layers starting from the first that has been changed. Since you app code is usually what changes most often, this is typically why app code is copied in the final lines of a Dockerfile. To see this inner loop in action, make a small change to your code, rebuild the image, and then push again to the registry.
 
-Now that you've pushed your image to a registry, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see [Deploy a container](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01).
+Now that you've pushed your image to a registry, you're ready to deploy it to any container-ready cloud service. For details on deploying to Azure App Service, see [Deploy a container](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-containers-01).

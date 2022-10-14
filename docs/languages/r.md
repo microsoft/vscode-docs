@@ -56,7 +56,7 @@ The R extension supports code completion and many other code editing features th
 
 ## Linting
 
-Linting is a feature that checks the code for warnings and potential errors. R code linting is provided by [lintr](https://github.com/r-lib/lintr) package. You can customize it by choosing from the list of [available linters](https://github.com/r-lib/lintr#available-linters) via the [configuration file](https://github.com/r-lib/lintr#project-configuration).
+Linting is a feature that checks the code for warnings and potential errors. R code linting is provided by [lintr](https://github.com/r-lib/lintr) package. You can customize it by choosing from the list of [available linters](https://lintr.r-lib.org/reference/index.html#individual-linters) via the [configuration file](https://lintr.r-lib.org/articles/lintr.html#configuring-linters).
 
 ![Linting](images/r/linting.gif)
 
