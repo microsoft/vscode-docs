@@ -25,8 +25,8 @@ If you are interested in a specific Azure service, you can also directly search 
 
 The following tutorials below walk you through the details.  You can also check the [Java Azure Developer's Center](https://learn.microsoft.com/azure/developer/java) for all things on Azure for Java developers.
 
-| Tutorial | Description |
-| --- | --- |
-| [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. |
-| [Deploy Spring Microservices to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a web app using the [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. |
-| [Create an Azure Functions project using Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |
+| Tutorial | Description | Related Tools |
+| --- | --- | --- |
+| [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app to the cloud | [Apache Maven](https://maven.apache.org/download.cgi) (version 3 or greater) <br> [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
+| [Deploy Spring Microservices to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a web app to Azure Spring Apps | [Apache Maven](https://maven.apache.org/download.cgi) (version 3 or greater) <br> [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) <br>
+| [Create an Azure Functions project using Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-java) | Deploy serverless code using Azure Functions extension. | [Apache Maven](https://maven.apache.org/download.cgi) (version 3 or greater) <br> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
