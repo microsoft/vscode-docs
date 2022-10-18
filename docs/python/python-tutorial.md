@@ -298,7 +298,7 @@ A best practice among Python developers is to avoid installing packages into a g
    python3 -m pip install matplotlib
    ```
 
-1. Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
+1. Rerun back to the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
    ![matplotlib output](images/tutorial/plot-output.png)
 
