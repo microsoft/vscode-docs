@@ -95,7 +95,7 @@ You'll have noticed an indicator on the bottom-left corner of the Status bar. Th
 
 ![Remote extension commands](images/ssh-tutorial/remote-commands.png)
 
-Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
+Choose the **Connect to Host...  Remote SSH** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
 The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure portal](https://portal.azure.com) and in the **Overview** pane of the VM you created, copy the **Public IP address**.
 
