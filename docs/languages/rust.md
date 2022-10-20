@@ -39,7 +39,7 @@ After installing Rust, you can check that everything is installed correctly by o
 rustc --version
 ```
 
-which will output the version of the Rust compiler. If you want more details, you can add `--verbose` argument. If you run into problems, you can consult the Rust [installation guide](https://doc.rust-lang.org/book/ch01-01-installation.html).
+which will output the version of the Rust compiler. If you want more details, you can add the `--verbose` argument. If you run into problems, you can consult the Rust [installation guide](https://doc.rust-lang.org/book/ch01-01-installation.html).
 
 You can keep your Rust installation up to date with the latest version by running:
 
