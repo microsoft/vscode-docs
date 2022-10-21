@@ -46,10 +46,6 @@ Continue reading to learn how to get started with the VS Code Server.
 
 ## Quick Start
 
-// User installs CLI. This comes from a desktop VS Code install (for Oct release, only in Insiders?) or a separate install of the code CLI specifically (not currently available, will be available for Oct release)
-User launches tunnel with: code --tunnel
-Remaining flow is like existing code-server CLI (log into GitHub, get insiders.vscode.dev URL, open in browser or desktop)
-
 Here are step-by-step instructions to quickly get up and running:
 
 1. Install the `code` CLI on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).

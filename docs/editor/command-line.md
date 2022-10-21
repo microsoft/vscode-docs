@@ -107,15 +107,17 @@ Argument|Description
 
 ### Remote Tunnels
 
-Our goal is to provide a unified CLI experience that allows you to manage both local and remote machines from one spot.
+We want VS Code to be the tool you use to edit anything from anywhere, whether that "anywhere" is on your local desktop computer, the browser, a virtual machine (VM), a container, or somewhere else. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
 
-The Visual Studio Code [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) lets you connect to a remote machine, like a desktop PC or virtual machine (VM), via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH.
+The Visual Studio Code [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) lets you connect to a remote machine, like a desktop PC or VM, via a secure tunnel. You can then securely connect to that machine from anywhere, without the requirement of SSH.
 
-We've built in functionality to initiate tunnels on remote machines through this `code` CLI. You can run:
+We've built functionality into the `code` CLI that will initiate tunnels on remote machines. You can run:
 
 ```bash
 code tunnel
 ```
+
+to kick off the process of your remote machine communicating with your local VS Code client through a secure tunnel.
 
 For more information on Remote Tunnels, you may review the [Remote Tunnels documentation](../remote/tunnels.md).
 
