@@ -3,7 +3,7 @@
 	"name": "VS Code Docs",
 	"dockerFile": "Dockerfile",
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/zsh"
+		"terminal.integrated.defaultProfile.linux": "zsh"
 	},
 	"extensions": [
 		"yzhang.markdown-all-in-one",

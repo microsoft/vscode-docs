@@ -26,7 +26,7 @@ If you are looking for core Java development experience on Visual Studio Code (i
 5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 To get started with this extension pack, you can visit [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
@@ -42,7 +42,7 @@ We recommend installing the [Spring Boot Extension Pack](https://marketplace.vis
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
+<a class="install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
 More Spring Boot related information can be found at the [Spring Boot](/docs/java/java-spring-boot.md) page.
 
@@ -91,7 +91,7 @@ The Azure extensions for Visual Studio Code provide seamless integration with Az
 
 ### Internet of Things
 
-* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://docs.microsoft.com/azure/?product=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
+* The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://learn.microsoft.com/azure/?product=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
 
 ### General tools
 

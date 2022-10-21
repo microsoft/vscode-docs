@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8b70dba5-f71d-46dd-8da1-f5d44b9a6a96
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
@@ -69,4 +69,4 @@ When the user opens a [multi-root workspace](/docs/editor/multi-root-workspaces)
 
 ### Embedded languages
 
-Embedded languages are common in web development. For example, CSS/JS inside HTML, and GraphQL inside JavaScript/TypeScript. This topic discusses how you can make language features available to embedded languages.
+Embedded languages are common in web development. For example, CSS/JavaScript inside HTML, and GraphQL inside JavaScript/TypeScript. The [Embedded languages](/api/language-extensions/embedded-languages) topic discusses how you can make language features available to embedded languages.

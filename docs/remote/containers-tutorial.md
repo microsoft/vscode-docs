@@ -5,11 +5,11 @@ TOCTitle: Containers Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 ---
 # Remote development in Containers
 
-This tutorial walks you through running Visual Studio Code in a [Docker](https://www.docker.com/) container using the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. You need no prior knowledge of Docker to complete this tutorial.
+This tutorial walks you through running Visual Studio Code in a [Docker](https://www.docker.com/) container using the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. You need no prior knowledge of Docker to complete this tutorial.
 
 Running VS Code **inside** a Docker container can be useful for many reasons, but in this walkthrough we'll focus on using a Docker container to set up a development environment that is isolated from your local environment.
 
@@ -44,31 +44,31 @@ docker --version
 
 ## Install the extension
 
-The Remote - Containers extension lets you run Visual Studio Code inside a Docker container.
+The Dev Containers extension lets you run Visual Studio Code inside a Docker container.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Remote - Containers extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Dev Containers extension</a>
 
-![Remote - Containers extension](images/containers-tutorial/containers-extension.png)
+![Dev Containers extension](images/containers-tutorial/dev-containers-extension.png)
 
 ### Check installation
 
-With the Remote - Containers extension installed, you will see a new Status bar item at the far left.
+With the Dev Containers extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/containers-tutorial/remote-status-bar.png)
 
-The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - Containers commands.
+The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Dev Containers commands.
 
-![Remote - Containers commands](images/containers-tutorial/remote-containers-commands.png)
+![Dev Containers commands](images/containers-tutorial/dev-containers-commands.png)
 
 ## Get the sample
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Select **Remote-Containers: Try a Development Container Sample...** from the command list that appears and select the Node sample from the list.
+Select **Dev Containers: Try a Dev Container Sample...** from the command list that appears and select the Node sample from the list.
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
-**Note**: There are other remote container samples such as `vscode-remote-try-python` or `vscode-remote-try-java`, but this tutorial will use `vscode-remote-try-node`.
+**Note**: There are other dev container samples such as `vscode-remote-try-python` or `vscode-remote-try-java`, but this tutorial will use `vscode-remote-try-node`.
 
 ### Wait for the container to build
 
@@ -110,9 +110,9 @@ You can end your session in the container and go back to running VS Code locally
 
 ## How it works
 
-This next section describes in more detail how the Remote - Containers extension sets up and configures your containers.
+This next section describes in more detail how the Dev Containers extension sets up and configures your containers.
 
-The remote container extension uses the files in the `.devcontainer` folder, namely `devcontainer.json`, and an optional `Dockerfile` or `docker-compose.yml`, to create your dev containers.
+The Dev Containers extension uses the files in the `.devcontainer` folder, namely `devcontainer.json`, and an optional `Dockerfile` or `docker-compose.yml`, to create your dev containers.
 
 First your image is built from the supplied Docker file or image name. Then a container is created and started using some of the settings in the `devcontainer.json`. Finally your Visual Studio Code environment is installed and configured again according to settings in the `devcontainer.json`.
 
@@ -131,7 +131,7 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
+                "terminal.integrated.defaultProfile.linux": "bash"
             },
 
             "extensions": [
@@ -160,7 +160,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 | `postCreateCommand`  | A command string or list of command arguments to run after the container is created. |
 | `remoteUser`  | Overrides the user that VS Code runs as in the container (along with sub-processes). Defaults to the `containerUser`.  |
 
-[Full list](/docs/remote/devcontainerjson-reference.md) of `devcontainer.json` options.
+[Full list](https://containers.dev/implementors/json_reference) of `devcontainer.json` options.
 
 ### Congratulations
 
@@ -171,7 +171,7 @@ This has been a brief overview of what is possible using dev containers. As a ne
 Check out the other Remote Development extensions.
 
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
-* [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+* [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.
@@ -180,7 +180,7 @@ Or get them all by installing the
 
 ### Verify Docker context
 
-If you are not using a fresh Docker install and the **Remote-Containers: Try a Development Container Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
+If you are not using a fresh Docker install and the **Dev Containers: Try a Dev Container Sample...** sample encounters issues with the current context, you should check your Docker context. Fresh installs will have a 'default' context and you can set it back as the current context.
 
 ```bash
 # Displays the list of contexts, '*' denotes the current context

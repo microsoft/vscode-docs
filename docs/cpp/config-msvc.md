@@ -59,7 +59,7 @@ If the Developer Command Prompt is using the BuildTools location as the starting
 
 From the Developer Command Prompt, create an empty folder called "projects" where you can store all your VS Code projects, then create a subfolder called "helloworld", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
-```cmd
+```bat
 mkdir projects
 cd projects
 mkdir helloworld

@@ -37,7 +37,7 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
 
 1. In the Dockerfile, add an `EXPOSE` line to the base section to define a separate port for HTTPS / SSL. Keep a separate `EXPOSE` line with a different port for HTTP requests.
 
-   ```Dockerfile
+   ```docker
    FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
    WORKDIR /app
    EXPOSE 5000

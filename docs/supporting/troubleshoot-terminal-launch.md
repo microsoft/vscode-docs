@@ -3,7 +3,7 @@ Order:
 TOCTitle: Troubleshoot Terminal Launch
 ContentId: c9dd7da5-2ad9-4862-bf24-2ed0fb65675e
 PageTitle: Troubleshoot Visual Studio Code Integrated Terminal launch failures
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 MetaDescription: Troubleshoot Visual Studio Code Integrated Terminal launch failures
 ---
 
@@ -15,7 +15,7 @@ After having worked with hundreds of developers to diagnose their terminal launc
 
 ## Integrated Terminal user guide
 
-If you are new to using the VS Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/terminal/basics.md) user guide. There you can read how to [configure](/docs/terminal/basics.md#terminal-profiles) the terminal, as well as review answers to [common questions](/docs/terminal/basics.md#common-questions).
+If you are new to using the VS Code Integrated Terminal, you can learn more in the [Integrated Terminal](/docs/terminal/basics.md) user guide. There you can read how to [configure](/docs/terminal/profiles.md) the terminal, as well as review answers to [common questions](/docs/terminal/basics.md#common-questions).
 
 Below are specific troubleshooting steps, if the user guide hasn't helped you diagnose the launch failure. The troubleshooting steps, such as checking your settings and enabling logging, apply to all platforms that support VS Code; macOS, Linux, and Windows.
 
@@ -27,12 +27,12 @@ To troubleshoot Integrated Terminal launch failures in Visual Studio Code, follo
 
 1. **Check your user settings.** Review these `terminal.integrated` [settings](/docs/getstarted/settings.md) that could affect the launch:
 
-   * `terminal.integrated.shell.{platform}` - The path of the shell that the terminal uses.
-   * `terminal.integrated.shellArgs.{platform}` - The command-line arguments when launching the shell process.
+   * `terminal.integrated.defaultProfile.{platform}` - The default shell profile that the terminal uses.
+   * `terminal.integrated.profiles.{platform}` - The defined shell profiles. Sets the shell path and arguments.
    * `terminal.integrated.cwd` - The current working directory (cwd) for the shell process.
    * `terminal.integrated.env.{platform}` - Environment variables that will be added to the shell process.
    * `terminal.integrated.inheritEnv` - Whether new shells should inherit their environment from VS Code.
-   * `terminal.integrated.automationShell.{platform}` - Shell path for automation-related terminal usage like tasks and debug.
+   * `terminal.integrated.automationProfile.{platform}` - Shell profile for automation-related terminal usage like tasks and debug.
    * `terminal.integrated.splitCwd` - Controls the current working directory a split terminal starts with.
    * `terminal.integrated.windowsEnableConpty` - Whether to use ConPTY for Windows terminal process communication.
 
@@ -64,6 +64,7 @@ If none of these steps helped solve the issue, you can also try:
 * If the terminal is being launched from an extension, report the issue to the extension by opening the issue reporter (Help > Report Issue) and set File On = "An Extension"
 * If you believe it to be a bug with VS Code, report the issue using the issue reporter (**Help** > **Report Issue**). The issue reporter will autofill relevant information, see [Creating great terminal issues](https://github.com/microsoft/vscode/wiki/Terminal-Issues#creating-great-terminal-issues) for what else to include in the report.
 * If you're on Windows 10 1809 (build 17763) or below, the issue is related to the legacy "winpty" backend. Upgrading to Windows 1903 (build 18362) will move you onto the new "conpty" backend that is built by Microsoft and could fix your problem.
+* If your terminal is set to run as administrator only, and you are not launching VS Code as administrator, the terminal will not be able to open. You can either change the default terminal or edit the properties of the terminal exe to not run as administrator.
 
 ## Exit codes
 
@@ -92,7 +93,13 @@ This can happen if Windows Subsystem for Linux (WSL) is not set up with a valid 
 The easy fix for this issue is to use the 64-bit version. If you must use the 32-bit version, you need to use the sysnative path when configuring your shell path instead of System32. Adding this setting should fix the issue:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\cmd.exe"
+{
+   "terminal.integrated.profiles.windows": {
+      "Command Prompt": {
+         "path": "${env:windir}\\Sysnative\\cmd.exe"
+      }
+   }
+}
 ```
 
 ### A native exception occurred

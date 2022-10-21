@@ -90,7 +90,7 @@ You can make a change to your code, create a new branch and a pull request (PR) 
 
 ![Gif using GitHub Pull Request extension to create branch and PR, and check out that PR](remote-repositories3.gif)
 
-You can learn more about the GitHub Pull Requests and Issues extension in our [Working with GitHub](https://code.visualstudio.com/docs/editor/github) article.
+You can learn more about the GitHub Pull Requests and Issues extension in our [Working with GitHub](https://code.visualstudio.com/docs/sourcecontrol/github) article.
 
 ### Keep changes isolated to branches
 

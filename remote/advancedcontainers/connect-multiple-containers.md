@@ -5,7 +5,7 @@ TOCTitle: Connect to multiple containers
 PageTitle: Connect to multiple containers
 ContentId: d3b8e250-a03e-4c67-b2f9-391cc106f3b5
 MetaDescription: Connect to multiple containers
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 ---
 # Connect to multiple containers
 
@@ -15,7 +15,7 @@ If you'd prefer to use `devcontainer.json` instead and are using Docker Compose,
 
 To see how this works, consider this example source tree:
 
-```text
+```
 📁 project-root
     📁 .git
     📁 container1-src
@@ -84,10 +84,10 @@ The `"shutdownAction":"none"` in the `devcontainer.json` files is optional, but 
 
 To connect to both:
 
-1. Run **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container1-src` folder.
+1. Run **Dev Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container1-src` folder.
 2. VS Code will then start up both containers, connect this window to service `container-1`, and install the Go extension.
 3. Next, start up a new window using **File** > **New Window**.
-4. In the new window, run **Remote-Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container2-src` folder.
+4. In the new window, run **Dev Containers: Open Folder in Container...** from the Command Palette (`kbstyle(F1)`) and select the `container2-src` folder.
 5. Since the services are already running, VS Code will then connect to `container-2` and install the ESLint extension.
 
 You can now interact with both containers at once from separate windows.

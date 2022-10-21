@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -76,9 +76,9 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Pyright](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) | ✔ | [MIT](https://raw.githubusercontent.com/microsoft/pyright/master/LICENSE.txt) |
 | [Python](https://marketplace.visualstudio.com/items/ms-python.python) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-python.python/license) |
 | [React Native Tools](https://marketplace.visualstudio.com/items/msjsdiag.vscode-react-native) | ✔ ([Repo](https://github.com/microsoft/vscode-react-native)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.vscode-react-native/license) |
-| [Remote - Containers](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)  |
+| [Dev Containers](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)  |
 | [Remote - SSH](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license) |
-| [Remote - WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
+| [WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
 | [Reference Search View](https://marketplace.visualstudio.com/items/ms-vscode.references-view) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.references-view/license) |
 | [Resharper 9 Keybindings](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
 | [Service Fabric Reliable Services](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services/license) |

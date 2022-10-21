@@ -209,7 +209,7 @@ Dockerfiles are often arranged in such a way as to optimize either image build t
 
 The solution is to remove that optimization from the `Dockerfile`:
 
-```dockerfile
+```docker
 FROM node:10.13-alpine
 ENV NODE_ENV=production
 WORKDIR /usr/src/app

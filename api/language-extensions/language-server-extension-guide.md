@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -217,7 +217,7 @@ The source code for the Language Server is at `/server`. The interesting section
 
 This pulls in the `vscode-languageserver` libraries.
 
-Below is a server implementation that uses the provided simple text document manager that synchronizes text documents by always sending the file's full content from VS Code to the server.
+Below is a server implementation that uses the provided text document manager that synchronizes text documents by always sending incremental deltas from VS Code to the server.
 
 ```typescript
 import {
@@ -900,6 +900,15 @@ connection.onDidCloseTextDocument((params) => {
     // A text document was closed in VS Code.
     // params.uri uniquely identifies the document.
 });
+
+/*
+Make the text document manager listen on the connection
+for open, change and close text document events.
+
+Comment out this line to allow `connection.onDidOpenTextDocument`,
+`connection.onDidChangeTextDocument`, and `connection.onDidCloseTextDocument` to handle the events
+*/
+// documents.listen(connection);
 ```
 
 ### Using VS Code API directly to implement Language Features

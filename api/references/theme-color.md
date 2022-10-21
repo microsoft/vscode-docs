@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -176,6 +176,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `listFilterWidget.background`: List/Tree Filter background color of typed text when searching inside the list/tree.
 - `listFilterWidget.outline`: List/Tree Filter Widget's outline color of typed text when searching inside the list/tree.
 - `listFilterWidget.noMatchesOutline`: List/Tree Filter Widget's outline color when no match is found of typed text when searching inside the list/tree.
+- `listFilterWidget.shadow`: Shadown color of the type filter widget in lists and tree
 - `list.filterMatchBackground`: Background color of the filtered matches in lists and trees.
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
@@ -197,6 +198,9 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
+- `activityBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the activity bar.
+- `activityBarItem.settingsProfilesHoverForeground`: Foreground color for the settings profile entry on the activity bar when hovering.
+- `activityBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the activity bar.
 
 ## Side Bar
 
@@ -620,6 +624,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `mergeEditor.conflict.handledFocused.border`: The border color of handled focused conflicts.
 - `mergeEditor.conflict.handled.minimapOverViewRuler`: The foreground color for changes in input 1.
 - `mergeEditor.conflict.unhandled.minimapOverViewRuler`: The foreground color for changes in input 1.
+- `mergeEditor.conflictingLines.background`: The background of the "Conflicting Lines" text.
 
 ## Panel colors
 
@@ -664,8 +669,6 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.warningForeground`: Status bar warning items foreground color. Warning items stand out from other status bar entries to indicate warning conditions. The status bar is shown in the bottom of the window.
 - `statusBarItem.compactHoverBackground`: Status bar item background color when hovering an item that contains two hovers. The status bar is shown in the bottom of the window.
 - `statusBarItem.focusBorder`: Status bar item border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
-- `statusBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the status bar.
-- `statusBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the status bar.
 - `statusBar.focusBorder`: Status bar border color when focused on keyboard navigation. The status bar is shown in the bottom of the window.
 
 Prominent items stand out from other Status Bar entries to indicate importance. One example is the **Toggle Tab Key Moves Focus** command change mode indicator.
@@ -800,6 +803,7 @@ The following customizations are available:
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 - `terminal.selectionBackground`: The selection background color of the terminal.
 - `terminal.selectionForeground`: The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.
+- `terminal.inactiveSelectionBackground`: The selection background color of the terminal when it does not have focus.
 - `terminal.findMatchBackground`: Color of the current search match in the terminal. The color must not be opaque so as not to hide underlying terminal content.
 - `terminal.findMatchBorder`: Border color of the current search match in the terminal.
 - `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.

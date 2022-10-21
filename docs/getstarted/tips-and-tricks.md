@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -841,7 +841,7 @@ Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) a
 
 ### Gutter indicators
 
-View diff decorations in editor. See [documentation](/docs/editor/versioncontrol.md#gutter-indicators) for more details.
+View diff decorations in editor. See [documentation](/docs/sourcecontrol/overview.md#gutter-indicators) for more details.
 
 ![git gutter indicators](images/tips-and-tricks/mgutter_icons.gif)
 

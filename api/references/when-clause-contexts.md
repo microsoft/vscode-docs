@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -55,6 +55,7 @@ Context name | True when
 `editorTextFocus` | The text in an editor has focus (cursor is blinking).
 `textInputFocus` | Any editor has focus (regular editor, debug REPL, etc.).
 `inputFocus` | Any text input area has focus (editors or text boxes).
+`editorTabMovesFocus` | Whether `kbstyle(Tab)` will move focus out of the editor.
 `editorHasSelection` | Text is selected in the editor.
 `editorHasMultipleSelections` | Multiple regions of text are selected (multiple cursors).
 `editorReadonly` | The editor is read only.

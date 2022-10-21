@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -561,13 +561,31 @@ The following font related variables are also defined:
 - `--vscode-editor-font-weight` - Editor font weight (from the `editor.fontWeight` setting).
 - `--vscode-editor-font-size` - Editor font size (from the `editor.fontSize` setting).
 
-Finally, for special cases where you need to write CSS that targets a single theme, the body element of webviews has a new data attribute called `vscode-theme-name` that stores the full name of the currently active theme. This lets you write theme-specific CSS for webviews:
+Finally, for special cases where you need to write CSS that targets a single theme, the body element of webviews has a data attribute called `vscode-theme-id` that stores the ID of the currently active theme. This lets you write theme-specific CSS for webviews:
 
 ```css
-body[data-vscode-theme-name="One Dark Pro"] {
+body[data-vscode-theme-id="One Dark Pro"] {
     background: hotpink;
 }
 ```
+
+### Supported media formats
+
+Webviews support audio and video, however not every media codec or media file container type is supported.
+
+The following audio formats can be used in Webviews:
+
+- Wav
+- Mp3
+- Ogg
+- Flac
+
+The following video formats can be used in webviews:
+
+- H.264
+- VP8
+
+For video files, make sure that both the video and audio track's media formats are supported. Many `.mp4` files for example use `H.264` for video and `AAC` audio. VS Code will be able to play the video part of the `mp4`, but since `AAC` audio is not supported there won't be any sound. Instead you need to use `mp3` for the audio track.
 
 ## Scripts and message passing
 

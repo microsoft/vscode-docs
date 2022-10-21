@@ -9,7 +9,7 @@ MetaDescription: Learn how the Natvis framework provides custom views for native
 ---
 # Natvis: Custom views for native objects
 
-The [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
+The [Natvis](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 
 For gdb/lldb debugging (`"type": "cppdbg"`), a subset of the Natvis framework has been ported to the Visual Studio Code C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
 
@@ -17,7 +17,7 @@ For Microsoft C++ debugging (`"type": "cppvsdbg"`), the debugger contains the fu
 
 ## Documentation
 
-The official Natvis documentation is located at [Create custom views of C++ objects in the debugger](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects).
+The official Natvis documentation is located at [Create custom views of C++ objects in the debugger](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects).
 
 ## Schema
 

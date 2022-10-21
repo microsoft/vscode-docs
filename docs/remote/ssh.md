@@ -5,7 +5,7 @@ TOCTitle: SSH
 PageTitle: Developing on Remote Machines using SSH and Visual Studio Code
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Developing on Remote Machines or VMs using Visual Studio Code Remote Development and SSH
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 ---
 # Remote Development using SSH
 
@@ -30,7 +30,7 @@ This lets VS Code provide a **local-quality development experience** - including
 - x86_64 Debian 8+, Ubuntu 16.04+, CentOS / RHEL 7+.
 - ARMv7l (AArch32) Raspberry Pi OS (previously called Raspbian) Stretch/9+ (32-bit).
 - ARMv8l (AArch64) Ubuntu 18.04+ (64-bit).
-- Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
+- Windows 10 / Server 2016/2019 (1803+) using the [official OpenSSH Server](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
 - macOS 10.14+ (Mojave) SSH hosts with [Remote Login enabled](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
 - 1 GB RAM is required for remote hosts, but at least 2 GB RAM and a 2-core CPU is recommended.
 
@@ -50,7 +50,7 @@ To get started, you need to:
 
 ### SSH host setup
 
-1. If you do not have an SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+1. If you do not have an SSH host set up, follow the directions for [Linux](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server), [Windows 10 / Server (1803+)](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse), or [macOS](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) SSH host or create a [VM on Azure](https://learn.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
 
 2. **Optional:** If your Linux or macOS SSH host will be accessed by multiple users at the same time, consider enabling **Remote.SSH: Remote Server Listen On Socket** in VS Code [User settings](/docs/getstarted/settings.md) for improved security.
 
@@ -106,16 +106,16 @@ From here, [install any extensions](#managing-extensions) you want to use when c
 
 ### Open a folder on a remote SSH host in a container
 
-If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Remote - Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
+If you are using a Linux or macOS SSH host, you can use the Remote - SSH and [Dev Containers](/docs/remote/containers.md) extensions together to open a folder on your remote host inside of a container. You do not even need to have a Docker client installed locally.
 
 To do so:
 
-1. Follow the [installation](/docs/remote/containers.md#installation) steps for the Remote - Containers extension on your remote host.
+1. Follow the [installation](/docs/remote/containers.md#installation) steps for the Dev Containers extension on your remote host.
 1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. Follow the [quick start](#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
-1. Use the **Remote-Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
+1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
 
-The rest of the [Remote - Containers quick start](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Remote - Containers extension in its documentation](/docs/remote/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
+The rest of the [Dev Containers quick start](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) applies as-is. You can learn more about the [Dev Containers extension in its documentation](/docs/remote/containers.md). You can also see the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for other options if this model does not meet your needs.
 
 ### Disconnect from a remote host
 
@@ -143,7 +143,7 @@ Finally, you'll be asked to pick a config file to use. You can also set the `"re
 
 For example, entering `ssh -i ~/.ssh/id_rsa-remote-ssh yourname@remotehost.yourcompany.com` in the input box would generate this entry:
 
-```text
+```ssh-config
 Host remotehost.yourcompany.com
     User yourname
     HostName another-host-fqdn-or-ip-goes-here
@@ -214,13 +214,13 @@ Sometimes when developing, you may need to access a port on a remote machine tha
 
 ### Temporarily forwarding a port
 
-Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or click on the **Forward New Port** icon in the **Remote Explorer** after selecting it from the Activity Bar.
+Once you are connected to a host, if you want to **temporarily forward** a new port for the duration of the session, select **Forward a Port** from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`) or select the **Add Port** button in the **Ports view**. You can see the Ports view in the bottom panel, or by running the command **Ports: Focus on Ports View**.
 
-![Remote Explorer forward port button](images/ssh/ssh-explorer-forward-port.png)
+![Forward port button](images/ssh/forward-port-ssh.png)
 
 You'll be asked to enter the port you would like to forward and you can give it a name.
 
-![Forward port input](images/ssh/forward-port-ssh.png)
+![Adding a new port](images/ssh/add-new-port.png)
 
 A notification will tell you the localhost port you should use to access the remote port. For example, if you forwarded an HTTP server listening on port 3000, the notification may tell you that it was mapped to port 4123 on localhost since 3000 was already in use. You can then connect to this remote HTTP server using `http://localhost:4123`.
 
@@ -234,9 +234,9 @@ If you would like VS Code to remember any ports you have forwarded, check **Remo
 
 If you would like the local port of the tunnel to be different than the remote server's, you can change this via the **Forwarded Ports** panel.
 
-Right-click the tunnel you want to modify, and select **Change Local Port** in the context menu.
+Right-click the tunnel you want to modify, and select **Change Local Address Port** in the context menu.
 
-![Change Local Port](images/ssh/ssh-tunnel-different-local-port.png)
+![Change Local Address Port](images/ssh/change-local-port.png)
 
 ### Always forwarding a port
 
@@ -244,7 +244,7 @@ If you have ports that you **always want to forward**, you can use the `LocalFor
 
 For example, if you wanted to forward ports 3000 and 27017, you could update the file as follows:
 
-```text
+```ssh-config
 Host remote-linux-machine
     User myuser
     HostName remote-linux-machine.mydomain
@@ -291,7 +291,7 @@ SSHFS is the most convenient option and does not require any file sync'ing. Howe
 - PuTTY is not supported on Windows.
 - If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely. Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
 - Local proxy settings are not reused on the remote host, which can prevent extensions from working unless the appropriate proxy information is configured on the remote host (for example global `HTTP_PROXY` or `HTTPS_PROXY` environment variables with the appropriate proxy information).
-- You cannot use Remote - Containers from a Remote - SSH connection to a Windows machine.
+- You cannot use Dev Containers from a Remote - SSH connection to a Windows machine.
 - See [here for a list of active issues](https://aka.ms/vscode-remote/ssh/issues) related to SSH.
 
 ### Docker Extension limitations
@@ -344,7 +344,7 @@ You can install extensions manually without an internet connection using the **E
 - `*.vo.msecnd.net` (Azure CDN)
 - `*.gallerycdn.vsassets.io` (Azure CDN)
 
-Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://docs.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
+Finally, some extensions (like C#) download secondary dependencies from `download.microsoft.com` or `download.visualstudio.microsoft.com`. Others (like [Visual Studio Live Share](https://learn.microsoft.com/visualstudio/liveshare/reference/connectivity#requirements-for-connection-modes)) may have additional connectivity requirements. Consult the extension's documentation for details if you run into trouble.
 
 All other communication between the server and the VS Code client is accomplished through the authenticated, secure SSH tunnel.
 

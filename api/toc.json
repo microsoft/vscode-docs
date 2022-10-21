@@ -98,7 +98,8 @@
       ["Remote Development and Codespaces", "/api/advanced-topics/remote-extensions"],
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
-      ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"]
+      ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"],
+      ["Python Extension Template", "/api/advanced-topics/python-extension-template"]
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
       // ["Native Modules", "/api/advanced-topics/native-modules"],
       // ["Web Assembly", "/api/advanced-topics/web-assembly"],

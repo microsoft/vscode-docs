@@ -59,6 +59,6 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
 
 ## Related resources
 
-* [Version Control](/docs/editor/versioncontrol.md) - Read more about integrated Git support.
-* [Working with GitHub](/docs/editor/github.md) - Create and manage GitHub issues and pull requests.
+* [Source Control](/docs/sourcecontrol/overview.md) - Read more about integrated Git support.
+* [Working with GitHub](/docs/sourcecontrol/github.md) - Create and manage GitHub issues and pull requests.
 * [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.

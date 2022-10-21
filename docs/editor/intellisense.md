@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 10/6/2022
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -51,7 +51,7 @@ The JavaScript code below illustrates IntelliSense completions. IntelliSense giv
 
 VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
 
-|       |         |       |
+| Icon | Name | Symbol type |
 | ----- | ------- | ----- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
 | ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
