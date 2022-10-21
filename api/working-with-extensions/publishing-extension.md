@@ -239,6 +239,24 @@ Eligible domains meet the following criteria:
 - Your domain must use HTTPS protocol.
 - Your domain must be able to serve an HTTP 200 status response to a HEAD request.
 
+### Extension Pricing Label
+
+You can add a pricing label to your extension in the Marketplace to indicate that it is `FREE` or `FREE TRIAL`.
+
+As an extension author you can opt-in to dispaly a pricing label on your extension by adding the `pricing` field to your `package.json`, example:
+
+```json
+{
+  "pricing": "Free"
+}
+```
+
+The value of the `pricing` field can be either `Free` or `Trial`. Note that these values are case-sensitive.
+
+If you do not add the `pricing` field to your `package.json`, the default label will be `FREE`.
+
+>**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for pricing label to work.
+
 ### Extension Sponsor
 
 An extension can opt-in to sponsorship by adding a `sponsor` field in its `package.json`, with the `url` field for the sponsorship link the extension author would like to use. For example:
