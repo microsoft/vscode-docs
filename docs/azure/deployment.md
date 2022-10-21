@@ -15,14 +15,14 @@ Whether your workflow is through the [Azure CLI](https://learn.microsoft.com/cli
 
 ## Deployment tutorials
 
-These tutorials from Microsoft Learn describe different ways of creating and deploying apps to Azure via Visual Studio Code:
+The tutorials and topics below describe different ways of creating and deploying apps to Azure via Visual Studio Code:
 
 Tutorial(s) | Description | Framework / Language
 --- | --- | ---
 [Deploy a static website](https://learn.microsoft.com/azure/static-web-apps/getting-started) | Create, deploy, and update a static website | Angular, Blazor, React, or Vue
-[Deploy Node.js web apps](https://code.visualstudio.com/docs/nodejs/nodejs-deployment) | Deploy web apps, containerized apps, or serverless code | Node.js
-[Deploy Python apps](https://code.visualstudio.com/docs/python/python-on-azure) | Deploy web apps, containerized apps, or serverless code | Python
-[Deploy Java apps](https://code.visualstudio.com/docs/java/java-on-azure) | Deploy web apps, Spring Boot apps, or serverless code | Java
+[Deploy Node.js web apps](/docs/nodejs/nodejs-deployment.md) | Deploy web apps, containerized apps, or serverless code | Node.js
+[Deploy Python apps](/docs/python/python-on-azure.md) | Deploy web apps, containerized apps, or serverless code | Python
+[Deploy Java apps](/docs/java/java-on-azure.md) | Deploy web apps, Spring Boot apps, or serverless code | Java
 
 You can find additional tutorials and walkthroughs on the
 [Azure Developer Center](https://learn.microsoft.com/azure/developer), including language-specific articles for JavaScript and Node.js, Python, Java, and .NET.
