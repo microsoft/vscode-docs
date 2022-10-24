@@ -176,23 +176,21 @@ The image builds; the process might take a few minutes. You can track progress i
 
 ## Deploy to Azure App Service
 
-Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service. You don't need to install the Azure App Service extension to get started, although it might useful for managing the app service. You can install it from [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), but we recommend you install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which includes a package of tools for a wide range of Azure scenarios, including deploying to App Service and Azure Container Apps.
+Once the container image is built, it should appear in the Container Registry with the tag you specified. Now that it's built, you can deploy it to Azure App Service. You don't need to install the Azure App Service extension to get started, although it might useful for managing the app service. You can install it from [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), but we recommend you install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), which includes a package of tools for a wide range of Azure development scenarios.
 
 1. Right-click on the image tag and choose **Deploy Image to to Azure App Service**.
 
    ![Deploy image to Azure App Service](images/app-service/deploy-image-to-azure-app-service.png)
 
-1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the ALLOWED_HOSTS list in the *settings.py* file.
+1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the `ALLOWED_HOSTS` list in the *settings.py* file.
 
 1. Provide a resource group, location, and App Service Plan. If you're just getting started, you can choose the free plan.
 
 1. The image is deployed; the process might take a few minutes. Once it's deployed, a notification appears with a button you can use to access the site. You can also use the site's address, `{appname}.azurewebsites.net` where `{appname}` is the name you gave when creating it. If it doesn't work at first, try again in a few minutes. It's not uncommon for the first few attempts to time out or return an error. It just means the App Service isn't ready yet to receive requests.
 
-1. For continued development, install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). The Azure Tools extension pack simplifies deployment of updates and provides services for ongoing management of the App Service, Azure Functions, and more within VS Code.
+1. Make a small change in the application code that's visible on one of the pages, and save the file.
 
-1. Now, make a small change in the application code that's visible on one of the pages, and save the file.
-
-1. Use the Azure icon to open the Resources view, and expand the node for your subscription to find the App Service that you deployed in the previous step.
+1. Use the Azure icon to open the **Resources** view, and expand the node for your subscription to find the App Service that you deployed in the previous step.
 
 1. Right-click on the App Service node and look at the available options. Choose **Deploy to Web App**, and then specify your app folder to deploy it.
 
