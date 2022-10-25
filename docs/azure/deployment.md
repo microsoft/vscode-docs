@@ -20,7 +20,7 @@ The tutorials and topics below describe different ways of creating and deploying
 Tutorial(s) | Description | Framework / Language
 --- | --- | ---
 [Deploy a static website](https://learn.microsoft.com/azure/static-web-apps/getting-started) | Create, deploy, and update a static website | Angular, Blazor, React, or Vue
-[Deploy Node.js web apps](/docs/nodejs/nodejs-deployment.md) | Deploy web apps, containerized apps, or serverless code | Node.js
+[Deploy Node.js apps](/docs/nodejs/nodejs-deployment.md) | Deploy web apps, containerized apps, or serverless code | Node.js
 [Deploy Python apps](/docs/python/python-on-azure.md) | Deploy web apps, containerized apps, or serverless code | Python
 [Deploy Java apps](/docs/java/java-on-azure.md) | Deploy web apps, Spring Boot apps, or serverless code | Java
 
