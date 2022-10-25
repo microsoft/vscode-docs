@@ -30,13 +30,13 @@ Dev containers provide a separate coding environment from your computer. For exa
 
 As an instructor, you can create a specific image for an assignment. Each student will get the exact same version of dependencies, such as the same version of Python or a C++ compiler, regardless of their operating system or any other files already installed on their computer.
 
-## Developement Containers in VS Code
+## Development Containers in VS Code
 
 The Visual Studio Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a container as your main coding environment. In the classroom, an instructor can take an [existing dev container](https://github.com/microsoft/vscode-dev-containers/tree/main/containers), or create their own, and share it with the class. Each student can open the container in VS Code and automatically have the tools and runtimes they need to develop their applications. Students will also have access to VS Code's full feature set, including IntelliSense and debugging, while coding.
 
-The Remote – Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
+The Dev Containers extension works solely with Linux-based containers, so although students may have different operating systems on their computers, the coding environment will be consistent across all of them.
 
-We've already seen instructors using Remote – Containers in their classrooms with success. You can check out [Using DevContainers to Standardize Student Development Environments: An Experience Report](https://dl.acm.org/doi/pdf/10.1145/3341525.3387424) to learn more about the experiences of three researchers who used dev containers in a course at UC San Diego.
+We've already seen instructors using Dev Containers in their classrooms with success. You can check out [Using DevContainers to Standardize Student Development Environments: An Experience Report](https://dl.acm.org/doi/pdf/10.1145/3341525.3387424) to learn more about the experiences of three researchers who used dev containers in a course at UC San Diego.
 
 This post will serve as a guide to instructors looking to implement development containers in the classroom to create a smoother, more consistent environment for their students.
 
@@ -116,7 +116,7 @@ We can run our program with **F5**. Notice that the program stops once it hits t
 
 ### Creating a container for your class
 
-Now that we've seen a fantastic example of a container, let's set up our first container ourselves using the Remote – Containers extension. Let's start off in a "Hello World" Python application:
+Now that we've seen a fantastic example of a container, let's set up our first container ourselves using the Dev Containers extension. Let's start off in a "Hello World" Python application:
 
 ![Hello world Python app](14-helloworld-cropped.png)
 
