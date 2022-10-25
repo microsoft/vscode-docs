@@ -4,7 +4,7 @@ Area: java
 TOCTitle: GUI Applications
 ContentId: 517db620-d166-4f72-99c1-fa046710dffe
 PageTitle: Develop Java GUI Applications in Visual Studio Code
-DateApproved: 2/11/2022
+DateApproved: 10/11/2022
 MetaDescription: How to develop Java GUI Applications (JavaFX, AWT, Swing) in Visual Studio Code
 ---
 
@@ -34,7 +34,7 @@ You can create a new JavaFX application with just a few steps in VS Code:
 
 To run the JavaFX application, you can open the **Maven** Explorer, expand `hellofx` > `Plugins` > `javafx` and run the Maven goal: `javafx:run`.
 
-> Note: Make sure you have installed the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension. If you cannot find the **Maven** explorer, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Explorer: Focus on Maven View**.
+> **Note**: Make sure you have installed the [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) extension. If you cannot find the **Maven** explorer, open the Command Palette (`kb(workbench.action.showCommands)`) and then select the command **Explorer: Focus on Maven View**.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-gui/run-javafx.mp4" type="video/mp4">
