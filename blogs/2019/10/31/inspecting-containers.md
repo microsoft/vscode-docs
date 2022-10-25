@@ -20,11 +20,11 @@ This technique allows you to inspect the container environment via the command l
 
 In this post, we'll look at how you can attach Visual Studio Code to your container so that you can use the full power of VS Code, including debugging, to inspect the container, figure out what is going wrong, and fix it.
 
-The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), which launched in May of this year, allows you to connect your local VS Code to a container host while maintaining all of your personalized settings, themes, and key bindings.
+The [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, which launched in May of this year, allows you to connect your local VS Code to a container host while maintaining all of your personalized settings, themes, and key bindings.
 
 ## Prerequisites
 
-This blog post presumes you have [Docker Desktop](https://www.docker.com/products/docker-desktop) and [Visual Studio Code](https://code.visualstudio.com/download) installed. You will also need the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). To install the Dev Containers extension, open the Extensions view (`kb(workbench.view.extensions)`), search for "Dev Containers", select **Install**, and restart VS Code if prompted.
+This blog post presumes you have [Docker Desktop](https://www.docker.com/products/docker-desktop) and [Visual Studio Code](https://code.visualstudio.com/download) installed. You will also need the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. To install the Dev Containers extension, open the Extensions view (`kb(workbench.view.extensions)`), search for "Dev Containers", select **Install**, and restart VS Code if prompted.
 
 ## The application
 
@@ -157,9 +157,9 @@ Now you're ready to spin up another container and work on another project!
 
 In this blog post, we covered how you can use the Dev Containers extension to attach to your existing containerized applications.
 
-You can also create a [devcontainer.json](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file), which describes the development environment you want to create or attach to and lives with your project to share with your team members.
+You can also create a [devcontainer.json](/docs/devcontainers/containers.md#create-a-devcontainerjson-file), which describes the development environment you want to create or attach to and lives with your project to share with your team members.
 
-Other useful resources include the full [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers) documentation, [Advanced container configuration](https://code.visualstudio.com/remote/advancedcontainers/overview), and our [Introductory tutorial](https://code.visualstudio.com/docs/remote/containers-tutorial) on building isolated development environments with the Dev Containers extension.
+Other useful resources include the full [Developing inside a Container](/docs/devcontainers/containers.md) documentation, [Advanced container configuration](/remote/advancedcontainers/overview.md), and our [Introductory tutorial](/docs/devcontainers/tutorial.md) on building isolated development environments with the Dev Containers extension.
 
 Happy Remote Coding,
 

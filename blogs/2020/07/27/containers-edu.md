@@ -132,7 +132,7 @@ The Dev Containers extension automatically adds a `.devcontainer` folder and two
 
 #### devcontainer.json
 
-[`devcontainer.json`](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under `.devcontainer/devcontainer.json` or stored directly as `devcontainer.json` in the root of a project.
+[`devcontainer.json`](/docs/devcontainers/containers.md#create-a-devcontainerjson-file) describes how VS Code should start our container and what to do after it connects. This file can be located under `.devcontainer/devcontainer.json` or stored directly as `devcontainer.json` in the root of a project.
 
 Here is a simple example of a `devcontainer.json`. It pulls a preconfigured Node image, automatically sets up port forwarding for port 3000, and will install the eslint extension when the container is created:
 
@@ -210,7 +210,7 @@ To see how students can access the dev container from GitHub and begin programmi
 
 ## Feedback & further resources
 
-To help set up VS Code with containers, we have detailed articles on the VS Code [Remote Development documentation](https://code.visualstudio.com/docs/remote/containers). If you have any questions or feedback for our team, please feel free to open an issue on the VS Code [Remote Development GitHub Repository](https://github.com/microsoft/vscode-remote-release/issues) or Tweet us [@code](https://twitter.com/code).
+To help set up VS Code with containers, we have detailed articles on the VS Code [Remote Development documentation](/docs/devcontainers/containers.md). If you have any questions or feedback for our team, please feel free to open an issue on the VS Code [Remote Development GitHub Repository](https://github.com/microsoft/vscode-remote-release/issues) or Tweet us [@code](https://twitter.com/code).
 
 Happy Coding!
 

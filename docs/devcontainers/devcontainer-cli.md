@@ -1,6 +1,6 @@
 ---
 Order: 14
-Area: remote
+Area: devcontainers
 TOCTitle: devcontainer CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
@@ -19,7 +19,7 @@ Containers (for example [Docker](https://www.docker.com) containers) have histor
 
 ![Diagram comparing dev versus production containers](images/devcontainer-cli/dev-container-stages.png)
 
-Development containers are supported in Visual Studio Code via the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Development containers are supported in Visual Studio Code via the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by [devcontainer.json](https://containers.dev/implementors/json_reference), a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
 As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. To promote dev containers in any environment, work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. The open-source **dev container CLI** serves as the reference implementation of the specification.
 
@@ -36,7 +36,7 @@ The CLI is available for review in a new [devcontainers/cli](https://github.com/
 To use the VS Code dev container CLI, you'll need the following on your system or CI/DevOps environment:
 
 1. [Node.js (version 14 or greater)](https://nodejs.org).
-1. [The `docker` CLI](/docs/remote/containers#installation).
+1. [The `docker` CLI](/docs/devcontainers/containers.md#installation).
 1. [Python](https://www.python.org/downloads)
 1. C/C++ compiler
 
@@ -138,7 +138,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 1. [Create](/docs/sourcecontrol/overview.md#initialize-a-repository) a source code repository.
 
-1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/remote/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
+1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/devcontainers/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
 
     ```json
     {
@@ -198,5 +198,5 @@ The dev container CLI and specification are under active development and we welc
 
 * [Dev container specification repository](https://github.com/devcontainers/spec) - Read and contribute to the open specification.
 * [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.
-* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
+* [Create a Development Container](/docs/devcontainers/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.

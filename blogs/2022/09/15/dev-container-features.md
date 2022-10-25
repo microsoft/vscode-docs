@@ -51,11 +51,11 @@ The example below installs the [go](https://github.com/devcontainers/features/tr
 }
 ```
 
-You can also explore official and publicly contributed Features [on the specification site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (such as available in the VS Code [Dev Containers](https://code.visualstudio.com/docs/remote/containers#_dev-container-features-preview) extension).
+You can also explore official and publicly contributed Features [on the specification site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (such as available in the VS Code [Dev Containers](/docs/devcontainers/containers.md#dev-container-features-preview) extension).
 
 ![Specification site list of available Features](features-list-site.png)
 
-You can even use dev containers with Features from your favorite CI system using the [dev container CLI](https://github.com/devcontainers/cli), a GitHub Action, or an Azure DevOps task. We have a GitHub Action and Azure DevOps task available in the [devcontainers/ci](https://github.com/devcontainers/ci) repository. The dev container CLI, GitHub Action, or Azure DevOps task can also be used to [pre-build images](https://code.visualstudio.com/docs/remote/devcontainer-cli#_prebuilding) that include Feature contents to speed up start times.
+You can even use dev containers with Features from your favorite CI system using the [dev container CLI](https://github.com/devcontainers/cli), a GitHub Action, or an Azure DevOps task. We have a GitHub Action and Azure DevOps task available in the [devcontainers/ci](https://github.com/devcontainers/ci) repository. The dev container CLI, GitHub Action, or Azure DevOps task can also be used to [pre-build images](/docs/devcontainers/devcontainer-cli.md#prebuilding) that include Feature contents to speed up start times.
 
 If you'd like to not only use publicly available Features but also create your own private or public ones to share, continue reading!
 
