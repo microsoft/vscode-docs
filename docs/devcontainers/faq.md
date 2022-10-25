@@ -15,7 +15,7 @@ This article includes some of the common questions for getting the [Dev Containe
 
 No. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development.
 
-The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/devcontainers/attach-container.md) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
+The [devcontainers/templates repository](https://github.com/devcontainers/templates) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/devcontainers/attach-container.md) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
 
 ## Do "dev containers definitions" define how an application is built? Like Buildpacks?
 
