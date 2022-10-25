@@ -22,6 +22,7 @@ MetaSocialImage: images/tutorial/social.png
 ## Setting up your environment
 
 To work with Python in Jupyter Notebooks, you must activate an Anaconda environment in VS Code, or another Python environment in which you've installed the [Jupyter package](https://pypi.org/project/jupyter/). To select an environment, use the **Python: Select Interpreter** command from the Command Palette (`kb(workbench.action.showCommands)`).
+In windows, Press  `Ctrl+Shift+P` and click `Python: Select Interpreter` to choose your environment.
 
 Once the appropriate environment is activated, you can create and open a Jupyter Notebook, connect to a remote Jupyter server for running code cells, and export a Jupyter Notebook as a Python file.
 
