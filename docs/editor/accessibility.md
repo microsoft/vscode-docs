@@ -154,7 +154,7 @@ When VS Code detects that a screen reader is being used, it goes into screen rea
 
 ![screen reader optimized mode](images/accessibility/screen-reader-mode.png)
 
-Certain features such as folding, minimap (code overview), and word wrap are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
+Certain features such as folding and minimap (code overview) are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
 
 ## Terminal accessibility
 
