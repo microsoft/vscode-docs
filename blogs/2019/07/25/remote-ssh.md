@@ -184,7 +184,7 @@ To switch back to your local machine for local development, you close the remote
 
 Using the Remote - SSH extension, you can work against a VM with all of VS Code's productivity features and extensions on your remote machine. You get the full-fledged development experience you know and love in VS Code, no matter where your code is hosted.
 
-If you want to learn more about VS Code Remote, you can read our [blog post announcing remote development](https://code.visualstudio.com/blogs/2019/05/02/remote-development). You can also try out the other remote extensions, [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [Remote -WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl), and read our full [remote development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
+If you want to learn more about VS Code Remote, you can read our [blog post announcing remote development](https://code.visualstudio.com/blogs/2019/05/02/remote-development). You can also try out the other remote extensions, [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl), and read our full [remote development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
 
 Happy Remote Coding,
 

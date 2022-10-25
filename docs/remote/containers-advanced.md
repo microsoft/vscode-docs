@@ -4,8 +4,8 @@ Area: remote
 TOCTitle: Advanced Containers
 PageTitle: Advanced Container Configuration
 ContentId: f180ac25-1d59-47ec-bad2-3ccbf214bbd8
-MetaDescription: Advanced setup for using the VS Code Remote - Containers extension
-DateApproved: 9/1/2022
+MetaDescription: Advanced setup for using the VS Code Dev Containers extension
+DateApproved: 10/6/2022
 ---
 # Advanced Container Configuration
 

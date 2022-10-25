@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 9/1/2022
+DateApproved: 10/6/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -238,6 +238,24 @@ Eligible domains meet the following criteria:
 - You must be able to manage the DNS configuration settings and add a TXT record.
 - Your domain must use HTTPS protocol.
 - Your domain must be able to serve an HTTP 200 status response to a HEAD request.
+
+### Extension pricing label
+
+You can add a pricing label to your extension in the Marketplace to indicate that it is `FREE` or `FREE TRIAL`.
+
+As an extension author, you can opt-in to display a pricing label on your extension page by adding the `pricing` field to your `package.json`, for example:
+
+```json
+{
+  "pricing": "Free"
+}
+```
+
+The value of the `pricing` field can be either `Free` or `Trial`. Note that these values are case-sensitive.
+
+If you do not add the `pricing` field to your `package.json`, the default label will be `FREE`.
+
+>**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
 
 ### Extension Sponsor
 

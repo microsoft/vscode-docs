@@ -25,7 +25,7 @@ We're happy to share that dev container **Features** help you smoothly get the t
 
 Features are self-contained units of installation code, container configuration, and/or settings and extensions designed to enable new development capabilities in your dev container. They can be built to work with a wide range of base container images. As part of our work on the [open dev container specification](https://containers.dev/), we've made some improvements to where you can grab pre-created Features and how you can author and distribute your own.
 
-Let's see what's new and how you can get started with Features from any dev container supporting tool or service (such as the [VS Code Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension or [GitHub Codespaces](https://github.com/features/codespaces))!
+Let's see what's new and how you can get started with Features from any dev container supporting tool or service (such as the [VS Code Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension or [GitHub Codespaces](https://github.com/features/codespaces))!
 
 ## Adding Features to your dev container
 
@@ -51,7 +51,7 @@ The example below installs the [go](https://github.com/devcontainers/features/tr
 }
 ```
 
-You can also explore official and publicly contributed Features [on the specification site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (such as available in the VS Code [Remote - Containers](https://code.visualstudio.com/docs/remote/containers#_dev-container-features-preview) extension).
+You can also explore official and publicly contributed Features [on the specification site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (such as available in the VS Code [Dev Containers](https://code.visualstudio.com/docs/remote/containers#_dev-container-features-preview) extension).
 
 ![Specification site list of available Features](features-list-site.png)
 
@@ -101,7 +101,7 @@ The [Features template](https://github.com/devcontainers/feature-template) repos
 
 ### Sharing your Features with the community
 
-If you'd like your contributions to appear in the VS Code [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://github.com/features/codespaces) UI for dev container creation, you can do the following steps:
+If you'd like your contributions to appear in the VS Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://github.com/features/codespaces) UI for dev container creation, you can do the following steps:
 
 * Go to [devcontainers.github.io](https://github.com/devcontainers/devcontainers.github.io) (the GitHub repo backing [containers.dev](https://containers.dev))
 * Open a PR to modify the [`collection-index.yml`](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml) file

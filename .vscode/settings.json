@@ -5,5 +5,9 @@
     "files.trimTrailingWhitespace": true,
     "files.associations": {
         "**/toc.json": "jsonc"
-    }
+    },
+    "markdown.validate.enabled": true,
+    "markdown.validate.ignoredLinks": [
+        "/Download"
+    ]
 }
