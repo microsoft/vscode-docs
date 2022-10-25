@@ -9,7 +9,7 @@ DateApproved: 10/6/2022
 ---
 # Dev Containers FAQ
 
-This article includes some of the common questions for getting the Dev Containers extension up and running in different environments.
+This article includes some of the common questions for getting the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension up and running in different environments.
 
 ## Do "dev container definitions" define how an application is deployed?
 
