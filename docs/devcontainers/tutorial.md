@@ -1,7 +1,7 @@
 ---
 Order: 8
-Area: remote
-TOCTitle: Containers Tutorial
+Area: devcontainers
+TOCTitle: Tutorial
 PageTitle: Get started with development Containers in Visual Studio Code
 ContentId: 8e1fb9e0-1a67-4e0c-a21b-c5ab9a6d979c
 MetaDescription: Get started with development Containers in Visual Studio Code
@@ -31,7 +31,7 @@ Run the Docker Desktop application to start Docker. You will know it's running i
 
 Docker might take a few minutes to start. If the whale icon is animated, it is probably still in the process of starting. You can click on the icon to see the status.
 
-![Docker status](images/containers-tutorial/docker-status.png)
+![Docker status](images/tutorial/docker-status.png)
 
 ### Check Docker
 
@@ -48,17 +48,17 @@ The Dev Containers extension lets you run Visual Studio Code inside a Docker con
 
 > <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-containers">Install the Dev Containers extension</a>
 
-![Dev Containers extension](images/containers-tutorial/dev-containers-extension.png)
+![Dev Containers extension](images/tutorial/dev-containers-extension.png)
 
 ### Check installation
 
 With the Dev Containers extension installed, you will see a new Status bar item at the far left.
 
-![Remote Status bar item](images/containers-tutorial/remote-status-bar.png)
+![Remote Status bar item](images/tutorial/remote-status-bar.png)
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Dev Containers commands.
 
-![Dev Containers commands](images/containers-tutorial/dev-containers-commands.png)
+![Dev Containers commands](images/tutorial/dev-containers-commands.png)
 
 ## Get the sample
 
@@ -82,7 +82,7 @@ After the container is built, VS Code automatically connects to it and maps the 
 
 Once the container is running and you're connected, you should see your remote context change in the bottom left of the Status bar:
 
-![Building image](images/containers-tutorial/connected.png)
+![Building image](images/tutorial/connected.png)
 
 ## Check your environment
 
@@ -96,13 +96,13 @@ node --version; npm --version
 
 This should show the following versions:
 
-![Node.js version check](images/containers-tutorial/version-check-updated.png)
+![Node.js version check](images/tutorial/version-check-updated.png)
 
 ### Run the application
 
 We can now hit `kb(workbench.action.debug.start)`, which will run the application inside the container. Once the process starts, navigate to [http://localhost:3000](http://localhost:3000) and you should see the simple Node.js server running!
 
-![Running the application](images/containers-tutorial/hello-remote-world.png)
+![Running the application](images/tutorial/hello-remote-world.png)
 
 ### Ending your container connection
 
@@ -166,7 +166,7 @@ The above example is taken from the `vscode-remote-try-node` repo we used in the
 
 Congratulations, you've successfully completed this tutorial!
 
-This has been a brief overview of what is possible using dev containers. As a next step, we recommend checking out how you can [open an existing folder from your machine in a container](/docs/remote/containers.md#quick-start-open-an-existing-folder-in-a-container) or [opening a GitHub repository or PR in a container](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
+This has been a brief overview of what is possible using dev containers. As a next step, we recommend checking out how you can [open an existing folder from your machine in a container](/docs/devcontainers/containers.md#quick-start-open-an-existing-folder-in-a-container) or [opening a GitHub repository or PR in a container](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
 
 Check out the other Remote Development extensions.
 
