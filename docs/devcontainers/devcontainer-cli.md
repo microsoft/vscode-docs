@@ -1,13 +1,13 @@
 ---
 Order: 14
 Area: devcontainers
-TOCTitle: devcontainer CLI
+TOCTitle: Dev Container CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the development container (dev container) command-line interface
 DateApproved: 10/6/2022
 ---
-# Development container CLI
+# Dev Container CLI
 
 This topic covers the development container command-line interface (dev container CLI), which allows you to build and manage development containers, and is a companion to the [Development Containers Specification](https://containers.dev).
 
