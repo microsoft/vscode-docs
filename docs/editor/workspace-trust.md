@@ -65,7 +65,7 @@ Workspace [settings](/docs/getstarted/settings.md) are stored in the `.vscode` f
 
 In the Workspace Trust editor, there is a link to display the workspace settings that aren't being applied. Clicking the link brings up the Settings editor scoped by the `@tag:requireTrustedWorkspace` tag.
 
-![Settings editor scoped by the requireTrustedWorkspace tag](images/workspace-trust/requireTrustedWorkspace-settings.png)
+![Settings editor scoped by the requireTrustedWorkspace tag in a restricted workspace](images/workspace-trust/requireTrustedWorkspace-settings.png)
 
 ### Extensions
 
