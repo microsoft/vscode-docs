@@ -13,7 +13,8 @@ Visual Studio Code includes a full featured integrated terminal that convenientl
 
 To open the terminal:
 
-* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
+* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut to toggle the terminal panel.
+* Use the `kb(workbench.action.terminal.new)` keyboard shortcut to create a new terminal.
 * Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
 
@@ -405,6 +406,7 @@ The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle
 	"when": "terminalFocus",
 	"args": { "text": "\u0003" }
 }
+```
 
 ### Why are the colors in the terminal not correct?
 

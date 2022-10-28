@@ -132,6 +132,22 @@ Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell
 
 You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
+## Cygwin
+
+Cygwin itself is a terminal, but you can use the [Cygwin](https://www.cygwin.com/) shell in VS Code with the following profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "Cygwin": {
+      "path": "C:\\cygwin64\\bin\\bash.exe",
+      "args": ["--login"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Cygwin"
+}
+```
+
 ## Git Bash
 
 A [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal) is that history will not be retained across shell sessions. You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile` files:

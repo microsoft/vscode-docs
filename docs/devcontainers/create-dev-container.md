@@ -1,13 +1,13 @@
 ---
 Order: 11
-Area: remote
+Area: devcontainers
 TOCTitle: Create a Dev Container
 PageTitle: Create a development container using Visual Studio Code Remote Development
 ContentId: bae55561-1032-40d4-b6a6-47054da96098
 MetaDescription: Create a development container using Visual Studio Code Remote Development
 DateApproved: 10/6/2022
 ---
-# Create a development container
+# Create a Dev Container
 
 The **Visual Studio Code Dev Containers** extension lets you use a [Docker container](https://docker.com) as a full-featured development environment. It allows you to open any folder or repository inside a container and take advantage of Visual Studio Code's full feature set. A `devcontainer.json` file in your project tells VS Code how to access (or create) a **development container** with a well-defined tool and runtime stack. This container can be used to run an application or to separate tools, libraries, or runtimes needed for working with a codebase.
 
@@ -64,11 +64,11 @@ For this example, if you'd like to install the [ESLint extension](https://market
 
 With the above `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Dev Containers: Reopen in Container** command:
 
-![Quick pick with list of Dev Containers commands](images/containers/dev-containers-reopen.png)
+![Quick pick with list of Dev Containers commands](images/create-dev-container/dev-containers-reopen.png)
 
 After running this command, when VS Code restarts, you're now within a Node.js and TypeScript dev container with port 3000 forwarded and the ESLint extension installed. Once you're connected, notice the green remote indicator on the left of the Status bar to show you are connected to your dev container:
 
-![VS Code instance connected to dev container](images/containers/connected-to-dev-container.png)
+![VS Code instance connected to dev container](images/create-dev-container/connected-to-dev-container.png)
 
 ### Additional dev container scenarios
 
@@ -78,7 +78,7 @@ Through a `devcontainer.json` file, you can:
 * Work with a container deployed application defined by an image, [Dockerfile](#dockerfile), or [Docker Compose](#use-docker-compose).
 * [Use Docker or Kubernetes](/remote/advancedcontainers/use-docker-kubernetes.md) from inside a dev container to build and deploy your app.
 
-If `devcontainer.json`'s supported workflows do not meet your needs, you can also [attach to an already running container instead](/docs/remote/attach-container.md).
+If `devcontainer.json`'s supported workflows do not meet your needs, you can also [attach to an already running container instead](/docs/devcontainers/attach-container.md).
 
 > **Tip:** Want to use a remote Docker host? See the [Develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md) article for details on setup.
 
@@ -127,7 +127,7 @@ For example, you could install the latest version of the Azure CLI with the foll
   }
 ```
 
-See the article on [dev container features](/docs/remote/containers.md#dev-container-features-preview) for more details.
+See the article on [dev container features](/docs/devcontainers/containers.md#dev-container-features-preview) for more details.
 
 ### Rebuild
 
@@ -197,7 +197,7 @@ Rather than creating a `.devcontainer` by hand, selecting the **Dev Containers: 
 
 The command lets you pick a pre-defined container configuration from a list based on your folder's contents:
 
-![Add a dev container definition](images/containers/select-dev-container-def-all.png)
+![Add a dev container definition](images/create-dev-container/select-dev-container-def-all.png)
 
 All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
 
@@ -207,7 +207,7 @@ At the end of using **Dev Containers: Add Dev Container Configuration Files...**
 
 You can also reuse an existing Dockerfile:
 
-![Select Dockerfile](images/containers/select-dockerfile.png)
+![Select Dockerfile](images/create-dev-container/select-dockerfile.png)
 
 Now that you have a `devcontainer.json` and Dockerfile, let's see the general process for editing container configuration files.
 
@@ -217,7 +217,7 @@ Editing your container configuration is easy. Since rebuilding a container will 
 
 Here is the typical edit loop using these commands:
 
-![Container edit loop illustration](images/containers/container-edit-loop.png)
+![Container edit loop illustration](images/create-dev-container/container-edit-loop.png)
 
 1. Start with **Dev Containers: Add Dev Container Configuration Files...** in the Command Palette (`kbstyle(F1)`).
 2. Edit the contents of the `.devcontainer` folder as required.
@@ -254,7 +254,7 @@ VS Code can be configured to **automatically start any needed containers** for a
 
 To get started quickly, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 
-![Select Docker Compose File](images/containers/select-docker-compose.png)
+![Select Docker Compose File](images/create-dev-container/select-docker-compose.png)
 
 You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers) in a filterable list sorted based on your folder's contents. Many of these "dev container definitions" use a Dockerfile, so select one of the following definitions as a starting point for Docker Compose:
 
@@ -442,7 +442,7 @@ Congratulations! You've now configured a dev container in Visual Studio Code. Co
 
 You can easily share a customized dev container definition for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
 
-![Dev container configuration file reopen notification](images/containers/dev-container-reopen-prompt.png)
+![Dev container configuration file reopen notification](images/create-dev-container/dev-container-reopen-prompt.png)
 
 Beyond the advantages of having your team use a consistent environment and tool-chain, this also makes it easier for new contributors or team members to be productive quickly. First-time contributors will require less guidance and hit fewer issues related to environment setup.
 
@@ -468,9 +468,9 @@ In some cases, you may want to create a configuration for a repository that you 
 
 First, update the **Dev > Containers: Repository Configuration Paths** [User setting](/docs/getstarted/settings.md) with the local folder you want to use to store your repository container configuration files.
 
-In the Settings editor:
+In the Settings editor, you can search for 'dev containers repo' to find the setting:
 
-![Repository container folders setting](images/containers/repo-container-folder-setting.png) <!-- TBD update screenshot -->
+![Repository container folders setting](images/create-dev-container/repo-container-folder-setting.png)
 
 Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub folder that mirrors the remote location of the repository. For example, if you wanted to create a configuration for `github.com/microsoft/vscode-dev-containers`, you would create the following folder structure:
 
@@ -487,6 +487,6 @@ The path used for looking up the configuration is derived from the output of `gi
 
 ## Next steps
 
-* [Attach to a Running Container](/docs/remote/attach-container.md) - Attach to an already running Docker container.
+* [Attach to a Running Container](/docs/devcontainers/attach-container.md) - Attach to an already running Docker container.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.

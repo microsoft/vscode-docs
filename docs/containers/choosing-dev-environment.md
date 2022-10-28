@@ -22,7 +22,7 @@ The second important choice is whether to debug your service running as an ordin
    - Using the same OS for development and inside the service container.
    - Installing necessary tools and dependencies on top of your local environment.
 
-1. Consider using a [development container](/docs/remote/containers.md) first, if you need a remote environment.
+1. Consider using a [development container](/docs/devcontainers/containers.md) first, if you need a remote environment.
 
     - On Windows, using [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux) is good option.
 

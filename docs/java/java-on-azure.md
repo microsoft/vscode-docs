@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Deploy Java Apps
 ContentId: 01210769-05be-4854-9482-13e342850ad7
 PageTitle: Deploy Java Web Apps
-DateApproved: 12/22/2021
+DateApproved: 10/18/2022
 MetaDescription: How to deploy Java applications to Azure with Visual Studio Code
 ---
 # Deploy Java Web Apps
@@ -25,8 +25,8 @@ If you are interested in a specific Azure service, you can also directly search 
 
 The following tutorials below walk you through the details.  You can also check the [Java Azure Developer's Center](https://learn.microsoft.com/azure/developer/java) for all things on Azure for Java developers.
 
-| Tutorial | Description |
-| --- | --- |
-| [Deploy Java web apps to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. |
-| [Deploy Spring Microservices to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a web app using the [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud) extension. |
-| [Create an Azure Functions project using Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-java) | Deploy serverless code using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. |
+| Tutorial | Description | Related Tools |
+| --- | --- | --- |
+| [Deploy Java web apps <br> to Azure App Service](/docs/java/java-webapp.md) | Deploy a web app to the cloud | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
+| [Deploy Spring Boot apps <br> to Azure Spring Apps](/docs/java/java-spring-apps.md) | Deploy a Spring Boot application<br> to Azure Spring Apps | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure Spring Apps](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-azurespringcloud)
+| [Create an Azure Functions project <br> using Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-java) | Deploy serverless code <br> using Azure Functions | [Apache Maven](https://maven.apache.org/download.cgi) <br> [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
