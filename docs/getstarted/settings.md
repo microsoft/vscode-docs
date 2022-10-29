@@ -376,7 +376,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off
     "editor.acceptSuggestionOnEnter": "on",
 
-    // Controls whether the editor should run in a mode where it is optimized for screen readers. Setting to on will disable word wrapping.
+    // Controls whether the editor should run in a mode where it is optimized for screen readers.
     //  - auto: The editor will use platform APIs to detect when a Screen Reader is attached.
     //  - on: The editor will be permanently optimized for usage with a Screen Reader. Word wrapping will be disabled.
     //  - off: The editor will never be optimized for usage with a Screen Reader.
@@ -478,6 +478,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the width of the cursor when `editor.cursorStyle` is set to `line`.
     "editor.cursorWidth": 0,
+
+    // Defines a default folding range provider, which takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.
+    "editor.defaultFoldingRangeProvider": null,
 
     // Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
     "editor.defaultFormatter": null,
@@ -1610,7 +1613,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "window.closeWhenEmpty": false,
 
     // Show command launcher together with the window title.
-    "window.commandCenter": false,
+    "window.commandCenter": true,
 
     // Controls whether to show a confirmation dialog before closing the window or quitting the application.
     //  - always: Always ask for confirmation.
@@ -2301,13 +2304,16 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Markdown
 
-    // Enable/disable dropping into the Markdown editor to insert shift. Requires enabling `editor.dropIntoEditor.enabled`.
+    // Enable/disable dropping files into a Markdown editor by holding down Shift. Requires enabling `editor.dropIntoEditor.enabled`.
     "markdown.editor.drop.enabled": true,
 
     // Controls where links in Markdown files should be opened.
     //  - currentGroup: Open links in the active editor group.
     //  - beside: Open links beside the active editor.
     "markdown.links.openLocation": "currentGroup",
+
+    // Enable/disable highlighting link occurrences in the current document.
+    "markdown.occurrencesHighlight.enabled": false,
 
     // Sets how line-breaks are rendered in the Markdown preview. Setting it to 'true' creates a <br> for newlines inside paragraphs.
     "markdown.preview.breaks": false,
@@ -2347,11 +2353,29 @@ Below are the Visual Studio Code default settings and their values. You can also
     // A list of URLs or local paths to CSS style sheets to use from the Markdown preview. Relative paths are interpreted relative to the folder open in the Explorer. If there is no open folder, they are interpreted relative to the location of the Markdown file. All '\' need to be written as '\\'.
     "markdown.styles": [],
 
-    // Enable/disable path suggestions for markdown links
+    // Enable/disable path suggestions while writing links in Markdown files.
     "markdown.suggest.paths.enabled": true,
 
     // Enable debug logging for the Markdown extension.
     "markdown.trace.extension": "off",
+
+    // Try to update links in Markdown files when a file is renamed/moved in the workspace. Use `markdown.updateLinksOnFileMove.include` to configure which files trigger link updates.
+    //  - prompt: Prompt on each file move.
+    //  - always: Always update links automatically.
+    //  - never: Never try to update link and don't prompt.
+    "markdown.updateLinksOnFileMove.enabled": "never",
+
+    // Enable/disable updating links when a directory is moved or renamed in the workspace.
+    "markdown.updateLinksOnFileMove.enableForDirectories": true,
+
+    // Glob patterns that specify which files trigger automatic link updates. See `markdown.updateLinksOnFileMove.enabled` for details about this feature.
+    "markdown.updateLinksOnFileMove.include": [
+        "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+        "**/*.{jpg,jpe,jpeg,png,bmp,gif,ico,webp,avif,tiff,svg,mp4}"
+    ],
+
+    // Validate duplicated definitions in the current file.
+    "markdown.validate.duplicateLinkDefinitions.enabled": "warning",
 
     // Enable/disable all error reporting in Markdown files.
     "markdown.validate.enabled": false,
@@ -2360,7 +2384,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "markdown.validate.fileLinks.enabled": "warning",
 
     // Validate the fragment part of links to headers in other files in Markdown files, for example `[link](/path/to/file.md#header)`. Inherits the setting value from `markdown.validate.fragmentLinks.enabled` by default.
-    "markdown.validate.fileLinks.markdownFragmentLinks": "ignore",
+    "markdown.validate.fileLinks.markdownFragmentLinks": "inherit",
 
     // Validate fragment links to headers in the current Markdown file, for example `[link](#header)`.
     "markdown.validate.fragmentLinks.enabled": "warning",
@@ -2370,6 +2394,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Validate reference links in Markdown files, for example `[link][ref]`.
     "markdown.validate.referenceLinks.enabled": "warning",
+
+    // Validate link definitions that are unused in the current file.
+    "markdown.validate.unusedLinkDefinitions.enabled": "hint",
 
 // PHP
 
@@ -3396,7 +3423,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether bold text in the terminal will always use the "bright" ANSI color variant.
     "terminal.integrated.drawBoldTextInBrightColors": true,
 
-    // Controls whether the terminal bell is enabled, this shows up as a visual bell next to the terminal's name.
+    // Controls whether the terminal bell is enabled. This shows up as a visual bell next to the terminal's name.
     "terminal.integrated.enableBell": false,
 
     // Whether to enable file links in the terminal. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
@@ -3431,7 +3458,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Scrolling speed multiplier when pressing `Alt`.
     "terminal.integrated.fastScrollSensitivity": 5,
 
-    // Controls the font family of the terminal, this defaults to `editor.fontFamily`'s value.
+    // Controls the font family of the terminal. Defaults to `editor.fontFamily`'s value.
     "terminal.integrated.fontFamily": "",
 
     // Controls the font size in pixels of the terminal.
@@ -3456,10 +3483,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Whether new shells should inherit their environment from VS Code, which may source a login shell to ensure $PATH and other development variables are initialized. This has no effect on Windows.
     "terminal.integrated.inheritEnv": true,
 
-    // Controls the letter spacing of the terminal, this is an integer value which represents the amount of additional pixels to add between characters.
+    // Controls the letter spacing of the terminal. This is an integer value which represents the number of additional pixels to add between characters.
     "terminal.integrated.letterSpacing": 0,
 
-    // Controls the line height of the terminal, this number is multiplied by the terminal font size to get the actual line-height in pixels.
+    // Controls the line height of the terminal. This number is multiplied by the terminal font size to get the actual line-height in pixels.
     "terminal.integrated.lineHeight": 1,
 
     // When local echo should be enabled. This will override `terminal.integrated.localEchoLatencyThreshold`
@@ -3488,7 +3515,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether to treat the option key as the meta key in the terminal on macOS.
     "terminal.integrated.macOptionIsMeta": false,
 
-    // When set the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
+    // When set, the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
     //
     // - 1: Do nothing and use the standard theme colors.
     // - 4.5: WCAG AA compliance (minimum).
@@ -3526,7 +3553,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - nothing: Do nothing and pass event to terminal.
     "terminal.integrated.rightClickBehavior": "copyPaste",
 
-    // Controls the maximum amount of lines the terminal keeps in its buffer.
+    // Controls the maximum number of lines the terminal keeps in its buffer.
     "terminal.integrated.scrollback": 1000,
 
     // Dispatches most keybindings to the terminal instead of the workbench, overriding `terminal.integrated.commandsToSkipShell`, which can be used alternatively for fine tuning.
@@ -3609,7 +3636,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - never: Never show the actions
     "terminal.integrated.tabs.showActions": "singleTerminalOrNarrow",
 
-    // Shows the active terminal information in the view, this is particularly useful when the title within the tabs aren't visible.
+    // Shows the active terminal information in the view.
     //  - always: Always show the active terminal
     //  - singleTerminal: Show the active terminal when it is the only terminal opened
     //  - singleTerminalOrNarrow: Show the active terminal when it is the only terminal opened or when the tabs view is in its narrow textless state
@@ -3824,16 +3851,21 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Outline
 
-    // Render Outline Elements with Icons.
+    // Controls whether Outline items are collapsed or expanded.
+    //  - alwaysCollapse: Collapse all items.
+    //  - alwaysExpand: Expand all items.
+    "outline.collapseItems": "alwaysExpand",
+
+    // Render Outline elements with icons.
     "outline.icons": true,
 
-    // Use badges for Errors & Warnings.
+    // Use badges for errors and warnings on Outline elements.
     "outline.problems.badges": true,
 
-    // Use colors for Errors & Warnings.
+    // Use colors for errors and warnings on Outline elements.
     "outline.problems.colors": true,
 
-    // Show Errors & Warnings on Outline Elements.
+    // Show errors and warnings on Outline elements.
     "outline.problems.enabled": true,
 
     // When enabled outline shows `array`-symbols.
@@ -4083,11 +4115,23 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off: Disable audio cue.
     "audioCues.onDebugBreak": "auto",
 
-    // Plays a sound when a task ends.
+    // Plays a sound when a task is completed.
     //  - auto: Enable audio cue when a screen reader is attached.
     //  - on: Enable audio cue.
     //  - off: Disable audio cue.
-    "audioCues.taskEnded": "auto",
+    "audioCues.taskCompleted": "auto",
+
+    // Plays a sound when a task fails (non-zero exit code).
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.taskFailed": "auto",
+
+    // Plays a sound when a terminal Quick Fixes are available
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.terminalQuickFix": "auto",
 
     // The volume of the audio cues in percent (0-100).
     "audioCues.volume": 70,
@@ -4207,7 +4251,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // List of protected branches. By default, a prompt is shown before changes are committed to a protected branch. The prompt can be controlled using the `git.branchProtectionPrompt`  setting.
     "git.branchProtection": [],
 
-    // Controls whether a prompt is being before changes are committed to a protected branch.
+    // Controls whether a prompt is being shown before changes are committed to a protected branch.
     //  - alwaysCommit: Always commit changes to the protected branch.
     //  - alwaysCommitToNewBranch: Always commit changes to a new branch.
     //  - alwaysPrompt: Always prompt before changes are committed to a protected branch.
@@ -4293,9 +4337,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the Git Sync command appears in the status bar.
     "git.enableStatusBarSync": true,
 
-    // Controls whether a branch that does not have outgoing commits is fast-forwarded before it is checked out.
-    "git.fetchBeforeCheckout": false,
-
     // When enabled, fetch all branches when pulling. Otherwise, fetch just the current one.
     "git.fetchOnPull": false,
 
@@ -4331,9 +4372,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls the commit message subject length threshold for showing a warning. Unset it to inherit the value of `config.inputValidationLength`.
     "git.inputValidationSubjectLength": 50,
-
-    // Specifies how much information (if any) to log to the Git output.
-    "git.logLevel": "Info",
 
     // Open the merge editor for files that are currently under conflict.
     "git.mergeEditor": false,
@@ -4371,6 +4409,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Prune when fetching.
     "git.pruneOnFetch": false,
+
+    // Controls whether a branch that does not have outgoing commits is fast-forwarded before it is checked out.
+    "git.pullBeforeCheckout": false,
 
     // Fetch all tags when pulling.
     "git.pullTags": true,
@@ -4472,7 +4513,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls which protocol is used to clone a GitHub repository
     "github.gitProtocol": "https",
 
-    // URI of your GitHub Enterprise Instance
+    // GitHub Enterprise Server URI
     "github-enterprise.uri": "",
 
 // Grunt
