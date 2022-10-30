@@ -1,6 +1,6 @@
 ---
 Order: 10
-Area: remote
+Area: devcontainers
 TOCTitle: Attach to Container
 PageTitle: Attach to a running container using Visual Studio Code Remote Development
 ContentId: ed14ef07-f44c-4675-b95b-cb5faffc7abb
@@ -15,13 +15,13 @@ Visual Studio Code can create and start containers for you but that may not matc
 
 To attach to a Docker container, either select **Dev Containers: Attach to Running Container...** from the Command Palette (`kbstyle(F1)`) or use the **Remote Explorer** in the Activity Bar and from the **Containers** view, select the **Attach to Container** inline action on the container you want to connect to.
 
-![Containers Explorer screenshot](images/containers/containers-attach.png)
+![Containers Explorer screenshot](images/attach-container/containers-attach.png)
 
 > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
 ## Attached container configuration files
 
-VS Code supports image or container name-level configuration files to speed up setup when you repeatedly connect to a given Docker container. Once attached, anytime you open a folder, [install an extension](/docs/remote/containers.md#managing-extensions), or [forward a port](/docs/remote/containers.md#forwarding-or-publishing-a-port), a local image-specific configuration file will automatically be updated to remember your settings so that when you attach again, everything is back to the right place.
+VS Code supports image or container name-level configuration files to speed up setup when you repeatedly connect to a given Docker container. Once attached, anytime you open a folder, [install an extension](/docs/devcontainers/containers.md#managing-extensions), or [forward a port](/docs/devcontainers/containers.md#forwarding-or-publishing-a-port), a local image-specific configuration file will automatically be updated to remember your settings so that when you attach again, everything is back to the right place.
 
 * By default, an **image-level** configuration is used. To view or update it after attaching, select **Dev Containers: Open Container Configuration File** from the Command Palette (`kbstyle(F1)`).
 
@@ -61,7 +61,7 @@ Once saved, whenever you open a container for the first time with the same image
 
 > **Tip:** If something is wrong with your configuration, you can also edit it when not attached to the container by selecting **Dev Containers: Open Attached Container Configuration File...** from the Command Palette (`kbstyle(F1)`) and then picking the image / container name from the presented list.
 
-Finally, if you have extensions you want installed regardless of the container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](/docs/remote/containers.md#always-installed-extensions).
+Finally, if you have extensions you want installed regardless of the container you attach to, you can update `settings.json` to specify a list of [extensions that should always be installed](/docs/devcontainers/containers.md#always-installed-extensions).
 
 ## Attached container configuration reference
 
@@ -94,10 +94,10 @@ To attach to a container in a Kubernetes cluster, first install the [Kubernetes 
 
 > **Note:** Attached container configuration files are not yet supported for containers in a Kubernetes cluster.
 
-![Attach to Kubernetes Container](images/containers/k8s-attach.png)
+![Attach to Kubernetes Container](images/attach-container/k8s-attach.png)
 
 ## Next steps
 
-* [Create a Development Container](/docs/remote/create-dev-container.md) - Create a custom container for your work environment.
+* [Create a Dev Container](/docs/devcontainers/create-dev-container.md) - Create a custom container for your work environment.
 * [Advanced Containers](/remote/advancedcontainers/overview.md) - Find solutions to advanced container scenarios.
 * [devcontainer.json reference](https://containers.dev/implementors/json_reference) - Review the `devcontainer.json` schema.
