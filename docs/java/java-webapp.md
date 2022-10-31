@@ -139,7 +139,7 @@ Open the **Output** window in VS Code to view the deployment logs. Once the depl
 
 [Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/introduction) is a globally distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
-The [Spring Boot Starter](https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB with SQL API.
+The [Spring Boot Starter](https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB for NoSQL database.
 
 ### Create an Azure Cosmos DB entity on Azure
 
@@ -162,7 +162,7 @@ The [Spring Boot Starter](https://learn.microsoft.com/azure/developer/java/sprin
 
 ### Run and debug the application
 
-You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open [Azure portal](https://portal.azure.com/) and access your Cosmos DB. Click **Data Explorer**, and next choose **Documents**. You will see data being shown if it is successfully written into Cosmos DB. You can also browse your data entries in Cosmos DB with [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
+You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open the [Azure portal](https://portal.azure.com/) and access your Azure Cosmos DB instance. Select **Data Explorer**, and next choose **Documents**. Data is shown if it's successfully written into Azure Cosmos DB. You can also browse your data entries in Azure Cosmos DB with the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension.
 
 After setting a breakpoint (`kb(editor.debug.action.toggleBreakpoint)`) in your source code, refresh your browser to hit the breakpoint. Details about debugging can be found in [Java Debugging](/docs/java/java-debugging.md)
 
