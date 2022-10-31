@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 11/05/2021
+DateApproved: 10/12/2022
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -24,14 +24,13 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 ### Auto Imports
 
-Pylance offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be conveniently added automatically as you're typing.
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be conveniently added automatically as you're typing.
 
 By default, only top-level symbols/packages are suggested, but you can customize this behavior through the `python.analysis.packageIndexDepths` setting. See the section below on "Customize IntelliSense behavior" to learn more about IntelliSense controls.
 
-
 ### Customize IntelliSense behavior
 
-Because enabling the full set of IntelliSense features by default could end up making your development experience feel slower, we enable a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behaviour of the analysis engine to your liking through multiple settings.
+Because enabling the full set of IntelliSense features by default could end up making your development experience feel slower, we enable a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behavior of the analysis engine to your liking through multiple settings.
 
 For the full list of available IntelliSense controls, you can reference the Python extension [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
 

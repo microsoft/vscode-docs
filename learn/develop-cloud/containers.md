@@ -35,7 +35,7 @@ You'll also need to download [Docker](https://docs.docker.com/docker-for-windows
 
 ### Sample dev containers
 
-Rather than creating dev containers from scratch, Dev Containers has several ways to help you [create dev containers](/docs/remote/create-dev-container.md) or access existing dev containers.
+Rather than creating dev containers from scratch, Dev Containers has several ways to help you [create dev containers](/docs/devcontainers/create-dev-container.md) or access existing dev containers.
 
 Below is a list of sample dev containers we'd recommend starting out with:
 
@@ -58,4 +58,4 @@ You can also read more in our [Development Containers in Education](/blogs/2020/
 
 ## Next steps
 
-We also highly recommend checking out the step-by-step [Containers tutorial](/docs/remote/containers-tutorial.md).
+We also highly recommend checking out the step-by-step [Containers tutorial](/docs/devcontainers/tutorial.md).

@@ -29,7 +29,7 @@ The VS Code APIs are designed to automatically run on the correct machine (eithe
 
 ## Debugging Extensions
 
-While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [GitHub Codespaces](#debugging-with-visual-studio-codespaces), a [local container](#debugging-in-a-custom-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
+While you [can install a development version of your extension](#installing-a-development-version-of-your-extension) in a remote environment for testing, if you encounter issues, you will likely want to debug your extension directly in a remote environment. In this section, we will cover how to edit, launch, and debug your extension in [GitHub Codespaces](#debugging-with-github-codespaces), a [local container](#debugging-in-a-custom-development-container), an [SSH host](#debugging-using-ssh), or in [WSL](#debugging-using-wsl).
 
 Typically, your best starting point for testing is to use a remote environment that restricts port access (for example Codespaces, a container, or remote SSH hosts with a restrictive firewall) since extensions that work in these environments tend to work in less restrictive ones like WSL.
 
@@ -53,11 +53,11 @@ The extension development host window that appears will include your extension r
 
 Follow these steps:
 
-1. To use a development container locally, [install and configure the Dev Containers extension](/docs/remote/containers#_getting-started), and use **File > Open... / Open Folder...** to open your source code locally in VS Code. To use Codespaces instead, navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/en/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
+1. To use a development container locally, [install and configure the Dev Containers extension](/docs/devcontainers/containers#getting-started), and use **File > Open... / Open Folder...** to open your source code locally in VS Code. To use Codespaces instead, navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
 2. Select **Dev Containers: Add Dev Container Configuration Files...** or **Codespaces: Add Dev Container Configuration Files...** from the Command Palette (`kbstyle(F1)`), and pick **Node.js & TypeScript** (or Node.js if you are not using TypeScript) to add the needed container configuration files.
 
-3. **Optional:** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Dev Containers](/docs/remote/create-dev-container#_set-up-a-folder-to-run-in-a-container) documentation for details.
+3. **Optional:** After this command runs, you can modify the contents of the `.devcontainer` folder to include additional build or runtime requirements. See the in-depth [Create a Dev Container](/docs/devcontainers/create-dev-container) documentation for details.
 
 4. Run **Dev Containers: Reopen in Container** or **Codespaces: Add Dev Container Configuration Files...** and in a moment, VS Code will set up the container and connect. You will now be able to develop your source code from inside the container just as you would in the local case.
 
@@ -73,7 +73,7 @@ The extension development host window that appears will include your extension r
 
 Follow steps:
 
-1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#_getting-started), select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) in VS Code to connect to a host.
+1. After [installing and configuring the Remote - SSH extension](/docs/remote/ssh#getting-started), select **Remote-SSH: Connect to Host...** from the Command Palette (`kbstyle(F1)`) in VS Code to connect to a host.
 
 2. Once connected, either use **File > Open... / Open Folder...** to select the remote folder with your extension source code in it or select **Git: Clone** from the Command Palette (`kbstyle(F1)`) to clone it and open it on the remote host.
 
@@ -113,7 +113,7 @@ Follow these steps:
 
 1. If this is a published extension, you may want to add `"extensions.autoUpdate": false` to `settings.json` to prevent it from auto-updating to the latest Marketplace version.
 2. Next, use `vsce package` to package your extension as a VSIX.
-3. Connect to a [codespace](https://docs.github.com/github/developing-online-with-codespaces), [development container](/docs/remote/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
+3. Connect to a [codespace](https://docs.github.com/github/developing-online-with-codespaces), [Dev Containers](/docs/devcontainers/containers), [SSH host](/docs/remote/ssh), or [WSL environment](/docs/remote/wsl).
 4. Use the **Install from VSIX...** command available in the Extensions view **More Actions** (`...`) menu to install the extension in this specific window (not a local one).
 5. Reload when prompted.
 
@@ -604,7 +604,7 @@ There are a few extension problems that could be resolved with some added functi
 
 | Problem | Description |
 |---------|-------------|
-| **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. We are investigating the best approach to solve this problem. |
+| **Cannot access attached devices from Workspace extension** | Extensions that access locally attached devices will be unable to connect to them when running remotely. One approach to overcome this is to create a companion UI extension whose job is to access the attached device and offers commands that the remote extension can invoke too. <br> Another approach is reverse tunneling, which is being tracked in a [VS Code repo issue](https://github.com/microsoft/vscode/issues/100222). |
 
 ## Questions and feedback
 

@@ -93,7 +93,7 @@ You can learn more about using Remote - SSH with Dev Containers in the [develop 
 
 ![Docker Path setting](images/platform-options/docker-path-setting.png)
 
-However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Dev Containers: Try a Dev Container Sample...** and [Dev Containers: Clone Repository in Container Volume...](/docs/remote/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) commands.
+However, certain tricks like [Docker-from-Docker do not work](https://github.com/containers/libpod/issues/4056#issuecomment-535511841) due to limitations in Podman. This affects the **Dev Containers: Try a Dev Container Sample...** and [Dev Containers: Clone Repository in Container Volume...](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) commands.
 
 To work around issues with rootless Podman (for example, not respecting a non-root `"remoteUser"` and trying to install the server in `root`), you can set the following:
 
