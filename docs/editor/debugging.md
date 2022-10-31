@@ -12,8 +12,6 @@ MetaSocialImage: images/debugging/Debugging.png
 
 One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile, and debug loop.
 
-![Debugging diagram](images/debugging/debugging_hero.png)
-
 ## Debugger extensions
 
 VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, or any other language that gets transpiled to JavaScript.
@@ -32,19 +30,23 @@ The following documentation is based on the built-in [Node.js](https://nodejs.or
 
 It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application set up, this page will take you through VS Code debugging features.
 
-## Run and Debug view
+## Run and Debug view and Run Menu
+VS code has two areas that controls debugging - a Run Menu item on the top main bar and a Run and Debug tool in the Activity Bar.
 
+### Run and Debug view
 To bring up the **Run and Debug** view, select the **Run and Debug** icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
 
 ![Run and Debug icon](images/debugging/run.png)
 
 The **Run and Debug** view displays all information related to running and debugging and has a top bar with debugging commands and configuration settings.
 
+![Debugging diagram](images/debugging/debugging_hero.png)
+
 If running and debugging is not yet configured (no `launch.json` has been created), VS Code shows the Run start view.
 
 ![Simplified initial Run and Debug view](images/debugging/debug-start.png)
 
-## Run menu
+### Run menu
 
 The top-level **Run** menu has the most common run and debug commands:
 
