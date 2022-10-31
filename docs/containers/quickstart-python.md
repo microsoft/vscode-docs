@@ -48,17 +48,17 @@ After verifying your app runs properly, you can now containerize your applicatio
 
 1. Enter the relative path to the app's entry point. This excludes the workspace folder you start from. If you created a python app with `hello.py` according to the [Getting Started with Python](/docs/python/python-tutorial) tutorial, choose that.
 
-   >**Django** Choose `manage.py` (root folder) or `subfolder_name/manage.py`. See the [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project).
+   **Django**: Choose `manage.py` (root folder) or `subfolder_name/manage.py`. See the [official Django documentation](https://docs.djangoproject.com/en/3.0/intro/tutorial01/#creating-a-project).
 
-   >**Flask** Choose the path to where you create your Flask instance. See the [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/).
+   **Flask**: Choose the path to where you create your Flask instance. See the [official Flask documentation](https://flask.palletsprojects.com/en/1.1.x/api/).
 
     >**Tip**: You may also enter the path to a folder name as long as this folder includes a `__main__.py` file.
 
 1. Select the port number. We recommend selecting port 1024 or above to mitigate security concerns from [running as a root user](/docs/containers/troubleshooting.md#running-as-a-non-root-user). Any unused will port, but Django and Flask use standard default ports.
 
-   >**Django**: The default port 8000.
+   **Django**: The default port 8000.
 
-   >**Flask** The defaul port is 5000.
+   **Flask**: The defaul port is 5000.
 
 1. When prompted to include Docker Compose, select **No** if you do not want a Docker Compose file. If you select **Yes**, you will need to [verify the path](/docs/containers/quickstart-python.md#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
 
@@ -92,32 +92,32 @@ For more information about setting and using environment variables in the Docker
 
 To give Python web developers a great starting point, we chose to use [Gunicorn](https://gunicorn.org/#docs) as the default web server. Since it is referenced in the default Dockerfile, it is included as a dependency in the `requirements.txt` file. If you don't see it in `requirements.txt`, run `pip install gunicorn` and then run `pip freeze > requirements.txt` to regenerate the `requirements.txt` file.
 
-> **Django**: To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
-> 
->```docker
->CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]
->```
->
->If your project does not follow Django's default project structure (that is, a workspace folder and a wsgi.py file >within a subfolder named the same as the workspace) you must overwrite the Gunicorn entry point in the Dockerfile to locate the correct `wsgi.py` file.
->
->If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
+- **Django**: To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable is declared in the `wsgi.py` file of a Django application. To accomplish this binding, the final line in the Dockerfile says:
+ 
+   ```docker
+   CMD ["gunicorn", "--bind", "0.0.0.0:8000", "{workspace_folder_name}.wsgi"]
+   ```
 
-> **Flask**: To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable corresponds with the **file location** and **variable name** of your created Flask instance. According to [official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/api/), users generally create a Flask instance in the main module or in the `__init__.py` file of their package in this manner:
->
->```python
->from flask import Flask
->app = Flask(__name__) # Flask instance named app
->```
->
->To accomplish this binding, the final line in the Dockerfile says:
->
->```docker
->CMD ["gunicorn", "--bind", "0.0.0.0:5000", "{subfolder}.{module_file}:app"]
->```
->
->During the **Docker: Add Docker Files to Workspace...** command, you configure the path to the Flask instance, however, the Docker extension assumes your Flask instance variable is named `app`. If this is not the case, you must change the variable name in the Dockerfile.
->
->If your main module was in the root folder as a file named `main.py` and had a Flask instance variable was named `myapp`, the final argument in the command above will be `"main:myapp"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.main:myapp"`.
+   If your project does not follow Django's default project structure (that is, a workspace folder and a wsgi.py file >within a subfolder named the same as the workspace) you must overwrite the Gunicorn entry point in the Dockerfile to locate the correct `wsgi.py` file.
+
+   If your `wsgi.py` file is in the root folder, the final argument in the command above will be `"wsgi"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.wsgi"`.
+
+- **Flask**: To use Gunicorn, it must bind to an application callable (what the application server uses to communicate with your code) as an entry point. This callable corresponds with the **file location** and **variable name** of your created Flask instance. According to [official Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/api/), users generally create a Flask instance in the main module or in the `__init__.py` file of their package in this manner:
+
+   ```python
+   from flask import Flask
+   app = Flask(__name__) # Flask instance named app
+   ```
+
+   To accomplish this binding, the final line in the Dockerfile says:
+
+   ```docker
+   CMD ["gunicorn", "--bind", "0.0.0.0:5000", "{subfolder}.{module_file}:app"]
+   ```
+
+   During the **Docker: Add Docker Files to Workspace...** command, you configure the path to the Flask instance, however, the Docker extension assumes your Flask instance variable is named `app`. If this is not the case, you must change the variable name in the Dockerfile.
+
+   If your main module was in the root folder as a file named `main.py` and had a Flask instance variable was named `myapp`, the final argument in the command above will be `"main:myapp"`. Within subfolders, the argument would be `"subfolder1_name.subfolder2_name.main:myapp"`.
 
 ## Build, run, and debug the container
 
