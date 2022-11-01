@@ -45,7 +45,7 @@ If you're looking for resources for your students to get started with Visual Stu
         <a href="https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode/"><h2 class="title faux-h3">Build a Node.js app for Azure Cosmos DB</h2></a>
     </div>
     <p class="description">Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js.</p>
-    <a href="https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode/" title="Cosmos DB module">
+    <a href="https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode/" title="Azure Cosmos DB module">
         <img src="/assets/learn/educators/learn-modules/learn-node-app.png" aria-hidden="true" class="thumb"/>
     </a>
 </div><br/>
