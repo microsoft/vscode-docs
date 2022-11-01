@@ -60,7 +60,7 @@ After verifying your app runs properly, you can now containerize your applicatio
 
    **Flask**: The defaul port is 5000.
 
-1. When prompted to include Docker Compose, select **No** if you do not want a Docker Compose file. If you select **Yes**, you will need to [verify the path](/docs/containers/quickstart-python.md#django-apps) to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
+1. When prompted to include Docker Compose, select **No** if you do not want a Docker Compose file. If you select **Yes**, you will need to verify the path to your `wsgi.py` file in the `Dockerfile` to run the **Compose Up** command successfully. Compose is typically used when running multiple containers at once.
 
 1. With all this information, the Docker extension creates the following files:
 
@@ -158,7 +158,7 @@ The Docker Explorer provides an interactive experience to examine and manage Doc
 
 You can use the command **Azure Container Registry: Build Image in Azure** to build an image that you can then deploy to Azure App Service.
 
-1. Install the [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). Open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure: Sign In**. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account).
+1. Install the [Azure account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). Open the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure: Sign In**. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account).
 
 1. There are two ways to invoke the build in Azure command. You can right-click on the Dockerfile, and choose **Build Image in Azure**. You can also use the **Command Palette** (`kb(workbench.action.showCommands)`) and search for the command **Azure Container Registry: Build Image in Azure**.
 
@@ -186,7 +186,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
    ![Deploy image to Azure App Service](images/app-service/deploy-image-to-azure-app-service.png)
 
-1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the `ALLOWED_HOSTS` list in the *settings.py* file.
+1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the `ALLOWED_HOSTS` list in the `settings.py` file.
 
 1. Provide a resource group, location, and App Service Plan. If you're just getting started, you can choose the free plan.
 
@@ -208,7 +208,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
    Use the button and verify that your change is reflected on the site.
 
-Congratulations, you've used Python in VS Code to create an deploy a web site that's hosted in the cloud and live on the Internet!
+Congratulations, you've used Python in VS Code to create an deploy a web site that's hosted in the cloud and live on the internet!
 
 ## Free up resources
 
@@ -223,4 +223,4 @@ You're done! Now that your container is ready, you may want to:
 - [Customize how you debug Python apps in a container](/docs/containers/debug-python.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
 - [Push your Django image to an Azure Container Registry](/docs/containers/tutorial-django-push-to-registry.md)
-- [Deploy to Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/deploy-visual-studio-code)
+- [Deploy to Azure Container Apps](https://learn.microsoft.com/azure/container-apps/deploy-visual-studio-code)
