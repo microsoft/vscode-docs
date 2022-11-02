@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Overview
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Source Control with Git in Visual Studio Code
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 MetaDescription: Visual Studio Code source control management with integrated Git support.
 ---
 # Using Git source control in VS Code
@@ -149,7 +149,7 @@ Visual Studio Code supports more Git history workflows through [extensions](/doc
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
-To open the Git output window, run **View** > **Output** and select **Git** from the dropdown list.
+To open the Git output window, run **View** > **Output** and select **Log (Git)** from the dropdown list.
 
 ## Initialize a repository
 
