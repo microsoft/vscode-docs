@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Enterprise
 ContentId: 936ab8e0-3bbe-4842-bb17-ea314665c20a
 PageTitle: Visual Studio Code enterprise support
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 MetaDescription: Learn about Visual Studio Code's enterprise support features.
 
 ---

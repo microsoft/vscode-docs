@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 06ce3b57-9fd5-428a-98aa-d730edbd2728
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for the Panel Bar in a Visual Studio Code extension.
