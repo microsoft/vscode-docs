@@ -700,13 +700,13 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 
 ## Command Center colors
 
-- `commandCenter.foreground`: Foreground color of the command center
-- `commandCenter.activeForeground`: Active foreground color of the command center
-- `commandCenter.background`: Background color of the command center
-- `commandCenter.activeBackground`: Active background color of the command center
-- `commandCenter.border`: Border color of the command center
-- `commandCenter.inactiveForeground`: Foreground color of the command center when the window is inactive
-- `commandCenter.inactiveBorder`: Border color of the command center when the window is inactiveg
+- `commandCenter.foreground`: Foreground color of the Command Center.
+- `commandCenter.activeForeground`: Active foreground color of the Command Center.
+- `commandCenter.background`: Background color of the Command Center.
+- `commandCenter.activeBackground`: Active background color of the Command Center.
+- `commandCenter.border`: Border color of the Command Center.
+- `commandCenter.inactiveForeground`: Foreground color of the Command Center when the window is inactive.
+- `commandCenter.inactiveBorder`: Border color of the Command Center when the window is inactive.
 
 ## Notification colors
 
