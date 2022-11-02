@@ -625,6 +625,10 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `mergeEditor.conflict.handled.minimapOverViewRuler`: The foreground color for changes in input 1.
 - `mergeEditor.conflict.unhandled.minimapOverViewRuler`: The foreground color for changes in input 1.
 - `mergeEditor.conflictingLines.background`: The background of the "Conflicting Lines" text.
+- `mergeEditor.changeBase.background`: The background color for changes in base.
+- `mergeEditor.changeBase.word.background`: The background color for word changes in base.
+- `mergeEditor.conflict.input1.background`: The background color of decorations in input 1.
+- `mergeEditor.conflict.input2.background`: The background color of decorations in input 2.
 
 ## Panel colors
 
@@ -701,6 +705,8 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `commandCenter.background`: Background color of the command center
 - `commandCenter.activeBackground`: Active background color of the command center
 - `commandCenter.border`: Border color of the command center
+- `commandCenter.inactiveForeground`: Foreground color of the command center when the window is inactive
+- `commandCenter.inactiveBorder`: Border color of the command center when the window is inactiveg
 
 ## Notification colors
 
@@ -737,6 +743,10 @@ The banner appears below the title bar and spans the entire width of the workben
 - `extensionButton.prominentForeground`: Extension view button foreground color (for example **Install** button).
 - `extensionButton.prominentBackground`: Extension view button background color.
 - `extensionButton.prominentHoverBackground`: Extension view button background hover color.
+- `extensionButton.background`: Button background color for extension actions.
+- `extensionButton.foreground`: Button foreground color for extension actions.
+- `extensionButton.hoverBackground`: Button background hover color for extension actions.
+- `extensionButton.separator`: Button separator color for extension actions.
 - `extensionBadge.remoteBackground`: Background color for the remote badge in the extensions view.
 - `extensionBadge.remoteForeground`: Foreground color for the remote badge in the extensions view.
 - `extensionIcon.starForeground`: The icon color for extension ratings.
