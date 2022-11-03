@@ -303,7 +303,7 @@ See the [latest template](https://github.com/devcontainers/feature-template) for
 
 ### Features spec and distribution
 
-Features are an active proposal in the open-source [Development Containers Specification](https://containers.dev). You can review [more information about how Features work](https://containers.dev/implementors/features) and their [distribution](https://containers.dev/implementors/features-distribution).
+Features are a key part of the open-source [Development Containers Specification](https://containers.dev). You can review [more information about how Features work](https://containers.dev/implementors/features) and their [distribution](https://containers.dev/implementors/features-distribution).
 
 ## Pre-building dev container images
 
