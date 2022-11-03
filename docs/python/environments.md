@@ -64,13 +64,13 @@ The extension also loads an [environment variable definitions file](#environment
 ## Creating environments
 
 ### Using the Create Environment Command
-From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (Ctrl+Shift+P), start typing the `Python: Create Environment` command to search, and then select the command. You can also trigger the `Python: Create Environment' command through the Getting Started with Python page.
+From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (Ctrl+Shift+P), start typing the `Python: Create Environment` command to search, and then select the command. 
 
-The command presents a list of environment types, Venv or Conda.
+The command presents a list of environment types: **Venv** or **Conda**.
 
 ![Create Environment dropdown](images/environments/create_environment_dropdown.png)
 
-If you are creating an environment using **Venv**, the command presents a list of interpreters that can be used for your project.
+If you are creating an environment using **Venv**, the command presents a list of interpreters that can be used as a base for the new virtual environment.
 
 ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
