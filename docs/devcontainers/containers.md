@@ -284,7 +284,7 @@ You'll get IntelliSense when editing the `"features"` property in the `devcontai
 
 The **Dev Containers: Configure Container Features** command allows you to update an existing configuration.
 
-The Features sourced in VS Code UI now come from a central index you can contribute to! See the [Dev Containers spec site](https://containers.dev) for the current list.
+The Features sourced in VS Code UI now come from a central index you can contribute to! See the [Dev Containers spec site](https://containers.dev/features) for the current list.
 
 ### Creating your own Feature
 
