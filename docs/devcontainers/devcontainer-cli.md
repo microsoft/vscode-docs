@@ -5,7 +5,7 @@ TOCTitle: Dev Container CLI
 PageTitle: Installing and working with the devcontainer CLI
 ContentId: 8946213d-716e-41ca-955f-944a41c70353
 MetaDescription: Documentation on using the development container (dev container) command-line interface
-DateApproved: 11/2/2022
+DateApproved: 11/3/2022
 ---
 # Dev Container CLI
 
@@ -138,7 +138,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 1. [Create](/docs/sourcecontrol/overview.md#initialize-a-repository) a source code repository.
 
-1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/devcontainers/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
+1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/devcontainers/containers.md#dev-container-features)). For example, consider this `devcontainer.json` file:
 
     ```json
     {

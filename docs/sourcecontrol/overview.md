@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code source control management with integrated Gi
 
 Visual Studio Code has integrated source control management (SCM) and includes [Git](https://git-scm.com/) support out-of-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-marketplace.md) on the VS Code Marketplace.
 
-<iframe src="https://www.youtube.com/embed/i_23KUAEtUM" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Using Git with Visual Studio Code (Official Beginner Tutorial)"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i_23KUAEtUM" title="Using Git with Visual Studio Code (Official Beginner Tutorial)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Working in a Git repository
 
