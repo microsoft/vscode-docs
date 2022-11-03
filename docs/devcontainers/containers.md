@@ -5,7 +5,7 @@ TOCTitle: Overview
 PageTitle: Developing inside a Container using Visual Studio Code Remote Development
 ContentId: 7ec8a02b-2eb7-45c1-bb16-ddeaac694ff6
 MetaDescription: Developing inside a Container using Visual Studio Code Remote Development
-DateApproved: 11/2/2022
+DateApproved: 11/3/2022
 ---
 # Developing inside a Container
 
@@ -105,7 +105,7 @@ This quick start covers how to set up a dev container for an existing project to
 
     The list will be automatically sorted based on the contents of the folder you open.
 
-    You may be able to customize your dev container with additional Features, which [you can read more about below](#dev-container-features-preview).
+    You may be able to customize your dev container with additional Features, which [you can read more about below](#dev-container-features).
 
     The dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
 
@@ -260,7 +260,7 @@ Selecting the **Dev Containers: Add Dev Container Configuration Files...** comma
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/devcontainers/create-dev-container.md).
 
-## Dev Container Features (preview)
+## Dev Container Features
 
 Development container "Features" are self-contained, shareable units of installation code and dev container configuration. The name comes from the idea that referencing one of them allows you to quickly and easily add more tooling, runtime, or library "Features" into your development container for use by you or your collaborators.
 
@@ -284,7 +284,7 @@ You'll get IntelliSense when editing the `"features"` property in the `devcontai
 
 The **Dev Containers: Configure Container Features** command allows you to update an existing configuration.
 
-The Features sourced in VS Code UI come from the [devcontainers/features repository](https://github.com/devcontainers/features).
+The Features sourced in VS Code UI now come from a central index you can contribute to! See the [Dev Containers spec site](https://containers.dev) for the current list.
 
 ### Creating your own Feature
 
@@ -301,15 +301,17 @@ A Feature is a self contained entity in a folder with at least a `devcontainer-f
 
 See the [latest template](https://github.com/devcontainers/feature-template) for instructions on using the dev container CLI to publish your own public or private Features.
 
-### Features proposal and distribution
+### Features spec and distribution
 
-Features are an active proposal in the open-source [Development Containers Specification](https://containers.dev). You can review the [Features proposal](https://github.com/devcontainers/spec/issues/61), along with [more information about how Features work](https://containers.dev/implementors/features) and their [distribution](https://containers.dev/implementors/features-distribution).
+Features are an active proposal in the open-source [Development Containers Specification](https://containers.dev). You can review [more information about how Features work](https://containers.dev/implementors/features) and their [distribution](https://containers.dev/implementors/features-distribution).
 
 ## Pre-building dev container images
 
 We recommend pre-building images with the tools you need rather than creating and building a container image each time you open your project in a dev container. Using pre-built images will result in a faster container startup,  simpler configuration, and allows you to pin to a specific version of tools to improve supply-chain security and avoid potential breaks. You can automate pre-building your image by scheduling the build using a DevOps or continuous integration (CI) service like GitHub Actions.
 
-We recommend using the [devcontainer CLI](/docs/devcontainers/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Dev Containers extension's latest capabilities - including [dev container Features](#dev-container-features-preview). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
+Even better - pre-built images can now contain Dev Container metadata so you can just reference an image and settings will be pulled across automatically!
+
+We recommend using the [devcontainer CLI](/docs/devcontainers/devcontainer-cli.md) to pre-build your images since it is kept in sync with the Dev Containers extension's latest capabilities - including [dev container Features](#dev-container-features). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
 See the [devcontainer CLI article on pre-building images](/docs/devcontainers/devcontainer-cli.md#prebuilding) for more information.
 
@@ -620,7 +622,7 @@ There is a full [devcontainer.json reference](https://containers.dev/implementor
 
 ### Dev Containers limitations
 
-* Windows container images are **not** yet supported.
+* Windows container images are **not** supported.
 * All roots/folders in a multi-root workspace will be opened in the same container, regardless of whether there are configuration files at lower levels.
 * The unofficial Ubuntu Docker **snap** package for Linux is **not** supported. Follow the [official Docker install instructions for your distribution](https://docs.docker.com/install/#supported-platforms).
 * Docker Toolbox on Windows is not supported.
@@ -632,10 +634,6 @@ See [here for a list of active issues](https://aka.ms/vscode-remote/containers/i
 
 ### Docker limitations
 
-* First-time installs of Docker Desktop for Windows when not using the WSL 2 engine will require an additional "sharing" step to give your container access to local source code. However, this step may not work with certain AAD (email-based) identities. See [Docker Desktop for Windows tips](/docs/devcontainers/tips-and-tricks.md#docker-desktop-for-windows-tips) and [Enabling file sharing in Docker Desktop](/docs/devcontainers/tips-and-tricks.md#enabling-file-sharing-in-docker-desktop) for details and workarounds.
-* You may see errors if you sign in to Docker with your email address instead of your Docker ID. This is a known issue and can be resolved by signing in with your Docker ID instead. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
-* If you see high CPU spikes for `com.docker.hyperkit` on macOS, this may be due to a [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759). See the Docker issue for details.
-
 See the Docker troubleshooting guide for [Windows](https://docs.docker.com/docker-for-windows/troubleshoot) or [Mac](https://docs.docker.com/docker-for-mac/troubleshoot), consult [Docker Support Resources](https://success.docker.com/article/best-support-resources) for more information.
 
 ### Docker Extension limitations
@@ -644,7 +642,7 @@ If you are using the Docker or Kubernetes extension from a WSL or Remote - SSH w
 
 ### Extension limitations
 
-Many extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, see [here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
+At this point most extensions will work inside dev containers without modification. However, in some cases, certain features may require changes. If you run into an extension issue, see [here for a summary of common problems and solutions](/docs/remote/troubleshooting.md#extension-tips) that you can mention to the extension author when reporting the issue.
 
 In addition, while Alpine support is available, some extensions installed in the container may not work due to `glibc` dependencies in native code inside the extension. See the [Remote Development with Linux](/docs/remote/linux.md) article for details.
 

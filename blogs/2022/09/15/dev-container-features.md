@@ -51,7 +51,7 @@ The example below installs the [go](https://github.com/devcontainers/features/tr
 }
 ```
 
-You can also explore official and publicly contributed Features [on the specification site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (such as available in the VS Code [Dev Containers](/docs/devcontainers/containers.md#dev-container-features-preview) extension).
+You can also explore official and publicly contributed Features [on the specification site](https://containers.dev/features). Any Feature can be added by editing `devcontainer.json`, and publicly published ones can be added through existing dev container configuration experiences (such as available in the VS Code [Dev Containers](/docs/devcontainers/containers.md#dev-container-features) extension).
 
 ![Specification site list of available Features](features-list-site.png)
 
