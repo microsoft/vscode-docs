@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 7/21/2022
+DateApproved: 11/3/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -63,8 +63,9 @@ The extension also loads an [environment variable definitions file](#environment
 
 ## Creating environments
 
-### Using the Create Environment Command
-From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (Ctrl+Shift+P), start typing the `Python: Create Environment` command to search, and then select the command. 
+### Using the Create Environment command
+
+From within VS Code, you can create non-global environments, using virtual environments or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
 
 The command presents a list of environment types: **Venv** or **Conda**.
 
@@ -82,7 +83,7 @@ After selecting the desired interpreter or Python version, a notification will s
 
 ![Create environment status notification](images/environments/create_environment_prompt_status.png)
 
-> **Note**: The command will also install necessary packages outlined in a requirements/dependencies file, such as requirements.txt, pyproject.toml or environment.yml, located in the project folder.
+> **Note**: The command will also install necessary packages outlined in a requirements/dependencies file, such as `requirements.txt`, `pyproject.toml`, or `environment.yml`, located in the project folder.
 
 ### Create a virtual environment in the terminal
 
