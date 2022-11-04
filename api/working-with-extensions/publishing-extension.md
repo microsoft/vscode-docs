@@ -62,8 +62,7 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
 
-Visual Studio Marketplace will not allow reusing the [extension name](/api/references/extension-manifest), the extension name must be unique.
-You will see following error, if extension name alredy exisit in the Matketplace
+Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest), the extension name must be unique. You will see following error, if an extension name already exist in the Marketplace.
 
 ```
 ERROR The extension 'name' already exists in the Marketplace.
