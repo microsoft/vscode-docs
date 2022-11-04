@@ -21,8 +21,6 @@ There are many VS Code extensions on the [Marketplace](https://marketplace.visua
 
 > **Tip:** Click on an extension tile above to read the description and reviews in the Marketplace.
 
-There is also a [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack which bundles useful Azure extensions for Node.js developers into a single installation.
-
 ## Searching for extensions
 
 You can also search for Azure or cloud extensions in the VS Code Extensions view (`kb(workbench.view.extensions)`) and type 'azure'.
