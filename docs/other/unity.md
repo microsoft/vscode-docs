@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 8/3/2022
+DateApproved: 11/4/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
@@ -91,11 +91,11 @@ Steps:
 
 Unity has [a set of custom C# warnings](https://github.com/microsoft/Microsoft.Unity.Analyzers), called analyzers, that check for common issues with your source code. These analyzers ship out of the box with Visual Studio but need to be set up manually in Visual Studio Code.
 
-Due to how Unity handles its `.csproj` files, it does not seem possible to install packages automatically. You will need to download the analyzers from the [NuGet website](https://www.nuget.org/packages/Microsoft.Unity.Analyzers/) manually. Make sure to download the **.nupkg** file, the source code from github will not work.
+Due to how Unity handles its `.csproj` files, it does not seem possible to install packages automatically. You will need to download the analyzers from the [NuGet website](https://www.nuget.org/packages/Microsoft.Unity.Analyzers/) manually. Make sure to download the `.nupkg` file, the source code from GitHub will not work.
 
 When you're done, open the package file using a tool such as 7zip and extract `Microsoft.Unity.Analyzers.dll` onto your project's root folder. You can place it inside a folder named `NuGet`, for example. Do not place it inside `Assets` or `Packages`, as that will cause Unity to try to process the `.dll`, which will make it output an error in the console.
 
-  - *Note*: 7zip cannot open a *.nupkg* file by `right-click > Open with`. Instead, you have to open 7zip and navigate to the file, then click Extract.
+>**Note**: 7zip cannot open a `.nupkg` file by right-click and **Open with**. Instead, you have to open the 7zip application, navigate to the file, and then select **Extract**.
 
 Next, create an `omnisharp.json` file at the root folder of your project, as explained [here](https://www.strathweb.com/2019/04/roslyn-analyzers-in-code-fixes-in-omnisharp-and-vs-code/). Analyzer support in OmniSharp is experimental at the moment, so we need to enable it explicitly. We also need to point it to the `.dll` file we just extracted.
 
