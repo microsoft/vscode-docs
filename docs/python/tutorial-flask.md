@@ -213,15 +213,15 @@ Debugging gives you the opportunity to pause a running program on a particular l
         "module": "flask",
         "env": {
             "FLASK_APP": "app.py",
-            "FLASK_ENV": "development",
-            "FLASK_DEBUG": "0"
+            "FLASK_DEBUG": "1"
         },
         "args": [
             "run",
             "--no-debugger",
             "--no-reload"
         ],
-        "jinja": true
+        "jinja": true,
+        "justMyCode": true
     },
     ```
 
