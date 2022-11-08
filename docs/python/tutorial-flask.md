@@ -154,15 +154,18 @@ Debugging gives you the opportunity to pause a running program on a particular l
 1. Replace the contents of `app.py` with the following code, which adds a second route and function that you can step through in the debugger:
 
     ```python
-    from flask import Flask
-    from datetime import datetime
     import re
+    from datetime import datetime
+
+    from flask import Flask
 
     app = Flask(__name__)
+
 
     @app.route("/")
     def home():
         return "Hello, Flask!"
+
 
     @app.route("/hello/<name>")
     def hello_there(name):
