@@ -48,9 +48,7 @@ Continue reading to learn how to get started with the VS Code Server.
 
 ## Quick Start
 
-As the service that you use to securely connect to the VS Code Server is in private preview, you'll need to request access through a [signup form](https://aka.ms/vscode-server-signup). You'll receive an email, hopefully only within a few weeks, once you can start using the service.
-
-At that point, here are step-by-step instructions to quickly get up and running:
+Here are step-by-step instructions to quickly get up and running:
 
 1. Install the VS Code Server on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).
 
