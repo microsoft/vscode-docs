@@ -72,7 +72,7 @@ At that point, here are step-by-step instructions to quickly get up and running:
     [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$HOME\.vscode-server-launcher\bin", "User")
     ```
 
-    **Windows (ARM):**
+    **Windows (Arm):**
 
     Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
 
