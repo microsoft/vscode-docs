@@ -199,7 +199,7 @@ The command lets you pick a pre-defined container configuration from a list base
 
 ![Add a dev container config](images/create-dev-container/select-dev-container-def-all.png)
 
-The predefined container configurations you can pick from come from our [first-party and community index](https://containers.dev/templates).
+The predefined container configurations you can pick from come from our [first-party and community index](https://containers.dev/templates), which is part of the [Dev Container Specification](https://containers.dev/). We host a set of Templates as part of the spec in the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
 
 At the end of using **Dev Containers: Add Dev Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Dev Containers: Configure Container Features** allows you to update an existing configuration.
 
