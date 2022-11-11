@@ -107,7 +107,7 @@ This quick start covers how to set up a dev container for an existing project to
 
     You may be able to customize your dev container with additional Features, which [you can read more about below](#dev-container-features).
 
-    The dev container Templates displayed come from the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
+    The dev container Templates displayed come from our [first-party and community index](https://containers.dev/templates), which is part of the [Dev Container Specification](https://containers.dev/). We host a set of Templates as part of the spec in the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
 
 3. After picking the starting point for your container, VS Code will add the dev container configuration files to your project (`.devcontainer/devcontainer.json`).
 
@@ -183,7 +183,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     ![Select a node dev container Template](images/containers/select-dev-container-def.png)
 
-    The list will be automatically sorted based on the contents of the folder you open. The dev container Templates displayed come from the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
+    The list will be automatically sorted based on the contents of the folder you open. The dev container Templates displayed come from our [first-party and community index](https://containers.dev/templates), which is part of the [Dev Container Specification](https://containers.dev/). We host a set of Templates as part of the spec in the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
 
 4. The VS Code window (instance) will reload, clone the source code, and start building the dev container. A progress notification provides status updates.
 
