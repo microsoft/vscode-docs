@@ -28,11 +28,11 @@ After any of the steps above, you'll have a fully functioning dev container, and
 
 VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container image from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-vscode-devcontainers):
+You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container image from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-devcontainers):
 
 ```json
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12"
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12"
 }
 ```
 
@@ -49,7 +49,7 @@ For this example, if you'd like to install the [ESLint extension](https://market
 
 ```json
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12",
 
     "customizations": {
         "vscode": {
@@ -115,19 +115,19 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
-You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a pre-defined set of [scripts](https://github.com/microsoft/vscode-dev-containers/tree/main/script-library/docs) or even your own.
-
-> **Note:** Features support is in preview.
+You may also use the `"features"` property in the `devcontainer.json` to install tools and languages from a pre-defined set of [Features](https://github.com/devcontainers/features) or even your own.
 
 For example, you could install the latest version of the Azure CLI with the following:
 
 ```json
 "features": {
-    "azure-cli": "latest"
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+        "version": "latest"
+    }
   }
 ```
 
-See the article on [dev container features](/docs/devcontainers/containers.md#dev-container-features-preview) for more details.
+See the [dev container Features specification](https://containers.dev/implementors/features/) for more details.
 
 ### Rebuild
 
@@ -197,9 +197,9 @@ Rather than creating a `.devcontainer` by hand, selecting the **Dev Containers: 
 
 The command lets you pick a pre-defined container configuration from a list based on your folder's contents:
 
-![Add a dev container definition](images/create-dev-container/select-dev-container-def-all.png)
+![Add a dev container config](images/create-dev-container/select-dev-container-def-all.png)
 
-All of the predefined container configurations you can pick from come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers), which has examples of `devcontainer.json` and Dockerfiles for different scenarios.
+The predefined container configurations you can pick from come from our [first-party and community index](https://containers.dev/templates).
 
 At the end of using **Dev Containers: Add Dev Container Configuration Files...**, you'll be shown the list of available features, which are tools and languages you can easily drop into your dev container. **Dev Containers: Configure Container Features** allows you to update an existing configuration.
 
@@ -256,12 +256,12 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 
 ![Select Docker Compose File](images/create-dev-container/select-docker-compose.png)
 
-You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from the [vscode-dev-containers repository](https://github.com/microsoft/vscode-dev-containers) in a filterable list sorted based on your folder's contents. Many of these "dev container definitions" use a Dockerfile, so select one of the following definitions as a starting point for Docker Compose:
+You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. Many of these "dev container Templates" use a Dockerfile, so select one of the following Templates as a starting point for Docker Compose:
 
-* [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose)
-* [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo)
-* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres)
-* [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose).
+* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose)
+* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo)
+* [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres)
+* [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose).
 
 After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
 
@@ -350,7 +350,7 @@ You can add other services to your `docker-compose.yml` file as described in [Do
 network_mode: service:db
 ```
 
-You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml#L20).
+You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo).
 
 ### Extend your Docker Compose file for development
 
@@ -427,20 +427,20 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-### Docker Compose dev container definitions
+### Docker Compose dev container Templates
 
-The following are dev container definitions that use Docker Compose:
+The following are dev container Templates that use Docker Compose:
 
-* [Existing Docker Compose](https://aka.ms/vscode-remote/samples/existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
-* [Node.js & MongoDB](https://aka.ms/vscode-remote/samples/node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
-* [Python & PostgreSQL](https://aka.ms/vscode-remote/samples/python-postgres) -  A Python container that connects to PostgreSQL in a different container.
-* [Docker-from-Docker Compose](https://aka.ms/vscode-remote/samples/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
+* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
+* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
+* [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
+* [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
 Congratulations! You've now configured a dev container in Visual Studio Code. Continue reading to learn how to share container configurations among teammates and various projects.
 
 ## Add configuration files to a repository
 
-You can easily share a customized dev container definition for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
+You can easily share a customized dev container Template for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
 
 ![Dev container configuration file reopen notification](images/create-dev-container/dev-container-reopen-prompt.png)
 
@@ -472,12 +472,12 @@ In the Settings editor, you can search for 'dev containers repo' to find the set
 
 ![Repository container folders setting](images/create-dev-container/repo-container-folder-setting.png)
 
-Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub folder that mirrors the remote location of the repository. For example, if you wanted to create a configuration for `github.com/microsoft/vscode-dev-containers`, you would create the following folder structure:
+Next, place your `.devcontainer/devcontainer.json` (and related files) in a sub folder that mirrors the remote location of the repository. For example, if you wanted to create a configuration for `github.com/devcontainers/templates`, you would create the following folder structure:
 
 ```
 📁 github.com
-    📁 microsoft
-        📁 vscode-dev-containers
+    📁 devcontainers
+        📁 templates
            📁 .devcontainer
 ```
 

@@ -29,7 +29,7 @@ See the following example dev container definitions for additional information o
 
 * [Kubernetes - Local Configuration](https://aka.ms/vscode-remote/samples/kubernetes-helm) - Takes the Docker-from-Docker model and adds kubectl and Helm to illustrate how you can access a local Minikube or Docker provided Kubernetes cluster.
 
-There is also documentation on the [Docker-in-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md), [Docker-from-Docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker.md), and [Kubernetes](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/kubectl-helm.md) install scripts that you can reuse and are referenced by the samples above.
+There is also documentation on the [Docker-in-Docker](https://github.com/devcontainers/features/tree/main/src/docker-in-docker), [Docker-from-Docker](https://github.com/devcontainers/features/tree/main/src/docker-from-docker), and [Kubernetes](https://github.com/devcontainers/features/tree/main/src/kubectl-helm-minikube) install scripts that you can reuse and are referenced by the samples above.
 
 ## Mounting host volumes with Docker from inside a container
 
