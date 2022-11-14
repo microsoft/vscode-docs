@@ -429,7 +429,7 @@ services:
 
 ### Docker Compose Dev Container Templates
 
-The following are dev container Templates that use Docker Compose:
+The following are Dev Container Templates that use Docker Compose:
 
 * [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
 * [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
