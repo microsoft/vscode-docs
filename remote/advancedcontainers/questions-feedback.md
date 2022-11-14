@@ -22,6 +22,6 @@ The links below can provide you with more help configuring your development cont
 
 ## Contributing
 
-* Create a [development container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
+* Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
