@@ -181,7 +181,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-    ![Select a node dev container Template](images/containers/select-dev-container-def.png)
+    ![Select a node Dev Container Template](images/containers/select-dev-container-def.png)
 
     The list will be automatically sorted based on the contents of the folder you open. The dev container Templates displayed come from our [first-party and community index](https://containers.dev/templates), which is part of the [Dev Container Specification](https://containers.dev/). We host a set of Templates as part of the spec in the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
 
