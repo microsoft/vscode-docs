@@ -101,7 +101,7 @@ This quick start covers how to set up a dev container for an existing project to
 
     > **Note:** When using Alpine Linux containers, some extensions may not work due to `glibc` dependencies in native code inside the extension.
 
-    ![Select a node dev container Template](images/containers/select-dev-container-def.png)
+    ![Select a node Dev Container Template](images/containers/select-dev-container-def.png)
 
     The list will be automatically sorted based on the contents of the folder you open.
 
