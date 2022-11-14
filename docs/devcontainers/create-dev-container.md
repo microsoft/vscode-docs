@@ -427,7 +427,7 @@ services:
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-### Docker Compose dev container Templates
+### Docker Compose Dev Container Templates
 
 The following are dev container Templates that use Docker Compose:
 
