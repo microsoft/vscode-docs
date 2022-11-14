@@ -48,17 +48,13 @@ Continue reading to learn how to get started with the VS Code Server.
 
 Here are step-by-step instructions to quickly get up and running:
 
-1. Install the `code` CLI on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).
+1. Install the VS Code Server on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).
 
-     You may install just the CLI on its own or use the CLI that automatically comes with an install of VS Code desktop.
+You can choose from two paths to enable tunneling, which are described in greater details in their respective docs:
+* [Enable tunneling through the VS Code UI](./tunnels.md/#vs-code-ui)
+* [Run the `tunnel` command in the `code` CLI](./tunnels.md/#code-cli)
 
-    There are different install commands for different architectures.
-
-    **Linux or macOS:**
-
-    **Windows (x64):**
-
-    **Windows (ARM):**
+We'll describe path 2, using the `code` CLI, in the next steps.
 
 2. Start the VS Code Server by running the following in a remote terminal:
 
@@ -76,15 +72,9 @@ Here are step-by-step instructions to quickly get up and running:
 
     Authenticate into the tunneling service by entering the device code at the provided auth URL.
 
-4. If this is your first time launching the VS Code Server on this remote machine, you'll be prompted to enter a machine name. The CLI will suggest a fun default "adjective-noun" name (examples shown below), which you can choose to accept too.
+4. After authenticating, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your remote machine, you can open this URL on any device.
 
-    ```bash
-    ? What would you like to call this machine? (elegant-pitta) >
-    ```
-
-5. After authenticating and providing a machine name, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your remote machine, you can open this URL on any device.
-
-    > **Note:** You can also connect to your remote machine directly from VS Code: Open the Command Palette (`F1`) in VS Code and run the command **Remote Tunnels: Connect to Remote**.
+    > **Note:** You can also connect to your remote machine directly from VS Code: Open the Command Palette (`F1`) in VS Code and run the command **Remote Tunnels: Connect to Tunnel**.
 
 Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
@@ -100,17 +90,15 @@ Do you accept the terms in the License Agreement (Y/n)?
 
 You can explore the CLI's other commands by running `code -h`. One of the many things you can do is automatically accept the license, by launching with `--accept-server-license-terms`.
 
-![The VS Code Server help commands](images/vscode-server/server-help.png)
-
 ### Extension commands
 
-As with the CLI, the Remote Tunnels extension in VS Code has additional commands you can explore by opening the Command Palette (`F1`) in VS Code and typing **Remote Tunnels**. You may learn more in the [Remote Tunnels documentation](./tunnels.md).
+As with the CLI, the VS Code Remote Tunnels extension has additional commands you can explore by opening the Command Palette (`F1`) in VS Code and typing **Remote Tunnels**. You may learn more in the [Remote Tunnels documentation](./tunnels.md).
 
 ## Telemetry
 
-If you want to disable telemetry, you can pass in `--disable-telemetry` when launching the VS Code Server, `code tunnels --disable-telemetry`. Alternatively, if you would like to specify an initial telemetry level, such as only collecting errors, you can pass in `--telemetry-level` followed by the level (for example, `error`).
+If you want to disable telemetry, you can pass in `--disable-telemetry` when launching the VS Code Server: `code tunnels --disable-telemetry`. Alternatively, if you would like to specify an initial telemetry level, such as only collecting errors, you can pass in `--telemetry-level` followed by the level (for example, `error`).
 
-If telemetry is not disabled via the CLI, the VS Code Server will begin respecting the client telemetry settings (your telemetry setting in vscode.dev) upon successful connection.
+If telemetry is not disabled via the CLI, the VS Code Server will begin respecting the client telemetry settings (your telemetry setting in vscode.dev or desktop) upon successful connection.
 
 ## Common Questions
 
@@ -141,31 +129,20 @@ Pure UI extensions are not supported when using a web-based instance of VS Code,
 
 While working in the browser, there are certain limitations and configuration steps to consider. You can read more about this in the [VS Code for the Web](/docs/editor/vscode-web.md#additional-browser-setup) documentation.
 
-### Is there a limit to the number of remote machines I can connect to?
-
-Right now, you can only have 10 remote machines actively running the VS Code Server. If you'd like to connect to a new remote machine, and already have 10 others running, you'll need to stop the server on one of your other machines.
-
 ### How can I keep the VS Code Server up-to-date?
 
-You will get a notification in vscode.dev when you connect to your remote machine if an update is available, and you'll be able to update directly through this notification.
+You will get a notification in VS Code when you connect to your remote machine if an update is available, and you'll be able to update directly through this notification.
 
 ### I see an error about keyring storage. What should I do?
 
 Settings Sync requires authentication against a Settings Sync server. The corresponding secret is persisted on the server. This requires to set up a keyring on the server. When the keyring is not set up, the VS Code Server falls back to an in-memory secret stored on the server. In this case, secrets are only persisted during the lifetime of the server.
 
-If you're using `tunnel-local` mode, you can run the following:
-
-```bash
-# Get gnome-keyring
-apt update && apt install -y gnome-keyring
-
-# Get the VS Code Server
-# < Uncomment this line and replace it with an install command from above quick start >
-
-# Run a dbus session, which unlocks the gnome-keyring and runs the VS Code Server inside of it
-dbus-run-session -- sh -c "(echo 'somecredstorepass' | gnome-keyring-daemon --unlock) && code-server serve-local --host 0.0.0.0"
-```
-
 ### Where can I provide feedback or report an issue?
 
 If you have any issues or feedback, please file an issue in the [VS Code Remote GitHub repo](https://github.com/microsoft/vscode-remote-release/issues). When filing an issue, include verbose logging, which you can enable by launching the VS Code Server with the `-v` flag: `code -v tunnel`.
+
+You may filter just for issues with the [`code-server` label](https://github.com/microsoft/vscode-remote-release/issues?q=is%3Aissue+is%3Aopen+label%3Acode-server).
+
+### TODO: UPDATE Is there a limit to the number of remote machines I can connect to?
+
+Right now, you can only have **TODO: UPDATE** remote machines actively running the VS Code Server. If you'd like to connect to a new remote machine, and already have **TODO: UPDATE** others running, the CLI will pick a random unused tunnel and delete it.

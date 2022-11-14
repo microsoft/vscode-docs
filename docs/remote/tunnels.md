@@ -19,26 +19,67 @@ This lets VS Code provide a **local-quality development experience** - including
 
 ## Getting Started
 
-You'll first create a secure tunnel with the VS Code Server on your remote machine. Then, you can use the Remote Tunnels extension to connect to that tunnel.
+You can choose from two paths to enable tunneling:
+* Enable tunneling through the VS Code UI
+* Run the `tunnel` command in the `code` CLI
 
-### Tunnel Setup
+We'll describe these two paths in the sections below.
 
-If you have any questions during the tunnel setup process, you may review the [VS Code Server quickstart](./vscode-server.md#quick-start).
+> **Note:** Both paths above result in the same tunneling access – you may use whichever path works best for you. The CLI is a great choice if you don’t want to install the full VS Code desktop on your remote machine.
 
-1. Install the `code` CLI on your remote machine. The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling, also known as port forwarding, securely transmits data from one network to another.
+### VS Code UI
 
-```bash
-TODO: install command
+1. Open VS Code on the machine where you'd like to turn on tunnel access
+
+2. In the VS Code Account menu, select the option to **Turn on Remote Tunnel Access**, as demonstrated in the image below. You may also open the Command Palette (`F1`) in VS Code and run the command **Remote Tunnels: Turn on Remote Tunnel Access...**.
+
+![Turn on Remote Tunnel Access via the VS Code Account menu](./images/tunnels/tunnel-access.png)
+
+3. You'll be prompted to log into GitHub. Once logged in, a tunnel will start up on your current machine, and you'll be able to connect to this machine remotely.
+
+![Prompt that remote tunnel access is enabled](./images/tunnels/tunneling-enabled.png)
+
+4. You can now connect to this machine remotely!
+
+In a local machine of your choice, you may connect to this machine:
+
+* You can open the vscode.dev link from the notification
+* Or, you may open any VS Code instance (web or desktop), run the command **Remote Tunnels: Connect to Tunnel...**, and select a remote machine where you've enabled tunneling or installed the VS Code Server
+
+You can also view your remote machines in the Remote Explorer, which you may access through the command **Remote Explorer: Focus on Remote View**:
+
+![Remote Explorer view with Tunnels](./images/tunnels/tunneling-remote-explorer.png)
+
+### `code` CLI
+
+As an alternative to enabling tunneling through the UI steps above, you may create and use tunnels through the `code` CLI.
+
+1. Install the `code` CLI on a remote machine you'd like to develop against locally. The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling, also known as port forwarding, securely transmits data from one network to another.
+
+You have a couple of options to install the CLI:
+* It's automatically included in your existing VS Code installation – no additional install or setup required if you have VS Code installed already
+* Alternatively, you can grab the CLI through a [standalone install](https://code.visualstudio.com/#alt-downloads) on our download page, which is separate from a VS Code desktop installation:
+
+![VS Code download options with CLI highlighted](./images/tunnels/tunneling-download.png)
+
+2. Launch a secure tunnel with the command: `code tunnel`
+
+3. You'll be provided a device code and URL to authenticate your GitHub account into the secure tunneling service:
+
+``` bash
+Please enter the code 7644-1186 on https://github.com/login/device
 ```
 
-2. Initiate a tunnel with the command: `code tunnel`. Follow the steps to authenticate with your GitHub account.
+Authenticate into the tunneling service by entering the device code at the provided URL.
 
-### Connecting with the Remote Tunnels extension
+After authenticating, you'll be able to connect to and develop against this remote machine from anywhere!
+
+#### Connecting with the Remote Tunnels extension
 
 You have 2 options for connecting to your remote machine:
 
 1. Use the vscode.dev link that's printed in your remote machine when you launch a tunnel. This vscode.dev instance will automatically have the Remote Tunnels extension installed.
-2. Start in VS Code (desktop or vscode.dev) and install the [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server). You may then connect to existing remote machines right from your local VS Code instance via the command in the Command Palette (`F1`): `Remote-Tunnels: Connect to Tunnel...`.
+2. Start in VS Code (desktop or web) and install the [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server). You may then connect to existing remote machines from your local VS Code instance via the command in the Command Palette (`F1`): `Remote-Tunnels: Connect to Tunnel...`.
 
 ![VS Code Command Palette with remote machines listed](images/vscode-server/remote-servers.png)
 
@@ -56,11 +97,11 @@ You can also view your existing remote machines in the Remote Explorer view, whi
 
 Visual Studio Code [Remote Development](./remote-overview.md) allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment.
 
-Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with source code and runtime environments on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server". The VS Code Server is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machine, and file system.
+Visual Studio Code Remote Development allows your local VS Code installation to transparently interact with source code and runtime environments on other machines (whether virtual or physical) by moving the execution of certain commands to a "remote server", aka the VS Code Server. The VS Code Server is quickly installed by VS Code when you connect to a remote endpoint and can host extensions that interact directly with the remote workspace, machine, and file system.
 
-We've released this VS Code Server backend component as a service you can run yourself, rather than it being solely installed and managed by the Remote Development extensions.
+We've released this VS Code Server backend component as a service you can run yourself (which you may read more about in [its documentation](./vscode-server.md)), rather than it being solely installed and managed by the Remote Development extensions.
 
-The VS Code Server is further explained in [its documentation](./vscode-server.md). Accessing it involves a few components:
+Accessing the VS Code Server involves a few components:
 
 * The VS Code Server: Backend server that makes VS Code remote experiences possible.
 * [Remote Tunnels extension](./tunnels.md): Extension that facilitates the connection to the remote machine, where you have an instance of the server running.
@@ -68,3 +109,5 @@ The VS Code Server is further explained in [its documentation](./vscode-server.m
 ### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](../../api/advanced-topics/remote-extensions.md) for details.
+
+### TODO: Usage limits
