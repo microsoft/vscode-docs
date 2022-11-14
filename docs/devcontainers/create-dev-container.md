@@ -254,14 +254,12 @@ VS Code can be configured to **automatically start any needed containers** for a
 
 To get started quickly, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
 
-![Select Docker Compose File](images/create-dev-container/select-docker-compose.png)
+You'll be prompted to pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. From the VS Code UI, you may select one of the following Templates as a starting point for Docker Compose:
 
-You'll be asked to either select an existing Docker Compose file (if one exists), or pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. You may choose to select one of the following Templates as a starting point for Docker Compose:
-
-* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose)
-* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo)
-* [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres)
-* [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose).
+* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
+* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
+* [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
+* [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
 After you make your selection, VS Code will add the appropriate `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file to the folder.
 
@@ -426,15 +424,6 @@ services:
         - .:/workspace:cached
       command: /bin/sh -c "while sleep 1000; do :; done"
 ```
-
-### Docker Compose Dev Container Templates
-
-The following are Dev Container Templates that use Docker Compose:
-
-* [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
-* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
-* [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
-* [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
 Congratulations! You've now configured a dev container in Visual Studio Code. Continue reading to learn how to share container configurations among teammates and various projects.
 

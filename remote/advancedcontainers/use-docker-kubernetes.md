@@ -13,7 +13,9 @@ While you can build, deploy, and debug your application inside a dev container, 
 
 Once the needed CLIs are in place, you can also work with the appropriate container cluster using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension or the [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
-See the following example dev container definitions for additional information on a specific scenario:
+See the following example Dev Container Templates for additional information on a specific scenario. To add them to your project, **open the folder** you want to work with in VS Code and run the **Dev Containers: Add Dev Container Configuration Files...** command in the Command Palette (`kbstyle(F1)`).
+
+You'll be prompted to pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. From the VS Code UI, you may select one of the Templates described in the sections below.
 
 **Running Docker or Minikube in a development container**
 
