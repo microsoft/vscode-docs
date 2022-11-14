@@ -440,7 +440,7 @@ Congratulations! You've now configured a dev container in Visual Studio Code. Co
 
 ## Add configuration files to a repository
 
-You can easily share a customized dev container Template for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
+You can easily share a customized Dev Container Template for your project by adding `devcontainer.json` files to source control. By including these files in your repository, anyone that opens a local copy of your repo in VS Code will be automatically prompted to reopen the folder in a container, provided they have the Dev Containers extension installed.
 
 ![Dev container configuration file reopen notification](images/create-dev-container/dev-container-reopen-prompt.png)
 
