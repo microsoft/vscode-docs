@@ -651,7 +651,7 @@ In addition, while Alpine support is available, some extensions installed in the
 * See [Tips and Tricks](/docs/devcontainers/tips-and-tricks.md) or the [FAQ](/docs/devcontainers/faq.md).
 * Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 * Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
-* Create a [development container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
+* Create a [Dev Container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
 * Review and provide feedback on the [Development Containers Specification](https://github.com/devcontainers/spec).
 * Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code itself](https://github.com/microsoft/vscode).
 * See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
