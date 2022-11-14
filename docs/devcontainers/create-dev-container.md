@@ -127,7 +127,7 @@ For example, you could install the latest version of the Azure CLI with the foll
   }
 ```
 
-See the [dev container Features specification](https://containers.dev/implementors/features/) for more details.
+See the [Dev Container Features specification](https://containers.dev/implementors/features/) for more details.
 
 ### Rebuild
 
