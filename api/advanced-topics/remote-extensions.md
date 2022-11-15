@@ -611,6 +611,6 @@ There are a few extension problems that could be resolved with some added functi
 - See [Tips and Tricks](/docs/remote/troubleshooting) or the [FAQ](/docs/remote/faq).
 - Search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
 - [Upvote a feature or request a new one](https://aka.ms/vscode-remote/feature-requests), search [existing issues](https://aka.ms/vscode-remote/issues), or [report a problem](https://aka.ms/vscode-remote/issues/new).
-- Contribute a [development container definition](https://aka.ms/vscode-dev-containers) for others to use.
+- Create a [development container Template](https://containers.dev/templates) or [Feature](https://containers.dev/features) for others to use.
 - Contribute to [our documentation](https://github.com/microsoft/vscode-docs) or [VS Code](https://github.com/microsoft/vscode).
 - See our [CONTRIBUTING](https://aka.ms/vscode-remote/contributing) guide for details.
