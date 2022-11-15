@@ -21,9 +21,9 @@ We are now providing a standalone "VS Code Server," which is a service built off
 
 ## Architecture
 
-Our long term goal has been to provide a unified VS Code experience no matter how you use the editor, whether it's local or remote, in the desktop or in the browser.
+We want to provide a unified VS Code experience no matter how you use the editor, whether it's local or remote, in the desktop or in the browser.
 
-The VS Code Server is built in to the existing [`code` CLI](/docs/editor/command-line.md#launching-from-command-line).
+Access to the VS Code Server is built in to the existing [`code` CLI](/docs/editor/command-line.md#launching-from-command-line).
 
 The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling, also known as port forwarding, securely transmits data from one network to another.
 
@@ -76,7 +76,7 @@ We'll describe path 2, using the `code` CLI, in the next steps.
 
     > **Note:** You can also connect to your remote machine directly from VS Code: Open the Command Palette (`F1`) in VS Code and run the command **Remote Tunnels: Connect to Tunnel**.
 
-Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
+Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you connect from your local VS Code client. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it.
 
 ## Things to try
 
