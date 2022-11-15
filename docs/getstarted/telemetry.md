@@ -52,7 +52,7 @@ Extension authors may refer to the ["For Extension Authors"](#for-extension-auth
 
 ## Output channel for telemetry events
 
-If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Set the log level to **Trace** using the **Developer: Set Log Level...** command and then in the Output panel (`kb(workbench.action.output.toggleOutput)`), pick **Log (Telemetry)** from the dropdown.
+If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Using the **Developer: Set Log Level...** command, select **All**, then log level **Trace**.  To view the logging output, go to the Output panel (`kb(workbench.action.output.toggleOutput)`) and pick **Log (Telemetry)** from the dropdown.
 
 ![output panel log telemetry](images/telemetry/output-log-telemetry.png)
 
