@@ -28,7 +28,7 @@ After any of the steps above, you'll have a fully functioning dev container, and
 
 VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container image from the popular container registry [Docker Hub](https://hub.docker.com/_/microsoft-devcontainers):
+You can use an image as a starting point for your `devcontainer.json`. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images. Here is a simple example `devcontainer.json` that uses a pre-built TypeScript and Node.js VS Code Development Container [image](https://github.com/devcontainers/images):
 
 ```json
 {
@@ -257,7 +257,7 @@ To get started quickly, **open the folder** you want to work with in VS Code and
 You'll be prompted to pick a pre-defined container configuration from our [first-party and community index](https://containers.dev/templates) in a filterable list sorted based on your folder's contents. From the VS Code UI, you may select one of the following Templates as a starting point for Docker Compose:
 
 * [Existing Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose) - Includes a set of files that you can drop into an existing project that will reuse a `docker-compose.yml` file in the root of your project.
-* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a Mongo DB in a different container.
+* [Node.js & MongoDB](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo) -  A Node.js container that connects to a MongoDB database in a different container.
 * [Python & PostgreSQL](https://github.com/devcontainers/templates/tree/main/src/postgres) -  A Python container that connects to PostgreSQL in a different container.
 * [Docker-from-Docker Compose](https://github.com/devcontainers/templates/tree/main/src/docker-from-docker-compose) - Includes the Docker CLI and illustrates how you can use it to access your local Docker install from inside a dev container by volume mounting the Docker Unix socket.
 
@@ -348,7 +348,7 @@ You can add other services to your `docker-compose.yml` file as described in [Do
 network_mode: service:db
 ```
 
-You can see an example of `network_mode: service:db` in the [Node.js and Mongo DB example dev container](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo).
+You can see an example of `network_mode: service:db` in the [Node.js and MongoDB example dev container](https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo).
 
 ### Extend your Docker Compose file for development
 
