@@ -42,53 +42,27 @@ The VS Code Server allows you to use VS Code in new ways, such as:
 * Developing on a machine that doesn't support the installation of VS Code desktop, such as an iPad / tablet or Chromebook.
 * Experiencing the client-side security benefit that all code can be executed in the browser sandbox.
 
-Continue reading to learn how to get started with the VS Code Server.
+## Getting Started
 
-## Quick Start
-
-Here are step-by-step instructions to quickly get up and running:
-
-1. Install the VS Code Server on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).
-
-You can choose from two paths to enable tunneling, which are described in greater details in their respective docs:
-* [Enable tunneling through the VS Code UI](./tunnels.md/#vs-code-ui)
+You can choose from two paths to enable tunneling, which are described in greater details in their respective docs content:
 * [Run the `tunnel` command in the `code` CLI](./tunnels.md/#code-cli)
-
-We'll describe path 2, using the `code` CLI, in the next steps.
-
-2. Start the VS Code Server by running the following in a remote terminal:
-
-    ```bash
-    code tunnel
-    ```
-
-3. Your remote machine will communicate with your local VS Code client through a secure tunnel. This allows you to connect to your computer from your local client, no matter what network you're on.
-
-    You'll be provided a device code and URL to authenticate your GitHub account into the VS Code Server's secure tunneling service.
-
-    ```bash
-    Please enter the code 7644-1186 on https://github.com/login/device
-    ```
-
-    Authenticate into the tunneling service by entering the device code at the provided auth URL.
-
-4. After authenticating, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your remote machine, you can open this URL on any device.
-
-    > **Note:** You can also connect to your remote machine directly from VS Code: Open the Command Palette (`F1`) in VS Code and run the command **Remote Tunnels: Connect to Tunnel**.
-
-Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you connect from your local VS Code client. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it.
+* [Enable tunneling through the VS Code UI](./tunnels.md/#vs-code-ui)
 
 ## Things to try
 
 ### Licensing and other commands
 
-Upon first run of the VS Code Server, you'll be prompted to accept the terms of the license. You can view the license for the VS Code Server [here](https://aka.ms/vscode-server-license).
+Upon first run of the VS Code Server, you'll be prompted with the terms of the license. You can view the license for the VS Code Server [here](https://aka.ms/vscode-server-license).
 
 ```bash
-Do you accept the terms in the License Agreement (Y/n)?
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
 ```
 
-You can explore the CLI's other commands by running `code -h`. One of the many things you can do is automatically accept the license, by launching with `--accept-server-license-terms`.
+You can explore the CLI's other commands by running `code -h`.
 
 ### Extension commands
 
