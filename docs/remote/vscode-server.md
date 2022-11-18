@@ -143,6 +143,6 @@ If you have any issues or feedback, please file an issue in the [VS Code Remote 
 
 You may filter just for issues with the [`code-server` label](https://github.com/microsoft/vscode-remote-release/issues?q=is%3Aissue+is%3Aopen+label%3Acode-server).
 
-### TODO: UPDATE Is there a limit to the number of remote machines I can connect to?
+### Is there a limit to the number of remote machines I can connect to?
 
-Right now, you can only have **TODO: UPDATE** remote machines actively running the VS Code Server. If you'd like to connect to a new remote machine, and already have **TODO: UPDATE** others running, the CLI will pick a random unused tunnel and delete it.
+Right now, you can have 10 remote machines registered with the VS Code Server. If you'd like to connect to a new remote machine, and already have 10 others registered, the CLI will pick a random unused tunnel and delete it.
