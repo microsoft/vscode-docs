@@ -11,20 +11,20 @@ MetaDescription: To support lazy activation of Visual Studio Code extensions (pl
 
 **Activation Events** is a set of JSON declarations that you make in the `activationEvents` field of `package.json` [Extension Manifest](/api/references/extension-manifest). Your extension becomes activated when the **Activation Event** happens. Here is a list of all available **Activation Events**:
 
-- [`onLanguage`](/api/references/activation-events#onLanguage)
-- [`onCommand`](/api/references/activation-events#onCommand)
-- [`onDebug`](/api/references/activation-events#onDebug)
-  - [`onDebugInitialConfigurations`](/api/references/activation-events#onDebugInitialConfigurations)
-  - [`onDebugResolve`](/api/references/activation-events#onDebugResolve)
-- [`workspaceContains`](/api/references/activation-events#workspaceContains)
-- [`onFileSystem`](/api/references/activation-events#onFileSystem)
-- [`onView`](/api/references/activation-events#onView)
-- [`onUri`](/api/references/activation-events#onUri)
-- [`onWebviewPanel`](/api/references/activation-events#onWebviewPanel)
-- [`onCustomEditor`](/api/references/activation-events#onCustomEditor)
-- [`onAuthenticationRequest`](/api/references/activation-events#onAuthenticationRequest)
-- [`onStartupFinished`](/api/references/activation-events#onStartupFinished)
-- [`*`](/api/references/activation-events#Start-up)
+- [`onLanguage`](/api/references/activation-events.md#onLanguage)
+- [`onCommand`](/api/references/activation-events.md#onCommand)
+- [`onDebug`](/api/references/activation-events.md#onDebug)
+  - [`onDebugInitialConfigurations`](/api/references/activation-events.md#onDebugInitialConfigurations)
+  - [`onDebugResolve`](/api/references/activation-events.md#onDebugResolve)
+- [`workspaceContains`](/api/references/activation-events.md#workspaceContains)
+- [`onFileSystem`](/api/references/activation-events.md#onFileSystem)
+- [`onView`](/api/references/activation-events.md#onView)
+- [`onUri`](/api/references/activation-events.md#onUri)
+- [`onWebviewPanel`](/api/references/activation-events.md#onWebviewPanel)
+- [`onCustomEditor`](/api/references/activation-events.md#onCustomEditor)
+- [`onAuthenticationRequest`](/api/references/activation-events.md#onAuthenticationRequest)
+- [`onStartupFinished`](/api/references/activation-events.md#onStartupFinished)
+- [`*`](/api/references/activation-events.md#Start-up)
 
 We also provide a reference of all fields in the [`package.json` extension manifest](/api/references/extension-manifest).
 
