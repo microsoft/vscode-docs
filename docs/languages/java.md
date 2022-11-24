@@ -151,6 +151,14 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
+## Code snippets
+
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
+
+For example, typing "**sout**" or "**sysout**" will directly produce a code snippet for **System.out.println()**;
+
+![Code Snippet](images/java-editing/code-snippet.png)
+
 For more details, see [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
 
 ## Debugging
