@@ -1,7 +1,7 @@
 ---
 Order: 78
-TOCTitle: VS Code Sandbox
-PageTitle: VS Code Sandbox
+TOCTitle: VS Code Sandboxing
+PageTitle: VS Code Sandboxing
 MetaDescription: Migrating Visual Studio Code to Electron process sandboxing
 Date: 2022-11-28
 Author: Benjamin Pasero
@@ -31,7 +31,7 @@ The code below no longer depends on Node.js but uses a `vscode` global variable 
 
 ![Removing Node.js by providing an asynchronous alternative in Electron](removing-node-web-page.png)
 
-How we came to have the `vscode` global in the renderer process and how it is implemented is detailed in the [Timeline](#timeline) sections below.
+How we came to have the `vscode` global in the renderer process and how it is implemented is detailed in the [Timeline](#our-technology-timeline) sections below.
 
 Blocking Node.js from renderer processes is an encouraged Electron [security recommendation](https://www.electronjs.org/docs/latest/tutorial/security) and will eventually be the only way of writing Electron applications. We have had security issues in the past where attackers were able to execute arbitrary Node.js code from the renderer process. A sandboxed renderer process greatly reduces the risk of these attacks.
 
@@ -45,7 +45,7 @@ The diagram below shows our process architecture before the sandbox effort start
 
 We quickly decided that we wanted to work on process sandboxing without having to ship a separate VS Code application that is sandboxed. We wanted to incrementally make the VS Code renderer process sandbox-ready and then flip the switch at the end. Over the past years, we have shipped monthly stable releases of VS Code with changes that contribute to the sandbox goal without fully enabling it. Imagine flying an airplane that is being fundamentally rebuild while it is in the air. And in our case, users have mostly been unaware of the changes to VS Code.
 
-## Timeline
+## Our technology timeline:
 
 The next sections go into detail about how sandboxing came together over the past years. The main task was to remove all Node.js dependencies from the renderer process but along that way, more challenges came up, such as figuring out an efficient sandbox-ready IPC solution with the help of MessagePorts or finding new hosts for the various Node.js child processes that we could fork from the renderer process.
 
