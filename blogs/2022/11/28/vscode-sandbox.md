@@ -47,7 +47,7 @@ We quickly decided that we wanted to work on process sandboxing without having t
 
 ## Our technology timeline:
 
-The next sections go into detail about how sandboxing came together over the past years. The main task was to remove all Node.js dependencies from the renderer process but along that way, more challenges came up, such as figuring out an efficient sandbox-ready IPC solution with the help of MessagePorts or finding new hosts for the various Node.js child processes that we could fork from the renderer process.
+The next sections go into detail about how sandboxing came together over the past years. The main task was to remove all Node.js dependencies from the renderer process but along that way, more challenges came up, such as figuring out an efficient sandbox-ready IPC solution with the help of `MessagePort` or finding new hosts for the various Node.js child processes that we could fork from the renderer process.
 
 For the most part, the order of topics follows the actual timeline. To keep each section brief, we link to other documents and tutorials explaining a certain technical aspect in greater detail. And even though we planned for this work in early 2020, it is unfair to leave out some of the previous work that helped with this task. Let's take a closer look…
 
@@ -75,7 +75,7 @@ Preload scripts are our fundamental building block for splitting privileged code
 
 ![IPC flow when preload scripts are involved in Electron](ipc-preload-scripts.png)
 
-## Fast inter-process communication via message ports
+## Fast inter-process communication via message port
 
 With the introduction of preload scripts, we have a way for the renderer process to communicate with the Electron main process to schedule work. However, in Electron applications it is critical to not overload the main process with too much work because it is also the process that is responsible for processing user input, for example from the keyboard and mouse. A busy main process can result in an unresponsive user interface.
 
@@ -108,7 +108,7 @@ With the introduction of the custom `vscode-file` protocol for all our renderer 
 
 ## Adapting our code loader
 
-Historically all our TypeScript code is compiled to [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) modules and loaded with a [custom loader](https://github.com/microsoft/vscode-loader) that we have been maintaining over the years. Eventually, we may decide to move away from AMD and embrace [ESM](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules), but that work is only in its early [planning](https://github.com/microsoft/vscode/issues/160416) stages.
+Historically all our TypeScript code is compiled to [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) modules and loaded with a [custom loader](https://github.com/microsoft/vscode-loader) that we have been maintaining over the years. We are planning to move away from AMD and embrace [ESM](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules), but that work is in its [early stages](https://github.com/microsoft/vscode/issues/160416).
 
 Our code loader supports both Node.js and web environments by probing for some well-defined variables to figure out the actual running environment. A sandboxed renderer is essentially like a web environment, so very few changes were necessary for our loader to support the sandbox.
 
@@ -118,11 +118,11 @@ Once those changes were in, we were able to run an early version of VS Code with
 
 Now that we had a way to run VS Code with sandbox enabled, we wanted to invest in tooling to make the transition easier from source code that depends on Node.js to code that is "ready for sandbox". Given our investment in VS Code for the Web, we already had static analysis tooling in place that would block Node.js code from ever getting shipped to the web version. This tooling defined a set of [Target Environments](https://github.com/microsoft/vscode/wiki/source-code-organization#target-environments) with their runtime requirements. Our tooling can detect and report the use of Node.js global objects (such as `Buffer`), Node.js APIs, or node modules in a target environment that does not allow it. For the work of sandboxing, we added a new target environment **electron-sandbox** that does not allow any use of Node.js. By moving code over into this environment, we were able to gradually get the code sandbox-ready.
 
-In the screenshot below, a warning marker appears in the editor indicating that a file from the "browser" target environment depends on an API from Node.js. The warning will cause our build to fail and prevent accidentally pushing this code to a release.
+In the screenshot below, a warning marker appears in the editor indicating that a file from the **browser** target environment depends on an API from Node.js. The warning will cause our build to fail and prevent accidentally pushing this code to a release.
 
 ![A warning in VS Code informing about a target environment violation](target-environment-warning.png)
 
-Our Process Explorer and Issue Reporter utilities were among the first to conform to the "electron-sandbox" target requirements. We were able to run these windows fully sandboxed well before the workbench window finished the adoption.
+Our Process Explorer and Issue Reporter utilities were among the first to conform to the **electron-sandbox** target requirements. We were able to run these windows fully sandboxed well before the workbench window finished the adoption.
 
 ## Moving processes out of the renderer
 
