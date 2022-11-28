@@ -9,13 +9,13 @@ DateApproved: 10/6/2022
 ---
 # Visual Studio Code Server
 
-The Visual Studio Code Server is a service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a local VS Code instance, without the requirement of SSH.
+The Visual Studio Code Server is a service you can run on a remote development machine, like your desktop PC or a virtual machine (VM). It allows you to securely connect to that remote machine from anywhere through a local VS Code client, without the requirement of SSH.
 
 ## What is the VS Code Server?
 
 In VS Code, we want users to seamlessly leverage the environments that make them the most productive. The [VS Code Remote Development extensions](/docs/remote/remote-overview.md) allow you to work in the Windows Subsystem for Linux (WSL), remote machines via SSH, and dev containers directly from VS Code. These extensions install a server on the remote environment, allowing local VS Code to smoothly interact with remote source code and runtimes.
 
-We are now providing a standalone "VS Code Server," which is a service built off the same underlying server used by the remote extensions, plus some additional functionality, like an interactive CLI and facilitating secure connections to vscode.dev.
+We now provide a standalone "VS Code Server," which is a service built off the same underlying server used by the remote extensions, plus some additional functionality, like an interactive CLI and facilitating secure connections to vscode.dev.
 
 ![vscode.dev connected to the VS Code Server](images/vscode-server/server-connected.png)
 
@@ -117,7 +117,7 @@ Settings Sync requires authentication against a Settings Sync server. The corres
 
 If you have any issues or feedback, please file an issue in the [VS Code Remote GitHub repo](https://github.com/microsoft/vscode-remote-release/issues). When filing an issue, include verbose logging, which you can enable by launching the VS Code Server with the `-v` flag: `code -v tunnel`.
 
-You may filter just for issues with the [`code-server` label](https://github.com/microsoft/vscode-remote-release/issues?q=is%3Aissue+is%3Aopen+label%3Acode-server).
+You may filter just for VS Code Server issues with the [`code-server` label](https://github.com/microsoft/vscode-remote-release/issues?q=is%3Aissue+is%3Aopen+label%3Acode-server).
 
 ### Is there a limit to the number of remote machines I can connect to?
 

@@ -117,9 +117,9 @@ We've built functionality into the `code` CLI that will initiate tunnels on remo
 code tunnel
 ```
 
-to create a tunnel on your remote machine.
+to create a tunnel on your remote machine. You may connect to this machine through a web or desktop VS Code client.
 
-You may review the other tunneling commands by running `code tunnel -help`:
+You can review the other tunneling commands by running `code tunnel -help`:
 
 ![Output of tunnel help CLI command](images/command-line/tunnel-help.png)
 
