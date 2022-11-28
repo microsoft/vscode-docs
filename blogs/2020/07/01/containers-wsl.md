@@ -77,11 +77,11 @@ Installing the WSL extension added the Remote Explorer to VS Code. When we look 
 
 ## Working with containers
 
-We can leverage the [Dev Containers](https://code.visualstudio.com/docs/remote/containers) extension to view and attach to containers, in addition to a variety of other scenarios, such as:
+We can leverage the [Dev Containers](/docs/devcontainers/containers.md) extension to view and attach to containers, in addition to a variety of other scenarios, such as:
 
-* [Developing within a set of sample containers](https://code.visualstudio.com/docs/remote/containers-tutorial)
-* [Opening existing source code in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
-* [Working with a GitHub repository](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in an isolated container volume.
+* [Developing within a set of sample containers](/docs/devcontainers/tutorial.md)
+* [Opening existing source code in a container](/docs/devcontainers/containers.md#quick-start-open-an-existing-folder-in-a-container)
+* [Working with a GitHub repository](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) in an isolated container volume.
 
 These configurations allow you to easily recreate the same development environment across machines, install tools and extensions specific to a project into a DevContainer, and develop in a setup similar to the environment for deployment, leaving the local machine unchanged. We can also view and attach to containers using the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension.
 

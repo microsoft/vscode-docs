@@ -5,7 +5,7 @@ TOCTitle: Windows Subsystem for Linux
 PageTitle: Developing in the Windows Subsystem for Linux with Visual Studio Code
 ContentId: 79bcdbf9-d6a5-4e04-bbee-e7bb71f09f0a
 MetaDescription: Using Visual Studio Code Remote Development with the Windows Subsystem for Linux (WSL)
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Developing in WSL
 
@@ -93,7 +93,7 @@ To force that a file is opened add `--goto` or use:
 
 ## Working with Git
 
-If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files) for details.
+If you are working with the same repository in WSL and Windows, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 
 You can also avoid passwords by configuring WSL to use the Windows Git credential manager. See [tips and tricks](/docs/remote/troubleshooting.md#sharing-git-credentials-between-windows-and-wsl) for details.
 
@@ -145,7 +145,7 @@ Check the WSL log (**WSL: Show Log**) for output and errors.
 
 ## Advanced: Opening a WSL 2 folder in a container
 
-If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Dev Containers](/docs/remote/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
+If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), you can use the [Dev Containers](/docs/devcontainers/containers.md) extension to work with source code stored inside WSL! Just follow these steps:
 
 1. If you have not already, [install and setup](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) Docker Desktop's WSL 2 support.
 
@@ -159,15 +159,15 @@ If you are using WSL 2 and [Docker Desktop's WSL 2 back-end](https://docs.docker
 
 5. If the folder does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
 
-    ![Select a node dev container definition](images/containers/select-dev-container-def.png)
+    ![Select a node dev container definition](images/wsl/select-dev-container-def.png)
 
 6. The VS Code window (instance) will reload and start building the dev container. A progress notification provides status updates.
 
-    ![Dev Container Progress Notification](images/containers/dev-container-progress.png)
+    ![Dev Container Progress Notification](images/wsl/dev-container-progress.png)
 
 7. After the build completes, VS Code will automatically connect to the container. You can now work with the your source code from inside the container.
 
-See the [Dev Containers documentation](/docs/remote/containers.md) for more information.
+See the [Dev Containers documentation](/docs/devcontainers/containers.md) for more information.
 
 ## Known limitations
 

@@ -5,11 +5,11 @@ TOCTitle: Connect to multiple containers
 PageTitle: Connect to multiple containers
 ContentId: d3b8e250-a03e-4c67-b2f9-391cc106f3b5
 MetaDescription: Connect to multiple containers
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Connect to multiple containers
 
-Currently you can only connect to one container per Visual Studio Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/remote/attach-container.md).
+Currently you can only connect to one container per Visual Studio Code window. However, you can spin up multiple VS Code windows to [attach to them](/docs/devcontainers/attach-container.md).
 
 If you'd prefer to use `devcontainer.json` instead and are using Docker Compose, you can create separate  `devcontainer.json` files for each service in your source tree that point to a common `docker-compose.yml`.
 
@@ -94,7 +94,7 @@ You can now interact with both containers at once from separate windows.
 
 ## Extending a Docker Compose file when connecting to two containers
 
-If you want to [extend your Docker Compose file for development](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
+If you want to [extend your Docker Compose file for development](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development), you should use a single `docker-compose.yml` that extends **both** services (as needed) and is referenced in **both** `.devcontainer.json` files.
 
 For example, consider this `docker-compose.devcontainer.yml` file:
 

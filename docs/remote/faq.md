@@ -5,11 +5,11 @@ TOCTitle: FAQ
 PageTitle: Visual Studio Code Remote Development Frequently Asked Questions
 ContentId: 66bc3337-5fe1-4dac-bde1-a9302ff4c0cb
 MetaDescription: Visual Studio Code Remote Development Frequently Asked Questions (FAQ) for SSH, Containers, and WSL
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Remote Development FAQ
 
-This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
+This article covers frequently asked questions for each of the **Visual Studio Code Remote Development** extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for more details on setting up and working with each of their respective capabilities. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
 For questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
@@ -91,13 +91,13 @@ You can use one of the following solutions to resolve this problem:
 
 * Open a new local window (**File > New Window**) and use it to work with local containers.
 
-* Install the [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/remote/containers.md#managing-containers) in situations when you need to see your local containers.
+* Install the [Dev Containers](https://aka.ms/vscode-remote/download/containers) extension and use the [Remote Explorer](/docs/devcontainers/containers.md#managing-containers) in situations when you need to see your local containers.
 
 * **WSL only**:  Use the [Docker Technical Preview for WSL 2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/) or [configure Docker Desktop for use in WSL 1](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly).
 
 * **Dev Containers only**: Forward the [Docker socket and install the Docker CLI](https://aka.ms/vscode-remote/samples/docker-from-docker) (only) in the container.
 
-* Use the [extensionKind property](/docs/remote/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
+* Use the [extensionKind property](/docs/devcontainers/containers.md#advanced-forcing-an-extension-to-run-locally-or-remotely) to force the extension to be `ui`. However, this will prevent some commands from working.
 
 ### What Linux packages or libraries need to be installed on a host to use Remote Development?
 
@@ -119,7 +119,7 @@ Yes. The [Remote Development extension pack](https://aka.ms/vscode-remote/downlo
 
 As with [other parts of Visual Studio Code](/docs/getstarted/settings.md), you can customize each of the Remote Development extensions through their settings. Using Dev Containers as an example, you may review a list of all Dev Containers settings by opening the extension in the Extensions view (`kb(workbench.view.extensions)`), and navigating to **Feature Contributions**:
 
-![List of settings in Feature Contributions](images/containers/feature-contributions.png)
+![List of settings in Feature Contributions](images/faq/feature-contributions.png)
 
 ## WSL
 
@@ -134,18 +134,6 @@ It’s true that you can run binaries in WSL from Windows and vice-versa, but re
 We decided instead to make parts of VS Code run in WSL and let the UI running on Windows talk to the VS Code server running in WSL. This is what the WSL extension enables and with it, the Go extension runs in WSL along with the rest of the Go tools (compiler, debugger, linters), while VS Code runs on Windows.
 
 With this approach, language features like smart completions just work against what is in WSL without having to set up anything on Windows. You don't have to worry about path issues or set up different versions of development stacks on Windows. If you are deploying applications to Linux, you can set up your WSL instances to look like your runtime environment while still getting a rich editing experience on Windows.
-
-## Dev Containers
-
-### Do "dev container definitions" define how an application is deployed?
-
-No. A development container defines an environment in which you develop your application before you are ready to deploy. While deployment and development containers may resemble one another, you may not want to include tools in a deployment image that you use during development.
-
-The [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers) includes a set of dev container definitions for some common development environments. You can also [attach to a running container](/docs/remote/attach-container.md) without setting up a dev container definition, if you prefer to use an alternate container build or deployment workflow.
-
-### Do "dev containers definitions" define how an application is built? Like Buildpacks?
-
-No. The [Buildpacks](https://buildpacks.io/) concept focuses on taking source code and generating deployable container images through a series of defined steps. A dev container is an environment in which you can develop your application before you are ready to build. They are therefore complementary concepts.
 
 ## Extensions authors
 

@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -153,28 +153,30 @@ If you need a type of installation not listed there, you can manually download v
 
 Download type | URL
 --- | ---
-Windows 64 bit System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
-Windows 64 bit User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
-Windows 64 bit zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
-Windows 64 bit ARM System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
-Windows 64 bit ARM User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
-Windows 64 bit ARM zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
-Windows 32 bit System installer | https://update.code.visualstudio.com/{version}/win32/stable
-Windows 32 bit User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
-Windows 32 bit zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
-macOS | https://update.code.visualstudio.com/{version}/darwin/stable
-Linux 64 bit | https://update.code.visualstudio.com/{version}/linux-x64/stable
-Linux 64 bit debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
-Linux 64 bit rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
-Linux 64 bit snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
-Linux ARM | https://update.code.visualstudio.com/{version}/linux-armhf/stable
-Linux ARM debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
-Linux ARM rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
-Linux 64 bit ARM  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
-Linux 64 bit ARM debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
-Linux 64 bit ARM rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
+Windows x64 System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
+Windows x64 User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
+Windows x64 zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
+Windows Arm64 System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
+Windows Arm64 User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
+Windows Arm64 zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
+Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
+Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
+Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
+macOS Universal | https://update.code.visualstudio.com/{version}/darwin-universal/stable
+macOS Intel chip | https://update.code.visualstudio.com/{version}/darwin/stable
+macOS Apple silicon | https://update.code.visualstudio.com/{version}/darwin-arm64/stable
+Linux x64 | https://update.code.visualstudio.com/{version}/linux-x64/stable
+Linux x64 debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
+Linux x64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
+Linux x64 snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
+Linux Arm32 | https://update.code.visualstudio.com/{version}/linux-armhf/stable
+Linux Arm32 debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
+Linux Arm32 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
+Linux Arm64  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
+Linux Arm64 debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
+Linux Arm64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
 
-Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux ARM debian version for 1.50.1, you would use
+Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux Arm32 debian version for 1.50.1, you would use
 
 ```bash
 https://update.code.visualstudio.com/1.50.1/linux-deb-armhf/stable

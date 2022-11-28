@@ -69,6 +69,7 @@ If you have never installed a JDK before and need to install one, we recommend y
 * [Amazon Corretto](https://aws.amazon.com/corretto)
 * [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)
+* [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)

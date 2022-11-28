@@ -2,12 +2,12 @@
 Area: containers
 ContentId: DDE07043-BA8C-4D75-B392-ABACC31F6EA8
 PageTitle: Connect to Docker engine running on a remote machine
-DateApproved: 8/16/2021
+DateApproved: 11/21/2022
 MetaDescription: Connect via SSH to Docker engine running on a remote machine and use the remote machine as a development environment for Visual Studio Code.
 ---
 # Connect to remote Docker over SSH
 
-We recommend using the Visual Studio Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to a remote machine running Docker engine. You can use the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) and [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extensions together. You may review the steps in the [remote development documentation](/docs/remote/containers.md#open-a-folder-on-a-remote-ssh-host-in-a-container).
+We recommend using the Visual Studio Code [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension to connect to a remote machine running Docker engine. You can use the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) and [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extensions together. You may review the steps in the [Dev Containers documentation](/docs/devcontainers/containers.md#open-a-folder-on-a-remote-ssh-host-in-a-container).
 
 It is also possible to connect to the remote Docker engine directly using SSH tunneling, which you can read more about below.
 
@@ -35,7 +35,7 @@ It is also possible to connect to the remote Docker engine directly using SSH tu
 
     Always include the user name in the Docker endpoint address, even if it is the same as the local user name. If you omit the port, it defaults to 22.
 
-1. Use the **Command Palette** (`kb(workbench.action.showCommands)`) to issue the **Docker Context: Use** command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
+1. Use the **Command Palette** (`kb(workbench.action.showCommands)`) to issue the **Docker Contexts: Use** command to activate the Docker context pointing to the remote machine. This command causes both VS Code and Docker CLI to use the remote machine context.
 
 1. It is recommended to change the refresh rate to something longer than the default with the `docker.explorerRefreshInterval` setting. The connection over SSH is slow, and it can result in trying to refresh again before the previous refresh even finished. We recommend at least 3000 ms.
 

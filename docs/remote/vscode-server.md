@@ -5,7 +5,7 @@ TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Visual Studio Code Server
 
@@ -34,7 +34,7 @@ The VS Code Server's CLI establishes a tunnel between a VS Code client (vscode.d
 The VS Code Server experience includes a few components:
 
 * The VS Code Server: Backend server that makes VS Code remote experiences possible, plus a CLI that makes it easy to install, update, manage, and connect to the server.
-* Remote-Server extension: Automatically loaded in your local VS Code client, it facilitates the connection to the remote machine.
+* Remote Tunnels extension: Automatically loaded in your local VS Code client, it facilitates the connection to the remote machine.
 
 ## Scenarios
 
@@ -48,9 +48,7 @@ Continue reading to learn how to get started with the VS Code Server.
 
 ## Quick Start
 
-As the service that you use to securely connect to the VS Code Server is in private preview, you'll need to request access through a [signup form](https://aka.ms/vscode-server-signup). You'll receive an email, hopefully only within a few weeks, once you can start using the service.
-
-At that point, here are step-by-step instructions to quickly get up and running:
+Here are step-by-step instructions to quickly get up and running:
 
 1. Install the VS Code Server on your remote machine. You can install and host it in a machine on-premises or in the cloud, as long as it meets the necessary [system requirements](/docs/remote/linux.md).
 
@@ -72,7 +70,7 @@ At that point, here are step-by-step instructions to quickly get up and running:
     [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$HOME\.vscode-server-launcher\bin", "User")
     ```
 
-    **Windows (ARM):**
+    **Windows (Arm):**
 
     Run the following commands in a non-elevated PowerShell. You may need to restart your terminal for the PATH changes to apply.
 
@@ -106,7 +104,7 @@ At that point, here are step-by-step instructions to quickly get up and running:
 
 5. After authenticating and providing a machine name, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your remote machine, you can open this URL on any device.
 
-    > **Note:** You can also connect to your remote machine directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
+    > **Note:** You can also connect to your remote machine directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Tunnels: Connect to Remote**.
 
 Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your remote machine's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 
@@ -126,13 +124,13 @@ You can explore the CLI's other commands by running `code-server -h`. One of the
 
 ### Extension commands
 
-As with the VS Code Server's CLI, the Remote-Server extension in VS Code has additional commands you can explore by opening the Command Palette (`F1`) in VS Code and typing **Remote Server**. Like the other Remote Development Extensions, the name of your remote machine will be listed in the lower left green remote indicator. Clicking on this indicator is another way to explore server commands, along with options to close your remote connection or install desktop VS Code.
+As with the VS Code Server's CLI, the Remote Tunnels extension in VS Code has additional commands you can explore by opening the Command Palette (`F1`) in VS Code and typing **Remote Tunnels**. Like the other Remote Development Extensions, the name of your remote machine will be listed in the lower left green remote indicator. Clicking on this indicator is another way to explore server commands, along with options to close your remote connection or install desktop VS Code.
 
-![VS Code remote indicator connected to a remote server](images/vscode-server/remote-indicator-server.png)
+![VS Code remote indicator connected to a remote tunnel](images/vscode-server/remote-indicator-server.png)
 
-**Remote Server: Connect to Remote...** allows you to connect to existing remote machines right from your local VS Code instance, rather than grabbing the vscode.dev link in the remote terminal. You can connect to a remote machine as long as the server is still running on it.
+**Remote Tunnels: Connect to Remote...** allows you to connect to existing remote machines right from your local VS Code instance, rather than grabbing the vscode.dev link in the remote terminal. You can connect to a remote machine as long as the server is still running on it.
 
-![VS Code Command Palette with remote servers listed](images/vscode-server/remote-servers.png)
+![VS Code Command Palette with remote tunnels listed](images/vscode-server/remote-servers.png)
 
 You can also view your existing remote machines in the Remote Explorer view (which you can display with the command **View: Show Remote Explorer**).
 
