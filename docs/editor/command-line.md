@@ -105,7 +105,7 @@ Argument|Description
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 
-### Connect to remote machines
+### Create remote tunnel
 
 VS Code integrates with other [remote environments](../remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
 
@@ -118,6 +118,10 @@ code tunnel
 ```
 
 to create a tunnel on your remote machine.
+
+You may review the other tunneling commands by running `code tunnel -help`:
+
+![Output of tunnel help CLI command](images/command-line/tunnel-help.png)
 
 As you may need to run the CLI on a remote machine that can't install VS Code Desktop, the CLI is also available for standalone install on the [VS Code download page](https://code.visualstudio.com/insiders/).
 

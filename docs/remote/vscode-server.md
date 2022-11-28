@@ -62,7 +62,9 @@ Upon first run of the VS Code Server, you'll be prompted with the terms of the l
 * the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
 ```
 
-You can explore the CLI's other commands by running `code -h`.
+You can explore the CLI's other commands by running `code -h`, and specifically the tunneling commands by running `code tunnel -help`:
+
+![Output of tunnel help CLI command](images/vscode-server/tunnel-help.png)
 
 ### Extension commands
 

@@ -22,7 +22,7 @@ This lets VS Code provide a **local-quality development experience** - including
 ## Getting Started
 
 You have two paths to work with tunnels:
-* Run the `tunnel` command in the [`code` CLI](../editor/command-line.md#connect-to-remote-machines)
+* Run the `tunnel` command in the [`code` CLI](../editor/command-line.md#create-remote-tunnel)
 * Enable tunneling through the VS Code UI
 
 Both of these paths result in the same tunneling functionality – you may use whichever works best for you. The CLI is a great option if you can't install the full VS Code Desktop on your remote machine. The UI is a great option if you're already doing some work in VS Code and would then like to enable tunneling for your current machine.
@@ -42,6 +42,8 @@ Alternatively, you can grab the CLI through a [standalone install](https://code.
 ![VS Code download options with CLI highlighted](./images/tunnels/tunneling-download.png)
 
 2. Create a secure tunnel with the command: `code tunnel`
+
+This command downloads and starts the VS Code Server on this machine and then creates a tunnel to it.
 
 3.	This CLI will output a vscode.dev URL tied to this remote machine, such as `https://vscode.dev/tunnel/<machine_name>/<folder_name>`. You can open this URL on a machine of your choosing
 
@@ -93,3 +95,9 @@ Accessing the VS Code Server involves a few components:
 ### As an extension author, what do I need to do?
 
 The VS Code extension API abstracts away local/remote details so most extensions will work without modification. However, given extensions can use any node module or runtime they want, there are situations where adjustments may need to be made. We recommend you test your extension to be sure that no updates are required. See [Supporting Remote Development](../../api/advanced-topics/remote-extensions.md) for details.
+
+### How do I remove a tunnel or machine?
+
+If you'd like to stop a tunnel you're running via the CLI, you may use `Ctrl + C` to end the active connection. If you've enabled tunneling through the VS Code UI, you may run the command **Remote Tunnels: Turn of Remote Tunnel Access...**.
+
+You may remove a machine's association with tunneling through the `code tunnel unregister` CLI command, or right-clicking on the machine and selecting "unregister" in the VS Code Remote Explorer UI.
