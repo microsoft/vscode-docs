@@ -29,12 +29,14 @@ This model only requires that a Docker Engine be running on a remote host that y
 
 ### A basic remote example
 
-Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` and restarting VS Code (or reloading the window).
+Setting up VS Code to attach to a container on a remote Docker host can be as easy as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property in `settings.json` and restarting VS Code (or reloading the window).
 
 For example:
 
 ```json
-"docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
+"docker.environment": {
+    "DOCKER_HOST": "ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
+}
 ```
 
 Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/devcontainers/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
@@ -79,10 +81,12 @@ Recent versions of Docker (18.06+) have added support for the SSH protocol to co
 
 First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/devcontainers/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
-Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property to `settings.json` (replacing values as appropriate):
+Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.environment` property to `settings.json` (replacing values as appropriate):
 
 ```json
-"docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
+"docker.environment": {
+    "DOCKER_HOST": "ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
+}
 ```
 
 After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/devcontainers/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
@@ -94,9 +98,11 @@ After restarting VS Code (or reloading the window), you will now be able to [att
 While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties. These are:
 
 ```json
-"docker.host":"tcp://your-remote-machine-fqdn-or-ip-here:port",
-"docker.certPath": "/optional/path/to/folder/with/certificate/files",
-"docker.tlsVerify": "1" // or "0"
+"docker.environment": {
+    "DOCKER_HOST": "tcp://your-remote-machine-fqdn-or-ip-here:port",
+    "DOCKER_CERT_PATH": "/optional/path/to/folder/with/certificate/files",
+    "DOCKER_TLS_VERIFY": "1" // or "0"
+}
 ```
 
 As with SSH, restart VS Code (or reload the window) for the settings to take effect.
@@ -116,7 +122,7 @@ If you'd prefer not to use `settings.json`, you can set **environment variables*
 
 You create new contexts with `docker context create`. The current context can be changed using `docker context use <context>`.
 
-The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with `docker.host` (same as `DOCKER_HOST` env variable) and `docker.context` (same as `DOCKER_CONTEXT` env variable) user settings that are also honored by the Dev Containers extension.
+The [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) comes with the `docker.environment` setting where environment variables like `DOCKER_HOST` or `DOCKER_CONTEXT` can be set that are also honored by the Dev Containers extension.
 
 > **Note:** The above settings are only visible when the Docker extension is installed. Without the Docker extension, Dev Containers will use the current context.
 
