@@ -520,12 +520,13 @@ The command template chosen to execute is selected based on the following rules:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.build` | `${config:docker.dockerPath} build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
+| `docker.commands.build` | `${containerCommand} build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${dockerfile}` | The workspace-relative path of the selected `Dockerfile`. |
 | `${tag}` | The value entered/confirmed by the user upon invoking the build command. If previously built, defaults to the previously entered value for that `Dockerfile`. |
 | `${context}` | If set, the value of the `docker.imageBuildContextPath` configuration setting. Otherwise, the workspace-relative folder in which the `Dockerfile` resides. |
@@ -538,13 +539,14 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.run` | `${config:docker.dockerPath} run --rm -d ${exposedPorts} ${tag}` |
-| `docker.commands.runInteractive` | `${config:docker.dockerPath} run --rm -it ${exposedPorts} ${tag}` |
+| `docker.commands.run` | `${containerCommand} run --rm -d ${exposedPorts} ${tag}` |
+| `docker.commands.runInteractive` | `${containerCommand} run --rm -it ${exposedPorts} ${tag}` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${exposedPorts}` | Generated from the list of exposed ports in the image (ultimately from the `Dockerfile`), where each exposed port is mapped to the same port on the local machine.  For example, `"EXPOSE 5000 5001"` would generate `"-p 5000:5000 -p 5001:5001"`. |
 | `${tag}` | The full tag of the selected image. |
 
@@ -554,12 +556,13 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.attach` | `${config:docker.dockerPath} exec -it ${containerId} ${shellCommand}`
+| `docker.commands.attach` | `${containerCommand} exec -it ${containerId} ${shellCommand}`
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${containerId}` | The ID of the container to attach to. |
 | `${shellCommand}` | If `bash` is present in the container, it is substituted here, otherwise `sh`. In Windows containers, `cmd` is always used. |
 
@@ -569,12 +572,13 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.logs` | `${config:docker.dockerPath} logs -f ${containerId}`
+| `docker.commands.logs` | `${containerCommand} logs -f ${containerId}`
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${containerId}` | The ID of the container to view the logs for. |
 
 > **Note**: The `match` regular expression will be compared against the container name and full tag of the container image.
