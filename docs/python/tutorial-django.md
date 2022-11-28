@@ -15,7 +15,7 @@ In this Django tutorial, you create a simple Django app with three pages that us
 
 The completed code project from this Django tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/microsoft/python-sample-vscode-django-tutorial).
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
 
 ## Prerequisites
 
@@ -961,5 +961,3 @@ You may also want to review the following articles in the VS Code docs that are 
 - [Managing Python environments](/docs/python/environments.md)
 - [Debugging Python](/docs/python/debugging.md)
 - [Testing](/docs/python/testing.md)
-
-If you encountered any problems in the course of this tutorial, feel free to file an issue in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).

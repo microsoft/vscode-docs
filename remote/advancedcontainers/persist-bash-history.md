@@ -5,7 +5,7 @@ TOCTitle: Persist bash history
 PageTitle: Persist bash history in containers
 ContentId: 68111a8d-530c-4909-916d-3e68758e5e33
 MetaDescription: Persist bash history in containers
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Persist bash history
 
@@ -42,7 +42,7 @@ Next, add a local volume to store the command history. This step varies dependin
       ]
     ```
 
-* **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service.
+* **Docker Compose:** Update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service.
 
     ```yaml
     version: '3'

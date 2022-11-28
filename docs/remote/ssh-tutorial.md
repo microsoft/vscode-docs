@@ -5,7 +5,7 @@ TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Remote development over SSH
 
@@ -95,7 +95,7 @@ You'll have noticed an indicator on the bottom-left corner of the Status bar. Th
 
 ![Remote extension commands](images/ssh-tutorial/remote-commands.png)
 
-Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
+Choose the **Connect to Host...** command in the **Remote-SSH** section and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
 The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure portal](https://portal.azure.com) and in the **Overview** pane of the VM you created, copy the **Public IP address**.
 

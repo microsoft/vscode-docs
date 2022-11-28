@@ -5,11 +5,11 @@ TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
 ContentId: 661004c9-d96c-4898-8b33-91eefb893466
 MetaDescription: Develop a container on a remote Docker host
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Develop on a remote Docker host
 
-Sometimes you may want to use the Dev Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote dev container, so Visual Studio Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [use the Remote - SSH extension](/docs/remote/ssh.md) to open a folder on a remote host in a container, [attach to any running container](/docs/remote/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container using a socket.
+Sometimes you may want to use the Dev Containers extension to develop inside a container that sits on a remote server. Docker does **not** support mounting (binding) your local filesystem into a remote dev container, so Visual Studio Code's default `devcontainer.json` behavior to use your local source code will not work. While this is the default behavior, in this section we will cover connecting to a remote host so that you can either [use the Remote - SSH extension](/docs/remote/ssh.md) to open a folder on a remote host in a container, [attach to any running container](/docs/devcontainers/attach-container.md), or use a **local** `devcontainer.json` file as a way to configure, create, and connect to a remote dev container using a socket.
 
 ## Connect using the Remote - SSH extension (recommended)
 
@@ -17,7 +17,7 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 
 1. Follow the [installation](/docs/remote/ssh.md#installation) and SSH [host setup](/docs/remote/ssh.md#ssh-host-setup) steps for the Remote - SSH extension.
 1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
-1. [Install Docker](/docs/remote/containers#installation) on your SSH host. You do not need to install Docker locally.
+1. [Install Docker](/docs/devcontainers/containers#installation) on your SSH host. You do not need to install Docker locally.
 1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
 1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
 
@@ -37,9 +37,9 @@ For example:
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
-Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
+Using SSH requires a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), that you have [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) configured for the remote host, and that the **key is imported into your local SSH agent**. See the article on [using SSH Keys with Git](/docs/devcontainers/containers.md#using-ssh-keys) for details on configuring the agent and adding your key.
 
-At this point, you can [attach](/docs/remote/attach-container.md) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker contexts](#connect-using-docker-contexts) later in this section.
+At this point, you can [attach](/docs/devcontainers/attach-container.md) to containers on the remote host. We'll cover more on information on how you can connect using [settings and environment variables](#connect-using-vs-code-settings-or-local-environment-variables) or [Docker contexts](#connect-using-docker-contexts) later in this section.
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
 
@@ -77,7 +77,7 @@ If you already have a remote Docker host up and running, you can use the followi
 
 Recent versions of Docker (18.06+) have added support for the SSH protocol to connect to remote Docker Host. This is easy to configure as you only need to set one property in `settings.json` to use it.
 
-First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/remote/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
+First, install a [supported SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client), configure [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication)), and then **import your key into your local SSH agent** (which often is not running by default on Windows and Linux). See the article on [using SSH Keys with Git](/docs/devcontainers/containers.md#using-ssh-keys) for details on configuring the agent and adding the key.
 
 Then, add the following [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property to `settings.json` (replacing values as appropriate):
 
@@ -85,9 +85,9 @@ Then, add the following [Docker extension](https://marketplace.visualstudio.com/
 "docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
 ```
 
-After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/remote/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
+After restarting VS Code (or reloading the window), you will now be able to [attach to any running container](/docs/devcontainers/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](#converting-an-existing-or-predefined-devcontainerjson).
 
-> **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, be sure you have the [SSH agent running with your authentication key](/docs/remote/containers.md#using-ssh-keys). If all else fails, you can use [an SSH tunnel as a fallback](/docs/remote/troubleshooting.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker-host) instead.
+> **Tip:** If this is not working for you but you are able to connect to the host using SSH from the command line, be sure you have the [SSH agent running with your authentication key](/docs/devcontainers/containers.md#using-ssh-keys). If all else fails, you can use [an SSH tunnel as a fallback](/docs/devcontainers/tips-and-tricks.md#using-an-ssh-tunnel-to-connect-to-a-remote-docker-host) instead.
 
 ### Using the TCP protocol
 
@@ -150,7 +150,7 @@ To convert an existing or pre-defined, local `devcontainer.json` into a remote o
 
     **Docker Compose**:
 
-    If you do **not** have login access to the remote host, update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml`. Replace  `your-service-name-here` with the value specified for the `"service"` property in `devcontainer.json` and appropriate and `remote-workspace` with a unique volume name:
+    If you do **not** have login access to the remote host, update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml`. Replace  `your-service-name-here` with the value specified for the `"service"` property in `devcontainer.json` and appropriate and `remote-workspace` with a unique volume name:
 
     ```yaml
     version: '3'

@@ -5,7 +5,7 @@ TOCTitle: Avoid extension reinstalls
 PageTitle: Avoid Visual Studio Code extension reinstalls in containers
 ContentId: bddbdddd-917a-42d0-a32a-0503716656d5
 MetaDescription: Avoid Visual Studio Code extension reinstalls in containers
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Avoiding VS Code extension reinstalls
 
@@ -46,7 +46,7 @@ To create the named local volume, follow these steps:
 
     **Docker Compose**:
 
-    Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replacing `/root` with the home directory in the container if not root (for example `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume.
+    Update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service. Replacing `/root` with the home directory in the container if not root (for example `/home/user-name-goes-here`) and `unique-vol-name-here` with a unique name for the volume.
 
     ```yaml
     services:

@@ -5,7 +5,7 @@ TOCTitle: Configure separate containers
 PageTitle: Configure separate containers for multiple projects
 ContentId: d3b13c08-3c78-4891-b80a-5a15784aeb1e
 MetaDescription: Configure separate containers for multiple projects
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Configure separate containers
 
@@ -38,7 +38,7 @@ Let's set up a container for use with all of the Python projects in the `./Repos
 
     ![Select a python dev container definition](images/configure-separate-containers/select-dev-container-def-python.png)
 
-    The list will be automatically sorted based on the contents of the folder you open. Note the dev container definitions displayed come from the [vscode-dev-containers repository](https://aka.ms/vscode-dev-containers). You can browse the `containers` folder of that repository to see the contents of each definition.
+    The list will be automatically sorted based on the contents of the folder you open. The dev container Templates displayed come from our [first-party and community index](https://containers.dev/templates), which is part of the [Dev Container Specification](https://containers.dev/). We host a set of Templates as part of the spec in the [devcontainers/templates repository](https://github.com/devcontainers/templates). You can browse the `src` folder of that repository to see the contents of each Template.
 
 3. After picking the starting point for your container, VS Code will add the dev container configuration files to the `./Repos/python/.devcontainer` folder.
 
