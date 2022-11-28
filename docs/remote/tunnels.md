@@ -104,4 +104,4 @@ No, an instance of the server is designed to be accessed by one user or client a
 
 If you'd like to stop a tunnel you're running via the CLI, you may use `Ctrl + C` to end the active tunnel. If you've enabled tunneling through the VS Code UI, you may run the command **Remote Tunnels: Turn of Remote Tunnel Access...** in VS Code.
 
-You may remove a remote machine's association with tunneling through the `code tunnel unregister` CLI command, or by right-clicking on the machine and selecting "unregister" in the VS Code Remote Explorer UI.
+You may remove a machine's association with tunneling by running `code tunnel unregister` on that machine. You may also open any VS Code client, select the Remote Explorer view, right-click on the machine you’d like to remove, and select "unregister."
