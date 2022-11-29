@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Data Science Tutorial
 ContentId: 3c7ae641-e45c-4892-9d8c-7f22bdc549dd
 PageTitle: Python and Data Science Tutorial in Visual Studio Code
-DateApproved: 6/27/2022
+DateApproved: 11/21/2022
 MetaDescription: Python data science tutorial demonstrating the use of common data science and machine learning libraries with Visual Studio code Jupyter Notebook support.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -247,13 +247,13 @@ A neural network is a model that uses weights and activation functions, modeling
 1. Now that the model is built and trained, we can see how it works against the test data.
 
    ```python
-   y_pred = np.argmax(model.predict(X_test), axis=-1)
+   y_pred = np.rint(model.predict(X_test).flatten())
    print(metrics.accuracy_score(y_test, y_pred))
    ```
 
    ![Evaluate the neural network](images/data-science-tutorial/jupyter-cell-08.png)
 
-   Similar to the training, you'll notice that you now have 61% accuracy in predicting survival of passengers. In this case, the result is not better than the 75% accuracy from the Naive Bayes Classifier tried previously.
+   Similar to the training, you'll notice that you now have 79% accuracy in predicting survival of passengers. Using this simple neural network, the result is better than the 75% accuracy from the Naive Bayes Classifier tried previously.
 
 ## Next steps
 

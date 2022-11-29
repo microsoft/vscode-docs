@@ -1613,7 +1613,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "window.closeWhenEmpty": false,
 
     // Show command launcher together with the window title.
-    "window.commandCenter": false,
+    "window.commandCenter": true,
 
     // Controls whether to show a confirmation dialog before closing the window or quitting the application.
     //  - always: Always ask for confirmation.

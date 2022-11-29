@@ -137,12 +137,14 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 
 ![Debug Actions](images/debugging/toolbar.png)
 
-* Continue / Pause `kb(workbench.action.debug.continue)`
-* Step Over `kb(workbench.action.debug.stepOver)`
-* Step Into `kb(workbench.action.debug.stepInto)`
-* Step Out `kb(workbench.action.debug.stepOut)`
-* Restart `kb(workbench.action.debug.restart)`
-* Stop `kb(workbench.action.debug.stop)`
+| Action                                                 | Explanation                                                                                                                                                            |
+|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Continue / Pause <br> `kb(workbench.action.debug.continue)` | **Continue**: Resume normal program/script execution (up to the next breakpoint). <br> **Pause**: Inspect code executing at the current line and debug line-by-line.     |
+| Step Over <br> `kb(workbench.action.debug.stepOver)`        | Execute the next method as a single command without inspecting or following its component steps.                                                                    |
+| Step Into <br> `kb(workbench.action.debug.stepInto)`        | Enter the next method to follow its execution line-by-line.                                                                                                         |
+| Step Out <br> `kb(workbench.action.debug.stepOut)`          | When inside a method or subroutine, return to the earlier execution context by completing remaining lines of the current method as though it were a single command. |
+| Restart <br> `kb(workbench.action.debug.restart)`           | Terminate the current program execution and start debugging again using the current run configuration.                                                             |
+| Stop <br> `kb(workbench.action.debug.stop)`                 | Terminate the current program execution.                                                                                                                            |
 
 >**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can be the default `floating`, `docked` to the **Run and Debug** view, or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
 

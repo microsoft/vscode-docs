@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 10/12/2022
+DateApproved: 11/3/2022
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -22,32 +22,28 @@ IntelliSense is a general term for code editing features that relate to code com
 
 Autocomplete and IntelliSense are provided for all files within the current working folder. They're also available for Python packages that are installed in standard locations.
 
-### Auto Imports
+For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
-[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be conveniently added automatically as you're typing.
-
-By default, only top-level symbols/packages are suggested, but you can customize this behavior through the `python.analysis.packageIndexDepths` setting. See the section below on "Customize IntelliSense behavior" to learn more about IntelliSense controls.
+> **Tip**: Check out the [IntelliCode extension for VS Code](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://learn.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
 
 ### Customize IntelliSense behavior
 
-Because enabling the full set of IntelliSense features by default could end up making your development experience feel slower, we enable a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behavior of the analysis engine to your liking through multiple settings.
+Enabling the full set of IntelliSense features by default could end up making your development experience feel slower, so the Python extension enables a minimum set of features that allow you to be productive while still having a performant experience. However, you can customize the behavior of the analysis engine to your liking through multiple settings.
 
-For the full list of available IntelliSense controls, you can reference the Python extension [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
+### Enable Auto Imports
 
-You can also customize the general behavior of autocomplete and IntelliSense, even to disable these VS Code features entirely. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
+[Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers auto import suggestions for modules in your workspace and/or packages you have installed in your environment. This enables import statements to be automatically added as you type. Auto imports are disabled by default, but you can enable them by setting `python.analysis.autoImportCompletions` to `true` in your settings.
 
-![IntelliSense and autocomplete for Python code](images/editing/python-editing.gif)
-
-> **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://learn.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
+By default, only top-level symbols/packages are suggested to be auto imported. For example, you may see `import matplotlib` as a suggestion, but not `import matplotlib.pyplot` by default. However, you can customize this behavior through the `python.analysis.packageIndexDepths` setting (check out the [IntelliSense settings documentation](/docs/python/settings-reference.md#pylance-language-server) to learn more). User defined symbols (those not coming from installed packages or libraries) are only automatically imported if they have already been used in files opened in the editor. Otherwise, they will only be available through the [add imports Quick Fix](/docs/python/editing.md#quick-fixes).
 
 ### Enable IntelliSense for custom package locations
 
-To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case, you'd specify those locations as follows:
+To enable IntelliSense for packages that are installed in non-standard locations, add those locations to the `python.analysis.extraPaths` collection in your `settings.json` file (the default collection is empty). For example, you might have Google App Engine installed in custom locations, specified in `app.yaml` if you use Flask. In this case, you'd specify those locations as follows:
 
 **Windows:**
 
 ```json
-"python.autoComplete.extraPaths": [
+"python.analysis.extraPaths": [
     "C:/Program Files (x86)/Google/google_appengine",
     "C:/Program Files (x86)/Google/google_appengine/lib/flask-0.12"]
 ```
@@ -55,12 +51,14 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 **macOS/Linux:**
 
 ```json
-"python.autoComplete.extraPaths": [
+"python.analysis.extraPaths": [
     "~/.local/lib/Google/google_appengine",
     "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]
 ```
 
-For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
+For the full list of available IntelliSense controls, you can reference the Python extension [code analysis settings](/docs/python/settings-reference.md#code-analysis-settings) and [autocomplete settings](/docs/python/settings-reference.md#autocomplete-settings).
+
+You can also customize the general behavior of autocomplete and IntelliSense, even disable the features completely. You can learn more in [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense).
 
 ### Troubleshooting IntelliSense
 

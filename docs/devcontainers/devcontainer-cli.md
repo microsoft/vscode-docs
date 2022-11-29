@@ -138,7 +138,7 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 1. [Create](/docs/sourcecontrol/overview.md#initialize-a-repository) a source code repository.
 
-1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/devcontainers/containers.md#dev-container-features-preview)). For example, consider this `devcontainer.json` file:
+1. Create dev container configuration for each image you want to pre-build, customizing as you wish (including [dev container Features](/docs/devcontainers/containers.md#dev-container-features)). For example, consider this `devcontainer.json` file:
 
     ```json
     {

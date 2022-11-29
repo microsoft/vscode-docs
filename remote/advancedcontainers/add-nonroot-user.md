@@ -25,7 +25,7 @@ If the image or Dockerfile you are using **already provides an optional non-root
 "remoteUser": "user-name-goes-here"
 ```
 
-On Linux, if you are referencing a **Dockerfile or image** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`). In the **Docker Compose** case, the container user's UID/GID will not be updated but you can [manually change these values in a Dockerfile](#change-the-uidgid-of-an-existing-container-user).
+On Linux, if you are referencing a **Dockerfile, image, or Docker Compose** in `devcontainer.json`, this will also automatically update the container user's UID/GID to match your local user to avoid the bind mount permissions problem that exists in this environment (unless you set `"updateRemoteUserUID": false`).
 
 Since this setting only affects VS Code and related sub-processes, VS Code needs to be restarted (or the window reloaded) for it to take effect. However, UID/GID updates are only applied when the container is created and requires a rebuild to change.
 
