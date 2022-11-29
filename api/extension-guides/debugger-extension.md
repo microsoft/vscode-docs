@@ -42,7 +42,7 @@ The history of and motivation behind DAP is explained in this [blog post](https:
 
 Since debug adapters are independent from VS Code and can be used in [other developments tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/), they do not match VS Code's extensibility architecture which is based on extensions and contribution points.
 
-For this reason VS Code provides a contribution point, `debuggers`, where a debug adapter can be contributed under a specific debug type (e.g. `node` for the Node.js debugger). VS Code launches the registered DA whenever the user starts a debug session of that type.
+For this reason VS Code provides a contribution point, `debuggers`, where a debug adapter can be contributed under a specific debug type (for example `node` for the Node.js debugger). VS Code launches the registered DA whenever the user starts a debug session of that type.
 
 So in its most minimal form, a debugger extension is just a declarative contribution of a debug adapter implementation and the extension is basically a packaging container for the debug adapter without any additional code.
 
@@ -262,7 +262,7 @@ In order to make the extension self-contained the application must live inside t
 
 Since VS Code runs on different platforms, we have to make sure that the DA program supports the different platforms as well. For this we have the following options:
 
-1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports `node` and `mono` runtimes. Our Mock debug adapter from above uses this approach.
+1. If the program is implemented in a platform independent way, for example as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports `node` and `mono` runtimes. Our Mock debug adapter from above uses this approach.
 
 1. If your DA implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
 
@@ -326,8 +326,8 @@ The variable can now be used in any string typed value of a launch configuration
 
 If the static nature of debug contributions in the `package.json` is not sufficient, a `DebugConfigurationProvider` can be used to dynamically control the following aspects of a debug extension:
 
-- The initial debug configurations for a newly created launch.json can be generated dynamically, e.g. based on some contextual information available in the workspace.
-- A launch configuration can be _resolved_ (or modified) before it is used to start a new debug session. This allows for filling in default values based on information available in the workspace. Two _resolve_ methods exist: `resolveDebugConfiguration` is called before variables are substituted in the launch configuration, `resolveDebugConfigurationWithSubstitutedVariables` is called after all variables have been substituted. The former must be used if the validation logic inserts additional variables into the debug configuration. The latter must be used if the validation logic needs access to the final values of all debug configuration attributes.
+- The initial debug configurations for a newly created `launch.json` can be generated dynamically, for example based on some contextual information available in the workspace.
+- A launch configuration can be **resolved** (or modified) before it is used to start a new debug session. This allows for filling in default values based on information available in the workspace. Two _resolve_ methods exist: `resolveDebugConfiguration` is called before variables are substituted in the launch configuration, `resolveDebugConfigurationWithSubstitutedVariables` is called after all variables have been substituted. The former must be used if the validation logic inserts additional variables into the debug configuration. The latter must be used if the validation logic needs access to the final values of all debug configuration attributes.
 
 The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists, but a Markdown file is open in the active editor. This is a typical scenario where the user has a file open in the editor and just wants to debug it without creating a launch.json.
 
