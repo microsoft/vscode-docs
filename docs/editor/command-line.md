@@ -107,7 +107,7 @@ Argument|Description
 
 ### Create remote tunnel
 
-VS Code integrates with other [remote environments](../remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
+VS Code integrates with other [remote environments](/docs/remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
 
 The Visual Studio Code [Remote Tunnels extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) lets you connect to a remote machine, like a desktop PC or VM, via a secure tunnel. Tunneling, also known as port forwarding, securely transmits data from one network to another. You can then securely connect to that machine from anywhere, without the requirement of SSH.
 
@@ -125,7 +125,7 @@ You can review the other tunneling commands by running `code tunnel -help`:
 
 As you may need to run the CLI on a remote machine that can't install VS Code Desktop, the CLI is also available for standalone install on the [VS Code download page](https://code.visualstudio.com/insiders/).
 
-For more information on Remote Tunnels, you can review the [Remote Tunnels documentation](../remote/tunnels.md).
+For more information on Remote Tunnels, you can review the [Remote Tunnels documentation](/docs/remote/tunnels.md).
 
 ## Opening VS Code with URLs
 
