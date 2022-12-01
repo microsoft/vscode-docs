@@ -65,6 +65,12 @@ One way to avoid these prompts is to set up a [credential helper](https://help.g
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
 
+### Why is VS Code telling me that the git repository is potentially unsafe?
+
+VS Code uses `git.exe` for executing git operations. Starting with Git [2.35.2](https://github.blog/2022-04-18-highlights-from-git-2-36/#stricter-repository-ownership-checks), users are prevented from running git operations in a repository that is owned by a user other than the current user as the repository is deemed as potentially unsafe.
+
+If you try to open such a repository, VS Code will show a welcome view in the Source Control view as well as a notification. Both the welcome view, and the notification contain the **Manage Unsafe Repositories** command that enables user to review the list of potentially unsafe repositories, mark them as safe, and open them. The **Manage Unsafe Repositories** command is also available in the command palette.
+
 ### Can I use SSH Git authentication with VS Code?
 
 Yes, though VS Code works most easily with SSH keys without a passphrase. If you have an SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
