@@ -550,6 +550,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font size in pixels.
     "editor.fontSize": 14,
 
+    // Configures font variations. Can be either a boolean to enable/disable the translation from font-weight to font-variation-settings or a string for the value of the CSS 'font-variation-settings' property.
+    "editor.fontVariations": false,
+
     // Controls the font weight. Accepts "normal" and "bold" keywords or numbers between 1 and 1000.
     "editor.fontWeight": "normal",
 
@@ -654,6 +657,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether the hover should remain visible when mouse is moved over it.
     "editor.hover.sticky": true,
+
+    // The number of spaces used for indentation or `"tabSize"` to use the value from `editor.tabSize#`. This setting is overridden based on the file contents when `#editor.detectIndentation` is on.
+    "editor.indentSize": "tabSize",
 
     // Enables the inlay hints in the editor.
     //  - on: Inlay hints are enabled
@@ -1099,6 +1105,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - allDocuments: Suggest words from all open documents.
     "editor.wordBasedSuggestionsMode": "matchingDocuments",
 
+    // Controls the word break rules used for Chinese/Japanese/Korean (CJK) text.
+    //  - normal: Use the default line break rule.
+    //  - keepAll: Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text behavior is the same as for normal.
+    "editor.wordBreak": "normal",
+
     // Characters that will be used as word separators when doing word related navigations or operations.
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
 
@@ -1245,6 +1256,16 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the visibility of the activity bar in the workbench.
     "workbench.activityBar.visible": true,
 
+    // Controls whether to automatically resume available working changes stored in the cloud for the current workspace.
+    //  - onReload: Automatically resume available working changes from the cloud on window reload.
+    //  - off: Never attempt to resume working changes from the cloud.
+    "workbench.cloudChanges.autoResume": "onReload",
+
+    // Controls whether to prompt the user to store working changes in the cloud when using Continue Working On.
+    //  - prompt: Prompt the user to sign in to store working changes in the cloud with Continue Working On.
+    //  - off: Do not store working changes in the cloud with Continue Working On unless the user has already turned on Cloud Changes.
+    "workbench.cloudChanges.continueOn": "prompt",
+
     // Overrides colors from the currently selected color theme.
     "workbench.colorCustomizations": {},
 
@@ -1261,16 +1282,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.editor.autoLockGroups": {
         "default": false,
         "workbench.editorinputs.searchEditorInput": false,
-        "vscode-interactive-input": false,
-        "interactive": false,
-        "terminalEditor": true,
         "jupyter-notebook": false,
-        "vscode.markdown.preview.editor": false,
         "imagePreview.previewEditor": false,
         "vscode.audioPreview": false,
         "vscode.videoPreview": false,
         "jsProfileVisualizer.cpuprofile.table": false,
         "jsProfileVisualizer.heapprofile.table": false,
+        "terminalEditor": true,
+        "workbench.input.interactive": false,
         "mainThreadWebview-markdown.preview": false
     },
 
@@ -1420,15 +1439,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configure glob patterns to editors (for example `"*.hex": "hexEditor.hexEdit"`). These have precedence over the default behavior.
     "workbench.editorAssociations": {},
 
-    // Controls whether to automatically resume an available edit session for the current workspace.
-    //  - onReload: Automatically resume available edit session on window reload.
-    //  - off: Never attempt to resume an edit session.
-    "workbench.editSessions.autoResume": "onReload",
 
-    // Controls whether to prompt the user to store edit sessions when using Continue Working On.
-    //  - prompt: Prompt the user to sign in to store edit sessions with Continue Working On.
-    //  - off: Do not use edit sessions with Continue Working On unless the user has already turned on edit sessions.
-    "workbench.editSessions.continueOn": "prompt",
 
     // Configure the opener to use for external URIs (http, https).
     "workbench.externalUriOpeners": {},
@@ -1613,7 +1624,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "window.closeWhenEmpty": false,
 
     // Show command launcher together with the window title.
-    "window.commandCenter": true,
+    "window.commandCenter": false,
 
     // Controls whether to show a confirmation dialog before closing the window or quitting the application.
     //  - always: Always ask for confirmation.
@@ -1915,9 +1926,9 @@ Below are the Visual Studio Code default settings and their values. You can also
         "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
     },
 
-    // Controls what naming strategy to use when a giving a new name to a duplicated explorer item on paste.
-    //  - simple: Appends the word "copy" at the end of the duplicated name potentially followed by a number
-    //  - smart: Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number
+    // Controls what naming strategy to use when a giving a new name to a duplicated Explorer item on paste.
+    //  - simple: Appends the word "copy" at the end of the duplicated name potentially followed by a number.
+    //  - smart: Adds a number at the end of the duplicated name. If some number is already part of the name, tries to increase that number.
     //  - disabled: Disables incremental naming.
     "explorer.incrementalNaming": "simple",
 
@@ -3522,7 +3533,6 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.macOptionIsMeta": false,
 
     // When set, the foreground color of each cell will change to try meet the contrast ratio specified. Example values:
-    //
     // - 1: Do nothing and use the standard theme colors.
     // - 4.5: WCAG AA compliance (minimum).
     // - 7: WCAG AAA compliance (enhanced).
@@ -3958,6 +3968,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Default Configuration Overrides
 
+    // Configure settings to be overridden for the csharp language.
+    "[csharp]":  {
+        "editor.maxTokenizationLineLength": 2500
+    },
+
     // Configure settings to be overridden for the css language.
     "[css]":  {
         "editor.suggest.insertMode": "replace"
@@ -4078,6 +4093,18 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 // Audio Cues
 
+    // Plays a sound when the focus moves to a deleted line in diff review mode
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.diffLineDeleted": "auto",
+
+    // Plays a sound when the focus moves to an inserted line in diff review mode
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.diffLineInserted": "auto",
+
     // Plays a sound when the active line has a breakpoint.
     //  - auto: Enable audio cue when a screen reader is attached.
     //  - on: Enable audio cue.
@@ -4114,6 +4141,18 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - off: Disable audio cue.
     "audioCues.noInlayHints": "auto",
 
+    // Plays a sound when a notebook cell execution is successfully completed.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.notebookCellCompleted": "auto",
+
+    // Plays a sound when a notebook cell execution fails.
+    //  - auto: Enable audio cue when a screen reader is attached.
+    //  - on: Enable audio cue.
+    //  - off: Disable audio cue.
+    "audioCues.notebookCellFailed": "auto",
+
     // Plays a sound when the debugger stopped on a breakpoint.
     //  - auto: Enable audio cue when a screen reader is attached.
     //  - on: Enable audio cue.
@@ -4142,6 +4181,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     "audioCues.volume": 70,
 
 // Remote
+
+    // The name under which the remote tunnel access is registered. If not set, the host name is used.
+    "remote.tunnels.access.hostNameOverride": "",
 
     // When enabled, new running processes are detected and ports that they listen on are automatically forwarded. Disabling this setting will not prevent all ports from being forwarded. Even when disabled, extensions will still be able to cause ports to be forwarded, and opening some URLs will still cause ports to forwarded.
     "remote.autoForwardPorts": true,
