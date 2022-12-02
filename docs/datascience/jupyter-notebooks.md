@@ -33,7 +33,7 @@ If you attempt to open a notebook when VS Code is in an untrusted workspace runn
 
 ## Create or open a Jupyter Notebook
 
-You can create a Jupyter Notebook by running the **Jupyter: Create New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
+You can create a Jupyter Notebook by running the **Create: New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
