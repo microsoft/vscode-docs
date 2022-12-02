@@ -121,4 +121,4 @@ You may filter just for VS Code Server issues with the [`code-server` label](htt
 
 ### Is there a limit to the number of remote machines I can connect to?
 
-Right now, you can have 10 remote machines registered with the VS Code Server. If you'd like to connect to a new remote machine, and already have 10 others registered, the CLI will pick a random unused tunnel and delete it.
+Right now, you can have 10 remote machines registered with the VS Code Server. If you'd like to connect to a new remote machine, and already have 10 others registered, the CLI will pick a random unused tunnel and delete it. Please note this limit is subject to change.
