@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 12/23/2021
+DateApproved: 12/2/2022
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---

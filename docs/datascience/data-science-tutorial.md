@@ -32,7 +32,7 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 1. Next, create a folder in a convenient location to serve as your VS Code workspace for the tutorial, name it `hello_ds`.
 1. Open the project folder in VS Code by running VS Code and using the **File** > **Open Folder** command. You can safely trust opening the folder, since you created it.
 
-1. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Jupyter: Create New Jupyter Notebook**.
+1. Once VS Code launches, create the Jupyter notebook that will be used for the tutorial. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Create: New Jupyter Notebook**.
 
    ![Creating a new Jupyter Notebook](images/data-science-tutorial/create-notebook.png)
 
