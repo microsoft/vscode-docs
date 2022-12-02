@@ -54,6 +54,8 @@ Below are the steps to install the `code` CLI and create a secure tunnel with it
 
     ![CLI download section](tunneling-blog-download.png)
 
+    > **Note:** If you're using the standalone install, the commands in the following section will start with `./code` rather than `code`.
+
 2. Double-check the CLI installed successfully by using the help command:
 
     ```bash

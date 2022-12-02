@@ -42,6 +42,8 @@ You may create and use tunnels through the `code` [CLI](/docs/editor/command-lin
 
     ![VS Code download options with CLI highlighted](images/tunnels/tunneling-download.png)
 
+    > **Note:** If you're using the standalone install, the commands in the following section will start with `./code` rather than `code`.
+
 2. Create a secure tunnel with the `tunnel` command:
 
     ```bash
