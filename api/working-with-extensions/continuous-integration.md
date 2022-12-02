@@ -82,7 +82,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 ### Azure Pipelines automated publishing
 
 1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://learn.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
-2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT (by default, `vsce` will use the `VSCE_PAT` environment variable as the Personal Access Token).
 
 ```json
