@@ -43,7 +43,7 @@ The configurable `terminal.integrated.commandsToSkipShell` setting determines wh
 
 Look at the `terminal.integrated.commandsToSkipShell` setting details to see the complete list of default commands.
 
->**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell.
+>**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell. Note that this will disable keybindings like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#_find) though.
 
 ### Chords
 
