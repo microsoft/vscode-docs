@@ -46,6 +46,8 @@ When we released the VS Code Server, we [mentioned](https://code.visualstudio.co
 
 Below are the steps to install the `code` CLI and create a secure tunnel with it. If you tried the private preview of the VS Code Server, the steps will be very similar.
 
+> **Note:** If you were using the standalone `code-server` CLI during the private preview of the VS Code Server, you should now use the latest `code` CLI (via the latest VS Code Desktop or standalone download) instead.
+
 1. Install the `code` CLI on a remote machine you'd like to develop against in a local VS Code client. This could be a remote desktop, VM, or even a [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/) (WSL) distro.
 
     The CLI is automatically included in your existing VS Code installation – no additional setup required. If you don't have VS Code installed or can't install it on your remote machine, you can grab the CLI through a [standalone install](https://code.visualstudio.com/#alt-downloads) on our download page:
