@@ -71,7 +71,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "vscode": "^1.51.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:helloworld.helloWorld"],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -94,6 +94,8 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   }
 }
 ```
+
+> **Note**: If your extension targets a VS Code version prior to 1.74, you must explicitly list `onCommand:helloworld.helloWorld` in `activationEvents`.
 
 ## Extension Entry File
 

@@ -158,19 +158,19 @@ The handler function will be invoked whenever the `myExtension.sayHello` command
 }
 ```
 
-The `commands` contribution tells VS Code that your extension provides a given command, and also lets you control how the command is displayed in the UI. Now our command will show up in the Command Palette:
+The `commands` contribution tells VS Code that your extension provides a given command and should be activated when that command is invoked, and also lets you control how the command is displayed in the UI. Now our command will show up in the Command Palette:
 
 ![The contributed command in the Command Palette](images/commands/palette.png)
 
-We still need to call `registerCommand` to actually tie the command ID to the handler. This means that if the user selects the `myExtension.sayHello` command from the Command Palette but our extension has not been activated yet, nothing will happen. To prevent this, extensions must register an `onCommand` `activationEvent` for all user facing commands:
-
-```json
-{
-  "activationEvents": ["onCommand:myExtension.sayHello"]
-}
-```
-
 Now when a user first invokes the `myExtension.sayHello` command from the Command Palette or through a keybinding, the extension will be activated and `registerCommand` will bind `myExtension.sayHello` to the proper handler.
+
+> **Note**: Extensions targeting VS Code versions prior to 1.74.0 must explicitly register an `onCommand` `activationEvent` for all user facing commands so that the extension activates and `registerCommand` executes:
+> ```json
+> {
+>   "activationEvents": ["onCommand:myExtension.sayHello"]
+> }
+> ```
+
 
 You do not need an `onCommand` activation event for internal commands but you must define them for any commands that:
 
