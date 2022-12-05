@@ -28,6 +28,56 @@ The screenshot belows shows the execution of a simple Python program in the brow
 
 ![Execution of Python code store on local disk](images/web/execution-local-files.png)
 
-# Acknowledgement
+## Starting a REPL
+
+The extension comes with an integrated Python REPL. To activate it execute the command `Python WASM: Start REPL`
+
+![Start Python Repl](images/web/repl.png)
+
+You can also run code directly from within a GitHub repository by accessing the files through the GitHub Repositories extension. In the screenshot below the files are host [here](https://github.com/dbaeumer/python-sample):
+
+## Debugging
+
+There is also support for debugging Python files in the Web. The features currently supported are:
+
+- setting breakpoints
+- stepping into and out of functions
+- debug across modules
+- evaluate variables in the debug console
+- debug the program in the intergrated terminal
+
+The screen shot below shows an active debug session. The files are hosted directly on GitHub.
+
+![Debugging a Python Program](images/web/debug.png)
+
+## Crafting your own Python Environment
+
+The extension uses a pre-configured Python environment based on the [CPython WebAssembly builds](https://github.com/tiran/cpython-wasm-test/releases). The used build is `Python-3.11.0-wasm32-wasi-16.zip`.
+
+You can setup your own Python environment, including source wheel Python packages, following these steps:
+
+- create a new GitHub repository.
+- download a wasm-wasi-16 build from https://github.com/tiran/cpython-wasm-test/releases and expand it into the root of the repository
+- to add source wheel packages do the following:
+  - create a site-packages folder in the root
+  - install the package using the following command `pip install my_package --target ./site-packages`. Note that you need to have a Python installation in your OS including pip.
+- commit the changes
+- change the python.wasm.runtime setting to point to your GitHub repository. For example:
+  ```
+  {
+    "python.wasm.runtime": "https://github.com/dbaeumer/python-3.11.0"
+  }
+  ```
+
+## Limitations
+
+The Python Web support doesn't provide all the features available compared to running the code on our local machine. The major limitations in the Python interpreter are:
+
+- No socket support.
+- No thread support. As a consequence, there is no async support.
+- No pip support.
+- No support for native Python modules.
+
+## Acknowledgement
 
 The work would have not be possible without the support of the Python community which are building and maintaining the necessary WASM files of CPython.
