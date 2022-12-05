@@ -16,9 +16,9 @@ We are happy to announce a first experinmental support for running Python code o
 
 The following pre-requisites need to be fullfiled to use the extension:
 
-- you need to have the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) installed.
+- you need to have the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension installed.
 - you need to authenticate with GitHub.
-- you need to use a browser that has support for Cross Origin Isolation. We tested the extension so far unde Microsoft Edge and Google Chrome.
+- you need to use a browser that has support for Cross Origin Isolation. We tested the extension so far with Microsoft Edge and Google Chrome.
 - your code must either be hosted on a GitHub repository and accessed through the GitHub Repository extension or on your local file system.
 - when starting VS Code on the Web via either `https://vscode.dev/` or `https://insiders.vscode.dev/` you need to add the following query parameter to the URL: `?vscode-coi=`
 
@@ -34,7 +34,6 @@ The extension comes with an integrated Python REPL. To activate it execute the c
 
 ![Start Python Repl](images/web/repl.png)
 
-You can also run code directly from within a GitHub repository by accessing the files through the GitHub Repositories extension. In the screenshot below the files are host [here](https://github.com/dbaeumer/python-sample):
 
 ## Debugging
 
@@ -46,7 +45,7 @@ There is also support for debugging Python files in the Web. The features curren
 - evaluate variables in the debug console
 - debug the program in the intergrated terminal
 
-The screen shot below shows an active debug session. The files are hosted directly on GitHub.
+The screen shot below shows an active debug session. The files are hosted directly on GitHub on this [repository](https://github.com/dbaeumer/python-sample).
 
 ![Debugging a Python Program](images/web/debug.png)
 
