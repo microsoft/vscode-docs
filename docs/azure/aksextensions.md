@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Azure Kubernetes Service
 ContentId: 131f9633-5446-4384-96ca-7bff2e3dc0fc
 PageTitle: Working with AKS tools and diagnostics in Visual Studio Code
-DateApproved: 8/3/2022
+DateApproved: 12/2/2022
 MetaDescription: Working with AKS tools and diagnostics in Visual Studio Code
 ---
 # AKS tools and diagnostics in VS Code
@@ -48,6 +48,10 @@ Run AKS diagnostics on a cluster:
 Start a GitHub workflow:
 
 ![Cloud explorer extension Create GitHub Workflow menu](images/aksextensions/right-click-menu-workflow.png)
+
+Run Kubectl Commands
+
+![Cloud explorer extension Run Kubectl Commands menu](images/aksextensions/right-click-menu-kubectl.png)
 
 ### Merge into Kubeconfig
 
@@ -140,6 +144,17 @@ Right-click on your AKS subscription and select **Create Cluster From Azure Port
 Right-click on your AKS cluster and select **Show Properties** to display the AKS cluster properties. On the page, there is a **Stop/Start Cluster** button to start or stop the cluster.
 
 ![Start or Stop Cluster from properties webview](images/aksextensions/aks-startstop-cluster.png)
+
+### Run Kubectl Commands from your AKS cluster
+
+Right-click on your AKS cluster and select **Run KubectlCommands** to run Kubectl commands on your cluster. Currently, the following Kubectl commands are available:
+
+* Describe Services
+* Get All Pods
+* API Resources
+* Get Cluster Info
+* Get Node
+* Get All Events
 
 Congratulations! You now know how to navigate through this VS Code extension.
 

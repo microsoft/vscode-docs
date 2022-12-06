@@ -188,6 +188,13 @@ Here is an example:
 
 ```
 
+To override a specific key binding rule with an empty action, you can specify an empty command:
+
+```json
+// To override and disable any `tab` keybinding, for example, add in keybindings.json:
+{ "key": "tab", "command": "" }
+```
+
 ## Keyboard layouts
 
 >**Note:** This section relates only to key bindings, not to typing in the editor.
