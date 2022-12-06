@@ -65,7 +65,7 @@ One way to avoid these prompts is to set up a [credential helper](https://help.g
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
 
-### Why is VS Code telling me that the git repository is potentially unsafe?
+### Why is VS Code warning me that the git repository is potentially unsafe?
 
 VS Code uses `git.exe` for executing all git operations. Starting with Git [2.35.2](https://github.blog/2022-04-18-highlights-from-git-2-36/#stricter-repository-ownership-checks), users are prevented from running git operations in a repository that is in a folder that owned by a user other than the current user as the repository is deemed to be potentially unsafe.
 
