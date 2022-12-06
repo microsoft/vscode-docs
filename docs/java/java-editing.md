@@ -162,3 +162,51 @@ Visual Studio Code supports a wide range of popular Java code snippets to make y
 For example, typing "**sout**" or "**sysout**" will directly produce a code snippet for **System.out.println()**;
 
 ![Code Snippet](images/java-editing/code-snippet.png)
+
+The complete list of shortcuts are listed as follows:
+
+### Code Snippet Shortcut
+| shortcut key | description |
+|---|---|
+| ctor | Public constructor |
+| dowhile | Do-while statement |
+| foreach, iter | Iterate over an array or Iterable |
+| fori | Iterate over array |
+| if | If statement |
+| ifelse | If-else statement |
+| ifnull | If statement checking for null |
+| ifnotnull | If statement checking for not null |
+| main, psvm | Public static main method |
+| new | Create new Object |
+| private_method | Private method |
+| private_static_method | Private static method |
+| prf | Private field |
+| protected_method | Protected method |
+| public_method | Public method |
+| public_static_method | Public static method |
+| switch | Switch statement |
+| syserr, serr | Print to standard err |
+| sysout, sout | Print to standard out |
+| systrace, soutm | Print current method to standard out |
+| try_catch | Try/catch block |
+| try_resources | Try-with-resources statement |
+| while | While statement |
+
+### Postfix Snippet Shortcut
+
+| shortcut key | template content | description |
+|---|---|---|
+| cast | ((SomeType) expr) | Casts the expression to a new type |
+| else | if (!expr) | Creates a negated if statement |
+| for | for (T item : expr) | Creates a for statement |
+| fori | for (int i = 0; i < expr.length; i++) | Creates a for statement which iterates over an array |
+| forr | for (int i = expr.length-1; i >= 0; i--) | Creates a for statement which iterates over an array in reverse order |
+| if | if (expr) | Creates a if statement |
+| nnull | if (expr != null) | Creates an if statement and checks if the expression does not resolve to null |
+| null | if (expr == null) | Creates an if statement which checks if expression resolves to null |
+| sysout | System.out.println(expr) | Sends the affected string to a System.out.println(..) call |
+| throw | throw expr | Throws the given Exception |
+| var | T name = expr | Creates a new variable |
+| while | while (expr) {} | Creates a while loop |
+
+
