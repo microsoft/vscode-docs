@@ -19,14 +19,14 @@ This topic covers:
 
 ## vsce
 
-[vsce](https://github.com/microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
+[vsce](https://github.com/microsoft/vscode-vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 
 ```bash
-npm install -g vsce
+npm install -g @vscode/vsce
 ```
 
 ### Usage

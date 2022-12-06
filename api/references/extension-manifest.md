@@ -94,7 +94,7 @@ Here is a complete `package.json`
 
 Here are some tips and recommendations to make your extension look great when displayed on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-Always use the latest `vsce` so `npm install -g vsce` to make sure you have it.
+Always use the latest `vsce` so `npm install -g @vscode/vsce` to make sure you have it.
 
 Have a `README.md` Markdown file in your extension's root folder and we will include the contents in the body of the extension details (on the Marketplace). You can provide relative path image links in the `README.md`.
 

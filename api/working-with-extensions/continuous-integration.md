@@ -15,7 +15,7 @@ Extension integration tests can be run on CI services. The [`@vscode/test-electr
 
 You can also configure the CI to publish a new version of the extension automatically.
 
-The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/microsoft/vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
+The publish command is similar to publishing from a local environment using [`vsce`](https://github.com/microsoft/vscode-vsce), but you must somehow provide the Personal Access Token (PAT) in a secure way. By storing the PAT as a `VSCE_PAT` **secret variable**, `vsce` will be able to use it. Secret variables are never exposed, so they are safe to use in a CI pipeline.
 
 ## Azure Pipelines
 
@@ -82,7 +82,7 @@ You can enable the build to run continuously when pushing to a branch and even o
 ### Azure Pipelines automated publishing
 
 1. Set up `VSCE_PAT` as a secret variable using the [Azure DevOps secrets instructions](https://learn.microsoft.com/azure/devops/pipelines/process/variables?tabs=classic%2Cbatch#secret-variables).
-2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT (by default, `vsce` will use the `VSCE_PAT` environment variable as the Personal Access Token).
 
 ```json
@@ -158,7 +158,7 @@ jobs:
 ### GitHub Actions automated publishing
 
 1. Set up `VSCE_PAT` as an encrypted secret using the [GitHub Actions secrets instructions](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository).
-2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
 ```json
@@ -218,7 +218,7 @@ test:
 ### GitLab CI automated publishing
 
 1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ee/ci/variables/README.html#mask-a-cicd-variable).
-2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
 ```json
@@ -268,7 +268,7 @@ cache: yarn
 ### Travis CI automated publishing
 
 1. Set up `VSCE_PAT` as an encrypted secret using the [Travis CI encryption key usage instructions](https://docs.travis-ci.com/user/encryption-keys/#usage).
-2. Install `vsce` as a `devDependencies` (`npm install vsce --save-dev` or `yarn add vsce --dev`).
+2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev` or `yarn add @vscode/vsce --dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 
 ```json

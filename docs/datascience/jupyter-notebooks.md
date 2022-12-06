@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 12/23/2021
+DateApproved: 12/2/2022
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -33,7 +33,7 @@ If you attempt to open a notebook when VS Code is in an untrusted workspace runn
 
 ## Create or open a Jupyter Notebook
 
-You can create a Jupyter Notebook by running the **Jupyter: Create New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
+You can create a Jupyter Notebook by running the **Create: New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
