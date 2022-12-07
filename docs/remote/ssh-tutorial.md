@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: remote
 TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
