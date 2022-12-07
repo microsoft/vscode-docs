@@ -63,7 +63,7 @@ At that point, here are step-by-step instructions to quickly get up and running:
 
 5. After authenticating and providing a machine name, the CLI spins up a server instance and generates a vscode.dev URL. To connect to your WSL instance, you can open this URL on any device.
 
-    > **Note:** You can also connect to your WSL instance directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Server: Connect to Remote**.
+    > **Note:** You can also connect to your WSL instance directly from vscode.dev: Open the Command Palette (`F1`) in vscode.dev and run the command **Remote Tunnels: Connect to Remote**.
 
 Congratulations, you've successfully installed and run the VS Code Server! The connection is fully established once you visit the generated vscode.dev link. Your WSL distro's files should be present in the VS Code Explorer, and you can start coding against it from vscode.dev.
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 7/21/2022
+DateApproved: 11/3/2022
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 This article discusses the helpful Python environments features available in Visual Studio Code. An "environment" in Python is the context in which a Python program runs and consists of an interpreter and any number of installed packages.
 
-> **Note**: We are actively working on improving the Python environments documentation and experience in Visual Studio Code. Please follow [this link](https://aka.ms/pythonenvironments) and sign up to give your feedback to the program management, content, and research teams.
+> **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](#more-python-resources).
 
 ## Python environments
 
@@ -63,7 +63,29 @@ The extension also loads an [environment variable definitions file](#environment
 
 ## Creating environments
 
-### Create a virtual environment
+### Using the Create Environment command
+
+From within VS Code, you can create non-global environments, using virtual environments or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
+
+The command presents a list of environment types: **Venv** or **Conda**.
+
+![Create Environment dropdown](images/environments/create_environment_dropdown.png)
+
+If you are creating an environment using **Venv**, the command presents a list of interpreters that can be used as a base for the new virtual environment.
+
+![Virtual environment interpreter selection](images/environments/interpreters-list.png)
+
+If you are creating an environment using **Conda**, the command presents a list of Python versions that can be used for your project.
+
+![Conda environment Python version selection](images/environments/conda_environment_python_versions.png)
+
+After selecting the desired interpreter or Python version, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
+
+![Create environment status notification](images/environments/create_environment_prompt_status.png)
+
+> **Note**: The command will also install necessary packages outlined in a requirements/dependencies file, such as `requirements.txt`, `pyproject.toml`, or `environment.yml`, located in the project folder.
+
+### Create a virtual environment in the terminal
 
 To create a virtual environment, use the following command, where ".venv" is the name of the environment folder:
 
@@ -87,7 +109,7 @@ This will add the path to the Python interpreter from the new virtual environmen
 
 > **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on macOS/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on macOS/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
 
-### Create a conda environment
+### Create a conda environment in the terminal
 
 The Python extension automatically detects existing conda environments. We recommend you install a Python interpreter into your conda environment, otherwise one will be installed for you after you select the environment. For example, the following command creates a conda environment with the Python 3.9 interpreter and several libraries, which VS Code then shows in the list of available interpreters:
 

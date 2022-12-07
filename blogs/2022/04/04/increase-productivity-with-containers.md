@@ -55,7 +55,7 @@ This brings us to the concept of a development container: a container that runs 
 
 ![A diagram showing containers with different tech stacks](container-diagram.png)
 
-To provide a way to create and connect to dev containers, VS Code released the [Remote -  Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019. This extension enhances local development by using the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
+To provide a way to create and connect to dev containers, VS Code released the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in 2019. This extension enhances local development by using the full power of dev containers, all while never leaving the comfort of VS Code. With over 11 million installs of the extension, it got us thinking: what if you could have a dev container that is hosted in the cloud?
 
 ## Moving to the cloud
 
@@ -87,7 +87,7 @@ With the power of VS Code, GitHub, and dev containers, GitHub Codespaces provide
 
 ## What's next?
 
-As developers, we want to spend more time developing software and less time on headache-inducing configuration. Trends in the industry can, and should, be used to empower developers to increase their productivity. We've explored how containers and the cloud can take us to the next level, and you can [get started with the Dev Containers extension](https://code.visualstudio.com/docs/remote/containers) to see for yourself. Now, what do you think could be the next step in making our lives even easier?
+As developers, we want to spend more time developing software and less time on headache-inducing configuration. Trends in the industry can, and should, be used to empower developers to increase their productivity. We've explored how containers and the cloud can take us to the next level, and you can [get started with Dev Containers](/docs/devcontainers/containers.md) to see for yourself. Now, what do you think could be the next step in making our lives even easier?
 
 Happy Coding!
 

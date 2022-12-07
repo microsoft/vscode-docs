@@ -5,7 +5,7 @@ TOCTitle: FAQ
 PageTitle: Source Control, Git & GitHub in VS Code Frequently Asked Questions
 ContentId: 431b4458-34c4-4aba-a0ee-eaddf7cd91a1
 MetaDescription: Visual Studio Code's Frequently Asked Questions (FAQ) for Source Control, Git & GitHub in VS Code
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Source Control FAQ
 
@@ -64,6 +64,12 @@ VS Code automatically fetches changes from the server in order to present you wi
 One way to avoid these prompts is to set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) that remembers your credentials.
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
+
+### Why is VS Code warning me that the git repository is potentially unsafe?
+
+VS Code uses `git.exe` for executing all git operations. Starting with Git [2.35.2](https://github.blog/2022-04-18-highlights-from-git-2-36/#stricter-repository-ownership-checks), users are prevented from running git operations in a repository that is in a folder that owned by a user other than the current user as the repository is deemed to be potentially unsafe.
+
+If you try to open such a repository, VS Code will show a welcome view in the Source Control view as well as an error notification. Both the welcome view, and the notification contain the **Manage Unsafe Repositories** command that enables user to review the list of potentially unsafe repositories, mark them as safe, and open them. The **Manage Unsafe Repositories** command is also available in the command palette. Marking a repository as safe will add the repository location to the `safe.directory` [git configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-safedirectory).
 
 ### Can I use SSH Git authentication with VS Code?
 

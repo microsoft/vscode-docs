@@ -38,7 +38,7 @@ Pick another video from the list: [Introductory Videos](/docs/getstarted/introvi
   * **M** - Modified file
 * Commit file
   * **Commit** ☑️(check mark) button
-* Creat a branch
+* Create a branch
   * **Git: Create Branch**
 * Diff editor
   * **Inline View** button

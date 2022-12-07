@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
@@ -146,6 +146,8 @@ By default, Markdown previews automatically update to preview the currently acti
 You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **\[Preview]** in the title:
 
 ![A locked Markdown preview](images/Markdown/locked-preview-title.png)
+
+>**Note:** The **Markdown: Toggle Preview Locking** command is available only if Markdown preview is the active Tab.
 
 ### Editor and preview synchronization
 

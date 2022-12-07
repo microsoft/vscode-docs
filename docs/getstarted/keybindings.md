@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -186,6 +186,13 @@ Here is an example:
 // To remove the second rule, for example, add in keybindings.json:
 { "key": "tab", "command": "-jumpToNextSnippetPlaceholder" }
 
+```
+
+To override a specific key binding rule with an empty action, you can specify an empty command:
+
+```json
+// To override and disable any `tab` keybinding, for example, add in keybindings.json:
+{ "key": "tab", "command": "" }
 ```
 
 ## Keyboard layouts

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -19,14 +19,14 @@ This topic covers:
 
 ## vsce
 
-[vsce](https://github.com/microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
+[vsce](https://github.com/microsoft/vscode-vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 
 ```bash
-npm install -g vsce
+npm install -g @vscode/vsce
 ```
 
 ### Usage
@@ -61,6 +61,12 @@ The publishing tool checks the following constraints:
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
+
+Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest), the extension name must be unique. You will see following error, if an extension name already exist in the Marketplace.
+
+```
+ERROR The extension 'name' already exists in the Marketplace.
+```
 
 ### Get a Personal Access Token
 
@@ -239,6 +245,24 @@ Eligible domains meet the following criteria:
 - Your domain must use HTTPS protocol.
 - Your domain must be able to serve an HTTP 200 status response to a HEAD request.
 
+### Extension pricing label
+
+You can add a pricing label to your extension in the Marketplace to indicate that it is `FREE` or `FREE TRIAL`.
+
+As an extension author, you can opt-in to display a pricing label on your extension page by adding the `pricing` field to your `package.json`, for example:
+
+```json
+{
+  "pricing": "Free"
+}
+```
+
+The value of the `pricing` field can be either `Free` or `Trial`. Note that these values are case-sensitive.
+
+If you do not add the `pricing` field to your `package.json`, the default label will be `FREE`.
+
+>**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
+
 ### Extension Sponsor
 
 An extension can opt-in to sponsorship by adding a `sponsor` field in its `package.json`, with the `url` field for the sponsorship link the extension author would like to use. For example:
@@ -325,7 +349,7 @@ Starting with version 1.61.0, VS Code looks for the extension package that match
 
 Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
 
-When publishing platform-specific extensions, a separate package needs to be published for each and every platform that an extension supports. If no package has been published for a platform, the user will see the extension appear as disabled and it can not be installed.
+When publishing platform-specific extensions, a separate package needs to be published for every platform that has platform-specific content. You can still publish a package without the `--target` flag and that package will be used as a fallback for all platforms for which there is no specific platform-specific package.
 
 The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64` and `darwin-arm64`.
 

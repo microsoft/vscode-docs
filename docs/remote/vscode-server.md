@@ -5,7 +5,7 @@ TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
 ContentId: d750ab6d-82c2-4e64-8fbb-7888e1374381
 MetaDescription: Using Visual Studio Code Server
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 ---
 # Visual Studio Code Server
 
@@ -31,8 +31,8 @@ The CLI establishes a tunnel between a VS Code client and your remote machine. T
 
 The VS Code Server experience includes a few components:
 
-* The VS Code Server: Backend server that makes VS Code remote experiences possible.
-* [Remote Tunnels extension](./tunnels.md): Automatically loaded in your local VS Code client, it facilitates the connection to the remote machine.
+* The VS Code Server: Backend server that makes VS Code remote experiences possible, plus a CLI that makes it easy to install, update, manage, and connect to the server.
+* Remote Tunnels extension: Automatically loaded in your local VS Code client, it facilitates the connection to the remote machine.
 
 ## Scenarios
 

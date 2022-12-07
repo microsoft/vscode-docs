@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 10/6/2022
+DateApproved: 11/2/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -59,9 +59,9 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
   "version": "0.0.1",
   "publisher": "bierner",
   "engines": {
-    "vscode": "^1.23.0"
+    "vscode": "^1.74.0"
   },
-  "activationEvents": ["onCommand:catCoding.start"],
+  "activationEvents": [],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
@@ -86,6 +86,8 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
   }
 }
 ```
+
+> **Note**: If your extension targets a VS Code version prior to 1.74, you must explicitly list `onCommand:catCoding.start` in `activationEvents`.
 
 Now let's implement the `catCoding.start` command. In our extension's main file, we register the `catCoding.start` command and use it to show a basic webview:
 

@@ -340,7 +340,7 @@ You can view the C/C++ configuration UI by running the command **C/C++: Edit Con
 
 This opens the **C/C++ Configurations** page. When you make changes here, VS Code writes them to a file called `c_cpp_properties.json` in the `.vscode` folder.
 
-Here, we've changed the **Configuration name** to **GCC**, set the **Compiler  path** dropdown to the g++ compiler, and the **IntelliSense mode** to match the compiler (**gcc-x64**)
+Here, we've changed the **Configuration name** to **GCC**, set the **Compiler  path** dropdown to the g++ compiler, and the **IntelliSense mode** to match the compiler (**gcc-x64**).
 
 ![Command Palette](images/mingw/intellisense-configurations-mingw.png)
 
