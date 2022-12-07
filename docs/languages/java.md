@@ -158,7 +158,7 @@ Visual Studio Code supports a wide range of popular Java code snippets to make y
 For example, typing "**sout**" or "**sysout**" will directly produce a code snippet for `System.out.println()`; 
 Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`;
 
-We support a wide range of code snippet shortcuts and postfix completion features. To see the complete list, see [Code Snippets](/docs/java/java-editing#_code-snippets). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
+We support a wide range of code snippet shortcuts and postfix completion features. To see the complete list, see [Code Snippets](/docs/java/java-editing.md#_code-snippets). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
 
 ![Code Snippet](images/java-editing/code-snippet.png)
 
