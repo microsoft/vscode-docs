@@ -1,13 +1,13 @@
 ---
-Order: 78
-TOCTitle: Making Remote Development Even Better
+Order: 79
+TOCTitle: Remote Development Even Better
 PageTitle: Making Remote Development Even Better
 MetaDescription: Announcing the release of the unified Visual Studio Code command-line interface and the latest improvements to remote development.
 Date: 2022-12-07
 Author: Brigit Murtaugh
 ---
 
-# Making Remote Development Even Better
+# Remote Development Even Better
 
 December 07, 2022 by Brigit Murtaugh, [@BrigitMurtaugh](https://twitter.com/BrigitMurtaugh)
 
