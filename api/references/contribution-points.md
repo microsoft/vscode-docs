@@ -440,11 +440,17 @@ In the settings UI, this is rendered as:
 
 ## contributes.configurationDefaults
 
-Contribute default language-specific editor configurations. This will override default editor configurations for the provided language.
+Contribute default values for other registered configurations and override their defaults.
 
-The following example contributes default editor configurations for the `markdown` language:
+The following example overrides the default behavior of `files.autoSave` setting to AutoSave files on focus change.
 
-### Configuration default example
+```json
+"configurationDefaults": {
+      "files.autoSave": "onFocusChange"
+}
+```
+
+You can also contribute default editor configurations for the provided language. For example, the following snippet contributes default editor configurations for the `markdown` language:
 
 ```json
 {
