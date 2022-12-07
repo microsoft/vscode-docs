@@ -516,6 +516,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/nodejs/profiling</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/nodejs/extensions</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
