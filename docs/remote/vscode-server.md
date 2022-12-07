@@ -25,7 +25,7 @@ We want to provide a unified VS Code experience no matter how you use the editor
 
 Access to the VS Code Server is built in to the existing [`code` CLI](/docs/editor/command-line.md#launching-from-command-line).
 
-The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling, also known as port forwarding, securely transmits data from one network to another.
+The CLI establishes a tunnel between a VS Code client and your remote machine. Tunneling securely transmits data from one network to another.
 
 ![The VS Code Server architecture](images/vscode-server/server-arch-latest.png)
 
