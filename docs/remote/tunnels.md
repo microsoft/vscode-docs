@@ -23,7 +23,7 @@ VS Code can provide a **local-quality development experience** - including full 
 
 You have two paths to work with tunnels:
 
-* Run the `tunnel` command of the `code` [command-line interface (CLI}](/docs/editor/command-line.md#create-remote-tunnel).
+* Run the `tunnel` command of the `code` [command-line interface (CLI)](/docs/editor/command-line.md#create-remote-tunnel).
 * Enable tunneling through the VS Code Desktop UI.
 
 Both of these paths result in the same tunneling functionality – you can use whichever tooling works best for you. The CLI is a great option if you can't install the full VS Code Desktop on your remote machine. Using the VS Code Desktop UI is convenient if you're already doing some work in VS Code and would then like to enable tunneling for your current machine.
