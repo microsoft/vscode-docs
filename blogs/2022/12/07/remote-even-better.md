@@ -33,7 +33,7 @@ In addition to the new CLI, we've made the following updates to improve remote d
 
 ## Tunnel to anywhere, from one tool
 
-Tunneling, also known as port forwarding, securely transmits data from one network to another. You can use secure tunnels to develop against any machine of your choosing from a VS Code desktop or web client, without the hassle of setting up SSH or HTTPS (although you can do that if you want as well 😊).
+Tunneling securely transmits data from one network to another. You can use secure tunnels to develop against any machine of your choosing from a VS Code desktop or web client, without the hassle of setting up SSH or HTTPS (although you can do that if you want as well 😊).
 
 You have two great options for tunneling to remote machines from VS Code:
 
