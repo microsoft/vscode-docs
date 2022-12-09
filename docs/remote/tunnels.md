@@ -72,6 +72,8 @@ You may create and use tunnels through the `code` [CLI](/docs/editor/command-lin
 
 4. In a client of your choice, you may open the vscode.dev link from the notification above and start coding!
 
+>**Note:** The remote machine will only be reachable through a tunnel while VS Code remains running there. Once you exit VS Code it will no longer be possible to tunnel to it until you start VS Code there again or run the `code tunnel` CLI command.
+
 ## Remote - Tunnels extension
 
 The vscode.dev instances you open through the `code` CLI or VS Code UI come with the Remote - Tunnels extension preinstalled.
@@ -111,6 +113,6 @@ No, an instance of the server is designed to be accessed by one user or client a
 
 ### How do I remove a tunnel or machine?
 
-If you'd like to stop a tunnel you're running via the CLI, you may use `kbstyle(Ctrl + C)` to end the active tunnel. If you've enabled tunneling through the VS Code UI, you can run the command **Remote Tunnels: Turn of Remote Tunnel Access...** in VS Code.
+If you'd like to stop a tunnel you're running via the CLI, you may use `kbstyle(Ctrl + C)` to end the active tunnel. If you've enabled tunneling through the VS Code UI, you can run the command **Remote Tunnels: Turn off Remote Tunnel Access...** in VS Code.
 
 You can remove a machine's association with tunneling by running `code tunnel unregister` on that machine. You can also open any VS Code client, select the Remote Explorer view, right-click on the machine you'd like to remove, and select **unregister**.
