@@ -45,8 +45,9 @@ The VS Code Server allows you to use VS Code in new ways, such as:
 ## Getting Started
 
 You can choose from two paths to enable tunneling, which are described in greater details in their respective docs content:
-* [Run the `tunnel` command in the `code` CLI](/docs/remote/tunnels.md/#using-the-code-cli)
-* [Enable tunneling through the VS Code UI](/docs/remote/tunnels.md/#using-the-vs-code-ui)
+
+* [Run the `tunnel` command in the `code` CLI](/docs/remote/tunnels.md#using-the-code-cli)
+* [Enable tunneling through the VS Code UI](/docs/remote/tunnels.md#using-the-vs-code-ui)
 
 ## Things to try
 
