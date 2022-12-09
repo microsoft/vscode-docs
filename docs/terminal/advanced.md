@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -43,7 +43,7 @@ The configurable `terminal.integrated.commandsToSkipShell` setting determines wh
 
 Look at the `terminal.integrated.commandsToSkipShell` setting details to see the complete list of default commands.
 
->**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell.
+>**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell. Note that this will disable keybindings like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#_find) though.
 
 ### Chords
 

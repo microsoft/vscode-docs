@@ -1,10 +1,10 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 
-VSCodeCommitHash: 835d39cfac9ede6c7c90678c8d6c3d4d0171ed6d
-VSCodeVersion: 1.72.0
+VSCodeCommitHash: 56d73a45e38259976188a982331c9fb5d156cd25
+VSCodeVersion: 1.74.0
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code extensions (plug-in) API Reference.

@@ -75,11 +75,11 @@ Error message "Failed to connect. Is Docker installed and running?"
 
 ## Invalid URL errors
 
-If you have a need to connect to a remote Docker daemon, we recommend using Docker contexts instead of a `docker.host` attribute in the settings. Check out this guide to learn how to [create and use a context](https://docs.docker.com/engine/context/working-with-contexts/) to communicate with a remote Docker daemon.
+If you have a need to connect to a remote Docker daemon, we recommend using Docker contexts instead of a `docker.environment` attribute in the settings. Check out this guide to learn how to [create and use a context](https://docs.docker.com/engine/context/working-with-contexts/) to communicate with a remote Docker daemon.
 
-If you still need to override the Docker context you are currently using, make sure your `DOCKER_HOST` environment variable or `docker.host` attribute includes a protocol in the URL (for example, `ssh://myuser@mymachine` or `tcp://1.2.3.4`).
+If you still need to override the Docker context you are currently using, make sure your `DOCKER_HOST` environment variable or `docker.environment.DOCKER_HOST` attribute includes a protocol in the URL (for example, `ssh://myuser@mymachine` or `tcp://1.2.3.4`).
 
-> **Note:** Keep in mind that your `docker.host` attribute will override your Docker context and the `DOCKER_HOST` environment variable will override both the `docker.host` attribute and your Docker context.
+> **Note:** Keep in mind that your `docker.environment.DOCKER_HOST` attribute will override your Docker context and the `DOCKER_HOST` environment variable will override both the `docker.environment.DOCKER_HOST` attribute and your Docker context.
 
 > **Tip**: In Powershell you can change your Docker environment variable with `$ENV:DOCKER_HOST = 'ssh://username@1.2.3.4'`
 

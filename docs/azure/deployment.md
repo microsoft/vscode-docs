@@ -5,7 +5,7 @@ TOCTitle: Deployment
 PageTitle: Visual Studio Code Azure Tutorials
 ContentId: 90f8dc30-1e71-4ea7-8230-2bf09bfb97d4
 MetaDescription: Visual Studio Code Azure Tutorials
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 ---
 # Deploying Applications to Azure
 
@@ -15,14 +15,14 @@ Whether your workflow is through the [Azure CLI](https://learn.microsoft.com/cli
 
 ## Deployment tutorials
 
-These tutorials from Microsoft Learn describe different ways of creating and deploying apps to Azure via Visual Studio Code:
+The tutorials and topics below describe different ways of creating and deploying apps to Azure via Visual Studio Code:
 
-Tutorial | Description
---- | ---
-[Deploy Azure Functions](https://learn.microsoft.com/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
-[Deploy using the App Service extension](https://learn.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app) | Manage Azure resources directly in VS Code with the Azure App Service extension.
-[Deploy using Docker](https://learn.microsoft.com/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01) | Deploy your website using a Docker container.
-[Deploy a static website](https://learn.microsoft.com/azure/static-web-apps/getting-started) | Create, deploy, and update a static website.
+Tutorial(s) | Description | Framework / Language
+--- | --- | ---
+[Deploy a static website](https://learn.microsoft.com/azure/static-web-apps/getting-started) | Create, deploy, and update a static website | Angular, Blazor, React, or Vue
+[Deploy Node.js apps](/docs/nodejs/nodejs-deployment.md) | Deploy web apps, containerized apps, or serverless code | Node.js
+[Deploy Python apps](/docs/python/python-on-azure.md) | Deploy web apps, containerized apps, or serverless code | Python
+[Deploy Java apps](/docs/java/java-on-azure.md) | Deploy web apps, Spring Boot apps, or serverless code | Java
 
 You can find additional tutorials and walkthroughs on the
 [Azure Developer Center](https://learn.microsoft.com/azure/developer), including language-specific articles for JavaScript and Node.js, Python, Java, and .NET.

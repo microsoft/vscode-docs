@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various Contribution Points it is using in its package.json Extension Manifest file.
@@ -440,11 +440,17 @@ In the settings UI, this is rendered as:
 
 ## contributes.configurationDefaults
 
-Contribute default language-specific editor configurations. This will override default editor configurations for the provided language.
+Contribute default values for other registered configurations and override their defaults.
 
-The following example contributes default editor configurations for the `markdown` language:
+The following example overrides the default behavior of `files.autoSave` setting to AutoSave files on focus change.
 
-### Configuration default example
+```json
+"configurationDefaults": {
+      "files.autoSave": "onFocusChange"
+}
+```
+
+You can also contribute default editor configurations for the provided language. For example, the following snippet contributes default editor configurations for the `markdown` language:
 
 ```json
 {

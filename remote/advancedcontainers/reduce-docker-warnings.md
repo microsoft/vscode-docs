@@ -5,7 +5,7 @@ TOCTitle: Reduce Docker warnings
 PageTitle: Reduce Docker container build warnings
 ContentId: 19d0127f-c27b-4bee-9a19-68c93dc63922
 MetaDescription: Reduce Docker container build warnings
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 ---
 # Reduce Docker build warnings
 
@@ -78,4 +78,4 @@ And the following in your `devcontainer.json`:
     }
 ```
 
-In the Docker Compose case, you can add this argument to a separate [override file to extend your configuration](https://github.com/microsoft/vscode-docs/blob/a55ae5b286196b495e2b3ea9f0b3e211beb7c925/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development) that is located in a different place in your source tree than the primary Docker Compose file.
+In the Docker Compose case, you can add this argument to a separate [override file to extend your configuration](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development) that is located in a different place in your source tree than the primary Docker Compose file.

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Visual Studio Code on macOS
@@ -96,6 +96,6 @@ If you are running macOS Mojave version, you may see dialogs saying "Visual Stud
 
 If VS Code doesn't update once it restarts, it might be set under quarantine by macOS. Follow the steps in this [issue](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for resolution.
 
-### Does VS Code run on Apple Silicon machines?
+### Does VS Code run on Apple silicon machines?
 
-Yes, VS Code supports macOS ARM64 builds that can run on Macs with the Apple Silicon chipsets. You can install the Universal build, which includes both Intel and Apple Silicon builds, or one of the platform specific builds.
+Yes, VS Code supports macOS Arm64 builds that can run on Macs with the Apple silicon chipsets. You can install the Universal build, which includes both Intel and Apple silicon builds, or one of the platform specific builds.

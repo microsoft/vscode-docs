@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 85918f63-ff5d-4ab8-8a18-26ad00618eff
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: UX guidelines for quick picks used in a Visual Studio Code extension.
@@ -20,12 +20,18 @@ MetaDescription: UX guidelines for quick picks used in a Visual Studio Code exte
 * Use the detail for providing (brief) additional context
 * Use the multi-step pattern for a series of basic inputs
 * Provide an option to create a new item when picking from a list (if applicable)
+* Use a title for multi-step quick picks
+* Use a title for quick picks without a text input
+* Use a title for quick picks asking for text input (use the placeholder to show a hint or example)
+* Use a title for quick picks featuring global buttons (e.g. a refresh icon)
 
 ❌ Don't
 
 * Repeat existing functionality
 * Use the same icon for multiple items
 * Use more than six icons in a list
+* Use a title when the placeholder can describe the purpose on its own
+* Use inputs without a placeholder
 
 ## Multiple Steps
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -37,9 +37,9 @@ Here's the `package.json` for the first version of our extension:
     "version": "0.0.1",
     "publisher": "alexr00",
     "engines": {
-        "vscode": "^1.42.0"
+        "vscode": "^1.74.0"
     },
-    "activationEvents": [ "onView:nodeDependencies" ],
+    "activationEvents": [],
     "main": "./out/extension.js",
     "contributes": {
         "views": {
@@ -64,6 +64,8 @@ Here's the `package.json` for the first version of our extension:
     }
 }
 ```
+
+> **Note**: If your extension targets a VS Code version prior to 1.74, you must explicitly list `onView:nodeDependencies` in `activationEvents`.
 
 You must specify an identifier and name for the view, and you can contribute to following locations:
 
@@ -267,15 +269,15 @@ In the `contributes` section of your `package.json`, add:
 
 ## Activation
 
-It is important that your extension is activated only when user needs the functionality that your extension provides. In this case, you should consider activating your extension when the user starts using the view. VS Code emits an activationEvent [onView:${viewId}](/api/references/activation-events#onView) (`onView:nodeDependencies` for the example above) when the user opens the view.
+It is important that your extension is activated only when user needs the functionality that your extension provides. In this case, you should consider activating your extension only when the user starts using the view. VS Code automatically does this for you when your extension declares a view contribution. VS Code emits an activationEvent [onView:${viewId}](/api/references/activation-events#onView) (`onView:nodeDependencies` for the example above) when the user opens the view.
 
-You can register to this activation event in `package.json` and VS Code will activate your extension on this event:
+> **Note**: For VS Code versions prior to 1.74.0, you must explicitly register this activation event in `package.json` for VS Code to activate your extension on this view:
+>```json
+>"activationEvents": [
+>        "onView:nodeDependencies",
+>],
+>```
 
-```json
-"activationEvents": [
-        "onView:nodeDependencies",
-],
-```
 
 ## View Container
 

@@ -81,6 +81,7 @@ We recommend you to consider installing the JDK from one of these sources:
 * [Amazon Corretto](https://aws.amazon.com/corretto)
 * [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)
+* [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
@@ -150,7 +151,16 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
-For more details, see [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
+## Code snippets
+
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
+
+For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br>
+Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`.
+
+We support a wide range of code snippet shortcuts and postfix completion features. To see the complete list, see [Code Snippets](/docs/java/java-editing.md#code-snippets). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
+
+![Code Snippet](images/java/code-snippet.png)
 
 ## Debugging
 

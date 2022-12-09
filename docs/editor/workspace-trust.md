@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Workspace Trust
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
 PageTitle: Visual Studio Code Workspace Trust security
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust
@@ -65,7 +65,7 @@ Workspace [settings](/docs/getstarted/settings.md) are stored in the `.vscode` f
 
 In the Workspace Trust editor, there is a link to display the workspace settings that aren't being applied. Clicking the link brings up the Settings editor scoped by the `@tag:requireTrustedWorkspace` tag.
 
-![Settings editor scoped by the requireTrustedWorkspace tag](images/workspace-trust/requireTrustedWorkspace-settings.png)
+![Settings editor scoped by the requireTrustedWorkspace tag in a restricted workspace](images/workspace-trust/requireTrustedWorkspace-settings.png)
 
 ### Extensions
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 282670bb-cc72-4b01-9b51-08bf8f5a13a1
-DateApproved: 10/6/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to run extensions in Visual Studio Code for the web and the web extension host.
@@ -34,10 +34,10 @@ The example below shows the `package.json` for a simple hello world extension, t
   "publisher": "vscode-samples",
   "repository": "https://github.com/microsoft/vscode-extension-samples/helloworld-web-sample",
   "engines": {
-    "vscode": "^1.58.0"
+    "vscode": "^1.74.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:helloworld-web-sample.helloWorld"],
+  "activationEvents": [],
   "browser": "./dist/web/extension.js",
   "contributes": {
     "commands": [
@@ -63,6 +63,8 @@ The example below shows the `package.json` for a simple hello world extension, t
   }
 }
 ```
+
+> **Note**: If your extension targets a VS Code version prior to 1.74, you must explicitly list `onCommand:helloworld-web-sample.helloWorld` in `activationEvents`.
 
 Extensions that have only a `main` entry point, but no `browser` are not web extensions. They are ignored by the web extension host and not available for download in the Extensions view.
 
