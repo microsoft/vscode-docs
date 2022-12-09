@@ -76,7 +76,7 @@ You may create and use tunnels through the `code` [CLI](/docs/editor/command-lin
 
 The vscode.dev instances you open through the `code` CLI or VS Code UI come with the Remote - Tunnels extension preinstalled.
 
-If you're already working in VS Code (desktop or web) and would like to connect to a remote tunnel, you can install and use the [Remote - Tunnels]((https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server)) extension directly. Once you install the extension, open the Command Palette (`kbstyle(F1)`) and run the command **Remote Tunnels: Connect to Tunnel**. You'll be able to connect to any remote machines with an active tunnel.
+If you're already working in VS Code (desktop or web) and would like to connect to a remote tunnel, you can install and use the [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server) extension directly. Once you install the extension, open the Command Palette (`kbstyle(F1)`) and run the command **Remote Tunnels: Connect to Tunnel**. You'll be able to connect to any remote machines with an active tunnel.
 
 You can also view your remote machines in the Remote Explorer, which you may focus on through the command **Remote Explorer: Focus on Remote View**:
 
