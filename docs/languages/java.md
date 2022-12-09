@@ -155,12 +155,12 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
 
 Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
 
-For example, typing "**sout**" or "**sysout**" will directly produce a code snippet for `System.out.println()`; 
-Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`;
+For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br>
+Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`.
 
 We support a wide range of code snippet shortcuts and postfix completion features. To see the complete list, see [Code Snippets](/docs/java/java-editing.md#code-snippets). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
 
-![Code Snippet](images/java-editing/code-snippet.png)
+![Code Snippet](images/java/code-snippet.png)
 
 ## Debugging
 
