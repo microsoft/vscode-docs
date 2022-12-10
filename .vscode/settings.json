@@ -9,5 +9,8 @@
     "markdown.validate.enabled": true,
     "markdown.validate.ignoredLinks": [
         "/Download"
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
     ]
 }
