@@ -73,7 +73,7 @@ As with the CLI, the VS Code Remote Tunnels extension has additional commands yo
 
 ## Telemetry
 
-If you want to disable telemetry, you can pass in `--disable-telemetry` when launching the VS Code Server: `code tunnels --disable-telemetry`. Alternatively, if you would like to specify an initial telemetry level, such as only collecting errors, you can pass in `--telemetry-level` followed by the level (for example, `error`).
+If you want to disable telemetry, you can pass in `--disable-telemetry` when launching the VS Code Server: `code tunnel --disable-telemetry`. Alternatively, if you would like to specify an initial telemetry level, such as only collecting errors, you can pass in `--telemetry-level` followed by the level (for example, `error`).
 
 If telemetry is not disabled via the CLI, the VS Code Server will begin respecting the client telemetry settings (your telemetry setting in vscode.dev or desktop) upon successful connection.
 
