@@ -7,7 +7,7 @@ MetaDescription: Using the Python extension template to integrate linters, forma
 ---
 # Python Extension Template
 
-The [Python extension template](https://github.com/microsoft/vscode-python-tools-extension-template) helps get you started building a Visual Studio Code extension for your favorite Python tool. It could be a linter, formatter, or code analysis, or all of those together. The template will give you the basic building blocks you need to build an extension that integrates your tool into VS Code.
+The [Python extension template][def] helps get you started building a Visual Studio Code extension for your favorite Python tool. It could be a linter, formatter, or code analysis, or all of those together. The template will give you the basic building blocks you need to build an extension that integrates your tool into VS Code.
 
 >**Note**: If you are new to VS Code extension authoring, you may want to read the [Your First Extension](/api/get-started/your-first-extension) tutorial first and try creating a simple Hello World extension.
 
@@ -82,3 +82,6 @@ Before publishing your extension, you'll need to update the extension `package.j
 Once your extension is ready to publish, there is a `nox` `build-package` task to create a `.vsix` file, which you can then upload to your extension [management page](https://marketplace.visualstudio.com/manage).
 
 If you are new to creating and publishing VS Code extensions, we recommend you follow best practices outlined in the main VS Code [extension authoring](/api/working-with-extensions/publishing-extension#advanced-usage) topics. Here you'll find guidance to help make your extension look great on the Marketplace and how to become a verified publisher so that the users feel confident installing your extension.
+
+
+[def]: https://github.com/microsoft/vscode-python-tools-extension-template
