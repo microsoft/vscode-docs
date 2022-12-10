@@ -8,6 +8,7 @@
     },
     "markdown.validate.enabled": true,
     "markdown.validate.ignoredLinks": [
-        "/Download"
+        "/Download",
+        "#supporting-nonx8664-hosts-or-alpine-linux-containers"
     ]
 }
