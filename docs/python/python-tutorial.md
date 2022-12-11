@@ -80,6 +80,7 @@ To verify that you've installed Python successfully on your machine, run one of 
     ```bash
     python --version
     ```
+    
 
 - Windows: open a command prompt and run the following command:
 
