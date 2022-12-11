@@ -75,6 +75,12 @@ To verify that you've installed Python successfully on your machine, run one of 
     python3 --version
     ```
 
+    Or, if this is your only version of Python, try the following:
+
+    ```bash
+    python --version
+    ```
+
 - Windows: open a command prompt and run the following command:
 
     ```bat
