@@ -175,7 +175,7 @@ This section contains a list of common know issues with WSL. The intent is not t
 
 See [here for a list of active issues](https://aka.ms/vscode-remote/wsl/issues) related to WSL.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace in WSL 1
+### I see EACCES: permission denied error trying to rename a folder in the open workspace in WSL 1
 
 That's a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VSCode. The issue will only be fixed in WSL 2.
 
