@@ -10,5 +10,8 @@
     "markdown.validate.ignoredLinks": [
         "/Download",
         "#supporting-nonx8664-hosts-or-alpine-linux-containers"
-    ]
+    ],
+    "githubPullRequests.useReviewMode": {
+        "merged": false
+    }
 }
