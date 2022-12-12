@@ -44,17 +44,23 @@ You now have your first HTML page ready for you to customize. To get started, wi
 
 ## View in the Browser
 
-With your HTML page created, let's open it in the browser by using the VS Code extension **open in browser**.
+With your HTML page created, let's open it in the browser by using the VS Code extension **[Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)**.
 
-![Azure Static Web Apps extention](images/intro-html/html-open-in-browser.png)
+![Azure Static Web Apps extension](images/intro-html/html-live-preview-extension.png)
 
 > 💡 **VS Code Extensions**
 >
 > Extensions are community-developed resources that extend the functionality of VS Code. [Learn more here](https://code.visualstudio.com/docs/editor/extension-marketplace) on extensions and the Extension Marketplace for you to customize your VS Code installation.
 
-With the **open in browser** extension installed, right-click on `index.html` in the Explorer file list and select **Open In Default Browser**.
+With the **Live Preview** extension installed, right-click on `index.html` in the Explorer file list and select **Show Preview**.
 
-This will open your web page (index.html) in your default browser. In the browser window you will see your reminder text of, "Here I will add more detail to my site" with the tab label of "This is my site".
+You can also launch a preview of your page using the **Show Preview** button in the upper-right corner when you have `index.html` open in the editor.
+
+![Azure Static Web Apps extension](images/intro-html/html-live-preview-button.png)
+
+This will open your web page (index.html) in a new browser panel on the right side of VS Code. You should see the preview tab is labeled "This is my site", with the text of, "Here I will add more detail to my site" displayed in the tab window.
+
+**Live Preview** will auto-refresh your previewed page as you make changes. Try adding more text after "Here I will add more detail to my site", and you will see it display on the preview panel.
 
 ## Deploy
 
