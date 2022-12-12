@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 106AA11C-DB26-493A-9E3C-16F513B2AEC8
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: The Visual Studio Code Extension Host is responsible for managing extensions and ensuring the stability and performance of Visual Studio Code.
@@ -24,7 +24,7 @@ The following table shows which extension hosts are available in the various con
 | Configuration | local extension host  | web extension host | remote extension host |
 --- | --- | --- | ---
 | VS Code on the desktop | ✔️ | ✔️ |  |
-| [VS Code with remote](/docs/remote/remote-overview) (Container, SSH, WSL, GitHub Codespace) | ✔️ | ✔️ | ✔️ |
+| [VS Code with remote](/docs/remote/remote-overview) (Container, SSH, WSL, GitHub Codespace, Tunnel) | ✔️ | ✔️ | ✔️ |
 | VS Code for the Web (vscode.dev, github.dev) |  | ✔️ |   |
 | VS Code for the Web with Codespaces |  | ✔️ | ✔️ |
 

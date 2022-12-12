@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -94,6 +94,9 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 - `checkbox.background`: Background color of checkbox widget.
 - `checkbox.foreground`: Foreground color of checkbox widget.
 - `checkbox.border`: Border color of checkbox widget.
+- `checkbox.selectBackground`: Background color of checkbox widget when the element it's in is selected.
+- `checkbox.selectBorder`: Border color of checkbox widget when the element it's in is selected.
+
 
 ## Dropdown control
 
@@ -198,9 +201,10 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
-- `activityBarItem.settingsProfilesForeground`: Foreground color for the settings profile entry on the activity bar.
-- `activityBarItem.settingsProfilesHoverForeground`: Foreground color for the settings profile entry on the activity bar when hovering.
-- `activityBarItem.settingsProfilesBackground`: Background color for the settings profile entry on the activity bar.
+- `activityBar.activeBackground`: Activity Bar optional background color for the active element.
+- `activityBarItem.profilesForeground`: Foreground color for the profile entry on the activity bar.
+- `activityBarItem.profilesHoverForeground`: Foreground color for the profile entry on the activity bar when hovering.
+- `activityBarItem.profilesBackground`: Background color for the profile entry on the activity bar.
 
 ## Side Bar
 
@@ -707,6 +711,7 @@ Prominent items stand out from other Status Bar entries to indicate importance. 
 - `commandCenter.border`: Border color of the Command Center.
 - `commandCenter.inactiveForeground`: Foreground color of the Command Center when the window is inactive.
 - `commandCenter.inactiveBorder`: Border color of the Command Center when the window is inactive.
+- `commandCenter.activeBorder`: Active border color of the command center.
 
 ## Notification colors
 
@@ -871,9 +876,10 @@ The following customizations are available:
 - `welcomePage.progress.foreground`: Background color for the Welcome page progress bars.
 - `welcomePage.tileBackground`: Background color for the tiles on the Get Started page.
 - `welcomePage.tileHoverBackground`: Hover background color for the tiles on the Get Started.
-- `welcomePage.tileShadow`: Shadow color for the Welcome page walkthrough category buttons.
+- `welcomePage.tileBorder`: Border color for the tiles on the Get Started page.
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
+- `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
 
 ## Source Control colors
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Workspace Trust
 ContentId: 51280c26-f78b-4f9c-997f-8350bd6ed07f
 PageTitle: Visual Studio Code Workspace Trust security
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 MetaDescription: Visual Studio Code Workspace Trust folder security
 ---
 # Workspace Trust

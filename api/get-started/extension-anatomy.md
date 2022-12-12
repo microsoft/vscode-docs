@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8027f6fb-6c9e-4106-8ef1-f9b0ba1b7085
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Explain the structure of a Visual Studio Code extension (plug-in)
@@ -71,7 +71,7 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
     "vscode": "^1.51.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:helloworld.helloWorld"],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -94,6 +94,8 @@ Each VS Code extension must have a `package.json` as its [Extension Manifest](/a
   }
 }
 ```
+
+> **Note**: If your extension targets a VS Code version prior to 1.74, you must explicitly list `onCommand:helloworld.helloWorld` in `activationEvents`.
 
 ## Extension Entry File
 

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of Activation Events.
@@ -53,6 +53,8 @@ Multiple languages can be declared with separate `onLanguage` entries in the `ac
 ...
 ```
 
+> **Note**: Beginning with VS Code 1.74.0, languages contributed by your extension do not require a corresponding `onLanguage` activation event declaration for your extension to be activated.
+
 ## onCommand
 
 This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
@@ -64,6 +66,8 @@ This activation event is emitted and interested extensions will be activated whe
 ]
 ...
 ```
+
+> **Note**: Beginning with VS Code 1.74.0, commands contributed by your extension do not require a corresponding `onCommand` activation event declaration for your extension to be activated.
 
 ## onDebug
 
@@ -127,6 +131,9 @@ The activation event below will fire whenever a view with the `nodeDependencies`
 ...
 ```
 
+> **Note**: Beginning with VS Code 1.74.0, views contributed by your extension do not require a corresponding `onView` activation event declaration for your extension to be activated.
+
+
 ## onUri
 
 This activation event is emitted and interested extensions will be activated whenever a system-wide Uri for that extension is opened. The Uri scheme is fixed to either `vscode` or `vscode-insiders`. The Uri authority must be the extension's identifier. The rest of the Uri is arbitrary.
@@ -173,6 +180,8 @@ For example, the declaration of `onCustomEditor` below:
 
 will cause the extension to be activated when VS Code needs to restore a custom editor with the viewType: `catCustoms.pawDraw`. The viewType is set in the [`customEditors` contribution point](/api/extension-guides/custom-editors#contribution-point) and bound to a provider with `registerCustomEditorProvider`.
 
+> **Note**: Beginning with VS Code 1.74.0, custom editors contributed by your extension do not require a corresponding `onCustomEditor` activation event declaration for your extension to be activated.
+
 ## onAuthenticationRequest
 
 This activation event is emitted and interested extensions will be activated whenever an extension requests an authentication session (via the `authentication.getSession()` API) with the matching `providerId`.
@@ -186,6 +195,8 @@ For example, the declaration of `onAuthenticationRequest` below:
 ```
 
 will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`.
+
+> **Note**: Beginning with VS Code 1.74.0, authentication providers contributed by your extension do not require a corresponding `onAuthenticationRequest` activation event declaration for your extension to be activated.
 
 ## onStartupFinished
 

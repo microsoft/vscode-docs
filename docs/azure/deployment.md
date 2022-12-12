@@ -5,7 +5,7 @@ TOCTitle: Deployment
 PageTitle: Visual Studio Code Azure Tutorials
 ContentId: 90f8dc30-1e71-4ea7-8230-2bf09bfb97d4
 MetaDescription: Visual Studio Code Azure Tutorials
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 ---
 # Deploying Applications to Azure
 

@@ -1,11 +1,11 @@
 ---
-Order: 15
+Order: 16
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 ---
 # Remote Development Tips and Tricks
 
@@ -674,7 +674,7 @@ In a Windows command prompt:
 
 The core file will be in the WSL extension folder from above.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace
+### I see EACCES: permission denied error trying to rename a folder in the open workspace
 
 This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
 

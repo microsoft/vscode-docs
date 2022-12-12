@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 11/2/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -93,19 +93,9 @@ The above installs all dependencies and opens the **lsp-sample** workspace conta
 
 ### Explaining the 'Language Client'
 
-Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are three interesting sections:
+Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are two interesting sections:
 
-First look the [`activationEvents`](/api/references/activation-events):
-
-```json
-"activationEvents": [
-    "onLanguage:plaintext"
-]
-```
-
-This section tells VS Code to activate the extension as soon as a plain text file is opened (for example a file with the extension `.txt`).
-
-Next look at the [`configuration`](/api/references/contribution-points#contributes.configuration) section:
+First, look at the [`configuration`](/api/references/contribution-points#contributes.configuration) section:
 
 ```json
 "configuration": {
@@ -123,6 +113,12 @@ Next look at the [`configuration`](/api/references/contribution-points#contribut
 ```
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
+
+
+> **Note**: If your extension is compatible with VS Code versions prior to 1.74.0, you must declare `onLanguage:plaintext` in the [`activationEvents`](/api/references/activation-events)  field of `/package.json` to tell VS Code to activate the extension as soon as a plain text file is opened (for example a file with the extension `.txt`):
+> ```json
+> "activationEvents": []
+> ```
 
 The actual Language Client source code and the corresponding `package.json` are in the `/client` folder. The interesting part in the `/client/package.json` file is that it references the `vscode` extension host API through the `engines` field and adds a dependency to the `vscode-languageclient` library:
 
