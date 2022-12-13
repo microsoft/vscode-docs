@@ -173,7 +173,7 @@ View Identifiers:
 
 * workbench.view.explorer - File Explorer
 * workbench.view.search - Search
-* workbench.view.scm - Source Control
+* workbench.scm - Source Control
 * workbench.view.debug - Run
 * workbench.view.extensions - Extensions
 
