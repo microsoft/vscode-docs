@@ -25,7 +25,7 @@ To install the extension, open the Extensions view (`kb(workbench.view.extension
 
 ## Editing Docker files
 
-You can get [IntelliSense](/docs/editor/intellisense.md) when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
+You can get [IntelliSense](/docs/editor/intellisense.md) by clicking `kb(editor.action.triggerSuggest)` when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
 
 ![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 
@@ -81,7 +81,7 @@ You can display the content and push, pull, or delete images from [Azure Contain
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 
-An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code. See [Deploy images to Azure App Service](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
+An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code. See [Deploy to Azure App Service](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
 
 ## Debugging services running inside a container
 
