@@ -29,7 +29,7 @@ In addition to the new CLI, we've made the following updates to improve remote d
 * Tunneling is no longer in private preview – anyone can create and use tunnels, no sign up required.
 * We renamed two remote extensions to be clearer about how they work and where they can help development:
   * The "Remote - WSL" extension is now simply [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
-  * The "Remote - Containers" extension is renamed [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to reflect it's use for creating development environments.
+  * The "Remote - Containers" extension is renamed [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to reflect its use for creating development environments.
 
 ## Tunnel to anywhere, from one tool
 
