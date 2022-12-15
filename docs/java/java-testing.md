@@ -19,7 +19,7 @@ The extension supports the following test frameworks:
 
 - [JUnit 4](https://junit.org/junit4/) (v4.8.0+)
 - [JUnit 5](https://junit.org/junit5/) (v5.1.0+)
-- [TestNG](https://testng.org/doc/) (v6.8.0+)
+- [TestNG](https://testng.org/doc/) (v6.9.13.3+)
 
 The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) works with the [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions to provide the following features:
 
@@ -169,6 +169,9 @@ Currently the supported configurations are:
 - **sourcePaths**: Specify the extra source paths when debugging the tests.
 - **vmArgs**: Specify the extra options and system properties for the JVM.
 - **workingDirectory**: Specify the working directory when running the tests.
+- **testKind**: Specify the targeting test framework for this test configuration. Supported values are `junit`, `testng`.
+- **filters**: Specify the test filters.
+  - **tags**: Specify the tags to be included or excluded. Tags having `!` as the prefix will be **excluded**. Note: This setting only takes effect when `testKind` is set to `junit`
 
 More details can be found on the [vscode-java-test Wiki](https://github.com/Microsoft/vscode-java-test/wiki/Run-with-Configuration).
 
