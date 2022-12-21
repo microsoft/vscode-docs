@@ -103,3 +103,9 @@ Using the Registry Editor (regedit):
 3. Find the `.svg` key.
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit `regedit`.
+
+### Unable to run as admin when AppLocker is enabled
+
+With the introduction of process sandboxing (see our [blog](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)) running as administrator is currently unsupported when AppLocker is configured on the system. Please run with your normal user account if possible.
+
+Subscribe to issue [122951](https://github.com/microsoft/vscode/issues/122951) for receiving updates on this matter.
