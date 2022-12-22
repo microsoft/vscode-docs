@@ -31,7 +31,7 @@ jobs:
     displayName: Copy ${{ parameters.artifactName }}
 
   - task: CodeQL3000Init@0
-    condition: eq(${{ parameters.artifactName }}, 'True')
+    condition: eq(${{ parameters.includeCodeQLTasks }}, 'True')
 
   - task: NodeTool@0
     displayName: Use Node 14.19.3
@@ -57,4 +57,4 @@ jobs:
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
   - task: CodeQL3000Finalize@0
-    condition: eq(${{ parameters.artifactName }}, 'True')
+    condition: eq(${{ parameters.includeCodeQLTasks }}, 'True')
