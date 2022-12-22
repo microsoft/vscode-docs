@@ -435,7 +435,7 @@ Examples:
 
 ## Welcome content
 
-If your view can be empty, or if you want to add Welcome content to another extension's empty view, you can contribute `viewsWelcome` content. An empty view is a view that has no `message` and an empty tree.
+If your view can be empty, or if you want to add Welcome content to another extension's empty view, you can contribute `viewsWelcome` content. An empty view is a view that has no `TreeView.message` and an empty tree.
 
 ```json
 "contributes": {
