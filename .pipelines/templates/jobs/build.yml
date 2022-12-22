@@ -3,6 +3,9 @@ parameters:
     type: string
   - name: artifactName
     type: string
+  - name: includeCodeQLTasks
+    type: boolean
+    value: false
 
 jobs:
 - job:
@@ -27,6 +30,9 @@ jobs:
       targetFolder: $(Pipeline.Workspace)/vscode-website
     displayName: Copy ${{ parameters.artifactName }}
 
+  - task: CodeQL3000Init@0
+    condition: eq(${{ parameters.artifactName }}, 'True')
+
   - task: NodeTool@0
     displayName: Use Node 14.19.3
     inputs:
@@ -49,3 +55,6 @@ jobs:
   - pwsh: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
+
+  - task: CodeQL3000Finalize@0
+    condition: eq(${{ parameters.artifactName }}, 'True')
