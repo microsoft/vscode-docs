@@ -124,9 +124,8 @@ Extensions have no access to the DOM of VS Code UI. You **cannot** write an exte
 
 At VS Code, we're continually trying to optimize use of the underlying web technologies to deliver an always available, highly responsive editor and we will continue to tune our use of the DOM as these technologies and our product evolve. To ensure that extensions cannot interfere with the stability and performance of VS Code, and that we can continue to improve the DOM of VS Code without breaking existing extensions, we run extensions in an [Extension Host](/api/advanced-topics/extension-host) process and prevent direct access to the DOM.
 
-### No Custom Style Sheets
+### No custom style sheets
 
-A custom style sheet provided by users or extensions would work against the DOM structure and class names. These are not documented as we consider them internal. To evolve, refactor or improve VS Code, we need the freedom to make changes to the user interface. Each change tp the DOM can break existing custom style sheets. This would result in frustration with style sheet providers and also a bad user experience when user are impacted by UI glitches coming from the broken style sheet.
+A custom style sheet provided by users or extensions would work against the DOM structure and class names. These are not documented as we consider them internal. To evolve, refactor, or improve VS Code, we need the freedom to make changes to the user interface. Any change to the DOM can break existing custom style sheets, resulting in frustration for style sheet providers and a bad user experience with UI glitches coming from the broken style sheet.
 
-Instead, we aim to a well-designed extension API. This one is documented, comes with tooling and samples, and is kept stable across all upcoming releases of VS Code.
-
+Instead, VS Code aims to provide a well-designed extension API supporting UI customizations. The API is documented, comes with tooling and samples, and is kept stable across all upcoming releases of VS Code.
