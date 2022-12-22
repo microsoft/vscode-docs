@@ -155,6 +155,8 @@ Each type requires additional configuration attributes:
 - **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
+An option can be a string value or an object with both a label and value. The dropdown will display **label: value**.
+
 `command`:
 
 - **command**: Command being run on variable interpolation.
