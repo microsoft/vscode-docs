@@ -107,6 +107,8 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 }
 ```
 
+When using a command variable in a `launch.json` configuration, the enclosing `launch.json` configuration is passed as an object to the command via an argument. This allows commands to know the context and parameters of the specific `launch.json` configuration when they are called.
+
 ## Input variables
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
