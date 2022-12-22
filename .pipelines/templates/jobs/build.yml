@@ -5,7 +5,7 @@ parameters:
     type: string
   - name: includeCodeQLTasks
     type: boolean
-    value: false
+    default: false
 
 jobs:
 - job:
