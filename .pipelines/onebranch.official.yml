@@ -41,6 +41,11 @@ extends:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
       policheck:
         break: true
+      codeql:
+        compiled:
+          enabled: true
+        tsaEnabled: true
+        skipTaskAutoInjection: true
 
     stages:
     - template: templates\stages\build-official.yml

@@ -29,7 +29,7 @@ In addition to the new CLI, we've made the following updates to improve remote d
 * Tunneling is no longer in private preview – anyone can create and use tunnels, no sign up required.
 * We renamed two remote extensions to be clearer about how they work and where they can help development:
   * The "Remote - WSL" extension is now simply [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
-  * The "Remote - Containers" extension is renamed [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to reflect it's use for creating development environments.
+  * The "Remote - Containers" extension is renamed [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to reflect its use for creating development environments.
 
 ## Tunnel to anywhere, from one tool
 
@@ -116,7 +116,7 @@ You can also view your remote machines in the Remote Explorer, which you can ope
 
 ### Removing a tunnel or machine
 
-If you'd like to stop a tunnel you're running via the CLI, use `kbstyle(Ctrl + C)` to end the active connection. If you've enabled tunneling through the VS Code UI, run the command **Remote Tunnels: Turn of Remote Tunnel Access...**.
+If you'd like to stop a tunnel you're running via the CLI, use `kbstyle(Ctrl + C)` to end the active connection. If you've enabled tunneling through the VS Code UI, run the command **Remote Tunnels: Turn off Remote Tunnel Access...**.
 
 You can remove a machine's association with tunneling by running `code tunnel unregister` on that machine. In VS Code, select the Remote Explorer view, right-click on the machine you'd like to remove, and select **unregister**.
 
@@ -144,7 +144,7 @@ As described above, you can use the [Remote - Tunnels](https://marketplace.visua
 
 We've heard your feedback over the years on our remote experiences and most recently on the VS Code Server – we can't thank you enough for sharing the thoughts that continue to shape our product experiences. We're excited to see how you use our latest remote features and for your feedback!
 
-If you'd like a more in-depth look at the tools described in this blog, we created a [topic](https://aka.ms/remote-tunnels-doc) on the Remote - Tunnels extension, along with updating the [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server) and [`code` CLI](https://code.visualstudio.com/docs/editor/command-line) documnetation to reflect the latest changes.
+If you'd like a more in-depth look at the tools described in this blog, we created a [topic](https://aka.ms/remote-tunnels-doc) on the Remote - Tunnels extension, along with updating the [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server) and [`code` CLI](https://code.visualstudio.com/docs/editor/command-line) documentation to reflect the latest changes.
 
 Please feel free to file feature requests or bugs in our [vscode-remote-release](https://github.com/microsoft/vscode-remote-release/issues) GitHub repository, or you can Tweet us your thoughts [@code](https://twitter.com/code).
 

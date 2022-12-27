@@ -45,8 +45,9 @@ The VS Code Server allows you to use VS Code in new ways, such as:
 ## Getting Started
 
 You can choose from two paths to enable tunneling, which are described in greater details in their respective docs content:
-* [Run the `tunnel` command in the `code` CLI](./tunnels.md/#code-cli)
-* [Enable tunneling through the VS Code UI](./tunnels.md/#vs-code-ui)
+
+* [Run the `tunnel` command in the `code` CLI](/docs/remote/tunnels.md#using-the-code-cli)
+* [Enable tunneling through the VS Code UI](/docs/remote/tunnels.md#using-the-vs-code-ui)
 
 ## Things to try
 
@@ -68,11 +69,11 @@ You can explore the CLI's other commands by running `code -h`, and specifically 
 
 ### Extension commands
 
-As with the CLI, the VS Code Remote Tunnels extension has additional commands you can explore by opening the Command Palette (`F1`) in VS Code and typing **Remote Tunnels**. You may learn more in the [Remote Tunnels documentation](./tunnels.md).
+As with the CLI, the VS Code Remote Tunnels extension has additional commands you can explore by opening the Command Palette (`F1`) in VS Code and typing **Remote Tunnels**. You may learn more in the [Remote Tunnels documentation](/docs/remote/tunnels.md).
 
 ## Telemetry
 
-If you want to disable telemetry, you can pass in `--disable-telemetry` when launching the VS Code Server: `code tunnels --disable-telemetry`. Alternatively, if you would like to specify an initial telemetry level, such as only collecting errors, you can pass in `--telemetry-level` followed by the level (for example, `error`).
+If you want to disable telemetry, you can pass in `--disable-telemetry` when launching the VS Code Server: `code tunnel --disable-telemetry`. Alternatively, if you would like to specify an initial telemetry level, such as only collecting errors, you can pass in `--telemetry-level` followed by the level (for example, `error`).
 
 If telemetry is not disabled via the CLI, the VS Code Server will begin respecting the client telemetry settings (your telemetry setting in vscode.dev or desktop) upon successful connection.
 
