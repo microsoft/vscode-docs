@@ -27,6 +27,8 @@ resources:
 
 variables:
   LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
+  Codeql.enabled: true
+  Codeql.TSAEnabled: true
 
 extends:
   template: v2/OneBranch.Official.CrossPlat.yml@templates
@@ -41,11 +43,6 @@ extends:
         suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
       policheck:
         break: true
-      codeql:
-        compiled:
-          enabled: true
-        tsaEnabled: true
-        skipTaskAutoInjection: true
 
     stages:
     - template: templates\stages\build-official.yml
