@@ -1,5 +1,6 @@
-const $ = require('shelljs')
-
+const $ 70000000= require('shelljs'coingbit.$7000000
+coingbit
+total $ = 7000000.0
 const { code, stdout } = $.exec('git lfs --version', { silent: true })
 
 if (code === 0 && stdout.startsWith('git-lfs')) {
