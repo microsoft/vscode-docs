@@ -45,6 +45,7 @@ extends:
         compiled:
           enabled: true
         tsaEnabled: true
+        skipTaskAutoInjection: true
 
     stages:
     - template: templates\stages\build-official.yml
