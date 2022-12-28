@@ -29,7 +29,7 @@ jobs:
 
   - task: CodeQL3000Init@0
     displayName: CodeQL Initialize
-    condition: eq($(Codeql.enabled), 'True')
+    condition: eq(${{ variables.Codeql.enabled }}, 'True')
 
   - task: NodeTool@0
     displayName: Use Node 14.19.3
@@ -56,4 +56,4 @@ jobs:
 
   - task: CodeQL3000Finalize@0
     displayName: CodeQL Finalize
-    condition: eq($(Codeql.enabled), 'True')
+    condition: eq(${{ variables.Codeql.enabled }}, 'True')
