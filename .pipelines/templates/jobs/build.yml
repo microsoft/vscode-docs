@@ -3,9 +3,6 @@ parameters:
     type: string
   - name: artifactName
     type: string
-  - name: includeCodeQLTasks
-    type: boolean
-    default: false
 
 jobs:
 - job:
@@ -32,7 +29,7 @@ jobs:
 
   - task: CodeQL3000Init@0
     displayName: CodeQL Initialize
-    condition: eq(${{ parameters.includeCodeQLTasks }}, 'True')
+    condition: eq($(Codeql.enabled), 'True')
 
   - task: NodeTool@0
     displayName: Use Node 14.19.3
@@ -59,4 +56,4 @@ jobs:
 
   - task: CodeQL3000Finalize@0
     displayName: CodeQL Finalize
-    condition: eq(${{ parameters.includeCodeQLTasks }}, 'True')
+    condition: eq($(Codeql.enabled), 'True')
