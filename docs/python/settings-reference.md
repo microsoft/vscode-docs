@@ -85,7 +85,7 @@ This section details all the available rules that can be customized using the `p
 | --- | ---|
 | reportGeneralTypeIssues | Diagnostics for general type inconsistencies, unsupported operations, argument/parameter mismatches, etc. This covers all of the basic type-checking rules not covered by other rules. It does not include syntax errors.  |
 | reportPropertyTypeMismatch | Diagnostics for properties where the type of the value passed to the setter is not assignable to the value returned by the getter. Such mismatches violate the intended use of properties, which are meant to act like variables. |
-| reportPropertyTypeMismatch | Diagnostics for member accesses on functions.  |
+| reportFunctionMemberAccess | Diagnostics for member accesses on functions.  |
 | reportMissingImports | Diagnostics for imports that have no corresponding imported python file or type stub file.  |
 | reportMissingModuleSource | Diagnostics for imports that have no corresponding source file. This happens when a type stub is found, but the module source file was not found, indicating that the code may fail at runtime when using this execution environment. Type checking will be done using the type stub. |
 | reportMissingTypeStubs | Diagnostics for imports that have no corresponding type stub file (either a typeshed file or a custom type stub). The type checker requires type stubs to do its best job at analysis. |
