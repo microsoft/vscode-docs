@@ -184,7 +184,7 @@ When you make changes like installing new software, changes made in the Dockerfi
 In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. You can use `&&` to string together multiple commands.
 
 ```docker
-FROM mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye
+FROM mcr.microsoft.com/devcontainers/javascript-node:0-18
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install git
 ```
