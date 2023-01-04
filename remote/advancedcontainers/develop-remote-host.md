@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 13
 Area: advancedcontainers
 TOCTitle: Develop on a remote Docker host
 PageTitle: Develop a container on a remote Docker host
@@ -95,7 +95,7 @@ After restarting VS Code (or reloading the window), you will now be able to [att
 
 ### Using the TCP protocol
 
-While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties. These are:
+While the SSH protocol has its own built-in authorization mechanism, using the TCP protocol often requires setting other [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) properties in your `settings.json`. These are:
 
 ```json
 "docker.environment": {

@@ -32,7 +32,7 @@ You can use an image as a starting point for your `devcontainer.json`. An image 
 
 ```json
 {
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12"
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18"
 }
 ```
 
@@ -49,7 +49,7 @@ For this example, if you'd like to install the [ESLint extension](https://market
 
 ```json
 {
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
 
     "customizations": {
         "vscode": {
@@ -184,7 +184,7 @@ When you make changes like installing new software, changes made in the Dockerfi
 In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. You can use `&&` to string together multiple commands.
 
 ```docker
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
+FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install git
 ```

@@ -598,6 +598,10 @@ Or in `settings.json`:
 
 From this point forward, the dotfiles repository will be used whenever a container is created.
 
+## Avoiding VS Code extension reinstalls
+
+By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to reinstall them on a container rebuild. If you find yourself rebuilding frequently, you can enable the `dev.containers.cacheVolume` in your VS Code settings. This setting controls whether a Docker volume should be used to cache the VS Code Server and extensions.
+
 ## Advanced container configuration
 
 See the [Advanced container configuration](/remote/advancedcontainers/overview.md) articles for information on the following topics:
