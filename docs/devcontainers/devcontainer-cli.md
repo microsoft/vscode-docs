@@ -29,24 +29,15 @@ When tools like VS Code and Codespaces detect a `devcontainer.json` file in a us
 
 This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Dev Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
-The CLI is available for review in a new [devcontainers/cli](https://github.com/devcontainers/cli) repository and you can read more about its development in [this issue in the spec repo](https://github.com/devcontainers/spec/issues/9).
+The CLI is available in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
 ## System requirements
 
-To use the VS Code dev container CLI, you'll need the following on your system or CI/DevOps environment:
+You can quickly try out the CLI in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
 
-1. [Node.js (version 14 or greater)](https://nodejs.org).
-1. [The `docker` CLI](/docs/devcontainers/containers.md#installation).
-1. [Python](https://www.python.org/downloads)
-1. C/C++ compiler
+You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out). On this page, we'll focus on using the npm package.
 
-The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
-
-## Installation
-
-You can try out the dev container CLI, either by installing its npm package or building the CLI repo from sources.
-
-To learn more about building the CLI from sources, go to the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out).
+To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
 
 ### npm install
 
@@ -64,6 +55,8 @@ Commands:
   devcontainer build [path]         Build a dev container image
   devcontainer run-user-commands    Run user commands
   devcontainer read-configuration   Read configuration
+  devcontainer features             Features commands
+  devcontainer templates            Templates commands
   devcontainer exec <cmd> [args..]  Execute a command on a running dev container
 
 Options:
