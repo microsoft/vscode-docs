@@ -161,15 +161,15 @@ Context name | True when
 
 ## Active/focused view or panel when clause context
 
-You can have a when clause that checks if a specific view or panel is visible.
+You can have a when clause that checks if a specific view container, panel, or view is visible.
 
 Context name | True when
 ------------ | ------------
-activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
+activeViewlet | True when view container is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
 activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
-focusedView | True when view is focused. Example: `"focusedView == myViewsExplorerID"`
+focusedView | True when specific view is focused. Example: `"focusedView == myViewsExplorerID"`
 
-View Identifiers:
+View container identifiers:
 
 * workbench.view.explorer - File Explorer
 * workbench.view.search - Search
@@ -177,7 +177,7 @@ View Identifiers:
 * workbench.view.debug - Run
 * workbench.view.extensions - Extensions
 
-Panel Identifiers:
+Panel identifiers:
 
 * workbench.panel.markers - Problems
 * workbench.panel.output - Output
@@ -186,7 +186,26 @@ Panel Identifiers:
 * workbench.panel.comments - Comments
 * workbench.view.search - Search when `search.location` is set to `panel`
 
-If you want a when clause that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activePanel`.
+View identifiers:
+
+* workbench.explorer.fileView - File Explorer
+* workbench.explorer.openEditorsView - Open Editors
+* outline - Outline view
+* timeline - Timeline view
+* workbench.scm - Source Control
+* workbench.scm.repositories - Source Control Repositories
+* workbench.debug.variablesView - Variables
+* workbench.debug.watchExpressionsView - Watch
+* workbench.debug.callStackView - Call Stack
+* workbench.debug.loadedScriptsView - Loaded Scripts
+* workbench.debug.breakPointsView - Breakpoints
+* workbench.debug.disassemblyView - Disassembly
+* workbench.views.extensions.installed - Installed extensions
+* extensions.recommendedList - Recommended extensions
+
+>**Note**: A view container may hold multiple views. For example, by default the Source Control view container (`workbench.view.scm`) has two views; a general **Source Control** view (`workbench.scm`) and the **Source Control Repositories** view (`workbench.scm.repositories`).
+
+If you want a when clause that is enabled only when a specific view container or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activePanel`.
 
 For example, the when clause below is true only when the File Explorer has focus:
 
