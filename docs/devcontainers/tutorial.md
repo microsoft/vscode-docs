@@ -132,7 +132,7 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "name": "Node.js",
 
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
 
     // Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
