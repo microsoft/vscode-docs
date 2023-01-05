@@ -241,6 +241,16 @@ The following example can be pasted into a settings JSON file to customize edito
 
 You can use IntelliSense in `settings.json` to help you find language-specific settings. All editor settings and some non-editor settings are supported. Some languages have default language-specific settings already set, which you can review in `defaultSettings.json` by running the **Preferences: Open Default Settings** command.
 
+### Multiple language-specific editor settings
+
+You can configure language specific editor settings for multiple languages at once. The following example shows how you can customize settings for `javascript` and `typescript` languages together in your `settings.json` file:
+
+```json
+"[javascript][typescript]": {
+  "editor.maxTokenizationLineLength": 2500
+}
+```
+
 ## Settings precedence
 
 Configurations can be overridden at multiple levels by the different setting scopes. In the following list, **later scopes override earlier scopes**:
@@ -296,6 +306,10 @@ The result, when that workspace is open, is the combination of those two color c
 ```
 
 If there are conflicting values, such as `editor.selectionBackground` in the example above, the usual override behavior occurs, with workspace values taking precedence over user values, and language-specific values taking precedence over non-language-specific values.
+
+### Note about multiple language specific settings
+
+If you are using [multiple language-specific settings](#multiple-language-specific-editor-settings), be aware that language-specific settings are merged and precedence is set based on the full language string (for example `"[typescript][javascript]"`) and not the individual language IDs (`typescript` and `javascript`). This means that for example, a `"[typescript][javascript]"` workspace setting will not override a `"[javascript]"`] user setting.
 
 ## Settings and security
 
