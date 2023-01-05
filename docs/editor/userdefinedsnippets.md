@@ -70,6 +70,10 @@ In the example above:
 
 Additionally, the `body` of the example above has three placeholders (listed in order of traversal): `${1:array}`, `${2:element}`, and `$0`. You can quickly jump to the next placeholder with `kb(jumpToNextSnippetPlaceholder)`, at which point you may edit the placeholder or jump to the next one. The string after the colon `:` (if any) is the default text, for example `element` in `${2:element}`. Placeholder traversal order is ascending by number, starting from one; zero is an optional special case that always comes last, and exits snippet mode with the cursor at the specified position.
 
+### File template snippets
+
+You can add the `isFileTemplate` attribute to your snippet's definition if the snippet is intended to populate or replace a file's contents. File template snippets are displayed in a dropdown when you run the **Snippets: Populate File from Snippet** command in a new or existing file.
+
 ## Snippet scope
 
 Snippets are scoped so that only relevant snippets are suggested. Snippets can be scoped by either:
