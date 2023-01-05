@@ -37,8 +37,6 @@ Below are links to the samples, tools, and extensions demonstrated in the Build 
 
 * VS Code's [Node.js Debugging documentation](https://code.visualstudio.com/docs/nodejs/nodejs-debugging) explains how to configure VS Code for a variety of application types.
 
-* [Chrome Debugger](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) lets you debug your JavaScript code running in the Google Chrome browser or other targets that support the Chrome Debugging Protocol.
-
 * [Debugging configuration recipes](https://github.com/microsoft/vscode-recipes)
 
 ## Linters

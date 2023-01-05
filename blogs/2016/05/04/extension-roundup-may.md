@@ -16,14 +16,6 @@ The Visual Studio Code Extension [Marketplace](https://marketplace.visualstudio.
 
 If you are new to VS Code extensions, check out the [docs](/docs/editor/extension-marketplace.md) for instructions on finding and installing new extensions.
 
-## Debugger for Edge by Microsoft JS Diagnostics
-
->**Install:** From within Visual Studio Code, you can use Quick Open (`kb(workbench.action.quickOpen)`) and paste `ext install debugger-for-edge` then press `kbstyle(Enter)`.
-
-The same folks who created the very popular [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension have published [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) for the Microsoft Edge browser. They were able to reuse the same debugger using the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol). You can learn more about the details in their recent [blog post](https://blogs.windows.com/msedgedev/2016/04/27/introducing-edge-diagnostics-adapter/).
-
-![debugger for edge](debugger-for-edge.gif)
-
 ## SVG Viewer by cssho
 
 >**Install:** Quick Open (`kb(workbench.action.quickOpen)`), paste `ext install vscode-svgviewer` and press `kbstyle(Enter)`.

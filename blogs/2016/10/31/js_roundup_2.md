@@ -17,18 +17,6 @@ But what other features can you get with VS Code? VS Code has a rich extensibili
 
 > **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. Learn more at [Browse for extensions](/docs/editor/extension-marketplace.md#browse-for-extensions).
 
-## Debugger for Chrome
-
-Marketplace - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-
-Publisher - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
-
-When you develop for the front end, you might not see the value of an integrated debugger in your editor. You use the browser's debugger right? This is where the Debugger for Chrome extension comes in. This extension lets you debug your JavaScript code in the Google Chrome browser, or any other targets that support the [Chrome Debugging Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/) while staying in VS Code. No more context switching to debug!
-
-Prefer to debug using a different browser? You can find extensions for [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) as well.
-
-![debugger for chrome image](chrome_debugger.png)
-
 ## Git Project Manager
 
 Marketplace - [Git Project Manager](https://marketplace.visualstudio.com/items?itemName=felipecaputo.git-project-manager)
