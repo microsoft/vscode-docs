@@ -309,7 +309,7 @@ If there are conflicting values, such as `editor.selectionBackground` in the exa
 
 ### Note about multiple language specific settings
 
-If you are using [multiple language-specific settings](#multiple-language-specific-editor-settings), be aware that language-specific settings are merged and precedence is set based on the full language string (for example `"[typescript][javascript]"`) and not the individual language IDs (`typescript` and `javascript`). This means that for example, a `"[typescript][javascript]"` workspace setting will not override a `"[javascript]"`] user setting.
+If you are using [multiple language-specific settings](#multiple-language-specific-editor-settings), be aware that language-specific settings are merged and precedence is set based on the full language string (for example `"[typescript][javascript]"`) and not the individual language IDs (`typescript` and `javascript`). This means that for example, a `"[typescript][javascript]"` workspace setting will not override a `"[javascript]"` user setting.
 
 ## Settings and security
 
