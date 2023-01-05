@@ -163,33 +163,6 @@ For example, you may want to pre-build a number of images that you then reuse ac
     devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
     ```
 
-1. Create a simplified `devcontainer.json` file in repositories where you'd like to use the image - the `devcontainer.json` should either use the `image` property or reference the image in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
-
-    ```json
-    {
-        "image": "ghcr.io/your-org/your-image-name",
-        "features": {
-            "ghcr.io/devcontainers/features/docker-in-docker:1": {
-                    "version": "latest"
-                }
-        }
-    }
-    ```
-
-On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in `devcontainer.json` or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is the first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
-
-```json
-{
-    "build": {
-        "dockerfile": "Dockerfile",
-        "cacheFrom": "ghcr.io/your-org/your-image-name"
-    },
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
-    }
-}
-```
-
 ## Avoiding problems with images built using Docker
 
 Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](/remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
