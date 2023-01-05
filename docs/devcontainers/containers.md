@@ -249,12 +249,14 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
         "vscode": {
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
-                "dbaeumer.vscode-eslint"
+                "streetsidesoftware.code-spell-checker"
             ]
         }
     }
 }
 ```
+
+> **Note:** Certain configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27).
 
 Selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
