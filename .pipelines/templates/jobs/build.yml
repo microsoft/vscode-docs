@@ -40,12 +40,7 @@ jobs:
       versionSpec: 14.19.3
       checkLatest: true
 
-  - task: Npm@0
-    displayName: npm install yarn
-    inputs:
-      arguments: -g yarn
-
-  - script: yarn --frozen-lockfile
+  - script: npm install
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
