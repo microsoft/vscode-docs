@@ -31,15 +31,24 @@ This CLI can either be used directly or integrated into product experiences, sim
 
 The CLI is available in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
-## System requirements
+## Installation
 
-You can quickly try out the CLI in just a few simple steps, either by installing its npm package or building the CLI repo from sources.
+You can quickly try out the CLI through the Dev Containers extension. Select the **Dev Containers: Install devcontainer CLI** command from the Command Palette (`kbstyle(F1)`).
 
-You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out). On this page, we'll focus on using the npm package.
+## Alternate installation
 
-To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
+There are additional options for using the CLI elsewhere:
+- Install its npm package
+- Use the GitHub Action or Azure DevOps Task
+     - You may find these in [devcontainers/ci](https://github.com/devcontainers/ci)
+- Build the CLI repo from sources
+     - You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out)
+
+On this page, we'll focus on using the npm package.
 
 ### npm install
+
+To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
 
 ```bash
 npm install -g @devcontainers/cli
@@ -63,6 +72,8 @@ Options:
   --help     Show help                                                 [boolean]
   --version  Show version number                                       [boolean]
 ```
+
+> **Note:** The `open` command to open your dev container will be listed if you installed the CLI via VS Code.
 
 ## Running the CLI
 
