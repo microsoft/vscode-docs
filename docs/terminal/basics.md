@@ -123,11 +123,11 @@ Extensions can contribute **link providers** which allow the extension to define
 
 ### Keyboard accessibility
 
-Links are keyboard accessible through several commands that open links based on the type of link. These commands do not have default keyboard shortcuts.
+Links are keyboard accessible through several commands that open links based on the type of link.
 
-* **Terminal: Open Last Local File Link** - Opens the most recent local file link.
-* **Terminal: Open Last URL link** - Opens the most recent URI/URL link.
-* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all links (including word links).
+* **Terminal: Open Last Local File Link** - Opens the most recent local file link. No default keybinding.
+* **Terminal: Open Last URL link** - Opens the most recent URI/URL link. No default keybinding.
+* **Terminal: Open Detected Link...** - Opens a searchable Quick Pick with all detected links, including word links. The default keybinding is `kbstyle(Ctrl/Cmd+Shift+O)`, which is the same as the **Go to Symbol in Editor** keyboard shortcut.
 
 ## Copy & paste
 
