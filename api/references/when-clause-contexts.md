@@ -159,32 +159,14 @@ Context name | True when
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
-## Active/focused view or panel when clause context
+## Visible/Focused view when clause context
 
-You can have a when clause that checks if a specific view container, panel, or view is visible.
+You can have a when clause that checks if a specific [View](/api/ux-guidelines/views) is visible or focused.
 
 Context name | True when
 ------------ | ------------
-activeViewlet | True when view container is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
-activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
-focusedView | True when specific view is focused. Example: `"focusedView == myViewsExplorerID"`
-
-View container identifiers:
-
-* workbench.view.explorer - File Explorer
-* workbench.view.search - Search
-* workbench.view.scm - Source Control
-* workbench.view.debug - Run
-* workbench.view.extensions - Extensions
-
-Panel identifiers:
-
-* workbench.panel.markers - Problems
-* workbench.panel.output - Output
-* workbench.panel.repl - Debug Console
-* terminal - Integrated Terminal
-* workbench.panel.comments - Comments
-* workbench.view.search - Search when `search.location` is set to `panel`
+`view.${viewId}.visible` | True when specific view is visible. Example: `"view.workbench.explorer.fileView.visible"`
+focusedView | True when specific view is focused. Example: `"focusedView == 'workbench.explorer.fileView'"`
 
 View identifiers:
 
@@ -202,10 +184,36 @@ View identifiers:
 * workbench.debug.disassemblyView - Disassembly
 * workbench.views.extensions.installed - Installed extensions
 * extensions.recommendedList - Recommended extensions
+* workbench.panel.markers.view - Problems
+* workbench.panel.output - Output
+* workbench.panel.repl.view - Debug Console
+* terminal - Integrated Terminal
+* workbench.panel.comments - Comments
 
->**Note**: A view container may hold multiple views. For example, by default the Source Control view container (`workbench.view.scm`) has two views; a general **Source Control** view (`workbench.scm`) and the **Source Control Repositories** view (`workbench.scm.repositories`).
+## Visible view container when clause context
 
-If you want a when clause that is enabled only when a specific view container or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activePanel`.
+You can have a when clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
+
+Context name | True when
+------------ | ------------
+activeViewlet | True when view container is visible in the sidebar. Example: `"activeViewlet == 'workbench.view.explorer'"`
+activePanel | True when view container is visible in the panel. Example: `"activePanel == 'workbench.panel.output'"`
+activeAuxiliary | True when view container is visible in the secondary sidebar. Example: `"activeAuxiliary == 'workbench.view.debug'"`
+
+View container identifiers:
+
+* workbench.view.explorer - File Explorer
+* workbench.view.search - Search
+* workbench.view.scm - Source Control
+* workbench.view.debug - Run
+* workbench.view.extensions - Extensions
+* workbench.panel.markers - Problems
+* workbench.panel.output - Output
+* workbench.panel.repl - Debug Console
+* terminal - Integrated Terminal
+* workbench.panel.comments - Comments
+
+If you want a when clause that is enabled only when a specific view container has focus, use `sideBarFocus` or `panelFocus` or `auxiliaryBarFocus` in combination with `activeViewlet` or `activePanel` or `activeAuxiliary`.
 
 For example, the when clause below is true only when the File Explorer has focus:
 
