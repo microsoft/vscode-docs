@@ -256,7 +256,7 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 }
 ```
 
-> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27).
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](#pre-building-dev-container-images).
 
 Selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
@@ -318,6 +318,30 @@ We recommend using the [dev container CLI](/docs/devcontainers/devcontainer-cli.
 You can use the GitHub Action in the [devcontainers/ci](https://github.com/devcontainers/ci) repo to help you reuse dev containers in your workflows.
 
 See the [dev container CLI article on pre-building images](/docs/devcontainers/devcontainer-cli.md#prebuilding) for more information.
+
+### Inheriting metadata
+
+You can include Dev Container configuration and Feature metadata in prebuilt images via [image labels](https://docs.docker.com/config/labels-custom-metadata/). This makes the image self-contained since these settings are automatically picked up when the image is referenced - whether directly, in a `FROM` in a referenced Dockerfile, or in a Docker Compose file. This helps prevent your Dev Container config and image contents from getting out of sync, and allows you to push updates of the same configuration to multiple repositories through a simple image reference.
+
+This metadata label is **automatically added** when you pre-build using the [Dev Container CLI](./devcontainer-cli.md) (or other spec supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci) or [Azure DevOps task](https://marketplace.visualstudio.com/items?itemName=devcontainers.ci)) and includes settings from devcontainer.json and any referenced Dev Container Features.
+
+This allows you to have a separate **more complex** devcontainer.json you use to pre-build your image, and then a dramatically **simplified one** in one or more repositories. The contents of the image will be merged with this simplified devcontainer.json content at the time you create the container (see the [the spec](https://containers.dev/implementors/spec/#merge-logic) for info on merge logic). But at its simplest, you can just reference the image directly in devcontainer.json for the settings to take effect:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/go:1"
+}
+```
+
+Note that you can also opt to you can opt to manually add metadata to an image label instead. These proprerties will be picked up even if you didn't use the Dev Container CLI to build (and can be updated by the CLI even if you do). For example, consider this Dockerfile snippet:
+
+```Dockerfile
+LABEL devcontainer.metadata='[{ \
+  "capAdd": [ "SYS_PTRACE" ], \
+  "remoteUser": "devcontainer", \
+  "postCreateCommand": "yarn install" \
+}]'
+```
 
 ## Inspecting volumes
 
