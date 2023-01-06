@@ -162,7 +162,7 @@ Output in the Integrated Terminal can be navigated through by using the "navigat
 
 ### Shell integration
 
-The terminal has a feature called [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) that enables many additional features that are not found in other terminals. WHen using a screen reader, the [run recent command](https://code.visualstudio.com/docs/terminal/shell-integration#_run-recent-command) and [go to recent directory](https://code.visualstudio.com/docs/terminal/shell-integration#_go-to-recent-directory) features are particularly useful.
+The terminal has a feature called [shell integration](/docs/terminal/shell-integration) that enables many additional features that are not found in other terminals. WHen using a screen reader, the [run recent command](/docs/terminal/shell-integration#_run-recent-command) and [go to recent directory](/docs/terminal/shell-integration#_go-to-recent-directory) features are particularly useful.
 
 ### Minimum contrast ratio
 
