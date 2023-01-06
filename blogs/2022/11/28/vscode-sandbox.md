@@ -33,7 +33,7 @@ The code below no longer depends on Node.js but uses a `vscode` global variable 
 
 How we came to have the `vscode` global in the renderer process and how it is implemented is detailed in the [Timeline](#our-technology-timeline) sections below.
 
-Blocking Node.js from renderer processes is an encouraged Electron [security recommendation](https://www.electronjs.org/docs/latest/tutorial/security) and will eventually be the only way of writing Electron applications. We have had security issues in the past where attackers were able to execute arbitrary Node.js code from the renderer process. A sandboxed renderer process greatly reduces the risk of these attacks.
+Blocking Node.js from renderer processes is an encouraged Electron [security recommendation](https://www.electronjs.org/docs/latest/tutorial/security). We have had security issues in the past where attackers were able to execute arbitrary Node.js code from the renderer process. A sandboxed renderer process greatly reduces the risk of these attacks.
 
 ### How did we get there?
 
