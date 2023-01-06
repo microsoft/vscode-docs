@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        #caption
+        {
+            left:100px;
+            top:450px;
+        }
+        .color
+        {
+            opacity: 1 !important;
+        }
+        .color:hover
+        {
+            opacity: 0.9 !important;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="wall1.jpg" id="myimg" class="img-fluid img-thumbnail w-100" style="max-height:500px">
+                <div class="text-white position-absolute text-center" id="caption"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-md-4 col-4 mx-0 px-0">
+                <img src="wall1.jpg" onmouseover="myfunction(this)" style="opacity:1" class="img-fluid img-thumbnail px-0 h-100 w-100 mx-0 color" style="min-height:100px" alt="Wallpaper One">
+            </div>
+            <div class="col-md-4 col-4 mx-0 px-0">
+                <img src="wall2.jpg" onmouseover="myfunction(this)" style="opacity:1" class="img-fluid img-thumbnail px-0 h-100 w-100 mx-0 color" style="min-height:100px;" alt="Wallpaper Two">
+            </div>
+            <div class="col-md-4 col-4 mx-0 px-0">
+                <img src="wall3.jpg" onmouseover="myfunction(this)" style="opacity:1"  class="img-fluid img-thumbnail px-0 h-100 w-100 mx-0 color" style="min-height:100px;" alt="Wallpaper Three">
+            </div>
+        </div>
+    </div>
+    <script>
+        function myfunction(imgs)
+        {
+            var choice = document.getElementById("myimg");
+            var caption = document.getElementById("caption");
+            choice.src = imgs.src;
+            choice.alt = imgs.alt;
+            caption.innerHTML = imgs.alt;
+        }
+    </script>
+</body>
+</html>
