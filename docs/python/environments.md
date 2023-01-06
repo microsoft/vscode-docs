@@ -312,25 +312,6 @@ You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, 
 
 > **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. All `env` variables defined in the `launch.json` file will override variables contained in the `.env` file, specified by the `python.envFile` setting (user or workspace). Similarly, `env` variables defined in the `launch.json` file will override the environment variables defined in the `envFile` that are specified in `launch.json`.
 
-### Variable substitution
-
-When defining an environment variable in a definitions file, you can use the value of any existing environment variable with the following general syntax:
-
-```bash
-<VARIABLE>=...${env:EXISTING_VARIABLE}...
-```
-
-where `...` means any other text as used in the value. The curly braces are required.
-
-Within this syntax, the following rules apply:
-
-- Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
-- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${env:VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
-- The `$` character can be escaped with a backslash, as in `\$`.
-- You can use recursive substitution, such as `PYTHONPATH=${env:PROJ_DIR}:${env:PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` isn't supported.
-- Entries with unsupported syntax are left as-is.
-
 ### Use of the PYTHONPATH variable
 
 The [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable specifies additional locations where the Python interpreter should look for modules. In VS Code, PYTHONPATH can be set through the terminal settings (terminal.integrated.env.*) and/or within an `.env` file.
