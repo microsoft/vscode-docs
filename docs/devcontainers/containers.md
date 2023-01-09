@@ -394,10 +394,6 @@ If there are extensions that you would like always installed in any container, y
 ]
 ```
 
-### Avoiding extension reinstalls
-
-By default, VS Code will install extensions and VS Code Server inside the container's filesystem. While this has performance benefits over a locally mounted filesystem, the disadvantage is that VS Code will have to reinstall them on a container rebuild. If you find yourself rebuilding frequently, you can enable `dev.containers.cacheVolume` in your VS Code settings. This setting controls whether a Docker volume should be used to cache the VS Code Server and extensions.
-
 ### Advanced: Forcing an extension to run locally or remotely
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
