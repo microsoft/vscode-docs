@@ -278,6 +278,18 @@ If you want to use the full set of debugging features supported in VS Code, such
 
 ![Debug cell button](images/jupyter/debug-cell.png)
 
+### Search through notebook
+
+You can search (Ctrl / Cmd + F) through an entire notebook or you can search parts of your notebook by filtering your search options. When searching through your notebook, click on the Filter option (funnel icon) to search across:
+- Markdown cell input (`Markdown Source`)
+- Markdown cell output (`Rendered Markdown`)
+- Code cell input (`Code Cell Source`)
+- Code cell output (`Cell Output`)
+
+Notebook searches are filtered cell inputs only by default.
+
+![Search options](images/jupyter/search-filter.png)
+
 ## Connect to a remote Jupyter server
 
 You can offload intensive computation in a Jupyter Notebook to other computers by connecting to a remote Jupyter server. Once connected, code cells run on the remote server rather than the local computer.
