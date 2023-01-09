@@ -2,7 +2,7 @@
 Order: 7
 Area: datascience
 TOCTitle: Jupyter Kernel Options in VS Code
-ContentId: ???
+ContentId: 3b6da7e6-c449-4c62-a019-9202412aac04
 PageTitle: Jupyter Kernel Options in VS Code
 DateApproved: 11/21/2022
 MetaDescription: Descriptions, tips, and tricks on kernel selection options when working with Jupyter Notebooks in Visual Studio Code.
