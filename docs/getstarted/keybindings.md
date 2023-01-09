@@ -410,6 +410,8 @@ Navigate Editor Group History|`kb(workbench.action.quickOpenPreviousRecentlyUsed
 Go Back|`kb(workbench.action.navigateBack)`|`workbench.action.navigateBack`
 Go back in Quick Input|`kb(workbench.action.quickInputBack)`|`workbench.action.quickInputBack`
 Go Forward|`kb(workbench.action.navigateForward)`|`workbench.action.navigateForward`
+Focus Breadcrumbs|`kb(breadcrumbs.focus)`|`breadcrumbs.focus`
+Focus and Select Breadcrumbs|`kb(breadcrumbs.focusAndSelect)`|`breadcrumbs.focusAndSelect`
 
 ### Editor/Window Management
 
