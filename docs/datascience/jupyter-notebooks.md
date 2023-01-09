@@ -284,16 +284,20 @@ You can offload intensive computation in a Jupyter Notebook to other computers b
 
 To connect to a remote Jupyter server:
 
-1. Select the **Jupyter Server: local** button in the global Status bar or run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Open the Kernel Picker button on the top right-hand side of the notebook (or run the `Notebook: Select Notebook Kernel` command from the Command Palette).
 
-   ![Specify remote Jupyter server](images/jupyter/specify-remote.png)
+   ![Notebook kernel picker](images/jupyter/notebook-kernel-picker.png)
 
-1. When prompted to **Pick how to connect to Jupyter**, select **Existing: Specify the URI of an existing server**.
+2. Select the **Existing Jupyter Server** option to connect to an existing Jupyter server.
 
-   ![Choose to connect to an existing server](images/jupyter/connect-to-existing.png)
+   ![Select existing Jupyter server](images/jupyter/select-existing-server.png)
 
-1. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+3. To connect to an existing server for the first time, select **Enter the URL of the running Jupyter server**.
 
-   ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
+   ![Choose to connect to an existing server](images/jupyter/select-enter-server-url.png)
+
+4. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+
+   ![Prompt to supply a Jupyter server URI](images/jupyter/enter-server-url.png)
 
 > **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
