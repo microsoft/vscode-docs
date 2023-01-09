@@ -143,13 +143,13 @@ If your extension is not functioning as expected, it may be running in the wrong
 
 If the **Developer: Show Running Extensions** command shows that a UI extension is incorrectly being treated as a workspace extension or vice versa, try setting the `extensionKind` property in your extension's [package.json](/api/get-started/extension-anatomy#extension-manifest) as described in the [Extension Kinds section](/api/advanced-topics/extension-host#preferred-extension-location).
 
-You can quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) to be a workspace extension (instead of its UI default), you would set:
+You can quickly **test** the effect of changing an extension's kind with the `remote.extensionKind` [setting](/docs/getstarted/settings). This setting is a map of extension IDs to extension kinds. For example, if you want to force the [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension to be a UI extension (instead of its Workspace default) and the [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to be a workspace extension (instead of its UI default), you would set:
 
 ```json
 {
   "remote.extensionKind": {
       "ms-azuretools.vscode-cosmosdb": ["ui"],
-      "msjsdiag.debugger-for-edge": ["workspace"]
+      "ms-vscode-remote.remote-ssh-edit": ["workspace"]
   }
 }
 ```

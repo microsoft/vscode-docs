@@ -223,9 +223,9 @@ will appear in a single group like this:
 >
 > Blame: **Format**
 >
-> Blame › Heatmap: **Enabled**
+> Blame › Heat Map: **Enabled**
 >
-> Blame › Heatmap: **Location**
+> Blame › Heat Map: **Location**
 
 Otherwise, properties without an explicit order field appear in alphabetical order (**not** the order in which they're listed in the manifest).
 

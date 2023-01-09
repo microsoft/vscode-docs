@@ -80,7 +80,7 @@ With the [`vscode.QuickPick`](/api/references/vscode-api#QuickPick) API, you can
 
 ## File Picker
 
-Extensions can use the [`vscode.window.showOpenDialog`](/api/references/vscode-api#vscode.window.showOpenDialog) API to open the system file picker and select files or folders.
+Extensions can use the [`window.showOpenDialog`](/api/references/vscode-api#window.showOpenDialog) API to open the system file picker and select files or folders.
 
 ## Output Channel
 
