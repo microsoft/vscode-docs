@@ -10,7 +10,7 @@ DateApproved: 1/4/2023
 
 # Sharing Git credentials with your container
 
-The Dev Containers extension provides out of box support for using local Git credentials from inside a container. In this section, we'll walk through the two supported options.
+The Dev Containers extension provides out of the box support for using local Git credentials from inside a container. In this section, we'll walk through the two supported options.
 
 If you do not have your user name or email address set up locally, you may be prompted to do so. You can do this on your **local** machine by running the following commands:
 
