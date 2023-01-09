@@ -160,6 +160,10 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 Output in the Integrated Terminal can be navigated through by using the "navigation mode" commands available in the Command Palette (press `kbstyle(F1)` and search for "terminal navigation mode").
 
+### Shell integration
+
+The terminal has a feature called [shell integration](/docs/terminal/shell-integration.md) that enables many additional features that are not found in other terminals. When using a screen reader, the [Run Recent Command](/docs/terminal/shell-integration.md#run-recent-command) and [Go to Recent Directory](/docs/terminal/shell-integration.md#go-to-recent-directory) features are particularly useful.
+
 ### Minimum contrast ratio
 
 The setting `terminal.integrated.minimumContrastRatio` can be set to a number between 1 and 21, this will cause the text color to adjust luminance until the contrast ratio is met or pure white (`#FFFFFF`) black (`#000000`) is hit.

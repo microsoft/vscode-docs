@@ -202,9 +202,11 @@ We allow badges from the following URL prefixes:
 - travis-ci.com
 - travis-ci.org
 - visualstudio.com
-- vsmarketplacebadge.apphb.com
+- vsmarketplacebadges.dev
 - www.bithound.io
 - www.versioneye.com
+
+Note : Replace vsmarketplacebadge.apphb.com badge with vsmarketplacebadges.dev badge.
 
 If you have other badges you would like to use, please open a GitHub [issue](https://github.com/microsoft/vscode/issues) and we're happy to take a look.
 
