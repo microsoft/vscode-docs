@@ -27,7 +27,7 @@ Continue reading to learn alternate ways you can install and use Docker or a Doc
 
 On Windows, you can use Docker installed in WSL through the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension. You can reference the [Docker documentation](https://docs.docker.com/engine/install/) for installing Docker on Linux, with [specific information per distribution](https://docs.docker.com/engine/install/centos/).
 
-One issue is that the `dockerd` daemon won't start automatically due to the lack of `systemd` or any other system daemon. You can use [Distrod](https://github.com/nullpo-head/wsl-distrod) to get WSL distros with `systemd`. You can install a new distro or update your current distros to run `systemd`.
+One issue is that the `dockerd` daemon won't start automatically due to the lack of `systemd` or any other system daemon. In WSL version 0.67.6 and later (`wsl --version`) you can enable [support for `systemd`](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/). On older versions you can use [Distrod](https://github.com/nullpo-head/wsl-distrod) to create or update existing WSL distros with `systemd`.
 
 ## macOS: Colima
 
