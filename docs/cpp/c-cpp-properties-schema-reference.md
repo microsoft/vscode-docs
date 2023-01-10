@@ -94,6 +94,8 @@ For more information about changing these settings, see [Customizing Default Set
 - `configurationProvider`
   The ID of a VS Code extension that can provide IntelliSense configuration information for source files. For example, use the VS Code extension ID `ms-vscode.cmake-tools` to provide configuration information from the CMake Tools extension.
 
+  A `configurationProvider` candidate extension must implement [vscode-cpptools-api](https://github.com/microsoft/vscode-cpptools-api).
+
 - `windowsSdkVersion`
   The versions of the Windows SDK include path to use on Windows, for example `10.0.17134.0`.
 

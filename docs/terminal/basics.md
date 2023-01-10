@@ -382,8 +382,8 @@ See the [GPU acceleration](/docs/terminal/appearance.md#gpu-acceleration) sectio
 
 This normally means that the program/shell running inside the terminal requested to turn on "bracketed paste mode" but something doesn't support it properly. To work around this, you could run `printf "\e[?2004l"` to disable it for that session or add the following to your `~/.inputrc` file:
 
-```bash
-bind 'set enable-bracketed-paste off'
+```
+set enable-bracketed-paste off
 ```
 
 ### Ctrl+A, Ctrl+R output ^A, ^R on zsh

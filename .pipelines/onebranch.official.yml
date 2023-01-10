@@ -27,6 +27,10 @@ resources:
 
 variables:
   LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
+  Codeql.enabled: true
+  Codeql.SourceRoot: $(Pipeline.Workspace)/vscode-website
+  Codeql.TSAEnabled: true
+  Codeql.TSAOptionsPath: $(Build.SourcesDirectory)\.config\tsaoptions.json
 
 extends:
   template: v2/OneBranch.Official.CrossPlat.yml@templates

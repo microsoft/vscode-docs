@@ -383,7 +383,7 @@ services:
     command: /bin/sh -c "while sleep 1000; do :; done"
 ```
 
-This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/devcontainer.extend.yml` in a specific order:
+This same file can provide additional settings, such as port mappings, as needed. To use it, reference your original `docker-compose.yml` file in addition to `.devcontainer/docker-compose.extend.yml` in a specific order:
 
 ```json
 {
