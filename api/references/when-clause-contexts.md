@@ -133,15 +133,14 @@ Context name | True when
 `workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
-`view` | For `view/title` and `view/context`, the view to display the command in. Example: `"view == myViewsExplorerID"`.
+`view` | For `view/title` and `view/item/context`, the view to display the command in. Example: `"view == myViewsExplorerID"`.
+`viewItem` | For `view/item/context`, the `contextValue` from the tree item. Example:  `"viewItem == someContextValue"`.
 `webviewId` | For `webview/context`, the webview ID to display the command in. Example: `"webviewId == catCoding"`.
-`viewItem` | The `contextValue` from the tree item. Example:  `"viewItem == someContextValue"`.
 `isFullscreen` | True when window is in fullscreen.
 `focusedView` | The identifier of the currently focused view.
 `canNavigateBack` | True if it is possible to navigate back.
 `canNavigateForward` | True if it is possible to navigate forward.
 `canNavigateToLastEditLocation` | True if it is possible to navigate to the last edit location.
-`webviewId` |
 **Global Editor UI contexts** |
 `textCompareEditorVisible` | At least one diff (compare) editor is visible.
 `textCompareEditorActive` | A diff (compare) editor is active.
