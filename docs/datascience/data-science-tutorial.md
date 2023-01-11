@@ -121,7 +121,7 @@ This tutorial uses the [Titanic dataset](https://hbiostat.org/data/repo/titanic.
 
    ![Graphing the titanic data](images/data-science-tutorial/jupyter-cell-02.png)
 
-   > **Tip**: To quickly copy your graph, you can hover over the upper right corner of your graph and click on the `Copy to Clipboard` button that appears. You can also better view details of your graph by clicking the `Expand image` button.
+   > **Tip**: To quickly copy your graph, you can hover over the upper right corner of your graph and click on the **Copy to Clipboard** button that appears. You can also better view details of your graph by clicking the **Expand image** button.
 
       ![Plot Viewer Buttons](images/data-science-tutorial/plot-viewer-buttons.png)
 

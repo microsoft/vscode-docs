@@ -280,11 +280,11 @@ If you want to use the full set of debugging features supported in VS Code, such
 
 ### Search through notebook
 
-You can search (Ctrl / Cmd + F) through an entire notebook or you can search parts of your notebook by filtering your search options. When searching through your notebook, click on the Filter option (funnel icon) to search across:
-- Markdown cell input (`Markdown Source`)
-- Markdown cell output (`Rendered Markdown`)
-- Code cell input (`Code Cell Source`)
-- Code cell output (`Cell Output`)
+You can search kbstyle(Ctrl/Cmd + F) through an entire notebook or you can search parts of your notebook by filtering your search options. When searching through your notebook, click on the Filter option (funnel icon) to search across:
+- Markdown cell input (**Markdown Source**)
+- Markdown cell output (**Rendered Markdown**)
+- Code cell input (**Code Cell Source**)
+- Code cell output (**Cell Output**)
 
 Notebook searches are filtered cell inputs only by default.
 
@@ -296,7 +296,7 @@ You can offload intensive computation in a Jupyter Notebook to other computers b
 
 To connect to a remote Jupyter server:
 
-1. Open the Kernel Picker button on the top right-hand side of the notebook (or run the `Notebook: Select Notebook Kernel` command from the Command Palette).
+1. Open the Kernel Picker button on the top right-hand side of the notebook (or run the **Notebook: Select Notebook Kernel** command from the Command Palette).
 
    ![Notebook kernel picker](images/jupyter/notebook-kernel-picker.png)
 
@@ -308,7 +308,7 @@ To connect to a remote Jupyter server:
 
    ![Choose to connect to an existing server](images/jupyter/select-enter-server-url.png)
 
-4. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+4. When prompted to **Enter the URL of the running Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
 
    ![Prompt to supply a Jupyter server URI](images/jupyter/enter-server-url.png)
 
