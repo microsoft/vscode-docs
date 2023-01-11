@@ -270,7 +270,7 @@ We currently support selecting Python 2.7 as an interpreter in your workspace. B
 
 ### Environment variable definitions file
 
-An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution). Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
 
 By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
@@ -311,25 +311,6 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
 > **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. All `env` variables defined in the `launch.json` file will override variables contained in the `.env` file, specified by the `python.envFile` setting (user or workspace). Similarly, `env` variables defined in the `launch.json` file will override the environment variables defined in the `envFile` that are specified in `launch.json`.
-
-### Variable substitution
-
-When defining an environment variable in a definitions file, you can use the value of any existing environment variable with the following general syntax:
-
-```bash
-<VARIABLE>=...${env:EXISTING_VARIABLE}...
-```
-
-where `...` means any other text as used in the value. The curly braces are required.
-
-Within this syntax, the following rules apply:
-
-- Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
-- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${env:VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
-- The `$` character can be escaped with a backslash, as in `\$`.
-- You can use recursive substitution, such as `PYTHONPATH=${env:PROJ_DIR}:${env:PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` isn't supported.
-- Entries with unsupported syntax are left as-is.
 
 ### Use of the PYTHONPATH variable
 
