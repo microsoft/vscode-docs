@@ -42,9 +42,20 @@ Once you activate your virtual environment, you’ll need to identify how to man
 
 A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) (conda.io)). Whether to use a conda environment or a virtual one will depend on your packaging needs, what your team has standardized on, etc.
 
+### How the extension looks for environments
+
+If Visual Studio Code doesn't locate your interpreter automatically, you can [manually specify an interpreter](#manually-specify-an-interpreter).
+
+If an interpreter hasn't been specified, then the Python extension automatically selects the interpreter with the highest version in the following priority order:
+  1. Virtual environments located directly under the workspace folder.
+  2. Virtual environments related to the workspace but stored globally. For example, [Pipenv](https://pypi.org/project/pipenv/) or [Poetry](https://python-poetry.org/) environments that are localed outside of the workspace folder
+  3. Globally installed interpreters. FOr example, the ones found in `/usr/local/bin`, `C:\\python27`, `C:\\python38`, etc.
+
+> **Note**: The interpreter selected may differ from what `python` refers to in your terminal.
+
 ### Where the extension looks for environments
 
-The extension automatically looks for interpreters in the following locations:
+The extension automatically looks for interpreters in the following locations, in no particular order:
 
 - Standard install paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
 - Virtual environments located directly under the workspace (project) folder.
@@ -54,10 +65,6 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)).
 - Conda environments found by `conda env list`. Conda environments which do not have an interpreter will have one installed for them upon selection.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
-
-You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code doesn't locate your interpreter automatically.
-
-> **Note**: Once the ["select interpreter" flow](#select-and-activate-an-environment) is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
