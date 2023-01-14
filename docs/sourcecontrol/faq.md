@@ -69,9 +69,9 @@ Another option is to disable the auto fetch feature by changing the following se
 
 VS Code uses `git.exe` for executing all git operations. Starting with Git [2.35.2](https://github.blog/2022-04-18-highlights-from-git-2-36/#stricter-repository-ownership-checks), users are prevented from running git operations in a repository that is in a folder that owned by a user other than the current user as the repository is deemed to be potentially unsafe.
 
-If you try to open such a repository, VS Code will show a welcome view in the Source Control view or an error notification. Both the welcome view, and the notification contain the **Manage Unsafe Repositories** command that enables user to review the list of potentially unsafe repositories, mark them as safe, and open them. The **Manage Unsafe Repositories** command is also available in the command palette. Marking a repository as safe will add the repository location to the `safe.directory` [git configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-safedirectory).
+If you try to open such a repository, VS Code will show a welcome view in the Source Control view or an error notification. Both the welcome view and the notification contain the **Manage Unsafe Repositories** command that lets you review the list of potentially unsafe repositories, mark them as safe, and open them. The **Manage Unsafe Repositories** command is also available in the Command Palette (`kb(workbench.action.showCommands)`). Marking a repository as safe will add the repository location to the `safe.directory` [git configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-safedirectory).
 
-On Windows, a common scenario in which this can occur is when a repository is cloned using an application (ex: Windows Terminal, Visual Studio Code) that runs "as administrator", but the repository is opened using an application (ex: Visual Studio Code) that does not run "as administrator".
+On Windows, a common scenario where this can occur is when a repository is cloned using an application (for example, Windows Terminal or VS Code) that runs "as administrator", but the repository is opened using another application or instance (for example, VS Code) that does not run "as administrator".
 
 ### Can I use SSH Git authentication with VS Code?
 

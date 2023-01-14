@@ -348,7 +348,7 @@ A function breakpoint is created by pressing the **+** button in the **BREAKPOIN
 
 ### Data breakpoints
 
-If a debugger supports data breakpoints, they can be set from the context menu in the **VARIABLES** view. The "Break on Value Change/Read/Access" commands will add a data breakpoint that is hit when the value of the underlying variable changes/is read/is accessed. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
+If a debugger supports data breakpoints, they can be set from the context menu in the **VARIABLES** view. The **Break on Value Change/Read/Access** commands will add a data breakpoint that is hit when the value of the underlying variable changes/is read/is accessed. Data breakpoints are shown with a red hexagon in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 
