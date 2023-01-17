@@ -2,7 +2,7 @@
 Area: containers
 ContentId: f9ffec31-9253-4f71-a4eb-79ea7b3a8f55
 PageTitle: Configure and troubleshoot debugging of Python apps running in a Docker container
-DateApproved: 7/26/2021
+DateApproved: 12/21/2021
 MetaDescription: How to configure and troubleshoot debugging of Python apps running in a Docker container, using Visual Studio Code.
 ---
 
@@ -104,7 +104,6 @@ Here is an example of using `dockerServerReadyAction` to launch the browser to o
 - `action`: The action to take when the pattern is found. Can be `debugWithChrome` or `openExternally`.
 
 - `pattern`: If the application logs a different message than shown above, set the `pattern` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object to a [JavaScript regular expression](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions) that matches that message. The regular expression should include a capture group that corresponds to the port on which the application is listening.
-
 - `uriFormat`: By default, the Docker extension will open the main page of the browser (however that is determined by the application). If you want the browser to open a specific page like the example above, the `uriFormat` property of the [dockerServerReadyAction](/docs/containers/debug-common.md#dockerserverreadyaction-object-properties) object should be set to a format string with two string tokens to indicate the protocol and port substitution.
 
 ## How to enable hot reloading in Django or Flask apps
@@ -119,7 +118,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
     #ADD . /app
     ```
 
-1. Within the `docker-run` task in the `tasks.json` file, create a new dockerRun attribute with a `volumes` property. This will create a mapping from the current workspace folder (app code) to the `/app` folder in the container.
+1. Within the `docker-run` task in the `tasks.json` file, create a new `dockerRun` attribute with a `volumes` property. This setting creates a mapping from the current workspace folder (app code) to the `/app` folder in the container.
 
     ``` json
     {
@@ -173,7 +172,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
     #ADD . /app
     ```
 
-1. Within the `docker-run` task in the `tasks.json` file, edit the existing dockerRun attribute by adding a `FLASK_ENV` in the `env` property as well as a `volumes` property. This will create a mapping from the current workspace folder (app code) to the `/app` folder in the container.
+1. Within the `docker-run` task in the `tasks.json` file, edit the existing dockerRun attribute by adding a `FLASK_ENV` in the `env` property as well as a `volumes` property. This setting creates a mapping from the current workspace folder (app code) to the `/app` folder in the container.
 
     ``` json
     {
@@ -250,7 +249,7 @@ When you select **Docker: Add Docker Files to Workspace** for Django or Flask, w
 ]
 ```
 
-**Tip:** As the dependency clearly states `docker-build` as its dependency, the name has to match this task. It can be changed to anything though.
+**Tip:** As the dependency clearly states `docker-build` as its dependency, the name has to match this task. You can change the name, if desired.
 
 1. The `dockerBuild` object in the JSON allows for the following parameters:
 

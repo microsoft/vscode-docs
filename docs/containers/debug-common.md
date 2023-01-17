@@ -4,12 +4,12 @@ Area: containers
 TOCTitle: Debug
 ContentId: A1371726-5310-4923-B43B-240F36C6264E
 PageTitle: Debug an app running in a Docker container
-DateApproved: 7/16/2021
+DateApproved: 12/21/2022
 MetaDescription: Debug an app running in a Docker container, using Visual Studio Code.
 ---
 # Debug containerized apps
 
-With version 0.9.0 and later, the Docker extension provides more support for debugging applications within Docker containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
+The Docker extension provides more support for debugging applications within Docker containers, such as scaffolding `launch.json` configurations for attaching a debugger to applications running within a container.
 
 The Docker extension provides a `docker` debug configuration provider that manages how VS Code will launch an application and/or attach a debugger to the application in a running Docker container. This provider is configured via entries within `launch.json`, with configuration being specific to each application platform supported by the provider.
 
@@ -33,13 +33,13 @@ Example `launch.json` configuration for debugging a Node.js application:
 
 ```json
 {
-    "version": "0.2.0",
     "configurations": [
+    
         {
-            "name": "Launch Node.js in Docker",
+            "name": "Docker Node.js Launch",
             "type": "docker",
             "request": "launch",
-            "preLaunchTask": "Run Docker Container",
+            "preLaunchTask": "docker-run: debug",
             "platform": "node"
         }
     ]
@@ -77,8 +77,6 @@ Example `launch.json` configuration for debugging a Python application:
 ## .NET
 
 More information about debugging .NET applications within Docker containers can be found in [Debug .NET within Docker containers](/docs/containers/debug-netcore.md).
-
-> The previous (Preview) .NET Docker debugging support (utilizing `"type": "docker-coreclr"` instead of the current preview's `"type": "docker"`) is being deprecated. You can still find documentation on that support at [Debug .NET Core - Deprecated](https://github.com/microsoft/vscode-docker/wiki/Debug-NetCore-Deprecated).
 
 Example `launch.json` configuration for debugging a .NET application:
 
