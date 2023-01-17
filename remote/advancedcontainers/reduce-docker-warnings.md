@@ -1,5 +1,5 @@
 ---
-Order: 15
+Order: 14
 Area: advancedcontainers
 TOCTitle: Reduce Docker warnings
 PageTitle: Reduce Docker container build warnings

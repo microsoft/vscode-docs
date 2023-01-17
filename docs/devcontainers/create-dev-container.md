@@ -32,7 +32,7 @@ You can use an image as a starting point for your `devcontainer.json`. An image 
 
 ```json
 {
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12"
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18"
 }
 ```
 
@@ -45,22 +45,24 @@ You can alter your configuration to do things such as:
 * Reuse or [extend your existing Docker Compose setup](https://aka.ms/vscode-remote/containers/docker-compose/extend).
 * Add more [Advanced container configuration](/remote/advancedcontainers/overview.md).
 
-For this example, if you'd like to install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
+For this example, if you'd like to install the [Code Spell Checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) into your container and automatically forward port 3000, your `devcontainer.json` would look like:
 
 ```json
 {
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-12",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node",
 
     "customizations": {
         "vscode": {
             "extensions": [
-                "dbaeumer.vscode-eslint"
+                "streetsidesoftware.code-spell-checker"
             ]
         }
     },
     "forwardPorts": [ 3000 ]
 }
 ```
+
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](./containers.md#pre-building-dev-container-images).
 
 With the above `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Dev Containers: Reopen in Container** command:
 
@@ -184,7 +186,7 @@ When you make changes like installing new software, changes made in the Dockerfi
 In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. You can use `&&` to string together multiple commands.
 
 ```docker
-FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
+FROM mcr.microsoft.com/devcontainers/javascript-node:0-18
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install git
 ```

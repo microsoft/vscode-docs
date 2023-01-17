@@ -66,7 +66,7 @@ The `overrideCommand` property defaults to `true` because many images will immed
 Next, consider this Dockerfile:
 
 ```docker
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-focal
+FROM mcr.microsoft.com/devcontainers/base:1-ubuntu
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
