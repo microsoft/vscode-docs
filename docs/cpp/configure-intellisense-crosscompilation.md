@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Configure IntelliSense for cross-compiling
 ContentId: 381b7ce1-5766-49b0-ad26-f9eedae70e63
 PageTitle: Configure IntelliSense for C++ cross-compilation
-DateApproved: 5/11/2020
+DateApproved: 1/17/2023
 MetaDescription: Configure Visual Studio Code c_cpp_properties.json to get IntelliSense when you are compiling for a different platform
 ---
 # IntelliSense for cross-compiling
