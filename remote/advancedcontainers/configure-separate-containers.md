@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 12
 Area: advancedcontainers
 TOCTitle: Configure separate containers
 PageTitle: Configure separate containers for multiple projects

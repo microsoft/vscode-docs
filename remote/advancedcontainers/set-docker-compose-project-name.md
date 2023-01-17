@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 9
 Area: advancedcontainers
 TOCTitle: Set Docker Compose project name
 PageTitle: Set Docker Compose project name

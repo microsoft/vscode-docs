@@ -29,26 +29,26 @@ When tools like VS Code and Codespaces detect a `devcontainer.json` file in a us
 
 This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Dev Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
-The CLI is available for review in a new [devcontainers/cli](https://github.com/devcontainers/cli) repository and you can read more about its development in [this issue in the spec repo](https://github.com/devcontainers/spec/issues/9).
-
-## System requirements
-
-To use the VS Code dev container CLI, you'll need the following on your system or CI/DevOps environment:
-
-1. [Node.js (version 14 or greater)](https://nodejs.org).
-1. [The `docker` CLI](/docs/devcontainers/containers.md#installation).
-1. [Python](https://www.python.org/downloads)
-1. C/C++ compiler
-
-The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
+The CLI is available in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
 
 ## Installation
 
-You can try out the dev container CLI, either by installing its npm package or building the CLI repo from sources.
+You can quickly try out the CLI through the Dev Containers extension. Select the **Dev Containers: Install devcontainer CLI** command from the Command Palette (`kbstyle(F1)`).
 
-To learn more about building the CLI from sources, go to the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out).
+## Alternate installation
+
+There are additional options for using the CLI elsewhere:
+- Install its npm package
+- Use the GitHub Action or Azure DevOps Task
+     - You may find these in [devcontainers/ci](https://github.com/devcontainers/ci)
+- Build the CLI repo from sources
+     - You may learn more about building from sources in the [CLI repo's README](https://github.com/devcontainers/cli#try-it-out)
+
+On this page, we'll focus on using the npm package.
 
 ### npm install
+
+To install the npm package, you will need Python, Node.js (version 14 or greater), and C/C++ installed to build one of the dependencies. The VS Code [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute) wiki has details about the recommended toolsets.
 
 ```bash
 npm install -g @devcontainers/cli
@@ -64,12 +64,16 @@ Commands:
   devcontainer build [path]         Build a dev container image
   devcontainer run-user-commands    Run user commands
   devcontainer read-configuration   Read configuration
+  devcontainer features             Features commands
+  devcontainer templates            Templates commands
   devcontainer exec <cmd> [args..]  Execute a command on a running dev container
 
 Options:
   --help     Show help                                                 [boolean]
   --version  Show version number                                       [boolean]
 ```
+
+> **Note:** The `open` command to open your dev container will be listed if you installed the CLI via VS Code.
 
 ## Running the CLI
 
@@ -158,33 +162,6 @@ For example, you may want to pre-build a number of images that you then reuse ac
     ```bash
     devcontainer build --workspace-folder <my_repo> --push true --image-name <my_image_name>:<optional_image_version>
     ```
-
-1. Create a simplified `devcontainer.json` file in repositories where you'd like to use the image - the `devcontainer.json` should either use the `image` property or reference the image in an associated Docker Compose file. Include any dev container Features you added in your pre-build configuration. For example:
-
-    ```json
-    {
-        "image": "ghcr.io/your-org/your-image-name",
-        "features": {
-            "ghcr.io/devcontainers/features/docker-in-docker:1": {
-                    "version": "latest"
-                }
-        }
-    }
-    ```
-
-On the other hand, if you only intend to use the pre-built image from one repository, you can use the `cacheFrom` property in `devcontainer.json` or `cache_from` in a related Docker Compose file instead. This will download the image and treat its image layers like a local cache even if this is the first time you've created the Dockerfile on your machine. Like the option above, be sure to include any dev container Features. For example:
-
-```json
-{
-    "build": {
-        "dockerfile": "Dockerfile",
-        "cacheFrom": "ghcr.io/your-org/your-image-name"
-    },
-    "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:1": {}
-    }
-}
-```
 
 ## Avoiding problems with images built using Docker
 
