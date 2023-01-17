@@ -33,7 +33,7 @@ To get started, you need to:
 
     > **Note:** When prompted to **Select Additional Tasks** during installation, be sure to check the **Add to PATH** option so you can easily open a folder in WSL using the `code` command.
 
-3. Install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
+3. Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). If you plan to work with other remote extensions in VS Code, you may choose to install the [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension).
 
 ### Open a remote folder or workspace
 
@@ -271,12 +271,12 @@ Once the server is up and running the proxy settings on the *Remote* tab are use
 
 Extensions are typically designed and tested to either run locally or remotely, not both. However, if an extension supports it, you can force it to run in a particular location in your `settings.json` file.
 
-For example, the setting below will force the Docker extension to run locally and Debugger for Chrome extension to run remotely instead of their defaults:
+For example, the setting below will force the [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension to run locally and [Remote - SSH: Editing Configuration Files](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) extension to run remotely instead of their defaults:
 
 ```json
 "remote.extensionKind": {
     "ms-azuretools.vscode-docker": [ "ui" ],
-    "msjsdiag.debugger-for-chrome": [ "workspace" ]
+    "ms-vscode-remote.remote-ssh-edit": [ "workspace" ]
 }
 ```
 

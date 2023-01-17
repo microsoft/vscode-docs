@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Overview
 ContentId: 23ce059e-95ec-4eaa-975c-d4cf76159516
 PageTitle: Doing Data Science in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 1/9/2023
 MetaDescription: Doing Data Science in Visual Studio Code.
 ---
 
@@ -24,6 +24,6 @@ The VS Code Marketplace offers a family of extensions that provide a first-class
 
 The support for mixing executable code, equations, visualizations, and rich Markdown makes notebooks useful for breaking down new concepts in a story telling form. This makes notebooks an exceptional tool for educators and students!
 
-Learn C#, F#, and Powershell with the [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
+Learn C#, F#, Powershell, JavaScript, HTML, SQL, KQL (Kusto Query Language), and [Mermaid](https://mermaid.js.org/intro/) with the [Polyglot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
 
-![Preview of Jupyter Notebooks in VS Code](images/overview/dotnet-interactive.png)
+![Polyglot Notebooks in VS Code](images/overview/polyglot-nb-ext.png)
