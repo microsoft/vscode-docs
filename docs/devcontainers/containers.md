@@ -19,7 +19,7 @@ This lets VS Code provide a **local-quality development experience** including f
 
 ## Getting started
 
-**Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [dev container tutorial](/docs/devcontainers/tutorial.md).
+**Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [Dev Containers tutorial](/docs/devcontainers/tutorial.md).
 
 ### System requirements
 
@@ -256,7 +256,7 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 }
 ```
 
-> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](#pre-building-dev-container-images).
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using `devcontainer.json`, which you may read more about in the [pre-build section](#prebuilding-dev-container-images).
 
 Selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
@@ -301,7 +301,7 @@ A Feature is a self contained entity in a folder with at least a `devcontainer-f
 |    +-- (other files)
 ```
 
-Check out the [feature/starter](https://github.com/devcontainers/feature-starter) repo for instructions on using the dev container CLI to publish your own public or private Features.
+Check out the [feature/starter](https://github.com/devcontainers/feature-starter) repository for instructions on using the dev container CLI to publish your own public or private Features.
 
 ### Features specification and distribution
 
@@ -313,19 +313,19 @@ We recommend pre-building images with the tools you need rather than creating an
 
 Even better - pre-built images can contain Dev Container metadata so when you reference an image, settings will be pulled across automatically.
 
-We recommend using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other spec supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci)) to pre-build your images since it is kept in sync with the Dev Containers extension's latest capabilities - including [dev container Features](#dev-container-features). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
+We recommend using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other [specification](https://containers.dev) supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci)) to pre-build your images since it is kept in sync with the Dev Containers extension's latest capabilities - including [dev container Features](#dev-container-features). Once you've built your image, you can push it to a container registry (like the [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images), or [Docker Hub](https://docs.docker.com/engine/reference/commandline/push)) and reference it directly.
 
-You can use the GitHub Action in the [devcontainers/ci](https://github.com/devcontainers/ci) repo to help you reuse dev containers in your workflows.
+You can use the GitHub Action in the [devcontainers/ci](https://github.com/devcontainers/ci) repository to help you reuse dev containers in your workflows.
 
-See the [dev container CLI article on pre-building images](/docs/devcontainers/devcontainer-cli.md#prebuilding) for more information.
+Go to the [dev container CLI article on pre-building images](/docs/devcontainers/devcontainer-cli.md#prebuilding) for more information.
 
 ### Inheriting metadata
 
 You can include Dev Container configuration and Feature metadata in prebuilt images via [image labels](https://docs.docker.com/config/labels-custom-metadata/). This makes the image self-contained since these settings are automatically picked up when the image is referenced - whether directly, in a `FROM` in a referenced Dockerfile, or in a Docker Compose file. This helps prevent your Dev Container config and image contents from getting out of sync, and allows you to push updates of the same configuration to multiple repositories through a simple image reference.
 
-This metadata label is **automatically added** when you pre-build using the [Dev Container CLI](./devcontainer-cli.md) (or other spec supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci) or [Azure DevOps task](https://marketplace.visualstudio.com/items?itemName=devcontainers.ci)) and includes settings from devcontainer.json and any referenced Dev Container Features.
+This metadata label is **automatically added** when you pre-build using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other [specification](https://containers.dev) supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci) or [Azure DevOps task](https://marketplace.visualstudio.com/items?itemName=devcontainers.ci)) and includes settings from `devcontainer.json` and any referenced Dev Container Features.
 
-This allows you to have a separate **more complex** devcontainer.json you use to pre-build your image, and then a dramatically **simplified one** in one or more repositories. The contents of the image will be merged with this simplified devcontainer.json content at the time you create the container (see the [the spec](https://containers.dev/implementors/spec/#merge-logic) for info on merge logic). But at its simplest, you can just reference the image directly in devcontainer.json for the settings to take effect:
+This allows you to have a separate **more complex** `devcontainer.json` you use to pre-build your image, and then a dramatically **simplified one** in one or more repositories. The contents of the image will be merged with this simplified `devcontainer.json` content at the time you create the container (go to [the spec](https://containers.dev/implementors/spec/#merge-logic) for information on merge logic). But at its simplest, you can just reference the image directly in `devcontainer.json` for the settings to take effect:
 
 ```json
 {
@@ -333,7 +333,7 @@ This allows you to have a separate **more complex** devcontainer.json you use to
 }
 ```
 
-Note that you can also opt to you can opt to manually add metadata to an image label instead. These proprerties will be picked up even if you didn't use the Dev Container CLI to build (and can be updated by the CLI even if you do). For example, consider this Dockerfile snippet:
+Note that you can also opt to manually add metadata to an image label instead. These properties will be picked up even if you didn't use the Dev Container CLI to build (and can be updated by the CLI even if you do). For example, consider this Dockerfile snippet:
 
 ```Dockerfile
 LABEL devcontainer.metadata='[{ \
@@ -347,7 +347,7 @@ LABEL devcontainer.metadata='[{ \
 
 Occasionally you may run into a situation where you are using a Docker named volume that you want to inspect or make changes in. You can use VS Code to work with these contents without creating or modifying `devcontainer.json` file by selecting the **Dev Containers: Explore a Volume in a Dev Container...** from the Command Palette (`kbstyle(F1)`).
 
-You can also inspect your volumes in the Remote Explorer. Make sure you have Containers selected in the dropdown, then you'll notice a **Dev Volumes** section. You can right-click on a volume to inspect its creation information, like when the volume was created, what repo was cloned into it, and the mountpoint. You can also explore it in a dev container.
+You can also inspect your volumes in the Remote Explorer. Make sure you have Containers selected in the dropdown, then you'll notice a **Dev Volumes** section. You can right-click on a volume to inspect its creation information, like when the volume was created, what repository was cloned into it, and the mountpoint. You can also explore it in a dev container.
 
 ![Right-click dev volumes in Remote Explorer](images/containers/dev-volumes.png)
 

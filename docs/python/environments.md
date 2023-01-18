@@ -47,9 +47,10 @@ A **conda environment** is a Python environment that's managed using the `conda`
 If Visual Studio Code doesn't locate your interpreter automatically, you can [manually specify an interpreter](#manually-specify-an-interpreter).
 
 If an interpreter hasn't been specified, then the Python extension automatically selects the interpreter with the highest version in the following priority order:
+
   1. Virtual environments located directly under the workspace folder.
-  2. Virtual environments related to the workspace but stored globally. For example, [Pipenv](https://pypi.org/project/pipenv/) or [Poetry](https://python-poetry.org/) environments that are localed outside of the workspace folder
-  3. Globally installed interpreters. FOr example, the ones found in `/usr/local/bin`, `C:\\python27`, `C:\\python38`, etc.
+  2. Virtual environments related to the workspace but stored globally. For example, [Pipenv](https://pypi.org/project/pipenv/) or [Poetry](https://python-poetry.org/) environments that are located outside of the workspace folder.
+  3. Globally installed interpreters. For example, the ones found in `/usr/local/bin`, `C:\\python27`, `C:\\python38`, etc.
 
 > **Note**: The interpreter selected may differ from what `python` refers to in your terminal.
 
