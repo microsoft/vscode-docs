@@ -47,7 +47,6 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [C#](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
-| [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge/license) |
 | [Docker](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker/license) |
 | [docs-article-templates](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-article-templates) | ✔ | [MIT](https://docsmsft.gallerycdn.vsassets.io/extensions/docsmsft/docs-markdown/0.2.2/1547755350969/Microsoft.VisualStudio.Services.Content.License) |
 | [docs-markdown](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown/license) |

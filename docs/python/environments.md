@@ -42,9 +42,21 @@ Once you activate your virtual environment, you’ll need to identify how to man
 
 A **conda environment** is a Python environment that's managed using the `conda` package manager (see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) (conda.io)). Whether to use a conda environment or a virtual one will depend on your packaging needs, what your team has standardized on, etc.
 
+### How the extension looks for environments
+
+If Visual Studio Code doesn't locate your interpreter automatically, you can [manually specify an interpreter](#manually-specify-an-interpreter).
+
+If an interpreter hasn't been specified, then the Python extension automatically selects the interpreter with the highest version in the following priority order:
+
+  1. Virtual environments located directly under the workspace folder.
+  2. Virtual environments related to the workspace but stored globally. For example, [Pipenv](https://pypi.org/project/pipenv/) or [Poetry](https://python-poetry.org/) environments that are located outside of the workspace folder.
+  3. Globally installed interpreters. For example, the ones found in `/usr/local/bin`, `C:\\python27`, `C:\\python38`, etc.
+
+> **Note**: The interpreter selected may differ from what `python` refers to in your terminal.
+
 ### Where the extension looks for environments
 
-The extension automatically looks for interpreters in the following locations:
+The extension automatically looks for interpreters in the following locations, in no particular order:
 
 - Standard install paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
 - Virtual environments located directly under the workspace (project) folder.
@@ -54,10 +66,6 @@ The extension automatically looks for interpreters in the following locations:
 - Virtual environments located in the path identified by `WORKON_HOME` (as used by [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/)).
 - Conda environments found by `conda env list`. Conda environments which do not have an interpreter will have one installed for them upon selection.
 - Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
-
-You can also [manually specify an interpreter](#manually-specify-an-interpreter) if Visual Studio Code doesn't locate your interpreter automatically.
-
-> **Note**: Once the ["select interpreter" flow](#select-and-activate-an-environment) is triggered, [pipenv](https://pipenv.readthedocs.io/) environments for the workspace folder will be searched for. If one is found, then no other interpreters are searched for or listed as pipenv expects to manage all aspects.
 
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
@@ -270,7 +278,7 @@ We currently support selecting Python 2.7 as an interpreter in your workspace. B
 
 ### Environment variable definitions file
 
-An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. For more information, see [Variable substitution](#variable-substitution). Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
 
 By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
@@ -311,25 +319,6 @@ MYPROJECT_DBPASSWORD=kKKfa98*11@
 You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
 > **Note**: When environment variables are specified using multiple methods, be aware that there is an order of precedence. All `env` variables defined in the `launch.json` file will override variables contained in the `.env` file, specified by the `python.envFile` setting (user or workspace). Similarly, `env` variables defined in the `launch.json` file will override the environment variables defined in the `envFile` that are specified in `launch.json`.
-
-### Variable substitution
-
-When defining an environment variable in a definitions file, you can use the value of any existing environment variable with the following general syntax:
-
-```bash
-<VARIABLE>=...${env:EXISTING_VARIABLE}...
-```
-
-where `...` means any other text as used in the value. The curly braces are required.
-
-Within this syntax, the following rules apply:
-
-- Variables are processed in the order they appear in the `.env` file, so you can use any variable that's defined earlier in the file.
-- Single or double quotes don't affect substituted value and are included in the defined value. For example, if the value of `VAR1` is `abcedfg`, then `VAR2='${env:VAR1}'` assigns the value `'abcedfg'` to `VAR2`.
-- The `$` character can be escaped with a backslash, as in `\$`.
-- You can use recursive substitution, such as `PYTHONPATH=${env:PROJ_DIR}:${env:PYTHONPATH}` (where `PROJ_DIR` is any other environment variable).
-- You can use only simple substitution; nesting such as `${_${env:VAR1}_EX}` isn't supported.
-- Entries with unsupported syntax are left as-is.
 
 ### Use of the PYTHONPATH variable
 

@@ -5,4 +5,3 @@ stages:
     parameters:
       jobDisplayName: vscode
       artifactName: vscode-website-prod
-      includeCodeQLTasks: true

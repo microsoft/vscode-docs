@@ -159,3 +159,5 @@ The [minimum contrast ratio feature](#minimum-contrast-ratio) can cause colors t
 ```json
 "terminal.integrated.minimumContrastRatio": 1
 ```
+
+Background on why this is the default is explained in [vscode#146406](https://github.com/microsoft/vscode/issues/146406#issuecomment-1084825473).
