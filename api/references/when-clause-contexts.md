@@ -133,8 +133,9 @@ Context name | True when
 `workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
-`view` | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
-`viewItem` | True when viewItem context matches. Example:  `"viewItem == someContextValue"`.
+`view` | For `view/title` and `view/item/context`, the view to display the command in. Example: `"view == myViewsExplorerID"`.
+`viewItem` | For `view/item/context`, the `contextValue` from the tree item. Example:  `"viewItem == someContextValue"`.
+`webviewId` | For `webview/context`, the webview ID to display the command in. Example: `"webviewId == catCoding"`.
 `isFullscreen` | True when window is in fullscreen.
 `focusedView` | The identifier of the currently focused view.
 `canNavigateBack` | True if it is possible to navigate back.
