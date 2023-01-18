@@ -118,7 +118,7 @@ In the example we just explored, the project has a `.devcontainer` folder with a
 
 First, your image is built from the supplied Dockerfile or image name, which would be `mcr.microsoft.com/devcontainers/javascript-node:0-18` in this example. Then a container is created and started using some of the settings in the `devcontainer.json`. Finally your Visual Studio Code environment is installed and configured again according to settings in the `devcontainer.json`. For example, the dev container in this example installs the `streetsidesoftware.code-spell-checker` extension.
 
-> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we see the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](./containers.md#pre-building-dev-container-images).
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we see the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](/docs/devcontainers/containers.md#prebuilding-dev-container-images).
 
 Once all of this is done, your local copy of Visual Studio Code connects to the Visual Studio Code Server running inside of your new dev container.
 
@@ -134,10 +134,10 @@ The `devcontainer.json` is basically a config file that determines how your dev 
     "name": "Node.js",
 
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
 
     // Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+    // "features": {},
 
     "customizations": {
         "vscode": {
@@ -150,12 +150,12 @@ The `devcontainer.json` is basically a config file that determines how your dev 
 
     // "forwardPorts": [3000],
 
-	"portsAttributes": {
-		"9000": {
-			"label": "Hello Remote World",
-			"onAutoForward": "notify"
-		}
-	},
+    "portsAttributes": {
+        "9000": {
+            "label": "Hello Remote World",
+            "onAutoForward": "notify"
+        }
+    },
 
     "postCreateCommand": "yarn install",
 
@@ -167,9 +167,9 @@ The above example is extracted from the `vscode-remote-try-node` repo we used in
 
 | Option | Description |
 |---|---|
-| `image` | The name of an image in a container registry ([DockerHub](https://hub.docker.com/), [GitHub Container Registry](https://docs.github.com/packages/guides/about-github-container-registry), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) VS Code should use to create the dev container. <br> |
+| `image` | The name of an image in a container registry ([Docker Hub](https://hub.docker.com/), [GitHub Container Registry](https://docs.github.com/packages/guides/about-github-container-registry), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)) VS Code should use to create the dev container. <br> |
 | `dockerfile` | Rather than referencing an `image`, you may instead use the `dockerfile` property, which is the relative path to a `Dockerfile` that you want to use as your image. |
-| `features` | An object of [Dev Container Feature](./containers.md#dev-container-features) IDs and related options to be added. |
+| `features` | An object of [Dev Container Feature](/docs/devcontainers/containers.md#dev-container-features) IDs and related options to be added. |
 | `customizations` | Configure tool-specific properties, like `settings` and `extensions` properties for VS Code. |
 | `settings`  | Adds default `settings.json` values into a container/machine specific settings file, such as `"terminal.integrated.defaultProfile.linux": "bash"`. |
 | `extensions`  | An array of extension IDs that specify the extensions that should be installed inside the container when it is created. |

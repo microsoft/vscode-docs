@@ -1003,7 +1003,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls</loc>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
