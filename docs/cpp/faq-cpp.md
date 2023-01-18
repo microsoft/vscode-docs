@@ -133,6 +133,6 @@ If your debugger is showing a grey stack trace, won't stop at a breakpoint, or t
 
 ## What do I do if I suspect a C/C++ extension problem
 
-If you have any other questions, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you believe your issue may require a fix, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
+If you have any other questions, please start a discussion at [GitHub discussions](https://github.com/microsoft/vscode-cpptools/discussions), or if you find an issue that needs to be fixed, file an issue at [GitHub issues](https://github.com/microsoft/vscode-cpptools/issues).
 
 If you are experiencing a problem with the extension that we can't diagnose based on information in your issue report, we might ask you to enable debug logging and send us your logs. See [C/C++ extension logging](/docs/cpp/enable-logging-cpp.md) for how to get C/C++ extension logs.
