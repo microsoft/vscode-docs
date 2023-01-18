@@ -62,7 +62,7 @@ For this example, if you'd like to install the [Code Spell Checker extension](ht
 }
 ```
 
-> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](./containers.md#pre-building-dev-container-images).
+> **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using devcontainer.json, which you may read more about in the [pre-build section](/docs/devcontainers/containers.md#prebuilding-dev-container-images).
 
 With the above `devcontainer.json`, your dev container is functional, and you can connect to and start developing within it. Try it out with the **Dev Containers: Reopen in Container** command:
 

@@ -49,11 +49,12 @@ Before deploying the image to an App Service, the image must be uploaded to a co
    ![Registries](images/app-service/explorer-registries.png)
 
 3. Optionally, tag the image. In order to upload an image to a registry, the image needs to be tagged with registry name so that the docker push will upload it to the right registry.
+    - To create a registry in Azure ACR, open the **Registries** section of the Docker view, sign in to Azure if not already signed in, and then right-click on the subscription you want to use, and choose **Create Registry**.
     - The image built in previous section will appear in the Docker Explorer under Images section. Right-click and choose **Tag...**.
 
         ![Tag image](images/app-service/explorer-tag-image.png)
     - Specify the new name `<your registry or username>/<image name>:<tag>` and complete the
-    tag action. For example, new image name for ACR would be 'mainacr.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
+    tag action. For example, new image name for ACR named WebApp6 would be 'webapp6.azurecr.io/webapp6:latest' and for Docker Hub it would be 'myusername/webapp6:latest'.
 
 4. The image will show up in the Docker Explorer under the registry that the image tag points to. Select this image and choose **Push**. If the image has not yet been tagged, you will be prompted to choose a registry to push to, and the image will be tagged based on the selection.
 
@@ -74,7 +75,7 @@ In the previous section, the image is pushed to a remote container registry. Now
 2. When prompted, provide the values for the App Service.
     - New web app name: The name must be unique across Azure.
     - Resource group: Select an existing resource group or create a new one.
-    - App Service plan: Select an existing App Service Plan or create a new one. (An App Service Plan defines the physical resources that host the website. You can use a basic or free plan tier for this tutorial.).
+    - App Service plan: Select an existing App Service Plan or create a new one. (An App Service Plan defines the physical resources that host the website; you can use a basic or free plan tier for this tutorial).
 
 3. When deployment is complete, Visual Studio Code shows a notification with the website URL.
 
@@ -84,7 +85,7 @@ In the previous section, the image is pushed to a remote container registry. Now
 
     ![Deployment complete output](images/app-service/output-appservice-deployment.png)
 
-5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. The new App Service also appears in the Azure view in Visual Studio Code under the App Service section, where you can right-click the website and select Browse Website.
+5. To browse the deployed website, you can use `kbstyle(Ctrl+click)` to open the URL in the Output panel. You might need to wait a little while for the app to be live in Azure. The new App Service also appears in the Azure view in Visual Studio Code under the App Service section, where you can right-click the website and select **Browse Website**.
 
     ![Web Application](images/app-service/webapp-homepage.png)
 
