@@ -54,7 +54,7 @@ Visual Studio Code and the Python extension provide a great editor for data scie
 
    ![Choose a kernel from created environment](images/data-science-tutorial/choose-myenv.png)
 
-9. To manage your environment from VS Code's integrated terminal, open it up with (`kb(workbench.action.terminal.toggleTerminal)`). If your environment is not activated, you can do so as you would in your terminal (i.e. `conda activate myenv`).
+9. To manage your environment from VS Code's integrated terminal, open it up with (`kb(workbench.action.terminal.toggleTerminal)`). If your environment is not activated, you can do so as you would in your terminal (`conda activate myenv`).
 
 ## Prepare the data
 
