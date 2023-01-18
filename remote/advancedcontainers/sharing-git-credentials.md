@@ -3,9 +3,9 @@ Order: 15
 Area: advancedcontainers
 TOCTitle: Sharing git credentials
 PageTitle: Sharing git credentials
-ContentId:
+ContentId: 4627daab-1bc2-4e3b-ba81-cd9319ec1230
 MetaDescription: Sharing git credentials
-DateApproved: 1/4/2023
+DateApproved: 12/7/2022
 ---
 
 # Sharing Git credentials with your container
@@ -23,7 +23,7 @@ The extension will automatically copy your local `.gitconfig` file into the cont
 
 ## Using a credential helper
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) in your local OS, no further setup is required.** Credentials you've entered locally will be reused in the container and vice versa.
 
 ## Using SSH keys
 
@@ -72,7 +72,7 @@ fi
 
 ## Sharing GPG Keys
 
-If you want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://help.github.com/github/authenticating-to-github/managing-commit-signature-verification).
+If you want to [GPG](https://www.gnupg.org/) sign your commits, you can share your local keys with your container as well. You can find out about signing using a GPG key in [GitHub's documentation](https://docs.github.com/authentication/managing-commit-signature-verification).
 
 If you do not have GPG set up, you can configure it for your platform:
 
