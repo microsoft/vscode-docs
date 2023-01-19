@@ -16,7 +16,7 @@ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-py
 
 (If you're already familiar with unit testing, you can skip to the [walkthroughs](#example-test-walkthroughs).)
 
-A **unit** is a specific piece of code to be tested, such as a function or a class. **Unit tests** are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases.
+A **unit** is a specific piece of code to be tested, such as a function or a class. **Unit tests** are then other pieces of code that specifically exercise the code unit with a full range of different inputs, including boundary and edge cases. Both the unittest and pytest frameworks can be used to write unit tests.
 
 For example, say you have a function to validate the format of an account number that a user enters in a web form:
 
@@ -88,15 +88,15 @@ With this code, you can experience working with tests in VS Code as described in
 
 ## Configure tests
 
-Once you have the Python extension installed and a Python file open within the editor, a test beaker icon will be displayed on the VS Code Activity bar. The beaker icon is for the **Test Explorer** view. When opening the Test Explorer, you will see a **Configure Tests** button if you don't have a test framework enabled. Once you select **Configure Tests**, you will be prompted to select a test framework and a folder containing the tests. If you're using unittest, you will also be asked to select the file glob pattern used to identify your test files.
+Once you have the Python extension installed and a Python file open within the editor, a test beaker icon will be displayed on the VS Code Activity bar. The beaker icon is for the **Test Explorer** view. When opening the Test Explorer, you will see a **Configure Tests** button if you don't have a test framework enabled. Once you select **Configure Tests**, you will be prompted to select a test framework and a folder containing the tests. If you're using unittest, you will also be asked to select the file glob pattern used to identify your test files. (a file glob pattern is a defined string pattern that matches file or folder names based on wildcards to then include or not include.)
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` to true. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` which can be done either in the settings editor or in the `settings.json` file as described [here](https://code.visualstudio.com/docs/getstarted/settings). Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If both frameworks are enabled, then the Python extension will only run `pytest`.
 
-When you enable a test framework, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
+If you enable pytest, VS Code prompts you to install the framework package if it's not already present in the currently activated environment:
 
 ![VS Code prompt to install a test framework when enabled](images/testing/install-framework.png)
 
@@ -116,6 +116,7 @@ class Test_TestIncrementDecrement(unittest.TestCase):
     def test_increment(self):
         self.assertEqual(inc_dec.increment(3), 4)
 
+    # This test is designed to fail for demonstration purposes.
     def test_decrement(self):
         self.assertEqual(inc_dec.decrement(3), 4)
 
@@ -133,15 +134,16 @@ import inc_dec    # The code to test
 def test_increment():
     assert inc_dec.increment(3) == 4
 
+# This test is designed to fail for demonstration purposes.
 def test_decrement():
     assert inc_dec.decrement(3) == 4
 ```
 
 ## Test discovery
 
-By default, the Python extension attempts to discover tests once you enable a framework. You can trigger test discovery at any time using the **Test: Refresh Tests** command.
+By default, the Python extension attempts to discover tests once you enable a framework. You can also trigger test discovery at any time using the **Test: Refresh Tests** command from the command palette.
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`. You will need to reload the window for this setting to take effect.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false` which can be done either in the settings editors or in the `settings.json` file as described [here](https://code.visualstudio.com/docs/getstarted/settings). You will need to reload the window for this setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -188,7 +190,7 @@ You can run tests using any of the following actions:
 
 After a test run, VS Code displays results directly in the editor as gutter decorations. Failed tests will also be highlighted in the editor, with a Peek View that displays the test run error message and a history of all of the tests' runs. You can press `kbstyle(Escape)` to dismiss the view, and you can disable it by opening the User settings (**Preferences: Open Settings (UI)** command in the **Command Palette**) and changing the value of the **Testing: Automatically Open Peek View** setting to `never`.
 
-In the **Test Explorer**, results are shown for individual tests and any classes and files containing those tests.
+In the **Test Explorer**, results are shown for individual tests and any classes and files containing those tests. Folders will display a failure icon if any of the tests within that folder did not pass.
 
 ![Test results on a unittest class and in Test Explorer](images/testing/test-results.png)
 
@@ -231,7 +233,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 ## Debug tests
 
-You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing.
+You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
 For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
 
@@ -283,11 +285,11 @@ For example, the configuration below in the `launch.json` file disables the `jus
 
 If you have more than one configuration entry with `"purpose": ["debug-test"]`, the first definition will be used since we currently don't support multiple definitions for this request type.
 
-For more information on debugging, see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
 
 ## Test commands
 
-Below are all the supported commands for testing with the Python extension in VS Code:
+Below are all the supported commandsfor testing with the Python extension in VS Code. These are all found via the command palette:
+
 | Command Name | Description |
 | ------------ | ------------|
 | **Python: Configure Tests** | Configure the test framework to be used with the Python extension.  |
