@@ -9,7 +9,7 @@ MetaDescription: Run and Debug Python code in the Web.
 ---
 # Run and Debug Python in the Web
 
-We are happy to announce experimental support for running Python code on the Web. To try it out, install the latest pre-release version of the [Experimental - Python for the Web](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-python-web-wasm) extension from the Marketplace.
+We are happy to announce **experimental** support for running Python code on the Web. To try it out, install the latest pre-release version of the [Experimental - Python for the Web](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-python-web-wasm) extension from the Marketplace. This work is based on WASM in Python which is currently in development, to learn more about how it works and the ongoing progress you can check [here](https://pythondev.readthedocs.io/wasm.html).
 
 ## Prerequisites
 
@@ -19,8 +19,8 @@ The following prerequisites are needed to use the extension:
 * You need to authenticate with GitHub.
 * You need to use a browser that supports [cross-origin isolation](https://developer.chrome.com/docs/extensions/mv3/cross-origin-isolation/). The extension has been tested with the Microsoft Edge and Google Chrome browsers.
 * You need to use the insider version of [VS Code for the Web](/docs/editor/vscode-web.md) (e.g. `https://insiders.vscode.dev/`)
-* Your source code must either be hosted on a GitHub repository and accessed through the GitHub Repositories extension, or on your local file system.
-* When starting [VS Code for the Web](/docs/editor/vscode-web.md), you need to add the following query parameter to the URL: `?vscode-coi=`.
+* Your source code must either be hosted on on your local file system or a GitHub repository that is accessed through the GitHub Repositories extension.
+* When starting [VS Code for the Web](/docs/editor/vscode-web.md), you need to add the following query parameter to the end of the URL: `?vscode-coi=`.
 
 ## Run Hello World
 
@@ -36,7 +36,7 @@ The extension comes with an integrated Python REPL. To activate it, run the comm
 
 ## Debugging
 
-There is support for debugging Python files on the Web. The features currently supported are:
+There is support for debugging Python files on the Web which has the same UI as the desktop VS Code outlined [here](https://code.visualstudio.com/docs/python/debugging). The features currently supported are:
 
 * Set breakpoints
 * Step into and out of functions
