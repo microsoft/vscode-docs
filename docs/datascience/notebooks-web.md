@@ -27,7 +27,7 @@ Developing Jupyter notebooks in VS Code can be done entirely through a web-based
 3. That's it! A codespace will be created for you to get started!
    > **Tip**: You can customize your project by committing [configuration files](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project. You can also see examples of predefined configurations on the [devcontainers/images repository](https://github.com/devcontainers/images/tree/main/src) to use and/or amend as needed for your project.
 
-## Jupyter notebooks on VS Code web (vscode.dev)
+## Jupyter notebooks on VS Code for the Web (vscode.dev)
 
 You can also use [VS Code for the web](https://code.visualstudio.com/docs/editor/vscode-web) by going to https://vscode.dev or https://github.dev (available by typing '.' when viewing a repo on https://github.com ), which gives you options to connect to the following types of kernels for your notebook:
 1. [Remote tunneling with VS Code Server](#remote-tunneling-with-vs-code-server)
@@ -35,7 +35,7 @@ You can also use [VS Code for the web](https://code.visualstudio.com/docs/editor
 
 ### Remote tunneling with VS Code Server
 
-You can securely connect to a remote machine without the requirement of SSH by installing the [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server) on your remote machine and accessing it through VS Code for the Web. To do so:
+You can securely connect to a remote machine without the requirement of SSH by installing the [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server) on your remote machine and accessing it through VS Code for the Web (you can also connect to the server on VS Code Desktop). To do so:
 
 1. Install the `code` [CLI](https://code.visualstudio.com/#alt-downloads) on your remote machine.
    > **Note**: You can skip this step if VS Code Desktop is already installed on the remote machine, because the `code` CLI is built into VS Code Desktop.
@@ -45,7 +45,7 @@ You can securely connect to a remote machine without the requirement of SSH by i
 
 ### Connect to a remote Jupyter server
 
-You can also connect to a remote Jupyter server directly by selecting the `Jupyter: Specify Jupyter Server for Connections` command -> pasting the URL for your remote Jupyter server, e.g., `http://<ip-address>:<port>/?token=<token>`.
+You can also connect to a remote Jupyter server directly by selecting the **Jupyter: Specify Jupyter Server for Connections** command -> pasting the URL for your remote Jupyter server, e.g., `http://<ip-address>:<port>/?token=<token>`.
 
 ![Enter Jupyter server](images/nb-in-the-browser/select-enter-server-url.png)
 
