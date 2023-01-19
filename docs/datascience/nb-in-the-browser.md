@@ -11,6 +11,13 @@ MetaSocialImage: images/tutorial/social.png
 
 # Jupyter notebooks in VS Code running in the browser
 
+Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) on the desktop, and extends to various browser-based platforms like [Codespaces](https://github.com/features/codespaces) and [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web).
+
+Using these browser-based platforms enables you to work on your notebooks (and beyond!) without having to install anything on your machine. You can read more about each of options and how to get started below.
+- [Jupyter notebooks on **Codespaces**](#jupyter-notebooks-on-codespaces)
+- [Remote tunneling with **VS Code Server** on VS Code for the Web](#remote-tunneling-with-vs-code-server)
+- [Connect to a remote **Jupyter server** on VS Code for the Web](#connect-to-a-remote-jupyter-server)
+
 ## Jupyter notebooks on Codespaces
 
 Developing Jupyter notebooks in VS Code can be done entirely through a web-based interface using [Codespaces](https://github.com/features/codespaces), a cloud-hosted development environment that is secure and configurable with free compute resources (more on Codespaces [monthly usage quotas](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)). This means you can take advantage of all VS Code functionalities, including Jupyter notebooks support, without installing anything on your machine. To get started quickly,
