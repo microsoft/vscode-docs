@@ -23,7 +23,7 @@ Using these browser-based platforms enables you to work on your notebooks (and b
 Developing Jupyter notebooks in VS Code can be done entirely through a web-based interface using [Codespaces](https://github.com/features/codespaces), a cloud-hosted development environment that is secure and configurable with free compute resources (more on Codespaces [monthly usage quotas](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)). This means you can take advantage of all VS Code functionalities, including Jupyter notebooks support, without installing anything on your machine. To get started quickly,
 1. Navigate to https://github.com/codespaces
 2. Under **Explore quick start templates**, select **Use this template** for **Jupyter Notebook**. If you don't see the **Jupyter Notebook** template, click **See all** and search for the template.
-    ![Use Codespaces Jupyter Notebook Template](images/nb-in-the-browser/codespaces-jupyter-template.png)
+    ![Use Codespaces Jupyter Notebook Template](images/notebooks-web/codespaces-jupyter-template.png)
 3. That's it! A codespace will be created for you to get started!
    > **Tip**: You can customize your project by committing [configuration files](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project. You can also see examples of predefined configurations on the [devcontainers/images repository](https://github.com/devcontainers/images/tree/main/src) to use and/or amend as needed for your project.
 
@@ -47,7 +47,7 @@ You can securely connect to a remote machine without the requirement of SSH by i
 
 You can also connect to a remote Jupyter server directly by selecting the **Jupyter: Specify Jupyter Server for Connections** command -> pasting the URL for your remote Jupyter server, e.g., `http://<ip-address>:<port>/?token=<token>`.
 
-![Enter Jupyter server](images/nb-in-the-browser/select-enter-server-url.png)
+![Enter Jupyter server](images/notebooks-web/select-enter-server-url.png)
 
 > **Note**: When you’re starting your remote server, ensure to: (1) alow all origins (e.g., `--NotebookApp.allow_origin='*'`) to allow your servers to be accessed externally, and (2) set notebook to listen to listen on all IPs (e.g., `--NotebookApp.ip='0.0.0.0'`).
 
@@ -64,7 +64,7 @@ As with VS Code Desktop, you can easily continue your work from VS Code for the 
 1. Sign into Codespaces by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Codespaces: Sign in**
 6. Navigate to the Remote Explorer tab
 
-    ![Remote explorer tab](images/nb-in-the-browser/remote-explorer-tab.png)
+    ![Remote explorer tab](images/notebooks-web/remote-explorer-tab.png)
 
 From there, you can either connect to an existing Codespace or create a new one. This will open up a new window for you to continue working on your project on Codespaces.
 
