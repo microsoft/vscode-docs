@@ -1,15 +1,15 @@
 ---
 Order: 8
 Area: datascience
-TOCTitle: Jupyter Notebooks on VS Code browser
+TOCTitle: Jupyter Notebooks on the web
 ContentId: 0faf5b06-ddad-4594-8d5e-fa409c7da82c
-PageTitle: Jupyter Notebooks on VS Code browser
+PageTitle: Jupyter Notebooks on the web
 DateApproved: 1/9/2023
 MetaDescription: Ways to work with Jupyter notebooks in the browser on VS Code.
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Jupyter notebooks in VS Code running in the browser
+# Jupyter Notebooks on the web
 
 Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) on the desktop, and extends to various browser-based platforms like [Codespaces](https://github.com/features/codespaces) and [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web).
 
