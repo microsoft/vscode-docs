@@ -42,7 +42,7 @@ In this section, you will create a virtual environment in which Flask is install
 
 1. Open this folder in VS Code by navigating to the folder in a terminal and running `code .`, or by running VS Code and using the  **File** > **Open Folder** command.
 
-1. In VS Code,  Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Create Environment** command to create a virtual environment in your workspace. Select `venv` and then the Python environment you want to use to create it.
+1. In VS Code, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Create Environment** command to create a virtual environment in your workspace. Select `venv` and then the Python environment you want to use to create it.
     > **Note**: If you want to create an environment manually, or run into error in the environment creation process, visit the [Environments](/docs/python/environments.md#create-a-virtual-environment-in-the-terminal) page.
 
     ![Flask tutorial: opening the Command Palette in VS Code](images/flask-tutorial/command-palette.png)
