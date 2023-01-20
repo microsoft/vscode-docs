@@ -94,7 +94,7 @@ Once you have the Python extension installed and a Python file open within the e
 
 ![Configure Python Tests button displayed in the Test Explorer when tests haven't been configured.](images/testing/test-explorer-no-tests.png)
 
-You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled` which can be done either in the settings editor or in the `settings.json` file as described [here](https://code.visualstudio.com/docs/getstarted/settings). Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
+You can configure your tests anytime by using the **Python: Configure Tests** command from the [Command Palette](/docs/getstarted/userinterface.md#command-palette). You can also configure testing manually by setting either `python.testing.unittestEnabled` or `python.testing.pytestEnabled`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/settings.md) documentation. Each framework also has specific configuration settings as described under [Test configuration settings](#test-configuration-settings) for their folders and patterns.
 
 If both frameworks are enabled, then the Python extension will only run `pytest`.
 
@@ -143,9 +143,9 @@ def test_decrement():
 
 ## Test discovery
 
-By default, the Python extension attempts to discover tests once you enable a framework. You can also trigger test discovery at any time using the **Test: Refresh Tests** command from the command palette.
+By default, the Python extension attempts to discover tests once you enable a framework. You can also trigger test discovery at any time using the **Test: Refresh Tests** command from the Command Palette.
 
-`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false` which can be done either in the settings editors or in the `settings.json` file as described [here](https://code.visualstudio.com/docs/getstarted/settings). You will need to reload the window for this setting to take effect.
+`python.testing.autoTestDiscoverOnSaveEnabled` is set to `true` by default, meaning that test discovery is also performed automatically whenever you add, delete, or update any Python file in the workspace. To disable this feature, set the value to `false`, which can be done either in the Settings editor or in the `settings.json` file as described in the VS Code [Settings](/docs/getstarted/settings.md) documentation. You will need to reload the window for this setting to take effect.
 
 Test discovery applies the discovery patterns for the current framework (which can be customized using the [Test configuration settings](#test-configuration-settings)). The default behavior is as follows:
 
@@ -235,7 +235,7 @@ Support for running tests in parallel with pytest is available through the `pyte
 
 ## Debug tests
 
-You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code see [Python debugging configurations](/docs/python/debugging.md) and the general VS Code [Debugging](/docs/editor/debugging.md) article.
+You might occasionally need to step through and analyze tests in the debugger, either because the tests themselves have a code defect you need to track down or in order to better understand why an area of code being tested is failing. For more information on debugging or to understand how it works in VS Code, you can read the [Python debugging configurations](/docs/python/debugging.md) and general VS Code [Debugging](/docs/editor/debugging.md) articles.
 
 For example, the `test_decrement` functions given earlier are failing because the assertion itself is faulty. The following steps demonstrate how to analyze the test:
 
@@ -290,7 +290,7 @@ If you have more than one configuration entry with `"purpose": ["debug-test"]`, 
 
 ## Test commands
 
-Below are all the supported commandsfor testing with the Python extension in VS Code. These are all found via the command palette:
+Below are all the supported commandsfor testing with the Python extension in VS Code. These are all found via the Command Palette:
 
 | Command Name | Description |
 | ------------ | ------------|
