@@ -16,8 +16,6 @@ The VS Code notebooks’ kernel picker lists the following categories of connect
 - Python Environments
 - Existing Jupyter Server
 
-<!-- TODO: insert image -->
-
    > **Note**: You may see more options if you have installed other extensions and/or enabled kernel provider services.
 
 By default, we will recommend the one you’ve previously used with your notebook, but you can choose to connect to any other Jupyter kernels as shown below.
