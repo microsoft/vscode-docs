@@ -4,6 +4,3 @@
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.md diff=markdown
-codespaces-jupyter-template.png filter=lfs diff=lfs merge=lfs -text
-remote-explorer-tab.png filter=lfs diff=lfs merge=lfs -text
-select-enter-server-url.png filter=lfs diff=lfs merge=lfs -text
