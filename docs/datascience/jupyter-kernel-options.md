@@ -9,20 +9,18 @@ MetaDescription: Descriptions, tips, and tricks on kernel selection options when
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Jupyter Kernel Options in VS Code
+# Jupyter Kernel Options in VS Code <!-- omit in toc -->
 
 The VS Code notebooks’ kernel picker lists the following categories of connection methods to run the code in your Jupyter notebook:
-- Local Jupyter Kernels
-- Python Environments
-- Existing Jupyter Server
-
-   > **Note**: You may see more options if you have installed other extensions and/or enabled kernel provider services.
+- [Jupyter Kernels](#jupyter-kernels)
+- [Python Environments](#python-environments)
+- [Existing Jupyter Server](#existing-jupyter-server)
 
 By default, we will recommend the one you’ve previously used with your notebook, but you can choose to connect to any other Jupyter kernels as shown below.
 
-## Local Jupyter Kernels
+## Jupyter Kernels
 
-The **Local Jupyter Kernels** category lists all Jupyter kernels that VS Code detects in the context of the compute system it’s operating in (your desktop, Codespaces, remote server, etc.). Each Jupyter kernels has Jupyter [kernel specification](https://jupyter-client.readthedocs.io/en/stable/kernels.html#kernel-specs), or Jupyter kernelspec, which contains a JSON file (i.e., `kernel.json`) with details about the kernel—name, description, CLI information required to launch a process as a kernel.
+The **Jupyter Kernels** category lists all Jupyter kernels that VS Code detects in the context of the compute system it’s operating in (your desktop, Codespaces, remote server, etc.). Each Jupyter kernels has Jupyter [kernel specification](https://jupyter-client.readthedocs.io/en/stable/kernels.html#kernel-specs), or Jupyter kernelspec, which contains a JSON file (i.e., `kernel.json`) with details about the kernel—name, description, CLI information required to launch a process as a kernel.
 
 ## Python Environments
 
@@ -40,6 +38,6 @@ The **Existing Jupyter Server** category lists remote Jupyter servers previously
 
 Once connected, all active Jupyter sessions will appear on this list. You can create new session from the server’s kernelspec by selecting the `Notebook: Select Notebook Kernel` command -> `Select Another Kernel…` -> `Local Kernel Specs…` -> your server.
 
-## Questions or feedback
+## Questions or feedback <!-- omit in toc -->
 
 Please add a [feature request](https://github.com/microsoft/vscode-jupyter/issues/new?assignees=&labels=feature-request&template=3_feature_request.md) or [report a problem](https://github.com/microsoft/vscode-jupyter/issues/new?assignees=&labels=bug&template=1_bug_report.md) by logging an issue in our repository that is actively being monitored and managed by our engineering team.
