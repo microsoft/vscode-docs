@@ -58,7 +58,9 @@ Linting analyzes your Python code for potential errors, making it easy to naviga
 
 The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
-<video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python linting video">
+  <source src="https://az754404.vo.msecnd.net/public/python-linting.mp4" type="video/mp4">
+</video>
 
 ## Debugging
 
@@ -66,7 +68,9 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md). The [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials also demonstrate debugging in the context of those web apps, including debugging Django page templates.
 
-<video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python debugging video">
+  <source src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" type="video/mp4">
+</video>
 
 ## Environments
 
