@@ -20,15 +20,15 @@ This article discusses the helpful Python environments features available in Vis
 
 By default, any Python interpreter installed runs in its own **global environment**. For example, if you just run `python`, `python3`, or `py` at a new terminal (depending on how you installed Python), you're running in that interpreter's global environment. Any packages that you install or uninstall affect the global environment and all programs that you run within it.
 
-Do note that if you install packages into your global environment, though, in time it will become crowded with disparate packages and make it difficult to properly test an application. You typically want to create an environment for each workspace.
+Do note that if you install packages into your global environment, though, in time it will become crowded with potentially unrelated or unexpected packages and make it difficult to properly test an application. You typically want to create an environment for each workspace.
 
 ### Local environments
 
-There are two types of environments that you can create for your workspace: *virtual* and *conda* environments. Both types of environment provide a way to create an environment to install packages into. This lets you isolate what packages you install for your workspace so that they don't interfere with your needs in another workspace.
+There are two types of environments that you can create for your workspace: *virtual* and *conda* environments. Both types of environment allow you to install packages without affecting other environments. This lets you isolate what packages you install for your workspace so that they don't interfere with your needs in another workspace.
 
 #### Virtual environments
 
-A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual-environment) is built-in way to create an environment to isolate the packages you install per workspace. A virtual environment creates a folder that contains a copy (or symlink) to a specific interpreter. When you install packages into a virtual environment it will end up in this new folder so that they are not interspersed with other packages used or needed by other workspaces.
+A [**virtual environment**](https://docs.python.org/3/glossary.html#term-virtual-environment) is a built-in way to create an environment to isolate the packages you install per workspace. A virtual environment creates a folder that contains a copy (or symlink) to a specific interpreter. When you install packages into a virtual environment it will end up in this new folder so that they are not interspersed with other packages used or needed by other workspaces.
 
 > **Note**: While it's possible to open a virtual environment folder as a workspace, doing so is not recommended and might cause issues with using the Python extension.
 
