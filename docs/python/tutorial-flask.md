@@ -358,7 +358,7 @@ The following sections demonstrate both types of static files.
 
     ```html
     {%if name %}
-        <span class="message">Hello there, {{ name }}!</span> It's {{ date.strftime("%A, %d %B, %Y at %X") }}.
+        <span class="message">Hello there, \{{ name }}!</span> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
     {% else %}
         <span class="message">What's your name? Provide it after /hello/ in the URL.</span>
     {% endif %}
@@ -410,14 +410,14 @@ The following steps demonstrate creating a base template.
         <head>
             <meta charset="utf-8" />
             <title>{% block title %}{% endblock %}</title>
-            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+            <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />
         </head>
 
         <body>
             <div class="navbar">
-                <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
-                <a href="{{ url_for('about') }}" class="navbar-item">About</a>
-                <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
+                <a href="\{{ url_for('home') }}" class="navbar-brand">Home</a>
+                <a href="\{{ url_for('about') }}" class="navbar-item">About</a>
+                <a href="\{{ url_for('contact') }}" class="navbar-item">Contact</a>
             </div>
 
             <div class="body-content">
@@ -470,7 +470,7 @@ You can run the app at this point, but because you haven't made use of the base 
 
 Because the three pages you create in the next section extend `layout.html`, it saves time to create a **code snippet** to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
 
-1. In VS Code, select **File** >  **Preferences** > **Configure User snippets**.
+1. In VS Code, select **File** (**Code** on macOS) >  **Preferences** > **Configure User Snippets**.
 
 1. In the list that appears, select **html**. The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.
 
