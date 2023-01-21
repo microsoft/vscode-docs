@@ -53,11 +53,21 @@ You can securely connect to a remote machine without the requirement of SSH by i
 
 ## Connect to a remote Jupyter server
 
-You can also connect to a remote Jupyter server directly by selecting the **Jupyter: Specify Jupyter Server for Connections** command and then pasting the URL for your remote Jupyter server.
+You can also connect to any remote Jupyter server by pasting the URL with the format: `http://<ip-address>:<port>/?token=<token>`.
 
-The URL has the format: `http://<ip-address>:<port>/?token=<token>`.
+To do so, select the **Jupyter: Specify Jupyter Server for Connections** command and then paste the URL for your remote Jupyter server.
 
 ![Enter Jupyter server](images/notebooks-web/select-enter-server-url.png)
+
+To enter your remote Jupyter server URL with older versions of VS Code and Jupyter extension:
+
+1. Click **Jupyter Server:** on the Status bar.
+
+  ![Jupyter Server Status bar item](images/notebooks-web/jupyter-status-bar.png)
+
+2. Select **Existing**.
+
+  ![Select Existing option from the Jupyter Server drop down](images/notebooks-web/select-existing-server.png)
 
 When you're starting your remote server, be sure sure to:
 
