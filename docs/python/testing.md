@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Testing Python in Visual Studio Code
-DateApproved: 11/17/2021
+DateApproved: 1/20/2023
 MetaDescription: Testing Python in Visual Studio Code including the Test Explorer
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -226,6 +226,7 @@ Support for running tests in parallel with pytest is available through the `pyte
    ```
 
    Or, if you are using a `pyproject.toml` file
+
    ```toml
     [tool.pytest.ini_options]
     addopts="-n 4"
@@ -287,10 +288,9 @@ For example, the configuration below in the `launch.json` file disables the `jus
 
 If you have more than one configuration entry with `"purpose": ["debug-test"]`, the first definition will be used since we currently don't support multiple definitions for this request type.
 
-
 ## Test commands
 
-Below are all the supported commandsfor testing with the Python extension in VS Code. These are all found via the Command Palette:
+Below are all the supported commands for testing with the Python extension in VS Code. These are all found via the Command Palette:
 
 | Command Name | Description |
 | ------------ | ------------|

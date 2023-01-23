@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/social.png
 
 # Jupyter Notebooks on the web
 
-Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) on the desktop, and extends to various browser-based platforms like [Codespaces](https://github.com/features/codespaces) and [VS Code for the Web](/docs/editor/vscode-web.md).
+Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) on the desktop, and extends to various browser-based platforms like [GitHub Codespaces](https://github.com/features/codespaces) and [VS Code for the Web](/docs/editor/vscode-web.md).
 
 Using these browser-based platforms enables you to work on your notebooks (and beyond!) without having to install anything on your machine. You can read more about each of options and how to get started below:
 
@@ -48,12 +48,12 @@ You can securely connect to a remote machine without the requirement of SSH by i
    > **Note**: You can skip this step if VS Code Desktop is already installed on the remote machine as the `code` CLI is built into VS Code Desktop.
 
 2. Create a [secure tunnel](/docs/remote/tunnels.md) with the tunnel command: `code tunnel` (you can also run `code-insiders tunnel` if you wish to use the [daily release](/insiders) of VS Code) and follow the prompts to grant access to the server. This will download and start the VS Code Server on your remote machine and then create a tunnel to it.
-3. Use the CLI's output vscode.dev URL tied to this remote machine, such as `https://vscode.dev/tunnel/<machine_name>/<folder_name>` for access to this remote machine on any client.
+3. Use the CLI's output vscode.dev URL tied to this remote machine, such as<br>`https://vscode.dev/tunnel/<machine_name>/<folder_name>`<br>for access to this remote machine on any client.
 4. Open a notebook file and select any Jupyter kernel or Python environment to run your code.
 
 ## Connect to a remote Jupyter server
 
-You can also connect to any remote Jupyter server by pasting the URL with the format: `http://<ip-address>:<port>/?token=<token>`.
+You can also connect to any remote Jupyter server by pasting the URL with the format:<br>`http://<ip-address>:<port>/?token=<token>`.
 
 To do so, select the **Jupyter: Specify Jupyter Server for Connections** command and then paste the URL for your remote Jupyter server.
 
@@ -63,13 +63,13 @@ To enter your remote Jupyter server URL with older versions of VS Code and Jupyt
 
 1. Click **Jupyter Server:** on the Status bar.
 
-  ![Jupyter Server Status bar item](images/notebooks-web/jupyter-status-bar.png)
+   ![Jupyter Server Status bar item](images/notebooks-web/jupyter-status-bar.png)
 
 2. Select **Existing**.
 
-  ![Select Existing option from the Jupyter Server drop down](images/notebooks-web/select-existing-server.png)
+   ![Select Existing option from the Jupyter Server drop down](images/notebooks-web/select-existing-server.png)
 
-When you're starting your remote server, be sure sure to:
+When you're starting your remote server, be sure to:
 
 1. Alow all origins (for example `--NotebookApp.allow_origin='*'`) to allow your servers to be accessed externally.
 2. Set the notebook to listen on all IPs (`--NotebookApp.ip='0.0.0.0'`).
