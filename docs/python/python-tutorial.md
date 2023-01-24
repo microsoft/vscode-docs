@@ -261,7 +261,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![Create Environment dropdown](images/environments/create_environment_dropdown.png)
 
-   If you are creating an environment using **Venv**, the command presents a list of interpreters that can be used for your project.
+   The command then presents a list of interpreters that can be used for your project.
 
    ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
