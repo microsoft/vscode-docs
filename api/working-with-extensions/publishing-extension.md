@@ -388,7 +388,7 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 
 ### I get `You exceeded the number of allowed tags of 10.` error when I try to publish my extension?
 
-The Visual Studio Marketplace do not all an extension package with more than ten `keywords` in the package.json.
+The Visual Studio Marketplace do not allow an extension package with more than ten `keywords` in the package.json.
 Keep the keywords/tags under 10
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
