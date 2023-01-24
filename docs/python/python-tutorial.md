@@ -269,7 +269,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![Conda environment Python version selection](images/environments/conda_environment_python_versions.png)
 
-   After selecting the desired interpreter or Python version, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
+   After selecting the desired interpreter, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
 
    ![Create environment status notification](images/environments/create_environment_prompt_status.png)
 
