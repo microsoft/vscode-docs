@@ -257,7 +257,7 @@ A best practice among Python developers is to avoid installing packages into a g
 
    From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command. You can also trigger the **Python: Create Environment** command through the Getting Started with Python page.
 
-   The command presents a list of environment types, Venv or Conda.
+   The command presents a list of environment types, Venv or Conda. For this example, select **Venv**.
 
    ![Create Environment dropdown](images/environments/create_environment_dropdown.png)
 
