@@ -43,8 +43,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't want to send crash data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `off`. Other `telemetryLevel` settings (such as `all` and `error`) will still crash data.
-
+If you don't want to send crash data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `off`. If other `telemetryLevel` settings are used (such as `all` and `error`), crash data is sent.
 ## GDPR and VS Code
 
 Now that the General Data Protection Regulation (GDPR) is in effect, we want to take this opportunity to reiterate that we take privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
