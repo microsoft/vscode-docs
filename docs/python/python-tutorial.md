@@ -267,7 +267,6 @@ A best practice among Python developers is to avoid installing packages into a g
 
    If you are creating an environment using **Conda**, the command presents a list of Python versions that can be used for your project.
 
-   ![Conda environment Python version selection](images/environments/conda_environment_python_versions.png)
 
    After selecting the desired interpreter, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
 
