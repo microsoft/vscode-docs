@@ -43,13 +43,7 @@ From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences*
 
 VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) and [telemetry documentation](/docs/getstarted/telemetry.md) to learn more.
 
-If you don't want to send crash data to Microsoft, you can change the `enable-crash-reporter` runtime argument to `false`
-
-* Open the Command Palette (`kb(workbench.action.showCommands)`).
-* Run the **Preferences: Configure Runtime Arguments** command.
-* This command will open a `argv.json` file to configure runtime arguments.
-* Edit `"enable-crash-reporter": false`.
-* Restart VS Code.
+If you don't want to send crash data to Microsoft, you can set the `telemetry.telemetryLevel` setting to `off`.
 
 ## GDPR and VS Code
 
