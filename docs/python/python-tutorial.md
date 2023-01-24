@@ -265,7 +265,6 @@ A best practice among Python developers is to avoid installing packages into a g
 
    ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
-   If you are creating an environment using **Conda**, the command presents a list of Python versions that can be used for your project.
 
 
    After selecting the desired interpreter, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
