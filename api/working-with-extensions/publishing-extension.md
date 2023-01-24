@@ -386,6 +386,11 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 
 ## Common questions
 
+### I get `You exceeded the number of allowed tags of 10.` error when I try to publish my extension?
+
+The Visual Studio Marketplace do not allow an extension package with more than ten `keywords` in the package.json.
+Keep the keywords/tags under 10
+
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
 One easy mistake to make when creating the PAT (Personal Access Token) is to not select **All accessible organizations** in the **Organizations** field dropdown (instead selecting a specific organization). You should also set the Authorized Scopes to `Marketplace (Manage)` for the publish to work.

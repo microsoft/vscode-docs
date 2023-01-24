@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Using Python Environments in Visual Studio Code
-DateApproved: 01/20/2023
+DateApproved: 1/20/2023
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -24,7 +24,7 @@ Do note that if you install packages into your global environment, though, in ti
 
 ### Local environments
 
-There are two types of environments that you can create for your workspace: *virtual* and *conda* environments. Both types of environment allow you to install packages without affecting other environments. This lets you isolate what packages you install for your workspace so that they don't interfere with your needs in another workspace.
+There are two types of environments that you can create for your workspace: **virtual** and **conda** environments. Both types of environment allow you to install packages without affecting other environments. This lets you isolate what packages you install for your workspace so that they don't interfere with your needs in another workspace.
 
 #### Virtual environments
 
@@ -45,8 +45,6 @@ The following table lists the various tools involved with Python environments:
 |   [pip](https://pip.pypa.io/)    | The Python package manager that installs and updates packages. It's installed with Python 3.9+ by default (unless you are on a Debian-based OS; install `python3-pip` in that case).      |
 |   [venv](https://docs.python.org/3/library/venv.html)   | Allows you to manage separate package installations for different projects and is installed with Python 3 by default (unless you are on a Debian-based OS; install `python3-venv` in that case) |
 |   [conda](https://docs.conda.io/)  | Installed with [**Miniconda**](https://docs.conda.io/en/latest/miniconda.html). It can be used to manage both packages and virtual environments. Generally used for data science projects.   |
-
-
 
 ### How the extension looks for environments
 
@@ -111,13 +109,13 @@ python3 -m venv .venv
 python -m venv .venv
 ```
 
->**Note**: To learn more about the `venv` module, see [Creation of virtual environments](https://docs.python.org/3/library/venv.html) on Python.org.
+>**Note**: To learn more about the `venv` module, read [Creation of virtual environments](https://docs.python.org/3/library/venv.html) on Python.org.
 
 When you create a new virtual environment, a prompt will be displayed in VS Code to allow you to select it for the workspace.
 
 ![Python environment prompt](images/environments/python-environment-prompt.png)
 
-> **Tip**: Make sure to update your source control settings to prevent accidentally committing your virtual environment (e.g. `.gitignore`). Since virtual environments are not portable it typically does not make sense to commit it for others to use.
+> **Tip**: Make sure to update your source control settings to prevent accidentally committing your virtual environment (in for example `.gitignore`). Since virtual environments are not portable, it typically does not make sense to commit them for others to use.
 
 ### Create a conda environment in the terminal
 
@@ -127,11 +125,11 @@ The Python extension automatically detects existing conda environments. We recom
 conda create -n env-01 python=3.9 scipy=0.15.0 numpy
 ```
 
-> **Note**: For more information on the conda command line, see [Conda environments](https://conda.io/docs/user-guide/tasks/manage-environments.html).
+> **Note**: For more information on the conda command line, you can read [Conda environments](https://conda.io/docs/user-guide/tasks/manage-environments.html).
 
 Additional notes:
 
-- If you create a new conda environment while VS Code is running, use the refresh icon on the top right of the **Python: Select Interpreter** window; otherwise you may not see the environment there.
+- If you create a new conda environment while VS Code is running, use the refresh icon on the top right of the **Python: Select Interpreter** window; otherwise you may not find the environment there.
 
 ![Conda environment refresh icon](images/environments/conda-environment-refresh.png)
 
@@ -141,13 +139,13 @@ Additional notes:
 
 - Conda environments can't be automatically activated in the VS Code Integrated Terminal if the default shell is set to PowerShell. To change the shell, see [Integrated terminal - Terminal profiles](/docs/terminal/profiles.md).
 
-- You can manually specify the path to the `conda` executable to use for activation (version 4.4+). To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.condaPath`, which is in the Python extension section of User Settings, with the appropriate path.
+- You can manually specify the path to the `conda` executable to use for activation (version 4.4+). To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and run **Preferences: Open User Settings**. Then set `python.condaPath`, which is in the Python extension section of User Settings, with the appropriate path.
 
 ## Working with Python interpreters
 
 ### Select and activate an environment
 
-As [mentioned earlier](#where-the-extension-looks-for-environments), the Python extension tries to find and then select what it deems the best environment for hte workspace. If you would prefer to select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+As [mentioned earlier](#where-the-extension-looks-for-environments), the Python extension tries to find and then select what it deems the best environment for the workspace. If you would prefer to select a specific environment, use the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
@@ -196,7 +194,7 @@ You can then either enter the full path of the Python interpreter directly in th
 
 ![Enter path or browse for an interpreter](images/environments/enter-or-find-interpreter.png)
 
-If you want to manually specify a default interpreter that will be used when you first open your workspace, you can create or modify an entry for `python.defaultInterpreterPath` setting.
+If you want to manually specify a default interpreter that will be used when you first open your workspace, you can create or modify an entry for the `python.defaultInterpreterPath` setting.
 
 > **Note**: Changes to the `python.defaultInterpreterPath` setting are not picked up after an interpreter has already been selected for a workspace; any changes to the setting will be ignored once an initial interpreter is selected for the workspace.
 
@@ -206,7 +204,7 @@ Additionally, if you'd like to set up a default interpreter to all of your Pytho
 
 After using **Python: Select Interpreter**, that interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. The environment is also activated automatically when you use the **Terminal: Create New Terminal** command unless you change the `python.terminal.activateEnvironment` setting to `false`.
 
-Please note that launching VS Code from a shell in which a certain Python environment is activated doesn't automatically activate that environment in the default Integrated Terminal.
+Please note that launching VS Code from a shell in which a specific Python environment is activated doesn't automatically activate that environment in the default Integrated Terminal.
 
 > **Note:** conda environments cannot be automatically activated in the integrated terminal if PowerShell is set as the integrated shell. See [Integrated terminal - Terminal profiles](/docs/terminal/profiles.md) for how to change the shell.
 
@@ -224,7 +222,7 @@ For more details on debug configuration, see [Debugging configurations](/docs/py
 
 An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used for comments. Multiline values aren't supported, but values can refer to any other environment variable that's already defined in the system or earlier in the file. Environment variable definitions files can be used for scenarios such as debugging and tool execution (including linters, formatters, IntelliSense, and testing tools), but aren't applied to the terminal.
 
-> **Note**: Environment variable definitions files are not necessarily cross-platform. For instance, while Unix uses `:` as a path separator in environment variables, Windows uses `;`. There is no normalization of such operating system differences, and so you need to make sure any environment definitions file use values which are compatible with your operating system.
+> **Note**: Environment variable definitions files are not necessarily cross-platform. For instance, while Unix uses `:` as a path separator in environment variables, Windows uses `;`. There is no normalization of such operating system differences, and so you need to make sure any environment definitions file use values that are compatible with your operating system.
 
 By default, the Python extension looks for and loads a file named `.env` in the current workspace folder, then applies those definitions. The file is identified by the default entry `"python.envFile": "${workspaceFolder}/.env"` in your user settings (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
