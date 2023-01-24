@@ -19,7 +19,7 @@ VS Code and this page refer to three different types of data with respect to tel
 
 **Error Telemetry** - Error telemetry collects information about errors that do not crash the application but are unexpected.
 
-**Usage Data** - Usage data collects information about how features are used and perform in VS Code which helps us prioritize future product improvements.
+**Usage Data** - Usage data collects information about how features are used and perform in VS Code, which helps us prioritize future product improvements.
 
 ## Disable telemetry reporting
 
@@ -88,7 +88,7 @@ You can find more information about how the Visual Studio family approaches GDPR
 
 Beyond crash reporting and telemetry, VS Code uses online services for various other purposes such as downloading product updates, finding, installing, and updating extensions, Settings Sync, or providing Natural Language Search within the Settings editor. You can choose to turn on/off features that use these services.
 
-Please note, that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
+Note that turning off these features does not put VS Code into offline mode. For example, if you search for extensions in the **Extensions** view, VS Code still searches the online VS Code Marketplace. The settings ensure that VS Code does not talk to online services without you requesting it.
 
 From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), and type the tag `@tag:usesOnlineServices`. This will display all settings that control the usage of online services and you can individually switch them on or off.
 
