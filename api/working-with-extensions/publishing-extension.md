@@ -150,6 +150,17 @@ vsce unpublish (publisher name).(extension name)
 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
 
+Alternatively, you can unpublish or remove an extension from the Marketplace, extension management page.
+
+![Remove-extension](images/publishing-extension/remove-extension.png)
+
+1. Click on extenion menu button
+2. Click on remove
+
+To prevent accidental unpublishing, you must confirm the remove operation by filling extension name in the warning dialog. Note that remove/unpublish action is non-reversible
+
+![Remove-warning](images/publishing-extension/remove-warning.png)
+
 ## Deprecating extensions
 
 An extension can be just deprecated or deprecated in favour of another extension or a setting. VS Code will not automatically migrate or uninstall deprecated extensions. VS Code will render extensions as deprecated in the UI, as shown in the search sample below where the first result is deprecated. If a deprecated extension has an alternative extension or a setting the VS Code UI will guide users to migrate to the new extension or setting.
