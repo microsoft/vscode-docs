@@ -65,6 +65,16 @@ IntelliSense just works: hit `kb(editor.action.triggerSuggest)` at any time to g
 
 ![IntelliSense](images/csharp/intellisense.png)
 
+## Enhancing completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in marketplace](./images/artifical-intelligence/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](../editor/artificial-intelligence.md).
+
 ## Snippets for C&#35;
 
 We have several built-in snippets included in VS Code that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
