@@ -7,9 +7,11 @@ PageTitle: Code smarter with artifical intelligence
 DateApproved: 1/27/2023
 MetaDescription: Code smarter with artifical intelligence by using the GitHub Copilot extension.
 ---
-# Code smarter with GitHub Copilot
+# Code smarter with artificial intelligence
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. It's available in Visual Studio Code as an extension. You can use Copilot to generate code, or to learn from the code it generates.
+In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
 ## Prerequisites
 
