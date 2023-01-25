@@ -97,7 +97,7 @@ You can also [show progress in a view](/api/references/vscode-api#ProgressLocati
 
 ## View Actions
 
-Views can expose [View Actions](/api/extension-guides/tree-view#view-actions) on the View Toolbar. Be careful not too add to many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.
+Views can expose [View Actions](/api/extension-guides/tree-view#view-actions) on the View Toolbar. Be careful not to add too many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.
 
 ![Example of View Actions](images/examples/view-toolbar.png)
 
