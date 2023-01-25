@@ -63,7 +63,7 @@ You can also migrate an existing installation to Portable mode.
 
 ### Windows, Linux
 
-1. [Download](/download) the VS Code ZIP distribution for your platform.
+1. Download the [VS Code](/download) (or [VS Code Insiders](/insiders)) ZIP distribution for your platform.
 2. Create the `data` folder as above.
 3. Copy the user data directory `Code` to `data` and rename it to `user-data`:
     * **Windows** `%APPDATA%\Code`
@@ -86,7 +86,7 @@ As an example, here's the desired outcome on **Windows**:
 ```
 ### macOS
 
-1. [Download](/download) the VS Code ZIP distribution for your platform.
+1. Download [VS Code](/download) (or [VS Code Insiders](/insiders)) for macOS.
 2. Create the `code-portable-data` folder as above.
 3. Copy the user data directory `Code` to `code-portable-data` and rename it to `user-data`:
     * `$HOME/Library/Application Support/Code`
