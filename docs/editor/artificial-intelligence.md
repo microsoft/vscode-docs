@@ -5,7 +5,7 @@ TOCTitle: Refactoring
 ContentId:
 PageTitle: Code smarter with artifical intelligence
 DateApproved: 1/27/2023
-MetaDescription: Code smarter with artifical intelligence by using the GitHub Copilot extension.
+MetaDescription: Code smarter with AI-powered suggestions from GitHub Copilot.
 ---
 # Code smarter with artificial intelligence
 
