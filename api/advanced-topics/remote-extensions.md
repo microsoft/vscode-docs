@@ -162,7 +162,7 @@ In some cases, your extension may need to persist state information that does no
 
 However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
 
-If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
+If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStorageUri` and `storageUri` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
 
 To use the APIs:
 
@@ -176,13 +176,13 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', () => {
 
         // Create the extension's workspace storage folder if it doesn't already exist
-        if (!fs.existsSync(context.storagePath)) {
-            fs.mkdirSync(context.storagePath);
+        if (!fs.existsSync(context.storageUri)) {
+            fs.mkdirSync(context.storageUri);
         }
 
         // Write a file to the workspace storage folder
         fs.writeFileSync(
-            path.join(context.storagePath, 'workspace-data.json'),
+            path.join(context.storageUri, 'workspace-data.json'),
             JSON.stringify({ now: Date.now() }));
     }));
 
@@ -190,13 +190,13 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', () => {
 
         // Create the extension's global (cross-workspace) folder if it doesn't already exist
-        if (!fs.existsSync(context.globalStoragePath)) {
-            fs.mkdirSync(context.globalStoragePath);
+        if (!fs.existsSync(context.globalStorageUri)) {
+            fs.mkdirSync(context.globalStorageUri);
         }
 
         // Write a file to the global storage folder for the extension
         fs.writeFileSync(
-            path.join(context.globalStoragePath, 'global-data.json'),
+            path.join(context.globalStorageUri, 'global-data.json'),
             JSON.stringify({ now: Date.now() }));
     }));
 }
