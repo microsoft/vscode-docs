@@ -30,13 +30,13 @@ The **Python Environments** category lists the Python environments that VS Code 
 
 ## Existing Jupyter Server
 
-The **Existing Jupyter Server** category lists remote Jupyter servers previously connected. You can also use this option to connect to an existing Jupyter server running remotely or locally. Grab the URL for your Jupyter server, e.g., `http://<ip-address>:<port>/?token=<token>` and paste it in the `Enter the URL of the running Jupyter server` option to connect to the remote server and execute code against your notebook using that server.
+The **Existing Jupyter Server** category lists remote Jupyter servers previously connected. You can also use this option to connect to an existing Jupyter server running remotely or locally. Grab the URL for your Jupyter server, e.g., `http://<ip-address>:<port>/?token=<token>` and paste it in the **Enter the URL of the running Jupyter server** option to connect to the remote server and execute code against your notebook using that server.
 
 ![Enter server URL](images/jupyter-kernel-options/select-enter-server-url.png)
 
    > **Note**: When you’re starting the Jupyter server, ensure to: (1) allow all origins (e.g., `--NotebookApp.allow_origin = '*'`) to allow your servers to be accessed externally, and (2) set the notebook to listen to listen on all IPs (e.g., `--NotebookApp.ip = '0.0.0.0'`).
 
-Once connected, all active Jupyter sessions will appear on this list. You can create new session from the server’s kernelspec by selecting the `Notebook: Select Notebook Kernel` command -> `Select Another Kernel…` -> `Existing Jupyter Server…` -> your server.
+Once connected, all active Jupyter sessions will appear on this list. You can create new session from the server’s kernelspec by selecting the **Notebook: Select Notebook Kernel** command -> **Select Another Kernel…** -> **Existing Jupyter Server…** -> your server.
 
 ## Questions or feedback <!-- omit in toc -->
 
