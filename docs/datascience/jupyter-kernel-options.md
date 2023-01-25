@@ -26,7 +26,7 @@ The **Jupyter Kernels** category lists all Jupyter kernels that VS Code detects 
 
 The **Python Environments** category lists the Python environments that VS Code detects from the compute system it’s operating in (your desktop, Codespaces, remote server, etc.). It shows all Python environments grouped by type (e.g., conda, venv)—whether the [IPyKernel](https://ipython.readthedocs.io/en/stable/install/kernel_install.html) is installed or not.
 
-   > **Note**: You **__do not__** need to install [jupyter](https://pypi.org/project/jupyter/) into the Python environment you want to use. Only IPython and IPyKernel are required to launch a Python process as a kernel and execute code against your notebook, e.g., `pip install ipython ipykernel`. Visit our [wiki](https://github.com/microsoft/vscode-jupyter/wiki/Kernels-(Architecture)) to learn more.
+   > **Note**: You **__do not__** need to install [jupyter](https://pypi.org/project/jupyter/) into the Python environment you want to use. Only the IPyKernel package is required to launch a Python process as a kernel and execute code against your notebook, e.g., `pip install ipykernel`. Visit our [wiki](https://github.com/microsoft/vscode-jupyter/wiki/Kernels-(Architecture)) to learn more.
 
 ## Existing Jupyter Server
 
@@ -36,7 +36,7 @@ The **Existing Jupyter Server** category lists remote Jupyter servers previously
 
    > **Note**: When you’re starting the Jupyter server, ensure to: (1) allow all origins (e.g., `--NotebookApp.allow_origin = '*'`) to allow your servers to be accessed externally, and (2) set the notebook to listen to listen on all IPs (e.g., `--NotebookApp.ip = '0.0.0.0'`).
 
-Once connected, all active Jupyter sessions will appear on this list. You can create new session from the server’s kernelspec by selecting the `Notebook: Select Notebook Kernel` command -> `Select Another Kernel…` -> `Local Kernel Specs…` -> your server.
+Once connected, all active Jupyter sessions will appear on this list. You can create new session from the server’s kernelspec by selecting the `Notebook: Select Notebook Kernel` command -> `Select Another Kernel…` -> `Existing Jupyter Server…` -> your server.
 
 ## Questions or feedback <!-- omit in toc -->
 
