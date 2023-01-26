@@ -15,9 +15,14 @@ Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-not
 
 Using these browser-based platforms enables you to work on your notebooks (and beyond!) without having to install anything on your machine. You can read more about each of options and how to get started below:
 
-- [Jupyter notebooks on **GitHub Codespaces**](#jupyter-notebooks-on-codespaces)
-- [Remote tunneling with **VS Code Server** on VS Code for the Web](#remote-tunneling-with-vs-code-server)
-- [Connect to a remote **Jupyter server** on VS Code for the Web](#connect-to-a-remote-jupyter-server)
+- [Jupyter Notebooks on the web](#jupyter-notebooks-on-the-web)
+  - [Jupyter notebooks on Codespaces](#jupyter-notebooks-on-codespaces)
+  - [Jupyter notebooks on VS Code for the Web](#jupyter-notebooks-on-vs-code-for-the-web)
+  - [Remote tunneling with VS Code Server](#remote-tunneling-with-vs-code-server)
+  - [Connect to a remote Jupyter server](#connect-to-a-remote-jupyter-server)
+    - [Limitations](#limitations)
+  - [Continue working on Codespaces](#continue-working-on-codespaces)
+  - [Questions or feedback](#questions-or-feedback)
 
 ## Jupyter notebooks on Codespaces
 
@@ -85,14 +90,24 @@ Since VS Code for the Web runs entirely in your web browser, there are some limi
 
 ## Continue working on Codespaces
 
-As with VS Code Desktop, you can easily continue your work from VS Code for the Web ([https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev)) on Codespaces. To do so:
+As with VS Code Desktop, you can easily continue your work from VS Code for the Web ([https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev)) on Codespaces. When you choose to **Continue Working On** Codespaces, your uncommitted changes will travel with you. To do so:
+
+1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Continue Working On...**
+2. Select **Create New Codespace**
+
+   ![Continue working on](images/notebooks-web/continue-working-on-codespaces.png)
+
+3. Follow the prompts to store your working changes in the cloud and to sign into Codespaces
+4. Select the instance type for your Codespace (i.e., number of cores, RAM, and storage)
+
+You can also manually commit your changes and create a Codespace through the **Remote Explorer**:
 
 1. Sign into Codespaces by opening the Command Palette (`kb(workbench.action.showCommands)`) and selecting **Codespaces: Sign in**.
-2. Navigate to the Remote Explorer view from the Activity bar.
+2. Navigate to the **Remote Explorer** view from the Activity bar.
 
     ![Remote explorer tab](images/notebooks-web/remote-explorer-tab.png)
 
-From the Remote Explorer view, you can either connect to an existing Codespace or create a new one. This will open up a new window for you to continue working on your project on Codespaces.
+From the **Remote Explorer** view, you can either connect to an existing Codespace or create a new one. This will open up a new window for you to continue working on your project on Codespaces.
 
 ## Questions or feedback
 
