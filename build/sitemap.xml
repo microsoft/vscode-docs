@@ -641,6 +641,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/datascience/jupyter-kernel-management</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/java/java-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
