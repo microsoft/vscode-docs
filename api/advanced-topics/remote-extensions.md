@@ -186,7 +186,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
 
             const workspaceData = vscode.Uri.joinPath(context.storageUri, 'workspace-data.json');
-            const writeData = Buffer.from(JSON.stringify({ now: Date.now() }), 'utf8');
+            const writeData = new TextEncoder().encode(JSON.stringify({ now: Date.now() }));
             vscode.workspace.fs.writeFile(workspaceData, writeData);
         }
     ));
