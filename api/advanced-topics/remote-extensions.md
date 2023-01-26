@@ -162,43 +162,54 @@ In some cases, your extension may need to persist state information that does no
 
 However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
 
-If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStorageUri` and `storageUri` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
+If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStorageUri` and `storageUri` properties provide "safe" URIs that you can use to read/write global workspace-specific information in a file.
 
 To use the APIs:
 
 ```TypeScript
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', () => {
+        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', async () => {
+            if (!context.storageUri) {
+                return;
+            }
 
-        // Create the extension's workspace storage folder if it doesn't already exist
-        if (!fs.existsSync(context.storageUri)) {
-            fs.mkdirSync(context.storageUri);
+            // Create the extension's workspace storage folder if it doesn't already exist
+            try {
+                // When folder doesn't exist, and error gets thrown
+                await vscode.workspace.fs.stat(context.storageUri);
+            } catch {
+                // Create the extension's workspace storage folder
+                await vscode.workspace.fs.createDirectory(context.storageUri)
+            }
+
+            const workspaceData = vscode.Uri.joinPath(context.storageUri, 'workspace-data.json');
+            const writeData = Buffer.from(JSON.stringify({ now: Date.now() }), 'utf8');
+            vscode.workspace.fs.writeFile(workspaceData, writeData);
         }
-
-        // Write a file to the workspace storage folder
-        fs.writeFileSync(
-            path.join(context.storageUri, 'workspace-data.json'),
-            JSON.stringify({ now: Date.now() }));
-    }));
+    ));
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', () => {
+        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', async () => {
 
-        // Create the extension's global (cross-workspace) folder if it doesn't already exist
-        if (!fs.existsSync(context.globalStorageUri)) {
-            fs.mkdirSync(context.globalStorageUri);
+        if (!context.globalStorageUri) {
+            return;
         }
 
-        // Write a file to the global storage folder for the extension
-        fs.writeFileSync(
-            path.join(context.globalStorageUri, 'global-data.json'),
-            JSON.stringify({ now: Date.now() }));
-    }));
+        // Create the extension's global (cross-workspace) folder if it doesn't already exist
+        try {
+            // When folder doesn't exist, and error gets thrown
+            await vscode.workspace.fs.stat(context.globalStorageUri);
+        } catch {
+            await vscode.workspace.fs.createDirectory(context.globalStorageUri)
+        }
+
+        const workspaceData = vscode.Uri.joinPath(context.globalStorageUri, 'global-data.json');
+        const writeData = Buffer.from(JSON.stringify({ now: Date.now() }), 'utf8');
+        vscode.workspace.fs.writeFile(workspaceData, writeData);
+    ));
 }
 ```
 
