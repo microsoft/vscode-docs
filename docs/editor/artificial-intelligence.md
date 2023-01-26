@@ -1,7 +1,7 @@
 ---
 Order: 7
 Area: editor
-TOCTitle: AI tools
+TOCTitle: AI Tools
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Enhance your coding with artifical intelligence
 DateApproved: 1/27/2023

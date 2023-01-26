@@ -251,11 +251,11 @@ Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in marketplace](./images/artifical-intelligence/copilot-extension.png)
+![Copilot extension in marketplace](/docs/languages/images/javascript/copilot-extension.png)
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](../editor/artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
 
 Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
 

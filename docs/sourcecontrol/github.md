@@ -247,6 +247,6 @@ In VS Code, you can enhance your coding with artificial intelligence (AI), such 
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in marketplace](./images/artifical-intelligence/copilot-extension.png)
+![Copilot extension in marketplace](/docs/sourcecontrol/images/github/copilot-extension.png)
 
-You can learn more about how to get started with Copilot in the [Copilot documentation](./artificial-intelligence.md).
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
