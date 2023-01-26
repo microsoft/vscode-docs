@@ -15,14 +15,9 @@ Visual Studio Code supports working with [Jupyter Notebooks](https://jupyter-not
 
 Using these browser-based platforms enables you to work on your notebooks (and beyond!) without having to install anything on your machine. You can read more about each of options and how to get started below:
 
-- [Jupyter Notebooks on the web](#jupyter-notebooks-on-the-web)
-  - [Jupyter notebooks on Codespaces](#jupyter-notebooks-on-codespaces)
-  - [Jupyter notebooks on VS Code for the Web](#jupyter-notebooks-on-vs-code-for-the-web)
-  - [Remote tunneling with VS Code Server](#remote-tunneling-with-vs-code-server)
-  - [Connect to a remote Jupyter server](#connect-to-a-remote-jupyter-server)
-    - [Limitations](#limitations)
-  - [Continue working on Codespaces](#continue-working-on-codespaces)
-  - [Questions or feedback](#questions-or-feedback)
+- [Jupyter notebooks on **GitHub Codespaces**](#jupyter-notebooks-on-codespaces)
+- [Remote tunneling with **VS Code Server** on VS Code for the Web](#remote-tunneling-with-vs-code-server)
+- [Connect to a remote **Jupyter server** on VS Code for the Web](#connect-to-a-remote-jupyter-server)
 
 ## Jupyter notebooks on Codespaces
 
