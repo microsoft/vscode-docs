@@ -27,7 +27,7 @@ To successfully complete this Flask tutorial, you must do the following (which a
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.11.1** button that appears first on the page (or whatever is the latest version).
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download** button that appears first on the page.
    - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must run `sudo apt install python3-pip` in the terminal.
    - (macOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3`.
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
