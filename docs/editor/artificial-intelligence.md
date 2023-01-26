@@ -51,21 +51,32 @@ GitHub Copilot provides suggestions for numerous languages and a wide variety of
 
 Below is the general process you'll follow for harnessing its suggestions:
 
-* Start writing code in VS Code
-     * Copilot also helps with "non-coding" tasks, like writing a markdown file for a README, or creating tests
+* Start writing code
 * Receive a Copilot suggestion in gray ghost text
      * Ghost text is placeholder text that will be replaced by input you type or select from Copilot
 * Choose to accept Copilot's suggestion
      * You can accept suggestions with the `Tab` key
      * If you don't want to accept a suggestion, you can continue typing, and Copilot will continue to provide suggestions as you work
 
-### JavaScript example
+Copilot provides two main kinds of suggestions: comments and code completion. We recommend trying out Copilot in your actual projects to see its power in action! We'll explore Copilot suggestions for JavaScript files in the following sections. Other languages will work similarly.
 
-As an example, let's look at a Copilot suggestion for a JavaScript file. Other languages will work similarly.
+### Comments
 
-Create a new file in VS Code. You can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
+You can describe something you want to do using natural language within a comment, and Copilot will suggest the code to accomplish your goal.
 
-In the JavaScript file, type the following function header:
+As an example, if you start writing the comments in the JavaScript snippet below, Copilot will suggest an implementation of the function.
+
+```js
+// find all images without alternate text
+// and give them a red border
+function process() {
+```
+
+### Code completion
+
+Copilot provides suggestions for a variety of languages and frameworks. For any given input, Copilot may offer multiple suggestions. You can select which suggestion to use, or reject all suggestions.
+
+In a JavaScript file, type the following function header:
 
 ```js
 function calculateDaysBetweenDates(begin, end) {
@@ -77,8 +88,8 @@ Copilot will provide a suggestion like the following:
 
 Use `Tab` to accept the suggestion.
 
-Congratulations, you just used AI to enhance your coding!
-
 ## Additional resources
+
+Congratulations, you've now used AI to enhance your coding!
 
 You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code).
