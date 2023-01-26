@@ -1,15 +1,15 @@
 ---
 Order: 7
 Area: datascience
-TOCTitle: Jupyter Kernel Options in VS Code
+TOCTitle: Manage Jupyter Kernels in VS Code
 ContentId: 3b6da7e6-c449-4c62-a019-9202412aac04
-PageTitle: Jupyter Kernel Options in VS Code
+PageTitle: Manage Jupyter Kernels in VS Code
 DateApproved: 11/21/2022
-MetaDescription: Descriptions, tips, and tricks on kernel selection options when working with Jupyter Notebooks in Visual Studio Code.
+MetaDescription: Descriptions of kernel selection options and tutorials on managing different types of kernels when working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Jupyter Kernel Options in VS Code <!-- omit in toc -->
+# Manage Jupyter Kernels in VS Code
 
 The VS Code notebooks’ kernel picker lists the following categories of connection methods to run the code in your Jupyter notebook:
 - [Jupyter Kernels](#jupyter-kernels)
@@ -32,7 +32,7 @@ The **Python Environments** category lists the Python environments that VS Code 
 
 The **Existing Jupyter Server** category lists remote Jupyter servers previously connected. You can also use this option to connect to an existing Jupyter server running remotely or locally. Grab the URL for your Jupyter server, e.g., `http://<ip-address>:<port>/?token=<token>` and paste it in the **Enter the URL of the running Jupyter server** option to connect to the remote server and execute code against your notebook using that server.
 
-![Enter server URL](images/jupyter-kernel-options/select-enter-server-url.png)
+![Enter server URL](images/jupyter-kernel-management/select-enter-server-url.png)
 
    > **Note**: When you’re starting the Jupyter server, ensure to: (1) allow all origins (e.g., `--NotebookApp.allow_origin = '*'`) to allow your servers to be accessed externally, and (2) set the notebook to listen to listen on all IPs (e.g., `--NotebookApp.ip = '0.0.0.0'`).
 
