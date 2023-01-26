@@ -3,11 +3,11 @@ Order: 7
 Area: editor
 TOCTitle: AI Tools
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
-PageTitle: Enhance your coding with artifical intelligence
+PageTitle: Enhance your coding with artificial intelligence
 DateApproved: 1/27/2023
-MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot.
+MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
-# Your AI pair programmer
+# AI Tools in VS Code
 
 In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
 
@@ -19,29 +19,29 @@ You'll use the [GitHub Copilot extension](https://marketplace.visualstudio.com/i
 
 > <a class="install-extension-btn" href="vscode:extension/GitHub.copilot">Install the Copilot extension</a>
 
-![Copilot extension in marketplace](./images/artifical-intelligence/copilot-extension.png)
+![Copilot extension in the VS Code Marketplace](images/artificial-intelligence/copilot-extension.png)
 
 To use GitHub Copilot, you need an active GitHub Copilot subscription. In the [content below](#activate-your-free-trial), you'll learn how VS Code will help you activate your free 60-day trial directly from VS Code.
 
 You can also activate your trial starting from the [GitHub Copilot website](https://copilot.github.com/):
 
-![Copilot website with trial button](./images/artifical-intelligence/website-top-buttons.png)
+![Copilot website with trial button](images/artificial-intelligence/website-top-buttons.png)
 
 ## Sign in
 
 If you have not previously authorized VS Code in your GitHub account, you will be prompted to sign in to GitHub in VS Code:
 
-![VS Code toast to sign into Copilot extension](./images/artifical-intelligence/copilot-auth.png)
+![VS Code notification to sign into the Copilot extension](images/artificial-intelligence/copilot-auth.png)
 
 In your browser, GitHub will request the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
 
 ## Activate your free trial
 
-If you haven't yet activated your free trial for Copilot, the extension will notify you in VS Code. Select `Sign up for GitHub Copilot` to activate your trial.
+If you haven't yet activated your free trial for Copilot, the extension will notify you in VS Code. Select **Signup for GitHub Copilot** to activate your trial.
 
-![Copilot sign up toast in VS Code](./images/artifical-intelligence/copilot-access.png.png)
+![Copilot sign up notification in VS Code](images/artificial-intelligence/copilot-access.png)
 
-You can learn more about billing for Copilot in the [GitHub Copilot documentation](hhttps://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
+You can learn more about billing for Copilot in the [GitHub Copilot documentation](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
 ## Seeing your first suggestion
 
@@ -51,14 +51,16 @@ GitHub Copilot provides suggestions for numerous languages and a wide variety of
 
 Below is the general process you'll follow for harnessing its suggestions:
 
-* Start writing code
-* Receive a Copilot suggestion in gray ghost text
-     * Ghost text is placeholder text that will be replaced by input you type or select from Copilot
-* Choose to accept Copilot's suggestion
-     * You can accept suggestions with the `Tab` key
-     * If you don't want to accept a suggestion, you can continue typing, and Copilot will continue to provide suggestions as you work
+* Start writing code.
+* Receive a Copilot suggestion in gray ghost text.
+  * Ghost text is placeholder text that will be replaced by input you type or select from Copilot.
+* Choose to accept Copilot's suggestion.
+  * You can accept suggestions with the `kbstyle(Tab)` key.
+  * If you don't want to accept a suggestion, you can continue typing, and Copilot will continue to provide suggestions as you work.
 
-Copilot provides two main kinds of suggestions: comments and code completion. We recommend trying out Copilot in your actual projects to see its power in action! We'll explore Copilot suggestions for JavaScript files in the following sections. Other languages will work similarly.
+Copilot provides two main kinds of suggestions: comments and code completion. We recommend trying out Copilot in your actual projects to see its power in action!
+
+We'll explore Copilot suggestions for JavaScript files in the following sections. Other languages will work similarly.
 
 ### Comments
 
@@ -84,12 +86,12 @@ function calculateDaysBetweenDates(begin, end) {
 
 Copilot will provide a suggestion like the following:
 
-![JavaScript ghost text suggestion](./images/artifical-intelligence/js-suggest.png)
+![JavaScript ghost text suggestion](images/artificial-intelligence/js-suggest.png)
 
-Use `Tab` to accept the suggestion.
+Use `kbstyle(Tab)` to accept the suggestion.
 
 ## Additional resources
 
-Congratulations, you've now used AI to enhance your coding!
+Congratulations, you've now used artificial intelligence to enhance your coding!
 
-You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code).
+You can read more about Copilot and how to use it in VS Code in the [GitHub Copilot documentation](https://docs.github.com/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code).

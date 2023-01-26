@@ -21,7 +21,7 @@ Using these browser-based platforms enables you to work on your notebooks (and b
 
 ## Jupyter notebooks on Codespaces
 
-Developing Jupyter notebooks in VS Code can be done entirely through a web-based interface using [GitHub Codespaces](https://github.com/features/codespaces), a cloud-hosted development environment that is secure and configurable with free compute resources (more on Codespaces [monthly usage quotas](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)). This means you can take advantage of all VS Code functionalities, including Jupyter notebooks support, without installing anything on your machine. To get started quickly:
+Developing Jupyter notebooks in VS Code can be done entirely through a web-based interface using [GitHub Codespaces](https://github.com/features/codespaces), a cloud-hosted development environment that is secure and configurable with free compute resources (more on Codespaces [monthly usage quotas](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)). This means you can take advantage of all VS Code functionalities, including Jupyter notebooks support, without installing anything on your machine. To get started quickly:
 
 1. Navigate to [https://github.com/codespaces](https://github.com/codespaces).
 2. Under **Explore quick start templates**, select **Use this template** for **Jupyter Notebook**. If you don't see the **Jupyter Notebook** template, select **See all** and search for the template.
@@ -30,7 +30,7 @@ Developing Jupyter notebooks in VS Code can be done entirely through a web-based
 
 3. That's it! A codespace will be created for you to get started!
 
-   > **Tip**: You can customize your project by committing [configuration files](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project. You can also see examples of predefined configurations on the [devcontainers/images repository](https://github.com/devcontainers/images/tree/main/src) to use and/or amend as needed for your project.
+   > **Tip**: You can customize your project by committing [configuration files](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project. You can also see examples of predefined configurations on the [devcontainers/images repository](https://github.com/devcontainers/images/tree/main/src) to use and/or amend as needed for your project.
 
 ## Jupyter notebooks on VS Code for the Web
 
