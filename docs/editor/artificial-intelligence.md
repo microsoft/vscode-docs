@@ -1,13 +1,13 @@
 ---
 Order: 7
 Area: editor
-TOCTitle: Refactoring
-ContentId:
-PageTitle: Code smarter with artifical intelligence
+TOCTitle: AI tools
+ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
+PageTitle: Enhance your coding with artifical intelligence
 DateApproved: 1/27/2023
-MetaDescription: Code smarter with AI-powered suggestions from GitHub Copilot.
+MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot.
 ---
-# Code smarter with AI
+# Your AI pair programmer
 
 In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
 
