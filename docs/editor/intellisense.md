@@ -187,6 +187,16 @@ The key bindings shown below are the default key bindings. You can change these 
 ]
 ```
 
+## Enhancing completions with AI
+
+In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in marketplace](/docs/editor/images/intellisense/copilot-extension.png)
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
 ## Troubleshooting
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
@@ -203,6 +213,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
+* [Artificial Intelligence](./artificial-intelligence.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 
