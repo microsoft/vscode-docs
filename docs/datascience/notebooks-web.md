@@ -85,7 +85,7 @@ Since VS Code for the Web runs entirely in your web browser, there are some limi
 
 ## Continue working on Codespaces
 
-As with VS Code Desktop, you can easily continue your work from VS Code for the Web ([https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev)) on Codespaces. When you choose to **Continue Working On** Codespaces, your uncommitted changes will travel with you. To do so:
+As with VS Code Desktop, you can easily continue your work from VS Code for the Web ([https://vscode.dev](https://vscode.dev) or [https://github.dev](https://github.dev)) on Codespaces. When you choose to **Continue Working On** in a new codespace, your uncommitted changes will travel with you. To do so:
 
 1. Open the Command Palette (`kb(workbench.action.showCommands)`) and select **Continue Working On...**
 2. Select **Create New Codespace**
