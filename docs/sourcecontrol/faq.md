@@ -73,6 +73,14 @@ If you try to open such a repository, VS Code will show a welcome view in the So
 
 On Windows, a common scenario where this can occur is when a repository is cloned using an application (for example, Windows Terminal or VS Code) that runs "as administrator", but the repository is opened using another application or instance (for example, VS Code) that does not run "as administrator".
 
+### Why isn't VS Code discovering git repositories in parent folders of workspaces or open files?
+
+VS Code uses `git rev-parse --show-toplevel` to determine the root of a git repository. In most cases, the root of the git repository is inside the workspace, but there are scenarios in which the root of the git repository is in the parent folders of the workspace or the open file(s). While opening git repositories in parent folders of workspaces or open files is a great feature for advanced users, it can be confusing for new users. We have seen cases in which this confusion resulted in discarding changes from these git repositories resulting in data loss.
+
+To avoid confusion, and to reduce the risk of data loss, starting VS Code 1.75 released in January 2023, VS COde will display a notification and a new welcome view in the "Source Control" view, and will not automatically open git repositories from the parent folders of workspaces and open files.
+
+Users can control how git repositories from parent folders are being handled using the `git.openRepositoryInParentFolders` setting. Users who would like to restore the old behavior can set the `git.openRepositoryInParentFolders` setting to `always`.
+
 ### Can I use SSH Git authentication with VS Code?
 
 Yes, though VS Code works most easily with SSH keys without a passphrase. If you have an SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
