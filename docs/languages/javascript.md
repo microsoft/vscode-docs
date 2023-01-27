@@ -247,7 +247,7 @@ VS Code automatically suggests some common code simplifications such as converti
 
 Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
-## Enhancing completions with AI
+## Enhance completions with AI
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 

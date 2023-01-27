@@ -151,7 +151,7 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
-### Enhancing completions with AI
+### Enhance completions with AI
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 

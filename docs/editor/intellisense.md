@@ -187,7 +187,7 @@ The key bindings shown below are the default key bindings. You can change these 
 ]
 ```
 
-## Enhancing completions with AI
+## Enhance completions with AI
 
 In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
 

@@ -179,7 +179,7 @@ To install support for Remote Development:
 1. If you are connecting to a remote machine with SSH, use the **Remote - SSH** extension.
 1. If the remote source files are hosted in a container (for example, Docker), use the **Dev Containers** extension.
 
-## Enhancing completions with AI
+## Enhance completions with AI
 
 [GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
