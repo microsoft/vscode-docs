@@ -99,11 +99,11 @@ The terminal features sophisticated link detection with editor integration and e
 
 There are several built-in link handlers that are used in the following priority order:
 
-* URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`. These will open the system browser at that location.
+* URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`, `vscode://file/path/to/file` or `file://path/to/file`. These will open using the standard handler for the protocol. For example, `https` links will open the system browser at that location.
 
   ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
 
-* File links: These are links that we have verified represent files on the system. These will open the file in a new editor tab and support common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+* File links: These are links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
 
   ![Activating a file link will open it in an editor](images/basics/link-file.png)
 
@@ -114,6 +114,12 @@ There are several built-in link handlers that are used in the following priority
 * Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
+
+A Open Detected Link command (`kbstyle(Ctrl+Shift+O)`) can be used to access links via the keyboard:
+
+![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
+
+> **Tip:** If link verification causes performance issues, like in high latency remote environments, it can be disabled via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
 
 ### Extensions handling links
 
