@@ -118,6 +118,7 @@ Here are some of the built-in Quick Fixes:
 - When `git push` fails due to an upstream not being set, suggest to push with the upstream set.
 - When a `git` subcommand fails with a similar command error, suggest to use the similar command(s).
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
+- When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
 The Quick Fix feature also supports [audio cues](/docs/editor/accessibility.md#audio-cues) for additional feedback when a Quick Fix is available.
 
