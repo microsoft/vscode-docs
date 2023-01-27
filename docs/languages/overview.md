@@ -33,7 +33,7 @@ Click on any linked item to get an overview of how to use VS Code in the context
 The richness of support varies across the different languages and their extensions:
 
 * Syntax highlighting and bracket matching
-* Smart completions (IntelliSense, Aritificial Intelligence with [GitHub Copilot](/docs/editor/artificial-intelligence.md))
+* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/artificial-intelligence.md))
 * Linting and corrections
 * Code navigation (Go to Definition, Find All References)
 * Debugging
