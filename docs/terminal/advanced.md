@@ -121,6 +121,10 @@ Notice that the `\r` character used here means `kbstyle(Enter)`, and much like [
 
 No auto replies are configured by default as providing shell input should be an explicit action or configuration by the user.
 
+## Change tab stop width
+
+The `terminal.integrated.tabStopWidth` setting allows configuring the tab stop width when a program running in the terminal outputs `\t`. This should typically not be needed as programs will often move the cursor instead of using the tab character, but may be useful in some situations.
+
 ## Unicode and emoji support
 
 The terminal has both Unicode and emoji support. When these characters are used in the terminal, there are some caveats to that support:
