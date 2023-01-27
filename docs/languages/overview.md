@@ -39,7 +39,7 @@ The richness of support varies across the different languages and their extensio
 * Debugging
 * Refactoring
 
-## Enhancing completions with AI
+## Enhance completions with AI
 
 In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
 
@@ -49,7 +49,7 @@ In VS Code, you can enhance your coding with artificial intelligence (AI), such 
 
 You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
 
-## Changing the language for the selected file
+## Change the language for the selected file
 
 In VS Code, we default the language support for a file based on its filename extension. However, at times you may want to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
 
@@ -69,7 +69,7 @@ You can see the list of currently installed languages and their identifiers in t
 
 You can find a list of known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
-## Adding a file extension to a language
+## Add a file extension to a language
 
 You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).
 
