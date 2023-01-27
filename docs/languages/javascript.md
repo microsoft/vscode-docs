@@ -249,9 +249,9 @@ Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
 
 ## Enhancing completions with AI
 
-[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
 
-![Copilot extension in marketplace](/docs/languages/images/javascript/copilot-extension.png)
+![Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)
 
 GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
 
@@ -267,9 +267,9 @@ In the JavaScript file, type the following function header:
 function calculateDaysBetweenDates(begin, end) {
 ```
 
-Copilot will provide a suggestion like the following - use `Tab` to accept the suggestion:
+Copilot will provide a suggestion like the following - use `kbstyle(Tab)` to accept the suggestion:
 
-![JavaScript ghost text suggestion](../editor/images/artifical-intelligence/js-suggest.png)
+![Copilot JavaScript ghost text suggestion](images/javascript/js-suggest.png)
 
 ## Inlay hints
 
