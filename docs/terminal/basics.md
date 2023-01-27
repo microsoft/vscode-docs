@@ -119,6 +119,8 @@ A Open Detected Link command (`kbstyle(Ctrl+Shift+O)`) can be used to access lin
 
 ![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
+> **Tip:** If link verification causes performance issues, like in high latency remote environments, it can be disabled via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
+
 ### Extensions handling links
 
 Extensions can contribute **link providers** which allow the extension to define what happens when clicked. An example of this is the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension detecting Git branch links.
