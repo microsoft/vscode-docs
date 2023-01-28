@@ -32,9 +32,10 @@ jobs:
     condition: eq(variables['Codeql.enabled'], 'True')
 
   - task: NodeTool@0
-    displayName: Use Node 14.19.3
+    displayName: Install Node via .nvmrc
     inputs:
-      versionSpec: 14.19.3
+      versionSource: 'fromFile'
+      versionFilePath: $(Pipeline.Workspace)/vscode-website/.nvmrc
       checkLatest: true
 
   - script: npm install
