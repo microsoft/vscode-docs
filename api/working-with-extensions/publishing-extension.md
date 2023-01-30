@@ -150,6 +150,17 @@ vsce unpublish (publisher name).(extension name)
 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
 
+Alternatively, you can unpublish or remove an extension from the Marketplace [Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage) page.
+
+![Remove command on the Marketplace management page context menu](images/publishing-extension/remove-extension.png)
+
+1. Click on extension **More Actions** menu button.
+2. Select **Remove**.
+
+To prevent accidental unpublishing, you must confirm the remove operation by typing the extension name in the warning dialog. Note that the remove/unpublish action is irreversible.
+
+![Remove extension warning asking to retype the extension name](images/publishing-extension/remove-warning.png)
+
 ## Deprecating extensions
 
 An extension can be just deprecated or deprecated in favour of another extension or a setting. VS Code will not automatically migrate or uninstall deprecated extensions. VS Code will render extensions as deprecated in the UI, as shown in the search sample below where the first result is deprecated. If a deprecated extension has an alternative extension or a setting the VS Code UI will guide users to migrate to the new extension or setting.
@@ -385,6 +396,10 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
+
+### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
+
+The Visual Studio Marketplace does not allow an extension package to have more than ten `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 

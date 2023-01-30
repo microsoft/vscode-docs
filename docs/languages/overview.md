@@ -33,13 +33,23 @@ Click on any linked item to get an overview of how to use VS Code in the context
 The richness of support varies across the different languages and their extensions:
 
 * Syntax highlighting and bracket matching
-* Smart completions (IntelliSense)
+* Smart completions (IntelliSense, Artificial Intelligence with [GitHub Copilot](/docs/editor/artificial-intelligence.md))
 * Linting and corrections
 * Code navigation (Go to Definition, Find All References)
 * Debugging
 * Refactoring
 
-## Changing the language for the selected file
+## Enhance completions with AI
+
+In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/overview/copilot-extension.png)
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
+## Change the language for the selected file
 
 In VS Code, we default the language support for a file based on its filename extension. However, at times you may want to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar. This will bring up the **Select Language Mode** dropdown where you can select another language for the current file.
 
@@ -59,7 +69,7 @@ You can see the list of currently installed languages and their identifiers in t
 
 You can find a list of known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
-## Adding a file extension to a language
+## Add a file extension to a language
 
 You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).
 

@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
@@ -181,6 +181,7 @@ Certain keybindings may also work differently in the web.
 | `kb(workbench.action.files.newUntitledFile)` for new file doesn't work in web. | `kb(workbench.action.files.newUntitledFile)` opens a new window instead. <br> As a workaround, you can use `kbstyle(Ctrl+Alt+N)` (`kbstyle(Cmd+Alt+N)` on macOS). |
 | `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web. | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
 | `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
+| `kbstyle(Alt+Left)` and `kbstyle(Alt+Right)` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead. |
 
 ## Additional browser setup
 
