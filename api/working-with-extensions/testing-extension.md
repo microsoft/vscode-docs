@@ -245,7 +245,7 @@ import * as cp from 'child_process';
 import * as path from 'path';
 import {
   downloadAndUnzipVSCode,
-  resolveCliPathFromVSCodeExecutablePath,
+  resolveCliArgsFromVSCodeExecutablePath,
   runTests
 } from '@vscode/test-electron';
 
@@ -254,10 +254,10 @@ async function main() {
     const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
     const vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.1');
-    const cliPath = resolveCliPathFromVSCodeExecutablePath(vscodeExecutablePath);
+    const [cliPath, ...args] = resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
 
     // Use cp.spawn / cp.exec for custom setup
-    cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+    cp.spawnSync(cliPath, [...args, '--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
       encoding: 'utf-8',
       stdio: 'inherit'
     });
