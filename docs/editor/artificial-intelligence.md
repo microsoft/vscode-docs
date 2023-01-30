@@ -27,19 +27,19 @@ You can also activate your trial starting from the [GitHub Copilot website](http
 
 ![Copilot website with trial button](images/artificial-intelligence/website-top-buttons.png)
 
-## Sign in
+## Sign in and sign up
 
 If you have not previously authorized VS Code in your GitHub account, you will be prompted to sign in to GitHub in VS Code:
 
-![VS Code notification to sign into the Copilot extension](images/artificial-intelligence/copilot-auth.png)
+![VS Code notification to sign into the Copilot extension](images/artificial-intelligence/copilot-auth-toast.png)
 
 In your browser, GitHub will request the necessary permissions for GitHub Copilot. To approve these permissions, select **Authorize Visual Studio Code**.
 
-## Activate your free trial
+### Activate your free trial
 
 If you haven't yet activated your free trial for Copilot, the extension will notify you in VS Code. Select **Signup for GitHub Copilot** to activate your trial.
 
-![Copilot sign up notification in VS Code](images/artificial-intelligence/copilot-access.png)
+![Copilot sign up notification in VS Code](images/artificial-intelligence/copilot-access-toast.png)
 
 You can learn more about billing for Copilot in the [GitHub Copilot documentation](https://docs.github.com/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
