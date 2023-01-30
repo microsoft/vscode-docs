@@ -43,6 +43,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
 - `disabledForeground`: Overall foreground for disabled elements. This color is only used if not overridden by a component.
+- `widget.border`: Border color of widgets such as Find/Replace inside the editor.
 - `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
@@ -184,6 +185,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.filterMatchBorder`: Border color of the filtered matches in lists and trees.
 - `list.deemphasizedForeground`: List/Tree foreground color for items that are deemphasized.
 - `tree.indentGuidesStroke`: Tree Widget's stroke color for indent guides.
+- `tree.inactiveIndentGuidesStroke`: Tree stroke color for the indentation guides that are not active.
 - `tree.tableColumnsBorder`: Tree stroke color for the indentation guides.
 - `tree.tableOddRowsBackground`: Background color for odd table rows.
 
@@ -202,9 +204,6 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
-- `activityBarItem.profilesForeground`: Foreground color for the profile entry on the activity bar.
-- `activityBarItem.profilesHoverForeground`: Foreground color for the profile entry on the activity bar when hovering.
-- `activityBarItem.profilesBackground`: Background color for the profile entry on the activity bar.
 
 ## Side Bar
 
@@ -309,6 +308,7 @@ All other editor colors are listed here:
 - `editor.foreground`: Editor default foreground color.
 - `editorLineNumber.foreground`: Color of editor line numbers.
 - `editorLineNumber.activeForeground`: Color of the active editor line number.
+- `editorLineNumber.dimmedForeground`: Color of the final editor line when editor.renderFinalNewline is set to dimmed.
 - `editorCursor.background`: The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `editorCursor.foreground`: Color of the editor cursor.
 
@@ -330,6 +330,8 @@ Word highlight colors are visible when the cursor is inside a symbol or a word. 
 - `editor.wordHighlightBorder`: Border color of a symbol during read-access, for example when reading a variable.
 - `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable. The color must not be opaque so as not to hide underlying decorations.
 - `editor.wordHighlightStrongBorder`: Border color of a symbol during write-access, for example when writing to a variable.
+- `editor.wordHighlightTextBackground`: Background color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.
+- `editor.wordHighlightTextBorder`: Border color of a textual occurrence for a symbol.
 
 Find colors depend on the current find string in the Find/Replace dialog.
 
@@ -470,6 +472,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights. The color must not be opaque so as not to hide underlying decorations.
 - `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights. The color must not be opaque so as not to hide underlying decorations.
 - `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights. The color must not be opaque so as not to hide underlying decorations.
+- `editorOverviewRuler.wordHighlightTextForeground`: Overview ruler marker color of a textual occurrence for a symbol. The color must not be opaque so as not to hide underlying decorations.
 - `editorOverviewRuler.modifiedForeground`: Overview ruler marker color for modified content.
 - `editorOverviewRuler.addedForeground`: Overview ruler marker color for added content.
 - `editorOverviewRuler.deletedForeground`: Overview ruler marker color for deleted content.
@@ -507,6 +510,7 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
+- `editorGutter.commentGlyphForground`: Editor gutter decoration color for commenting glyphs.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 
 
@@ -594,6 +598,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
 - `peekViewEditor.matchHighlightBackground`: Match highlight color in the peek view editor.
 - `peekViewEditor.matchHighlightBorder`: Match highlight border color in the peek view editor.
+- `peekViewEditorStickScroll.background`: Background color of sticky scroll in the peek view editor.
 - `peekViewResult.background`: Background color of the peek view result list.
 - `peekViewResult.fileForeground`: Foreground color for file nodes in the peek view result list.
 - `peekViewResult.lineForeground`: Foreground color for line nodes in the peek view result list.
@@ -880,6 +885,7 @@ The following customizations are available:
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 - `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
+- `welcomeOverlay.background`: welcomeOverlay Background color.
 
 ## Source Control colors
 
@@ -922,6 +928,7 @@ The following customizations are available:
 - `settings.focusedRowBorder`: The color of the row's top and bottom border when the row is focused.
 - `settings.headerBorder`: The color of the header container border.
 - `settings.sashBorder`: The color of the Settings editor splitview sash border.
+- `settings.settingsHeaderHoverForeground`: The foreground color for a section header or hovered title.
 
 ## Breadcrumbs colors
 
@@ -1029,6 +1036,7 @@ The theme colors for symbol icons that appears in the Outline view, breadcrumb n
 - `notebookStatusErrorIcon.foreground`: The error icon color of notebook cells in the cell status bar.
 - `notebookStatusRunningIcon.foreground`: The running icon color of notebook cells in the cell status bar.
 - `notebookStatusSuccessIcon.foreground`: The success icon color of notebook cells in the cell status bar.
+- `notebookEditorOverviewRuler.runningCellForeground`: The color of the running cell decoration in the notebook editor overview ruler.
 
 ## Chart colors
 
