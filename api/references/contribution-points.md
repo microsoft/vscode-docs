@@ -240,7 +240,7 @@ Your `description` 3️⃣ appears after the title and before the input field, e
 
 ```json
 {
-  "gitMagic.blame.heatmap.enabled": {
+  "gitMagic.blame.heatMap.enabled": {
     "description": "Specifies whether to provide a heatmap indicator in the gutter blame annotations"
   }
 }
@@ -309,7 +309,7 @@ You can also provide an `enumDescriptions` property, which provides descriptive 
 
 ```json
 {
-  "gitMagic.blame.heatmap.location": {
+  "gitMagic.blame.heatMap.location": {
     "type": "string",
     "default": "right",
     "enum": ["left", "right"],
