@@ -13,7 +13,7 @@ Support for Java in Visual Studio Code is provided through a wide range of [exte
 
 This article will give you an overview of different capabilities of Visual Studio Code for Java developers. For a quick walkthrough of editing, running, and debugging a Java program with Visual Studio Code, use the **Java Getting Started Tutorial** button below.
 
-<a class="tutorial-next-btn" href="/docs/java/java-tutorial">Java Getting Started Tutorial</a>
+<a class="next-topic-btn" href="/docs/java/java-tutorial">Java Getting Started Tutorial</a>
 
 ## Overview
 
@@ -30,9 +30,9 @@ VS Code provides essential language features such as code completion, refactorin
 
 To help you set up quickly, we recommend you use the **Coding Pack for Java**, which is the bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'win')" href="https://aka.ms/vscode-java-installer-win">Install the Coding Pack for Java - Windows</a>
 
-<a class="tutorial-install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
+<a class="install-extension-btn" onclick="pushCodingPackEvent('java', 'mac')" href="https://aka.ms/vscode-java-installer-mac">Install the Coding Pack for Java - macOS</a><br>
 
 > **Note**: The Coding Pack for Java is only available for Windows and macOS. For other operating systems, you will need to manually install a JDK, VS Code, and Java extensions.
 
@@ -45,7 +45,7 @@ If you have already installed VS Code and want to add Java support to it, we rec
 5. [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency)
 6. [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
 Alternatively, you can add Java language support to VS Code by installing the popular Java extensions by yourself.
 
@@ -81,6 +81,7 @@ We recommend you to consider installing the JDK from one of these sources:
 * [Amazon Corretto](https://aws.amazon.com/corretto)
 * [Azul Zulu](https://www.azul.com/downloads/?package=jdk)
 * [Eclipse Adoptium's Temurin](https://adoptium.net/)
+* [IBM Semeru Runtimes](https://developer.ibm.com/languages/java/semeru-runtimes)
 * [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)
 * [Oracle Java SE](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Red Hat build of OpenJDK](https://developers.redhat.com/products/openjdk/download)
@@ -150,7 +151,26 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
-For more details, see [Java Code Navigation and Editing](/docs/java/java-editing.md). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
+### Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/java/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
+## Code snippets
+
+Visual Studio Code supports a wide range of popular Java code snippets to make you more productive, such as class/interface, syserr, sysout, if/else, try/catch, static main method. Using information from Java language server, it also provides a preview of the code snippet during the selection.
+
+For example, typing "**sout**" or "**sysout**" will produce a code snippet for `System.out.println()`.<br>
+Similarly, typing "**main**" or "**psvm**" will generate a code snippet for `public static void main(String[] args) {}`.
+
+We support a wide range of code snippet shortcuts and postfix completion features. To see the complete list, see [Code Snippets](/docs/java/java-editing.md#code-snippets). VS Code also supports a range of [Refactoring](/docs/java/java-refactoring.md) and [Linting](/docs/java/java-linting.md) features.
+
+![Code Snippet](images/java/code-snippet.png)
 
 ## Debugging
 

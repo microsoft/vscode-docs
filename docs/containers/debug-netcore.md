@@ -2,7 +2,7 @@
 Area: containers
 ContentId: B1DF33C0-400C-413D-B60B-D1AA278F6DE3
 PageTitle: Debug a .NET app running in a Docker container
-DateApproved: 4/15/2021
+DateApproved: 12/21/2022
 MetaDescription: Debug a .NET app running in a Docker container, using Visual Studio Code.
 ---
 # Debug .NET within a container
@@ -37,7 +37,7 @@ To enable SSL (using the HTTPS protocol), you will need to make a few changes to
 
 1. In the Dockerfile, add an `EXPOSE` line to the base section to define a separate port for HTTPS / SSL. Keep a separate `EXPOSE` line with a different port for HTTP requests.
 
-   ```Dockerfile
+   ```docker
    FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
    WORKDIR /app
    EXPOSE 5000

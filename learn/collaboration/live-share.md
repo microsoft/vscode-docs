@@ -11,7 +11,7 @@ MetaDescription: Use Microsoft Live Share to collaborate with Visual Studio Code
 
 ## What is Live Share?
 
-[Live Share](https://docs.microsoft.com/visualstudio/liveshare) enables you to quickly collaborate with a friend, classmate, or professor on the same code without the need to sync code or to configure the same development tools, settings, or environment.
+[Live Share](https://learn.microsoft.com/visualstudio/liveshare) enables you to quickly collaborate with a friend, classmate, or professor on the same code without the need to sync code or to configure the same development tools, settings, or environment.
 
 When it comes to Live Share, seeing is believing. Check out this video to see Live Share in action:
 
@@ -23,7 +23,7 @@ Each of you can open files, navigate, edit code, or highlight - and changes are 
 
 You can also debug together using VS Code's debugging features, like hovers, locals and watches, the stack trace or the debug console. You are both able to set breakpoints and advance the debug cursor to step through the session.
 
-For more details about what you can do with Live Share, visit the [how-to-guide](https://docs.microsoft.com/visualstudio/liveshare/use/vscode) or read the quick-start below.
+For more details about what you can do with Live Share, visit the [how-to-guide](https://learn.microsoft.com/visualstudio/liveshare/use/install-live-share-visual-studio-code) or read the quick-start below.
 
 ## Get started with Live Share
 

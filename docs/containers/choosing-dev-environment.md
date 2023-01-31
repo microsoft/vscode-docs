@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Choose a dev environment
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
 PageTitle: Choosing an environment for container development
-DateApproved: 9/14/2020
+DateApproved: 1/18/2023
 MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
 ---
 # Your development environment
@@ -22,7 +22,7 @@ The second important choice is whether to debug your service running as an ordin
    - Using the same OS for development and inside the service container.
    - Installing necessary tools and dependencies on top of your local environment.
 
-1. Consider using a [development container](/docs/remote/containers.md) first, if you need a remote environment.
+1. Consider using a [development container](/docs/devcontainers/containers.md) first, if you need a remote environment.
 
     - On Windows, using [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux) is good option.
 
@@ -42,7 +42,7 @@ First, make sure Docker CLI is installed into your development container. The ex
 
 Here is an example for Ubuntu-based distros (from a `.devcontainer/Dockerfile`):
 
-```cli
+```sh
     ...
     && apt-get -y install software-properties-common \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 2>/dev/null \
@@ -64,7 +64,7 @@ Next, ensure that Docker socket is mapped into the development container (in `.d
 
 ### Windows Subsystem for Linux
 
-Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://docs.microsoft.com/windows/wsl/wsl2-index) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
+Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
 
 ![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -426,3 +426,22 @@ You can control word wrap through the `editor.wordWrap` [setting](/docs/getstart
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+
+### How can I avoid placing extra cursors in word wrapped lines?
+
+If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keybinding like this:
+
+```json
+{
+  "key": "shift+alt+down",
+  "command": "editor.action.insertCursorBelow",
+  "when": "textInputFocus",
+  "args": { "logicalLine": true },
+},
+{
+  "key": "shift+alt+up",
+  "command": "editor.action.insertCursorAbove",
+  "when": "textInputFocus",
+  "args": { "logicalLine": true },
+},
+```

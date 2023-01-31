@@ -4,14 +4,14 @@ Area: containers
 TOCTitle: Overview
 ContentId: 4B462667-8915-4BE0-B8D0-EDE51CB2D273
 PageTitle: Docker extension for Visual Studio Code
-DateApproved: 11/3/2021
+DateApproved: 12/13/2022
 MetaDescription: Tools for developing and debugging with Docker containers, using Visual Studio Code.
 ---
 # Docker in Visual Studio Code
 
 The [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) extension makes it easy to build, manage, and deploy containerized applications in Visual Studio Code.
 
-This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the [Docker tutorial](https://docs.microsoft.com/visualstudio/docker) first to understand key Docker concepts.
+This page provides an overview of the Docker extension capabilities; use the side menu to learn more about topics of interest. If you are just getting started with Docker development, try the [Docker tutorial](https://learn.microsoft.com/visualstudio/docker/tutorials/docker-tutorial) first to understand key Docker concepts.
 
 ## Installation
 
@@ -25,7 +25,7 @@ To install the extension, open the Extensions view (`kb(workbench.view.extension
 
 ## Editing Docker files
 
-You can get [IntelliSense](/docs/editor/intellisense.md) when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
+You can get [IntelliSense](/docs/editor/intellisense.md) by clicking `kb(editor.action.triggerSuggest)` when editing your `Dockerfile` and `docker-compose.yml` files, with completions and syntax help for common commands.
 
 ![IntelliSense for Dockerfiles](images/overview/dockerfile-intellisense.png)
 
@@ -77,11 +77,11 @@ Once your `Compose Up` command completes, navigate to the Docker Explorer to vie
 
 ## Using image registries
 
-You can display the content and push, pull, or delete images from [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Docker Hub](https://hub.docker.com/), [GitLab](https://gitlab.com/), and more:
+You can display the content and push, pull, or delete images from [Azure Container Registry](https://learn.microsoft.com/azure/container-registry), [Docker Hub](https://hub.docker.com/), [GitLab](https://gitlab.com/), and more:
 
 ![Azure Container Registry content](images/overview/container-registry.png)
 
-An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code. See [Deploy images to Azure App Service](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
+An image in an Azure Container Registry can be deployed to Azure App Service directly from VS Code. See [Deploy to Azure App Service](/docs/containers/app-service.md) to get started. For more information about how to authenticate to and work with registries, see [Using container registries](/docs/containers/quickstart-container-registries.md).
 
 ## Debugging services running inside a container
 
@@ -89,7 +89,7 @@ You can debug services built using .NET (C#) and Node.js that are running inside
 
 ## Azure CLI integration
 
-You can start Azure CLI (command-line interface) in a standalone, Linux-based container with **Docker Images: Run Azure CLI** command. This gives you access to the full Azure CLI command set in an isolated environment. For more information on available commands, see [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest#sign-in).
+You can start Azure CLI (command-line interface) in a standalone, Linux-based container with **Docker Images: Run Azure CLI** command. This gives you access to the full Azure CLI command set in an isolated environment. For more information on available commands, see [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 ## Next steps
 

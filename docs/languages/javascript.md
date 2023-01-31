@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -20,7 +20,7 @@ Most of these features just work out of the box, while some may require basic co
 
 IntelliSense shows you intelligent code completion, hover information, and signature information so that you can write code more quickly and correctly.
 
-<video src="/docs/languages/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/intellisense.mp4" placeholder="images/javascript/intellisense-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -59,7 +59,7 @@ See [Working with JavaScript](/docs/nodejs/working-with-javascript.md) for more 
 
 VS Code includes basic JavaScript [snippets](/docs/editor/userdefinedsnippets.md) that are suggested as you type;
 
-<video src="/docs/languages/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/snippets.mp4" placeholder="images/javascript/snippets-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -71,13 +71,13 @@ There are many extensions that provide additional snippets, including snippets f
 
 VS Code understands many standard [JSDoc](https://jsdoc.app) annotations, and uses these annotations to provide rich [IntelliSense](#intellisense). You can optionally even use the type information from JSDoc comments to [type check your JavaScript](#type-checking).
 
-<video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 Quickly create JSDoc comments for functions by typing `/**` before the function declaration, and select the **JSDoc comment** snippet suggestion:
 
-<video src="/docs/languages/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/jsdoc-autofill.mp4" placeholder="images/javascript/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -135,7 +135,7 @@ You can use JSX syntax in both normal `*.js` files and in `*.jsx` files.
 
 VS Code also includes JSX-specific features such as autoclosing of JSX tags:
 
-<video src="/docs/languages/javascript/tag-complete.mp4" placeholder="images/javascript/tag-complete-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/tag-complete.mp4" placeholder="images/javascript/tag-complete-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -200,7 +200,7 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 The **Organize Imports** Source Action sorts the imports in a JavaScript file and removes any unused imports:
 
 <!-- TODO: replace with js specific example -->
-<video src="/docs/languages/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/organize-imports.mp4" placeholder="images/javascript/organize-imports-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -241,11 +241,35 @@ See [Node.js/JavaScript](/docs/nodejs/working-with-javascript) for more informat
 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
-<video src="/docs/languages/javascript/code-suggestions-convert-async.mp4" placeholder="images/javascript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/code-suggestions-convert-async.mp4" placeholder="images/javascript/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
 Set `"javascript.suggestionActions.enabled"` to `false` to disable suggestions.
+
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/javascript/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
+Once you have the Copilot extension installed and enabled, you can test it our for your JavaScript projects.
+
+Create a new file - you can use the **File: New File** command in the Command Palette (`kbstyle(F1)`).
+
+In the JavaScript file, type the following function header:
+
+```js
+function calculateDaysBetweenDates(begin, end) {
+```
+
+Copilot will provide a suggestion like the following - use `kbstyle(Tab)` to accept the suggestion:
+
+![Copilot JavaScript ghost text suggestion](images/javascript/js-suggest.png)
 
 ## Inlay hints
 
@@ -303,7 +327,7 @@ Click on the reference count to quickly browse a list of references:
 
 When you move or rename a file that is imported by other files in your JavaScript project, VS Code can automatically update all import paths that reference the moved file:
 
-<video src="/docs/languages/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
+<video src="images/javascript/update-imports.mp4" placeholder="images/javascript/update-imports-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 

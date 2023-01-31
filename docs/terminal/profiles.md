@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Terminal Profiles
 ContentId: 1a9d76e8-9c8c-446e-974e-d71570e7d62a
 PageTitle: Terminal Profiles in Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Visual Studio Code's integrated terminal allows configuring various profiles to make launching various shells easier.
 ---
 # Terminal Profiles
@@ -17,14 +17,13 @@ Example profile:
 
 ```jsonc
 {
-
   "terminal.integrated.profiles.windows": {
     "Custom Init": {
       "path": "pwsh.exe",
       "args": [
          "-noexit",
          "-file",
-         "${env:APPDATA}\PowerShell\custom-init.ps1"
+         "${env:APPDATA}\\PowerShell\\custom-init.ps1"
       ]
     }
   },
@@ -115,11 +114,13 @@ By default, the task/debug features will use the default profile. This may not b
 }
 ```
 
-## Shell-specific help
+## Unsafe profile detection
 
-Below are some tips for configuring and using various shells in the integrated terminal.
+Certain shells are installed in unsafe paths by default, like a path that could be written to by another user on a Windows environment. VS Code will still detect these but not expose them as a proper profile until they have been explicitly configured via the **Terminal: Select Default Profile** command. When configuring an unsafe profile there will be a warning before it's added:
 
-### Cmder
+![Shells with unsafe paths like c:\msys64 will show a warning before you can use the detected profile](images/profiles/unsafe-profile-warning.png)
+
+## Cmder
 
 Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell in VS Code with the following profile:
 
@@ -135,9 +136,27 @@ Cmder itself is a terminal, but you can use the [Cmder](https://cmder.app) shell
 }
 ```
 
-You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
+This profile should be picked up automatically when the `CMDER_ROOT` environment variable is set. It will also be detected as an [unsafe profile](#unsafe-profile-detection) if installed at `C:\cmder`. You may refer to [Cmder's wiki](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration) for more information.
 
-### Git Bash
+## Cygwin
+
+Cygwin itself is a terminal, but you can use the [Cygwin](https://www.cygwin.com/) shell in VS Code with the following profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "Cygwin": {
+      "path": "C:\\cygwin64\\bin\\bash.exe",
+      "args": ["--login"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Cygwin"
+}
+```
+
+This profile should be detected automatically as an [unsafe profile](#unsafe-profile-detection) when installed at the default paths `C:\cygwin` or `C:\cygwin64`.
+
+## Git Bash
 
 A [limitation of Git Bash](https://github.com/microsoft/vscode/issues/85831#issuecomment-943403803) when VS Code uses bash.exe (the shell) as opposed to git-bash.exe (the terminal) is that history will not be retained across shell sessions. You can work around this by adding the following to your `~/.bashrc` or `~/.bash_profile` files:
 
@@ -147,7 +166,31 @@ export PROMPT_COMMAND='history -a'
 
 This will cause the shell to call `history -a` whenever the prompt is printed which flushes the session's current session commands to the backing history file.
 
-### WSL
+## MSYS2
+
+MSYS2's bash shell can be configured with the following profile:
+
+```json
+{
+  "terminal.integrated.profiles.windows": {
+    "bash (MSYS2)": {
+      "path": "C:\\msys64\\usr\\bin\\bash.exe",
+      "args": [
+        "--login",
+        "-i"
+      ]
+    }
+  }
+}
+```
+
+This profile should be detected automatically as an [unsafe profile](#unsafe-profile-detection) when installed at the default path `C:\\msys64`.
+
+## Windows PowerShell
+
+When PowerShell 6+ is installed, Windows PowerShell is not included in the profiles list by default. To add Windows PowerShell as a profile, choose the **Select Default Profile** option in the new terminal dropdown and select the Windows PowerShell item. This will configure the profile and set it as your default.
+
+## WSL
 
 When running VS Code on your local machine, Windows Subsystem for Linux shells should be automatically detected. Depending on your setup, this may be a nuisance if you have a lot of distros installed. For finer control over the WSL profiles the automatic detection can be disabled with the `terminal.integrated.useWslProfiles` setting, then here's an example of how to manually configure a WSL shell:
 

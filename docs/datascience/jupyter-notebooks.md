@@ -4,7 +4,7 @@ Area: datascience
 TOCTitle: Jupyter Notebooks
 ContentId: 17345073-cb40-448c-a312-28982900f132
 PageTitle: Working with Jupyter Notebooks in Visual Studio Code
-DateApproved: 12/23/2021
+DateApproved: 1/9/2023
 MetaDescription: Working with Jupyter Notebooks in Visual Studio Code.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -33,7 +33,7 @@ If you attempt to open a notebook when VS Code is in an untrusted workspace runn
 
 ## Create or open a Jupyter Notebook
 
-You can create a Jupyter Notebook by running the **Jupyter: Create New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
+You can create a Jupyter Notebook by running the **Create: New Jupyter Notebook** command from the Command Palette (`kb(workbench.action.showCommands)`) or by creating a new `.ipynb` file in your workspace.
 
 ![Blank Jupyter Notebook](images/jupyter/native-code-cells-01.png)
 
@@ -252,7 +252,7 @@ You can even customize what types of changes you want displayed within your diff
 
 ![Custom notebook diffing](images/jupyter/notebook-diffing.png)
 
-To learn more about Git integration within VS Code, visit [Version Control in VS Code](/docs/editor/versioncontrol.md).
+To learn more about Git integration within VS Code, visit [Source Control in VS Code](/docs/sourcecontrol/overview.md).
 
 ## Debug a Jupyter Notebook
 
@@ -278,22 +278,38 @@ If you want to use the full set of debugging features supported in VS Code, such
 
 ![Debug cell button](images/jupyter/debug-cell.png)
 
+### Search through notebook
+
+You can search kbstyle(Ctrl/Cmd + F) through an entire notebook or you can search parts of your notebook by filtering your search options. When searching through your notebook, click on the Filter option (funnel icon) to search across:
+- Markdown cell input (**Markdown Source**)
+- Markdown cell output (**Rendered Markdown**)
+- Code cell input (**Code Cell Source**)
+- Code cell output (**Cell Output**)
+
+Notebook searches are filtered cell inputs only by default.
+
+![Search options](images/jupyter/search-filter.png)
+
 ## Connect to a remote Jupyter server
 
 You can offload intensive computation in a Jupyter Notebook to other computers by connecting to a remote Jupyter server. Once connected, code cells run on the remote server rather than the local computer.
 
 To connect to a remote Jupyter server:
 
-1. Select the **Jupyter Server: local** button in the global Status bar or run the **Jupyter: Specify local or remote Jupyter server for connections** command from the Command Palette (`kb(workbench.action.showCommands)`).
+1. Open the Kernel Picker button on the top right-hand side of the notebook (or run the **Notebook: Select Notebook Kernel** command from the Command Palette).
 
-   ![Specify remote Jupyter server](images/jupyter/specify-remote.png)
+   ![Notebook kernel picker](images/jupyter/notebook-kernel-picker.png)
 
-1. When prompted to **Pick how to connect to Jupyter**, select **Existing: Specify the URI of an existing server**.
+2. Select the **Existing Jupyter Server** option to connect to an existing Jupyter server.
 
-   ![Choose to connect to an existing server](images/jupyter/connect-to-existing.png)
+   ![Select existing Jupyter server](images/jupyter/select-existing-server.png)
 
-1. When prompted to **Enter the URI of a Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+3. To connect to an existing server for the first time, select **Enter the URL of the running Jupyter server**.
 
-   ![Prompt to supply a Jupyter server URI](images/jupyter/enter-url-auth-token.png)
+   ![Choose to connect to an existing server](images/jupyter/select-enter-server-url.png)
+
+4. When prompted to **Enter the URL of the running Jupyter server**, provide the server's URI (hostname) with the authentication token included with a `?token=` URL parameter. (If you start the server in the VS Code terminal with an authentication token enabled, the URL with the token typically appears in the terminal output from where you can copy it.) Alternatively, you can specify a username and password after providing the URI.
+
+   ![Prompt to supply a Jupyter server URI](images/jupyter/enter-server-url.png)
 
 > **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, refer to the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).

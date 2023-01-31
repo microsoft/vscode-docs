@@ -1,10 +1,10 @@
 ---
-Order: 17
+Order: 18
 Area: editor
 TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code command-line interface
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
@@ -104,6 +104,28 @@ Argument|Description
 `--upload-logs` | Uploads logs from current session to a secure endpoint.
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
+
+### Create remote tunnel
+
+VS Code integrates with other [remote environments](/docs/remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
+
+The Visual Studio Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server)  extension lets you connect to a remote machine, like a desktop PC or VM, via a secure tunnel. Tunneling securely transmits data from one network to another. You can then securely connect to that machine from anywhere, without the requirement of SSH.
+
+We've built functionality into the `code` CLI that will initiate tunnels on remote machines. You can run:
+
+```bash
+code tunnel
+```
+
+to create a tunnel on your remote machine. You may connect to this machine through a web or desktop VS Code client.
+
+You can review the other tunneling commands by running `code tunnel -help`:
+
+![Output of tunnel help CLI command](images/command-line/tunnel-help.png)
+
+As you may need to run the CLI on a remote machine that can't install VS Code Desktop, the CLI is also available for standalone install on the [VS Code download page](https://code.visualstudio.com/insiders/).
+
+For more information on Remote Tunnels, you can review the [Remote Tunnels documentation](/docs/remote/tunnels.md).
 
 ## Opening VS Code with URLs
 

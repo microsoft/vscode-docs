@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Write tests for your Visual Studio Code extension (plug-in).
@@ -245,7 +245,7 @@ import * as cp from 'child_process';
 import * as path from 'path';
 import {
   downloadAndUnzipVSCode,
-  resolveCliPathFromVSCodeExecutablePath,
+  resolveCliArgsFromVSCodeExecutablePath,
   runTests
 } from '@vscode/test-electron';
 
@@ -254,10 +254,10 @@ async function main() {
     const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
     const vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.1');
-    const cliPath = resolveCliPathFromVSCodeExecutablePath(vscodeExecutablePath);
+    const [cliPath, ...args] = resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
 
     // Use cp.spawn / cp.exec for custom setup
-    cp.spawnSync(cliPath, ['--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
+    cp.spawnSync(cliPath, [...args, '--install-extension', '<EXTENSION-ID-OR-PATH-TO-VSIX>'], {
       encoding: 'utf-8',
       stdio: 'inherit'
     });
@@ -285,7 +285,7 @@ The [`vscode`](https://github.com/microsoft/vscode-extension-vscode) module had 
 - Remove `vscode` dependency.
 - Add `@vscode/test-electron` dependency.
 - As the old `vscode` module was also used for downloading VS Code type definition, you need to
-  - Manually install `@types/vscode` that follows your `engine.vscode` in `package.json`. For example, if your `engine.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
+  - Manually install `@types/vscode` that follows your `engines.vscode` in `package.json`. For example, if your `engines.vscode` is `1.30`, install `"@types/vscode": "^1.30.0"`.
   - Remove `"postinstall": "node ./node_modules/vscode/bin/install"` from `package.json`.
 - Add a [test script](#the-test-script). You can use [`runTest.ts`](https://github.com/microsoft/vscode-extension-samples/blob/main/helloworld-test-sample/src/test/runTest.ts) in the sample as a starting point.
 - Point the `test` script in `package.json` to run the compiled output of `runTest.ts`.

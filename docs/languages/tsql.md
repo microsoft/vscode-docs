@@ -28,13 +28,13 @@ Add T-SQL language support to VS Code by installing the [mssql] extension from t
 
 Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions, so you can quickly connect to your databases again.
 
-![execute tsql](images/tsql/execute.gif)
+![Execute T-SQL](images/tsql/execute.gif)
 
 ## View and Save Results
 
 View results and messages when you execute your T-SQL code. Save results as a JSON or CSV file to use the data in your applications with just a few clicks.
 
-![save tsql](images/tsql/save.gif)
+![Save T-SQL](images/tsql/save.gif)
 
 ## T-SQL IntelliSense
 
@@ -73,13 +73,13 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [SQL Server on Linux documentation]
 * [SQL Server Blog]
 
-[Transact-SQL]: https://docs.microsoft.com/sql/t-sql/language-reference
+[Transact-SQL]: https://learn.microsoft.com/sql/t-sql/language-reference
 [mssql]: https://aka.ms/mssql-marketplace
 [Download VS Code]: https://code.visualstudio.com/download
 [SQL Server 2017 Developer Edition]: https://www.microsoft.com/sql-server/sql-server-downloads
 [Build an app]: https://aka.ms/sqldev
-[SQL Server documentation]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
-[SQL Server on Linux documentation]: https://docs.microsoft.com/sql/linux/
+[SQL Server documentation]: https://learn.microsoft.com/sql/sql-server
+[SQL Server on Linux documentation]: https://learn.microsoft.com/sql/linux/sql-server-linux-overview/
 [SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
 [GitHub]: https://github.com/microsoft/vscode-mssql
 [GitHub Issue Tracker]: https://github.com/microsoft/vscode-mssql/issues

@@ -171,7 +171,7 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 1. In VS Code, activate a Python environment in which Jupyter is installed, as described at the beginning of this article.
 
-1. Import the notebook's `.ipynb` file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).)
+1. Import the notebook's `.ipynb` file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://learn.microsoft.com/azure/notebooks).)
 
 1. To start the debugger, use one of the following options:
 

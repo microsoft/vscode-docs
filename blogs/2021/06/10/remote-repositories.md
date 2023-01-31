@@ -90,7 +90,7 @@ You can make a change to your code, create a new branch and a pull request (PR) 
 
 ![Gif using GitHub Pull Request extension to create branch and PR, and check out that PR](remote-repositories3.gif)
 
-You can learn more about the GitHub Pull Requests and Issues extension in our [Working with GitHub](https://code.visualstudio.com/docs/editor/github) article.
+You can learn more about the GitHub Pull Requests and Issues extension in our [Working with GitHub](https://code.visualstudio.com/docs/sourcecontrol/github) article.
 
 ### Keep changes isolated to branches
 
@@ -141,7 +141,7 @@ Click the remote indicator in the lower left, then select **Continue Working on.
 You'll be presented with three options:
 
 * **Clone Repository Locally**: Clone the current repo to your local machine. A local file explorer will pop up, allowing you to select a location on disk to clone the remote repo.
-* **Clone Repository in Container Volume**: Clone the current repo in a Docker [container volume](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) using the Remote – Containers extension (you'll need the [Remote – Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and Docker installed). VS Code will reload and connect using Remote – Containers, and the remote indicator will now read **Dev Container: {image name}**.
+* **Clone Repository in Container Volume**: Clone the current repo in a Docker [container volume](/docs/devcontainers/containers.md#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume) using the Dev Containers extension (you'll need the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension and Docker installed). VS Code will reload and connect using Dev Containers, and the remote indicator will now read **Dev Container: {image name}**.
 * **Open in Codespaces**: Continue your work in a [GitHub Codespace](https://github.com/features/codespaces). When you select this option, a browser will open and direct you to your list of Codespaces for this repository.
 
 ![VS Code Command Palette with options to continue locally, in a volume, or in Codespaces](continue-options.png)

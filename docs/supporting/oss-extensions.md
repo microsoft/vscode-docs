@@ -3,7 +3,7 @@ Order:
 TOCTitle: Microsoft Extension Licenses
 ContentId: 661ad650-7bed-41f6-a62b-9eb1407010ab
 PageTitle: Microsoft Extension Licenses
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: List of Microsoft Extension Licenses
 ---
 # Microsoft Extension Licenses
@@ -47,7 +47,6 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [C#](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
 | [Cordova Tools](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools) | ✔ ([Repo](https://github.com/microsoft/vscode-cordova)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.cordova-tools/license) |
 | [Debugger for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-debug/license) |
-| [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/msjsdiag.debugger-for-edge/license) |
 | [Docker](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-docker/license) |
 | [docs-article-templates](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-article-templates) | ✔ | [MIT](https://docsmsft.gallerycdn.vsassets.io/extensions/docsmsft/docs-markdown/0.2.2/1547755350969/Microsoft.VisualStudio.Services.Content.License) |
 | [docs-markdown](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown) | ✔ | [MIT](https://marketplace.visualstudio.com/items/docsmsft.docs-markdown/license) |
@@ -76,9 +75,9 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Pyright](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) | ✔ | [MIT](https://raw.githubusercontent.com/microsoft/pyright/master/LICENSE.txt) |
 | [Python](https://marketplace.visualstudio.com/items/ms-python.python) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-python.python/license) |
 | [React Native Tools](https://marketplace.visualstudio.com/items/msjsdiag.vscode-react-native) | ✔ ([Repo](https://github.com/microsoft/vscode-react-native)) | [Microsoft](https://marketplace.visualstudio.com/items/msjsdiag.vscode-react-native/license) |
-| [Remote - Containers](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)  |
+| [Dev Containers](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)  |
 | [Remote - SSH](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license) |
-| [Remote - WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
+| [WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
 | [Reference Search View](https://marketplace.visualstudio.com/items/ms-vscode.references-view) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.references-view/license) |
 | [Resharper 9 Keybindings](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
 | [Service Fabric Reliable Services](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services/license) |

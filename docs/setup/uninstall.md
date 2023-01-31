@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Uninstall
 ContentId: 435486d3-ad55-4a31-a087-d108f75ba669
 PageTitle: Uninstall Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Uninstall Visual Studio Code and clean up.
 ---
 # Uninstall Visual Studio Code
@@ -67,5 +67,5 @@ The folder locations will vary depending on your platform:
 
 * [Setup overview](/docs/setup/setup-overview.md) - General information about VS Code setup and updates.
 * [Windows setup](/docs/setup/windows.md) - Details and common questions about installing VS Code on Windows.
-* [macOS setup](/docs/setup/mac.md) - VS Code is available for both Intel and Apple Silicon macOS machines.
+* [macOS setup](/docs/setup/mac.md) - VS Code is available for both Intel and Apple silicon macOS machines.
 * [Linux setup](/docs/setup/linux.md) - Learn about the different VS Code packages available for Linux.

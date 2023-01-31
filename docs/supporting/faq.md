@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Visual Studio Code Frequently Asked Questions
 ---
 # Visual Studio Code FAQ
@@ -153,28 +153,30 @@ If you need a type of installation not listed there, you can manually download v
 
 Download type | URL
 --- | ---
-Windows 64 bit System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
-Windows 64 bit User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
-Windows 64 bit zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
-Windows 64 bit ARM System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
-Windows 64 bit ARM User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
-Windows 64 bit ARM zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
-Windows 32 bit System installer | https://update.code.visualstudio.com/{version}/win32/stable
-Windows 32 bit User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
-Windows 32 bit zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
-macOS | https://update.code.visualstudio.com/{version}/darwin/stable
-Linux 64 bit | https://update.code.visualstudio.com/{version}/linux-x64/stable
-Linux 64 bit debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
-Linux 64 bit rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
-Linux 64 bit snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
-Linux ARM | https://update.code.visualstudio.com/{version}/linux-armhf/stable
-Linux ARM debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
-Linux ARM rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
-Linux 64 bit ARM  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
-Linux 64 bit ARM debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
-Linux 64 bit ARM rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
+Windows x64 System installer | https://update.code.visualstudio.com/{version}/win32-x64/stable
+Windows x64 User installer| https://update.code.visualstudio.com/{version}/win32-x64-user/stable
+Windows x64 zip | https://update.code.visualstudio.com/{version}/win32-x64-archive/stable
+Windows Arm64 System installer | https://update.code.visualstudio.com/{version}/win32-arm64/stable
+Windows Arm64 User installer | https://update.code.visualstudio.com/{version}/win32-arm64-user/stable
+Windows Arm64 zip | https://update.code.visualstudio.com/{version}/win32-arm64-archive/stable
+Windows x86 System installer | https://update.code.visualstudio.com/{version}/win32/stable
+Windows x86 User installer | https://update.code.visualstudio.com/{version}/win32-user/stable
+Windows x86 zip | https://update.code.visualstudio.com/{version}/win32-archive/stable
+macOS Universal | https://update.code.visualstudio.com/{version}/darwin-universal/stable
+macOS Intel chip | https://update.code.visualstudio.com/{version}/darwin/stable
+macOS Apple silicon | https://update.code.visualstudio.com/{version}/darwin-arm64/stable
+Linux x64 | https://update.code.visualstudio.com/{version}/linux-x64/stable
+Linux x64 debian | https://update.code.visualstudio.com/{version}/linux-deb-x64/stable
+Linux x64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-x64/stable
+Linux x64 snap | https://update.code.visualstudio.com/{version}/linux-snap-x64/stable
+Linux Arm32 | https://update.code.visualstudio.com/{version}/linux-armhf/stable
+Linux Arm32 debian | https://update.code.visualstudio.com/{version}/linux-deb-armhf/stable
+Linux Arm32 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-armhf/stable
+Linux Arm64  | https://update.code.visualstudio.com/{version}/linux-arm64/stable
+Linux Arm64 debian | https://update.code.visualstudio.com/{version}/linux-deb-arm64/stable
+Linux Arm64 rpm | https://update.code.visualstudio.com/{version}/linux-rpm-arm64/stable
 
-Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux ARM debian version for 1.50.1, you would use
+Substitute the specific release you want in the `{version}` placeholder. For example, to download the Linux Arm32 debian version for 1.50.1, you would use
 
 ```bash
 https://update.code.visualstudio.com/1.50.1/linux-deb-armhf/stable
@@ -222,11 +224,11 @@ When VS Code is launched from a terminal (for example, via `code .`), it has acc
 
 However, when launching from your platform's user interface (for example, the VS Code icon in the macOS dock), you normally are not running in the context of a shell and you don't have access to those environment settings. This means that depending on how you launch VS Code, you may not have the same environment.
 
-To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after 10 seconds, the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
+To work around this, when launched via a UI gesture, VS Code will start a small process to run (or "resolve") the shell environment defined in your `.bashrc` or `.zshrc` files. If, after a configurable timeout (via `application.shellEnvironmentResolutionTimeout`, defaults to 10 seconds), the shell environment has still not been resolved or resolving failed for any other reason, VS Code will abort the "resolve" process, launch without your shell's environment settings, and you will see an error like the following:
 
 ![Shell environment startup error](images/faq/shell-env-error.png)
 
-If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness.
+If the error message indicates that resolving your shell environment took too long, the [steps below](#investigate-slow-shell-initialization) can help you investigate what might be causing slowness. You can also increase the timeout by configuring the `application.shellEnvironmentResolutionTimeout` setting. But keep in mind that increasing this value means you will have to wait longer to use some of the features in VS Code, such as extensions.
 
 If you see other errors, please create an [issue](https://github.com/microsoft/vscode/issues) to get help.
 
@@ -265,6 +267,18 @@ When you open a folder, VS Code will search for typical project files to offer y
         "**/largeFolder": true
     }
 ```
+
+## Can I run VS Code on Windows 7?
+
+Microsoft [ended support for Windows 7](https://learn.microsoft.com/lifecycle/products/windows-7) in January, 2020 and no longer provides security updates. VS Code desktop versions starting with 1.71 (August 2022) will no longer run on Windows 7 and you will need to upgrade to a newer Windows version to use later versions of VS Code.
+
+VS Code will no longer provide product updates or security fixes on Windows 7 and VS Code [version 1.70.3](https://code.visualstudio.com/updates/v1_70) is the last available release for Windows 7 users. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/windows/windows-7-support-ended-on-january-14-2020-b75d4580-2cc7-895a-2c9c-1466d9a53962).
+
+## Can I run VS Code on old macOS versions?
+
+VS Code desktop versions starting with 1.77 (March 2023) will no longer run on macOS Sierra (version 10.12 and older) and you will need to upgrade to a newer macOS version to use later versions of VS Code.
+
+VS Code will no longer provide product updates or security fixes on macOS Sierra (versions 10.12 and older) and VS Code version 1.76 will be the last available release for macOS Sierra (10.12 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
 ## Technical Support
 

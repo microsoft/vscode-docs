@@ -1,11 +1,11 @@
 ---
-Order: 7
+Order: 8
 Area: remote
 TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 ---
 # Remote development over SSH
 
@@ -25,7 +25,7 @@ To get started, you need to have done the following steps:
 
 The Remote - SSH extension is used to connect to SSH hosts.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
 
 ![Remote - SSH extension](images/ssh-tutorial/remote-ssh-extension.png)
 
@@ -95,7 +95,7 @@ You'll have noticed an indicator on the bottom-left corner of the Status bar. Th
 
 ![Remote extension commands](images/ssh-tutorial/remote-commands.png)
 
-Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
+Choose the **Connect to Host...** command in the **Remote-SSH** section and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
 The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure portal](https://portal.azure.com) and in the **Overview** pane of the VM you created, copy the **Public IP address**.
 
@@ -245,8 +245,8 @@ Congratulations, you've successfully completed this tutorial!
 
 Next, check out the other Remote Development extensions.
 
-* [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
-* [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.

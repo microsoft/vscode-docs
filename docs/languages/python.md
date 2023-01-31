@@ -13,7 +13,7 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
 
-<a class="tutorial-next-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
+<a class="next-topic-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
 
 ## Install Python and the Python extension
 
@@ -23,7 +23,7 @@ Once you have a version of Python installed, activate it using the **Python: Sel
 
 You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
 
->**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
+>**Windows Subsystem for Linux**: If you are on Windows, WSL is a great way to do Python development. You can run Linux distributions on Windows and Python is often already installed. When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL. To learn more, go to [Developing in WSL](/docs/remote/wsl.md) or try the [Working in WSL](/docs/remote/wsl-tutorial.md) tutorial.
 
 ## Run Python code
 
@@ -52,13 +52,25 @@ IntelliSense quickly shows methods, class members, and documentation as you type
 
 > **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
 
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/python/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
 ## Linting
 
 Linting analyzes your Python code for potential errors, making it easy to navigate to and correct different problems.
 
 The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
-<video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python linting video">
+  <source src="/docs/languages/python/python-linting.mp4" type="video/mp4">
+</video>
 
 ## Debugging
 
@@ -66,7 +78,9 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md). The [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials also demonstrate debugging in the context of those web apps, including debugging Django page templates.
 
-<video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python debugging video">
+  <source src="/docs/languages/python/python-debugging.mp4" type="video/mp4">
+</video>
 
 ## Environments
 
@@ -102,7 +116,7 @@ You can also convert and open the notebook as a Python code file. The notebook's
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://learn.microsoft.com/azure/notebooks).
 
 Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/datascience/jupyter-notebooks.md).
 

@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -39,7 +39,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Windows Subsystem for Linux
 
-Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install) (WSL) and the new Windows Terminal.
+Windows is a popular operating system and it can be a great cross-platform development environment. This section describes cross-platform features such as the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and the new Windows Terminal.
 
 ### Recent Windows build
 
@@ -49,7 +49,7 @@ Make sure you are on a recent Windows 10 build. Check **Settings** > **Windows U
 
 With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on your Windows machine.
 
-When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL.
+When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of WSL.
 
 See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/docs/remote/wsl-tutorial.md) introductory tutorial.
 
@@ -103,3 +103,9 @@ Using the Registry Editor (regedit):
 3. Find the `.svg` key.
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit `regedit`.
+
+### Unable to run as admin when AppLocker is enabled
+
+With the introduction of process sandboxing (discussed in this [blog post](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)) running as administrator is currently unsupported when AppLocker is configured due to a limitation of the runtime sandbox. You can refer to [Chromium issue #740132](https://bugs.chromium.org/p/chromium/issues/detail?id=740132) for additional context. If your work requires that you run VS Code from an elevated terminal, you can launch `code` with `--no-sandbox --disable-gpu-sandbox` as a workaround.
+
+Subscribe to [issue #122951](https://github.com/microsoft/vscode/issues/122951) to receive updates.

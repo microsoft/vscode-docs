@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Editing
 ContentId: db5139eb-9623-4d0b-8180-8b495e2b8b06
 PageTitle: TypeScript editing with Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Learn about TypeScript editing with Visual Studio Code.
 ---
 # Editing TypeScript
@@ -129,7 +129,7 @@ VS Code's TypeScript features also work with [JSX](https://reactjs.org/docs/intr
 
 VS Code also includes JSX-specific features such as autoclosing of JSX tags in TypeScript:
 
-<video src="/docs/typescript/editing/jsx-tag-complete.mp4" placeholder="images/editing/jsx-tag-complete.png" autoplay loop controls muted>
+<video src="images/editing/jsx-tag-complete.mp4" placeholder="images/editing/jsx-tag-complete.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -143,7 +143,7 @@ VS Code's TypeScript IntelliSense understands many standard [JSDoc](https://jsdo
 
 Keep in mind that when using JSDoc for TypeScript code, you should not include type annotations. The TypeScript compiler only uses TypeScript type annotations and ignores those from JSDoc.
 
-<video src="/docs/typescript/editing/jsdoc-autofill.mp4" placeholder="images/editing/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
+<video src="images/editing/jsdoc-autofill.mp4" placeholder="images/editing/jsdoc-autofill-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 

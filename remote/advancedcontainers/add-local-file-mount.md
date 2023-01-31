@@ -5,7 +5,7 @@ TOCTitle: Add local file mount
 PageTitle: Add local file mount to a container
 ContentId: 1a14ff36-13ea-40ec-acc9-16bd0d6725f6
 MetaDescription: Add local file mount to a container
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 ---
 # Add another local file mount
 
@@ -36,7 +36,7 @@ You can add a volume bound to any local folder by using the following appropriat
 
 <br><br>
 
-* **Docker Compose:** Update (or [extend](/docs/remote/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
+* **Docker Compose:** Update (or [extend](/docs/devcontainers/create-dev-container.md#extend-your-docker-compose-file-for-development)) your `docker-compose.yml` with the following for the appropriate service:
 
     ```yaml
     version: '3'
@@ -49,4 +49,4 @@ You can add a volume bound to any local folder by using the following appropriat
          # ...
     ```
 
-If you've already built the container and connected to it, run **Remote-Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Remote-Containers: Open Folder in Container...** to connect to the container.
+If you've already built the container and connected to it, run **Dev Containers: Rebuild Container** from the Command Palette (`kbstyle(F1)`) to pick up the change. Otherwise run **Dev Containers: Open Folder in Container...** to connect to the container.

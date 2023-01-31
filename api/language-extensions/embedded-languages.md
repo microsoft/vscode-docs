@@ -1,13 +1,13 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b76a223a-a210-4bdb-b537-36c1ea6814ae
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
 ---
 
-# Language Server for Embedded Programming Languages
+# Embedded Programming Languages
 
 Visual Studio Code provides rich language features for programming languages. As you have read in the
 [Language Server extension guide](/api/language-extensions/language-server-extension-guide), you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.
@@ -267,7 +267,7 @@ Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (for example, embedding C# compiler in a Razor language server to support C#).
 - \+ No maintenance needed to get new features upstream from other language services.
-- \- Does not yet work with diagnostics errors, which are pushed from Language server. LSP in 3.17 will provide a diagnostic pull model that will make this possible.
+- \- Does not yet work with diagnostics errors. The VS Code API currently does not support diagnostic providers that can 'pull' (request) diagnosics. ([Issue](https://github.com/microsoft/vscode/issues/159911)).
 - \- Hard to share state to other language servers because of lack of control.
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present).
 

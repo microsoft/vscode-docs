@@ -1,13 +1,13 @@
 ---
 ContentId: f71d4b81-8361-48ee-82c0-48f69ec0d72e
 PageTitle: Get Started with Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Get Started with Visual Studio Code
 ---
 # Learn to code with Visual Studio Code
 
 Learning to code is intimidating, so set yourself up for success with a tool built for you. Visual Studio Code is a free coding editor that helps you start coding quickly.
-Use it to code in any programming language, without switching editors. Visual Studio Code has support for many languages, including Python, Java, C++, JavaScript, and more. Ready to get started? Check out these [introductory videos](https://www.youtube.com/watch?v=Uvf2FVS1F8k&list=PLj6YeMhvp2S4oEV_bT1Uk3oXfpvGW6Xqy) or check out our [coding packs for Java, Python, and .NET](/learn/educators/installers.md).
+Use it to code in any programming language, without switching editors. Visual Studio Code has support for many languages, including Python, Java, C++, JavaScript, and more. Ready to get started? Check out these [introductory videos](https://www.youtube.com/watch?v=Uvf2FVS1F8k&list=PLj6YeMhvp2S4oEV_bT1Uk3oXfpvGW6Xqy) or check out our [coding packs for Java and .NET](/learn/educators/installers.md).
 
 ## Why VS Code?
 

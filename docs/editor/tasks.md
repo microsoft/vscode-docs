@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order: 14
 Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -374,7 +374,7 @@ You can specify a task's run behaviors using the `runOptions` property:
 * **reevaluateOnRerun**: Controls how variables are evaluated when a task is executed through the **Rerun Last Task** command. The default is `true`, meaning that variables will be reevaluated when a task is rerun. When set to `false` the resolved variable values from the previous run of the task will be used.
 * **runOn**: Specifies when a task is run.
   * `default` - The task will only be run when executed through the **Run Task** command.
-  * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks in Folder** command and selecting between **Allow Automatic Tasks in Folder** and **Disallow Automatic Tasks in Folder**.
+  * `folderOpen` - The task will be run when the containing folder is opened. The first time you open a folder that contains a task with `folderOpen`, you will be asked if you want to allow tasks to run automatically in that folder. You can change your decision later using the **Manage Automatic Tasks** command and selecting between **Allow Automatic Tasks** and **Disallow Automatic Tasks**.
 
 ## Customizing auto-detected tasks
 
@@ -605,13 +605,6 @@ To highlight the power of tasks, here are a few examples of how VS Code can use 
 ### Transpiling TypeScript to JavaScript
 
 The [TypeScript topic](/docs/typescript/typescript-compiling.md) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
-
-### Compiling Markdown to HTML
-
-The Markdown topic provides two examples for compiling Markdown to HTML:
-
-1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
-2. [Automating the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
 ### Transpiling Less and SCSS into CSS
 
@@ -895,10 +888,12 @@ That was tasks - let's keep going...
 
 ### Can a task use a different shell than the one specified for the Integrated Terminal?
 
-Yes. You can use the `"terminal.integrated.automationShell.*"` setting to set the shell that will be used for all automation in VS Code, which includes Tasks.
+Yes. You can use the `"terminal.integrated.automationProfile.*"` setting to set the shell that will be used for all automation in VS Code, which includes Tasks.
 
 ```json
-    "terminal.integrated.automationShell.windows": "cmd.exe",
+    "terminal.integrated.automationProfile.windows": {
+        "path": "cmd.exe"
+    }
 ```
 
 Alternatively, you can override a task's shell with the `options.shell` property. You can set this per task, globally, or per platform. For example, to use cmd.exe on Windows, your `tasks.json` would include:

@@ -25,7 +25,7 @@ Containers have historically been used to standardize apps when they're deployed
 
 ![Diagram comparing dev versus production containers](dev-container-stages.png)
 
-Dev containers have been supported in Visual Studio Code since [the announcement](https://code.visualstudio.com/blogs/2019/05/02/remote-development) of the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019, and more recently in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by **devcontainer.json**, a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
+Dev containers have been supported in Visual Studio Code since [the announcement](https://code.visualstudio.com/blogs/2019/05/02/remote-development) of the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in 2019, and more recently in [GitHub Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers). This support is backed by **devcontainer.json**, a structured JSON with Comments (jsonc) metadata format to configure a containerized environment.
 
 As containerizing production workloads becomes commonplace, dev containers have become broadly useful for scenarios beyond VS Code. We're excited to announce that work has started on the [Development Containers Specification](https://github.com/devcontainers/spec), which empowers anyone in any tool to configure a consistent dev environment. In addition, today we're excited to share a major component of this specification that you can now try, which is the **dev container CLI**.
 
@@ -35,7 +35,7 @@ The dev container CLI is a reference implementation for the dev container specif
 
 When tools like VS Code and Codespaces detect a `devcontainer.json` file in a user's project, they use a CLI to configure a dev container. We've now opened up this CLI as a reference implementation so that individual users and other tools can read in `devcontainer.json` metadata and create dev containers from it.
 
-This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Remote - Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
+This CLI can either be used directly or integrated into product experiences, similar to how it's integrated with Dev Containers and Codespaces today. It currently supports both a simple single container option and integrates with [Docker Compose](https://docs.docker.com/compose/) for multi-container scenarios.
 
 The CLI is available for review in a new [devcontainers/cli](https://github.com/devcontainers/cli) repository and you can read more about its development in [this issue in the spec repo](https://github.com/devcontainers/spec/issues/9).
 
@@ -115,7 +115,7 @@ This will compile and run the Rust sample, outputting:
    Compiling hello_remote_world v0.1.0 (/workspaces/vscode-remote-try-rust)
     Finished dev [unoptimized + debuginfo] target(s) in 1.06s
      Running `target/debug/hello_remote_world`
-Hello, VS Code Remote - Containers!
+Hello, VS Code Dev Containers!
 {"outcome":"success"}
 ```
 

@@ -39,7 +39,7 @@ After installing Rust, you can check that everything is installed correctly by o
 rustc --version
 ```
 
-which will output the version of the Rust compiler. If you run into problems, you can consult the Rust [installation guide](https://doc.rust-lang.org/book/ch01-01-installation.html).
+which will output the version of the Rust compiler. If you want more details, you can add the `--verbose` argument. If you run into problems, you can consult the Rust [installation guide](https://doc.rust-lang.org/book/ch01-01-installation.html).
 
 You can keep your Rust installation up to date with the latest version by running:
 
@@ -47,7 +47,7 @@ You can keep your Rust installation up to date with the latest version by runnin
 rustup update
 ```
 
-There are new stable versions of Rust published very 6 weeks so this is a good habit.
+There are new stable versions of Rust published every 6 weeks so this is a good habit.
 
 ### Local Rust documentation
 
@@ -80,7 +80,7 @@ code .
 
 `cargo new` creates a simple Hello World project with a `main.rs` source code file and `Cargo.toml` [Cargo manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) file.
 
-```plaintext
+```
 src\
     main.rs
 .gitignore
@@ -195,7 +195,7 @@ The Rust toolset includes linting, provided by rustc and clippy, to detect issue
 
 ![linter warning about an unused variable](images/rust/linter-warning.png)
 
-The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check on Save: Command** (`rust-analyzer.checkOnSave.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
+The rustc linter, enabled by default, detects basic Rust errors, but you can use [clippy](https://github.com/rust-lang/rust-clippy) to get more lints. To enable clippy integration in rust-analyzer, change the **Rust-analyzer > Check: Command** (`rust-analyzer.check.command`) setting to `clippy` instead of the default `check`. The rust-analyzer extension will now run `cargo clippy` when you save a file and display clippy warnings and errors directly in the editor and Problems view.
 
 ## Quick Fixes
 

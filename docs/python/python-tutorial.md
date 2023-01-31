@@ -4,15 +4,15 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 8/15/2022
+DateApproved: 1/20/2023
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial, you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
+In this tutorial, you will use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
 
-This tutorial introduces you to VS Code as a Python environment, primarily how to edit, run, and debug code through the following tasks:
+This tutorial introduces you to VS Code as a Python environment - primarily how to edit, run, and debug code through the following tasks:
 
 - Write, run, and debug a Python "Hello World" Application
 - Learn how to install packages by creating Python virtual environments
@@ -20,7 +20,7 @@ This tutorial introduces you to VS Code as a Python environment, primarily how t
 
 This tutorial is not intended to teach you Python itself. Once you are familiar with the basics of VS Code, you can then follow any of the [programming tutorials on python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers) within the context of VS Code for an introduction to the language.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Along with the Python extension, you need to install a Python interpreter. Which
 
 Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
->**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/p/python-37/9nj46sx7x90p), [Python 3.8](https://www.microsoft.com/p/python-38/9mssztt1n39l), [Python 3.9](https://www.microsoft.com/p/python-39/9p7qfqmjrfp7), and [Python 3.10](https://www.microsoft.com/p/python-310/9pjpw5ldxlz5).
+>**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [supported Python versions](https://apps.microsoft.com/store/search?publisher=Python%20Software%20Foundation).
 
 For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.9/using/windows.html)
 
@@ -63,7 +63,7 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 - **Data Science**: If your primary purpose for using Python is Data Science, then you might consider a download from [Anaconda](https://www.anaconda.com/download/). Anaconda provides not just a Python interpreter, but many useful libraries and tools for data science.
 
-- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
 
 ## Verify the Python installation
 
@@ -77,7 +77,7 @@ To verify that you've installed Python successfully on your machine, run one of 
 
 - Windows: open a command prompt and run the following command:
 
-    ```ps
+    ```bat
     py -3 --version
     ```
 
@@ -85,7 +85,9 @@ If the installation was successful, the output window should show the version of
 
    > **Note** You can use the `py -0` command in the VS Code integrated terminal to view the versions of python installed on your machine. The default interpreter is identified by an asterisk (*).
 
-## Start VS Code in a project (workspace) folder
+## Start VS Code in a workspace folder
+
+By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
 Using a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
@@ -97,19 +99,20 @@ code .
 
 >**Note**: If you're using an Anaconda distribution, be sure to use an Anaconda command prompt.
 
-By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
 Alternately, you can run VS Code through the operating system UI, then use **File > Open Folder** to open the project folder.
 
 ## Select a Python interpreter
 
-Python is an interpreted language, and in order to run Python code and get Python IntelliSense, you must tell VS Code which interpreter to use.
+Python is an interpreted language. Thus, in order to run Python code and get Python IntelliSense, you must tell VS Code which interpreter to use.
 
 From within VS Code, select a Python 3 interpreter by opening the **Command Palette** (`kb(workbench.action.showCommands)`), start typing the **Python: Select Interpreter** command to search, then select the command. You can also use the **Select Python Environment** option on the Status Bar if available (it may already show a selected interpreter, too):
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
 The command presents a list of available interpreters that VS Code can find automatically, including virtual environments. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+
+![Select an Interpreter](images/tutorial/interpreter.png)
 
 > **Note**: When using an Anaconda distribution, the correct interpreter should have the suffix `('base':conda)`, for example `Python 3.7.3 64-bit ('base':conda)`.
 
@@ -225,7 +228,7 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -250,35 +253,31 @@ A best practice among Python developers is to avoid installing packages into a g
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#creating-environments).
 
-1. Create and activate the virtual environment
-   >**Note**: When you create a new virtual environment, you should be prompted by VS Code to set it as the default for your workspace folder. If selected, the environment will automatically be activated when you open a new terminal.
+1. Create a Virtual Environment using the Create Environment Command
 
-   ![Virtual environment dialog](images/tutorial/virtual-env-dialog.png)
+   From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command. You can also trigger the **Python: Create Environment** command through the Getting Started with Python page.
 
-   **For Windows**
+   The command presents a list of environment types, Venv or Conda. For this example, select **Venv**.
 
-   ```cmd
-   py -3 -m venv .venv
-   .venv\scripts\activate
-   ```
+   ![Create Environment dropdown](images/environments/create_environment_dropdown.png)
 
-   If the activate command generates the message "Activate.ps1 is not digitally signed. You cannot run this script on the
-   current system.", then you need to temporarily change the PowerShell execution policy to allow scripts to
-   run (see [About Execution Policies](https://go.microsoft.com/fwlink/?LinkID=135170) in the PowerShell documentation):
+   The command then presents a list of interpreters that can be used for your project.
 
-   ```cmd
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-   ```
+   ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
-   **For macOS/Linux**
 
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
 
-1. Select your new environment by using the **Python: Select Interpreter** command from the **Command Palette**.
+   After selecting the desired interpreter, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
 
+   ![Create environment status notification](images/environments/create_environment_prompt_status.png)
+
+   The command will also install necessary packages outlined in a requirements/dependencies file, such as `requirements.txt`, `pyproject.toml`, or `environment.yml`, located in the project folder.
+
+   > **Note**: If you want to create an environment manually, or run into error in the environment creation process, visit the [Environments](/docs/python/environments.md#create-a-virtual-environment-in-the-terminal) page.
+
+1. Ensure your new environment is selected by using the **Python: Select Interpreter** command from the **Command Palette**.
+
+   ![Select an Interpreter](images/tutorial/interpreter-venv.png)
 1. Install the packages
 
    ```bash
@@ -321,5 +320,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
-- [Deploy Python to Azure App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)
+- [Deploy Python to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
+- [Deploy Python to Container Apps](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-python-web-app-azure-container-apps-01)

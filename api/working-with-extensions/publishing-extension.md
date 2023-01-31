@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -19,14 +19,14 @@ This topic covers:
 
 ## vsce
 
-[vsce](https://github.com/microsoft/vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
+[vsce](https://github.com/microsoft/vscode-vsce), short for "Visual Studio Code Extensions", is a command-line tool for packaging, publishing and managing VS Code extensions.
 
 ### Installation
 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 
 ```bash
-npm install -g vsce
+npm install -g @vscode/vsce
 ```
 
 ### Usage
@@ -60,11 +60,17 @@ The publishing tool checks the following constraints:
 
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
+
+Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest), the extension name must be unique. You will see following error, if an extension name already exist in the Marketplace.
+
+```
+ERROR The extension 'name' already exists in the Marketplace.
+```
 
 ### Get a Personal Access Token
 
-First off, follow the documentation to [create your own organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
+First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
 
 From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
@@ -143,6 +149,17 @@ vsce unpublish (publisher name).(extension name)
 ```
 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
+
+Alternatively, you can unpublish or remove an extension from the Marketplace [Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage) page.
+
+![Remove command on the Marketplace management page context menu](images/publishing-extension/remove-extension.png)
+
+1. Click on extension **More Actions** menu button.
+2. Select **Remove**.
+
+To prevent accidental unpublishing, you must confirm the remove operation by typing the extension name in the warning dialog. Note that the remove/unpublish action is irreversible.
+
+![Remove extension warning asking to retype the extension name](images/publishing-extension/remove-warning.png)
 
 ## Deprecating extensions
 
@@ -239,6 +256,24 @@ Eligible domains meet the following criteria:
 - Your domain must use HTTPS protocol.
 - Your domain must be able to serve an HTTP 200 status response to a HEAD request.
 
+### Extension pricing label
+
+You can add a pricing label to your extension in the Marketplace to indicate that it is `FREE` or `FREE TRIAL`.
+
+As an extension author, you can opt-in to display a pricing label on your extension page by adding the `pricing` field to your `package.json`, for example:
+
+```json
+{
+  "pricing": "Free"
+}
+```
+
+The value of the `pricing` field can be either `Free` or `Trial`. Note that these values are case-sensitive.
+
+If you do not add the `pricing` field to your `package.json`, the default label will be `FREE`.
+
+>**Note:** Make sure to use the `vsce` version >= `2.10.0` when publishing your extension for the pricing label to work.
+
 ### Extension Sponsor
 
 An extension can opt-in to sponsorship by adding a `sponsor` field in its `package.json`, with the `url` field for the sponsorship link the extension author would like to use. For example:
@@ -313,7 +348,7 @@ Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for r
 
 If extension authors do not want their pre-release users to be updated to the release version, we recommend to always increment and publish a new pre-release version before publishing a release version in order to make sure that the pre-release version is always higher. Note that while pre-release users will be updated to a release version if it is higher, they still remain eligible to automatically update to future pre-releases with higher version numbers than the release version.
 
-Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `vscode.engine` value in their `package.json` to `>= 1.63.0`.
+Pre-release extensions are supported after VS Code version `1.63.0` and so all pre-release extensions needs to set `engines.vscode` value in their `package.json` to `>= 1.63.0`.
 
 > **Note:** Extensions that already have a separate stand alone pre-release extension should reach out to the VS Code team to enable the automatic uninstall of the outdated separate extension and install of the pre-release version of the main extension.
 
@@ -325,7 +360,7 @@ Starting with version 1.61.0, VS Code looks for the extension package that match
 
 Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
 
-When publishing platform-specific extensions, a separate package needs to be published for each and every platform that an extension supports. If no package has been published for a platform, the user will see the extension appear as disabled and it can not be installed.
+When publishing platform-specific extensions, a separate package needs to be published for every platform that has platform-specific content. You can still publish a package without the `--target` flag and that package will be used as a fallback for all platforms for which there is no specific platform-specific package.
 
 The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64` and `darwin-arm64`.
 
@@ -361,6 +396,10 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
+
+### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
+
+The Visual Studio Marketplace does not allow an extension package to have more than ten `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 

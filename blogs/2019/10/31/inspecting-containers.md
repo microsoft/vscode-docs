@@ -20,11 +20,11 @@ This technique allows you to inspect the container environment via the command l
 
 In this post, we'll look at how you can attach Visual Studio Code to your container so that you can use the full power of VS Code, including debugging, to inspect the container, figure out what is going wrong, and fix it.
 
-The [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), which launched in May of this year, allows you to connect your local VS Code to a container host while maintaining all of your personalized settings, themes, and key bindings.
+The [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, which launched in May of this year, allows you to connect your local VS Code to a container host while maintaining all of your personalized settings, themes, and key bindings.
 
 ## Prerequisites
 
-This blog post presumes you have [Docker Desktop](https://www.docker.com/products/docker-desktop) and [Visual Studio Code](https://code.visualstudio.com/download) installed. You will also need the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). To install the Remote - Containers extension, open the Extensions view (`kb(workbench.view.extensions)`), search for "Remote Containers", select **Install**, and restart VS Code if prompted.
+This blog post presumes you have [Docker Desktop](https://www.docker.com/products/docker-desktop) and [Visual Studio Code](https://code.visualstudio.com/download) installed. You will also need the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. To install the Dev Containers extension, open the Extensions view (`kb(workbench.view.extensions)`), search for "Dev Containers", select **Install**, and restart VS Code if prompted.
 
 ## The application
 
@@ -58,7 +58,7 @@ And, you should be able to navigate to [http://localhost:3000](http://localhost:
 
 ## Attach to the container
 
-We can now use the Remote - Containers extension to attach to our running container, inspect the environment, and debug the application.
+We can now use the Dev Containers extension to attach to our running container, inspect the environment, and debug the application.
 
 Select the Remote Explorer in the Activity Bar to see a list of running containers that you can attach to in the **Other Containers** section. Find the container we just started, it has the name 'express_server_1', and then attach to it by using the **Connect to Container** button. That container should now be displayed in the **Attached Containers** section of the Remote Explorer.
 
@@ -70,7 +70,7 @@ This will launch a new VS Code window (instance) that has the following notifica
 
 During this time, VS Code is installing an instance of the VS Code **Server** inside the container where your app is running. To see more details and progress about this installation step, you can select the **details** link that is shown in the notification. Once the VS Code server is installed, your local VS Code client will connect to the remote VS Code server. The result is your local instance of VS Code, with all your settings, themes, and key bindings, is connected to a "back-end" running inside the container alongside your application.
 
-![Remote Container architecture diagram](remote-container-architecture.png)
+![Dev Containers architecture diagram](remote-container-architecture.png)
 
 Once the connection is complete, you should have a new VS Code window with a green indicator in the bottom left that shows this instance of VS Code is running in a remote context. If you click on the indicator, you see will see a dropdown of commands relevant to the current remote context.
 
@@ -82,7 +82,7 @@ Let's go ahead and open our app by selecting the **Open Folder** button and navi
 
 Once you have opened your source folder, you'll notice that a file has been opened in your editor with the file name `express-server.json`. This name is derived from the container image name that you have attached to. In our example, docker-compose creates the image name 'express_server', which is derived from the folder name `express` and the service name `server` defined in the `docker-compose.yml` file.  This file is a configuration file associated with your image that will remember configuration settings when you attach to containers based on this image. If you don't have Auto Save on, you'll need to make sure to save this file. Now in future sessions, VS Code will reopen this source folder when you attach to this image.
 
->**Note**: You can view this file for the current remote container by running the command **Open Container Configuration File** from the Command Palette (`kb(workbench.action.showCommands)`).
+>**Note**: You can view this file for the current dev container by running the command **Open Container Configuration File** from the Command Palette (`kb(workbench.action.showCommands)`).
 
 ![express-server.json file contents](express-server-json.png)
 
@@ -96,7 +96,7 @@ For example, open `app.js`. Right click on line 8 and execute **Find All Referen
 
 ## Debug inside the container
 
-To further show how similar the remote container is to a local environment, let's attach a debugger. We started our Node app with the `–inspect` parameter in `docker-compose.yaml`, so all we have to do is attach a debugger to that process.
+To further show how similar the dev container is to a local environment, let's attach a debugger. We started our Node app with the `–inspect` parameter in `docker-compose.yaml`, so all we have to do is attach a debugger to that process.
 
 In the Command Palette (`kb(workbench.action.showCommands)`), search for and select **Debug: Attach to Node Process**. There will probably be several Node processes running inside the container. We want the process that is running our application, so select the one that shows `bin/www`.
 
@@ -112,7 +112,7 @@ Now go to [http://localhost:3000](http://localhost:3000) in your browser and see
 
 ## Install extensions
 
-Just like a normal instance of VS Code, you can install and use extensions while attached to a remote container.
+Just like a normal instance of VS Code, you can install and use extensions while attached to a dev container.
 
 Depending on the type of extension, it can either run on the client side or in the container on the remote VS Code server. Extensions that are primarily UI-based such as themes and snippets stay on the client side, while all other extensions are installed in the container. This allows you to have only the extensions you need when working in each environment while maintaining a consist UI across all environments.
 
@@ -155,11 +155,11 @@ Now you're ready to spin up another container and work on another project!
 
 ## Next steps
 
-In this blog post, we covered how you can use the Remote - Containers extension to attach to your existing containerized applications.
+In this blog post, we covered how you can use the Dev Containers extension to attach to your existing containerized applications.
 
-You can also create a [devcontainer.json](https://code.visualstudio.com/docs/remote/containers#_creating-a-devcontainerjson-file), which describes the development environment you want to create or attach to and lives with your project to share with your team members.
+You can also create a [devcontainer.json](/docs/devcontainers/containers.md#create-a-devcontainerjson-file), which describes the development environment you want to create or attach to and lives with your project to share with your team members.
 
-Other useful resources include the full [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers) documentation, [Advanced container configuration](https://code.visualstudio.com/remote/advancedcontainers/overview), and our [Introductory tutorial](https://code.visualstudio.com/docs/remote/containers-tutorial) on building isolated development environments with the Remote - Containers extension.
+Other useful resources include the full [Developing inside a Container](/docs/devcontainers/containers.md) documentation, [Advanced container configuration](/remote/advancedcontainers/overview.md), and our [Introductory tutorial](/docs/devcontainers/tutorial.md) on building isolated development environments with the Dev Containers extension.
 
 Happy Remote Coding,
 

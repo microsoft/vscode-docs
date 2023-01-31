@@ -43,9 +43,9 @@ On startup the best matching projects are loaded automatically but you can also 
 
 The available options include:
 
-* Selecting a ```project.json``` file will open a .NET project and VS Code will load that project plus the referenced projects.
-* Selecting a ```*.sln``` file opens a MSBuild-project. It will load the referenced ```*.csproj``` projects and sibling or descendant ```project.json``` files but no other project files that are referenced from the solution file.
-* Selecting a ```folder``` will make VS Code scan for ```*.sln```, ```project.json``` and ```*.csx``` files (C# scripts) and VS Code will attempt to load them all.
+* Selecting a `project.json` file will open a .NET project and VS Code will load that project plus the referenced projects.
+* Selecting a `*.sln` file opens a MSBuild-project. It will load the referenced `*.csproj` projects and sibling or descendant `project.json` files but no other project files that are referenced from the solution file.
+* Selecting a `folder` will make VS Code scan for `*.sln`, `project.json` and `*.csx` files (C# scripts) and VS Code will attempt to load them all.
 
 Once the project is loaded the enhanced experiences light up...
 
@@ -64,6 +64,16 @@ Here are a few highlights...
 IntelliSense just works: hit `kb(editor.action.triggerSuggest)` at any time to get context specific suggestions.
 
 ![IntelliSense](images/csharp/intellisense.png)
+
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/csharp/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
 
 ## Snippets for C&#35;
 

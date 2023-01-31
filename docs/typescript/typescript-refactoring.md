@@ -4,7 +4,7 @@ Area: typescript
 TOCTitle: Refactoring
 ContentId: ff7a9f28-26b2-4ac6-8c16-1a16182bb6ca
 PageTitle: TypeScript refactoring with Visual Studio Code
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Learn about TypeScript refactorings supported by Visual Studio Code.
 ---
 # Refactoring TypeScript
@@ -99,7 +99,7 @@ To disable fading out of unused code, set `"editor.showUnused"` to `false`. You 
 
 The **Organize Imports** source code action sorts the imports in a TypeScript file and removes unused imports:
 
-<video src="/docs/typescript/refactoring/organize-imports.mp4" placeholder="images/refactoring/organize-imports-placeholder.png" autoplay loop controls muted>
+<video src="images/refactoring/organize-imports.mp4" placeholder="images/refactoring/organize-imports-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 
@@ -150,7 +150,7 @@ See [TypeScript](/docs/typescript/typescript-tutorial.md) for more information.
 
 VS Code automatically suggests some common code simplifications such as converting a chain of `.then` calls on a promise to use `async` and `await`
 
-<video src="/docs/typescript/refactoring/code-suggestions-convert-async.mp4" placeholder="images/refactoring/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
+<video src="images/refactoring/code-suggestions-convert-async.mp4" placeholder="images/refactoring/code-suggestions-convert-async-placeholder.png" autoplay loop controls muted>
     Sorry, your browser doesn't support HTML 5 video.
 </video>
 

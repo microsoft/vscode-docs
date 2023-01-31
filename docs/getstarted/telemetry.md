@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Telemetry
 PageTitle: Visual Studio Code Telemetry
 ContentId: 47a2e3b1-24f2-42e6-a6e6-272c2a0f3218
-DateApproved: 8/4/2022
+DateApproved: 12/7/2022
 MetaDescription: Learn about Visual Studio Code collected telemetry and how to opt out.
 ---
 # Telemetry
@@ -52,7 +52,7 @@ Extension authors may refer to the ["For Extension Authors"](#for-extension-auth
 
 ## Output channel for telemetry events
 
-If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Set the log level to **Trace** using the **Developer: Set Log Level...** command and then in the Output panel (`kb(workbench.action.output.toggleOutput)`), pick **Log (Telemetry)** from the dropdown.
+If you'd like to review the telemetry events in VS Code as they are sent, you can enable tracing and it will record telemetry events. Using the **Developer: Set Log Level...** command and select log level **Trace**.  To view the logging output, go to the Output panel (`kb(workbench.action.output.toggleOutput)`) and pick **Telemetry** from the dropdown.
 
 ![output panel log telemetry](images/telemetry/output-log-telemetry.png)
 
@@ -82,7 +82,7 @@ One question we expect people to ask is to see the data we collect. However, we 
 
 We expect our approach to evolve as we learn more about GDPR and the expectations of our users. We greatly appreciate the data users do send to us, as it is very valuable and VS Code is a better product for everyone because of it. And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described in [disable telemetry reporting](/docs/getstarted/telemetry.md#disable-telemetry-reporting).
 
-You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
+You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://learn.microsoft.com/compliance/regulatory/gdpr-dsr-visual-studio-family).
 
 ## Managing online services
 
