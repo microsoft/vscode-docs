@@ -158,7 +158,9 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 ## Terminal accessibility
 
-Output in the Integrated Terminal can be navigated through by using the "navigation mode" commands available in the Command Palette (press `kbstyle(F1)` and search for "terminal navigation mode").
+Terminal accessibility help can be toggled via `kbstyle(Alt+F1)` which describes some useful tips when using a screen reader. One of the tips described is to use `kbstyle(Shift+Tab)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
+
+The legacy "navigation mode" allows navigating through terminal rows, press `kbstyle(F1)` and search for "terminal navigation mode" to find these command. This mode will be removed soon in favor of the new accessibility mode.
 
 ### Shell integration
 
