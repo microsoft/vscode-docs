@@ -416,6 +416,10 @@ Examples:
 }
 ```
 
+By default, actions are ordered alphabetically. To specify a different ordering, add `@` followed by the order you want to the group. For example, `navigation@3` will cause the action to show up 3rd in the `navigation` group.
+
+You can further separate items in the `...` menu by creating different groups. These group names are arbitrary and are ordered alphabetically by group name.
+
 **Note:** If you want to show an action for specific tree items, you can do so by defining the context of a tree item using `TreeItem.contextValue` and you can specify the context value for key `viewItem` in `when` expression.
 
 Examples:
