@@ -157,7 +157,7 @@ The keybindings can be flipped when accessibility mode is off with the following
 
 Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them. `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-The default keybinding for this command is `kbstyle(Ctrl+G)` as it behaves similar to the `Go to Line/Col` command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
+The default keybinding for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
 
 ## Current working directory detection
 

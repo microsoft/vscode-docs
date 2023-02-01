@@ -115,7 +115,7 @@ There are several built-in link handlers that are used in the following priority
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
-A Open Detected Link command (`kbstyle(Ctrl+Shift+O)`) can be used to access links via the keyboard:
+The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLink)`) can be used to access links via the keyboard:
 
 ![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
