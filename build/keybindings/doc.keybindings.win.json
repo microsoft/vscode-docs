@@ -1175,7 +1175,7 @@
                                         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported" },
 { "key": "ctrl+shift+up",         "command": "workbench.action.terminal.selectToPreviousCommand",
                                         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported" },
-{ "key": "shift+f1",              "command": "workbench.action.terminal.showAccessibilityHelp",
+{ "key": "alt+f1",                "command": "workbench.action.terminal.showAccessibilityHelp",
                                         "when": "terminalFocus && terminalProcessSupported" },
 { "key": "alt+z",                 "command": "workbench.action.terminal.sizeToContentWidth",
                                         "when": "terminalFocus && terminalHasBeenCreated && terminalIsOpen || terminalFocus && terminalIsOpen && terminalProcessSupported" },
