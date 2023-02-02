@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 ---
 # Remote Development Tips and Tricks
 
@@ -727,7 +727,7 @@ Just follow these steps:
 2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
-     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
     ```
 
 Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
