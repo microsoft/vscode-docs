@@ -188,7 +188,6 @@ We allow badges from the following URL prefixes:
 - docs.rs
 - flat.badgen.net
 - gemnasium.com
-- githost.io
 - github.com (from Workflows only)
 - gitlab.com
 - godoc.org
@@ -203,7 +202,6 @@ We allow badges from the following URL prefixes:
 - travis-ci.org
 - visualstudio.com
 - vsmarketplacebadges.dev
-- www.bithound.io
 - www.versioneye.com
 
 Note : Replace vsmarketplacebadge.apphb.com badge with vsmarketplacebadges.dev badge.
