@@ -67,19 +67,19 @@ Another option is to disable the auto fetch feature by changing the following se
 
 ### Why is VS Code warning me that the git repository is potentially unsafe?
 
-VS Code uses `git.exe` for executing all git operations. Starting with Git [2.35.2](https://github.blog/2022-04-18-highlights-from-git-2-36/#stricter-repository-ownership-checks), users are prevented from running git operations in a repository that is in a folder that owned by a user other than the current user as the repository is deemed to be potentially unsafe.
+VS Code uses `git.exe` for executing all Git operations. Starting with Git [2.35.2](https://github.blog/2022-04-18-highlights-from-git-2-36/#stricter-repository-ownership-checks), users are prevented from running Git operations in a repository that is in a folder that owned by a user other than the current user as the repository is deemed to be potentially unsafe.
 
 If you try to open such a repository, VS Code will show a welcome view in the Source Control view or an error notification. Both the welcome view and the notification contain the **Manage Unsafe Repositories** command that lets you review the list of potentially unsafe repositories, mark them as safe, and open them. The **Manage Unsafe Repositories** command is also available in the Command Palette (`kb(workbench.action.showCommands)`). Marking a repository as safe will add the repository location to the `safe.directory` [git configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-safedirectory).
 
 On Windows, a common scenario where this can occur is when a repository is cloned using an application (for example, Windows Terminal or VS Code) that runs "as administrator", but the repository is opened using another application or instance (for example, VS Code) that does not run "as administrator".
 
-### Why isn't VS Code discovering git repositories in parent folders of workspaces or open files?
+### Why isn't VS Code discovering Git repositories in parent folders of workspaces or open files?
 
-VS Code uses `git rev-parse --show-toplevel` to determine the root of a git repository. In most cases, the root of the git repository is inside the workspace, but there are scenarios in which the root of the git repository is in the parent folders of the workspace or the open file(s). While opening git repositories in parent folders of workspaces or open files is a great feature for advanced users, it can be confusing for new users. We have seen cases in which this confusion resulted in discarding changes from these git repositories resulting in data loss.
+VS Code uses `git rev-parse --show-toplevel` to determine the root of a Git repository. In most cases, the root of the Git repository is inside the workspace, but there are scenarios where the root of the Git repository is in the parent folders of the workspace or the open file(s). While opening Git repositories in parent folders of workspaces or open files is a great feature for advanced users, it can be confusing for new users. We have seen cases where this confusion resulted in discarding changes from these Git repositories causing data loss.
 
-To avoid confusion, and to reduce the risk of data loss, starting VS Code 1.75 released in January 2023, VS COde will display a notification and a new welcome view in the "Source Control" view, and will not automatically open git repositories from the parent folders of workspaces and open files.
+To avoid confusion, and to reduce the risk of data loss, VS Code will display a notification and a new welcome view in the Source Control view, and will not automatically open Git repositories from the parent folders of workspaces and open files.
 
-Users can control how git repositories from parent folders are being handled using the `git.openRepositoryInParentFolders` setting. Users who would like to restore the old behavior can set the `git.openRepositoryInParentFolders` setting to `always`.
+You can control how Git repositories from parent folders are handled using the `git.openRepositoryInParentFolders` setting. If you would like to restore the old behavior, set the `git.openRepositoryInParentFolders` setting to `always`.
 
 ### Can I use SSH Git authentication with VS Code?
 
