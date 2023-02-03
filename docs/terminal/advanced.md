@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Advanced
 ContentId: D458AFDC-C001-43FD-A4BB-9474767B2C04
 PageTitle: Advanced Terminal Usage in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: Visual Studio Code's integrated terminal has several advanced features.
 ---
 # Terminal Advanced
@@ -43,7 +43,7 @@ The configurable `terminal.integrated.commandsToSkipShell` setting determines wh
 
 Look at the `terminal.integrated.commandsToSkipShell` setting details to see the complete list of default commands.
 
->**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell. Note that this will disable keybindings like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#_find) though.
+>**Tip:** `terminal.integrated.sendKeybindingsToShell` can be configured to override `terminal.integrated.commandsToSkipShell` and dispatch most keybindings to the shell. Note that this will disable keybindings like `kbstyle(Ctrl+F)` to open [find](/docs/terminal/basics#find) though.
 
 ### Chords
 
@@ -120,6 +120,10 @@ The terminal can automatically provide a configurable input response to the shel
 Notice that the `\r` character used here means `kbstyle(Enter)`, and much like [custom sequence keybindings](#custom-sequence-keybindings), this feature supports sending escape sequences to the shell.
 
 No auto replies are configured by default as providing shell input should be an explicit action or configuration by the user.
+
+## Change tab stop width
+
+The `terminal.integrated.tabStopWidth` setting allows configuring the tab stop width when a program running in the terminal outputs `\t`. This should typically not be needed as programs will often move the cursor instead of using the `kbstyle(Tab)` character, but may be useful in some situations.
 
 ## Unicode and emoji support
 

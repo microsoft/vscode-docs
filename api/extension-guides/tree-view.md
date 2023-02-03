@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 9b10cda2-4eb0-4989-8f82-23a46b96c1bb
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to using Tree View in Visual Studio Code extension (plug-in).
@@ -415,6 +415,10 @@ Examples:
   }
 }
 ```
+
+By default, actions are ordered alphabetically. To specify a different ordering, add `@` followed by the order you want to the group. For example, `navigation@3` will cause the action to show up 3rd in the `navigation` group.
+
+You can further separate items in the `...` menu by creating different groups. These group names are arbitrary and are ordered alphabetically by group name.
 
 **Note:** If you want to show an action for specific tree items, you can do so by defining the context of a tree item using `TreeItem.contextValue` and you can specify the context value for key `viewItem` in `when` expression.
 
