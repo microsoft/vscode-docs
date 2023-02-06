@@ -62,7 +62,7 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
 
-Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest), the extension name must be unique. You will see following error, if an extension name already exist in the Marketplace.
+Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest) and [extension displayName](/api/references/extension-manifest). The extension name and extension displayName must be unique. You will see following error, if an extension name already exist in the Marketplace.
 
 ```
 ERROR The extension 'name' already exists in the Marketplace.
@@ -91,7 +91,7 @@ Select **Create** and you'll be presented with your newly created Personal Acces
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
+You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). Note the publisher name and publisher display name must be unique. You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
 
 Test your publisher's personal access token using [`vsce`](#vsce), while at the same time storing it for later usage:
 
@@ -246,6 +246,8 @@ To verify a publisher:
 5. Select **Verify** to validate that the TXT record has been successfully added.
 
 Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+Note: Any changes in the publisher display name would revoke the verified badge.
 
 ### Eligible domains
 
