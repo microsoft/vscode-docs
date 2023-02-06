@@ -451,8 +451,8 @@ const panel = vscode.window.createWebviewPanel(
     vscode.ViewColumn.One);
 
 // Get the content Uri
-const catGifUri = panel.webview.asWebviewUri(vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')));;
+const catGifUri = panel.webview.asWebviewUri(
+    vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif'));
 
 // Reference it in your content
 panel.webview.html = `<!DOCTYPE html>
