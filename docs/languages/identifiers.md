@@ -83,7 +83,7 @@ HTML | `html`
 Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
-JavaScript React | `javascriptreact`
+JavaScript JSX | `javascriptreact`
 JSON | `json`
 JSON with Comments | `jsonc`
 LaTeX | `latex`
@@ -111,7 +111,7 @@ SQL | `sql`
 Stylus | `stylus`
 Swift | `swift`
 TypeScript | `typescript`
-TypeScript React | `typescriptreact`
+TypeScript JSX | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
 Vue | `vue`
