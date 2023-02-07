@@ -66,7 +66,7 @@ If you'd like to view all the possible telemetry events that VS Code could send,
 
 For example, running `code --telemetry > telemetry.json && code telemetry.json` will create a `telemetry.json` file in your current working directory and then open it in VS Code. You cannot pipe the output like this, `code --telemetry | code -`, due to the length of the telemetry report.
 
-The section below details the event metadata used to classify the telemetry, describe its purpose, and indicate any special handling.
+The sections below detail the event metadata used to classify the telemetry, describe its purpose, and indicate any special handling.
 
 ### Event classification
 
