@@ -32,7 +32,7 @@ Not | `!` | `!editorReadonly`
 Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
-In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)
+In | `in` | `resourceFilename in supportedFolders` ([details](#in-and-not-in-conditional-operators) below)
 
 ### key-value when clause operator
 
