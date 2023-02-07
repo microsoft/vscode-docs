@@ -93,8 +93,6 @@ The `endpoint` field describes what data handler the data is sent to. This is no
 * `MacAddressHash` - Used to identify a user of VS Code. This is hashed once on the client side and then hashed again on the pipeline side to make it impossible to identify a given user. On [VS Code for the Web](/docs/editor/vscode-web.md), a UUID is generated for this case.
 * `none` - Data does not require any special handling.
 
-The `isMeasurement` boolean value (default `false`) indicates that the value is calculated at runtime.
-
 ## GDPR and VS Code
 
 In addition to supporting the General Data Protection Regulation (GDPR), the VS Code team takes privacy very seriously. That's both for Microsoft as a company and specifically within the VS Code team.
