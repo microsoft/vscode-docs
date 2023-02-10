@@ -324,17 +324,13 @@ When hovering over a fixture reference or a parameterized argument reference, Py
 
 ![Pylance type inference based on the types of arguments passed to the paramaterization decorator.](/docs/python/images/testing/pytest-inferred-parametrized-argument.png)
 
-
 Pylance also offers [code actions](/docs/editor/refactoring.md#code-actions--quick-fixes-and-refactorings) to add type annotation to test functions that has  fixture parameters.  Inlay hints for inferred fixture parameter types can also be enabled by setting `python.analysis.inlayHints.pytestParameters` to `true` in your User settings.
 
 ![Code action to add type annotation when hoving over a test function with a fixture parameter](/docs/python/images/testing/pytest-annotation-code-action.png)
 
-
-
 ## Test configuration settings
 
 The behavior of testing with Python is driven by general UI settings provided by VS Code, and settings that are specific to Python and to whichever framework you've enabled.
-
 
 ### General UI settings
 
