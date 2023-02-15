@@ -167,6 +167,10 @@ For example, you may want to pre-build a number of images that you then reuse ac
 
 Given Dockerfiles and Docker Compose files can be used without VS Code or the `devcontainer` CLI, you may want to let users know that they should not try to build the image directly. You may learn more in the [advanced dev container documentation](/remote/advancedcontainers/reduce-docker-warnings.md#avoiding-problems-with-images-built-using-docker).
 
+## Templates and Features
+
+You can work with dev container [Templates](https://containers.dev/implementors/templates/) and [Features](https://containers.dev/implementors/features/) using the dev container CLI. As you create and use Templates, you may want to publish them for others, which you may learn more about in the [dev container spec](https://containers.dev/implementors/templates-distribution/).
+
 ## Feedback
 
 The dev container CLI and specification are under active development and we welcome your feedback, which you can provide in [this issue](https://github.com/devcontainers/cli/issues/7), or through new issues and pull requests in the [devcontainers/cli](https://github.com/devcontainers/cli) repository.
