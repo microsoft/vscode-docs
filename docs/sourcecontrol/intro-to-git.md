@@ -69,7 +69,7 @@ To commit your staged changes, type a commit message and select the **Commit** b
 
 Once you have made commits to your local Git repository, you can push them to the remote repository. The **Sync** button will indicate how many commits are going to be pushed and pulled. selecting **Sync** button will download (pull) any new remote commits and upload (push) new local commits to the remote repository.
 
-(todo: Add screenshot for sync)
+![Sync button with one change to push](images/intro/sync.png)
 
 > Tip: Make sure to enable **Git: Autofetch** to always get an up-to-date remote commit indicators.
 
@@ -77,19 +77,19 @@ Once you have made commits to your local Git repository, you can push them to th
 
 ## Using branches
 
-In Git, branches allow you to work on multiple versions of your codebase simultaneously. This is useful for experimenting with new features or making large code changes without affecting the main codebase.
+In Git, [branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) allow you to work on multiple versions of your codebase simultaneously. This is useful for experimenting with new features or making large code changes without affecting the main codebase.
 
-(todo: Add screenshot for branch indicator)
+![Branch indicator in the status bar](images/intro/branch-indicator.png)
 
 The branch dropdown in the status bar shows the current branch and lets you switch to new and existing branches. To create a new branch, select the branch indicator and choose to create it from the current branch or another local one. Type a name for the new branch, and confirm. This will create a new branch and switch you to it, allowing you to make changes to your code without affecting the main branch.
 
-> Tip: If you use the GitHub Pull Request extension you can create a branch directly from an issue, which get you started coding in a new new local branch and automatically prefill the pull request for you.
+> **Tip:** If you use the GitHub Pull Request extension you can create a branch directly from an issue, which get you started coding in a new new local branch and automatically prefill the pull request for you.
 
 To push the branch to the remote repository, select **Publish** in the **Source Control** tab. This will create a new branch on the remote repository, allowing you to collaborate with others on the branch.
 
 ### Creating and reviewing GitHub Pull Requests
 
-In Git and GitHub, Pull Requests (PRs) are a way for collaborators to review and merge code changes from separate branches into the main branch. This allows teams to review and approve code changes before they are incorporated into the main codebase, ensuring that only high-quality code is merged.
+In Git and GitHub, [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) are a way for collaborators to review and merge code changes from separate branches into the main branch. This allows teams to review and approve code changes before they are incorporated into the main codebase, ensuring that only high-quality code is merged.
 
 To use Pull Requests in VS Code, you will need to install the [GitHub Pull Request & Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. This extension adds PR and issue tracking functionality to VS Code, allowing you to create, review, and merge PRs from within the editor.
 
