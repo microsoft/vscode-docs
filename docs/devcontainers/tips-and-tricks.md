@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Dev Containers Tips and Tricks
 ContentId: c4784db6-ab00-4ac7-bca8-88edb638c593
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for Dev Containers
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 ---
 # Dev Containers Tips and Tricks
 
@@ -259,12 +259,12 @@ See the [Advanced container configuration](/remote/advancedcontainers/overview.m
 * [Changing or removing the default source code mount](/remote/advancedcontainers/change-default-source-mount.md)
 * [Improving container disk performance](/remote/advancedcontainers/improve-performance.md)
 * [Adding a non-root user to your dev container](/remote/advancedcontainers/add-nonroot-user.md)
-* [Avoiding extension reinstalls on container rebuild](/remote/advancedcontainers/avoid-extension-reinstalls.md)
 * [Setting the project name for Docker Compose](/remote/advancedcontainers/set-docker-compose-project-name.md)
 * [Using Docker or Kubernetes from inside a container](/remote/advancedcontainers/use-docker-kubernetes.md)
 * [Connecting to multiple containers at once](/remote/advancedcontainers/connect-multiple-containers.md)
 * [Developing inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md)
 * [Reducing Dockerfile build warnings](/remote/advancedcontainers/reduce-docker-warnings.md)
+* [Sharing git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md)
 
 ## Extension tips
 

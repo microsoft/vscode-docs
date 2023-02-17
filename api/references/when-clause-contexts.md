@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -32,7 +32,7 @@ Not | `!` | `!editorReadonly`
 Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
-In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)
+In | `in` | `resourceFilename in supportedFolders` ([details](#in-and-not-in-conditional-operators) below)
 
 ### key-value when clause operator
 
@@ -59,14 +59,14 @@ Context name | True when
 `editorHasSelection` | Text is selected in the editor.
 `editorHasMultipleSelections` | Multiple regions of text are selected (multiple cursors).
 `editorReadonly` | The editor is read only.
-`editorLangId` | True when the editor's associated [language ID](/docs/languages/identifiers) matches. Example: `"editorLangId == typescript"`.
+`editorLangId` | True when the editor's associated [language ID](/docs/languages/identifiers) matches.<br>Example: `"editorLangId == typescript"`.
 `isInDiffEditor` | The active editor is a difference editor.
 `isInEmbeddedEditor` | True when the focus is inside an embedded editor.
 **Operating system contexts** |
-`isLinux` | True when the OS is Linux
-`isMac` | True when the OS is macOS
-`isWindows` | True when the OS is Windows
-`isWeb` | True when accessing the editor from the Web
+`isLinux` | True when the OS is Linux.
+`isMac` | True when the OS is macOS.
+`isWindows` | True when the OS is Windows.
+`isWeb` | True when accessing the editor from the Web.
 **List contexts** |
 `listFocus` | A list has focus.
 `listSupportsMultiselect` | A list supports multi select.
@@ -77,15 +77,15 @@ Context name | True when
 `inSnippetMode` | The editor is in snippet mode.
 `inQuickOpen` | The Quick Open dropdown has focus.
 **Resource contexts** |
-`resourceScheme` | True when the resource Uri scheme matches. Example: `"resourceScheme == file"`
-`resourceFilename` | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
-`resourceExtname` | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
-`resourceDirname` | True when the Explorer or editor's resource absolute folder path matches. Example: `"resourceDirname == /users/alice/project/src"`
-`resourcePath` | True when the Explorer or editor's resource absolute path matches. Example: `"resourcePath == /users/alice/project/gulpfile.js"`
-`resourceLangId` | True when the Explorer or editor title [language ID](/docs/languages/identifiers) matches. Example: `"resourceLangId == markdown"`
-`isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled  from a file system provider
-`resourceSet` | True when an Explorer or editor file is set
-`resource` | The full Uri of the Explorer or editor file
+`resourceScheme` | True when the resource Uri scheme matches.<br>Example: `"resourceScheme == file"`
+`resourceFilename` | True when the Explorer or editor filename matches.<br>Example: `"resourceFilename == gulpfile.js"`
+`resourceExtname` | True when the Explorer or editor filename extension matches.<br>Example: `"resourceExtname == .js"`
+`resourceDirname` | True when the Explorer or editor's resource absolute folder path matches.<br>Example: `"resourceDirname == /users/alice/project/src"`
+`resourcePath` | True when the Explorer or editor's resource absolute path matches.<br>Example: `"resourcePath == /users/alice/project/gulpfile.js"`
+`resourceLangId` | True when the Explorer or editor title [language ID](/docs/languages/identifiers) matches.<br>Example: `"resourceLangId == markdown"`
+`isFileSystemResource` | True when the Explorer or editor file is a file system resource that can be handled from a file system provider.
+`resourceSet` | True when an Explorer or editor file is set.
+`resource` | The full Uri of the Explorer or editor file.
 **Explorer contexts** |
 `explorerViewletVisible` | True if Explorer view is visible.
 `explorerViewletFocus` | True if Explorer view has keyboard focus.
@@ -104,10 +104,10 @@ Context name | True when
 `parameterHintsVisible` | Parameter hints are visible (controlled by `editor.parameterHints.enabled` setting).
 `parameterHintsMultipleSignatures` | Multiple parameter hints are displayed.
 **Debugger contexts** |
-`debuggersAvailable` | An appropriate debugger extension is available
+`debuggersAvailable` | An appropriate debugger extension is available.
 `inDebugMode` | A debug session is running.
-`debugState` | Active debugger state. Possible values are `inactive`, `initializing`, `stopped`, `running`.
-`debugType` | True when debug type matches. Example: `"debugType == 'node'"`.
+`debugState` | Active debugger state.<br>Possible values are `inactive`, `initializing`, `stopped`, `running`.
+`debugType` | True when debug type matches.<br>Example: `"debugType == 'node'"`.
 `inDebugRepl` | Focus is in the Debug Console REPL.
 **Integrated terminal contexts** |
 `terminalFocus` | An integrated terminal has focus.
@@ -115,10 +115,10 @@ Context name | True when
 **Timeline view contexts** |
 `timelineFollowActiveEditor` | True if the Timeline view is following the active editor.
 **Timeline view item contexts** |
-`timelineItem` | True when the timeline item's context value matches. Example: `"timelineItem =~ /git:file:commit\\b/"`.
+`timelineItem` | True when the timeline item's context value matches.<br>Example: `"timelineItem =~ /git:file:commit\\b/"`.
 **Extension contexts** |
-`extension` | True when the extension's ID matches. Example: `"extension == eamodio.gitlens"`.
-`extensionStatus` | True when the extension is installed. Example: `"extensionStatus == installed"`.
+`extension` | True when the extension's ID matches.<br>Example: `"extension == eamodio.gitlens"`.
+`extensionStatus` | True when the extension is installed.<br>Example: `"extensionStatus == installed"`.
 `extensionHasConfiguration` | True if the extension has configuration.
 **Global UI contexts** |
 `notificationFocus` | Notification has keyboard focus.
@@ -133,8 +133,9 @@ Context name | True when
 `workbenchState` | Can be `empty`, `folder` (1 folder), or `workspace`.
 `workspaceFolderCount` | Count of workspace folders.
 `replaceActive` | Search view Replace text box is open.
-`view` | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
-`viewItem` | True when viewItem context matches. Example:  `"viewItem == someContextValue"`.
+`view` | For `view/title` and `view/item/context`, the view to display the command in.<br>Example: `"view == myViewsExplorerID"`.
+`viewItem` | For `view/item/context`, the `contextValue` from the tree item.<br>Example:  `"viewItem == someContextValue"`.
+`webviewId` | For `webview/context`, the webview ID to display the command in.<br>Example: `"webviewId == catCoding"`.
 `isFullscreen` | True when window is in fullscreen.
 `focusedView` | The identifier of the currently focused view.
 `canNavigateBack` | True if it is possible to navigate back.
@@ -146,7 +147,7 @@ Context name | True when
 `editorIsOpen` | True if one editor is open.
 `groupEditorsCount` | Number of editors in a group.
 `activeEditorGroupEmpty` | True if the active editor group has no editors.
-`activeEditorGroupIndex` | A number starting from `1` reflecting the position of an editor group in the editor grid. The group with index `1` will be the first in the top-left corner.
+`activeEditorGroupIndex` | A number starting from `1` reflecting the position of an editor group in the editor grid.<br>The group with index `1` will be the first in the top-left corner.
 `activeEditorGroupLast` | Will be `true` for the last editor group in the editor grid.
 `multipleEditorGroups` | True when multiple editor groups are present.
 `activeEditor` | The identifier of the active editor in a group.
@@ -159,34 +160,61 @@ Context name | True when
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
-## Active/focused view or panel when clause context
+## Visible/focused view when clause context
 
-You can have a when clause that checks if a specific view or panel is visible.
+You can have a when clause that checks if a specific [View](/api/ux-guidelines/views) is visible or focused.
 
 Context name | True when
 ------------ | ------------
-activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
-activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
-focusedView | True when view is focused. Example: `"focusedView == myViewsExplorerID"`
+`view.${viewId}.visible` | True when specific view is visible.<br>Example: `"view.workbench.explorer.fileView.visible"`
+focusedView | True when specific view is focused.<br>Example: `"focusedView == 'workbench.explorer.fileView'"`
 
-View Identifiers:
+View identifiers:
+
+* workbench.explorer.fileView - File Explorer
+* workbench.explorer.openEditorsView - Open Editors
+* outline - Outline view
+* timeline - Timeline view
+* workbench.scm - Source Control
+* workbench.scm.repositories - Source Control Repositories
+* workbench.debug.variablesView - Variables
+* workbench.debug.watchExpressionsView - Watch
+* workbench.debug.callStackView - Call Stack
+* workbench.debug.loadedScriptsView - Loaded Scripts
+* workbench.debug.breakPointsView - Breakpoints
+* workbench.debug.disassemblyView - Disassembly
+* workbench.views.extensions.installed - Installed extensions
+* extensions.recommendedList - Recommended extensions
+* workbench.panel.markers.view - Problems
+* workbench.panel.output - Output
+* workbench.panel.repl.view - Debug Console
+* terminal - Integrated Terminal
+* workbench.panel.comments - Comments
+
+## Visible view container when clause context
+
+You can have a when clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
+
+Context name | True when
+------------ | ------------
+activeViewlet | True when view container is visible in the sidebar.<br>Example: `"activeViewlet == 'workbench.view.explorer'"`
+activePanel | True when view container is visible in the panel.<br>Example: `"activePanel == 'workbench.panel.output'"`
+activeAuxiliary | True when view container is visible in the secondary sidebar.<br>Example: `"activeAuxiliary == 'workbench.view.debug'"`
+
+View container identifiers:
 
 * workbench.view.explorer - File Explorer
 * workbench.view.search - Search
 * workbench.view.scm - Source Control
 * workbench.view.debug - Run
 * workbench.view.extensions - Extensions
-
-Panel Identifiers:
-
 * workbench.panel.markers - Problems
 * workbench.panel.output - Output
 * workbench.panel.repl - Debug Console
 * terminal - Integrated Terminal
 * workbench.panel.comments - Comments
-* workbench.view.search - Search when `search.location` is set to `panel`
 
-If you want a when clause that is enabled only when a specific view or panel has focus, use `sideBarFocus` or `panelFocus` in combination with `activeViewlet` or `activePanel`.
+If you want a when clause that is enabled only when a specific view container has focus, use `sideBarFocus` or `panelFocus` or `auxiliaryBarFocus` in combination with `activeViewlet` or `activePanel` or `activeAuxiliary`.
 
 For example, the when clause below is true only when the File Explorer has focus:
 

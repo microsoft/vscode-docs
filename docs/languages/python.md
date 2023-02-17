@@ -52,13 +52,25 @@ IntelliSense quickly shows methods, class members, and documentation as you type
 
 > **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
 
+## Enhance completions with AI
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/python/copilot-extension.png)
+
+GitHub Copilot provides suggestions for numerous languages and a wide variety of frameworks, and it works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++.
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
 ## Linting
 
 Linting analyzes your Python code for potential errors, making it easy to navigate to and correct different problems.
 
 The Python extension can apply a number of different linters including Pylint, pycodestyle, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
-<video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python linting video">
+  <source src="/docs/languages/python/python-linting.mp4" type="video/mp4">
+</video>
 
 ## Debugging
 
@@ -66,7 +78,9 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md). The [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials also demonstrate debugging in the context of those web apps, including debugging Django page templates.
 
-<video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
+<video autoplay loop muted playsinline controls title="Python debugging video">
+  <source src="/docs/languages/python/python-debugging.mp4" type="video/mp4">
+</video>
 
 ## Environments
 

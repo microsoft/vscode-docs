@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -62,7 +62,7 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
 
-Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest), the extension name must be unique. You will see following error, if an extension name already exist in the Marketplace.
+Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest) and [extension displayName](/api/references/extension-manifest). The extension name and extension displayName must be unique. You will see following error, if an extension name already exist in the Marketplace.
 
 ```
 ERROR The extension 'name' already exists in the Marketplace.
@@ -91,7 +91,7 @@ Select **Create** and you'll be presented with your newly created Personal Acces
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
+You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). The publisher name and publisher display name must be unique. You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
 
 Test your publisher's personal access token using [`vsce`](#vsce), while at the same time storing it for later usage:
 
@@ -149,6 +149,17 @@ vsce unpublish (publisher name).(extension name)
 ```
 
 > **Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
+
+Alternatively, you can unpublish or remove an extension from the Marketplace [Manage Publishers & Extensions](https://marketplace.visualstudio.com/manage) page.
+
+![Remove command on the Marketplace management page context menu](images/publishing-extension/remove-extension.png)
+
+1. Click on extension **More Actions** menu button.
+2. Select **Remove**.
+
+To prevent accidental unpublishing, you must confirm the remove operation by typing the extension name in the warning dialog. Note that the remove/unpublish action is irreversible.
+
+![Remove extension warning asking to retype the extension name](images/publishing-extension/remove-warning.png)
 
 ## Deprecating extensions
 
@@ -235,6 +246,8 @@ To verify a publisher:
 5. Select **Verify** to validate that the TXT record has been successfully added.
 
 Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+**Note**: Any changes to the publisher display name will revoke the verified badge.
 
 ### Eligible domains
 
@@ -385,6 +398,10 @@ Managing multiple platform-specific VSIXs might get overwhelming, so we suggest 
 - [Bundling Extensions](/api/working-with-extensions/bundling-extension) - Improve load times by bundling your extension files with webpack.
 
 ## Common questions
+
+### I get a "You exceeded the number of allowed tags of 10" error when I try to publish my extension?
+
+The Visual Studio Marketplace does not allow an extension package to have more than ten `keywords` in the `package.json`. Keep the number of keywords/tags to less than 10 to avoid this error.
 
 ### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 

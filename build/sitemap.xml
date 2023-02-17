@@ -226,6 +226,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/editor/artificial-intelligence</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/editor/vscode-web</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -636,6 +641,16 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/datascience/notebooks-web</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/datascience/jupyter-kernel-management</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/java/java-tutorial</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -1003,7 +1018,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://code.visualstudio.com/remote/advancedcontainers/avoid-extension-reinstalls</loc>
+        <loc>https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

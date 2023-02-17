@@ -1,10 +1,10 @@
 ---
-Order: 20
+Order: 21
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -29,7 +29,7 @@ When you adjust the zoom level with the **View** > **Zoom In / Out** commands, t
 
 ## High Contrast theme
 
-We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
+We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Theme* > **Color Theme** (`kb(workbench.action.selectTheme)`) to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
 ![High Contrast Theme](images/accessibility/high-contrast.png)
 
@@ -39,7 +39,7 @@ You can search for extensions in **Visual Studio Marketplace** that are compatib
 
 ![Visual Studio Marketplace in VS Code UI](images/accessibility/accessibility-extension-marketplace.png)
 
-Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Color Theme** (**Code** > **Preferences** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
+Once you have installed a color theme from the Marketplace, you can change the [color theme](/docs/getstarted/themes.md) with **File** > **Preferences** > **Theme** > **Color Theme** (**Code** > **Preferences** > **Theme** > **Color Theme** on macOS) `kb(workbench.action.selectTheme)`.
 
 ![Dropdown for Select Color Theme](images/accessibility/accessibility-select-theme.png)
 
@@ -158,7 +158,13 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 ## Terminal accessibility
 
-Output in the Integrated Terminal can be navigated through by using the "navigation mode" commands available in the Command Palette (press `kbstyle(F1)` and search for "terminal navigation mode").
+Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.enterAccessibilityMode)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
+
+The legacy "navigation mode" allows navigating through terminal rows, press `kbstyle(F1)` to open the Command Palette and search for "terminal navigation mode" to find these commands. This mode will be removed soon in favor of the new accessibility mode.
+
+### Shell integration
+
+The terminal has a feature called [shell integration](/docs/terminal/shell-integration.md) that enables many additional features that are not found in other terminals. When using a screen reader, the [Run Recent Command](/docs/terminal/shell-integration.md#run-recent-command) and [Go to Recent Directory](/docs/terminal/shell-integration.md#go-to-recent-directory) features are particularly useful.
 
 ### Minimum contrast ratio
 

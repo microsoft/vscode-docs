@@ -1,25 +1,25 @@
 ---
-Order: 10
+Order: 11
 Area: editor
 TOCTitle: VS Code for the Web
 ContentId: d665a790-1da1-4f45-bc0f-c09822528e55
 PageTitle: Visual Studio Code for the Web
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: Visual Studio Code for the Web and the vscode.dev URL
 ---
 # Visual Studio Code for the Web
 
 Visual Studio Code for the Web provides a free, zero-install Microsoft Visual Studio Code experience running entirely in your browser, allowing you to quickly and safely browse source code repositories and make lightweight code changes. To get started, go to **[https://vscode.dev](https://vscode.dev)** in your browser.
 
-VS Code for the Web has many of the features of VS Code desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos (in preview), you can also work with code that is stored on your local machine.
+VS Code for the Web has many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing, along with extension support to work on your codebase and make simpler edits. In addition to opening repositories, forks, and pull requests from source control providers like GitHub and Azure Repos (in preview), you can also work with code that is stored on your local machine.
 
 VS Code for the Web runs entirely in your web browser, so there are certain limitations compared to the desktop experience, which you can read more about [below](#limitations).
 
-## Relationship to VS Code desktop
+## Relationship to VS Code Desktop
 
-VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, or you want to use platform features such as a terminal, we recommend moving your work to the desktop application or [GitHub Codespaces](https://github.com/features/codespaces) for the full capabilities of VS Code. In addition, VS Code desktop lets you run extensions that aren't supported in the web version, and use a full set of keyboard shortcuts not limited by your browser.
+VS Code for the Web provides a browser-based experience for navigating files and repositories and committing lightweight code changes. However, if you need access to a runtime to run, build, or debug your code, or you want to use platform features such as a terminal, we recommend moving your work to the desktop application or [GitHub Codespaces](https://github.com/features/codespaces) for the full capabilities of VS Code. In addition, VS Code Desktop lets you run extensions that aren't supported in the web version, and use a full set of keyboard shortcuts not limited by your browser.
 
-When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code desktop experience with a few clicks.
+When you're ready to switch, you'll be able to ["upgrade"](#continue-working-in-a-different-environment) to the full VS Code Desktop experience with a few clicks.
 
 You can also switch between the Stable and Insiders versions of VS Code for the Web by selecting the gear icon, then **Switch to Insiders Version...**, or by navigating directly to [https://insiders.vscode.dev](https://insiders.vscode.dev).
 
@@ -47,9 +47,9 @@ GitHub Repositories is the core component that provides the ability to remotel
 
 Rather than cloning your work, GitHub Repositories creates a virtual file system to access repositories and pull requests, allowing you to become productive quickly without needing to pull code onto your local machine. You can learn more about the extension in our [GitHub Repositories](/docs/sourcecontrol/github.md#github-repositories-extension) guide.
 
->**Note**: The GitHub Repositories extension works in VS Code desktop as well to provide fast repository browsing and editing.
+>**Note**: The GitHub Repositories extension works in VS Code Desktop as well to provide fast repository browsing and editing.
 
-You can create a new file in the web just as you would in a desktop VS Code environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
+You can create a new file in the web just as you would in a VS Code Desktop environment, using **File** > **New File** from the Command Palette (`kbstyle(F1)`).
 
 ## Azure Repos (preview)
 
@@ -181,6 +181,7 @@ Certain keybindings may also work differently in the web.
 | `kb(workbench.action.files.newUntitledFile)` for new file doesn't work in web. | `kb(workbench.action.files.newUntitledFile)` opens a new window instead. <br> As a workaround, you can use `kbstyle(Ctrl+Alt+N)` (`kbstyle(Cmd+Alt+N)` on macOS). |
 | `kb(workbench.action.closeActiveEditor)` for closing an editor doesn't work in web. | `kb(workbench.action.closeActiveEditor)` closes the current tab in browsers. <br> As a workaround, you can use `kbstyle(Ctrl+Shift+Alt+N)` (`kbstyle(Cmd+Shift+Alt+N)` on macOS). |
 | `kb(workbench.action.tasks.build)` will not toggle the favorites bar in the browser. | VS Code for the Web overrides this and redirects to the "Build" menu in the Command Palette. |
+| `kbstyle(Alt+Left)` and `kbstyle(Alt+Right)` should navigate within the editor but may incorrectly trigger tab history navigation. | If focus is outside the editor, these shortcuts trigger tab history navigation instead. |
 
 ## Additional browser setup
 

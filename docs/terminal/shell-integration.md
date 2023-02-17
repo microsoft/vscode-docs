@@ -4,7 +4,7 @@ Area: terminal
 TOCTitle: Shell Integration
 ContentId: a6a1652b-c0d8-4054-a2da-feb915eef2cc
 PageTitle: Terminal Shell Integration in Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: Visual Studio Code's embedded terminal can integrate with some shells to enhance the capabilities of the terminal.
 ---
 
@@ -118,6 +118,7 @@ Here are some of the built-in Quick Fixes:
 - When `git push` fails due to an upstream not being set, suggest to push with the upstream set.
 - When a `git` subcommand fails with a similar command error, suggest to use the similar command(s).
 - When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
+- When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
 The Quick Fix feature also supports [audio cues](/docs/editor/accessibility.md#audio-cues) for additional feedback when a Quick Fix is available.
 
@@ -134,7 +135,9 @@ Some other functionality of the command:
 - `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 - The amount of history stored in the previous session section is determined by the `terminal.integrated.shellIntegration.history` setting.
 
-There is currently no keybinding assigned by default but you can add your own keyboard shortcut. For example, the below replaces `kbstyle(Ctrl+R)` with `runRecentCommand`, with `kbstyle(Ctrl+Alt+R)` available to fallback to the shell's regular behavior:
+The default keybinding for this command is `kbstyle(Ctrl+Alt+R)`. However, when accessibility mode is on these are reversed; `kbstyle(Ctrl+R)` runs a recent command and `kbstyle(Ctrl+Alt+R)` sends Ctrl+R to the shell.
+
+The keybindings can be flipped when accessibility mode is off with the following keybindings:
 
 ```jsonc
 {
@@ -142,32 +145,19 @@ There is currently no keybinding assigned by default but you can add your own ke
     "command": "workbench.action.terminal.runRecentCommand",
     "when": "terminalFocus"
 },
-// Allow ctrl+r again to go to the next command in the quick pick
-{
-  "key": "ctrl+r",
-  "command": "workbench.action.quickOpenNavigateNextInViewPicker",
-  "when": "inQuickOpen && inTerminalRunCommandPicker"
-},
-// Fallback to the shell's native ctrl+r
 {
   "key": "ctrl+alt+r",
   "command": "workbench.action.terminal.sendSequence",
   "args": { "text": "\u0012"/*^R*/ },
   "when": "terminalFocus"
-},
-// Have ctrl+c close the quick pick
-{
-  "key": "ctrl+c",
-  "command": "workbench.action.closeQuickOpen",
-  "when": "inQuickOpen && inTerminalRunCommandPicker"
 }
 ```
 
 ## Go to recent directory
 
-Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them.
+Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them. `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-`kbstyle(Alt)` can be held to write the text to the terminal without running it.
+The default keybinding for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
 
 ## Current working directory detection
 

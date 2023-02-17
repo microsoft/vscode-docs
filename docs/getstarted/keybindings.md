@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -410,6 +410,8 @@ Navigate Editor Group History|`kb(workbench.action.quickOpenPreviousRecentlyUsed
 Go Back|`kb(workbench.action.navigateBack)`|`workbench.action.navigateBack`
 Go back in Quick Input|`kb(workbench.action.quickInputBack)`|`workbench.action.quickInputBack`
 Go Forward|`kb(workbench.action.navigateForward)`|`workbench.action.navigateForward`
+Focus Breadcrumbs|`kb(breadcrumbs.focus)`|`breadcrumbs.focus`
+Focus and Select Breadcrumbs|`kb(breadcrumbs.focusAndSelect)`|`breadcrumbs.focusAndSelect`
 
 ### Editor/Window Management
 

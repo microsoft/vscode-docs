@@ -66,6 +66,7 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | importFormat | `absolute`| Defines the default format when auto importing modules. Accepted values are `absolute` or `relative`. |
 | inlayHints.variableTypes | false | Whether to display inlay hints for variable types. Accepted values are `true` or `false`. |
 | inlayHints.functionReturnTypes | false |  Whether to display inlay hints for function return types.  Accepted values are `true` or `false`. |
+| inlayHints.pytestParameters | false | Whether to display inlay hints for pytest fixture argument types. Accepted values are `true` or `false`. |
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. <br> For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). <br> For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
 
 **Diagnostic severity rules**
@@ -85,7 +86,7 @@ This section details all the available rules that can be customized using the `p
 | --- | ---|
 | reportGeneralTypeIssues | Diagnostics for general type inconsistencies, unsupported operations, argument/parameter mismatches, etc. This covers all of the basic type-checking rules not covered by other rules. It does not include syntax errors.  |
 | reportPropertyTypeMismatch | Diagnostics for properties where the type of the value passed to the setter is not assignable to the value returned by the getter. Such mismatches violate the intended use of properties, which are meant to act like variables. |
-| reportPropertyTypeMismatch | Diagnostics for member accesses on functions.  |
+| reportFunctionMemberAccess | Diagnostics for member accesses on functions.  |
 | reportMissingImports | Diagnostics for imports that have no corresponding imported python file or type stub file.  |
 | reportMissingModuleSource | Diagnostics for imports that have no corresponding source file. This happens when a type stub is found, but the module source file was not found, indicating that the code may fail at runtime when using this execution environment. Type checking will be done using the type stub. |
 | reportMissingTypeStubs | Diagnostics for imports that have no corresponding type stub file (either a typeshed file or a custom type stub). The type checker requires type stubs to do its best job at analysis. |

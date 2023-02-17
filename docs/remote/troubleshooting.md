@@ -5,7 +5,7 @@ TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 ---
 # Remote Development Tips and Tricks
 
@@ -674,7 +674,7 @@ In a Windows command prompt:
 
 The core file will be in the WSL extension folder from above.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace
+### I see EACCES: permission denied error trying to rename a folder in the open workspace
 
 This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
 
@@ -714,7 +714,7 @@ Finally, you may need to clone the repository again for these settings to take e
 
 ### Sharing Git credentials between Windows and WSL
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
 
 Just follow these steps:
 
@@ -727,7 +727,7 @@ Just follow these steps:
 2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
-     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
     ```
 
 Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
@@ -798,7 +798,7 @@ If you are trying to connect to a localhost port from an external application, t
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
-**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**Resolution:** Extensions can use the `context.globalStorageUri` or `context.storageUri` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 

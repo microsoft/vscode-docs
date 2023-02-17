@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Visual Studio Code on Windows
@@ -103,3 +103,9 @@ Using the Registry Editor (regedit):
 3. Find the `.svg` key.
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit `regedit`.
+
+### Unable to run as admin when AppLocker is enabled
+
+With the introduction of process sandboxing (discussed in this [blog post](https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox)) running as administrator is currently unsupported when AppLocker is configured due to a limitation of the runtime sandbox. If your work requires that you run VS Code from an elevated terminal, you can launch `code` with `--no-sandbox --disable-gpu-sandbox` as a workaround.
+
+Subscribe to [issue #122951](https://github.com/microsoft/vscode/issues/122951) to receive updates.

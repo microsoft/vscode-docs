@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Webview API to create fully customizable views within Visual Studio Code.
@@ -438,7 +438,6 @@ Imagine that we want to start bundling the cat gifs into our extension rather pu
 
 ```ts
 import * as vscode from 'vscode';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -451,9 +450,7 @@ export function activate(context: vscode.ExtensionContext) {
       );
 
       // Get path to resource on disk
-      const onDiskPath = vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')
-      );
+      const onDiskPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif');
 
       // And get the special URI to use with the webview
       const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
@@ -489,7 +486,6 @@ We can use `localResourceRoots` to restrict **Cat Coding** webviews to only load
 
 ```ts
 import * as vscode from 'vscode';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -501,14 +497,12 @@ export function activate(context: vscode.ExtensionContext) {
         {
           // Only allow the webview to access resources in our extension's media directory
           localResourceRoots: [
-            vscode.Uri.file(path.join(context.extensionPath, 'media'))
+            vscode.Uri.joinPath(context.extensionPath, 'media')
           ]
         }
       );
 
-      const onDiskPath = vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')
-      );
+      const onDiskPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif');
       const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
 
       panel.webview.html = getWebviewContent(catGifSrc);
