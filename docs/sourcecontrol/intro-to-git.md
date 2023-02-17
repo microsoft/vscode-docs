@@ -1,21 +1,21 @@
 # Intro Git in Visual Studio Code
 
 ## Introduction
-Git and GitHub are powerful tools for managing code, collaborating with others, and keeping track of changes to your codebase. Whether you're new to coding or a seasoned professional, learning how to set up Git and GitHub in VS Code is a valuable skill to have.
-
-VS Code's intuitive UI makes it easy for beginners to understand and perform common Git actions, such as pulling from and pushing to a remote repository, creating and merging branches, and staging and committing code changes. For seasoned professional, the ability to perform Git actions directly in the editor saves time and effort compared to using the Terminal. The integrated nature of VS Code's Git features also allows for a seamless workflow, without the need to switch between the editor and the Terminal.
+Want to easily manage your code and collaborate with others? Git and GitHub are the tools you need! And with VS Code, you can set up and use them in a snap. Even if you're a beginner, VS Code's user-friendly interface will guide you through common Git actions like pushing and pulling code, creating and merging branches, and committing code changes. And if you're a pro, you'll love the ability to perform Git actions directly within the editor, saving you time and effort compared to using the Terminal. Plus, the seamless workflow between VS Code and Git means you can stay in your editor and get more done.
 
 ## Setup Git in VS Code
 
-To use Git and GitHub in VS Code, first make sure you have Git installed on your computer. If Git is missing the *Source Control* tab will show instructions on how to install it. Make sure to restart VS Code afterwards.
+To use Git and GitHub in VS Code, first make sure you [have Git installed on your computer](https://git-scm.com/downloads). If Git is missing the *Source Control* tab will show instructions on how to install it. Make sure to restart VS Code afterwards.
 
-(Todo: Clarify authentication setup for GitHub from within VS Code)
+Optionally you can sign into VS Code with your GitHub account in the **Accounts** menu to enables additional features like settings sync, but also cloning and publishing repositories from GitHub.
 
 ## Open a Git repository
 
-VS Code provides several ways to get started in a Git repository.
+VS Code provides several ways to get started in a Git repository, from local to remote cloud-powered environments like GitHub Codespaces.
 
-### Clone a repository
+### Clone a repository locally
+
+![Screenshot of the Clone Repository quick prompt, searching fot repositories with the name vscode](images/intro/github-clone.png)
 
 To clone a repository from GitHub, execute the **Git: Clone** command or select the **Clone Repository** button in the **Source Control** view. If you clone from GitHub, VS Code will prompt you to authenticate with GitHub. This will allow you to search all available repositories and clone private repositories. For other Git providers enter the repository URL and select **Clone** and pick a folder. VS Code will open it once the repository has been cloned.
 
@@ -27,15 +27,17 @@ To initialize a new local repository, pick an existing or new folder on your com
 
 Once you have a local Git repository set up, you can publish it to GitHub. This will create a new repository on your GitHub account, and push your local code to the remote repository. It is great for backing up your code, collaborating with others, and automating your workflow with GitHub Actions.
 
-Use the **Publish to GitHub** command or the **Publish Repository** button in the **Source Control** tab. This will prompt you to authenticate with GitHub. You can then choose a name and description for the repository, and whether to make it public or private. Once the repository has been created, VS Code will push your local code to the remote repository.
+![Source Control view for a workspace without git will offer to Initialize a Git repo or Publish to GitHub](images/intro/scm-init-publish.png)
+
+Use the **Publish to GitHub** command button in the **Source Control** tab. You can then choose a name and description for the repository, and whether to make it public or private. Once the repository has been created, VS Code will push your local code to the remote repository. Your code is now backed up on GitHub, and you can start collaborating with others with commits and pull requests.
 
 ### Open a GitHub repository in a Codespace
 
-Codespaces let you to open a GitHub repository in a full configured cloud-based development environment, allowing you to develop in a browser without having to install any software on your local computer. They include free usage for individuals which makes it easy to getting started in open source.
+GitHubCodespaces let you open a GitHub repository in a full configured cloud-based development environment, allowing you to develop in a browser without having to install any software on your local computer. They include free usage for individuals which makes it easy to getting started in open source.
 
 Install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension into VS Code and sign in with GitHub. Run the **Codespaces: Create New Codespace** command and pick the repository and branch you want to open. The Codespace will open in a new window.
 
-(Todo: Add video loop)
+![Creating a Codespace from a repo within desktop VS Code](images/intro/codespace-create.png)
 
 Alternatively, you can also start from a template from the [GitHub's Codespaces site](https://github.com/codespaces/templates). If you already have a Codespace open in your browser, you can open it in your Desktop VS Code by running the **Codespaces: Open in VS Code Desktop** command. Learn more about Codespaces to forwarding ports.
 
@@ -45,25 +47,23 @@ VS Code remote repositories allows you to browse and edit a GitHub repository wi
 
 First install the the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension. Run the command **Remote Repositories: Open Remote Repository...** or use the **Open Remote Repository** button the Explorer view. Search and select the GitHub repository that you want to open.
 
-(Todo: Add screenshot)
+![Remote Repositories opening a remote GitHub repo, pull request or Azure repo](images/intro/remote-repo.png)
 
-Browse, search, and edit files as you would in a local repository. Commit from the *Source Control* will go directly be integrated to the remote repository. The remote repository can not execute any code or run terminal commands.
-
-(Todo: Link to further docs on remote repositories)
+> **Tip:** If you need to execute code or run terminal commands, you can seamlessly switch from a remote repository to a Codespace with the command **Continue Working on**.
 
 ## Staging and committing code changes
 
 Once you have a Git repository set up, you can start tracking code changes by staging and committing your newly created and edited code.
 
-Tip: Commit early and often. This will make it easier to revert to previous versions of your code if needed.
+![Source Control view with one file staged and other changes, a diff showing in the editor that highlights the changes](images/intro/scm-staging.png)
 
-(Todo: Add screenshot for staging and committing)
+> **Tip:** Commit early and often. This will make it easier to revert to previous versions of your code if needed.
 
 To stage a file, select the **+** (plus) icon next to the file in the **Source Control** tab. This will add the file to the **Staged Changes** section, indicating that it will be included in the next commit. Staged changes can also be discarded by selecting the **−** (minus) icon next to the file.
 
-To commit your staged changes, type a commit message and select the **Commit** button. This will save your changes to the local Git repository, allowing you to revert to previous versions of your code if needed. All file changes and commits are shown in the **Timeline** section.
+To commit your staged changes, type a commit message and select the **Commit** button. This will save your changes to the local Git repository, allowing you to revert to previous versions of your code if needed. All local file changes and commits can be navigated in the **Timeline** section.
 
-(Todo: Add screenshot for timeline)
+![Timeline view with one item selected and its change being shown in the editor](images/intro/timeline.png)
 
 ## Pushing and pulling remote changes
 
