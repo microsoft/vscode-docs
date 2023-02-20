@@ -718,8 +718,8 @@ In addition, your language server needs to respond to the `textDocument/formatti
 ```typescript
 class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
     provideDocumentFormattingEdits(
-        document: TextDocument, options: FormattingOptions, token: CancellationToken)
-        : ProviderResult<TextEdit[]> {
+        document: vscode.TextDocument, options: vscode.FormattingOptions, token: vscode.CancellationToken)
+        : vscode.ProviderResult<vscode.TextEdit[]> {
     ...
     }
 }
@@ -770,7 +770,7 @@ class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProv
     public provideDocumentRangeFormattingEdits(
         document: vscode.TextDocument, range: vscode.Range,
         options: vscode.FormattingOptions, token: vscode.CancellationToken):
-        Thenable<vscode.TextEdit[]> {
+        vscode.ProviderResult<vscode.TextEdit[]> {
     ...
     }
 }
@@ -826,7 +826,7 @@ class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
     public provideOnTypeFormattingEdits(
         document: vscode.TextDocument, position: vscode.Position,
         ch: string, options: vscode.FormattingOptions, token: vscode.CancellationToken):
-        Thenable<vscode.TextEdit[]> {
+        vscode.ProviderResult<vscode.TextEdit[]> {
     ...
     }
 }
