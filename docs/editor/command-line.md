@@ -73,6 +73,14 @@ Argument|Description
 
 ![go to line and column](images/command-line/goto-line-column.png)
 
+## Select a profile
+
+You can launch VS Code with a specific [profile](/docs/editor/profiles.md) via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
+
+`code ~/projects/web-sample --profile "Web Development"`
+
+If the profile specified does not exist, a new empty profile with the given name is created.
+
 ## Working with extensions
 
 You can install and manage VS Code [extensions](/docs/editor/extension-marketplace.md) from the command line.

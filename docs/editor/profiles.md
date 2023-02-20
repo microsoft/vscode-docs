@@ -21,7 +21,7 @@ To create a new profile, you can use the **File** > **Preferences** > **Profiles
 
 You can create a new profile based on the current profile (**Profiles: Create from Current Profiles**) or create an Empty Profile. An Empty Profile includes no user customizations (settings, extensions, snippets, etc.) but with the UI state (view layouts and sizing) preserved.
 
-You can also access the Profile command memu via the **Manage** gear button in the lower right of the Activity bar.
+You can also access the Profile command menu via the **Manage** gear button in the lower right of the Activity bar.
 
 ![Create Profile command via the Manage button in the Activity bar](images/profiles/create-profile-via-manage.png)
 
@@ -55,9 +55,9 @@ TBD ![alt](https://) that shows the Activity bar icon
 
 A profile can include:
 
-* Settings
-* Extensions
-* UI state
+* Settings - Referenced by your user and profile `settings.json` file.
+* Extensions - You can remove extensions from the profile by unchecking their entry in the Profiles view.
+* UI state - Current opens views and their layout.
 * Keybindings
 * Snippets
 * User Tasks
@@ -72,21 +72,36 @@ As GitHub gist or local file
 
 ## Uses for Profiles
 
+todo@isidorn
+
 ### Programming Languages
 
 Per workspace
+Also web development (front end versus back end)
 
 ### Demos
 
+Simple without extra extensions or customizations
+Back to a default layout
+Also good for documentation screenshots
+Can use larger font size for presenting
+
 ### Education
+
+Simplified layout and settings (autosave enabled) and just the extensions needed for a class
 
 ### Testing
 
+Set up a specific repro or configuration without modifying your work setup
+"Oops" profile to put your setup back to a known state
+
 ## Command line
 
-launch with an existing profile
+You can launch VS Code with a specific profile via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
 
-launch and create an empty profile
+`code ~/projects/web-sample --profile "Web Development"`
+
+If the profile specified does not exist, a new empty profile with the given name is created.
 
 ## Common Questions
 
@@ -94,7 +109,7 @@ launch and create an empty profile
 
 Roaming
 
-### Why is the UI State globalState.json file?
+### Where is the UI State globalState.json file?
 
 In memory JSON rendering of the profile global state database.
 
