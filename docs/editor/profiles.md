@@ -39,9 +39,13 @@ The current profile name is displayed in several places in the VS Code UI:
 
 If you are still using the Default Profile, no profile name is displayed.
 
+### Rename a profile
+
+You can rename an existing profile via the **Rename** command in the Profiles menu.
+
 ### Delete a profile
 
-You can delete a profile via the **Delete Profile** command where you can either name the profile to delete or select multiple profiles from the drop down.
+You can delete a profile via the **Delete Profile** command. The **Delete Profile** drop down lets you select which profile(s) to delete.
 
 ### Workspace Associations
 
@@ -66,9 +70,31 @@ A profile can include:
 
 ### Export
 
-As GitHub gist or local file
+brings up Profiles view with **Export** button
+**Show Contents** always has **Export** button
+select which types of customizations to Export
+as GitHub gist or local file
+
+`https://vscode.dev/profile/github/57638f9b18434187e355c9eb0afa28f8` GitHub Gist
+
+Marked as **Secret**, only those with the link can see the gist
+
+URL brings up vscode.dev with Profiles view open
+
+cloud button to **Install Extensions** (does all)
+**Import Profile** button
+**Import Profile in Visual Studio Code** button
+
+https://gist.github.com/username to see your Gists
+
+local file, you get to choose where to place the file
+
+Profile has extension `.code-profile`
 
 ### Import
+
+Provide URL for gist or select file for local
+Profiles view will show current profile details (with Export) and imported profile (with Import)
 
 ## Uses for Profiles
 
@@ -107,7 +133,13 @@ If the profile specified does not exist, a new empty profile with the given name
 
 ### Where are profiles kept?
 
-Roaming
+Profiles are stored under your User configurations similar to your user settings and keybindings.
+
+* **Windows** `%APPDATA%\Code\User\profiles`
+* **macOS** `$HOME/Library/Application\ Support/Code/User/profiles`
+* **Linux** `$HOME/.config/Code/User/profiles`
+
+If you are using the [Insiders](/insiders) version, the intermediate folder name will be `Code - Insiders`.
 
 ### Where is the UI State globalState.json file?
 
@@ -115,7 +147,9 @@ In memory JSON rendering of the profile global state database.
 
 ### What is a Temporary Profile?
 
-Non-persisted profile that only lasts for the VS Code session.
+A Temporary Profile is a profile that is not saved across VS Code sessions. You create a Temporary Profile via the **Profiles: Create a Temporary Profile** command in the Command Palette. The Temporary Profile starts as an Empty Profile and has an automatically generated name (such as **Temp 1**). You can modify the profile settings and extensions, use the profile for the lifetime of your VS Code session, but it will be deleted once you close VS Code.
+
+Temporary Profiles are useful if you want to try a new configuration or test an extension without modifying your default or existing profiles. Restarting VS Code will reenable the current profile for your workspace.
 
 ### How can I remove the profile from my project?
 
@@ -123,4 +157,6 @@ You can set you project back to the Default Profile. If you'd like to remove all
 
 ### Do profiles sync across machines (via Settings Sync)?
 
-Or do you need to Export and Import?
+Yes, you can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles will be available.
+
+![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
