@@ -98,28 +98,15 @@ Profiles view will show current profile details (with Export) and imported profi
 
 ## Uses for Profiles
 
-todo@isidorn
+Profiles are a great way to customize VS Code to better fit your needs. In this section we'll look at some common use cases for profiles.
 
-### Programming Languages
+Since profiles are rememberd per workspace they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings and customisations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings and customisations you use for Python development active in another workspace. Using this approach you can easily switch between workspaces and always have VS Code configured the right way.
 
-Per workspace
-Also web development (front end versus back end)
-
-### Demos
-
-Simple without extra extensions or customizations
-Back to a default layout
-Also good for documentation screenshots
-Can use larger font size for presenting
+When doing a demo, you can use a profile to set up a specific configuration for your demo. For example, you can create a profile with a specific set of extensions and settings like zoom level, font size, and color theme. By doing this, a demo will not mess up your normal VS Code setup.
 
 ### Education
 
-Simplified layout and settings (autosave enabled) and just the extensions needed for a class
-
-### Testing
-
-Set up a specific repro or configuration without modifying your work setup
-"Oops" profile to put your setup back to a known state
+Profiles can be used to customise VS Code for students to ease the use in a classroom setting. Profiles allow educators to quickly share a customised VS Code setup with students. For example, educators can create a profile with a specific set of extensions and settings needed for a computer science class and then share that profile with students.
 
 ## Command line
 
