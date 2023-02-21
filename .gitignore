@@ -8,3 +8,5 @@ node_modules
 
 *.sublime-project
 *.sublime-workspace
+
+build/imagemin/already-minified.json
