@@ -147,3 +147,7 @@ You can set you project back to the Default Profile. If you'd like to remove all
 Yes, you can use [Settings Sync](/docs/editor/settings-sync.md) to move your profiles across various machines. With Setting Sync enabled and **Profiles** checked in the **Settings Sync: Configure** drop down, all your created profiles will be available.
 
 ![Settings Sync data drop down with Profiles checked](images/profiles/settings-sync-profiles.png)
+
+### Why are some settings not exported when exporting a profile?
+
+When exporting profiles we do not include machine specific settings because these setting would most likely not work on another machine. For example, settings that point to local paths.
