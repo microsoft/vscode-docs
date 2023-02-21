@@ -1,6 +1,13 @@
-# Intro Git in Visual Studio Code
+---
+Order: 2
+Area: sourcecontrol
+TOCTitle: Intro to Git
+PageTitle: Intro to Git
+DateApproved: 2/21/2023
+MetaDescription: Get started with Git and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
+---
+# Intro to Git in Visual Studio Code
 
-## Introduction
 Want to easily manage your code and collaborate with others? Git and GitHub are the tools you need! And with VS Code, you can set up and use them in a snap. Even if you're a beginner, VS Code's user-friendly interface will guide you through common Git actions like pushing and pulling code, creating and merging branches, and committing code changes. And if you're a pro, you'll love the ability to perform Git actions directly within the editor, saving you time and effort compared to using the Terminal. Plus, the seamless workflow between VS Code and Git means you can stay in your editor and get more done.
 
 ## Setup Git in VS Code
@@ -71,7 +78,7 @@ Once you have made commits to your local Git repository, you can push them to th
 
 ![Sync button with one change to push](images/intro/sync.png)
 
-> Tip: Make sure to enable **Git: Autofetch** to always get an up-to-date remote commit indicators.
+> **Tip:** Make sure to enable **Git: Autofetch** to always get an up-to-date remote commit indicators.
 
  Push and pull can also be performed individually by using their respective commands.
 
@@ -98,3 +105,17 @@ To create a PR, make sure you are on a separate branch from the main branch, and
 To review a PR, select the **Review Pull Request** button in the **Source Control** tab, and select the PR you want to review. This will open the PR in a new editor window, where you can review the code changes and leave comments. Once you are satisfied with the code changes, you can select the **Merge** button to merge the PR into the main branch.
 
 Learn more about Pull Requests in the [VS Code's GitHub documentation](https://code.visualstudio.com/docs/sourcecontrol/github).
+
+## Using Git in the built-in terminal
+
+As Git state is kept in the local repository you can easily switch between VS Code's UI, the [built-in terminal](/docs/editor/integrated-terminal), or external tools like [GitHub Desktop](https://desktop.github.com/). Related, you can also set up [VS Code as your default Git editor](/docs/sourcecontrol/overview#_vs-code-as-git-editor), allowing you to use VS Code to edit commit messages and other Git-related files.
+
+### Git Bash on Windows
+
+Git Bash is a popular shell environment for Windows that provides a Unix-like command-line interface for working with Git and other command-line tools. Visual Studio Code's integrated terminal supports Git Bash as a shell, allowing you to seamlessly integrate Git Bash into your development workflow. Installing Git on your Windows machine will also install Git Bash if it wasn't deselected during the installation steps.
+
+![Selecting Git Bash as shell in Visual Studio Code's built-in terminal](images/intro/git-bash.png)
+
+ Start by opening **View** > **Terminal** (`kb(workbench.action.terminal.toggleTerminal)`). Click on the dropdown arrow next to the `+` icon in the terminal panel to pick a new shell to open. If Git Bash is installed, it will be shown in the list. You can toggle between different terminals and shells in the Terminal sidebar. With Git Bash configured in Visual Studio Code, you can now use all of your favorite Git commands directly from the terminal in your code editor.
+
+ If you want to set Git Bash as your default shell, open the Terminal dropdown (next to the `+` icon) and select **Select Default Shell**. This will open a list of available shells, including Git Bash. Selecting Git Bash will set it as your default shell, and all future terminals will be opened with Git Bash. More advanced tips can be found in the [terminal documentation](/docs/editor/integrated-terminal).
