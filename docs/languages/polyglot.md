@@ -11,7 +11,7 @@ Notebooks are interactive files that allow the mixing of executable code, visual
 
 ## Polyglot Notebooks
 
-When polyglot programming meets notebooks, you get Polyglot Notebooks! As opposed to traditional notebooks that are typically used with Python, the [Polyglot Notebooks Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) allows you to use multiple programming languages natively all in the same notebook! No more needing
+When polyglot programming meets notebooks, you get Polyglot Notebooks! As opposed to traditional notebooks that are typically used with Python, the [Polyglot Notebooks Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) allows you to use multiple programming languages natively all in the same notebook! No more needing wrapper libraries or magic commands to work with your favorite languages in the same notebook!
 
 ![Polyglot Notebooks](images/polyglot/polyglot_ext.png)
 
