@@ -50,6 +50,15 @@ jobs:
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
+  - task: npmAuthenticate@0
+    inputs:
+      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
+      displayName: Setup NPM Authentication
+
+  - script: npm install
+      displayName: Install Dist dependencies
+      workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
+
   - task: CodeQL3000Finalize@0
     displayName: CodeQL Finalize
     condition: eq(variables['Codeql.enabled'], 'True')
