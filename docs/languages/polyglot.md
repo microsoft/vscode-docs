@@ -13,7 +13,7 @@ Notebooks are interactive files that allow the mixing of executable code, visual
 
 When polyglot programming meets notebooks, you get Polyglot Notebooks! As opposed to traditional notebooks that are typically used with Python, the [Polyglot Notebooks Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) allows you to use multiple programming languages natively all in the same notebook! No more needing wrapper libraries or magic commands to work with your favorite languages in the same notebook!
 
-![Polyglot Notebooks](images/polyglot/polyglot_ext.png)
+![Polyglot Notebooks Extension](images/polyglot/polyglot_ext.png)
 
 ### Languages Supported
 - C#
@@ -61,16 +61,16 @@ notebook`, select `.ipynb`, and select the language you'd like to start with.
 
     You can also create a notebook by creating a new file and giving it the extension `.ipynb`. In this case, make sure that .NET Interactive is selected as the kernel of the notebook in the top right.
 
-![](images/polyglot/kernel_picker.png)
+![Kernel Picker](images/polyglot/kernel_picker.png)
 
 
 2. By default, added cells will be the same language as the cell above it. To change the language, click the language picker in the bottom right of the cell.
 
-![](images/polyglot/language_picker.png)
+![Cell Language Picker](images/polyglot/language_picker.png)
 
 3. Get coding!
 
-![](images/polyglot/polyglot_nb_example.png)
+![Example of Polyglot Notebook](images/polyglot/polyglot_nb_example.png)
 
 ## Working with Data
 
@@ -79,7 +79,7 @@ Connect to and query Microsoft SQL Server databases and Kusto clusters.
 To get more detailed instructions on connecting to and working with data sources, visit our [Working with Data documentation](https://github.com/dotnet/interactive/blob/main/docs/working-with-data.md).
 
 
-![](images/polyglot/SQL_connection_example.png)
+![Connecting to SQL Example](images/polyglot/SQL_connection_example.png)
 
 ## Language Server Support
 
