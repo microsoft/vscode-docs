@@ -56,8 +56,8 @@ jobs:
       displayName: Setup NPM Authentication
 
   - script: npm install
-      displayName: Install Dist dependencies
-      workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
+    displayName: Install Dist dependencies
+    workingDirectory: $(Pipeline.Workspace)/vscode-website/dist
 
   - task: CodeQL3000Finalize@0
     displayName: CodeQL Finalize
