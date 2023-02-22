@@ -93,7 +93,7 @@ The branch indicator in the Status bar shows the current branch and lets you swi
 
 > **Tip:** If you use the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create a branch directly from an issue, which gets you started working in a new local branch and automatically prefills the pull request for you.
 
-To push the branch to the remote repository, select **Publish** in the **Source Control** view. This will create a new branch on the remote repository, allowing you to collaborate with others in that branch.
+To push the branch to the remote repository, select **Publish Branch** in the **Source Control** view. This will create a new branch on the remote repository, allowing you to collaborate with others in that branch.
 
 ### Creating and reviewing GitHub pull requests
 
