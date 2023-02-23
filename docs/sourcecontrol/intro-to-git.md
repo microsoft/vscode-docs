@@ -1,13 +1,13 @@
 ---
 Order: 2
 Area: sourcecontrol
-TOCTitle: Intro to Git
+TOCTitle: Introduction to Git
 ContentId: b3e4717d-81e2-4bfa-a022-c37aab950bce
-PageTitle: Intro to Git in Visual Studio Code
+PageTitle: Introduction to Git in Visual Studio Code
 DateApproved: 2/21/2023
 MetaDescription: Get started with Git in Visual Studio Code and take control of your code! Our beginner's guide covers everything you need to know, from setting up a repository to committing changes and collaborating with others. Learn Git today and streamline your development workflow.
 ---
-# Intro to Git in Visual Studio Code
+# Introduction to Git in VS Code
 
 Want to easily manage your source code and collaborate with others? Git and GitHub are the tools you need! And with Visual Studio Code, you can set up and use them in a snap. Even if you're a beginner, VS Code's user-friendly interface guides you through common Git actions like pushing and pulling code, creating and merging branches, and committing code changes. And if you're a pro, you'll love the ability to perform Git actions directly within the editor, saving you time and effort compared to using the Git command line. Plus, the seamless workflow between VS Code and Git means you can stay in your editor and get more done.
 
@@ -47,7 +47,7 @@ Install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemN
 
 ![Creating a codespace from a repo within VS Code Desktop](images/intro/codespace-create.png)
 
-Alternatively, you can also start with a template from the [GitHub's Codespaces site](https://github.com/codespaces/templates). If you already have a codespace open in your browser, you can open it in your VS Code Desktop by running the **Codespaces: Open in VS Code Desktop** command. You can learn more about GitHub Codespaces, including customization such as forwarding ports, in the [Developing in a codespace](https://docs.github.com/codespaces/developing-in-codespaces/developing-in-a-codespace) documentation.
+Alternatively, you can also start with a template from the [GitHub's Codespaces site](https://github.com/codespaces/templates). If you already have a codespace open in your browser, you can open it in your VS Code Desktop by running the **Codespaces: Open in VS Code Desktop** command. You can learn more about GitHub Codespaces, including customization such as forwarding ports, in the [Developing in a codespace](https://docs.github.com/codespaces/developing-in-codespaces/developing-in-a-codespace?tool=vscode) documentation.
 
 ### Open a GitHub repository remotely
 
@@ -91,7 +91,7 @@ In Git, [branches](https://docs.github.com/pull-requests/collaborating-with-pull
 
 The branch indicator in the Status bar shows the current branch and lets you switch to new and existing branches. To create a new branch, select the branch indicator and choose to create it from the current branch or another local one. Type a name for the new branch, and confirm. VS Code creates a new branch and switches to it, allowing you to make changes to your code without affecting the main branch.
 
-> **Tip:** If you use the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create a branch directly from an issue, which gets you started working in a new local branch and automatically prefills the pull request for you.
+> **Tip:** If you use the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, you can create a branch directly from an issue, which gets you started working in a new local branch and automatically prefills the pull request for you.
 
 To push the branch to the remote repository, select **Publish Branch** in the **Source Control** view. This will create a new branch on the remote repository, allowing you to collaborate with others in that branch.
 
@@ -99,7 +99,7 @@ To push the branch to the remote repository, select **Publish Branch** in the **
 
 In Git and GitHub, [pull requests (PRs)](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) are a way for collaborators to review and merge code changes from separate branches into the main branch. This allows teams to review and approve code changes before they are incorporated into the main codebase, ensuring that only high-quality changes are merged.
 
-To use pull requests in VS Code, you need to install the [GitHub Pull Request and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. This extension adds PR and issue tracking functionality to VS Code, allowing you to create, review, and merge PRs from within the editor.
+To use pull requests in VS Code, you need to install the [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension. This extension adds PR and issue tracking functionality to VS Code, allowing you to create, review, and merge PRs from within the editor.
 
 To create a PR, make sure you are on a separate branch from the main branch, and push your code changes to the remote repository. In the **Source Control** view, select the **Create Pull Request** button. This will open the PR creation form, where you can enter a title and description for the PR, and choose which branch to merge the changes into. Select **Create** to create the PR.
 
