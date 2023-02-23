@@ -92,11 +92,11 @@ Use `kbstyle(Tab)` to accept the suggestion.
 
 ### Alternative and partial solutions
 
-For any given input, GitHub Copilot may offer multiple suggestions. When Copilot offers a suggestion, you can hover over the suggestion to see the GitHub Copilot command palette for choosing suggestions:
+For any given input, GitHub Copilot may offer multiple suggestions. When Copilot offers a suggestion, you can hover over the suggestion to see the inline suggestion toolbar for choosing suggestions:
 
 ![JavaScript ghost text suggestion](images/artificial-intelligence/copilot-hover-highlight.png)
 
-In the image above, Copilot presents 3 suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `Ctrl + ->`.
+In the image above, Copilot presents 3 suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `Ctrl + ->`. You can switch between suggestions in the toolbar, or us3e the keybinding `editor.action.inlineSuggest.showNext`.
 
 ## Additional resources
 
