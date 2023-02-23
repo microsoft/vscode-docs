@@ -48,11 +48,11 @@ jobs:
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - script: run-pwsh.cmd $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - script: run-pwsh.cmd $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
