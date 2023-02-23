@@ -8,7 +8,7 @@ jobs:
 - job:
   displayName: ${{ parameters.jobDisplayName }}
   pool:
-    type: linux
+    type: windows
 
   variables:
     ob_outputDirectory: '$(Pipeline.Workspace)/vscode-website/dist'
@@ -38,22 +38,23 @@ jobs:
       versionFilePath: $(Pipeline.Workspace)/vscode-website/.nvmrc
       checkLatest: true
 
+  - task: npmAuthenticate@0
+    displayName: Setup NPM Authentication
+    inputs:
+      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
+      customEndpoint: website npm feed
+
   - script: npm install
     displayName: Install dependencies
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - pwsh: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-dist-setup.ps1
     displayName: Build Dist Setup
     workingDirectory: $(Pipeline.Workspace)/vscode-website
 
-  - pwsh: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
+  - powershell: $(Pipeline.Workspace)/vscode-website/scripts/ci-build-artifact-from-website.ps1
     displayName: Rebuild Dist From Website
     workingDirectory: $(Pipeline.Workspace)/vscode-website
-
-  - task: npmAuthenticate@0
-    inputs:
-      workingFile: $(Pipeline.Workspace)/vscode-website/server/.npmrc
-      displayName: Setup NPM Authentication
 
   - script: npm install
     displayName: Install Dist dependencies
