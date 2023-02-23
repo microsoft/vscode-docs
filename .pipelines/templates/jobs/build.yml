@@ -8,7 +8,7 @@ jobs:
 - job:
   displayName: ${{ parameters.jobDisplayName }}
   pool:
-    type: linux
+    type: windows
 
   variables:
     ob_outputDirectory: '$(Pipeline.Workspace)/vscode-website/dist'
