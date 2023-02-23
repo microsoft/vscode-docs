@@ -96,7 +96,7 @@ For any given input, GitHub Copilot may offer multiple suggestions. When Copilot
 
 ![JavaScript ghost text suggestion](images/artificial-intelligence/copilot-hover-highlight.png)
 
-In the image above, Copilot presents 3 suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `Ctrl + ->`. You can switch between suggestions in the toolbar, or us3e the keybinding `editor.action.inlineSuggest.showNext`.
+In the image above, Copilot presents 3 suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `Ctrl + ->`. You can switch between suggestions in the suggestion toolbar, or use the keybinding `editor.action.inlineSuggest.showNext` instead.
 
 ## Additional resources
 
