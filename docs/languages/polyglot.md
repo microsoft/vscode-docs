@@ -5,7 +5,7 @@
 Polyglot programming is the practice of using multiple programming languages to leverage the strength of each language for different tasks.
 
 ## What are Notebooks?
-Notebooks are interactive files that allow the mixing of executable code, visualizations, equations and narrative text. Notebooks are composed of code cells that make it easy to quickly iterate on code. Created and popularized by the open-source project [Jupyter](https://jupyter.org/), they have become the de facto tool for data science and a great resource for teaching or learning a new programming language and quick prototyping.
+Notebooks are interactive files that allow the mixing of executable code, visualizations, equations and narrative text. Notebooks are composed of code cells that make it easy to quickly iterate on code. Popularized by the open-source project [Jupyter](https://jupyter.org/), they have become the de facto tool for data science and a great resource for teaching or learning a new programming language and quick prototyping.
 
 
 
