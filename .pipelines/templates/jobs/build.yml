@@ -14,6 +14,7 @@ jobs:
     ob_outputDirectory: '$(Pipeline.Workspace)/vscode-website/dist'
     ob_artifactSuffix: ${{ parameters.jobDisplayName }}
     ob_git_path: vscode-website/vscode-docs
+    ob_sdl_codeSignValidation_excludes: -|**\*.js
 
   steps:
   - download: ${{ parameters.artifactName }}
