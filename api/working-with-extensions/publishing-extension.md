@@ -85,7 +85,7 @@ Select **Create** and you'll be presented with your newly created Personal Acces
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/api/references/extension-manifest).
 
-You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
+You can create a new publisher through the Visual Studio Marketplace publisher [management page](https://marketplace.visualstudio.com/manage). The publisher name and publisher display name must be unique. You need to login in with the same Microsoft account you used to create the [Personal Access Token](/api/working-with-extensions/publishing-extension#get-a-personal-access-token) in the previous section.
 
 Test your publisher's personal access token using [`vsce`](#vsce), while at the same time storing it for later usage:
 
@@ -240,6 +240,8 @@ To verify a publisher:
 5. Select **Verify** to validate that the TXT record has been successfully added.
 
 Once your TXT record has been validated, the Marketplace team will review your request and grant verification within 5 business days.
+
+**Note**: Any changes to the publisher display name will revoke the verified badge.
 
 ### Eligible domains
 

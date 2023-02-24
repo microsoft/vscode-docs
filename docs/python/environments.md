@@ -52,7 +52,7 @@ If an interpreter hasn't been specified, then the Python extension automatically
 
   1. Virtual environments located directly under the workspace folder.
   2. Virtual environments related to the workspace but stored globally. For example, [Pipenv](https://pypi.org/project/pipenv/) or [Poetry](https://python-poetry.org/) environments that are located outside of the workspace folder.
-  3. Globally installed interpreters. For example, the ones found in `/usr/local/bin`, `C:\\python27`, `C:\\python38`, etc.
+  3. Globally installed interpreters. For example, the ones found in `/usr/local/bin`, `C:\\python38`, etc.
 
 > **Note**: The interpreter selected may differ from what `python` refers to in your terminal.
 
@@ -62,7 +62,7 @@ If Visual Studio Code doesn't locate your interpreter automatically, you can [ma
 
 The extension automatically looks for interpreters in the following locations, in no particular order:
 
-- Standard install paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
+- Standard install paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python36`, etc.
 - Virtual environments located directly under the workspace (project) folder.
 - Virtual environments located in the folder identified by the `python.venvPath` setting (see [General Python settings](/docs/python/settings-reference.md#general-python-settings)), which can contain multiple virtual environments. The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Virtual environments located in a `~/.virtualenvs` folder for [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/).

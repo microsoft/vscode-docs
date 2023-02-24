@@ -278,7 +278,6 @@ It is important that your extension is activated only when user needs the functi
 >],
 >```
 
-
 ## View Container
 
 A View Container contains a list of views that are displayed in the Activity Bar or Panel along with the built-in View Containers. Examples of built-in View Containers are Source Control and Explorer.
@@ -289,7 +288,7 @@ To contribute a View Container, you should first register it using [contributes.
 
 You have to specify the following required fields:
 
-- `id` - The name of the new view container you're creating.
+- `id` - The ID of the new view container you're creating.
 - `title` - The name that will show up at the top of the view container.
 - `icon` - An image that will be displayed for the view container when in the Activity Bar.
 
