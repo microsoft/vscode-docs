@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 38af73fd-ca95-48e3-9965-81f4cfe29996
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 
 MetaDescription: Visual Studio Code when clause context reference.
 ---
@@ -32,7 +32,7 @@ Not | `!` | `!editorReadonly`
 Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
-In | `in` | `resourceFilename in supportedFolders` ([details](#in-conditional-operator) below)
+In | `in` | `resourceFilename in supportedFolders` ([details](#in-and-not-in-conditional-operators) below)
 
 ### key-value when clause operator
 

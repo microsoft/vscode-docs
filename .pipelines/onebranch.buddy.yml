@@ -25,15 +25,9 @@ resources:
         branches:
           - main
 
-    - pipeline: vscode-website-prod
-      source: vscode-website (official)
-      trigger:
-        branches:
-          - prod
-
 
 variables:
-  LinuxContainerImage: "onebranch.azurecr.io/linux/ubuntu-2004:latest"
+  WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'
 
 extends:
   template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates

@@ -1,6 +1,6 @@
 ---
 ContentId: 5c708951-e566-42db-9d97-e9715d95cdd1
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to adding Visual Studio Code Remote Development and GitHub Codespaces support to extensions
@@ -39,7 +39,7 @@ Debugging your extension in [GitHub Codespaces](https://docs.github.com/github/d
 
 Follow these steps:
 
-1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/en/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
+1. Navigate to the repository that contains your extension on GitHub and [open it in a codespace](https://docs.github.com/github/developing-online-with-codespaces/creating-a-codespace) to work with it in a browser-based editor. You can also [open the codespace in VS Code](https://docs.github.com/github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code) if you prefer.
 
 2. While the default image for GitHub Codespaces should have all the needed prerequisites for most extensions, you can install any other required dependencies (for example, using `yarn install` or `sudo apt-get`) in a new VS Code terminal window (`kb(workbench.action.terminal.new)`).
 
@@ -162,43 +162,54 @@ In some cases, your extension may need to persist state information that does no
 
 However, if your extension relies on current VS Code pathing conventions (for example `~/.vscode`) or the presence of certain OS folders (for example `~/.config/Code` on Linux) to persist data, you may run into problems. Fortunately, it should be simple to update your extension and avoid these challenges.
 
-If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStoragePath` and `storagePath` properties provide "safe" paths that you can use to read/write global workspace-specific information in a file.
+If you are persisting simple key-value pairs, you can store workspace specific or global state information using `vscode.ExtensionContext.workspaceState` or `vscode.ExtensionContext.globalState` respectively. If your data is more complicated than key-value pairs, the  `globalStorageUri` and `storageUri` properties provide "safe" URIs that you can use to read/write global workspace-specific information in a file.
 
 To use the APIs:
 
 ```TypeScript
 import * as vscode from 'vscode';
-import * as fs from 'fs';
-import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
-        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', () => {
+        vscode.commands.registerCommand('myAmazingExtension.persistWorkspaceData', async () => {
+            if (!context.storageUri) {
+                return;
+            }
 
-        // Create the extension's workspace storage folder if it doesn't already exist
-        if (!fs.existsSync(context.storagePath)) {
-            fs.mkdirSync(context.storagePath);
+            // Create the extension's workspace storage folder if it doesn't already exist
+            try {
+                // When folder doesn't exist, and error gets thrown
+                await vscode.workspace.fs.stat(context.storageUri);
+            } catch {
+                // Create the extension's workspace storage folder
+                await vscode.workspace.fs.createDirectory(context.storageUri)
+            }
+
+            const workspaceData = vscode.Uri.joinPath(context.storageUri, 'workspace-data.json');
+            const writeData = new TextEncoder().encode(JSON.stringify({ now: Date.now() }));
+            vscode.workspace.fs.writeFile(workspaceData, writeData);
         }
-
-        // Write a file to the workspace storage folder
-        fs.writeFileSync(
-            path.join(context.storagePath, 'workspace-data.json'),
-            JSON.stringify({ now: Date.now() }));
-    }));
+    ));
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', () => {
+        vscode.commands.registerCommand('myAmazingExtension.persistGlobalData', async () => {
 
-        // Create the extension's global (cross-workspace) folder if it doesn't already exist
-        if (!fs.existsSync(context.globalStoragePath)) {
-            fs.mkdirSync(context.globalStoragePath);
+        if (!context.globalStorageUri) {
+            return;
         }
 
-        // Write a file to the global storage folder for the extension
-        fs.writeFileSync(
-            path.join(context.globalStoragePath, 'global-data.json'),
-            JSON.stringify({ now: Date.now() }));
-    }));
+        // Create the extension's global (cross-workspace) folder if it doesn't already exist
+        try {
+            // When folder doesn't exist, and error gets thrown
+            await vscode.workspace.fs.stat(context.globalStorageUri);
+        } catch {
+            await vscode.workspace.fs.createDirectory(context.globalStorageUri)
+        }
+
+        const workspaceData = vscode.Uri.joinPath(context.globalStorageUri, 'global-data.json');
+        const writeData = new TextEncoder().encode(JSON.stringify({ now: Date.now() }));
+        vscode.workspace.fs.writeFile(workspaceData, writeData);
+    ));
 }
 ```
 
@@ -440,8 +451,8 @@ const panel = vscode.window.createWebviewPanel(
     vscode.ViewColumn.One);
 
 // Get the content Uri
-const catGifUri = panel.webview.asWebviewUri(vscode.Uri.file(
-        path.join(context.extensionPath, 'media', 'cat.gif')));;
+const catGifUri = panel.webview.asWebviewUri(
+    vscode.Uri.joinPath(context.extensionUri, 'media', 'cat.gif'));
 
 // Reference it in your content
 panel.webview.html = `<!DOCTYPE html>

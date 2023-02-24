@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using Visual Studio Code
-DateApproved: 12/7/2022
+DateApproved: 2/2/2023
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -523,9 +523,7 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
 
 The Node debugger supports restarting execution at a stack frame. This can be useful in situations where you have found a problem in your source code and you want to rerun a small portion of the code with modified input values. Stopping and then restarting the full debug session can be time-consuming. The **Restart Frame** action allows you to reenter the current function after you have changed variables with the **Set Value** action:
 
-<p>
-  <img alt="restart frame" src="https://az754404.vo.msecnd.net/public/restartFrame.gif" />
-</p>
+![Restart frame](images/nodejs-debugging/restartFrame.gif)
 
 **Restart Frame** won't roll back mutation to state outside of the function, so it may not always work as expected.
 

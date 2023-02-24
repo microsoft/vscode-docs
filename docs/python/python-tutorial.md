@@ -4,7 +4,9 @@ Area: python
 TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
-DateApproved: 1/19/2023
+
+DateApproved: 1/20/2023
+
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -45,7 +47,9 @@ Along with the Python extension, you need to install a Python interpreter. Which
 
 Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
->**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [Python 3.7](https://www.microsoft.com/p/python-37/9nj46sx7x90p), [Python 3.8](https://www.microsoft.com/p/python-38/9mssztt1n39l), [Python 3.9](https://www.microsoft.com/p/python-39/9p7qfqmjrfp7), [Python 3.10](https://www.microsoft.com/p/python-310/9pjpw5ldxlz5), and [Python 3.11](https://apps.microsoft.com/store/detail/python-311/9NRWMJP3717K?hl=en-us&gl=us).
+
+>**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [supported Python versions](https://apps.microsoft.com/store/search?publisher=Python%20Software%20Foundation).
+
 
 For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.9/using/windows.html)
 
@@ -251,33 +255,32 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#creating-environments).
+v
+1. Create a virtual environment using the Create Environment command
 
-1. Create a Virtual Environment using the Create Environment Command
+   From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command. You can also trigger the **Python: Create Environment** command through the Getting Started with Python page.
 
-   From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (Ctrl+Shift+P), start typing the `Python: Create Environment` command to search, and then select the command. You can also trigger the `Python: Create Environment' command through the Getting Started with Python page.
-
-   The command presents a list of environment types, Venv or Conda.
+   The command presents a list of environment types, Venv or Conda. For this example, select **Venv**.
 
    ![Create Environment dropdown](images/environments/create_environment_dropdown.png)
 
-   If you are creating an environment using **Venv**, the command presents a list of interpreters that can be used for your project.
+   The command then presents a list of interpreters that can be used for your project.
 
    ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
-   If you are creating an environment using **Conda**, the command presents a list of Python versions that can be used for your project.
 
-   ![Conda environment Python version selection](images/environments/conda_environment_python_versions.png)
 
-   After selecting the desired interpreter or Python version, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
+   After selecting the desired interpreter, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
 
    ![Create environment status notification](images/environments/create_environment_prompt_status.png)
 
-   The command will also install necessary packages outlined in a requirements/dependencies file, such as requirements.txt, pyproject.toml or environment.yml, located in the   project folder.
+   The command will also install necessary packages outlined in a requirements/dependencies file, such as `requirements.txt`, `pyproject.toml`, or `environment.yml`, located in the project folder.
 
    > **Note**: If you want to create an environment manually, or run into error in the environment creation process, visit the [Environments](/docs/python/environments.md#create-a-virtual-environment-in-the-terminal) page.
 
 1. Ensure your new environment is selected by using the **Python: Select Interpreter** command from the **Command Palette**.
-![Select an Interpreter](images/tutorial/interpreter-venv.png)
+
+   ![Select an Interpreter](images/tutorial/interpreter-venv.png)
 
 1. Install the packages
 
@@ -321,5 +324,6 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-- [Deploy Python to Azure App Service using containers](https://docs.microsoft.com/azure/python/tutorial-deploy-containers-01)
-- [Deploy Python to Azure App Service on Linux](https://docs.microsoft.com/azure/python/tutorial-deploy-app-service-on-linux-01)
+
+- [Deploy Python to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
+- [Deploy Python to Container Apps](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-python-web-app-azure-container-apps-01)
