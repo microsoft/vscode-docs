@@ -20,7 +20,7 @@ This tutorial introduces you to VS Code as a Python environment - primarily how 
 
 This tutorial is not intended to teach you Python itself. Once you are familiar with the basics of VS Code, you can then follow any of the [programming tutorials on python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers) within the context of VS Code for an introduction to the language.
 
-If you have any problems, feel free to file an issue for this tutorial in the [VS Code documentation repository](https://github.com/microsoft/vscode-docs/issues).
+If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
 
 ## Prerequisites
 
@@ -45,9 +45,7 @@ Along with the Python extension, you need to install a Python interpreter. Which
 
 Install [Python from python.org](https://www.python.org/downloads/). You can typically use the **Download Python** button that appears first on the page to download the latest version.
 
-
 >**Note**: If you don't have admin access, an additional option for installing Python on Windows is to use the Microsoft Store. The Microsoft Store provides installs of [supported Python versions](https://apps.microsoft.com/store/search?publisher=Python%20Software%20Foundation).
-
 
 For additional information about using Python on Windows, see [Using Python on Windows at Python.org](https://docs.python.org/3.9/using/windows.html)
 
@@ -65,7 +63,7 @@ The built-in Python 3 installation on Linux works well, but to install other Pyt
 
 - **Data Science**: If your primary purpose for using Python is Data Science, then you might consider a download from [Anaconda](https://www.anaconda.com/download/). Anaconda provides not just a Python interpreter, but many useful libraries and tools for data science.
 
-- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [Remote - WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
+- **Windows Subsystem for Linux**: If you are working on Windows and want a Linux environment for working with Python, the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) (WSL) is an option for you. If you choose this option, you'll also want to install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl). For more information about using WSL with VS Code, see [VS Code Remote Development](/docs/remote/remote-overview.md) or try the [Working in WSL tutorial](/docs/remote/wsl-tutorial.md), which will walk you through setting up WSL, installing Python, and creating a Hello World application running in WSL.
 
 ## Verify the Python installation
 
@@ -79,7 +77,7 @@ To verify that you've installed Python successfully on your machine, run one of 
 
 - Windows: open a command prompt and run the following command:
 
-    ```ps
+    ```bat
     py -3 --version
     ```
 
@@ -229,7 +227,7 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -279,7 +277,6 @@ v
 1. Ensure your new environment is selected by using the **Python: Select Interpreter** command from the **Command Palette**.
 
    ![Select an Interpreter](images/tutorial/interpreter-venv.png)
-
 1. Install the packages
 
    ```bash
@@ -322,6 +319,5 @@ There is then much more to explore with Python in Visual Studio Code:
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Testing](/docs/python/testing.md) - Configure test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-
 - [Deploy Python to Azure App Service](https://learn.microsoft.com/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
 - [Deploy Python to Container Apps](https://learn.microsoft.com/azure/developer/python/tutorial-deploy-python-web-app-azure-container-apps-01)
