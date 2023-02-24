@@ -31,7 +31,7 @@ With the WSL extension installed, you will see a new Status bar item at the far 
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the WSL extension commands.
 
-![WSL extension commands](images/wsl-tutorial/remote-wsl-commands.png)
+![WSL extension commands](images/wsl-tutorial/wsl-commands.png)
 
 ## Enable WSL
 
