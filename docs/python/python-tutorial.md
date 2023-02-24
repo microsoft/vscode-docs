@@ -99,6 +99,7 @@ code .
 
 >**Note**: If you're using an Anaconda distribution, be sure to use an Anaconda command prompt.
 
+
 Alternately, you can run VS Code through the operating system UI, then use **File > Open Folder** to open the project folder.
 
 ## Select a Python interpreter
