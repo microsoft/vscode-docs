@@ -39,6 +39,18 @@ The current profile name is displayed in several places in the VS Code UI:
 
 If you are still using the Default Profile, no profile name is displayed.
 
+### Edit a profile
+
+You can edit a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust snippets like normal. These changes will be stored in your currently enabled profile.
+
+### Workspace associations
+
+When you select create or select an existing profile, it is associated with the current workspace and any time you open that folder, that workspace's profile will be active. If you open another folder, the profile will either go back to the Default Profile if no profile is set, or switch to that folder's associated profile.
+
+Setting a workspace's profile back to the Default Profile, clears the workspace's profile association.
+
+## Managing profiles
+
 ### Rename a profile
 
 You can rename an existing profile via the **Rename** command in the Profiles menu.
@@ -47,30 +59,22 @@ You can rename an existing profile via the **Rename** command in the Profiles me
 
 You can delete a profile via the **Delete Profile** command. The **Delete Profile** drop down lets you select which profile(s) to delete.
 
-### Edit a profile
-
-To edit a profile no special process is required. You can install/uninstall/disable extensions, change settings and adjust snippets like normale. These changes will be stored in your currently enabled profile.
-
->**Note**: The `settings.json` file location changes between profiles. Switching profile after opening a `settings.json` will continue to show the previous profiles `settings.json`. Remember to re-open it to see the new settings. This does not apply to the visual settings editor.
-
-### Workspace Associations
-
-When you select create or select an existing profile
-
 ## Profile contents
 
-Show Contents brings up the Profiles view
+The **Profiles: Show Contents** command (available in the Command Palette or Profiles menus) brings up the Profiles view, where you can review what customizations are set for the profile.
 
-TBD ![alt](https://) that shows the Activity bar icon
+<!-- TBD ![alt](https://) that shows the Activity bar icon -->
 
 A profile can include:
 
-* Settings - Referenced by your user and profile `settings.json` file.
+* Settings - In a profile-specific `settings.json` file.
 * Extensions - You can remove extensions from the profile by unchecking their entry in the Profiles view.
 * UI state - Current opens views and their layout.
-* Keybindings
-* Snippets
-* User Tasks
+* Keybindings - In a profile-specific `keybindings.json` file.
+* Snippets - In a profile-specific `{language}.json` files.
+* User Tasks - In a profile-specific `tasks.json` file.
+
+When you create a new profile based on the Default Profile, the profile-specific configuration files are populated from your user configuration files. Workspace-specific settings are not automatically include in a new profile.
 
 ## Share Profiles
 
@@ -87,7 +91,7 @@ Marked as **Secret**, only those with the link can see the gist
 
 URL brings up vscode.dev with Profiles view open
 
-cloud button to **Install Extensions** (does all)
+cloud button to **Install Extensions** (installs all selected extensions)
 **Import Profile** button
 **Import Profile in Visual Studio Code** button
 
@@ -104,11 +108,13 @@ Profiles view will show current profile details (with Export) and imported profi
 
 ## Uses for Profiles
 
-Profiles are a great way to customize VS Code to better fit your needs. In this section we'll look at some common use cases for profiles.
+Profiles are a great way to customize VS Code to better fit your needs. In this section, we'll look at some common use cases for profiles.
 
-Since profiles are rememberd per workspace they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings and customisations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings and customisations you use for Python development active in another workspace. Using this approach you can easily switch between workspaces and always have VS Code configured the right way.
+Since profiles are rememberd per workspace, they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings, and customisations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings, and customisations you use for Python development in another workspace. Using this approach, you can easily switch between workspaces and always have VS Code configured the right way.
 
-When doing a demo, you can use a profile to set up a specific configuration for your demo. For example, you can create a profile with a specific set of extensions and settings like zoom level, font size, and color theme. By doing this, a demo will not mess up your normal VS Code setup.
+### Demos
+
+When doing a demo, you can use a profile to set up a specific configuration for your demo. For example, you can create a profile with a specific set of extensions and settings like zoom level, font size, and color theme. By doing this, a demo will not mess up your normal VS Code setup and you can customize VS Code for better visibility during your presentation.
 
 ### Education
 
@@ -136,7 +142,7 @@ If you are using the [Insiders](/insiders) version, the intermediate folder name
 
 ### Where is the UI State globalState.json file?
 
-In memory JSON rendering of the profile global state database.
+If you expand the **UI State** node in the Profiles view, there is a `globalState.json` entry. This is an in-memory JSON representation of your profile's UI State, describing the visibility and layout of various VS Code UI elements. The file does not actually exist on disk and is just a JSON view of the underlying global state storage.
 
 ### What is a Temporary Profile?
 
@@ -156,4 +162,4 @@ Yes, you can use [Settings Sync](/docs/editor/settings-sync.md) to move your pro
 
 ### Why are some settings not exported when exporting a profile?
 
-When exporting profiles we do not include machine specific settings because these setting would most likely not work on another machine. For example, settings that point to local paths.
+When exporting profiles, machine-specific settings are not included because these setting would not be applicable on another machine. For example, settings that point to local paths are not included.
