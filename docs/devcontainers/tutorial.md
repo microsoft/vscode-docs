@@ -58,7 +58,7 @@ With the Dev Containers extension installed, you will see a new Status bar item 
 
 The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Dev Containers commands.
 
-![Dev Containers commands](images/tutorial/dev-containers-commands.png)
+![Dev Containers commands](images/tutorial/dev-containers-commands-simple.png)
 
 ## Get the sample
 
