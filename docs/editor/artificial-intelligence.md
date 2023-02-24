@@ -23,9 +23,7 @@ You'll use the [GitHub Copilot extension](https://marketplace.visualstudio.com/i
 
 To use GitHub Copilot, you need an active GitHub Copilot subscription. In the [content below](#activate-your-free-trial), you'll learn how VS Code will help you activate your free 60-day trial directly from VS Code.
 
-You can also activate your trial starting from the [GitHub Copilot website](https://copilot.github.com/), selecting "Start my free trial" (highlighted in the image below):
-
-![Copilot website with trial button](images/artificial-intelligence/highlighted-website-top-buttons.png)
+You can also activate your trial starting from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
 
 ## Sign in and sign up
 
