@@ -47,6 +47,12 @@ You can rename an existing profile via the **Rename** command in the Profiles me
 
 You can delete a profile via the **Delete Profile** command. The **Delete Profile** drop down lets you select which profile(s) to delete.
 
+### Edit a profile
+
+To edit a profile no special process is required. You can install/uninstall/disable extensions, change settings and adjust snippets like normale. These changes will be stored in your currently enabled profile.
+
+>**Note**: The `settings.json` file location changes between profiles. Switching profile after opening a `settings.json` will continue to show the previous profiles `settings.json`. Remember to re-open it to see the new settings. This does not apply to the visual settings editor.
+
 ### Workspace Associations
 
 When you select create or select an existing profile
