@@ -160,7 +160,7 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
 
-The legacy "navigation mode" allows navigating through terminal rows, press `kbstyle(F1)` to open the Command Palette and search for "terminal navigation mode" to find these commands. This mode will be removed soon in favor of the new accessibility mode.
+A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the tab key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
 
 ### Shell integration
 
@@ -174,7 +174,7 @@ Note that the `terminal.integrated.minimumContrastRatio` will not apply to `powe
 
 ## Status Bar accessibility
 
-Once a focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
+Once focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
 
 ### Diff editor accessibility
 
