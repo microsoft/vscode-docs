@@ -159,6 +159,8 @@
                                         "when": "editorTextFocus && !editorReadonly" },
 { "key": "shift+alt+up",          "command": "editor.action.copyLinesUpAction",
                                         "when": "editorTextFocus && !editorReadonly" },
+{ "key": "ctrl+k ctrl+k",         "command": "editor.action.defineKeybinding",
+                                        "when": "editorTextFocus && !editorReadonly && editorLangId == 'jsonc'" },
 { "key": "ctrl+shift+k",          "command": "editor.action.deleteLines",
                                         "when": "textInputFocus && !editorReadonly" },
 { "key": "f7",                    "command": "editor.action.diffReview.next",
