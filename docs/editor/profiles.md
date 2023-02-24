@@ -69,7 +69,7 @@ A profile can include:
 
 * Settings - In a profile-specific `settings.json` file.
 * Extensions - You can remove extensions from the profile by unchecking their entry in the Profiles view.
-* UI state - Current opens views and their layout.
+* UI state - Currently open views and their positioning.
 * Keybindings - In a profile-specific `keybindings.json` file.
 * Snippets - In a profile-specific `{language}.json` files.
 * User Tasks - In a profile-specific `tasks.json` file.
