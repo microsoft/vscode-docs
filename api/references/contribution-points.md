@@ -77,7 +77,7 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "dark": "errorForeground",
           "light": "errorForeground",
           "highContrast": "#010203",
-          "highContrastLght": "#feedc3",
+          "highContrastLight": "#feedc3",
         }
       }
     ]
