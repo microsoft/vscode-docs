@@ -9,7 +9,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 ---
 # Profiles in Visual Studio Code
 
-Visual Studio Code has 100's of [settings](/docs/getstarted/settings.md), 1000's of [extensions](/docs/editor/extension-marketplace.md), and unnumerable ways to adjust the layout and sizing of the UI to let you customize the editor. Profiles let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import Profiles.
+Visual Studio Code has 100's of [settings](/docs/getstarted/settings.md), 1000's of [extensions](/docs/editor/extension-marketplace.md), and unnumerable ways to adjust the UI layout to customize the editor. Profiles let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import Profiles.
 
 ## Create a Profile
 
@@ -34,10 +34,14 @@ Once you choose whether to create a new profile based on the current profile or 
 The current profile name is displayed in several places in the VS Code UI:
 
 * Title bar
-* Manage gear button hover
 * **File** > **Preferences** > **Profiles**
+* **Manage** gear button hover
 
 If you are still using the Default Profile, no profile name is displayed.
+
+The **Manage** gear button displays a badge with the first two letters of the active profile so you can quickly check which profile you are running.
+
+![Manage gear displaying "DE' to indicate that the user's 'Demo' profile is active](images/profiles/profile-gear-two-letters.png)
 
 ### Edit a profile
 
@@ -67,7 +71,7 @@ You can delete a profile via the **Delete Profile** command. The **Delete Profil
 
 The **Profiles: Show Contents** command (available in the Command Palette or Profiles menus) brings up the Profiles view, where you can review what customizations are set for the profile.
 
-<!-- TBD ![alt](https://) that shows the Activity bar icon -->
+![Profile view displaying contents of a Doc Work profile](images/profiles/profile-show-contents.png)
 
 A profile can include:
 
@@ -84,37 +88,33 @@ When you create a new profile based on the Default Profile, the profile-specific
 
 ### Export
 
-brings up Profiles view with **Export** button
-**Show Contents** always has **Export** button
-select which types of customizations to Export
-as GitHub gist or local file
+You can export a profile in order to save it or share it with other. The **Export Profile** command displays the Profiles view with the contents of the active profile and an **Export** button. You can unselect various elements of the profile such as extensions or configuration files before you export the profile.
 
-`https://vscode.dev/profile/github/57638f9b18434187e355c9eb0afa28f8` GitHub Gist
+When you select **Export**, you will be prompted for the profile name and whether you want to export to a GitHub gist or local file.
 
-Marked as **Secret**, only those with the link can see the gist
+#### Save as a GitHub gist
 
-URL brings up vscode.dev with Profiles view open
+When you save a profile to GitHub (you'll be prompted to log into GitHub), a dialog will give you the option to **Copy Link** so you can share your profile with others. The URL includes a generated GUID and has the format `https://vscode.dev/profile/github/{GUID}`. The GitHub gist is marked as **Secret**, so only those with the link can see the gist.
 
-cloud button to **Install Extensions** (installs all selected extensions)
-**Import Profile** button
-**Import Profile in Visual Studio Code** button
+If you launch the URL, it opens VS Code for the Web (vscode.dev) with the Profiles view open and the imported profile contents displayed. You can unselect profile elements if you wish and you will need to manually **Install Extensions** if you want to continue using that profile in vscode.dev.
 
-https://gist.github.com/username to see your Gists
+You also have the option to **Import Profile in Visual Studio Code**, which opens VS Code Desktop with the profiles contents displayed.
 
-local file, you get to choose where to place the file
+You can review your gists at `https://gist.github.com/{username}`. There you can rename, delete, or copy the GUID of a gist.
 
-Profile has extension `.code-profile`
+#### Save as a local file
+
+If you chose to save the profile as a local file, you choose where to place the file on your local machine. A profile is persisted in a file with the extension `.code-profile`.
 
 ### Import
 
-Provide URL for gist or select file for local
-Profiles view will show current profile details (with Export) and imported profile (with Import)
+To import an existing profile, run the **Import Profiles** command. You will be prompted for the URL of a GitHub gist or the file location of a profile . The Profiles view opens and displays both the active profile and the profile to import. You can unselect some profile elements if you don't want to import them.  Select the **Import** button and you will now be using the imported profile.
 
 ## Uses for Profiles
 
 Profiles are a great way to customize VS Code to better fit your needs. In this section, we'll look at some common use cases for profiles.
 
-Since profiles are rememberd per workspace, they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings, and customisations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings, and customisations you use for Python development in another workspace. Using this approach, you can easily switch between workspaces and always have VS Code configured the right way.
+Since profiles are remembered per workspace, they are a great way to customize VS Code for a specific programming language. For example, you can create a JavaScript frontend profile that includes the extensions, settings, and customizations you use for JavaScript development in one workspace, and have a Python backend profile that includes the extensions, settings, and customizations you use for Python development in another workspace. Using this approach, you can easily switch between workspaces and always have VS Code configured the right way.
 
 ### Demos
 
@@ -122,7 +122,7 @@ When doing a demo, you can use a profile to set up a specific configuration for 
 
 ### Education
 
-Profiles can be used to customise VS Code for students to ease the use in a classroom setting. Profiles allow educators to quickly share a customised VS Code setup with students. For example, educators can create a profile with a specific set of extensions and settings needed for a computer science class and then share that profile with students.
+Profiles can be used to customize VS Code for students to ease the use in a classroom setting. Profiles allow educators to quickly share a customized VS Code setup with students. For example, educators can create a profile with a specific set of extensions and settings needed for a computer science class and then share that profile with students.
 
 ## Command line
 
