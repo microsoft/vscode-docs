@@ -51,6 +51,10 @@ Setting a workspace's profile back to the Default Profile, clears the workspace'
 
 ## Managing profiles
 
+### Switch profiles
+
+You can quickly switch between profiles with the **Profiles: Switch Profile** command in the Command Palette, which will present a dropdown listing your available profiles.
+
 ### Rename a profile
 
 You can rename an existing profile via the **Rename** command in the Profiles menu.
