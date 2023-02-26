@@ -287,7 +287,7 @@ v
    python3 -m pip install matplotlib
 
    # Windows (may require elevation)
-   python -m pip install matplotlib
+   py -m pip install matplotlib
 
    # Linux (Debian)
    apt-get install python3-tk
