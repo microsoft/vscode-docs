@@ -93,7 +93,7 @@ Now that you've created an SSH host, let's connect to it!
 
 You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
-![Remote extension commands](images/ssh-tutorial/remote-commands.png)
+![Remote extension commands](images/ssh-tutorial/remote-commands-simple.png)
 
 Choose the **Connect to Host...** command in the **Remote-SSH** section and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
