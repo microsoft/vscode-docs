@@ -88,7 +88,7 @@ Each language in Polyglot Notebooks gets a first-class editing experience with l
 
 ## Variable Sharing & Variable Explorer
 
-Share variables between languages using the `#!share` magic command and check on the values of variables for each language using the variable explorer. Simply click the `Variables` icon in the global toolbar to open the variable explorer.
+Share variables between languages using the `#!set` command and check on the values of variables for each language using the variable explorer. Please note, if you were previously using the `#!share` command, it will continue to work. Simply click the `Variables` icon in the global toolbar to open the variable explorer.
 
 ![SQLJavaScript](images/polyglot/SQLJavaScript.mp4)
 
