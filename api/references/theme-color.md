@@ -205,6 +205,12 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 
+
+## Profiles
+
+- `profileBadge.background`: Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.
+- `profileBadge.foreground`: Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.
+
 ## Side Bar
 
 The Side Bar contains views like the Explorer and Search.
@@ -598,7 +604,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
 - `peekViewEditor.matchHighlightBackground`: Match highlight color in the peek view editor.
 - `peekViewEditor.matchHighlightBorder`: Match highlight border color in the peek view editor.
-- `peekViewEditorStickScroll.background`: Background color of sticky scroll in the peek view editor.
+  `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
 - `peekViewResult.background`: Background color of the peek view result list.
 - `peekViewResult.fileForeground`: Foreground color for file nodes in the peek view result list.
 - `peekViewResult.lineForeground`: Foreground color for line nodes in the peek view result list.
