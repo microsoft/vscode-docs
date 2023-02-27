@@ -94,7 +94,8 @@ For each tagged image in a repository, here are the actions that can be performe
 - **Pull Image**: copies the latest version of the image locally
 - **Copy Full Tag**: copies the full tag to the clipboard
 - **Copy Image Digest**: copies the image digest, which is a SHA256 hash identifier that Docker uses, to the clipboard. See [Docker Docs](https://docs.docker.com/engine/reference/commandline/images/#list-image-digests) for more info on image digests
-- **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure App Service](/docs/containers/app-service.md) page
+- **Deploy Image to Azure App Service**: deploys the image to Azure App Service, see [Deploy images to Azure](/docs/containers/app-service.md) page
+- **Deploy Image to Azure Container Apps**: deploys the image to Azure Container Apps, see [Deploy images to Azure](/docs/containers/app-service.md) page
 - **Untag Image**: untags the image
 - **Delete Image**: deletes the image permanently
 
@@ -115,4 +116,4 @@ For each tagged image in a repository, here are the actions that can be performe
 
 ## Next steps
 
-- [Deploy to Azure App Service](/docs/containers/app-service.md)
+- [Deploy to Azure](/docs/containers/app-service.md)
