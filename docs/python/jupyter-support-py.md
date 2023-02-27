@@ -120,7 +120,7 @@ The Python Interactive window also supports [Visual Studio Live Share](https://v
 
 ![Live Share for the Python Interactive window](images/jupyter/live-share-and-interactive.gif)
 
-This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to be installed on both host and guest machines. -->
+This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) to be installed on both host and guest machines. -->
 
 ## Variables Explorer and Data Viewer
 
