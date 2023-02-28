@@ -13,13 +13,13 @@ Visual Studio Code has 100s of [settings](/docs/getstarted/settings.md), 1000s o
 
 ## Create a Profile
 
-VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or open and close views and panels, these customizations are tracked in the Default Profile.
+VS Code treats your current configuration as the **Default Profile**. As you modify settings, install extensions, or change UI layout by moving views, these customizations are tracked in the Default Profile.
 
-To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item (**Code** > > **Preferences** > **Profiles** > **Create Profile** on macOS).
+To create a new profile, you can use the **File** > **Preferences** > **Profiles** > **Create Profile** menu item (**Code** > **Preferences** > **Profiles** > **Create Profile** on macOS).
 
 ![Create Profile command](images/profiles/create-profile.png)
 
-You can create a new profile based on the current profile (**Profiles: Create from Current Profiles**) or create an Empty Profile. An Empty Profile includes no user customizations (settings, extensions, snippets, etc.) but with the UI state (view layouts and sizing) preserved.
+You can create a new profile based on the current profile (**Profiles: Create from Current Profiles**) or create an Empty Profile. An Empty Profile includes no user customizations (settings, extensions, snippets, etc.).
 
 You can also access the Profile command menu via the **Manage** gear button in the lower right of the Activity bar.
 
@@ -45,19 +45,19 @@ The **Manage** gear button displays a badge with the first two letters of the ac
 
 ### Edit a profile
 
-You can edit a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust snippets like normal. These changes are stored in your currently active profile.
+You can edit a profile just as you would normally change any VS Code configuration. You can install/uninstall/disable extensions, change settings, and adjust the editor's UI layout (for example, moving and hiding views) like normal. These changes are stored in your currently active profile.
 
 ### Workspace associations
 
-When you select create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile either goes back to the Default Profile if no profile is set, or switches to that folder's associated profile.
-
-Setting a workspace's profile back to the Default Profile clears the workspace's profile association.
+When you select create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
 
 ## Managing profiles
 
 ### Switch profiles
 
 You can quickly switch between profiles with the **Profiles: Switch Profile** command in the Command Palette, which presents a dropdown listing your available profiles.
+
+You can also switch profiles by selecting a profile from the list displayed in the Profiles menus, available via the **Manage** gear button or **File** > **Preferences** > **Profiles**.
 
 ### Rename a profile
 
@@ -77,7 +77,7 @@ A profile can include:
 
 * Settings - In a profile-specific `settings.json` file.
 * Extensions - You can remove extensions from the profile by unchecking their entry in the Profiles view.
-* UI state - Currently open views and their positioning.
+* UI state - View layout (positions), visible views and actions.
 * Keybindings - In a profile-specific `keybindings.json` file.
 * Snippets - In a profile-specific `{language}.json` files.
 * User Tasks - In a profile-specific `tasks.json` file.
