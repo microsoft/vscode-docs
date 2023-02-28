@@ -11,13 +11,21 @@ MetaSocialImage: images/tutorial/social.png
 
 # Manage Jupyter Kernels in VS Code
 
-The Visual Studio Code notebooks' kernel picker lists the following categories of connection methods to run the code in your Jupyter notebook:
+The Visual Studio Code notebooks' kernel picker helps you to pick specific kernels for your notebooks. You can open the kernel picker by clicking on Select Kernel on the upper right-hand corner of your notebook or through Command Palette -> Notebook: Select Notebook Kernel. lists the following categories of connection methods to run the code in your Jupyter notebook:
 
+Once you open the Kernel Picker, VS Code shows the most recently used (MRU) kernel(s):
+![MRU Kernel](images/mru-kernel.png)
+
+   > **Note**: In the previous versions of VS Code (version <1.76), VS Code used to show all available kernels by default.
+
+To see other kernels, you can click **Select Another Kernel...**. All existing kernels are categorized into kernel source options, with these sources supported by the Jupyter extension out of the box:
 - [Jupyter Kernels](#jupyter-kernels)
 - [Python Environments](#python-environments)
 - [Existing Jupyter Server](#existing-jupyter-server)
 
-By default, VS Code will recommend the one you've previously used with your notebook, but you can choose to connect to any other Jupyter kernels as shown below.
+![Notebook Kernel Picker](images/noterbook-kernel-picker.gif)
+
+By default, VS Code will recommend the one you've previously used with your notebook, but you can choose to connect to any other Jupyter kernels as shown below. VS Code will also remember the last selected kernel for your notebooks, and will automatically select them the next time you open your notebook.
 
 ## Jupyter Kernels
 
@@ -48,6 +56,12 @@ You can create a new session from the server's kernelspec by:
 2. Choose **Select Another Kernel**.
 3. Choose **Existing Jupyter Server**.
 4. Select your server.
+
+## Adding Kernel Options
+
+If you do not have any Jupyter kernel or Python environment on your machine, VS Code can help you set up: go to the Command Palette, select **Python: Create Environment**, and follow the prompts. You can also add additional ways to select kernels, by installing additional extensions like [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) and [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+
+![More Kernel Sources](images/more-kernel-sources.png)
 
 ## Questions or feedback
 
