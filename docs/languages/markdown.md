@@ -69,17 +69,17 @@ Accept one of these completions to insert the full link to that header, even if 
 
 You can configure if/when workspace header completions show with the `markdown.suggest.paths.includeWorkspaceHeaderCompletions` setting. Valid setting values are:
 
-- `onDoubleHash` (the default) — Show workspace header completions only after you type `##`.
-- `onSingleOrDoubleHash` — Show workspace header completions after you type `#` or `##`.
-- `never` — Never show workspace header completions.
+* `onDoubleHash` (the default) — Show workspace header completions only after you type `##`.
+* `onSingleOrDoubleHash` — Show workspace header completions after you type `#` or `##`.
+* `never` — Never show workspace header completions.
 
 Keep in mind that finding all headers in the current workspace can be expensive, so there may be a slight delay the first time they are requested, especially for workspaces with lots of Markdown files.
 
 ### Inserting images and links to files
 
-Use the `Markdown: Insert Image from Workspace` command to quickly add an image in the current markdown file. This command lets you select one or more images to insert from the current workspace.
+Use the **Markdown: Insert Image from Workspace** command to quickly add an image in the current markdown file. This command lets you select one or more images to insert from the current workspace.
 
-Similarly, the `Markdown: Insert Link to File in Workspace` command inserts a link to one or more files that you select in the current workspace.
+Similarly, the **Markdown: Insert Link to File in Workspace** command inserts a link to one or more files that you select in the current workspace.
 
 You can also insert images and links by dragging and dropping. To start, drag a file from VS Code's explorer over your Markdown code and then hold down `kbstyle(Shift)` to start dropping it into the file. The preview cursor shows where it will be inserted when you drop it.
 
@@ -153,9 +153,9 @@ You can also use `kb(editor.action.rename)` on:
 
 With automatic Markdown link updating, VS Code will automatically update Markdown links whenever a linked to file is moved or renamed. You can enable this feature with the `markdown.updateLinksOnFileMove.enabled` setting. Valid setting values are:
 
-- `never` (the default) — Don't try to update links automatically.
-- `prompt` — Confirm before updating links.
-- `always` — Update links automatically without confirmation.
+* `never` (the default) — Don't try to update links automatically.
+* `prompt` — Confirm before updating links.
+* `always` — Update links automatically without confirmation.
 
 Automatic link updating detects renames of Markdown files, images, and directories. You can enable it for additional file types with `markdown.updateLinksOnFileMove.include`.
 
