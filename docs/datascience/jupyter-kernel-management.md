@@ -11,7 +11,7 @@ MetaSocialImage: images/tutorial/social.png
 
 # Manage Jupyter Kernels in VS Code
 
-The Visual Studio Code notebooks' kernel picker helps you to pick specific kernels for your notebooks. You can open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook or through Command Palette -> **Notebook: Select Notebook Kernel**. lists the following categories of connection methods to run the code in your Jupyter notebook:
+The Visual Studio Code notebooks' kernel picker helps you to pick specific kernels for your notebooks. You can open the kernel picker by clicking on **Select Kernel** on the upper right-hand corner of your notebook or through Command Palette -> **Notebook: Select Notebook Kernel**.
 
 Once you open the Kernel Picker, VS Code shows the most recently used (MRU) kernel(s):
 ![MRU Kernel](images/mru-kernel.png)
