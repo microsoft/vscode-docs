@@ -23,9 +23,7 @@ You'll use the [GitHub Copilot extension](https://marketplace.visualstudio.com/i
 
 To use GitHub Copilot, you need an active GitHub Copilot subscription. In the [content below](#activate-your-free-trial), you'll learn how VS Code will help you activate your free 60-day trial directly from VS Code.
 
-You can also activate your trial starting from the [GitHub Copilot website](https://copilot.github.com/):
-
-![Copilot website with trial button](images/artificial-intelligence/website-top-buttons.png)
+You can also activate your trial starting from the [GitHub Copilot signup page](https://github.com/github-copilot/signup).
 
 ## Sign in and sign up
 
@@ -89,6 +87,14 @@ Copilot will provide a suggestion like the following:
 ![JavaScript ghost text suggestion](images/artificial-intelligence/js-suggest.png)
 
 Use `kbstyle(Tab)` to accept the suggestion.
+
+### Alternative and partial solutions
+
+For any given input, GitHub Copilot may offer multiple suggestions. When Copilot offers a suggestion, you can hover over the suggestion to see the inline suggestion toolbar for choosing suggestions:
+
+![JavaScript ghost text suggestion](images/artificial-intelligence/copilot-hover-highlight.png)
+
+In the image above, Copilot presents three suggestions. You can accept the entire suggestion with `kbstyle(Tab)`, or only part of the suggestion with `kbstyle(Ctrl+RightArrow)`. You can switch between suggestions in the suggestion toolbar, or use the keyboard shortcut `kb(editor.action.inlineSuggest.showNext)` instead.
 
 ## Additional resources
 
