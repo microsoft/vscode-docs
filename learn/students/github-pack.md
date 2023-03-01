@@ -52,7 +52,3 @@ With this extension, you can quickly create pull requests and review other pull 
 The GitLens extension enhances the built-in Git features in VS Code, like showing you when lines of code were written, by whom, and in what commit. To learn more, check out this helpful [video](https://www.youtube.com/watch?v=C6wMNoe78oc).
 
 <iframe src="https://www.youtube-nocookie.com/embed/bRdQw4-sGIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="VS Code tips: Viewing file history with GitLens"></iframe>
-
-## Connect with us
-
-For questions or feedback, please reach out to us at [vscodesocial@microsoft.com](mailto:vscodesocial@microsoft.com). You can also browse the other [benefits](https://education.github.com/benefits?utm_source=GitHub-MSFT-VSCode) provided in the GitHub Student Developer Pack.
