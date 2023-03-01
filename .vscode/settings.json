@@ -8,6 +8,7 @@
     },
     "markdown.validate.enabled": true,
     "markdown.validate.ignoredLinks": [
-        "/Download"
+        "/Download",
+        "/insiders"
     ]
 }

@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 2/2/2023
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -61,12 +61,6 @@ The publishing tool checks the following constraints:
 Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate). You need to create at least one in order to publish an extension.
-
-Visual Studio Marketplace does not allow reusing an [extension name](/api/references/extension-manifest) and [extension displayName](/api/references/extension-manifest). The extension name and extension displayName must be unique. You will see following error, if an extension name already exist in the Marketplace.
-
-```
-ERROR The extension 'name' already exists in the Marketplace.
-```
 
 ### Get a Personal Access Token
 
@@ -418,3 +412,13 @@ Note that when building and publishing your extension from Windows, all the file
 ### Can I publish from a continuous integration (CI) build?
 
 Yes, see the [Automated publishing](/api/working-with-extensions/continuous-integration#automated-publishing) section of the [Continuous Integration](/api/working-with-extensions/continuous-integration) topic to learn how to configure Azure DevOps, GitHub Actions, and Travis CI to automatically publish your extension to the Marketplace.
+
+### I get "ERROR The extension 'name' already exists in the Marketplace" error when I try to publish my extension?
+
+The Marketplace requires the [extension name](/api/references/extension-manifest) to be unique for every extension. If an extension with the same name already exists in the Marketplace, you will get the following error:
+
+```
+ERROR The extension 'name' already exists in the Marketplace.
+```
+
+The same rule applies for the [display name](/api/references/extension-manifest) of an extension.

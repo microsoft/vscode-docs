@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 2/2/2023
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -204,6 +204,12 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
+
+
+## Profiles
+
+- `profileBadge.background`: Profile badge background color. The profile badge shows on top of the settings gear icon in the activity bar.
+- `profileBadge.foreground`: Profile badge foreground color. The profile badge shows on top of the settings gear icon in the activity bar.
 
 ## Side Bar
 
@@ -598,7 +604,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
 - `peekViewEditor.matchHighlightBackground`: Match highlight color in the peek view editor.
 - `peekViewEditor.matchHighlightBorder`: Match highlight border color in the peek view editor.
-- `peekViewEditorStickScroll.background`: Background color of sticky scroll in the peek view editor.
+  `peekViewEditorStickyScroll.background`: Background color of sticky scroll in the peek view editor.
 - `peekViewResult.background`: Background color of the peek view result list.
 - `peekViewResult.fileForeground`: Foreground color for file nodes in the peek view result list.
 - `peekViewResult.lineForeground`: Foreground color for line nodes in the peek view result list.

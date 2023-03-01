@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 2/2/2023
+DateApproved: 3/1/2023
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -120,6 +120,8 @@ You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbs
 
 All elements in the workbench support tab navigation, but workbench toolbars and tab lists have only one tab stop, to avoid having too many. Once the focus is on a toolbar or a tab list, you can use the arrow keys to navigate within them.
 
+> **Note**: Tab navigation goes in the visually natural order, with the exception of WebViews (like Markdown preview). For WebViews, we recommend using the `kb(workbench.action.focusNextPart)` and `kb(workbench.action.focusPreviousPart)` commands to navigate between the WebViews and the rest of the workbench. Alternativly you can use one of many Focus Editor commands.
+
 ## Tab trapping
 
 By default, pressing the `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your Indentation setting) and does not leave the open file. You can toggle the trapping of `kbstyle(Tab)` with `kb(editor.action.toggleTabFocusMode)` and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see an indicator in the Status Bar.
@@ -158,9 +160,9 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 ## Terminal accessibility
 
-Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.enterAccessibilityMode)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
+Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
 
-The legacy "navigation mode" allows navigating through terminal rows, press `kbstyle(F1)` to open the Command Palette and search for "terminal navigation mode" to find these commands. This mode will be removed soon in favor of the new accessibility mode.
+A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the tab key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
 
 ### Shell integration
 
@@ -174,7 +176,7 @@ Note that the `terminal.integrated.minimumContrastRatio` will not apply to `powe
 
 ## Status Bar accessibility
 
-Once a focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
+Once focus is in the Status bar via **Focus Next Part** (`kb(workbench.action.focusNextPart)`) arrow navigation can be used to move focus between Status bar entries.
 
 ### Diff editor accessibility
 
