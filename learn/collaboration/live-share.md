@@ -27,7 +27,7 @@ For more details about what you can do with Live Share, visit the [how-to-guide]
 
 ## Get started with Live Share
 
-To get started with using Live Share in VS Code, you'll need to download the [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) from the Extension Marketplace.
+To get started with using Live Share in VS Code, you'll need to download the [Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) from the Extension Marketplace.
 
 ![Live Share Extension Pack](images/live-share/liveshare-extension-pack.png)
 
