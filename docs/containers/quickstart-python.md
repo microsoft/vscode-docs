@@ -184,7 +184,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
 1. Right-click on the image tag and choose **Deploy Image to Azure App Service** or **Deploy Image to Azure Container Apps**.
 
-   ![Deploy image to Azure App Service](images/app-service/deploy-image-to-azure-app-service.png)
+   ![Deploy image to Azure App Service](images/quickstarts/deploy-image-to-azure-python.png)
 
 1. Provide the name of the web site. This must be a unique name, and for Django apps, it must also be listed as a valid host name in the `ALLOWED_HOSTS` list in the `settings.py` file.
 
