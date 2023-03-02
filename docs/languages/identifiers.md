@@ -69,11 +69,11 @@ Coffeescript | `coffeescript`
 C | `c`
 C++ | `cpp`
 C# | `csharp`
-CUDA C++ | `cuda-cpp`
+Compose | `dockercompose`
 CSS | `css`
+CUDA C++ | `cuda-cpp`
 Diff | `diff`
 Dockerfile | `dockerfile`
-Docker Compose | `dockercompose`
 F# | `fsharp`
 Git | `git-commit` and `git-rebase`
 Go | `go`
