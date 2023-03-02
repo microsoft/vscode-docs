@@ -73,6 +73,7 @@ CUDA C++ | `cuda-cpp`
 CSS | `css`
 Diff | `diff`
 Dockerfile | `dockerfile`
+Docker Compose | `dockercompose`
 F# | `fsharp`
 Git | `git-commit` and `git-rebase`
 Go | `go`
