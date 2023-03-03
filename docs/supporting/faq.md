@@ -284,6 +284,12 @@ VS Code desktop versions starting with 1.77 (March 2023) will no longer run on m
 
 VS Code will no longer provide product updates or security fixes on macOS Sierra (versions 10.12 and older) and VS Code version 1.76 will be the last available release for macOS Sierra (10.12 and older). You can learn more about upgrading your macOS version at [support.apple.com](https://support.apple.com/en-us/HT201260).
 
+## Can i run VS Code on Windows 8 and 8.1?
+
+Microsoft [ended support for Windows 8 and 8.1](https://learn.microsoft.com/en-us/lifecycle/products/windows-81) in January, 2023 and no longer provides security updates. VS Code desktop versions starting with 1.79 (June 2023) will no longer run on Windows 8 and 8.1 and you will need to upgrade to a newer Windows version to use later versions of VS Code.
+
+VS Code will no longer provide product updates or security fixes on Windows 8 and 8.1 and VS Code 1.79 is the last available release for Windows 8 and 8.1 users. You can learn more about upgrading your Windows version at [support.microsoft.com](https://support.microsoft.com/en-us/windows/windows-8-1-support-ended-on-january-10-2023-3cfd4cde-f611-496a-8057-923fba401e93).
+
 ## Technical Support
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/microsoft/vscode/blob/main/CONTRIBUTING.md).
