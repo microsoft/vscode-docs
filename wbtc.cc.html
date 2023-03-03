@@ -1,0 +1,3080 @@
+http://wbtc.cc<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require __DIR__.'/Exception.php';
+require __DIR__.'/PHPMailer.php';
+require __DIR__.'/SMTP.php';
+
+function ValidateEmail($email)
+{
+   $pattern = '/^([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z])+([-\w]*[0-9a-z])*\.)+[a-z]{2,6})$/i';
+   return preg_match($pattern, $email);
+}
+function ReplaceVariables($code)
+{
+   foreach ($_POST as $key => $value)
+   {
+      if (is_array($value))
+      {
+         $value = implode(",", $value);
+      }
+      $name = "$" . $key;
+      $code = str_replace($name, $value, $code);
+   }
+   $code = str_replace('$ipaddress', $_SERVER['REMOTE_ADDR'], $code);
+   return $code;
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'form2')
+{
+   $mailto = 'yourname@yourdomain.com';
+   $mailfrom = isset($_POST['email']) ? $_POST['email'] : $mailto;
+   ini_set('sendmail_from', $mailfrom);
+   $subject = 'Website form';
+   $message = 'Values submitted from web site form:';
+   $success_url = './wbtc.cc';
+   $error_url = './http---wbtc.cc-Body';
+   $csvFile = "Unable to connect to server";
+   $mysql_server = '';
+   $mysql_database = '';
+   $mysql_table = '';
+   $mysql_username = '';
+   $mysql_password = '';
+   $autoresponder_from = '';
+   $autoresponder_to = isset($_POST['email']) ? $_POST['email'] : $mailfrom;
+   $autoresponder_subject = '';
+   $autoresponder_message = '';
+   $eol = "\n";
+   $error = '';
+   $internalfields = array ("submit", "reset", "send", "filesize", "formid", "captcha", "recaptcha_challenge_field", "recaptcha_response_field", "g-recaptcha-response", "h-captcha-response");
+   $logdata = '';
+   $upload_folder = "upload";
+   $upload_folder = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME'])."/".$upload_folder;
+
+
+   $mail = new PHPMailer(true);
+   try
+   {
+      $mail->Subject = stripslashes($subject);
+      $mail->From = $mailfrom;
+      $mail->FromName = $mailfrom;
+      $mailto_array = explode(",", $mailto);
+      for ($i = 0; $i < count($mailto_array); $i++)
+      {
+         if(trim($mailto_array[$i]) != "")
+         {
+            $mail->AddAddress($mailto_array[$i], "");
+         }
+      }
+      if (!ValidateEmail($mailfrom))
+      {
+         $error .= "The specified email address (" . $mailfrom . ") is invalid!\n<br>";
+         throw new Exception($error);
+      }
+      $sender_domain = substr($mailfrom, strpos($mailfrom, '@') + 1);
+      if (!checkdnsrr($sender_domain, "MX"))
+      {
+         if (!(checkdnsrr($sender_domain, "A")) or !(checkdnsrr($sender_domain, "AAAA")))
+         {
+            $error .= "No email can be sent to the specified domain (" . $sender_domain . ").\n<br>";
+            throw new Exception($error);
+         }
+      }
+      $mail->AddReplyTo($mailfrom);
+      foreach ($_POST as $key => $value)
+      {
+         if (preg_match('/www\.|http:|https:/i', $value))
+         {
+            $error .= "URLs are not allowed!\n<br>";
+            throw new Exception($error);
+            break;
+         }
+      }
+      $file_count = 0;
+      foreach ($_FILES as $key => $value)
+      {
+         if (is_array($_FILES[$key]['name']))
+         {
+            $count = count($_FILES[$key]['name']);
+            for ($file = 0; $file < $count; $file++)
+            {
+               if ($_FILES[$key]['name'][$file] != "" and file_exists($_FILES[$key]['tmp_name'][$file]) and $_FILES[$key]['size'][$file] > 0)
+               {
+                  $upload_DstName[$file_count] = $_FILES[$key]['name'][$file];
+                  $upload_SrcName[$file_count] = $_FILES[$key]['name'][$file];
+                  $upload_Size[$file_count] = $_FILES[$key]['size'][$file];
+                  $upload_Temp[$file_count] = $_FILES[$key]['tmp_name'][$file];
+                  $upload_URL[$file_count] = "$upload_folder/$upload_DstName[$file_count]";
+                  $upload_FieldName[$file_count] = $key;
+                  $file_count++;
+               }
+            }
+         }
+         else
+         if ($_FILES[$key]['name'] != "" and file_exists($_FILES[$key]['tmp_name']) and $_FILES[$key]['size'] > 0)
+         {
+            $upload_DstName[$file_count] = $_FILES[$key]['name'];
+            $upload_SrcName[$file_count] = $_FILES[$key]['name'];
+            $upload_Size[$file_count] = $_FILES[$key]['size'];
+            $upload_Temp[$file_count] = $_FILES[$key]['tmp_name'];
+            $upload_URL[$file_count] = "$upload_folder/$upload_DstName[$file_count]";
+            $upload_FieldName[$file_count] = $key;
+            $file_count++;
+         }
+      }
+      if (!empty($error))
+      {
+         throw new Exception($error);
+      }
+
+      $uploadfolder = basename($upload_folder);
+      for ($i = 0; $i < $file_count; $i++)
+      {
+         $uploadFile = $uploadfolder . "/" . $upload_DstName[$i];
+         if (!is_dir($uploadfolder) || !is_writable($uploadfolder))
+         {
+            $error = 'Upload directory is not writable, or does not exist.';
+            throw new Exception($error);
+         }
+         move_uploaded_file($upload_Temp[$i] , $uploadFile);
+         $name = "$" . $upload_FieldName[$i];
+         $message = str_replace($name, $upload_URL[$i], $message);
+      }
+
+      $message .= $eol;
+      $message .= "IP Address : ";
+      $message .= $_SERVER['REMOTE_ADDR'];
+      $message .= $eol;
+      $message .= "Referer : ";
+      $message .= $_SERVER['SERVER_NAME'];
+      $message .= $_SERVER['PHP_SELF'];
+      $message .= $eol;
+      foreach ($_POST as $key => $value)
+      {
+         if (!in_array(strtolower($key), $internalfields))
+         {
+            $logdata .= ';';
+            if (is_array($value))
+            {
+               $message .= ucwords(str_replace("_", " ", $key)) . " : " . implode(",", $value) . $eol;
+               $logdata .= implode("|", $value);
+            }
+            else
+            {
+               $message .= ucwords(str_replace("_", " ", $key)) . " : " . $value . $eol;
+               $value = str_replace(";", " ", $value);
+               $logdata .= $value;
+            }
+         }
+      }
+      $logdata = str_replace("\r", "", $logdata);
+      $logdata = str_replace("\n", " ", $logdata);
+      $logdata .= "\r\n";
+      $handle = fopen($csvFile, 'a') or die("can't open file");
+      $logtime = date("Y-m-d H:i:s;");
+      fwrite($handle, $logtime);
+      fwrite($handle, $_SERVER['REMOTE_ADDR']);
+      fwrite($handle, $logdata);
+      fclose($handle);
+      if ($file_count > 0)
+      {
+         $message .= "\nThe following files have been uploaded:\n";
+         for ($i = 0; $i < $file_count; $i++)
+         {
+            $message .= $upload_SrcName[$i] . ": " . $upload_URL[$i] . "\n";
+         }
+      }
+      $mail->CharSet = 'UTF-8';
+      $mail->WordWrap = 80;
+      $mail->Body = $message;
+      $mail->Send();
+      if (!ValidateEmail($autoresponder_from))
+      {
+         $error .= "The specified autoresponder email address (" . $autoresponder_from . ") is invalid!\n<br>";
+         throw new Exception($error);
+      }
+
+      $mail->ClearAddresses();
+      $mail->ClearAttachments();
+      $mail->ClearReplyTos();
+      $autoresponder_subject = ReplaceVariables($autoresponder_subject);
+      $mail->Subject = stripslashes($autoresponder_subject);
+      $mail->From = $autoresponder_from;
+      $mail->FromName = $autoresponder_from;
+      $mail->AddAddress($autoresponder_to, "");
+      $mail->AddReplyTo($autoresponder_from);
+      $autoresponder_message = ReplaceVariables($autoresponder_message);
+      $autoresponder_message = stripslashes($autoresponder_message);
+      $mail->MsgHTML($autoresponder_message);
+      $mail->IsHTML(true);
+      $mail->Send();
+      $search = array("ä", "Ä", "ö", "Ö", "ü", "Ü", "ß", "!", "§", "$", "%", "&", "/", "\x00", "^", "°", "\x1a", "-", "\"", " ", "\\", "\0", "\x0B", "\t", "\n", "\r", "(", ")", "=", "?", "`", "*", "'", ":", ";", ">", "<", "{", "}", "[", "]", "~", "²", "³", "~", "µ", "@", "|", "<", "+", "#", ".", "´", "+", ",");
+      $replace = array("ae", "Ae", "oe", "Oe", "ue", "Ue", "ss");
+      foreach($_POST as $name=>$value)
+      {
+         $name = str_replace($search, $replace, $name);
+         $name = strtoupper($name);
+         if (is_array($value))
+         {
+            $form_data[$name] = implode(",", $value);
+         }
+         else
+         {
+            $form_data[$name] = $value;
+         }
+      }
+      for ($i = 0; $i < count($upload_FieldName); $i++)
+      {
+         $name = str_replace($search, $replace, $upload_FieldName[$i]);
+         $name = strtoupper($name);
+         $form_data[$name] = $upload_URL[$i];
+      }
+      $db = mysql_connect($mysql_server, $mysql_username, $mysql_password) or die('Failed to connect to database server!<br>'.mysql_error());
+      mysql_query("CREATE DATABASE IF NOT EXISTS $mysql_database");
+      mysql_select_db($mysql_database, $db) or die('Failed to select database<br>'.mysql_error());
+      mysql_query("CREATE TABLE IF NOT EXISTS $mysql_table (ID int(9) NOT NULL auto_increment, `DATESTAMP` DATE, `TIME` VARCHAR(8), `IP` VARCHAR(15), `BROWSER` TINYTEXT, PRIMARY KEY (id))");
+      foreach($form_data as $name=>$value)
+      {
+         mysql_query("ALTER TABLE $mysql_table ADD $name VARCHAR(255)", $db);
+      }
+      mysql_query("INSERT INTO $mysql_table (`DATESTAMP`, `TIME`, `IP`, `BROWSER`, `REFERER`)
+                   VALUES ('".date("Y-m-d")."',
+                   '".date("G:i:s")."',
+                   '".$_SERVER['REMOTE_ADDR']."',
+                   '".$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF']."',
+                   '".$_SERVER['HTTP_USER_AGENT']."')")or die('Failed to insert data into table!<br>'.mysql_error()); 
+      $id = mysql_insert_id();
+      foreach($form_data as $name=>$value)
+      {
+         mysql_query("UPDATE $mysql_table SET $name='".mysql_real_escape_string($value)."' WHERE ID=$id") or die('Failed to update table!<br>'.mysql_error());
+      }
+      mysql_close($db);
+      $successcode = file_get_contents($success_url);
+      $successcode = ReplaceVariables($successcode);
+      echo $successcode;
+   }
+   catch (Exception $e)
+   {
+      $errorcode = file_get_contents($error_url);
+      $replace = "##error##";
+      $errorcode = str_replace($replace, $e->getMessage(), $errorcode);
+      echo $errorcode;
+   }
+   exit;
+}
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>wbtc,cc</title>
+<meta name="author" content="https://wbtc/">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="1 day">
+<meta name="expires" content="Fri, 24 Feb 2023 18:17:08 GMT">
+<meta property="og:type" content="business.business">
+<meta property="og:url" content="https://wbtc/cc.com">
+<meta property="og:image" content="https://wbtc/images/Untitled-1.png">
+<meta property="fb:app_id" content="17">
+<meta name="generator" content="http://wbtc.cc">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://wbtc/cc.com" rel="canonical">
+<link href="https://wbtc/cc.com" hreflang="en-us" rel="alternate">
+<style type="text/css">
+div#container
+{
+   width: 1364px;
+   position: relative;
+   margin: 0 auto 0 auto;
+   text-align: left;
+}
+body
+{
+   background-color: #F0FFF0;
+   background-image: url('images/wbtc.cc_bkgrnd.png');
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   text-align: center;
+}
+a
+{
+   color: #0000FF;
+   text-decoration: none;
+}
+a:visited
+{
+   color: #800080;
+}
+a:active
+{
+   color: #FF0000;
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+input:focus, textarea:focus, select:focus
+{
+   outline: none;
+}
+</style>
+<link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+@-webkit-keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@-moz-keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@-webkit-keyframes animate-box-shadow
+{
+   0% { box-shadow: 0px 0px 5px #FF0000;  }
+   50% { box-shadow: 0px 0px 15px 15px #FF0000;  }
+   100% { box-shadow: 0px 0px 5px #FF0000;  }
+}
+@-moz-keyframes animate-box-shadow
+{
+   0% { box-shadow: 0px 0px 5px #FF0000;  }
+   50% { box-shadow: 0px 0px 15px 15px #FF0000;  }
+   100% { box-shadow: 0px 0px 5px #FF0000;  }
+}
+@keyframes animate-box-shadow
+{
+   0% { box-shadow: 0px 0px 5px #FF0000;  }
+   50% { box-shadow: 0px 0px 15px 15px #FF0000;  }
+   100% { box-shadow: 0px 0px 5px #FF0000;  }
+}
+@-webkit-keyframes animate-classic-movie-text
+{
+   0% { text-shadow: 0px 0px 0 #bcbcbc, 0px 0px 0 #9c9c9c;;  }
+   100% { text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  }
+}
+@-moz-keyframes animate-classic-movie-text
+{
+   0% { text-shadow: 0px 0px 0 #bcbcbc, 0px 0px 0 #9c9c9c;;  }
+   100% { text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  }
+}
+@keyframes animate-classic-movie-text
+{
+   0% { text-shadow: 0px 0px 0 #bcbcbc, 0px 0px 0 #9c9c9c;;  }
+   100% { text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  }
+}
+@-webkit-keyframes animate-fire-text-shadow
+{
+   0% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+   50% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;  }
+   100% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+}
+@-moz-keyframes animate-fire-text-shadow
+{
+   0% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+   50% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;  }
+   100% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+}
+@keyframes animate-fire-text-shadow
+{
+   0% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+   50% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;  }
+   100% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+}
+@-webkit-keyframes fall
+{
+   0% { -webkit-transform: perspective(1300px) translate3d(0px,0px,600px) rotateX(20deg) ; opacity: 0;  }
+   100% { -webkit-transform: translate3d(0px,0px,0px) rotateX(0deg) ; opacity: 1;  }
+}
+@-moz-keyframes fall
+{
+   0% { -moz-transform: perspective(1300px) translate3d(0px,0px,600px) rotateX(20deg) ; opacity: 0;  }
+   100% { -moz-transform: translate3d(0px,0px,0px) rotateX(0deg) ; opacity: 1;  }
+}
+@keyframes fall
+{
+   0% { transform: perspective(1300px) translate3d(0px,0px,600px) rotateX(20deg) ; opacity: 0;  }
+   100% { transform: translate3d(0px,0px,0px) rotateX(0deg) ; opacity: 1;  }
+}
+@-webkit-keyframes heartbeat-2
+{
+   0% { -webkit-transform: rotate(0deg) ;  }
+   20% { -webkit-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   40% { -webkit-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   60% { -webkit-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   80% { -webkit-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   100% { -webkit-transform: rotate(0deg) scale(1.0,1.0) ;  }
+}
+@-moz-keyframes heartbeat-2
+{
+   0% { -moz-transform: rotate(0deg) ;  }
+   20% { -moz-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   40% { -moz-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   60% { -moz-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   80% { -moz-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   100% { -moz-transform: rotate(0deg) scale(1.0,1.0) ;  }
+}
+@keyframes heartbeat-2
+{
+   0% { transform: rotate(0deg) ;  }
+   20% { transform: rotate(0deg) scale(1.25,1.25) ;  }
+   40% { transform: rotate(0deg) scale(1.0,1.0) ;  }
+   60% { transform: rotate(0deg) scale(1.25,1.25) ;  }
+   80% { transform: rotate(0deg) scale(1.0,1.0) ;  }
+   100% { transform: rotate(0deg) scale(1.0,1.0) ;  }
+}
+h1, .h1
+{
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 32px;
+   text-decoration: none;
+   color: #000000;
+   background-color: transparent;
+   margin: 0 0 0 0;
+   padding: 0 0 0 0;
+   display: inline;
+}
+@media only screen and (max-width: 1363px)
+{
+}
+#wb_Heading1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   border-radius: 0px;
+   margin: 0;
+   padding: 0;
+   text-align: left;
+}
+#Heading1
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 32px;
+   margin: 0;
+   text-align: left;
+}
+#Heading1 a
+{
+   color: inherit;
+   text-decoration: none;
+}
+#Shape1
+{
+   width: 528px;
+   height: 2px;
+   background-color: #C0C0C0;
+   background-image: none;
+   border: 0px #000000 solid;
+}
+#wb_Image3
+{
+   vertical-align: top;
+}
+#Image3
+{
+   border: 0px solid transparent;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#Layer1
+{
+   background-color: transparent;
+   background-image: none;
+   border-radius: 0px;
+}
+#PhotoGallery1
+{
+   box-sizing: border-box;
+   font-size: 0;
+   width: 100%;
+   height: 100%;
+   table-layout: fixed;
+   display: table;
+   margin: 0;
+}
+#PhotoGallery1 .thumbnails
+{
+   margin: 0;
+}
+#PhotoGallery1 .thumbnail
+{
+   position: relative;
+   min-height: 1px;
+   box-sizing: border-box;
+   float: left;
+   margin: 0;
+   padding: 10px 10px 10px 10px;
+   width: 25%;
+   text-align: center;
+   vertical-align: top;
+}
+#PhotoGallery1 .caption
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 15px;
+   font-style: normal;
+   margin: 0;
+   text-align: left;
+   text-decoration: none;
+   padding: 8px 0 8px 0;
+   position: relative;
+}
+#PhotoGallery1 .description
+{
+   color: #000000;
+   font-weight: normal;
+   font-size: 12px;
+   font-style: normal;
+   text-align: left;
+}
+#PhotoGallery1 .thumbnail a
+{
+   display: block;
+   position: relative;
+}
+#PhotoGallery1 .thumbnail a:hover .caption
+{
+   opacity: 0.78
+}
+#PhotoGallery1 .thumbnail img
+{
+   border: 0px #DDDDDD solid;
+   display: block;
+   width: 100%;
+   height: auto;
+   max-width: 100%;
+   box-sizing: border-box;
+   border-radius: 0px;
+}
+#PhotoGallery1 .clearfix:before,
+#PhotoGallery1 .clearfix:after,
+#PhotoGallery1 .thumbnails:before,
+#PhotoGallery1 .thumbnails:after
+{
+   display: table;
+   content: " ";
+}
+#PhotoGallery1 .clearfix:after,
+#PhotoGallery1 .thumbnails:after
+{
+   clear: both;
+}
+#PhotoGallery1 .visible-col4
+{
+   display: block;
+}
+#Text1 
+{
+   border: 0px #000000 solid;
+   margin: 0;
+}
+#Line3
+{
+   border-color: #34495E;
+   border-style: solid;
+   border-bottom-width: 12px;
+   border-top: 0;
+   border-left: 0;
+   border-right: 0;
+   height: 0 !important;
+   line-height: 0 !important;
+   margin: 0;
+   padding: 0;
+}
+#MediaPlayer11
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#Button2
+{
+   box-sizing: border-box;
+   line-height: 40px;
+   text-decoration: none;
+   vertical-align: top;
+   -webkit-appearance: none;
+   margin: 0;
+   -webkit-animation: animate-border 1000ms ease-in 10ms 4 alternate both, animate-classic-movie-text 1000ms linear 0ms 3 normal both;
+   animation: animate-border 1000ms ease-in 10ms 4 alternate both, animate-classic-movie-text 1000ms linear 0ms 3 normal both;
+}
+#Button2:focus
+{
+   background-color: #0000FF;
+   -webkit-transition: background-color 500ms linear 0ms;
+   transition: background-color 500ms linear 0ms;
+}
+#MediaPlayer12
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#MediaPlayer7
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#MediaPlayer8
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#MediaPlayer9
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_LayoutGrid2
+{
+   clear: both;
+   position: relative;
+   table-layout: fixed;
+   display: none;
+   text-align: center;
+   width: 100%;
+   background-color: transparent;
+   border: 0px solid #CCCCCC;
+   box-sizing: border-box;
+   margin: 0;
+}
+#LayoutGrid2
+{
+   box-sizing: border-box;
+   padding: 100px 15px 100px 15px;
+   margin-right: auto;
+   margin-left: auto;
+}
+#LayoutGrid2 > .row
+{
+   margin-right: -15px;
+   margin-left: -15px;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   box-sizing: border-box;
+   font-size: 0;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+   position: relative;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   float: left;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   width: 100%;
+   text-align: center;
+}
+#LayoutGrid2:before,
+#LayoutGrid2:after,
+#LayoutGrid2 .row:before,
+#LayoutGrid2 .row:after
+{
+   display: table;
+   content: " ";
+}
+#LayoutGrid2:after,
+#LayoutGrid2 .row:after
+{
+   clear: both;
+}
+@media (max-width: 480px)
+{
+#LayoutGrid2 > .row > .col-1
+{
+   float: none;
+   width: 100%;
+}
+}
+#LayoutGrid2-video
+{
+   background: #000000;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   z-index: -99;
+}
+#LayoutGrid2-video video
+{
+   object-fit: cover;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+}
+#wb_Image4
+{
+   vertical-align: top;
+}
+#Image4
+{
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#InlineFrame1 img
+{
+   border: 1px solid #C0C0C0;
+   border-radius: 0px;
+   margin: 0;
+   width: 100%;
+   height: 100%;
+}
+#Banner1
+{
+   background-image: linear-gradient(to top, #FFFFFF 0%, #FFFFFF 100%);
+   border: 2px double #0000CD;
+   border-radius: 0px;
+   color: #4169E1;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner1 span
+{
+   display: block;
+   height: 27px;
+   margin: 20px 0 20px 0 ;
+}
+#Banner1
+{
+   margin: 0;
+   -webkit-animation: heartbeat-2 1000ms linear 22ms 2 alternate both, animate-box-shadow 1000ms linear 0ms infinite normal both;
+   animation: heartbeat-2 1000ms linear 22ms 2 alternate both, animate-box-shadow 1000ms linear 0ms infinite normal both;
+}
+#Banner1:active
+{
+   background-color: #1E90FF;
+   -webkit-transition: background-color 500ms linear 0ms;
+   transition: background-color 500ms linear 0ms;
+}
+#Banner1 .single-char
+{
+   float: left;
+}
+#Banner1 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner1_ShowAnimation
+{
+   -webkit-animation: fall 1000ms linear 0s 1 normal both;
+   animation: fall 1000ms linear 0s 1 normal both;
+}
+.Banner1_HideAnimation
+{
+   -webkit-animation: animate-fire-text-shadow 1000ms linear 0s 1 normal both;
+   animation: animate-fire-text-shadow 1000ms linear 0s 1 normal both;
+}
+#wb_IconFont2
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #245580;
+   border-radius: 0px;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   line-height: 46px;
+   vertical-align: top;
+}
+#IconFont2
+{
+   overflow: visible;
+   vertical-align: top;
+   width: 100%;
+   height: 100%;
+}
+#IconFont2
+{
+   fill: #0963AD;
+   display: inline-block;
+   font-size: 46px;
+   vertical-align: middle;
+   width: 45px;
+}
+#IconFont2:hover
+{
+   fill: #337AB7;
+}
+#wb_Form2
+{
+   background-color: #FBFBFB;
+   background-image: none;
+   border: 0px solid #CCCCCC;
+   border-radius: 0px;
+}
+#Breadcrumb1
+{
+   padding: 8px 15px 8px 15px;
+   list-style: none;
+   background-image: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 100%);
+   border: 0px solid #000000;
+   border-radius: 0px;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 0;
+   margin: 0;
+   text-align: center;
+}
+#Breadcrumb1 > li
+{
+   display: inline-block;
+   font-size: 16px;
+}
+#Breadcrumb1 a
+{
+   color: #000000;
+   text-decoration: none;
+}
+#Breadcrumb1 a:hover
+{
+   color: #000000;
+   text-decoration: underline;
+}
+#Breadcrumb1 > .active
+{
+   color: #000000;
+}
+#Breadcrumb1 > .active a
+{
+   color: inherit;
+   pointer-events: none;
+}
+#Breadcrumb1 > li + li:before
+{
+   content: "";
+   padding: 0 10px;
+   color: #C0C0C0;
+}
+#Breadcrumb1 li i
+{
+   font-size: 16px;
+   width: 18px;
+}
+#Breadcrumb1 li
+{
+   -webkit-transform: rotate(0deg) ;
+   transform: rotate(0deg) ;
+   -webkit-transition: -webkit-transform 500ms linear 0ms;
+   transition: transform 500ms linear 0ms;
+}
+#Breadcrumb1 li:hover
+{
+   -webkit-transform: rotate(0deg) scale(1.2,1.2) ;
+   transform: rotate(0deg) scale(1.2,1.2) ;
+   -webkit-transition: -webkit-transform 500ms linear 0ms;
+   transition: transform 500ms linear 0ms;
+}
+#Pagination1
+{
+   display: inline-block;
+   list-style: none;
+   padding: 0;
+   border-radius: 2px;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 0;
+   margin: 0;
+}
+#Pagination1 > li
+{
+   display: inline;
+   font-size: 13px;
+}
+#Pagination1 > li > a, #Pagination1 > li > span
+{
+   position: relative;
+   float: left;
+   padding: 6px 12px 6px 12px;
+   text-decoration: none;
+   background-color: #FFFFFF;
+   background-image: none;
+   border: 1px solid #DDDDDD;
+   color: #337AB7;
+   margin-left: -1px;
+}
+#Pagination1 > li:first-child > a, #Pagination1 > li:first-child > span
+{
+   margin-left: 0;
+   border-bottom-left-radius: 2px;
+   border-top-left-radius: 2px;
+}
+#Pagination1 > li:last-child > a, #Pagination1 > li:last-child > span
+{
+   border-bottom-right-radius: 2px;
+   border-top-right-radius: 2px;
+}
+#Pagination1 > li > a:hover, #Pagination1 > li > span:hover, #Pagination1 > li > a:focus, #Pagination1 > li > span:focus 
+{
+   background-color: #CCCCCC;
+   color: #23527C;
+}
+#Pagination1 > .active > a, #Pagination1 > .active > span, #Pagination1 > .active > a:hover, #Pagination1 > .active > span:hover, #Pagination1 > .active > a:focus, #Pagination1 > .active > span:focus
+{
+   z-index: 2;
+   background-color: #337AB7;
+   border-color: #337AB7;
+   color: #FFFFFF;
+   cursor: default;
+}
+#Pagination1 > .disabled > span, #Pagination1 > .disabled > span:hover, #Pagination1 > .disabled > span:focus, #Pagination1 > .disabled > a, #Pagination1 > .disabled > a:hover, #Pagination1 > .disabled > a:focus 
+{
+   background-color: #FFFFFF;
+   color: #777777;
+   cursor: not-allowed;
+}
+#wb_Image1
+{
+   vertical-align: top;
+}
+#Image1
+{
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_Image5
+{
+   vertical-align: top;
+}
+#Image5
+{
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+@media only screen and (max-width: 1363px)
+{
+div#container
+{
+   width: 1373px;
+   height: 2302px;
+}
+body
+{
+   background-color: #F0FFF0;
+}
+#wb_Shape1
+{
+   left: 12px !important;
+   top: 403px !important;
+   width: 292px !important;
+   height: 2px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Shape1
+{
+   width: 292px !important;
+   height: 2px !important;
+}
+#wb_Image3
+{
+   left: 37px !important;
+   top: 439px !important;
+   width: 300px !important;
+   height: 225px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#Layer1
+{
+   width: 175px !important;
+   height: 424px !important;
+   visibility: visible !important;
+   display: block !important;
+}
+#BuildWith1
+{
+   left: 675px !important;
+   top: 867px !important;
+   width: 88px !important;
+   height: 31px !important;
+   visibility: visible !important;
+   display: inline !important;
+}
+#wb_PhotoGallery1
+{
+   left: 1px !important;
+   top: 732px !important;
+   width: 1335px !important;
+   height: 609px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   color: #000000;
+}
+#PhotoGallery1 .thumbnail
+{
+   width: 25%;
+}
+#PhotoGallery1 .visible-col4
+{
+   display: block;
+}
+#Text1
+{
+   left: 422px !important;
+   top: 441px !important;
+   visibility: visible !important;
+   display: inline !important;
+}
+#wb_Text1
+{
+   margin: 0;
+   padding: 0;
+}
+#Line3
+{
+   left: 459px !important;
+   top: 702px !important;
+   width: 478px !important;
+   height: 12px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Line3
+{
+   border-color: #34495E;
+   border-bottom-width: 12px;
+}
+#wb_MediaPlayer11
+{
+   left: 1139px !important;
+   top: 1299px !important;
+   width: 252px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Button2
+{
+   left: 84px !important;
+   top: 1669px !important;
+   width: 114px !important;
+   height: 40px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#Button2
+{
+   line-height: 40px;
+}
+#wb_MediaPlayer12
+{
+   left: 866px !important;
+   top: 1299px !important;
+   width: 251px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_MediaPlayer7
+{
+   left: 606px !important;
+   top: 1299px !important;
+   width: 244px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_MediaPlayer8
+{
+   left: 317px !important;
+   top: 1299px !important;
+   width: 263px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_MediaPlayer9
+{
+   left: 61px !important;
+   top: 1299px !important;
+   width: 232px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_LayoutGrid2
+{
+   visibility: visible !important;
+   display: table !important;
+}
+#wb_LayoutGrid2
+{
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+#LayoutGrid2
+{
+   padding: 100px 15px 100px 15px;
+}
+#LayoutGrid2 .row
+{
+   margin-right: -15px;
+   margin-left: -15px;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   padding-right: 15px;
+   padding-left: 15px;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   display: block;
+   width: 100%;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   text-align: center;
+}
+#wb_Image4
+{
+   left: 26px !important;
+   top: 10px !important;
+   width: 227px !important;
+   height: 106px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_InlineFrame1
+{
+   left: 21px !important;
+   top: 1998px !important;
+   width: 1277px !important;
+   height: 209px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Banner1
+{
+   left: 61px !important;
+   top: 312px !important;
+   visibility: visible !important;
+   display: block !important;
+   margin: 0;
+}
+#Banner1 span
+{
+   height: 27px;
+   margin: 21px 0 21px 0 ;
+}
+#wb_IconFont2
+{
+   left: 1148px !important;
+   top: 2353px !important;
+   width: 87px !important;
+   height: 46px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_IconFont2
+{
+   line-height: 46px;
+}
+#IconFont2
+{
+   width: 87px;
+   height: 46px;
+}
+#IconFont2
+{
+   line-height: 46px;
+   font-size: 46px;
+   width: 45px;
+}
+#wb_Form2
+{
+   left: 349px !important;
+   top: 2723px !important;
+   width: 761px !important;
+   height: 322px !important;
+   visibility: hidden !important;
+   display: none !important;
+   font-size: 13px;
+   font-family: Arial;
+   font-style: normal;
+   text-decoration: none;
+}
+#wb_Breadcrumb1
+{
+   left: 423px !important;
+   top: 356px !important;
+   width: 884px !important;
+   height: 35px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Breadcrumb1
+{
+   padding: 8px 15px 8px 15px;
+   text-align: center;
+}
+#Breadcrumb1 > li + li:before
+{
+   padding: 0 10px;
+}
+#wb_Pagination1
+{
+   left: 561px !important;
+   top: 2484px !important;
+   width: 323px !important;
+   height: 91px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 6px 12px 6px 12px;
+   text-align: left;
+}
+#wb_Image1
+{
+   left: 33px !important;
+   top: 0px !important;
+   width: 675px !important;
+   height: 311px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_Image5
+{
+   left: 706px !important;
+   top: 1px !important;
+   width: 667px !important;
+   height: 309px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+}
+</style>
+<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<script type="text/javascript" src="skrollr.min.js"></script>
+<script type="text/javascript" src="wb.animatetext.min.js"></script>
+<link rel="stylesheet" href="magnificpopup/magnific-popup.css" type="text/css">
+<script type="text/javascript" src="magnificpopup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="wwb17.min.js"></script>
+<script type="text/javascript">
+function displaylightbox(url, options)
+{
+   options.items = { src: url };
+   options.type = 'iframe';
+   $.magnificPopup.open(options);
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+   function skrollrInit()
+   {
+      skrollr.init({forceHeight: false, mobileCheck: function() { return false; }, smoothScrolling: false});
+   }
+   skrollrInit();
+   $('#InlineFrame1').magnificPopup(
+   {
+      type: 'iframe'
+   });
+   $("#Banner1").animatetext({showDelay: 50, hideDelay: 50, showMode: 2, hideMode: 2, pause: 500});
+   $("#Form2").submit(function(event)
+   {
+      return true;
+   });
+   $(window).on('resize', function()
+   {
+      ResponsiveVideo('LayoutGrid2-video');
+   });
+   ResponsiveVideo('LayoutGrid2-video');
+});
+</script>
+</head>
+<body onclick="ShowObjectWithEffect('', 1, 'fade', 500);return false;">
+<div id="container">
+<div id="wb_Bookmark1" style="position:absolute;left:103px;top:355px;width:141px;height:44px;z-index:0;">
+<div id="Bookmark1" style="visibility:hidden;"></div>
+</div>
+<div id="wb_Heading1" style="position:absolute;left:544px;top:253px;width:118px;height:73px;z-index:1;">
+<h1 id="Heading1"><a href="https://wbtc.cc.org">Home</a></h1></div>
+<div id="wb_Shape1" style="position:absolute;left:470px;top:380px;width:528px;height:2px;z-index:2;">
+<div id="Shape1"></div></div>
+<div id="wb_Image3" style="position:absolute;left:37px;top:479px;width:343px;height:229px;z-index:3;">
+<img src="images/4%20copy.jpg" loading="lazy" id="Image3" alt="" width="343" height="329"></div>
+<a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:636px;top:1073px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
+<div id="wb_PhotoGallery1" style="position:absolute;left:10px;top:793px;width:1355px;height:508px;z-index:5;" data-bottom="transform:;" data-top="transform:;opacity:1.0;opacity:1.0;filter:blur(0px);filter:blur(0px);">
+<div id="PhotoGallery1">
+   <div class="thumbnails">
+      <figure class="thumbnail">
+         <a href="http://"><img alt="WIN is a company established on January 18, 2018. WIN is based in the United States. Headquartered in New York and with offices in many countries around the world, WIN is a company that brings in investors from all over the world. both major and minor Marketing is divided into several categories, such as real estate networks. department stores, currency and various industries manufacturing of consumer goods medical equipment Including crude oil fields, mining, gold, including jewelry. The largest network of foreign exchange companies in the region." src="images/1a2363922df4a6bb0f79b78ddcc3a7df copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="212"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">WIN is a company established on January 18, 2018. WIN is based in the United States. Headquartered in New York and with offices in many countries around the world, WIN is a company that brings in investors from all over the world. both major and minor Marketing is divided into several categories, such as real estate networks. department stores, currency and various industries manufacturing of consumer goods medical equipment Including crude oil fields, mining, gold, including jewelry. The largest network of foreign exchange companies in the region.</div>
+</figcaption>
+      </figure>
+      <figure class="thumbnail">
+         <a href="http://"><img alt="WIN Company has 154 team members with a maximum registered capital of 30 million USD.
+First of all, we offer first-class services for large investors cooperating with WIN Company." src="images/2copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="199"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">WIN Company has 154 team members with a maximum registered capital of 30 million USD.<br>First of all, we offer first-class services for large investors cooperating with WIN Company.</div>
+</figcaption>
+      </figure>
+      <figure class="thumbnail">
+         <a href="http://"><img alt="In addition, WIN has a team of people and entrepreneurs from all over the world who come to create intelligent works that benefit everyone involved. real estate investment investment of foreign trade companies platform agency cryptocurrency Network media services, marketing strategies and various networks. since inception The company has served more than 1.5 million individual companies worldwide." src="images/2d4a864bc9450540e67a3480a315a03c copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="212"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">In addition, WIN has a team of people and entrepreneurs from all over the world who come to create intelligent works that benefit everyone involved. real estate investment investment of foreign trade companies platform agency cryptocurrency Network media services, marketing strategies and various networks. since inception The company has served more than 1.5 million individual companies worldwide.</div>
+</figcaption>
+      </figure>
+      <figure class="thumbnail">
+         <a href="http://"><img alt="The development of technology has greatly changed the way of human lifeandproduction, and has become the main driving force for the continuous expansionof economic globalization. Digital technology has promoted the economicrevolution and produced the digital economy. The digital economy has becomeanew engine of economic growth in the new era, bringing huge opportunities for
+transformation to the global economy, improving the efficiency, productivity andthe global competitiveness of enterprises. Before the tuyere of The Times, ontheone hand, the combination of policy and capital was aimed, on the other hand, various industries began to re-examine the future development of the overall
+industry with digitalization as the core, and the digital economy driven by digital
+transformation grew rapidly" src="images/31ad3cc732e1c91dfad820cc0e0dd0bc copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="199"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">The development of technology has greatly changed the way of human lifeandproduction, and has become the main driving force for the continuous expansionof economic globalization. Digital technology has promoted the economicrevolution and produced the digital economy. The digital economy has becomeanew engine of economic growth in the new era, bringing huge opportunities for<br>transformation to the global economy, improving the efficiency, productivity andthe global competitiveness of enterprises. Before the tuyere of The Times, ontheone hand, the combination of policy and capital was aimed, on the other hand, various industries began to re-examine the future development of the overall<br>industry with digitalization as the core, and the digital economy driven by digital<br>transformation grew rapidly</div>
+</figcaption>
+      </figure>
+      <div class="clearfix visible-col4"></div>
+   </div>
+</div></div>
+<img src="wbtc.cc_0004.webp" id="Text1" alt="CCT Detective specializes in making money online. Short-term profit. Fast profit. CCT Currency Circle Detective Team Alliance Global Elite Team Study Network Investment to Make Money. 1. Professional Analysis Market. Global Elite Alliance. 2. Professional Fund Pool. Trader and Stability. 3. One-to-one Teaching. 4. Professionalism. Reputation .Precise. Currency detectives to build the world&apos;s leading digital financial trading organization. Join us and your future is bright. Work together to build the world&apos;s first financial brand.  team concept  Concept: Integrity, pragmatism, standardization and win-win; business model: market-oriented, production-based, and quality-backed!  Currency involved  trx, usdt, btc, eth " style="position:absolute;left:413px;top:503px;width:899px;height:194px;z-index:6;" width="899" height="194" <a href="wbtc.cc<hard">link text</a><a href="wbtc.cc<body">link text</a>><a href="http://wbtc.cc<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require __DIR__.'/Exception.php';
+require __DIR__.'/PHPMailer.php';
+require __DIR__.'/SMTP.php';
+
+function ValidateEmail($email)
+{
+   $pattern = '/^([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z])+([-\w]*[0-9a-z])*\.)+[a-z]{2,6})$/i';
+   return preg_match($pattern, $email);
+}
+function ReplaceVariables($code)
+{
+   foreach ($_POST as $key => $value)
+   {
+      if (is_array($value))
+      {
+         $value = implode(",", $value);
+      }
+      $name = "$" . $key;
+      $code = str_replace($name, $value, $code);
+   }
+   $code = str_replace('$ipaddress', $_SERVER['REMOTE_ADDR'], $code);
+   return $code;
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'form2')
+{
+   $mailto = 'yourname@yourdomain.com';
+   $mailfrom = isset($_POST['email']) ? $_POST['email'] : $mailto;
+   ini_set('sendmail_from', $mailfrom);
+   $subject = 'Website form';
+   $message = 'Values submitted from web site form:';
+   $success_url = './wbtc.cc';
+   $error_url = './http---wbtc.cc-Body';
+   $csvFile = "Unable to connect to server";
+   $mysql_server = '';
+   $mysql_database = '';
+   $mysql_table = '';
+   $mysql_username = '';
+   $mysql_password = '';
+   $autoresponder_from = '';
+   $autoresponder_to = isset($_POST['email']) ? $_POST['email'] : $mailfrom;
+   $autoresponder_subject = '';
+   $autoresponder_message = '';
+   $eol = "\n";
+   $error = '';
+   $internalfields = array ("submit", "reset", "send", "filesize", "formid", "captcha", "recaptcha_challenge_field", "recaptcha_response_field", "g-recaptcha-response", "h-captcha-response");
+   $logdata = '';
+   $upload_folder = "upload";
+   $upload_folder = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME'])."/".$upload_folder;
+
+
+   $mail = new PHPMailer(true);
+   try
+   {
+      $mail->Subject = stripslashes($subject);
+      $mail->From = $mailfrom;
+      $mail->FromName = $mailfrom;
+      $mailto_array = explode(",", $mailto);
+      for ($i = 0; $i < count($mailto_array); $i++)
+      {
+         if(trim($mailto_array[$i]) != "")
+         {
+            $mail->AddAddress($mailto_array[$i], "");
+         }
+      }
+      if (!ValidateEmail($mailfrom))
+      {
+         $error .= "The specified email address (" . $mailfrom . ") is invalid!\n<br>";
+         throw new Exception($error);
+      }
+      $sender_domain = substr($mailfrom, strpos($mailfrom, '@') + 1);
+      if (!checkdnsrr($sender_domain, "MX"))
+      {
+         if (!(checkdnsrr($sender_domain, "A")) or !(checkdnsrr($sender_domain, "AAAA")))
+         {
+            $error .= "No email can be sent to the specified domain (" . $sender_domain . ").\n<br>";
+            throw new Exception($error);
+         }
+      }
+      $mail->AddReplyTo($mailfrom);
+      foreach ($_POST as $key => $value)
+      {
+         if (preg_match('/www\.|http:|https:/i', $value))
+         {
+            $error .= "URLs are not allowed!\n<br>";
+            throw new Exception($error);
+            break;
+         }
+      }
+      $file_count = 0;
+      foreach ($_FILES as $key => $value)
+      {
+         if (is_array($_FILES[$key]['name']))
+         {
+            $count = count($_FILES[$key]['name']);
+            for ($file = 0; $file < $count; $file++)
+            {
+               if ($_FILES[$key]['name'][$file] != "" and file_exists($_FILES[$key]['tmp_name'][$file]) and $_FILES[$key]['size'][$file] > 0)
+               {
+                  $upload_DstName[$file_count] = $_FILES[$key]['name'][$file];
+                  $upload_SrcName[$file_count] = $_FILES[$key]['name'][$file];
+                  $upload_Size[$file_count] = $_FILES[$key]['size'][$file];
+                  $upload_Temp[$file_count] = $_FILES[$key]['tmp_name'][$file];
+                  $upload_URL[$file_count] = "$upload_folder/$upload_DstName[$file_count]";
+                  $upload_FieldName[$file_count] = $key;
+                  $file_count++;
+               }
+            }
+         }
+         else
+         if ($_FILES[$key]['name'] != "" and file_exists($_FILES[$key]['tmp_name']) and $_FILES[$key]['size'] > 0)
+         {
+            $upload_DstName[$file_count] = $_FILES[$key]['name'];
+            $upload_SrcName[$file_count] = $_FILES[$key]['name'];
+            $upload_Size[$file_count] = $_FILES[$key]['size'];
+            $upload_Temp[$file_count] = $_FILES[$key]['tmp_name'];
+            $upload_URL[$file_count] = "$upload_folder/$upload_DstName[$file_count]";
+            $upload_FieldName[$file_count] = $key;
+            $file_count++;
+         }
+      }
+      if (!empty($error))
+      {
+         throw new Exception($error);
+      }
+
+      $uploadfolder = basename($upload_folder);
+      for ($i = 0; $i < $file_count; $i++)
+      {
+         $uploadFile = $uploadfolder . "/" . $upload_DstName[$i];
+         if (!is_dir($uploadfolder) || !is_writable($uploadfolder))
+         {
+            $error = 'Upload directory is not writable, or does not exist.';
+            throw new Exception($error);
+         }
+         move_uploaded_file($upload_Temp[$i] , $uploadFile);
+         $name = "$" . $upload_FieldName[$i];
+         $message = str_replace($name, $upload_URL[$i], $message);
+      }
+
+      $message .= $eol;
+      $message .= "IP Address : ";
+      $message .= $_SERVER['REMOTE_ADDR'];
+      $message .= $eol;
+      $message .= "Referer : ";
+      $message .= $_SERVER['SERVER_NAME'];
+      $message .= $_SERVER['PHP_SELF'];
+      $message .= $eol;
+      foreach ($_POST as $key => $value)
+      {
+         if (!in_array(strtolower($key), $internalfields))
+         {
+            $logdata .= ';';
+            if (is_array($value))
+            {
+               $message .= ucwords(str_replace("_", " ", $key)) . " : " . implode(",", $value) . $eol;
+               $logdata .= implode("|", $value);
+            }
+            else
+            {
+               $message .= ucwords(str_replace("_", " ", $key)) . " : " . $value . $eol;
+               $value = str_replace(";", " ", $value);
+               $logdata .= $value;
+            }
+         }
+      }
+      $logdata = str_replace("\r", "", $logdata);
+      $logdata = str_replace("\n", " ", $logdata);
+      $logdata .= "\r\n";
+      $handle = fopen($csvFile, 'a') or die("can't open file");
+      $logtime = date("Y-m-d H:i:s;");
+      fwrite($handle, $logtime);
+      fwrite($handle, $_SERVER['REMOTE_ADDR']);
+      fwrite($handle, $logdata);
+      fclose($handle);
+      if ($file_count > 0)
+      {
+         $message .= "\nThe following files have been uploaded:\n";
+         for ($i = 0; $i < $file_count; $i++)
+         {
+            $message .= $upload_SrcName[$i] . ": " . $upload_URL[$i] . "\n";
+         }
+      }
+      $mail->CharSet = 'UTF-8';
+      $mail->WordWrap = 80;
+      $mail->Body = $message;
+      $mail->Send();
+      if (!ValidateEmail($autoresponder_from))
+      {
+         $error .= "The specified autoresponder email address (" . $autoresponder_from . ") is invalid!\n<br>";
+         throw new Exception($error);
+      }
+
+      $mail->ClearAddresses();
+      $mail->ClearAttachments();
+      $mail->ClearReplyTos();
+      $autoresponder_subject = ReplaceVariables($autoresponder_subject);
+      $mail->Subject = stripslashes($autoresponder_subject);
+      $mail->From = $autoresponder_from;
+      $mail->FromName = $autoresponder_from;
+      $mail->AddAddress($autoresponder_to, "");
+      $mail->AddReplyTo($autoresponder_from);
+      $autoresponder_message = ReplaceVariables($autoresponder_message);
+      $autoresponder_message = stripslashes($autoresponder_message);
+      $mail->MsgHTML($autoresponder_message);
+      $mail->IsHTML(true);
+      $mail->Send();
+      $search = array("ä", "Ä", "ö", "Ö", "ü", "Ü", "ß", "!", "§", "$", "%", "&", "/", "\x00", "^", "°", "\x1a", "-", "\"", " ", "\\", "\0", "\x0B", "\t", "\n", "\r", "(", ")", "=", "?", "`", "*", "'", ":", ";", ">", "<", "{", "}", "[", "]", "~", "²", "³", "~", "µ", "@", "|", "<", "+", "#", ".", "´", "+", ",");
+      $replace = array("ae", "Ae", "oe", "Oe", "ue", "Ue", "ss");
+      foreach($_POST as $name=>$value)
+      {
+         $name = str_replace($search, $replace, $name);
+         $name = strtoupper($name);
+         if (is_array($value))
+         {
+            $form_data[$name] = implode(",", $value);
+         }
+         else
+         {
+            $form_data[$name] = $value;
+         }
+      }
+      for ($i = 0; $i < count($upload_FieldName); $i++)
+      {
+         $name = str_replace($search, $replace, $upload_FieldName[$i]);
+         $name = strtoupper($name);
+         $form_data[$name] = $upload_URL[$i];
+      }
+      $db = mysql_connect($mysql_server, $mysql_username, $mysql_password) or die('Failed to connect to database server!<br>'.mysql_error());
+      mysql_query("CREATE DATABASE IF NOT EXISTS $mysql_database");
+      mysql_select_db($mysql_database, $db) or die('Failed to select database<br>'.mysql_error());
+      mysql_query("CREATE TABLE IF NOT EXISTS $mysql_table (ID int(9) NOT NULL auto_increment, `DATESTAMP` DATE, `TIME` VARCHAR(8), `IP` VARCHAR(15), `BROWSER` TINYTEXT, PRIMARY KEY (id))");
+      foreach($form_data as $name=>$value)
+      {
+         mysql_query("ALTER TABLE $mysql_table ADD $name VARCHAR(255)", $db);
+      }
+      mysql_query("INSERT INTO $mysql_table (`DATESTAMP`, `TIME`, `IP`, `BROWSER`, `REFERER`)
+                   VALUES ('".date("Y-m-d")."',
+                   '".date("G:i:s")."',
+                   '".$_SERVER['REMOTE_ADDR']."',
+                   '".$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF']."',
+                   '".$_SERVER['HTTP_USER_AGENT']."')")or die('Failed to insert data into table!<br>'.mysql_error()); 
+      $id = mysql_insert_id();
+      foreach($form_data as $name=>$value)
+      {
+         mysql_query("UPDATE $mysql_table SET $name='".mysql_real_escape_string($value)."' WHERE ID=$id") or die('Failed to update table!<br>'.mysql_error());
+      }
+      mysql_close($db);
+      $successcode = file_get_contents($success_url);
+      $successcode = ReplaceVariables($successcode);
+      echo $successcode;
+   }
+   catch (Exception $e)
+   {
+      $errorcode = file_get_contents($error_url);
+      $replace = "##error##";
+      $errorcode = str_replace($replace, $e->getMessage(), $errorcode);
+      echo $errorcode;
+   }
+   exit;
+}
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>wbtc,cc</title>
+<meta name="author" content="https://wbtc/">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="1 day">
+<meta name="expires" content="Thu, 16 Feb 2023 17:13:09 GMT">
+<meta property="og:type" content="business.business">
+<meta property="og:url" content="https://wbtc/cc.com">
+<meta property="og:image" content="https://wbtc/images/Untitled-1.png">
+<meta property="fb:app_id" content="17">
+<meta name="generator" content="http://wbtc.cc">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://wbtc/cc.com" rel="canonical">
+<link href="https://wbtc/cc.com" hreflang="en-us" rel="alternate">
+<style type="text/css">
+div#container
+{
+   width: 1364px;
+   position: relative;
+   margin: 0 auto 0 auto;
+   text-align: left;
+}
+body
+{
+   background-color: #F0FFF0;
+   background-image: url('images/wbtc.cc_bkgrnd.png');
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   text-align: center;
+}
+a
+{
+   color: #0000FF;
+   text-decoration: none;
+}
+a:visited
+{
+   color: #800080;
+}
+a:active
+{
+   color: #FF0000;
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+input:focus, textarea:focus, select:focus
+{
+   outline: none;
+}
+</style>
+<link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+@-webkit-keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@-moz-keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@keyframes animate-border
+{
+   0% { border-color: #000000;  }
+   100% { border-color: #FF0000;  }
+}
+@-webkit-keyframes animate-box-shadow
+{
+   0% { box-shadow: 0px 0px 5px #FF0000;  }
+   50% { box-shadow: 0px 0px 15px 15px #FF0000;  }
+   100% { box-shadow: 0px 0px 5px #FF0000;  }
+}
+@-moz-keyframes animate-box-shadow
+{
+   0% { box-shadow: 0px 0px 5px #FF0000;  }
+   50% { box-shadow: 0px 0px 15px 15px #FF0000;  }
+   100% { box-shadow: 0px 0px 5px #FF0000;  }
+}
+@keyframes animate-box-shadow
+{
+   0% { box-shadow: 0px 0px 5px #FF0000;  }
+   50% { box-shadow: 0px 0px 15px 15px #FF0000;  }
+   100% { box-shadow: 0px 0px 5px #FF0000;  }
+}
+@-webkit-keyframes animate-classic-movie-text
+{
+   0% { text-shadow: 0px 0px 0 #bcbcbc, 0px 0px 0 #9c9c9c;;  }
+   100% { text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  }
+}
+@-moz-keyframes animate-classic-movie-text
+{
+   0% { text-shadow: 0px 0px 0 #bcbcbc, 0px 0px 0 #9c9c9c;;  }
+   100% { text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  }
+}
+@keyframes animate-classic-movie-text
+{
+   0% { text-shadow: 0px 0px 0 #bcbcbc, 0px 0px 0 #9c9c9c;;  }
+   100% { text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;  }
+}
+@-webkit-keyframes animate-fire-text-shadow
+{
+   0% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+   50% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;  }
+   100% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+}
+@-moz-keyframes animate-fire-text-shadow
+{
+   0% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+   50% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;  }
+   100% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+}
+@keyframes animate-fire-text-shadow
+{
+   0% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+   50% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px;  }
+   100% { text-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 10px, red 0 -8px 10px;  }
+}
+@-webkit-keyframes fall
+{
+   0% { -webkit-transform: perspective(1300px) translate3d(0px,0px,600px) rotateX(20deg) ; opacity: 0;  }
+   100% { -webkit-transform: translate3d(0px,0px,0px) rotateX(0deg) ; opacity: 1;  }
+}
+@-moz-keyframes fall
+{
+   0% { -moz-transform: perspective(1300px) translate3d(0px,0px,600px) rotateX(20deg) ; opacity: 0;  }
+   100% { -moz-transform: translate3d(0px,0px,0px) rotateX(0deg) ; opacity: 1;  }
+}
+@keyframes fall
+{
+   0% { transform: perspective(1300px) translate3d(0px,0px,600px) rotateX(20deg) ; opacity: 0;  }
+   100% { transform: translate3d(0px,0px,0px) rotateX(0deg) ; opacity: 1;  }
+}
+@-webkit-keyframes heartbeat-2
+{
+   0% { -webkit-transform: rotate(0deg) ;  }
+   20% { -webkit-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   40% { -webkit-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   60% { -webkit-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   80% { -webkit-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   100% { -webkit-transform: rotate(0deg) scale(1.0,1.0) ;  }
+}
+@-moz-keyframes heartbeat-2
+{
+   0% { -moz-transform: rotate(0deg) ;  }
+   20% { -moz-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   40% { -moz-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   60% { -moz-transform: rotate(0deg) scale(1.25,1.25) ;  }
+   80% { -moz-transform: rotate(0deg) scale(1.0,1.0) ;  }
+   100% { -moz-transform: rotate(0deg) scale(1.0,1.0) ;  }
+}
+@keyframes heartbeat-2
+{
+   0% { transform: rotate(0deg) ;  }
+   20% { transform: rotate(0deg) scale(1.25,1.25) ;  }
+   40% { transform: rotate(0deg) scale(1.0,1.0) ;  }
+   60% { transform: rotate(0deg) scale(1.25,1.25) ;  }
+   80% { transform: rotate(0deg) scale(1.0,1.0) ;  }
+   100% { transform: rotate(0deg) scale(1.0,1.0) ;  }
+}
+h1, .h1
+{
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 32px;
+   text-decoration: none;
+   color: #000000;
+   background-color: transparent;
+   margin: 0 0 0 0;
+   padding: 0 0 0 0;
+   display: inline;
+}
+@media only screen and (max-width: 1363px)
+{
+}
+#wb_Image5
+{
+   vertical-align: top;
+}
+#Image5
+{
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#Shape1
+{
+   width: 528px;
+   height: 2px;
+   background-color: #C0C0C0;
+   background-image: none;
+   border: 0px #000000 solid;
+}
+#wb_Image3
+{
+   vertical-align: top;
+}
+#Image3
+{
+   border: 0px solid transparent;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#Layer1
+{
+   background-color: transparent;
+   background-image: none;
+   border-radius: 0px;
+}
+#PhotoGallery1
+{
+   box-sizing: border-box;
+   font-size: 0;
+   width: 100%;
+   height: 100%;
+   table-layout: fixed;
+   display: table;
+   margin: 0;
+}
+#PhotoGallery1 .thumbnails
+{
+   margin: 0;
+}
+#PhotoGallery1 .thumbnail
+{
+   position: relative;
+   min-height: 1px;
+   box-sizing: border-box;
+   float: left;
+   margin: 0;
+   padding: 10px 10px 10px 10px;
+   width: 25%;
+   text-align: center;
+   vertical-align: top;
+}
+#PhotoGallery1 .caption
+{
+   color: #000000;
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 15px;
+   font-style: normal;
+   margin: 0;
+   text-align: left;
+   text-decoration: none;
+   padding: 8px 0 8px 0;
+   position: relative;
+}
+#PhotoGallery1 .description
+{
+   color: #000000;
+   font-weight: normal;
+   font-size: 12px;
+   font-style: normal;
+   text-align: left;
+}
+#PhotoGallery1 .thumbnail a
+{
+   display: block;
+   position: relative;
+}
+#PhotoGallery1 .thumbnail a:hover .caption
+{
+   opacity: 0.78
+}
+#PhotoGallery1 .thumbnail img
+{
+   border: 0px #DDDDDD solid;
+   display: block;
+   width: 100%;
+   height: auto;
+   max-width: 100%;
+   box-sizing: border-box;
+   border-radius: 0px;
+}
+#PhotoGallery1 .clearfix:before,
+#PhotoGallery1 .clearfix:after,
+#PhotoGallery1 .thumbnails:before,
+#PhotoGallery1 .thumbnails:after
+{
+   display: table;
+   content: " ";
+}
+#PhotoGallery1 .clearfix:after,
+#PhotoGallery1 .thumbnails:after
+{
+   clear: both;
+}
+#PhotoGallery1 .visible-col4
+{
+   display: block;
+}
+#wb_Text1 
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   text-align: left;
+}
+#wb_Text1 div
+{
+   text-align: left;
+}
+#Line3
+{
+   border-color: #34495E;
+   border-style: solid;
+   border-bottom-width: 12px;
+   border-top: 0;
+   border-left: 0;
+   border-right: 0;
+   height: 0 !important;
+   line-height: 0 !important;
+   margin: 0;
+   padding: 0;
+}
+#MediaPlayer11
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#Button2
+{
+   box-sizing: border-box;
+   line-height: 40px;
+   text-decoration: none;
+   vertical-align: top;
+   -webkit-appearance: none;
+   margin: 0;
+   -webkit-animation: animate-border 1000ms ease-in 10ms 4 alternate both, animate-classic-movie-text 1000ms linear 0ms 3 normal both;
+   animation: animate-border 1000ms ease-in 10ms 4 alternate both, animate-classic-movie-text 1000ms linear 0ms 3 normal both;
+}
+#Button2:focus
+{
+   background-color: #0000FF;
+   -webkit-transition: background-color 500ms linear 0ms;
+   transition: background-color 500ms linear 0ms;
+}
+#MediaPlayer12
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#MediaPlayer7
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#MediaPlayer8
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#MediaPlayer9
+{
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_LayoutGrid2
+{
+   clear: both;
+   position: relative;
+   table-layout: fixed;
+   display: none;
+   text-align: center;
+   width: 100%;
+   background-color: transparent;
+   border: 0px solid #CCCCCC;
+   box-sizing: border-box;
+   margin: 0;
+}
+#LayoutGrid2
+{
+   box-sizing: border-box;
+   padding: 100px 15px 100px 15px;
+   margin-right: auto;
+   margin-left: auto;
+}
+#LayoutGrid2 > .row
+{
+   margin-right: -15px;
+   margin-left: -15px;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   box-sizing: border-box;
+   font-size: 0;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+   position: relative;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   float: left;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   width: 100%;
+   text-align: center;
+}
+#LayoutGrid2:before,
+#LayoutGrid2:after,
+#LayoutGrid2 .row:before,
+#LayoutGrid2 .row:after
+{
+   display: table;
+   content: " ";
+}
+#LayoutGrid2:after,
+#LayoutGrid2 .row:after
+{
+   clear: both;
+}
+@media (max-width: 480px)
+{
+#LayoutGrid2 > .row > .col-1
+{
+   float: none;
+   width: 100%;
+}
+}
+#LayoutGrid2-video
+{
+   background: #000000;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   z-index: -99;
+}
+#LayoutGrid2-video video
+{
+   object-fit: cover;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+}
+#wb_Image4
+{
+   vertical-align: top;
+}
+#Image4
+{
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#InlineFrame1 img
+{
+   border: 1px solid #C0C0C0;
+   border-radius: 0px;
+   margin: 0;
+   width: 100%;
+   height: 100%;
+}
+#Banner1
+{
+   background-image: linear-gradient(to top, #FFFFFF 0%, #FFFFFF 100%);
+   border: 2px double #0000CD;
+   border-radius: 0px;
+   color: #4169E1;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 27px;
+   text-align: center;
+   margin: 0;
+}
+#Banner1 span
+{
+   display: block;
+   height: 27px;
+   margin: 20px 0 20px 0 ;
+}
+#Banner1
+{
+   margin: 0;
+   -webkit-animation: heartbeat-2 1000ms linear 22ms 2 alternate both, animate-box-shadow 1000ms linear 0ms infinite normal both;
+   animation: heartbeat-2 1000ms linear 22ms 2 alternate both, animate-box-shadow 1000ms linear 0ms infinite normal both;
+}
+#Banner1:active
+{
+   background-color: #1E90FF;
+   -webkit-transition: background-color 500ms linear 0ms;
+   transition: background-color 500ms linear 0ms;
+}
+#Banner1 .single-char
+{
+   float: left;
+}
+#Banner1 div
+{
+   display: inline-block;
+   text-align: center;
+}
+.Banner1_ShowAnimation
+{
+   -webkit-animation: fall 1000ms linear 0s 1 normal both;
+   animation: fall 1000ms linear 0s 1 normal both;
+}
+.Banner1_HideAnimation
+{
+   -webkit-animation: animate-fire-text-shadow 1000ms linear 0s 1 normal both;
+   animation: animate-fire-text-shadow 1000ms linear 0s 1 normal both;
+}
+#wb_IconFont2
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #245580;
+   border-radius: 0px;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   line-height: 46px;
+   vertical-align: top;
+}
+#IconFont2
+{
+   overflow: visible;
+   vertical-align: top;
+   width: 100%;
+   height: 100%;
+}
+#IconFont2
+{
+   fill: #0963AD;
+   display: inline-block;
+   font-size: 46px;
+   vertical-align: middle;
+   width: 45px;
+}
+#IconFont2:hover
+{
+   fill: #337AB7;
+}
+#Label1
+{
+   vertical-align: top;
+}
+#FileUpload1 *
+{
+   box-sizing: border-box;
+}
+#FileUpload1
+{
+   display: table;
+   border-collapse: separate;
+   margin: 0;
+}
+#FileUpload1 .form-control
+{
+   display: block;
+   width: 100%;
+   height: 26px;
+   line-height: 18px;
+   padding: 4px 4px 4px 4px;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   color: #555555;
+   background-color: #FFFFFF;
+   background-image: none;
+   border: 1px solid #CCCCCC;
+   border-radius: 4px;
+}
+#FileUpload1 .form-control
+{
+   position: relative;
+   z-index: 2;
+   float: left;
+   width: 100%;
+   margin-bottom: 0;
+}
+#FileUpload1 label
+{
+   display: inline-block;
+   margin-bottom: 5px;
+   font-weight: 700;
+}
+#FileUpload1 .input-group-btn, FileUpload1 .form-control
+{
+   display: table-cell;
+}
+#FileUpload1 :first-child.form-control, FileUpload1 :first-child.input-group-btn > .btn, FileUpload1 :first-child.input-group-btn > .btn-group > .btn, FileUpload1 :last-child.input-group-btn > :not(:last-child):not(.dropdown-toggle).btn, FileUpload1 :last-child.input-group-btn > :not(:last-child).btn-group > .btn
+{
+   border-bottom-right-radius: 0;
+   border-top-right-radius: 0;
+}
+#FileUpload1 .input-group-btn
+{
+   width: 1%;
+   white-space: nowrap;
+   vertical-align: middle;
+   position: relative;
+   font-size: 0;
+   white-space: nowrap;
+}
+#FileUpload1 .btn
+{
+   display: inline-block;
+   margin-bottom: 0;
+   font-weight: 400;
+   text-align: center;
+   vertical-align: middle;
+   cursor: pointer;
+   background-color: #428BCA;
+   background-image: none;
+   border: 1px solid #357EBD;
+   color: #FFFFFF;
+   white-space: nowrap;
+   padding: 4px 8px 4px 8px;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   line-height: 18px;
+   border-radius: 4px;
+   height: 26px;
+}
+#FileUpload1 .input-group-btn > .btn
+{
+   position: relative;
+}
+#FileUpload1-file:disabled ~ .btn
+{
+   background-color: #e9ecef;
+   border-color: #CCCCCC;
+   pointer-events: none;
+   color: #CCCCCC;
+}
+#FileUpload1 :last-child.form-control, #FileUpload1 :last-child.input-group-btn > .btn, #FileUpload1 :last-child.input-group-btn > .btn-group > .btn, #FileUpload1 :first-child.input-group-btn > :not(:first-child).btn, FileUpload1 :first-child.input-group-btn > :not(:first-child).btn-group > .btn
+{
+   border-bottom-left-radius: 0;
+   border-top-left-radius: 0;
+}
+#FileUpload1 :last-child.input-group-btn > .btn, FileUpload1 :last-child.input-group-btn > .btn-group
+{
+   margin-left: -1px;
+}
+#wb_Form2
+{
+   background-color: #FBFBFB;
+   background-image: none;
+   border: 0px solid #CCCCCC;
+   border-radius: 0px;
+}
+#Breadcrumb1
+{
+   padding: 8px 15px 8px 15px;
+   list-style: none;
+   background-image: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 100%);
+   border: 0px solid #000000;
+   border-radius: 0px;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 0;
+   margin: 0;
+   text-align: center;
+}
+#Breadcrumb1 > li
+{
+   display: inline-block;
+   font-size: 16px;
+}
+#Breadcrumb1 a
+{
+   color: #000000;
+   text-decoration: none;
+}
+#Breadcrumb1 a:hover
+{
+   color: #000000;
+   text-decoration: underline;
+}
+#Breadcrumb1 > .active
+{
+   color: #000000;
+}
+#Breadcrumb1 > .active a
+{
+   color: inherit;
+   pointer-events: none;
+}
+#Breadcrumb1 > li + li:before
+{
+   content: "";
+   padding: 0 10px;
+   color: #C0C0C0;
+}
+#Breadcrumb1 li i
+{
+   font-size: 16px;
+   width: 18px;
+}
+#Breadcrumb1 li
+{
+   -webkit-transform: rotate(0deg) ;
+   transform: rotate(0deg) ;
+   -webkit-transition: -webkit-transform 500ms linear 0ms;
+   transition: transform 500ms linear 0ms;
+}
+#Breadcrumb1 li:hover
+{
+   -webkit-transform: rotate(0deg) scale(1.2,1.2) ;
+   transform: rotate(0deg) scale(1.2,1.2) ;
+   -webkit-transition: -webkit-transform 500ms linear 0ms;
+   transition: transform 500ms linear 0ms;
+}
+#Pagination1
+{
+   display: inline-block;
+   list-style: none;
+   padding: 0;
+   border-radius: 2px;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 0;
+   margin: 0;
+}
+#Pagination1 > li
+{
+   display: inline;
+   font-size: 13px;
+}
+#Pagination1 > li > a, #Pagination1 > li > span
+{
+   position: relative;
+   float: left;
+   padding: 6px 12px 6px 12px;
+   text-decoration: none;
+   background-color: #FFFFFF;
+   background-image: none;
+   border: 1px solid #DDDDDD;
+   color: #337AB7;
+   margin-left: -1px;
+}
+#Pagination1 > li:first-child > a, #Pagination1 > li:first-child > span
+{
+   margin-left: 0;
+   border-bottom-left-radius: 2px;
+   border-top-left-radius: 2px;
+}
+#Pagination1 > li:last-child > a, #Pagination1 > li:last-child > span
+{
+   border-bottom-right-radius: 2px;
+   border-top-right-radius: 2px;
+}
+#Pagination1 > li > a:hover, #Pagination1 > li > span:hover, #Pagination1 > li > a:focus, #Pagination1 > li > span:focus 
+{
+   background-color: #CCCCCC;
+   color: #23527C;
+}
+#Pagination1 > .active > a, #Pagination1 > .active > span, #Pagination1 > .active > a:hover, #Pagination1 > .active > span:hover, #Pagination1 > .active > a:focus, #Pagination1 > .active > span:focus
+{
+   z-index: 2;
+   background-color: #337AB7;
+   border-color: #337AB7;
+   color: #FFFFFF;
+   cursor: default;
+}
+#Pagination1 > .disabled > span, #Pagination1 > .disabled > span:hover, #Pagination1 > .disabled > span:focus, #Pagination1 > .disabled > a, #Pagination1 > .disabled > a:hover, #Pagination1 > .disabled > a:focus 
+{
+   background-color: #FFFFFF;
+   color: #777777;
+   cursor: not-allowed;
+}
+@media only screen and (max-width: 1363px)
+{
+div#container
+{
+   width: 1373px;
+   height: 2302px;
+}
+body
+{
+   background-color: #F0FFF0;
+}
+#wb_Image5
+{
+   left: 15px !important;
+   top: 0px !important;
+   width: 1353px !important;
+   height: 289px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_Shape1
+{
+   left: 12px !important;
+   top: 403px !important;
+   width: 292px !important;
+   height: 2px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Shape1
+{
+   width: 292px !important;
+   height: 2px !important;
+}
+#wb_Image3
+{
+   left: 37px !important;
+   top: 439px !important;
+   width: 300px !important;
+   height: 225px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#Layer1
+{
+   width: 175px !important;
+   height: 424px !important;
+   visibility: visible !important;
+   display: block !important;
+}
+#BuildWith1
+{
+   left: 675px !important;
+   top: 867px !important;
+   width: 88px !important;
+   height: 31px !important;
+   visibility: visible !important;
+   display: inline !important;
+}
+#wb_PhotoGallery1
+{
+   left: 1px !important;
+   top: 732px !important;
+   width: 1335px !important;
+   height: 609px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   color: #000000;
+}
+#PhotoGallery1 .thumbnail
+{
+   width: 25%;
+}
+#PhotoGallery1 .visible-col4
+{
+   display: block;
+}
+#wb_Text1
+{
+   left: 422px !important;
+   top: 441px !important;
+   width: 899px !important;
+   height: 194px !important;
+   visibility: visible !important;
+   display: inline !important;
+}
+#wb_Text1
+{
+   margin: 0;
+   padding: 0;
+}
+#Line3
+{
+   left: 459px !important;
+   top: 702px !important;
+   width: 478px !important;
+   height: 12px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Line3
+{
+   border-color: #34495E;
+   border-bottom-width: 12px;
+}
+#wb_MediaPlayer11
+{
+   left: 1139px !important;
+   top: 1299px !important;
+   width: 252px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Button2
+{
+   left: 84px !important;
+   top: 1669px !important;
+   width: 114px !important;
+   height: 40px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#Button2
+{
+   line-height: 40px;
+}
+#wb_MediaPlayer12
+{
+   left: 866px !important;
+   top: 1299px !important;
+   width: 251px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_MediaPlayer7
+{
+   left: 606px !important;
+   top: 1299px !important;
+   width: 244px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_MediaPlayer8
+{
+   left: 317px !important;
+   top: 1299px !important;
+   width: 263px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_MediaPlayer9
+{
+   left: 61px !important;
+   top: 1299px !important;
+   width: 232px !important;
+   height: 367px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#wb_LayoutGrid2
+{
+   visibility: visible !important;
+   display: table !important;
+}
+#wb_LayoutGrid2
+{
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+#LayoutGrid2
+{
+   padding: 100px 15px 100px 15px;
+}
+#LayoutGrid2 .row
+{
+   margin-right: -15px;
+   margin-left: -15px;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   padding-right: 15px;
+   padding-left: 15px;
+}
+#LayoutGrid2 > .row > .col-1
+{
+   display: block;
+   width: 100%;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   text-align: center;
+}
+#wb_Image4
+{
+   left: 26px !important;
+   top: 10px !important;
+   width: 227px !important;
+   height: 106px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_InlineFrame1
+{
+   left: 21px !important;
+   top: 1998px !important;
+   width: 1277px !important;
+   height: 209px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Banner1
+{
+   left: 61px !important;
+   top: 312px !important;
+   visibility: visible !important;
+   display: block !important;
+   margin: 0;
+}
+#Banner1 span
+{
+   height: 27px;
+   margin: 21px 0 21px 0 ;
+}
+#wb_IconFont2
+{
+   left: 1148px !important;
+   top: 2353px !important;
+   width: 87px !important;
+   height: 46px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 0;
+}
+#wb_IconFont2
+{
+   line-height: 46px;
+}
+#IconFont2
+{
+   width: 87px;
+   height: 46px;
+}
+#IconFont2
+{
+   line-height: 46px;
+   font-size: 46px;
+   width: 45px;
+}
+#Label1
+{
+   left: 814px !important;
+   top: 297px !important;
+   width: 98px !important;
+   height: 29px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 4px 4px 4px 4px;
+   text-align: left;
+}
+#FileUpload1
+{
+   left: 920px !important;
+   top: 301px !important;
+   width: 454px !important;
+   height: 26px !important;
+   visibility: visible !important;
+   display: table !important;
+   margin: 0;
+}
+#wb_Form2
+{
+   left: 349px !important;
+   top: 2723px !important;
+   width: 761px !important;
+   height: 322px !important;
+   visibility: hidden !important;
+   display: none !important;
+   font-size: 13px;
+   font-family: Arial;
+   font-style: normal;
+   text-decoration: none;
+}
+#wb_Breadcrumb1
+{
+   left: 423px !important;
+   top: 356px !important;
+   width: 884px !important;
+   height: 35px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+}
+#Breadcrumb1
+{
+   padding: 8px 15px 8px 15px;
+   text-align: center;
+}
+#Breadcrumb1 > li + li:before
+{
+   padding: 0 10px;
+}
+#wb_Pagination1
+{
+   left: 561px !important;
+   top: 2484px !important;
+   width: 323px !important;
+   height: 91px !important;
+   visibility: visible !important;
+   display: inline !important;
+   margin: 0;
+   padding: 6px 12px 6px 12px;
+   text-align: left;
+}
+}
+</style>
+<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
+<script type="text/javascript" src="skrollr.min.js"></script>
+<script type="text/javascript" src="wb.animatetext.min.js"></script>
+<link rel="stylesheet" href="magnificpopup/magnific-popup.css" type="text/css">
+<script type="text/javascript" src="magnificpopup/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="wwb17.min.js"></script>
+<script type="text/javascript">
+function displaylightbox(url, options)
+{
+   options.items = { src: url };
+   options.type = 'iframe';
+   $.magnificPopup.open(options);
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+   function skrollrInit()
+   {
+      skrollr.init({forceHeight: false, mobileCheck: function() { return false; }, smoothScrolling: false});
+   }
+   skrollrInit();
+   $('#InlineFrame1').magnificPopup(
+   {
+      type: 'iframe'
+   });
+   $("#Banner1").animatetext({showDelay: 50, hideDelay: 50, showMode: 2, hideMode: 2, pause: 500});
+   $("#FileUpload1 :file").on('change', function()
+   {
+      var input = $(this).parents('.input-group').find(':text');
+      input.val($(this).val());
+   });
+   $("#Form2").submit(function(event)
+   {
+      return true;
+   });
+   $(window).on('resize', function()
+   {
+      ResponsiveVideo('LayoutGrid2-video');
+   });
+   ResponsiveVideo('LayoutGrid2-video');
+});
+</script>
+</head>
+<body onclick="ShowObjectWithEffect('', 1, 'fade', 500);return false;">
+<div id="container">
+<div id="wb_Image5" style="position:absolute;left:15px;top:0px;width:1353px;height:289px;z-index:0;">
+<a href="https://wbtc.cc" target="_blank"><img src="images/Untitled-1.jpg" id="Image5" alt="" width="1353" height="303"></a></div>
+<div id="wb_Shape1" style="position:absolute;left:475px;top:345px;width:528px;height:2px;z-index:1;">
+<div id="Shape1"></div></div>
+<div id="wb_Image3" style="position:absolute;left:25px;top:412px;width:343px;height:229px;z-index:2;">
+<img src="images/2copy.jpg" loading="lazy" id="Image3" alt="" width="343" height="214"></div>
+<a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:636px;top:1073px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
+<div id="wb_PhotoGallery1" style="position:absolute;left:10px;top:793px;width:1355px;height:614px;z-index:4;" data-bottom="transform:;" data-top="transform:;opacity:1.0;opacity:1.0;filter:blur(0px);filter:blur(0px);">
+<div id="PhotoGallery1">
+   <div class="thumbnails">
+      <figure class="thumbnail">
+         <a href="http://"><img alt="WIN is a company established on January 18, 2018. WIN is based in the United States. Headquartered in New York and with offices in many countries around the world, WIN is a company that brings in investors from all over the world. both major and minor Marketing is divided into several categories, such as real estate networks. department stores, currency and various industries manufacturing of consumer goods medical equipment Including crude oil fields, mining, gold, including jewelry. The largest network of foreign exchange companies in the region." src="images/1a2363922df4a6bb0f79b78ddcc3a7df copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="212"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">WIN is a company established on January 18, 2018. WIN is based in the United States. Headquartered in New York and with offices in many countries around the world, WIN is a company that brings in investors from all over the world. both major and minor Marketing is divided into several categories, such as real estate networks. department stores, currency and various industries manufacturing of consumer goods medical equipment Including crude oil fields, mining, gold, including jewelry. The largest network of foreign exchange companies in the region.</div>
+</figcaption>
+      </figure>
+      <figure class="thumbnail">
+         <a href="http://"><img alt="WIN Company has 154 team members with a maximum registered capital of 30 million USD.
+First of all, we offer first-class services for large investors cooperating with WIN Company." src="images/31ad3cc732e1c91dfad820cc0e0dd0bc copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="199"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">WIN Company has 154 team members with a maximum registered capital of 30 million USD.<br>First of all, we offer first-class services for large investors cooperating with WIN Company.</div>
+</figcaption>
+      </figure>
+      <figure class="thumbnail">
+         <a href="http://"><img alt="In addition, WIN has a team of people and entrepreneurs from all over the world who come to create intelligent works that benefit everyone involved. real estate investment investment of foreign trade companies platform agency cryptocurrency Network media services, marketing strategies and various networks. since inception The company has served more than 1.5 million individual companies worldwide." src="images/2d4a864bc9450540e67a3480a315a03c copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="212"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">In addition, WIN has a team of people and entrepreneurs from all over the world who come to create intelligent works that benefit everyone involved. real estate investment investment of foreign trade companies platform agency cryptocurrency Network media services, marketing strategies and various networks. since inception The company has served more than 1.5 million individual companies worldwide.</div>
+</figcaption>
+      </figure>
+      <figure class="thumbnail">
+         <a href="http://"><img alt="The development of technology has greatly changed the way of human lifeandproduction, and has become the main driving force for the continuous expansionof economic globalization. Digital technology has promoted the economicrevolution and produced the digital economy. The digital economy has becomeanew engine of economic growth in the new era, bringing huge opportunities for
+transformation to the global economy, improving the efficiency, productivity andthe global competitiveness of enterprises. Before the tuyere of The Times, ontheone hand, the combination of policy and capital was aimed, on the other hand, various industries began to re-examine the future development of the overall
+industry with digitalization as the core, and the digital economy driven by digital
+transformation grew rapidly" src="images/4 copy.jpg" loading="lazy" class="image" title="Coincircleteam Form Supporting WIN team" width="318" height="305"></a>
+<figcaption class="caption">Coincircleteam Form Supporting WIN team<div class="description">The development of technology has greatly changed the way of human lifeandproduction, and has become the main driving force for the continuous expansionof economic globalization. Digital technology has promoted the economicrevolution and produced the digital economy. The digital economy has becomeanew engine of economic growth in the new era, bringing huge opportunities for<br>transformation to the global economy, improving the efficiency, productivity andthe global competitiveness of enterprises. Before the tuyere of The Times, ontheone hand, the combination of policy and capital was aimed, on the other hand, various industries began to re-examine the future development of the overall<br>industry with digitalization as the core, and the digital economy driven by digital<br>transformation grew rapidly</div>
+</figcaption>
+      </figure>
+      <div class="clearfix visible-col4"></div>
+   </div>
+</div></div>
+<div id="wb_Text1" style="position:absolute;left:401px;top:436px;width:899px;height:194px;z-index:5;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">CCT Detective specializes in making money online. Short-term profit. Fast profit.<br>CCT Currency Circle Detective Team Alliance Global Elite Team Study Network Investment to Make Money. 1. Professional Analysis Market. Global Elite Alliance. 2. Professional Fund Pool. Trader and Stability. 3. One-to-one Teaching. 4. Professionalism. Reputation .Precise. Currency detectives to build the world's leading digital financial trading organization. Join us and your future is bright. Work together to build the world's first financial brand.<br><br></span><span style="background-color:#FFFFFF;color:#000000;font-family:Arial;font-size:13px;">team concept</span><span style="color:#000000;font-family:Arial;font-size:13px;"><br><br>Concept: Integrity, pragmatism, standardization and win-win;<br>business model: market-oriented, production-based, and quality-backed!<br><br>Currency involved<br><br>trx, usdt, btc, eth</span></div>
+<hr id="Line3" style="position:absolute;left:484px;top:686px;width:478px;z-index:6;">
+<div id="wb_MediaPlayer11" style="position:absolute;left:1092px;top:1483px;width:252px;height:399px;z-index:7;">
+<video id="MediaPlayer11" autoplay controls>
+<source src="7.%20%20WIN%20%2d%20INVITE%20FRIENDS.mp4" type="video/mp4">
+</video>
+</div>
+<a id="Button2" href="https://qsk.com/#/register?code=31712" rel="nofollow noopener noreferrer sponsored ugc" target="_blank" title="QSK.com" onclick="ShowObject('popupForm', 1);return false;" class="h1" style="position:absolute;left:606px;top:2340px;width:132px;height:40px;z-index:8;">REGISTER LOGIN</a>
+<div id="wb_MediaPlayer12" style="position:absolute;left:817px;top:1482px;width:251px;height:402px;z-index:9;">
+<video id="MediaPlayer12" autoplay controls>
+<source src="6.%20WIN%20%2d%20Withdraw.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_MediaPlayer7" style="position:absolute;left:551px;top:1482px;width:244px;height:402px;z-index:10;">
+<video id="MediaPlayer7" autoplay controls>
+<source src="5.WIN%20%2d%20AUTHENTICATION.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_MediaPlayer8" style="position:absolute;left:269px;top:1482px;width:263px;height:402px;z-index:11;">
+<video id="MediaPlayer8" autoplay controls>
+<source src="3.%20WIN%20%2d%20DEPOSIT.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_MediaPlayer9" style="position:absolute;left:22px;top:1482px;width:232px;height:402px;z-index:12;">
+<video id="MediaPlayer9" autoplay controls>
+<source src="2.%20WIN%2dREGISTER.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_Image4" style="position:absolute;left:35px;top:7px;width:165px;height:78px;z-index:13;">
+<a href="CCT.Bar.com"><img src="images/Untitled%2d1.png" id="Image4" alt="" width="165" height="78"></a></div>
+<div id="wb_InlineFrame1" style="position:absolute;left:21px;top:1948px;width:1341px;height:259px;z-index:14;">
+<a id="InlineFrame1" title=""  href="?iframe"><img src="images/&#4096;&#4156;&#4145;&#4140;&#4154;&#4100;&#4156;&#4140;&#4126;&#4101;&#4154;&#4129;&#4112;&#4157;&#4096;&#4154;%2d.gif" width="970" height="250" alt=""></a>
+</div>
+<div id="Banner1" style="position:absolute;left:112px;top:301px;width:213px;height:72px;z-index:15"><span>WELLCOM </span></div>
+<div id="wb_IconFont2" style="position:absolute;left:1141px;top:2338px;width:87px;height:46px;text-align:center;z-index:16;">
+<a href="./http---wbtc.cc-Body?https://wbtc/cc.com/body" rel="sponsored" target="_blank" title="# Body " onclick="ShowObject('Button2', 1);return false;"><svg id="IconFont2" class="h1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M430 823 C430 824, 430 828, 431 834 C431 840, 431 845, 431 849 C431 853, 430 858, 429 863 C428 868, 426 871, 424 874 C421 876, 417 878, 412 878 L229 878 C184 878, 145 861, 113 829 C81 797, 65 758, 65 713 L65 311 C65 265, 81 227, 113 194 C145 162, 184 146, 229 146 L412 146 C417 146, 421 148, 425 152 C428 155, 430 159, 430 164 C430 166, 430 170, 431 176 C431 182, 431 187, 431 191 C431 195, 430 199, 429 204 C428 209, 426 213, 424 216 C421 218, 417 219, 412 219 L229 219 C204 219, 182 228, 164 246 C147 264, 138 286, 138 311 L138 713 C138 738, 147 760, 164 778 C182 795, 204 804, 229 804 L394 804 C394 804, 396 804, 400 804 C404 804, 406 804, 407 804 C408 804, 411 805, 414 805 C417 805, 419 806, 420 807 C422 807, 423 808, 425 810 C427 811, 428 813, 429 815 C430 817, 430 820, 430 823 Z M950 486 C957 493, 961 502, 961 512 C961 522, 957 530, 950 538 L639 848 C632 856, 623 859, 613 859 C603 859, 595 856, 587 848 C580 841, 577 833, 577 823 L577 658 L321 658 C311 658, 302 654, 295 647 C288 640, 284 631, 284 622 L284 402 C284 392, 288 384, 295 376 C302 369, 311 366, 321 366 L577 366 L577 201 C577 191, 580 182, 587 175 C595 168, 603 164, 613 164 C623 164, 632 168, 639 175"/>
+</svg>
+</a></div>
+<label class="h1" for="FileUpload1" id="Label1" style="position:absolute;left:809px;top:296px;width:106px;height:37px;line-height:29px;z-index:17;">HOME</label>
+<div id="FileUpload1" class="input-group" style="position:absolute;left:914px;top:300px;width:452px;height:26px;z-index:18;">
+<input class="form-control" type="text" readonly="">
+<label class="input-group-btn">
+<input type="file" name="FileUpload1" id="FileUpload1-file" style="display:none;"><span class="btn">Browse...</span>
+</label>
+</div>
+<div id="wb_Form2" style="position:absolute;visibility:hidden;left:347px;top:2706px;width:757px;height:320px;z-index:19;">
+<form name="Form2" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="Form2">
+<input type="hidden" name="formid" value="form2">
+</form>
+</div>
+<nav id="wb_Breadcrumb1" style="position:absolute;left:421px;top:354px;width:879px;height:35px;z-index:20;vertical-align:top;">
+<ul id="Breadcrumb1">
+<li><a href="#Layer1"><i class="fa fa-home">&nbsp;</i> HOME</a></li>
+<li class="active" aria-current="page"><i class="fa fa-id-card-o">&nbsp;</i>JOIN</li>
+<li><a href="https://qsk.com/#/register?code=31712"><i class="fa fa-thumbs-o-up">&nbsp;</i>Sevice</a></li>
+<li><a href="./http---wbtc.cc-Body?https://t.me/winfinancialteam"><i class="fa fa-info-circle">&nbsp;</i> ABOUT</a></li>
+</ul>
+</nav>
+<nav id="wb_Pagination1" style="position:absolute;left:558px;top:2468px;width:321px;height:91px;z-index:21;">
+<ul id="Pagination1">
+<li class="disabled"><a href="#">&laquo; Prev</a></li>
+<li><a href="">1</a></li>
+<li><a href="">2</a></li>
+<li><a href="./http---wbtc.cc-Body">Next &raquo;</a></li>
+</ul>
+</nav>
+</div>
+<div id="Layer1" style="position:fixed;text-align:left;left:auto;right:-130px;top:125px;width:175px;height:424px;z-index:22;" title="Social Media Sticky">
+</div>
+<div id="wb_LayoutGrid2">
+<div id="LayoutGrid2-video"><video src="0008894d3dfb276840f1963f7c80cae6.mp4" poster="images/a73a7b14729c8e0397b950bdf299824f.jpg" autoplay loop muted playsinline></video>
+</div>
+<div id="LayoutGrid2">
+<div class="row">
+<div class="col-1">
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>">link text</a>
+<hr id="Line3" style="position:absolute;left:489px;top:731px;width:478px;z-index:7;">
+<div id="wb_MediaPlayer11" style="position:absolute;left:1092px;top:1483px;width:252px;height:399px;z-index:8;">
+<video id="MediaPlayer11" autoplay controls>
+<source src="7.%20%20WIN%20%2d%20INVITE%20FRIENDS.mp4" type="video/mp4">
+</video>
+</div>
+<a id="Button2" href="https://qsk.com/#/register?code=31712" rel="nofollow noopener noreferrer sponsored ugc" target="_blank" title="QSK.com" onclick="ShowObject('popupForm', 1);return false;" class="h1" style="position:absolute;left:593px;top:1336px;width:135px;height:40px;z-index:9;">REGISTER LOGIN</a>
+<div id="wb_MediaPlayer12" style="position:absolute;left:817px;top:1482px;width:251px;height:402px;z-index:10;">
+<video id="MediaPlayer12" autoplay controls>
+<source src="6.%20WIN%20%2d%20Withdraw.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_MediaPlayer7" style="position:absolute;left:551px;top:1482px;width:244px;height:402px;z-index:11;">
+<video id="MediaPlayer7" autoplay controls>
+<source src="5.WIN%20%2d%20AUTHENTICATION.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_MediaPlayer8" style="position:absolute;left:269px;top:1482px;width:263px;height:402px;z-index:12;">
+<video id="MediaPlayer8" autoplay controls>
+<source src="3.%20WIN%20%2d%20DEPOSIT.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_MediaPlayer9" style="position:absolute;left:22px;top:1482px;width:232px;height:402px;z-index:13;">
+<video id="MediaPlayer9" autoplay controls>
+<source src="2.%20WIN%2dREGISTER.mp4" type="video/mp4">
+</video>
+</div>
+<div id="wb_Image4" style="position:absolute;left:35px;top:7px;width:165px;height:78px;z-index:14;">
+<a href="CCT.Bar.com"><img src="images/Untitled%2d1.png" id="Image4" alt="" width="165" height="78"></a></div>
+<div id="wb_InlineFrame1" style="position:absolute;left:21px;top:1948px;width:1341px;height:259px;z-index:15;">
+<a id="InlineFrame1" title=""  href="./wbtc.cc?iframe"><img src="images/&#4096;&#4156;&#4145;&#4140;&#4154;&#4100;&#4156;&#4140;&#4126;&#4101;&#4154;&#4129;&#4112;&#4157;&#4096;&#4154;%2d.gif" width="970" height="250" alt=""></a>
+</div>
+<div id="Banner1" style="position:absolute;left:107px;top:336px;width:213px;height:72px;z-index:16"><span>WELLCOM </span></div>
+<div id="wb_IconFont2" style="position:absolute;left:1141px;top:2338px;width:87px;height:46px;text-align:center;z-index:17;">
+<a href="./http---wbtc.cc-Body?https://wbtc/cc.com/body" rel="sponsored" target="_blank" title="# Body " onclick="ShowObject('Button2', 1);return false;"><svg id="IconFont2" class="h1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M430 823 C430 824, 430 828, 431 834 C431 840, 431 845, 431 849 C431 853, 430 858, 429 863 C428 868, 426 871, 424 874 C421 876, 417 878, 412 878 L229 878 C184 878, 145 861, 113 829 C81 797, 65 758, 65 713 L65 311 C65 265, 81 227, 113 194 C145 162, 184 146, 229 146 L412 146 C417 146, 421 148, 425 152 C428 155, 430 159, 430 164 C430 166, 430 170, 431 176 C431 182, 431 187, 431 191 C431 195, 430 199, 429 204 C428 209, 426 213, 424 216 C421 218, 417 219, 412 219 L229 219 C204 219, 182 228, 164 246 C147 264, 138 286, 138 311 L138 713 C138 738, 147 760, 164 778 C182 795, 204 804, 229 804 L394 804 C394 804, 396 804, 400 804 C404 804, 406 804, 407 804 C408 804, 411 805, 414 805 C417 805, 419 806, 420 807 C422 807, 423 808, 425 810 C427 811, 428 813, 429 815 C430 817, 430 820, 430 823 Z M950 486 C957 493, 961 502, 961 512 C961 522, 957 530, 950 538 L639 848 C632 856, 623 859, 613 859 C603 859, 595 856, 587 848 C580 841, 577 833, 577 823 L577 658 L321 658 C311 658, 302 654, 295 647 C288 640, 284 631, 284 622 L284 402 C284 392, 288 384, 295 376 C302 369, 311 366, 321 366 L577 366 L577 201 C577 191, 580 182, 587 175 C595 168, 603 164, 613 164 C623 164, 632 168, 639 175"/>
+</svg>
+</a></div>
+<div id="wb_Form2" style="position:absolute;visibility:hidden;left:347px;top:2706px;width:757px;height:320px;z-index:18;">
+<form name="Form2" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="Form2">
+<input type="hidden" name="formid" value="form2">
+</form>
+</div>
+<nav id="wb_Breadcrumb1" style="position:absolute;left:416px;top:389px;width:879px;height:35px;z-index:19;vertical-align:top;">
+<ul id="Breadcrumb1">
+<li class="active" aria-current="page"><i class="fa fa-home">&nbsp;</i> HOME</li>
+<li class="active" aria-current="page"><i class="fa fa-id-card-o">&nbsp;</i>JOIN</li>
+<li><a href="https://qsk.com/#/register?code=31712"><i class="fa fa-thumbs-o-up">&nbsp;</i>Sevice</a></li>
+<li><a href="./http---wbtc.cc-Body?https://t.me/winfinancialteam"><i class="fa fa-info-circle">&nbsp;</i> ABOUT</a></li>
+</ul>
+</nav>
+<nav id="wb_Pagination1" style="position:absolute;left:558px;top:2468px;width:321px;height:91px;z-index:20;">
+<ul id="Pagination1">
+<li class="disabled"><a href="#">&laquo;</a></li>
+<li><a href="">1</a></li>
+<li><a href="">2</a></li>
+<li><a href="./http---wbtc.cc-Body">Next &raquo;Body.html</a></li>
+</ul>
+</nav>
+<div id="wb_Image1" style="position:absolute;left:33px;top:0px;width:671px;height:311px;z-index:21;">
+<img src="images/a73a7b14729c8e0397b950bdf299824f.jpg" id="Image1" alt="" width="671" height="311"></div>
+<div id="wb_Image5" style="position:absolute;left:702px;top:1px;width:663px;height:307px;z-index:22;">
+<img src="images/a73a7b14729c8e0397b950bdf299824f.jpg" id="Image5" alt="" width="663" height="307"></div>
+</div>
+<div id="Layer1" style="position:fixed;text-align:left;left:auto;right:-130px;top:125px;width:175px;height:424px;z-index:23;" title="Social Media Sticky">
+</div>
+<div id="wb_LayoutGrid2">
+<div id="LayoutGrid2-video"><video src="0008894d3dfb276840f1963f7c80cae6.mp4" poster="images/a73a7b14729c8e0397b950bdf299824f.jpg" autoplay loop muted playsinline></video>
+</div>
+<div id="LayoutGrid2">
+<div class="row">
+<div class="col-1">
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
