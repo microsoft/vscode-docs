@@ -95,16 +95,26 @@ The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-a
 
 To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command-line Maven-centric experience, you can also check out the [Maven plugin for Azure App Service Linux tutorial](https://learn.microsoft.com/azure/app-service/quickstart-java?pivots=platform-linux-development-environment-maven).
 
+### Sign in to your Azure subscription
+
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **RESOURCES** Explorer.
+
+
+![Azure sign in code](images/java-webapp/login.png)
+
 ### Create a new Web App on Azure
 
 Once the extension is installed, you can take the following steps to create a new Web App on Azure.
 
-1. Click **Create New Project** button on the **APP SERVICE** Explorer view.
-2. Select a subscription.
-3. Enter a unique name for the new Web App.
-4. Select a location for the new Web App.
-5. Select the OS as `Linux`.
-6. Select the runtime of the Web App, for example `Tomcat 8.5 (JRE8)`.
+1. Click **Create** button on the **RESOURCES** Explorer view and select  "Create App Service Web App...".
+
+2. Enter a unique name for the new Web App.
+
+3. Select the runtime task of the Web App, for example `Java 17`.
+
+4. Select the Java web server stack, for example `Java SE`.
+5. Select a pricing tier.
+
 
 ![Create a Web App](images/java-webapp/create-webapp.png)
 
@@ -112,13 +122,7 @@ Once the extension is installed, you can take the following steps to create a ne
 
 The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure App Service extension as a dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign in to your account using the **Device Login** flow. Select **Copy & Open** to open your default browser.
 
-![Azure sign in code](images/java-webapp/devicelogin.png)
-
-Paste in the access code and continue the sign in process.
-
-![Azure Device Login](images/java-webapp/devicelogin2.png)
 
 Once you have signed in, you can open the command prompt or terminal window and build the project using Maven commands. This will generate a new `war` or `jar` artifact in the `target` directory.
 

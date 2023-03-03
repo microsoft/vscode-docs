@@ -111,13 +111,12 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 <a class="install-extension-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
 
-To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign in to your account using the **Device Login** flow. Select **Copy & Open** to open your default browser.
 
-![Azure sign in code](images/java-webapp/devicelogin.png)
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **SPRING APPS** Explorer.
 
-Paste in the access code and continue the sign in process.
 
-![Azure Device Login](images/java-webapp/devicelogin2.png)
+![Azure sign in code](images/java-spring-cloud/signinasa.png)
+
 
 ### Create an app on Azure Spring Apps
 
