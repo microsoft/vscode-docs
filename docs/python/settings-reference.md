@@ -69,7 +69,7 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | inlayHints.functionReturnTypes | false |  Whether to display inlay hints for function return types.  Accepted values are `true` or `false`. |
 | inlayHints.pytestParameters | false | Whether to display inlay hints for pytest fixture argument types. Accepted values are `true` or `false`. |
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. <br> For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). <br> For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
-| fixAll | `[]` | A list of code actions to run when running the **Fix All** command. Accepted values in this list are `source.unusedImports` to remove all unused imports in the open file, and `source.convertImportFormat` to convert the imports according to the `python.analysis.importFormat` setting. |
+| fixAll | `[]` | A list of code actions to run when running the **Fix All** command. <br> Accepted values in this list are `source.unusedImports` to remove all unused imports in the open file, and `source.convertImportFormat` to convert the imports according to the `python.analysis.importFormat` setting. |
 | logLevel | `Error` | Specifies the level of logging to be performed by the language server.<br> The possible levels of logging, in increasing level of information provided, are `Error`, `Warning`, `Information`, and `Trace`.|
 
 **Diagnostic severity rules**

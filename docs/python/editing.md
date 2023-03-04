@@ -168,7 +168,7 @@ If formatting fails, check the following possible causes:
 
 ## Refactoring
 
-The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method** and **Rename Module**. It also supports extensions that implement additional refactoring features such as **Sort Imports**
+The Python extension adds the following refactoring functionalities: **Extract Variable**, **Extract Method** and **Rename Module**. It also supports extensions that implement additional refactoring features such as **Sort Imports**.
 
 ### Extract Variable
 
@@ -198,10 +198,8 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 The Python extension supports extensions such as [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) and [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) that implement the **Sort Imports** functionality. This command consolidates specific imports from the same module into a single `import` statement,  and organizes `import` statements in alphabetical order.
 
-You can invoke this command through:
-- Right-click in editor and select **Sort Imports** (no selection is required)
-- Command Palette (`kb(workbench.action.showCommands)`), then **Organize Imports**
-- Assign a keyboard shortcut to the `python.sortImports` command
+You can invoke this by opening the command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
+> **Tip**: you can assign a keyboard shortcut to the `editor.action.organizeImports` command.
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
