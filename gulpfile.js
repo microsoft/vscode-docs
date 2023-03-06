@@ -15,7 +15,7 @@ const URL = `https://${GITHUB_TOKEN}@github.com/microsoft/vscode-website`
  * This task
  * - Clones vscode-website
  * - Clones vscode-website-dist
- * - Uses vscode-docs:[current-branch] + vscode-website:prod to build to vscode-website-dist:[current-branch]
+ * - Uses vscode-docs:[current-branch] + vscode-website:release/prod to build to vscode-website-dist:[current-branch]
  */
 gulp.task('build-dist', done => {
   if (!$.which('git')) {
@@ -29,13 +29,13 @@ gulp.task('build-dist', done => {
   }
   $.cd('_build')
 
-  // Clone prod branch of vscode-website
+  // Clone release/prod branch of vscode-website
   // If it exists, upgrade to latest
   if (!$.test('-e', 'vscode-website')) {
-    $.exec(`git clone --depth=1 --branch=prod ${URL}`)
+    $.exec(`git clone --depth=1 --branch=release/prod ${URL}`)
   } else {
     $.cd('vscode-website')
-    $.exec('git pull origin prod')
+    $.exec('git pull origin release/prod')
     $.cd('..')
   }
 

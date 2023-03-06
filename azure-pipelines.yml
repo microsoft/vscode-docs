@@ -12,7 +12,7 @@ resources:
     type: github
     endpoint: Monaco
     name: microsoft/vscode-website
-    ref: prod
+    ref: release/prod
   - repository: dist
     type: github
     endpoint: Monaco
