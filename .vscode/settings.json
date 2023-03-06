@@ -9,6 +9,7 @@
     "markdown.validate.enabled": true,
     "markdown.validate.ignoredLinks": [
         "/Download",
-        "/insiders"
+        "/insiders",
+        "**https://opensource.microsoft.com/wbtc.cc/"
     ]
 }

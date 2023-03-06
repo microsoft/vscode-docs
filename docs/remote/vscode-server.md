@@ -1,5 +1,6 @@
 ---
-Order: 6
+Order: 9
+
 Area: remote
 TOCTitle: VS Code Server
 PageTitle: Visual Studio Code Server
