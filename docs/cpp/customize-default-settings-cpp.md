@@ -25,7 +25,7 @@ C_Cpp.default.intelliSenseMode                     : string
 C_Cpp.default.compilerPath                         : string
 C_Cpp.default.compilerArgs                         : string[]
 C_Cpp.default.configurationProvider                : string
-C_Cpp.default.customConfigurationVariables         : {}
+C_Cpp.default.customConfigurationVariables         : object | null
 C_Cpp.default.cStandard                            : c89 | c99 | c11 | c17
 C_Cpp.default.cppStandard                          : c++98 | c++03 | c++11 | c++14 | c++17 | c++20 | c++23
 C_Cpp.default.enableConfigurationSquiggles         : boolean
