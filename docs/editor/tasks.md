@@ -305,7 +305,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   * `dedicated` - The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.
   * `new` - Every execution of that task is using a new clean terminal.
 * **clear**: Controls whether the terminal is cleared before this task is run. Default is `false`.
-* **close**: Controls whether the terminal the task runs in is closed when the task exits.
+* **close**: Controls whether the terminal the task runs in is closed when the task exits. Default is `false`.
 * **group**: Controls whether the task is executed in a specific terminal group using split panes. Tasks in the same group (specified by a string value) will use split terminals to present instead of a new terminal panel.
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
@@ -524,6 +524,8 @@ Below is an example that uses the Node.js executable as a command and is treated
 
 Valid operating properties are `windows` for Windows, `linux` for Linux, and `osx` for macOS. Properties defined in an operating system specific scope override properties defined in the task or global scope.
 
+## Global tasks
+
 Task properties can also be defined in the global scope. If present, they will be used for specific tasks unless they define the same property with a different value. In the example below, there is a global `presentation` property, which defines that all tasks should be executed in a new panel:
 
 ```json
@@ -546,6 +548,8 @@ Task properties can also be defined in the global scope. If present, they will b
     ]
 }
 ```
+
+>**Tip:** To get access to the global scope tasks.json file open the command palette (shift + ctrl + P) and type ```Tasks: Open User Tasks```.
 
 ### Character escaping in PowerShell
 
@@ -781,7 +785,7 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 }
 ```
 
-**Note**: If you have multiple problems that occur on the same resource with the exact same line and column, then only one problem will be shown. This applies to all problem matchers, not just multiline problem matchers.
+>**Note**: If you have multiple problems that occur on the same resource with the exact same line and column, then only one problem will be shown. This applies to all problem matchers, not just multiline problem matchers.
 
 ## Modifying an existing problem matcher
 
@@ -929,7 +933,7 @@ Your task could be:
 }
 ```
 
-**Note:** The `$tsc-watch` is a **background** problem matcher, as is required for a background task.
+>**Note:** The `$tsc-watch` is a **background** problem matcher, as is required for a background task.
 
 You can then use the task as a `prelaunchTask` in your `launch.json` file:
 
