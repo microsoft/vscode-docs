@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 11/3/2022
+DateApproved: 3/6/2023
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -198,7 +198,8 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 The Python extension supports extensions such as [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) and [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) that implement the **Sort Imports** functionality. This command consolidates specific imports from the same module into a single `import` statement,  and organizes `import` statements in alphabetical order.
 
-You can invoke this by opening the command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
+You can invoke this by opening the Command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
+
 > **Tip**: you can assign a keyboard shortcut to the `editor.action.organizeImports` command.
 
 ![Sorting import statements](images/editing/sortImports.gif)

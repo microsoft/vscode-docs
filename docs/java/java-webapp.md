@@ -3,7 +3,7 @@ Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 PageTitle: Build and Deploy Java Web Apps to the cloud with Visual Studio Code
-DateApproved: 11/11/2020
+DateApproved: 3/2/2023
 MetaDescription: Java web app tutorial showing how to build and deploy a Java web app to Azure with Visual Studio Code
 ---
 
@@ -99,30 +99,27 @@ To install the Azure App Service extension, open the Extensions view (`kb(workbe
 
 To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **RESOURCES** Explorer.
 
-
 ![Azure sign in code](images/java-webapp/login.png)
 
 ### Create a new Web App on Azure
 
 Once the extension is installed, you can take the following steps to create a new Web App on Azure.
 
-1. Click **Create** button on the **RESOURCES** Explorer view and select  "Create App Service Web App...".
+1. Click **Create** button on the **RESOURCES** Explorer view and select **Create App Service Web App...**.
 
 2. Enter a unique name for the new Web App.
 
 3. Select the runtime task of the Web App, for example `Java 17`.
 
 4. Select the Java web server stack, for example `Java SE`.
-5. Select a pricing tier.
 
+5. Select a pricing tier.
 
 ![Create a Web App](images/java-webapp/create-webapp.png)
 
 ### Build and deploy to a Web App
 
 The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure App Service extension as a dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
-
-
 
 Once you have signed in, you can open the command prompt or terminal window and build the project using Maven commands. This will generate a new `war` or `jar` artifact in the `target` directory.
 

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 10/12/2022
+DateApproved: 3/6/2023
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -32,7 +32,7 @@ For general information about working with settings in VS Code, refer to [User a
 | terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
 | terminal.focusAfterLaunch | `false` | Whether to switch the cursor focus to the terminal when launching a Python terminal. |
 | logging.level| `error` | Specifies the level of logging to be performed by the extension.<br> The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`.<br> When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension.<br> At the `error` level, basic information and errors will be shown.<br> At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
-| experiments.enabled | `true` |  Enables [A/B experiments in the Python extension](https://aka.ms/AAjvt9q). If enabled, you may get included in proposed enhancements and/or features.  |
+| experiments.enabled | `true` |  Enables [A/B experiments in the Python extension](https://aka.ms/AAjvt9q). If enabled, you may be provided with proposed enhancements and/or features. |
 
 ## Code analysis settings
 
