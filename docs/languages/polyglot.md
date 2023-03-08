@@ -15,7 +15,7 @@ Polyglot programming is the practice of using multiple programming languages to 
 
 ## What are Notebooks?
 
-Notebooks are interactive files that allow the mixing of executable code, visualizations, equations, and narrative text. Notebooks are composed of code cells that make it easy to quickly iterate on code. Popularized by the open-source project [Jupyter](https://jupyter.org/), they have become the de facto tool for [data science](/docs/datascience/overview.md) and a great resource for teaching or learning a new programming language and quick prototyping.
+Notebooks are interactive files that allow the mixing of executable code, visualizations, equations, and narrative text. Notebooks are composed of code cells that make it easy to quickly iterate on code. Popularized by the open-source project [Jupyter](https://jupyter.org/), they have become the de facto tool for [Python data science](/docs/datascience/overview.md) and a great resource for teaching or learning a new programming language and quick prototyping.
 
 ## Polyglot Notebooks
 
@@ -33,8 +33,6 @@ When polyglot programming meets notebooks, you get Polyglot Notebooks! As oppose
 - Mermaid
 - SQL
 - KQL (Kusto Query Language)
-
->**Note**: If you're looking for Python language support, check out [Jupyter Notebooks in VS Code](/docs/datascience/jupyter-notebooks.md).
 
 ## Features
 
@@ -63,7 +61,7 @@ To use Polyglot Notebooks in VS Code, you will need:
 
 ### Why do I need the .NET SDK?
 
-Polyglot Notebooks are powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology, that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
+The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology, that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
 
 ## Getting Started
 
@@ -106,6 +104,6 @@ To learn more about variable sharing, visit the [Variable Sharing](https://githu
 
 ## Features Requests & Features
 
-Polyglot Notebooks are powered by .NET Interactive and you can provide feedback and enter issues on the [.NET Interactive GitHub repository](https://github.com/dotnet/interactive/issues).
+The Polyglot Notebooks extension is powered by .NET Interactive and you can provide feedback and enter issues on the [.NET Interactive GitHub repository](https://github.com/dotnet/interactive/issues).
 
 
