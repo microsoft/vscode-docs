@@ -120,7 +120,7 @@ You can use the `kbstyle(Tab)` key to jump between VS Code UI controls. Use `kbs
 
 All elements in the workbench support tab navigation, but workbench toolbars and tab lists have only one tab stop, to avoid having too many. Once the focus is on a toolbar or a tab list, you can use the arrow keys to navigate within them.
 
-> **Note**: Tab navigation goes in the visually natural order, with the exception of WebViews (like Markdown preview). For WebViews, we recommend using the `kb(workbench.action.focusNextPart)` and `kb(workbench.action.focusPreviousPart)` commands to navigate between the WebViews and the rest of the workbench. Alternativly you can use one of many Focus Editor commands.
+> **Note**: Tab navigation goes in the visually natural order, with the exception of WebViews (like Markdown preview). For WebViews, we recommend using the `kb(workbench.action.focusNextPart)` and `kb(workbench.action.focusPreviousPart)` commands to navigate between the WebViews and the rest of the workbench. Alternatively, you can use one of many Focus Editor commands.
 
 ## Tab trapping
 
@@ -162,7 +162,7 @@ Certain features such as folding and minimap (code overview) are disabled when i
 
 Terminal accessibility help can be accessed via `kb(workbench.action.terminal.showAccessibilityHelp)` which describes some useful tips when using a screen reader. One of the tips described is to use `kb(workbench.action.terminal.focusAccessibleBuffer)` to access the terminal's buffer, this will enter the screen reader's browse mode automatically (depending on your screen reader) and provide an accessible view of the entire terminal's buffer.
 
-A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the tab key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
+A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whether the terminal receives the `kbstyle(Tab)` key in favor of the workbench similar to the `editor.tabFocusMode` counterpart for the editor.
 
 ### Shell integration
 

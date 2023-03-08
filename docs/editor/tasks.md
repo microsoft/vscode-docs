@@ -549,7 +549,7 @@ Task properties can also be defined in the global scope. If present, they will b
 }
 ```
 
->**Tip:** To get access to the global scope tasks.json file open the command palette (shift + ctrl + P) and type ```Tasks: Open User Tasks```.
+>**Tip:** To get access to the global scope `tasks.json` file, open the Command Palette (`kb(workbench.action.showCommands)`) and run the **Tasks: Open User Tasks** command.
 
 ### Character escaping in PowerShell
 
