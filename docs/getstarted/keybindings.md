@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -26,7 +26,7 @@ For doing more advanced keyboard shortcut customization, read [Advanced Customiz
 
 ## Keymap extensions
 
-Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Keymaps** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace.
+Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Migrate Keyboard Shortcuts from...** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Installs) of extensions in the Marketplace.
 
 <div class="marketplace-extensions-curated-keymaps"></div>
 
@@ -85,7 +85,7 @@ You can view any user modified keyboard shortcuts in VS Code in the **Keyboard S
 All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
 * To configure keyboard shortcuts through the JSON  file, open **Keyboard Shortcuts** editor and select the **Open Keyboard Shortcuts (JSON)** button on the right of the editor title bar.
-* This will open your `keybindings.json` file where you can overwrite the [Default Keybindings](/docs/getstarted/keybindings.md#default-keybindings).
+* This will open your `keybindings.json` file where you can overwrite the [Default Keyboard Shortcuts](/docs/getstarted/keybindings.md#default-keyboard-shortcuts).
 
 ![Open Keyboard Shortcuts JSON button](images/keybinding/open-keyboard-shortcuts-json.png)
 
@@ -188,6 +188,13 @@ Here is an example:
 
 ```
 
+To override a specific key binding rule with an empty action, you can specify an empty command:
+
+```json
+// To override and disable any `tab` keybinding, for example, add in keybindings.json:
+{ "key": "tab", "command": "" }
+```
+
 ## Keyboard layouts
 
 >**Note:** This section relates only to key bindings, not to typing in the editor.
@@ -269,7 +276,7 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
-Matches | `=~` | `"resourceScheme =~ /^untitled$|^file$/"`
+Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 
 You can find the full list of when clause conditional operators in the [when clause contexts](/api/references/when-clause-contexts.md#conditional-operators) reference.
 
@@ -403,6 +410,8 @@ Navigate Editor Group History|`kb(workbench.action.quickOpenPreviousRecentlyUsed
 Go Back|`kb(workbench.action.navigateBack)`|`workbench.action.navigateBack`
 Go back in Quick Input|`kb(workbench.action.quickInputBack)`|`workbench.action.quickInputBack`
 Go Forward|`kb(workbench.action.navigateForward)`|`workbench.action.navigateForward`
+Focus Breadcrumbs|`kb(breadcrumbs.focus)`|`breadcrumbs.focus`
+Focus and Select Breadcrumbs|`kb(breadcrumbs.focusAndSelect)`|`breadcrumbs.focusAndSelect`
 
 ### Editor/Window Management
 
@@ -433,7 +442,7 @@ Command|Key|Command id
 New File|`kb(workbench.action.files.newUntitledFile)`|`workbench.action.files.newUntitledFile`
 Open File...|`kb(workbench.action.files.openFile)`|`workbench.action.files.openFile`
 Save|`kb(workbench.action.files.save)`|`workbench.action.files.save`
-Save All|`kb(workbench.action.files.saveAll)`|`workbench.action.files.saveAll`
+Save All|`kb(saveAll)`|`saveAll`
 Save As...|`kb(workbench.action.files.saveAs)`|`workbench.action.files.saveAs`
 Close|`kb(workbench.action.closeActiveEditor)`|`workbench.action.closeActiveEditor`
 Close Others|`kb(workbench.action.closeOtherEditors)`|`workbench.action.closeOtherEditors`

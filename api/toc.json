@@ -32,11 +32,36 @@
       ["Notebook", "/api/extension-guides/notebook"],
       ["Custom Editors", "/api/extension-guides/custom-editors"],
       ["Virtual Documents", "/api/extension-guides/virtual-documents"],
+      ["Virtual Workspaces", "/api/extension-guides/virtual-workspaces"],
+      ["Web Extensions", "/api/extension-guides/web-extensions"],
+      ["Workspace Trust", "/api/extension-guides/workspace-trust"],
       ["Task Provider", "/api/extension-guides/task-provider"],
       ["Source Control", "/api/extension-guides/scm-provider"],
       ["Debugger Extension", "/api/extension-guides/debugger-extension"],
       ["Markdown Extension", "/api/extension-guides/markdown-extension"],
-      ["Custom Data Extension", "/api/extension-guides/custom-data-extension"]
+      ["Test Extension", "/api/extension-guides/testing"],
+      ["Custom Data Extension", "/api/extension-guides/custom-data-extension"],
+      ["Telemetry", "/api/extension-guides/telemetry"]
+    ]
+  },
+  {
+    "name": "UX Guidelines",
+    "area": "ux-guidelines",
+    "topics": [
+      ["Overview", "/api/ux-guidelines/overview"],
+      ["Activity Bar", "/api/ux-guidelines/activity-bar"],
+      ["Sidebars", "/api/ux-guidelines/sidebars"],
+      ["Panel", "/api/ux-guidelines/panel"],
+      ["Status Bar", "/api/ux-guidelines/status-bar"],
+      ["Views", "/api/ux-guidelines/views"],
+      ["Editor Actions", "/api/ux-guidelines/editor-actions"],
+      ["Quick Picks", "/api/ux-guidelines/quick-picks"],
+      ["Command Palette", "/api/ux-guidelines/command-palette"],
+      ["Notifications", "/api/ux-guidelines/notifications"],
+      ["Webviews", "/api/ux-guidelines/webviews"],
+      ["Context Menus", "/api/ux-guidelines/context-menus"],
+      ["Walkthroughs", "/api/ux-guidelines/walkthroughs"],
+      ["Settings", "/api/ux-guidelines/settings"]
     ]
   },
   {
@@ -74,6 +99,7 @@
       // ["Extension Dependencies", "/api/advanced-topics/extension-dependencies"],
       ["Using Proposed API", "/api/advanced-topics/using-proposed-api"],
       ["Migrate from TSLint to ESLint", "/api/advanced-topics/tslint-eslint-migration"],
+      ["Python Extension Template", "/api/advanced-topics/python-extension-template"]
       // ["Exposing API", "/api/advanced-topics/exposing-api"],
       // ["Native Modules", "/api/advanced-topics/native-modules"],
       // ["Web Assembly", "/api/advanced-topics/web-assembly"],
@@ -92,8 +118,7 @@
       ["When clause contexts", "/api/references/when-clause-contexts"],
       ["Theme Color", "/api/references/theme-color"],
       ["Product Icon Reference", "/api/references/icons-in-labels"],
-      ["Document Selector", "/api/references/document-selector"],
-      ["Extension Guidelines", "/api/references/extension-guidelines"]
+      ["Document Selector", "/api/references/document-selector"]
     ]
   }
 ]

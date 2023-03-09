@@ -4,20 +4,20 @@ Area: cpp
 TOCTitle: Natvis framework
 ContentId: F684A0E8-0AEB-4CA9-83E2-891CC012EA8B
 PageTitle: The Natvis framework provides custom views for native C++ objects
-DateApproved: 07/25/2019
+DateApproved: 7/25/2019
 MetaDescription: Learn how the Natvis framework provides custom views for native C++ objects in Visual Studio Code
 ---
 # Natvis: Custom views for native objects
 
-The [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
+The [Natvis](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework allows developers to write custom schemas to help visualize native objects.
 
-For gdb/lldb debugging (`type": "cppdbg`), a subset of the Natvis framework has been ported to the C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
+For gdb/lldb debugging (`"type": "cppdbg"`), a subset of the Natvis framework has been ported to the Visual Studio Code C/C++ extension and the code resides in the [MIEngine](https://github.com/microsoft/MIEngine) shared component. If additional features that are not implemented are requested, please [file an issue](https://github.com/microsoft/MIEngine/issues) on the MIEngine GitHub page with details of what is missing.
 
-For Microsoft C++ debugging (`type": "cppvsdbg`), the debugger contains the full implementation of the Natvis framework as Visual Studio.
+For Microsoft C++ debugging (`"type": "cppvsdbg"`), the debugger contains the full implementation of the Natvis framework in Visual Studio.
 
 ## Documentation
 
-The official Natvis documentation is located at [Create custom views of C++ objects in the debugger](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects).
+The official Natvis documentation is located at [Create custom views of C++ objects in the debugger](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects).
 
 ## Schema
 
@@ -209,7 +209,7 @@ The Natvis schema is provided here for convenience:
     </xs:attribute>
     <xs:attribute name="LanguageId" type="GuidType" use="optional">
       <xs:annotation>
-        <xs:documentation>Specifies the language id used to identify the debugger component that implements the function. This must match the filter constraints of the IDkmIntrinsicFunctionEvaluator140 implementation.</xs:documentation>
+        <xs:documentation>Specifies the language ID used to identify the debugger component that implements the function. This must match the filter constraints of the IDkmIntrinsicFunctionEvaluator140 implementation.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Id" type="xs:unsignedInt" use="optional">
@@ -1100,7 +1100,7 @@ The Natvis schema is provided here for convenience:
   <xs:complexType name="LocalizedStringType">
     <xs:annotation>
       <xs:documentation>
-        Defines a localized string resource that can be referenced by natvis elements that accept strings (.g.e.g. DisplayString, Name attribute of Item element).
+        Defines a localized string resource that can be referenced by natvis elements that accept strings (e.g. DisplayString, Name attribute of Item element).
         Use @&lt;id&gt;; format to reference a localized string (e.g. @1001;)
       </xs:documentation>
     </xs:annotation>

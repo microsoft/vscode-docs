@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features in Visual Studio Code.
@@ -93,19 +93,9 @@ The above installs all dependencies and opens the **lsp-sample** workspace conta
 
 ### Explaining the 'Language Client'
 
-Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are three interesting sections:
+Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are two interesting sections:
 
-First look the [`activationEvents`](/api/references/activation-events):
-
-```json
-"activationEvents": [
-    "onLanguage:plaintext"
-]
-```
-
-This section tells VS Code to activate the extension as soon as a plain text file is opened (for example a file with the extension `.txt`).
-
-Next look at the [`configuration`](/api/references/contribution-points#contributes.configuration) section:
+First, look at the [`configuration`](/api/references/contribution-points#contributes.configuration) section:
 
 ```json
 "configuration": {
@@ -123,6 +113,12 @@ Next look at the [`configuration`](/api/references/contribution-points#contribut
 ```
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
+
+
+> **Note**: If your extension is compatible with VS Code versions prior to 1.74.0, you must declare `onLanguage:plaintext` in the [`activationEvents`](/api/references/activation-events)  field of `/package.json` to tell VS Code to activate the extension as soon as a plain text file is opened (for example a file with the extension `.txt`):
+> ```json
+> "activationEvents": []
+> ```
 
 The actual Language Client source code and the corresponding `package.json` are in the `/client` folder. The interesting part in the `/client/package.json` file is that it references the `vscode` extension host API through the `engines` field and adds a dependency to the `vscode-languageclient` library:
 
@@ -217,7 +213,7 @@ The source code for the Language Server is at `/server`. The interesting section
 
 This pulls in the `vscode-languageserver` libraries.
 
-Below is a server implementation that uses the provided simple text document manager that synchronizes text documents by always sending the file's full content from VS Code to the server.
+Below is a server implementation that uses the provided text document manager that synchronizes text documents by always sending incremental deltas from VS Code to the server.
 
 ```typescript
 import {
@@ -531,7 +527,7 @@ Debugging the client code is as easy as debugging a normal extension. Set a brea
 
 ![Debugging the client](images/language-server-extension-guide/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Run view and select the launch configuration **Attach to Server** and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
+Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the **Run and Debug** view and select the launch configuration **Attach to Server** and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
 
 ![Debugging the server](images/language-server-extension-guide/debugging-server.png)
 
@@ -706,7 +702,7 @@ The screenshot below shows the completed code running on a plain text file:
 
 To create a high-quality Language Server, we need to build a good test suite covering its functionalities. There are two common ways of testing Language Servers:
 
-- Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/microsoft/vscode-html-languageservice) / [CSS](https://github.com/microsoft/vscode-css-languageservice) / [JSON](https://github.com/microsoft/vscode-json-languageservice) Language Servers take this approach to testing. The LSP npm modules also use this approach. See [here](https://github.com/microsoft/vscode-languageserver-node/blob/master/protocol/src/test/connection.test.ts) for some unit test written using the npm protocol module.
+- Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/microsoft/vscode-html-languageservice) / [CSS](https://github.com/microsoft/vscode-css-languageservice) / [JSON](https://github.com/microsoft/vscode-json-languageservice) Language Servers take this approach to testing. The LSP npm modules also use this approach. See [here](https://github.com/microsoft/vscode-languageserver-node/blob/main/protocol/src/node/test/connection.test.ts) for some unit test written using the npm protocol module.
 - End-to-End Test: This is similar to [VS Code extension test](/api/working-with-extensions/testing-extension). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server, and running [VS Code commands](/api/references/commands). This approach is superior if you have files, settings, or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/microsoft/vscode-python) extension takes this approach to testing.
 
 It is possible to do Unit Test in any testing framework of your choice. Here we describe how to do End-to-End testing for Language Server Extension.
@@ -900,6 +896,15 @@ connection.onDidCloseTextDocument((params) => {
     // A text document was closed in VS Code.
     // params.uri uniquely identifies the document.
 });
+
+/*
+Make the text document manager listen on the connection
+for open, change and close text document events.
+
+Comment out this line to allow `connection.onDidOpenTextDocument`,
+`connection.onDidChangeTextDocument`, and `connection.onDidCloseTextDocument` to handle the events
+*/
+// documents.listen(connection);
 ```
 
 ### Using VS Code API directly to implement Language Features

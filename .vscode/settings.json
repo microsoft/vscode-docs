@@ -6,7 +6,9 @@
     "files.associations": {
         "**/toc.json": "jsonc"
     },
-    "prettier.disableLanguages": [
-		"markdown"
-	],
+    "markdown.validate.enabled": true,
+    "markdown.validate.ignoredLinks": [
+        "/Download",
+        "/insiders"
+    ]
 }

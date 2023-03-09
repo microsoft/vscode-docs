@@ -1,10 +1,10 @@
 ---
-Order: 7
+Order: 10
 Area: cpp
 TOCTitle: Debugging
 ContentId: 9150091A-6F3A-46B9-881B-B8FD788FA705
 PageTitle: Debug C++ in Visual Studio Code
-DateApproved: 05/21/2020
+DateApproved: 5/21/2020
 MetaDescription: How to debug C++ programs in Visual Studio Code.
 ---
 # Debug C++ in Visual Studio Code
@@ -29,7 +29,7 @@ For example:
 
 Cygwin/MinGW debugging on Windows supports both attach and launch debugging scenarios.
 
-To learn more, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
+To learn more, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
 If you are debugging with GDB on Windows, see [Windows Debugging with MinGW64](/docs/cpp/config-mingw.md).
 
@@ -107,11 +107,11 @@ For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and LL
 
 For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
 
-For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configuring C/C++ debugging](/docs/cpp/launch-json-reference.md).
+For additional ways to configure the launch.json file so that you can debug your C/C++ app, see [Configure C/C++ debugging](/docs/cpp/launch-json-reference.md).
 
 ### Natvis framework
 
-You create custom views of C++ object in the debugger with the [Natvis](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
+You create custom views of C++ object in the debugger with the [Natvis](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) framework. You can read the [Custom views for native objects](/docs/cpp/natvis.md) topic for details on using Natvis with the C/C++ extension.
 
 ### Debug remotely
 

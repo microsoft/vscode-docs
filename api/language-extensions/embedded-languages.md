@@ -1,16 +1,16 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: b76a223a-a210-4bdb-b537-36c1ea6814ae
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to create Language Servers to provide rich language features for embedded programming languages in Visual Studio Code.
 ---
 
-# Language Server for Embedded Programming Languages
+# Embedded Programming Languages
 
 Visual Studio Code provides rich language features for programming languages. As you have read in the
-[Language Server Extension Guide](/api/language-extensions/language-server-extension-guide), you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.
+[Language Server extension guide](/api/language-extensions/language-server-extension-guide), you can write language servers to support any programming language. However, it involves more effort to enable such support for embedded languages.
 
 Today, there are an increasing number of embedded languages, such as:
 
@@ -19,7 +19,7 @@ Today, there are an increasing number of embedded languages, such as:
 - Interpolation in templating languages, for example Vue, Handlebars and Razor
 - HTML in PHP
 
-This guide focuses on implementing language features for embedded languages. If you are interested in providing syntax highlighting for embedded languages, you can find information in the [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide#embedded-languages).
+This guide focuses on implementing language features for embedded languages. If you are interested in providing syntax highlighting for embedded languages, you can find information in the [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide#embedded-languages).
 
 This guide includes two samples that illustrate two approaches to build such a language server: **Language Services** and **Request Forwarding**. We'll review both samples and conclude with each approach's pros and cons.
 
@@ -60,7 +60,7 @@ Let's examine the [lsp-embedded-language-service](https://github.com/microsoft/v
 
 ### Language Services sample
 
->**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
+>**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server extension guide](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
 The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-language-service).
 
@@ -152,8 +152,7 @@ In a nutshell, request forwarding works in a similar way as language services. T
 
 The major differences are:
 
-- While the language service approach uses libraries to calculate language server responses, request forwarding sends the request back to VS Code to query all language servers and forward their responses.
-- The dispatching happens in the **language client**, not the **language server**.
+- While the language service approach uses libraries to calculate language server responses, request forwarding sends the request back to VS Code to use extensions that are active and have registered a completion provider for the embedded language.
 
 Here is the simple example again:
 
@@ -179,7 +178,7 @@ Let's now review the sample code.
 
 ### Request Forwarding sample
 
->**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server Extension Guide topic](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
+>**Note**: This sample assumes knowledge of the [Programmatic Language Features topic](/api/language-extensions/programmatic-language-features) and the [Language Server extension guide](/api/language-extensions/language-server-extension-guide). The code builds on top of [lsp-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample).
 
 The source code is available at [microsoft/vscode-extension-samples](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-embedded-request-forwarding).
 
@@ -210,7 +209,7 @@ let clientOptions: LanguageClientOptions = {
         return await next(document, position, context, token);
       }
 
-      const originalUri = document.uri.toString();
+      const originalUri = document.uri.toString(true);
       virtualDocumentContents.set(originalUri, getCSSVirtualContent(htmlLanguageService, document.getText()));
 
       const vdocUriString = `embedded-content://css/${encodeURIComponent(
@@ -268,7 +267,7 @@ Request forwarding:
 
 - \+ Avoid issues embedding language services not written in the language server's language (for example, embedding C# compiler in a Razor language server to support C#).
 - \+ No maintenance needed to get new features upstream from other language services.
-- \+ Does not work with diagnostics errors, which are pushed from Language server.
+- \- Does not yet work with diagnostics errors. The VS Code API currently does not support diagnostic providers that can 'pull' (request) diagnosics. ([Issue](https://github.com/microsoft/vscode/issues/159911)).
 - \- Hard to share state to other language servers because of lack of control.
 - \- Cross-language features might be hard to implement (for example, providing CSS completion for `.foo` when `<div class="foo">` is present).
 

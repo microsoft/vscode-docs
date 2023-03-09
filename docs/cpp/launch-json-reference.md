@@ -1,17 +1,17 @@
 ---
-Order:
+Order: 11
 Area: cpp
-TOCTitle: Debug configuration
+TOCTitle: Configure debugging
 ContentId: 8cb0c932-d5f2-41e7-b297-5fd100ce4e0c
 PageTitle: Configure launch.json for C/C++ debugging in Visual Studio Code
-DateApproved: 07/25/2019
+DateApproved: 6/10/2021
 MetaDescription: Configure launch.json for C/C++ debugging in Visual Studio Code
 ---
-# Configuring C/C++ debugging
+# Configure C/C++ debugging
 
-The `launch.json` file is used to configure the debugger in Visual Studio Code.
+A `launch.json` file is used to configure the [debugger](/docs/editor/debugging.md) in Visual Studio Code.
 
-Visual Studio Code generates a `launch.json` with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
+Visual Studio Code generates a `launch.json` (under a `.vscode` folder in your project) with almost all of the required information. To get started with debugging you need to fill in the `program` field with the path to the executable you plan to debug. This must be specified for both the launch and attach (if you plan to attach to a running instance at any point) configurations.
 
 The generated file contains two sections, one that configures debugging for launch and a second that configures debugging for attach.
 
@@ -60,7 +60,7 @@ Optional flags to determine what types of messages should be logged to the Debug
 
 ### visualizerFile
 
-`.natvis` file to be used when debugging. See [Create custom views of native objects](https://docs.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) for information on how to create Natvis files.
+`.natvis` file to be used when debugging. See [Create custom views of native objects](https://learn.microsoft.com/visualstudio/debugger/create-custom-views-of-native-objects) for information on how to create Natvis files.
 
 ### showDisplayString
 
@@ -99,7 +99,7 @@ Sets the working directory of the application launched by the debugger.
 
 ### environment
 
-Environment variables to add to the environment for the program. Example: `[ { "name": "squid", "value": "clam" } ]`.
+Environment variables to add to the environment for the program. Example: `[ { "name": "config", "value": "Debug" } ]`, not `[ { "config": "Debug" } ]`.
 
 **Example:**
 
@@ -110,7 +110,7 @@ Environment variables to add to the environment for the program. Example: `[ { "
    "request": "launch",
    "program": "${workspaceFolder}/a.out",
    "args": ["arg1", "arg2"],
-   "environment": [{"name": "squid", "value": "clam"}],
+   "environment": [{"name": "config", "value": "Debug"}],
    "cwd": "${workspaceFolder}"
 }
 ```
@@ -134,6 +134,10 @@ Additional arguments to pass to the debugger (such as gdb).
 ### stopAtEntry
 
 If set to true, the debugger should stop at the entry-point of the target (ignored on attach). Default value is `false`.
+
+### stopAtConnect
+
+If set to true, the debugger should stop after connecting to the target. If set to false, the debugger will continue after connecting. Default value is `false`.
 
 ### setupCommands
 
@@ -208,7 +212,15 @@ Arguments for the debugger server.
 
 ### serverStarted
 
-Server-started pattern to look for in the debug server output.
+Server-started pattern to look for in the debug server output. Regular expressions are supported.
+
+### filterStdout
+
+If set to true, search `stdout` stream for server-started pattern and log stdout to debug output. Default value is `true`.
+
+### filterStderr
+
+If set to true, search `stderr` stream for server-started pattern and log stderr to debug output. Default value is `false`.
 
 ### serverLaunchTimeout
 
@@ -217,6 +229,10 @@ Time in milliseconds, for the debugger to wait for the debugServer to start up. 
 ### pipeTransport
 
 For information about attaching to a remote process, such as debugging a process in a Docker container, see the [Pipe transport](/docs/cpp/pipe-transport.md) settings article.
+
+### hardwareBreakpoints
+
+If provided, this explicitly controls hardware breakpoint behavior for remote targets. If `require` is set to true, always use hardware breakpoints. Default value is `false`. `limit` is an optional limit on the number of available hardware breakpoints to use which is only enforced when `require` is true and `limit` is greater than 0. Defaults value is 0. Example: ```"hardwareBreakpoints": { require: true, limit: 6 }```.
 
 ## Additional properties
 
@@ -260,3 +276,42 @@ MYENVRIONMENTPATH=C:\\Users\\USERNAME\\Project
 # Variables with spaces
 SPACED_OUT_PATH="C:\\This Has Spaces\\Project"
 ```
+
+## Symbol Options
+
+The `symbolOptions` element allows customization of how the debugger searches for symbols. Example:
+
+```json
+    "symbolOptions": {
+        "searchPaths": [
+            "C:\\src\\MyOtherProject\\bin\\debug",
+            "https://my-companies-symbols-server"
+        ],
+        "searchMicrosoftSymbolServer": true,
+        "cachePath": "%TEMP%\\symcache",
+        "moduleFilter": {
+            "mode": "loadAllButExcluded",
+            "excludedModules": [ "DoNotLookForThisOne*.dll" ]
+        }
+    }
+```
+
+### Properties
+
+**searchPaths**: Array of symbol server URLs (example: https://msdl.microsoft.com/download/symbols) or directories (example: /build/symbols) to search for .pdb files. These directories will be searched in addition to the default locations -- next to the module and the path where the pdb was originally dropped to.
+
+**searchMicrosoftSymbolServer**: If `true` the Microsoft Symbol server (https://msdl.microsoft.com/download/symbols) is added to the symbols search path. If unspecified, this option defaults to `false`.
+
+**cachePath**": Directory where symbols downloaded from symbol servers should be cached. If unspecified, the debugger will default to %TEMP%\\SymbolCache..
+
+**moduleFilter.mode**: This value is either `"loadAllButExcluded"` or `"loadOnlyIncluded"`. In `"loadAllButExcluded"` mode, the debugger loads symbols for all modules unless the module is in the 'excludedModules' array. In `"loadOnlyIncluded"` mode, the debugger will not attempt to load symbols for ANY module unless it is in the 'includedModules' array, or it is included through the 'includeSymbolsNextToModules' setting.
+
+#### Properties for `"loadAllButExcluded"` mode
+
+**moduleFilter.excludedModules**: Array of modules that the debugger should NOT load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
+
+#### Properties for `"loadOnlyIncluded"` mode
+
+**moduleFilter.includedModules**: Array of modules that the debugger should load symbols for. Wildcards (example: MyCompany.*.dll) are supported.
+
+**moduleFilter.includeSymbolsNextToModules**: If true, for any module NOT in the 'includedModules' array, the debugger will still check next to the module itself and the launching executable, but it will not check paths on the symbol search list. This option defaults to 'true'.

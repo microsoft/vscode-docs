@@ -9,22 +9,22 @@
     "url": "https://github.com/microsoft/vscode-docs.git"
   },
   "scripts": {
-    "check-lfs": "node ./build/check-lfs.js"
+    "check-lfs": "node ./build/check-lfs.js",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.5",
-    "shelljs": "^0.7.8"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.3",
+    "shelljs": "^0.8.5"
   },
   "lint-staged": {
-    "*.{gif,mp4,jpg,png}": [
+    "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
       "yarn check-lfs"
     ]
+  },
+  "resolutions": {
+    "glob-parent": ">=5.1.2",
+    "hosted-git-info": "^3.0.8"
   }
 }

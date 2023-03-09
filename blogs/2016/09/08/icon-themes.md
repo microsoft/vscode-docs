@@ -12,7 +12,7 @@ Author: Chris Dias
 
 September 8, 2016 by Chris Dias,  [@chrisdias](https://twitter.com/chrisdias)
 
-## Rebellion. Mutiny. Revolt. Uprising.
+## Rebellion. Revolt. Uprising.
 
 These words all describe the first time we added icons to the File Explorer tree in VS Code, back in 2014. [@dmitar-asenov](https://github.com/dimitar-asenov) was an intern in [@egamma](https://github.com/egamma)'s Zurich lab and spent a couple of hours hacking in a basic set of icons because he wanted to differentiate between files and folders when quickly glancing at the tree.
 

@@ -1,0 +1,47 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - vnext
+  paths:
+    exclude:
+    - .config
+    - .devcontainer
+    - .pipelines
+    - .vscode
+pr: none
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: OneBranch.Pipelines/GovernedTemplates
+      ref: refs/heads/main
+
+  pipelines:
+    - pipeline: vscode-website-main
+      source: vscode-website (buddy)
+      trigger:
+        branches:
+          - main
+
+
+variables:
+  WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'
+
+extends:
+  template: v2/OneBranch.NonOfficial.CrossPlat.yml@templates
+  parameters:
+    git:
+      fetchDepth: 1
+      lfs: true
+      retryCount: 3
+
+    globalSdl:
+      credscan:
+        suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
+      policheck:
+        break: true
+
+    stages:
+    - template: templates\stages\build-buddy.yml

@@ -98,15 +98,13 @@ At this point, we pretty much ran out of colors in the family palette, except fo
 
 The Insiders builds had the orange and then green icons for about 2 months as we iterated on the problems outlined above, and there wasn't a lot of negative feedback coming in.
 
-Maybe our fears were unfounded. Maybe users would really like the new icons and all the angst on a handful of problems were not worth losing sleep over. We decided not to shine a light on something that might not be a problem. We pushed the changes and made a [small reference to the new icons in the release notes](https://code.visualstudio.com/updates/v1_17#_new-visual-studio-code-logo).
+Maybe our fears were unfounded. Maybe users would really like the new icons and all the angst on a handful of problems were not worth losing sleep over. We decided not to shine a light on something that might not be a problem. We pushed the changes and made a small reference to the new icons in our release notes.
 
 And then the issues and comments started rolling in.
 
 ![GitHub Issue 35683](newvscodeiconuglyissue.png)
 
 ![GitHub issue 35783](vscodenewlogoissue.png)
-
-(I must give credit to the author named "[badass-icon](https://github.com/badass-icon)", I see what you did there, well played.)
 
 Each day there were additional comments, each expressing a dislike of the new icon in new and interesting ways. After the first couple of days, we thought the feedback would slow and we would be able to address the individual issues. Turns out, we were wrong. The feedback just kept coming in. New issues were opened, comments came in faster than we could respond. Hacker News, Visual Studio Magazine. High School friends posted comments on FaceBook. Awesome.
 

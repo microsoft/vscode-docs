@@ -44,7 +44,7 @@ In this blog post, we'll use a Windows client and target a Linux VM on Azure.
 
 To get started, you need to have done the following:
 
-1. Install an [OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) (PuTTY is not supported).
+1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client) (PuTTY is not supported).
 2. Install [Visual Studio Code](https://code.visualstudio.com).
 3. Have an Azure subscription (If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin).
 
@@ -54,18 +54,18 @@ If you don't have an existing Linux virtual machine, you can create a new VM thr
 
 ![Create a virtual machine](create-vm.png)
 
-Now you can specify details of your VM, such as the name, the size of, and the base image. We will choose Ubuntu Server 18.04 LTS for this example, but you can choose recent versions of other Linux distros and look at our [supported SSH servers](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-server).
+Now you can specify details of your VM, such as the name, the size of, and the base image. We will choose Ubuntu Server 18.04 LTS for this example, but you can choose recent versions of other Linux distros and look at our [supported SSH servers](/docs/remote/troubleshooting.md#installing-a-supported-ssh-server).
 
 ![Virtual machine instance details](vm-instance-details.png)
 
 ## Set up SSH
 
-There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We strongly recommend using key-based authentication so you do not need to enter your password each time you connect. If you're on Windows and have already created keys using PuttyGen, you can [reuse them](https://code.visualstudio.com/docs/remote/troubleshooting#_reusing-a-key-generated-in-puttygen).
+There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We strongly recommend using key-based authentication so you do not need to enter your password each time you connect. If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 If you don't have an SSH key pair, open a bash shell or the command line and type in:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -t ed25519
 ```
 
 This will generate the SSH key. Press Enter at the following prompt to save the key in the default location.
@@ -76,7 +76,7 @@ You will then be prompted to enter a secure passphrase but you can leave that bl
 
 ## Add SSH keys to your VM
 
-In the previous step, we generated an SSH key pair. We'll take the public key and paste it into our VM setup, by copying the contents of the id_rsa.pub. You also want to allow your VM to accept inbound SSH traffic.
+In the previous step, we generated an SSH key pair. We'll take the public key and paste it into our VM setup, by copying the contents of the id_ed25519.pub. You also want to allow your VM to accept inbound SSH traffic.
 
 ![Add SSH public key to VM](add-ssh-public-key.png)
 
@@ -184,7 +184,7 @@ To switch back to your local machine for local development, you close the remote
 
 Using the Remote - SSH extension, you can work against a VM with all of VS Code's productivity features and extensions on your remote machine. You get the full-fledged development experience you know and love in VS Code, no matter where your code is hosted.
 
-If you want to learn more about VS Code Remote, you can read our [blog post announcing remote development](https://code.visualstudio.com/blogs/2019/05/02/remote-development). You can also try out the other remote extensions, [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [Remote -WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl), and read our full [remote development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
+If you want to learn more about VS Code Remote, you can read our [blog post announcing remote development](https://code.visualstudio.com/blogs/2019/05/02/remote-development). You can also try out the other remote extensions, [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) and [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl), and read our full [remote development documentation](https://code.visualstudio.com/docs/remote/remote-overview).
 
 Happy Remote Coding,
 

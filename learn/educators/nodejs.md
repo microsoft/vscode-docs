@@ -10,7 +10,7 @@ MetaDescription: Node.js and JavaScript in Visual Studio Code
 
 # Node.js and JavaScript in Visual Studio Code
 
-Visual Studio Code the most popular free code editor among JavaScript developers around the world according to the [State of JS 2020 survey](https://2020.stateofjs.com/other-tools/#text_editors). It is easily customizable and has a rich ecosystem of extensions to help your students learn Node.js and JavaScript.
+Visual Studio Code is the most popular free code editor among JavaScript developers around the world according to the [State of JS 2020 survey](https://2020.stateofjs.com/other-tools/#text_editors). It is easily customizable and has a rich ecosystem of extensions to help your students learn Node.js and JavaScript.
 
 Below is a case study of a Computer Science educator in Thailand and includes his recommendations for VS Code extensions and settings in the classroom.
 
@@ -111,7 +111,7 @@ The extension pack contains:
 
 * [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) and [npm IntelliSense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) for verifying status of npm packages(installed or not) and auto-completions.
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) for basic JavaScript, TypeScript, and Vue.js functionality like auto-completions, linting, error highlighting before compiling.
-* [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to enable real-time collaboration and [Live Share Audio](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio) to enable audio calls as well.
+* [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) to enable real-time collaboration.
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (for example, to access lab machines) through SSH with full VS Code functionality.
 * [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to run REST Calls within VS Code for quick manual testing.
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) to run snippets (selected code) and single files of any code with a single click.
@@ -119,6 +119,6 @@ The extension pack contains:
 
 ## Free lesson: Build a Node.js app for Azure Cosmos DB
 
-Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js. View full details of the lessons on [Microsoft Learn: Build a Node.js app for Azure Cosmos DB](https://docs.microsoft.com/learn/modules/build-node-cosmos-app-vscode).
+Build a database app to store and query data in Azure Cosmos DB by using Visual Studio Code and Node.js. View full details of the lessons at [Build a Node.js app for Azure Cosmos DB](https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode).
 
-[![Build a Node.js app for Azure Cosmos DB](images/nodejs/learn-build-node-app.png)](https://docs.microsoft.com/learn/modules/build-node-cosmos-app-vscode)
+[![Build a Node.js app for Azure Cosmos DB](images/nodejs/learn-build-node-app.png)](https://learn.microsoft.com/training/modules/build-node-cosmos-app-vscode)

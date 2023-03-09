@@ -14,7 +14,7 @@ May 2, 2019 by The VS Code Team, [@code](https://twitter.com/code)
 
 ## TL;DR
 
-Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless development in [Containers](https://www.docker.com/resources/what-container), remotely on physical or virtual machines, and with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
+Today we're excited to announce the preview of three new extensions for Visual Studio Code that enable seamless development in [Containers](https://www.docker.com/resources/what-container), remotely on physical or virtual machines, and with the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl). You can [get started](#get-started) right away by installing the [Remote Development Extension Pack](https://aka.ms/VSCodeRemoteExtensionPack).
 
 **Note**: You'll need to use the [Insiders](https://code.visualstudio.com/insiders/) build for now, but remote development support will eventually be available in the Stable release.
 
@@ -36,7 +36,7 @@ Because the code bases are so large, we see engineers at shops like Facebook (an
 
 Data Scientists building and training data models often need massive storage and compute services to analyze large datasets that can't be stored or processed even on a robust desktop.
 
-The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
+The rise in popularity of the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl/about) is powered in part because it makes it easy to set up a contained development environment, including the target operating system. In fact, [the third most commented issue in the VS Code repository](https://github.com/microsoft/vscode/issues/13138) is to support running `code` from a Bash terminal in a Linux distro on Windows.
 
 > ![VS Code Ubuntu on Windows testimonial](vscode-ubuntu-windows-testimonial.png)
 
@@ -68,7 +68,7 @@ Over the past few months, we've been working hard re-establishing proper boundar
 
 ![Visual Studio Code Remote Extensions for WSL, Containers, and SSH](remote-extensions.png)
 
-The **[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
+The **[WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension lets you use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/windows/wsl) as a full development environment, right from VS Code. This new, optimized support lets you:
 
 * Use Windows to develop in a Linux-based environment, using platform-specific toolchains and utilities.
 * Edit files located in WSL or the mounted Windows filesystem (for example `/mnt/c`).
@@ -78,7 +78,7 @@ Commands and extensions are run directly in the Linux distro, so you don't have 
 
 Check out this quick, 2-minute video to see how easy it is to develop in WSL.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mIHprjsSO9o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mIHprjsSO9o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Visual Studio Code WSL"></iframe>
 
 For more information, please see the [Developing in WSL](https://aka.ms/vscode-remote/wsl) documentation.
 
@@ -96,13 +96,13 @@ You could use Vim over SSH or Jupyter Notebooks to edit your remote code, but yo
 
 Check out this quick, 2-minute video to see how easy it is to develop on a virtual machine over SSH.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rh1Ag41J6IA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rh1Ag41J6IA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Visual Studio Code Remote - SSH"></iframe>
 
 For more information, please see the [Developing using SSH](https://aka.ms/vscode-remote/ssh) documentation.
 
 ---
 
-The **[Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)** extension lets you use a [Docker container](https://docker.com) as your [development container](https://aka.ms/vscode-remote/containers/folder-setup). Containers make great development environments because:
+The [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension lets you use a [Docker container](https://docker.com) as your [development container](https://aka.ms/vscode-remote/containers/folder-setup). Containers make great development environments because:
 
 * You can develop with a consistent and easily reproducible tool chain, on the same operating system you are deploying to.
 * Containers are isolated, meaning you can quickly swap between different development environments without impacting your local machine.
@@ -112,7 +112,7 @@ A `devcontainer.json` file can be used to tell VS Code how to configure the deve
 
 Check out this quick, 2-minute video to see Development Containers in action.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TVcoGLL6Smo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TVcoGLL6Smo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Visual Studio Code Dev Containers"></iframe>
 
 For more information on development containers, please see the [Developing inside a Container](https://aka.ms/vscode-remote/containers) documentation as well as the [vscode-remote-try-* repositories](https://github.com/search?q=org%3AMicrosoft+vscode-remote-try-&unscoped_q=vscode-remote-try-) that contain samples you can use today.
 

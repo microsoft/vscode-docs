@@ -1,0 +1,79 @@
+pr: none
+
+resources:
+  repositories:
+  - repository: self
+    type: github
+    ref: main
+    trigger:
+    - main
+    - vnext
+  - repository: website
+    type: github
+    endpoint: Monaco
+    name: microsoft/vscode-website
+    ref: release/prod
+  - repository: dist
+    type: github
+    endpoint: Monaco
+    name: microsoft/vscode-website-dist
+    ref: $(Build.SourceBranchName)
+jobs:
+- job:
+  displayName: Build
+  variables:
+    skipComponentGovernanceDetection: true
+  cancelTimeoutInMinutes: 1
+  pool:
+    vmImage: macOS-latest
+  steps:
+  - checkout: website
+    clean: true
+    path: vscode-website
+    persistCredentials: true
+    fetchDepth: 1
+  - checkout: self
+    path: vscode-website/vscode-docs
+    lfs: true
+    fetchDepth: 1
+    persistCredentials: true
+  - checkout: dist
+    path: vscode-website/dist
+    persistCredentials: true
+  - task: NodeTool@0
+    displayName: Use Node 14.19.3
+    inputs:
+      versionSpec: 14.19.3
+      checkLatest: true
+  - task: Npm@0
+    displayName: npm install yarn
+    inputs:
+      arguments: -g yarn
+  - task: CmdLine@2
+    displayName: yarn install
+    inputs:
+      script: 'yarn install'
+      workingDirectory: '../vscode-website'
+  - task: Bash@3
+    displayName: Build Dist Setup
+    inputs:
+      filePath: ../vscode-website/scripts/ci-build-dist-setup.sh
+      workingDirectory: ../vscode-website
+    env:
+      WEBSITE_BRANCH: $(Build.SourceBranchName)
+  - task: Bash@3
+    displayName: Rebuild Dist From Website
+    condition: eq(variables['Build.Repository.Name'], 'microsoft/vscode-website')
+    inputs:
+      filePath: ../vscode-website/scripts/ci-build-dist-from-website.sh
+      workingDirectory: ../vscode-website
+    env:
+      WEBSITE_BRANCH: $(Build.SourceBranchName)
+  - task: Bash@3
+    displayName: Rebuild Dist From Docs
+    condition: eq(variables['Build.Repository.Name'], 'microsoft/vscode-docs')
+    inputs:
+      filePath: ../vscode-website/scripts/ci-build-dist-from-docs.sh
+      workingDirectory: ../vscode-website
+    env:
+      DOCS_BRANCH: $(Build.SourceBranchName)

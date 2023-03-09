@@ -4,7 +4,7 @@ Area: educators
 TOCTitle: Jupyter Notebooks
 ContentId: 93f791e7-5723-4fc7-8061-7fa355d48a4d
 PageTitle: Jupyter Notebooks in Visual Studio Code
-DateApproved: 01/26/2021
+DateApproved: 1/26/2021
 MetaDescription: Jupyter Notebooks in Visual Studio Code
 ---
 
@@ -52,4 +52,4 @@ In addition, you need to install the [Jupyter Notebooks extension](https://marke
 
 Once you have Python and the extensions installed, you will need to activate the Python environment by using the command **Python: Select Interpreter** from the Command Palette (`kb(workbench.action.showCommands)`).
 
-For full instructions on how to use Jupyter Notebooks, follow the [step by step Jupyter Notebook guide](/docs/python/jupyter-support.md).
+For full instructions on how to use Jupyter Notebooks, follow the [step by step Jupyter Notebook guide](/docs/datascience/jupyter-notebooks.md).

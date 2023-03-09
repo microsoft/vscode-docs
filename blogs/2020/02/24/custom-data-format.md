@@ -26,7 +26,7 @@ VS Code provides information about HTML/CSS entities in auto-completion and hove
 
 With the Custom Data Format, users can easily define new HTML/CSS entities and get auto-completions, hover information, and other language features.
 
-To get started, end users can write a JSON file `html.html-data.json`:
+To get started, users can write a JSON file `html.html-data.json`:
 
 ```json
 {

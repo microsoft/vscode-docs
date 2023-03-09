@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8b70dba5-f71d-46dd-8da1-f5d44b9a6a96
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to write a Language Extension (plug-in) to add support for a programming language in Visual Studio Code.
@@ -28,9 +28,9 @@ Declarative language features are defined in configuration files. Examples inclu
 
 We have three guides for writing Language Extensions that provide Declarative Language Features.
 
-- [Syntax Highlight Guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through writing a simple TextMate grammar and converting it into a VS Code extension.
-- [Snippet Completion Guide](/api/language-extensions/snippet-guide): This guide explains how to bundle a set of snippets into an extension.
-- [Language Configuration Guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
+- [Syntax Highlight guide](/api/language-extensions/syntax-highlight-guide): VS Code uses TextMate grammar for syntax highlighting. This guide will walk you through writing a simple TextMate grammar and converting it into a VS Code extension.
+- [Snippet Completion guide](/api/language-extensions/snippet-guide): This guide explains how to bundle a set of snippets into an extension.
+- [Language Configuration guide](/api/language-extensions/language-configuration-guide): VS Code allows extensions to define a **language configuration** for any programming language. This file controls basic editing features such as comment toggling, bracket matching/surrounding and region folding (legacy).
 
 ## Programmatic language features
 
@@ -69,4 +69,4 @@ When the user opens a [multi-root workspace](/docs/editor/multi-root-workspaces)
 
 ### Embedded languages
 
-Embedded languages are common in web development. For example, CSS/JS inside HTML, and GraphQL inside JavaScript/TypeScript. This topic discusses how you can make language features available to embedded languages.
+Embedded languages are common in web development. For example, CSS/JavaScript inside HTML, and GraphQL inside JavaScript/TypeScript. The [Embedded languages](/api/language-extensions/embedded-languages) topic discusses how you can make language features available to embedded languages.

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Visual Studio Code Variables Reference
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 MetaDescription: Visual Studio Code variable substitution reference
 ---
 # Variables Reference
@@ -15,6 +15,7 @@ Visual Studio Code supports variable substitution in [Debugging](/docs/editor/de
 
 The following predefined variables are supported:
 
+- **${userHome}** - the path of the user's home folder
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
@@ -23,9 +24,10 @@ The following predefined variables are supported:
 - **${relativeFileDirname}** - the current opened file's dirname relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
-- **${fileDirname}** - the current opened file's dirname
 - **${fileExtname}** - the current opened file's extension
-- **${cwd}** - the task runner's current working directory on startup
+- **${fileDirname}** - the current opened file's folder path
+- **${fileDirnameBasename}** - the current opened file's folder name
+- **${cwd}** - the task runner's current working directory upon the startup of VS Code
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 - **${execPath}** - the path to the running VS Code executable
@@ -41,6 +43,7 @@ Supposing that you have the following requirements:
 
 So you will have the following values for each variable:
 
+- **${userHome}** - `/home/your-username`
 - **${workspaceFolder}** - `/home/your-username/your-project`
 - **${workspaceFolderBasename}** - `your-project`
 - **${file}** - `/home/your-username/your-project/folder/file.ext`
@@ -54,7 +57,7 @@ So you will have the following values for each variable:
 - **${lineNumber}** - line number of the cursor
 - **${selectedText}** - text selected in your code editor
 - **${execPath}** - location of Code.exe
-- **${pathSeparator}** - `/` on macOS or linux, `\\` on Windows
+- **${pathSeparator}** - `/` on macOS or linux, `\` on Windows
 
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
@@ -104,11 +107,13 @@ An example of this functionality is in VS Code's Node.js debugger extension, whi
 }
 ```
 
+When using a command variable in a `launch.json` configuration, the enclosing `launch.json` configuration is passed as an object to the command via an argument. This allows commands to know the context and parameters of the specific `launch.json` configuration when they are called.
+
 ## Input variables
 
 Command variables are already powerful but they lack a mechanism to configure the command being run for a specific use case. For example, it is not possible to pass a **prompt message** or a **default value** to a generic "user input prompt".
 
-This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified.
+This limitation is solved with **input variables** which have the syntax: `${input:variableID}`. The `variableID` refers to entries in the `inputs` section of `launch.json` and `tasks.json`, where additional configuration attributes are specified. Nesting of input variables is not supported.
 
 The following example shows the overall structure of a `tasks.json` that makes use of input variables:
 
@@ -152,6 +157,8 @@ Each type requires additional configuration attributes:
 - **options**:  An array of options for the user to pick from.
 - **default**: Default value that will be used if the user doesn't enter something else. It must be one of the option values.
 
+An option can be a string value or an object with both a label and value. The dropdown will display **label: value**.
+
 `command`:
 
 - **command**: Command being run on variable interpolation.
@@ -179,7 +186,7 @@ Below is an example of a `tasks.json` that illustrates the use of `inputs` using
             "type": "pickString",
             "id": "componentType",
             "description": "What type of component do you want to create?",
-            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum", "enum"],
+            "options": ["component", "directive", "pipe", "service", "class", "guard", "interface", "enum"],
             "default": "component"
         },
         {
@@ -272,7 +279,7 @@ The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` 
 
 ### Why aren't variables in tasks.json being resolved?
 
-Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution.
+Not all values in `tasks.json` support variable substitution. Specifically, only `command`, `args`, and `options` support variable substitution. Input variables in the `inputs` section will not be resolved as nesting of input variables is not supported.
 
 ### How can I know a variable's actual value?
 

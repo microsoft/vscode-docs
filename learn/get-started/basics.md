@@ -1,17 +1,17 @@
 ---
 Order: 1
 Area: getstarted
-TOCTitle: Get started
+TOCTitle: Setup
 ContentId: d8ebd3c0-ff4a-4e27-aba2-3acb9e17fff4
-PageTitle:  Get started with Visual Studio Code
+PageTitle:  Set up Visual Studio Code
 DateApproved: 10/22/2020
 MetaDescription: Download and learn the basics of Visual Studio Code.
 ---
-# Get started with Visual Studio Code
+# Set up Visual Studio Code
 
 In this video, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube-nocookie.com/embed/ITxcbrfEcIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/ITxcbrfEcIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Getting Started with Visual Studio Code"></iframe>
 
 Next video: [Extensions for Visual Studio Code](/learn/get-started/extensions.md)
 

@@ -16,7 +16,7 @@ Visual Studio Code is a large project with lots of moving parts and an active pa
 
 We described in an [earlier blog post](https://medium.com/crawl-walk-sprint/reducing-vs-code-ci-build-times-by-33-dbb1715b5028) how we reduced CI build times by 33%. This was accomplished by using custom build tasks that cache the node modules that VS Code consumes instead of resolving the packages at build time. While we were happy with this performance boost, we wanted to see how much further we could push the caching tasks that we built.
 
-When we last talked about our CI engineering, our target platforms spanned Windows, macOS, and Linux. As of today, VS Code targets a much more diverse set of platforms, such as ARM64 and Alpine Linux for its remote server components. In total, we have eight different targets that all share common build steps. This post outlines how we leveraged the caching tasks to reduce CI duplication and further improve our build times.
+When we last talked about our CI engineering, our target platforms spanned Windows, macOS, and Linux. As of today, VS Code targets a much more diverse set of platforms, such as Arm64 and Alpine Linux for its remote server components. In total, we have eight different targets that all share common build steps. This post outlines how we leveraged the caching tasks to reduce CI duplication and further improve our build times.
 
 ## Room for improvement
 
@@ -39,7 +39,7 @@ In order to share cache results across build agents, we needed platform-independ
 
 Here's how VS Code uses the `platformIndependent` parameter:
 
-```yml
+```yaml
 - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
   inputs:
     keyfile: keyfile
@@ -54,7 +54,7 @@ Another missing feature was the ability to create multiple caches per build job.
 
 And here's how we use the `alias` parameter:
 
-```yml
+```yaml
 - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
   inputs:
     keyfile: "yarn.lock"
@@ -74,7 +74,7 @@ There was still room for one final optimization, given a specific use case: buil
 
 Using the `dryRun` parameter in our build looks like this:
 
-```yml
+```yaml
 - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreCacheV1.RestoreCache@1
   inputs:
     keyfile: commit
@@ -100,12 +100,12 @@ Once these changes were implemented, we saw drastic reductions in total build ti
 | Windows 32   | 59 min     | 46 min    | 22%          |
 | Linux        | 38 min     | 23 min    | 39%          |
 | macOS        | 68 min     | 42 min    | 38%          |
-| Linux ARM    | 22 min     | 21 min    | 5%           |
+| Linux Arm    | 22 min     | 21 min    | 5%           |
 | Linux Alpine | 23 min     | 26 min    | -13%         |
 
 ![VS Code before and after build times](chart.png)
 
-The Linux ARM and Linux Alpine targets only build the [VS Code remote server components](https://code.visualstudio.com/docs/remote/remote-overview), so their original build times were good enough. But since they share some common tasks with the standard VS Code client platforms, we decided to have them depend on the common build agent. This resulted in slightly increased build times due to the increased overhead in one case.
+The Linux Arm and Linux Alpine targets only build the [VS Code remote server components](https://code.visualstudio.com/docs/remote/remote-overview), so their original build times were good enough. But since they share some common tasks with the standard VS Code client platforms, we decided to have them depend on the common build agent. This resulted in slightly increased build times due to the increased overhead in one case.
 
 Build resubmissions saw a drastic improvement, since the shared agent tasks can be skipped altogether. Here are some numbers for macOS, for example:
 

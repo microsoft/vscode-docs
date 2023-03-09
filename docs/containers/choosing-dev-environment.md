@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Choose a dev environment
 ContentId: AF3D8F58-8F73-44CD-962C-B7F029E50478
 PageTitle: Choosing an environment for container development
-DateApproved: 01/29/2020
+DateApproved: 1/18/2023
 MetaDescription: Guidance on choosing remote or local environments for developing and debugging containerized apps, using Visual Studio Code.
 ---
 # Your development environment
@@ -22,7 +22,7 @@ The second important choice is whether to debug your service running as an ordin
    - Using the same OS for development and inside the service container.
    - Installing necessary tools and dependencies on top of your local environment.
 
-1. Consider using a [development container](/docs/remote/containers.md) first, if you need a remote environment.
+1. Consider using a [development container](/docs/devcontainers/containers.md) first, if you need a remote environment.
 
     - On Windows, using [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux) is good option.
 
@@ -42,7 +42,7 @@ First, make sure Docker CLI is installed into your development container. The ex
 
 Here is an example for Ubuntu-based distros (from a `.devcontainer/Dockerfile`):
 
-```cli
+```sh
     ...
     && apt-get -y install software-properties-common \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 2>/dev/null \
@@ -64,7 +64,7 @@ Next, ensure that Docker socket is mapped into the development container (in `.d
 
 ### Windows Subsystem for Linux
 
-Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://docs.microsoft.com/windows/wsl/wsl2-index) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
+Windows Subsystem for Linux represents a great choice for container-based service development on Windows. [Windows Subsystem for Linux version 2 (WSL 2)](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) is strongly recommended. Docker Desktop for Windows has been updated to work with WSL 2 and has a graphical setting to enable Docker CLI inside WSL 2 distribution(s):
 
 ![Enable Docker inside WSL 2 distribution](images/devenv/devenv-enable-docker-wsl2.png)
 
@@ -100,11 +100,11 @@ Alternatively, you can install just the Docker CLI inside your development envir
 
 ## Debugging in a container
 
-The Docker extension supports debugging .NET Core-based and Node.js-based services running inside a container. Other programming languages are not supported at this time.
+The Docker extension supports debugging .NET and Node.js-based services running inside a container. Other programming languages are not supported at this time.
 
 Debugging in a container may be harder to set up than regular debugging because a container is a stronger isolation mechanism than a process. In particular:
 
-- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET Core).
+- The debug engine running inside VS Code process needs to communicate with the service process being debugged. In the case of a service running inside a container, this implies network communication via a common network (typically Docker host network). The container needs to have appropriate ports exposed via the Docker host network for the debug engine to connect to the service process (Node.js), or debugger proxy running inside the container (.NET).
 - Source file information generated during build time is valid in the context of the build environment (where VS Code is running). The container filesystem is different from the build environment filesystem, and paths to source files need to be re-mapped in order for the debugger to display correct source file when a breakpoint is hit.
 
 Because of the concerns above, it is generally recommended to use regular debugging, and employ debugging in a container when necessary.
@@ -116,4 +116,4 @@ For more information about how to set up debugging inside a container see [ASP.N
 Read on to learn more about
 
 - [Build and run a Node.js app in a container](/docs/containers/quickstart-node.md)
-- [Build and run a .NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)
+- [Build and run a ASP.NET Core app in a container](/docs/containers/quickstart-aspnet-core.md)

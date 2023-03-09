@@ -9,7 +9,7 @@ MetaDescription: How to set up debugging on macOS with LLDB-MI
 ---
 # Debugging with LLDB-MI on macOS
 
-The debug adapter for the [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) utilizes the machine interface mode for both gdb and lldb. To use this interface in lldb, the extension utilizes `lldb-mi`. The `lldb-mi` executable was built from the GitHub [lldb-mi repository](https://github.com/lldb-tools/lldb-mi) and has a dependency on the `LLDB.framework`, which is part of XCode.
+The debug adapter for the [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) utilizes the machine interface mode for both gdb and lldb. To use this interface in lldb, the extension utilizes `lldb-mi`. The `lldb-mi` executable was built from the GitHub [lldb-mi repository](https://github.com/lldb-tools/lldb-mi) and has a dependency on the `LLDB.framework`, which is part of Xcode.
 
 ## Prerequisites
 
@@ -19,13 +19,13 @@ The `lldb-mi` executable requires `LLDB.framework` to run.
 
 You can get the `LLDB.framework` one of two ways.
 
-XCode:
+Xcode:
 
    1. Open the **Apple App Store**.
-   2. Search for 'XCode'.
-   3. Select the **XCode** application and then **Install**.
+   2. Search for 'Xcode'.
+   3. Select the **Xcode** application and then **Install**.
 
-XCode Command Line Tools:
+Xcode Command Line Tools:
 
    1. Open a terminal.
    2. Run `xcode-select --install`.
@@ -59,7 +59,7 @@ You may see a dialog saying "Developer Tools Access needs to take control of ano
 
 If you get this prompt, you will have to enter your username and password to allow debugging.
 
-If you wish to permanently dismiss this prompt, you can run the following command in a terminal:
+If you want to permanently dismiss this prompt, you can run the following command in a terminal:
 
 ```bash
 sudo DevToolsSecurity --enable
@@ -67,17 +67,17 @@ sudo DevToolsSecurity --enable
 
 ## Additional configurations
 
-### Using an LLDB.framework not installed via XCode
+### Using an LLDB.framework not installed via Xcode
 
-If you wish to use an LLDB.framework that is not installed with XCode, you need to:
+If you want to use an LLDB.framework that is not installed with Xcode, you need to:
 
-1. Copy the `lldb-mi` executable in `~/.vscode/extensions/ms.vscode-cpptools-<version>/debugAdapters/lldb-mi/bin` to the folder where the `LLDB.framework` is located.
+1. Copy the `lldb-mi` executable in `~/.vscode/extensions/ms-vscode.cpptools-<version>/debugAdapters/lldb-mi/bin` to the folder where the `LLDB.framework` is located.
 
 2. Add the full path of `lldb-mi` to `miDebuggerPath` in your `launch.json` configuration.
 
 For example, if you have the `LLDB.framework` folder located at `/Users/default/example/`, you would:
 
-1. Copy `~/.vscode/extensions/ms.vscode-cpptools-<version>/debugAdapters/lldb-mi/bin/lldb-mi` into  `/Users/default/example/`.
+1. Copy `~/.vscode/extensions/ms-vscode.cpptools-<version>/debugAdapters/lldb-mi/bin/lldb-mi` into  `/Users/default/example/`.
 
 2. Add the following to your existing configuration:
 

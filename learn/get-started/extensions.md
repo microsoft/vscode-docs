@@ -5,13 +5,13 @@ TOCTitle: Extensions
 ContentId: 67f1421a-8e41-4f19-9275-bf5c33687813
 PageTitle:  Install Visual Studio Code extensions
 DateApproved: 10/22/2020
-MetaDescription: Install and use Visual Studio Code extension.
+MetaDescription: Install Visual Studio Code extensions
 ---
-# Extensions for Visual Studio Code
+# Install Visual Studio Code extensions
 
 In this video, we walk you through installing Visual Studio Code extensions.
 
-<iframe src="https://www.youtube-nocookie.com/embed/SKcZ3cwX8lA" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/SKcZ3cwX8lA" frameborder="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Unlock the power of VS Code's extensions"></iframe>
 
 Next video: [Personalize Visual Studio Code](/learn/get-started/personalize.md)
 

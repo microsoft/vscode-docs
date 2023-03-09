@@ -3,77 +3,61 @@ Order: 5
 Area: java
 TOCTitle: Project Management
 ContentId: 251cba68-c77f-4ac6-a5de-1fab8dcca867
-PageTitle: Lightweight Mode, Maven Support, Java Package, and Dependency Management in Visual Studio Code
-DateApproved: 1/29/2021
+PageTitle: Java project management in Visual Studio Code
+DateApproved: 4/25/2022
 MetaDescription: Lightweight Mode, Maven Support, Java Package and Dependency Management in Visual Studio Code
 MetaSocialImage:
 ---
 
-# Java project management in VS Code
+# Managing Java Projects in VS Code
 
-This document will give you an overview of how to manage your Java project in Visual Studio Code.
+The [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension helps you to manage your Java projects and their dependencies. It also helps you to create new Java projects, packages, and classes. To get the complete Java language support in Visual Studio Code, you can install the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack), which includes the Project Manager for Java extension.
 
-If you run into any issues when using the features below, you can contact us by clicking the **Report an issue** button below.
+<a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-<a class="tutorial-feedback-btn" onclick="reportIssue('java-tutorial', 'project')" href="javascript:void(0)">Report an issue</a>
+>For details on how to get started with the extension pack, you can review the [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
-## Project management
+## Projects view
 
-Managing a project in VS Code requires the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension. The extension helps manage class paths and dependencies, and create new projects, packages, and classes.
-
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-dependency">Install the Project Manager for Java</a>
-
-### Project view
-
-Project view helps you view your project and its dependencies, and provides entry points for project management tasks. You can switch between a hierarchy view and flat view.
+The **Java Projects** view helps you view your Java projects and their dependencies, and provides entry points for project management tasks.
 
 ![project view](images/java-project/projectmanager-overview.png)
 
-### Create a project
+>By default, the Java Projects view is displayed below the **Explorer** view. If you cannot see it, try clicking the `...` button in the **EXPLORER** title bar and select **Java Projects**.
 
-You can create a project or source only workload by clicking the **+** sign on project view, or through the command: **Java: Create Java Project...**. During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't installed.
+In the overflow button of the navigation bar, there are more options to use. For example, you can switch between hierarchical view and flat view.
+
+![overflow button](images/java-project/overflow-button.png)
+
+You can find buttons next to the nodes in the Explorer, which provide useful shortcuts for some actions.
+
+![inline button](images/java-project/inline-button.png)
+
+There are also many useful features in each node's context menu, you can right-click on the node in Explorer to toggle it out.
+
+![context menu](images/java-project/context-menu.png)
+
+### Create a new Java project
+
+You can create a new Java project by clicking the **+** button in the navigation bar, or through the command: **Java: Create Java Project...** in Command Palette (`kb(workbench.action.showCommands)`). During creation, VS Code will facilitate installing required extension(s) per your project type, if the extension(s) weren't already installed.
 
 ![create project](images/java-project/projectmanager-createproject.png)
 
-### Import a project or module
+### Import Java projects
 
-A project or module is imported to a workspace through **File** > **Open Folder** or **File** > **Open Workspace** menu. VS Code for Java will detect your project type automatically. As a tip, you can run the command **Java: Import Java projects in workspace** to reimport a project and alert the language server that there were changes to the project, without reloading your window.
+You can directly import existing Java projects and modules to your workspace through **File** > **Open Folder...** (Make sure the opened folder contains your build tool scripts, for example, `pom.xml` or `build.gradle`). VS Code for Java will detect your projects and import them automatically.
 
-### Add a dependency
-
-For Maven project, you can add a dependency by clicking the **+** sign next to **Maven Dependencies** node in project view.
-
-![add maven dependency](images/java-project/projectmanager-addmavendep.PNG)
-
-### Add a JAR
-
-JAR file(s) can be added by clicking the **+** sign next to **Referenced Libraries** node in project view.
-
-![Add Dependency](images/java-project/manage-dependencies.gif)
-
-For more details on library, refer to [Library Configuration](/docs/java/java-project.md#library-configuration).
+When you add a new module into your projects, you can trigger the command **Java: Import Java projects in workspace** to import them to your workspace. This command helps to import new projects into the workspace without the need to reload the VS Code window.
 
 ### Export to JAR
 
-You can export your build to JAR by clicking the **↓** sign on project view or run command: **Java: Export Jar...**.
+You can export your build to JAR from the projects view or by running the command **Java: Export Jar...**.
 
-![export jar](images/java-project/projectmanager-exportjar.gif)
+![Export jar from the project view](images/java-project/exportjar.gif)
 
-## Configure JDK
+## Configure Runtime for Projects
 
-As Java evolves, it's common that developers work with multiple versions of JDK. To correctly configure your environment and project, you have to know two configurations, `java.configuration.runtimes` and `java.home`. The former specifies options for your project's execution environment; the latter specifies your language server's execution environment.
-
-> **Note**: Although the Java language server requires JDK version 11 or above to run, this is **NOT** a requirement to your project's runtime.
-
-The easiest way for you to configure the JDK is to use the Java Runtime Configuration wizard. You can launch the wizard by opening the **Command Palette** (`kb(workbench.action.showCommands)`) and typing the command **Java: Configure Java Runtime**, which will bring up the configuration user interface shown below.
-
-![JDK Configuration](images/java-tutorial/jdk-configuration.png)
-
-If you want to configure without the wizard, please refer below for details.
-
-### JDK for projects
-
-VS Code will detect the runtime required for your project and choose the appropriate configuration from `java.configuration.runtimes`.
+As Java evolves, it's common that developers work with multiple versions of JDK. You can map them to your local installation paths via the setting: `java.configuration.runtimes`. The setting has following format:
 
 ```json
 "java.configuration.runtimes": [
@@ -99,19 +83,54 @@ VS Code will detect the runtime required for your project and choose the appropr
 ]
 ```
 
-Runtime names must be one of: "J2SE-1.5", "JavaSE-1.6", "JavaSE-1.7", "JavaSE-1.8", "JavaSE-9", "JavaSE-10", "JavaSE-11", "JavaSE-12", "JavaSE-13", "JavaSE-14". We will update the list with each supported release of the JDK.
+> **Note**: You can set one of them to default by adding `"default":  true` to the entry. The default JDK will be used for your unmanaged folders (with out build tools).
+
+To see which JDKs are used for your projects, you can trigger the command **Java: Configure Java Runtime** in **Command Palette** (`kb(workbench.action.showCommands)`). This command opens a view displaying the runtime information for your projects:
+
+![Project runtime](images/java-project/configure-project-runtime.png)
+
+### Change JDK for Maven and Gradle projects
+
+If you want to change the JDK version for your Maven or Gradle projects, you need to update it in your build scripts (`pom.xml` or `build.gradle`). You can click <span class="codicon codicon-info"></span> to see how to make such changes. Click <span class="codicon codicon-edit"></span> will navigate to the build script file of the project.
+
+### Change JDK for unmanaged folders
+
+To change the JDK for unmanaged folders (with out any build tools), you can click the <span class="codicon codicon-edit"></span> button. It will list all the JDKs and you can select one for your unmanaged folders.
+
+### Download JDKs
+
+If you want to download a new JDK, you can click the `download` link, or trigger the command **Java: Install New JDK** in **Command Palette** (`kb(workbench.action.showCommands)`). It will open a new view guiding you to download JDKs.
+
+![Download-jdk](images/java-project/download-jdk.png)
 
 > **Note**: To enable Java preview features, see [How can I use VS Code with new Java versions](/docs/java/java-faq.md#how-can-i-use-visual-studio-code-with-new-java-versions).
 
-### JDK for source only
+## Configure classpath for unmanaged folders
 
-If you only work with source files and don't use a build tool, VS Code will apply an appropriate runtime using the default configuration of `java.configuration.runtimes`. If a default isn't specified, VS Code will use the runtime used by the language server, which is determined by the order shown below:
+The Project Management for Java extension provides a user interface to configure the classpath for unmanaged folders. The classpath can be set manually in the classpath configuration page. You can open it by executing the **Java: Configure Classpath** command from the Command Palette (`kb(workbench.action.showCommands)`).
 
-![jdk home](images/java-project/projectmanager-javahomeconf.png)
+![configure classpath](images/java-project/configure-classpath.png)
 
-## Library configuration
+In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean Java Language Server Workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
 
-Behind the scene, there's a setting `java.project.referencedLibaries` in `settings.json`. Below are details on how to customize this setting.
+## Dependency management
+
+### Add a Maven dependency
+
+For Maven project, you can add a dependency by clicking the **+** icon next to **Maven Dependencies** node in project view.
+
+![add maven dependency](images/java-project/add-maven-dependency.png)
+
+### Manage dependencies for unmanaged folder
+
+If your project is an unmanaged folder without any build tools. You can manage the dependencies by clicking the **+** icon or the **-** icon on the **Referenced Libraries**
+node or the items under it, or you can just directly drag your jar libraries to the node `Referenced Libraries`
+
+![manage referenced librares](images/java-project/manage-referenced-libraries.png)
+
+> You can also manage the dependencies in the classpath configuration page. See: [Configure classpath for unmanaged folder](#configure-classpath-for-unmanaged-folders)
+
+Behind the scene, there's a setting `java.project.referencedLibraries` in `settings.json`. Below are details on how to customize this setting.
 
 **Include libraries**
 
@@ -173,43 +192,35 @@ If you want to manually specify a JAR file as a source attachment, you can provi
 
 In this way, `bar-src.jar` is attached to bar.jar as its source.
 
-In case VS Code throws an error for a classpath issue, try setting your classpath manually by either [setting the CLASSPATH environment variable](https://docs.oracle.com/javadb/10.8.3.0/getstart/tgs26250.html) or editing the `.classpath` file with the path to the JAR file:
-
-```xml
-<classpathentry kind="lib" path="lib/log4j.jar"/>
-```
-
-In some rare cases, you may need to clean the Java workspace by executing the **Java: Clean the java language server workspace** command from the Command Palette (`kb(workbench.action.showCommands)`) to let the language server rebuild your dependencies.
-
 ## Lightweight Mode
 
-VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a super quick-to-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
+VS Code for Java supports two modes, lightweight and standard. With lightweight mode, only source files and JDK are resolved by the language server; with standard mode, imported dependencies are resolved and the project is built by the language server. Lightweight mode works best when you need a quick-start and lightweight environment to work with your source files, for example, reading source code, navigating among source code and JDK, viewing outline and Javadoc, and detecting and fixing syntax errors. Also, code completion is supported within the scope of source files and JDK.
 
 Lightweight mode doesn't resolve imported dependencies nor build the project, so it does not support running, debugging, refactoring, linting, or detecting semantic errors. For these features to be available, you need to switch your workspace from lightweight mode to standard mode.
 
 You can control which mode to launch with by configuring `java.server.launchMode` with the options below:
 
-- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
+- `Hybrid` (default) - Firstly, a workspace is opened with lightweight mode. You will be asked whether to switch to standard mode if your workspace contains unresolved Java projects. If you choose **Later**, it will stay in lightweight mode. You can click the language status item on the Status bar to manually switch to standard mode.
 - `Standard` - A workspace is opened with standard mode.
-- `LightWeight` - A workspace is opened with lightweight mode. You can click the server mode icon on the Status bar to manually switch to standard mode.
+- `LightWeight` - A workspace is opened with lightweight mode. You can click the language status item on the Status bar to manually switch to standard mode.
 
-The Status bar indicates which mode the current workspace is in using different icons.
+The language status item indicates which mode the current workspace is in using different icons.
 
 <div id="codicon-listing">
 
-- <i class="codicon codicon-rocket"></i> - workspace opened with lightweight mode.
+- <i class="codicon codicon-bracket-dot"></i> - workspace opened with lightweight mode.
 - <i class="codicon codicon-sync"></i> - workspace in the process of being opened with standard mode.
-- <i class="codicon codicon-thumbsup"></i> - workspace opened with standard mode.
+- <i class="codicon codicon-symbol-namespace"></i> - workspace opened with standard mode.
 
 </div>
 
-Clicking the lightweight mode icon switches to standard mode.
+Clicking the language status item switches to standard mode.
 
 ![Switch to Standard](images/java-project/switch-to-standard.gif)
 
 ## Build Status
 
-When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language server Status bar icon in the lower right.
+When you edit Java source code in Visual Studio Code, the Java language server is building your workspace to provide you with the necessary language features. You can see the detailed build task status and watch what is happening behind the scene by clicking the language status item in the Status bar. You can also select the **check details** link when a notification shows the language server is opening Java projects to see the build task status.
 
 <video autoplay loop muted playsinline controls>
   <source src="/docs/java/java-project/java.build.status.mp4" type="video/mp4">
@@ -217,15 +228,19 @@ When you edit Java source code in Visual Studio Code, the Java language server i
 
 ### Additional resources
 
-Visit the [GitHub Repo](https://github.com/microsoft/vscode-maven) of the Maven extension for additional [configurations](https://github.com/microsoft/vscode-maven/tree/master#additional-configurations) and a [troubleshooting guide](https://github.com/microsoft/vscode-maven/blob/master/Troubleshooting.md).
+There are several Visual Studio Code extensions to support different build systems for Java. Below are extensions for several popular build systems.
 
-In addition to Maven, there's also a [Bazel extension](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel) if you use Bazel to build and test your project.
+- [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+- [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
+- [Bazel](https://marketplace.visualstudio.com/items?itemName=BazelBuild.vscode-bazel)
+
+If you run into any problems when using the features above, you can contact us by filing an [issue](https://github.com/microsoft/vscode-java-pack/issues).
 
 ## Next steps
 
 Read on to find out more about:
 
-- [Java Editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
-- [Java Debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
-- [Java Testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
-- [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.
+- [Java editing](/docs/java/java-editing.md) - Explore the editing features for Java in VS Code.
+- [Java debugging](/docs/java/java-debugging.md) - Find out how to debug your Java project with VS Code.
+- [Java testing](/docs/java/java-testing.md) - Use VS Code for your JUnit and TestNG cases.
+- [Java extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

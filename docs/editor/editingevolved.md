@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -109,6 +109,24 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 > **Tip:** You can jump to the matching bracket with `kb(editor.action.jumpToBracket)`
 
+### Bracket Pair Colorization
+
+Matching bracket pairs can also be colorized by setting `editor.bracketPairColorization.enabled` to `true`.
+
+![Bracket Pair Colorization](images/editingevolved/bracket-pair-colorization-on-off.drawio.png)
+
+All colors are themeable and up to six colors can be configured.
+
+You can use `workbench.colorCustomizations` to override these theme-contributed colors in your settings:
+
+```json
+"workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#FFD700",
+    "editorBracketHighlight.foreground2": "#DA70D6",
+    "editorBracketHighlight.foreground3": "#179fff",
+},
+```
+
 ## Reference information
 
 Some languages like C# support inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
@@ -143,13 +161,21 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
 
+## Inlay Hints
+
+Some languages provide inlay hints: that is additional information about source code that is rendered inline. This is usually used to show infered types. The sample below shows inlay hints that display the inferred types of JavaScript variables and function return types.
+
+![Inlay hints for inferred types in TypeScript](images/editingevolved/inlay-hints.png)
+
+Inlay hints can be enabled/disabled with the `editor.inlayHints.enabled` setting, the default is enabled. Extensions, like TypeScript or Rust, are needed to provide the actual inlay hint information.
+
 ## Outgoing link protection
 
 For your protection, VS Code displays a prompt before opening an outgoing website link from the editor.
 
 ![Outgoing link prompt](images/editingevolved/outgoing-link-prompt.png)
 
-You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a drop-down lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
+You can proceed to the external website in your browser or have the options to copy the link or cancel the request. If you choose **Configure Trusted Domains**, a dropdown lets you trust the exact URL, trust the URL domain and subdomains, or trust all domains to disable outgoing link protection.
 
 ![Configure Trusted Domains dropdown](images/editingevolved/trusted-domain-dropdown.png)
 

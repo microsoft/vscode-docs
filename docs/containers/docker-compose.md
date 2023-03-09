@@ -4,12 +4,12 @@ Area: containers
 TOCTitle: Docker Compose
 ContentId: c63d86a0-48f8-4724-ba24-fa5ce4199632
 PageTitle: Use Docker Compose to work with multiple containers
-DateApproved: 04/21/2020
+DateApproved: 12/21/2022
 MetaDescription: Develop a multi-container app running in a Docker containers using Docker Compose and Visual Studio Code.
 ---
 # Use Docker Compose
 
-Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET Core, and also helps you configure debugging in Visual Studio Code for these scenarios.
+Docker Compose provides a way to orchestrate multiple containers that work together. Examples include a service that processes requests and a front-end web site, or a service that uses a supporting function such as a Redis cache. If you are using the microservices model for your app development, you can use Docker Compose to factor the app code into several independently running services that communicate using web requests. This article helps you enable Docker Compose for your apps, whether they are Node.js, Python, or .NET, and also helps you configure debugging in Visual Studio Code for these scenarios.
 
 Also, for single-container scenarios, using Docker Compose provides tool-independent configuration in a way that a single Dockerfile does not. Configuration settings such as volume mounts for the container, port mappings, and environment variables can be declared in the docker-compose YML files.
 
@@ -33,7 +33,7 @@ With the docker-compose files, you can now specify port mappings in the docker-c
 
 ## Add new containers to your projects
 
-If you want to add another app or service, you can run **Add Docker Compose Files to Workspace** again, and choose to overwrite the existing docker-compose files, but you'll lose any customization in those files. If you want to preserve changes to the compose files, you can manually modify the `docker-compose.yml` file to add the new service. Typically, you can cut and paste the existing service section and change the names as appropriate for the new service.
+If you want to add another app or service, you can run **Add Docker Compose Files to Workspace** again, and choose to overwrite the existing docker-compose files, but you'll lose any customization in those files. If you want to preserve changes to the compose files, you can manually modify the `docker-compose.yml` file to add the new service. Typically, you can copy the existing service section, paste it to create a new entry, and change the names as appropriate for the new service.
 
 You can run the **Add Docker Files to Workspace** command again to generate the `Dockerfile` for a new app. While each app or service has its own Dockerfile, there's typically one `docker-compose.yml` and one `docker-compose.debug.yml` file per workspace.
 
@@ -49,11 +49,11 @@ First, refer to the debugging documentation for your target platform, to underst
 
 - [Node.js debugging](/docs/containers/debug-node.md)
 - [Python Docker debugging](/docs/containers/debug-python.md)
-- [.NET Core debugging](/docs/containers/debug-netcore.md)
+- [.NET debugging](/docs/containers/debug-netcore.md)
 
 If you want to debug in Docker Compose, run the command **Docker Compose Up** using one of the two Docker Compose files as described in the previous section, and then attach using the appropriate **Attach** launch configuration. Launching directly using the normal launch configuration does not use Docker Compose.
 
-Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET Core) is described in the following sections.
+Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-configurations). This is a section in `launch.json`. The process is mostly manual, but in some cases, the Docker extension can help by adding a pre-configured launch configuration that you can use as a template and customize. The process for each platform (Node.js, Python, and .NET) is described in the following sections.
 
 ### Node.js
 
@@ -61,7 +61,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
 
 1. Configure the debugging port in `docker-compose.debug.yml`. This is set when you create the file, so you might not need to change it. In the example below, port 9229 is used for debugging on both the host and the container.
 
-   ```yml
+   ```yaml
     version: '3.4'
 
     services:
@@ -76,7 +76,7 @@ Create an **Attach** [launch configuration](/docs/editor/debugging.md#launch-con
         command: node --inspect=0.0.0.0:9229 ./bin/www
     ```
 
-1. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
+1. If you have multiple apps, you need to change the port for some of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
 
    Here's an example that shows the Node.js launch configuration - Attach:
 
@@ -111,7 +111,7 @@ For debugging Python with Docker Compose, follow these steps:
 
    ![Screenshot of Python Remote Attach](images/compose/docker-compose-python-remote-attach.png)
 
-1. You'll be prompted to choose the host machine (for example, localhost) and port you want to use for debugging. The default debugging port for Python is 5678. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
+1. You're prompted to choose the host machine (for example, localhost) and port you want to use for debugging. The default debugging port for Python is 5678. If you have multiple apps, you need to change the port for one of them, so that each app has a unique port. You can point to the right debugging port in the `launch.json`, and save the file. If you omit this, the port will be chosen automatically.
 
     ```json
          "configurations": [
@@ -134,11 +134,11 @@ For debugging Python with Docker Compose, follow these steps:
 
 1. If you already have a valid Dockerfile, we recommend running the command **Docker: Add Docker Compose Files to Workspace**. This will create a `docker-compose.yml` file and also a `docker-compose.debug.yml`, which volume maps and starts the Python debugger in the container. If you do not have a Dockerfile already, we recommend running **Docker: Add Docker Files to Workspace** and selecting **Yes** to include Docker Compose files.
 
-    > **Note**: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions in the [Python in a container quickstart](/docs/containers/quickstart-python.md#gunicorn-modifications-for-djangoflask-apps) to ensure it is configured properly before proceeding.
+    > **Note**: By default, when using **Docker: Add Docker Files to Workspace**, choosing the Django and Flask options will scaffold a Dockerfile configured for Gunicorn. Follow the instructions in the [Python in a container quickstart](/docs/containers/quickstart-python.md#gunicorn-modifications-for-django-and-flask-apps) to ensure it is configured properly before proceeding.
 
 1. Right-click on the `docker-compose.debug.yml` file (example shown below) and choose **Compose Up**.
 
-    ```yml
+    ```yaml
     version: '3.4'
 
     services:
@@ -187,7 +187,7 @@ For debugging Python with Docker Compose, follow these steps:
 
    ![Screenshot of starting debugging](images/compose/docker-compose-attach.png)
 
-1. If you try to attach to a .NET Core app running in a container, you'll see a prompt ask to select your app's container.
+1. If you try to attach to a .NET app running in a container, you'll see a prompt ask to select your app's container.
 
    ![Screenshot of container selection](images/compose/select-container.png)
 
@@ -201,15 +201,15 @@ For debugging Python with Docker Compose, follow these steps:
 
    ![Screenshot of debugger prompt](images/compose/docker-compose-netcore-debugger-prompt.png)
 
-If everything is configured correctly, the debugger should be attached to your .NET Core app.
+If everything is configured correctly, the debugger should be attached to your .NET app.
 
 ![Screenshot of debug session](images/compose/docker-compose-debugging.png)
 
 ## Volume mounts
 
-By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET Core or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the `docker-compose*.yml` files.
+By default, the Docker extension does not do any volume mounting for debugging components. There's no need for it in .NET or Node.js, since the required components are built into the runtime. If your app requires volume mounts, specify them by using the `volumes` tag in the `docker-compose*.yml` files.
 
-```yml
+```yaml
 volumes:
     - /host-folder-path:/container-folder-path
 ```
@@ -226,7 +226,7 @@ Workspaces can have multiple docker-compose files to handle different environmen
 
 ### Base file and an override file
 
-Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always compose up with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
+Let's assume your workspace has a base compose file (`docker-compose.yml`) and an override file for each environment (`docker-compose.dev.yml`, `docker-compose.test.yml` and `docker-compose.prod.yml`) and you always run `docker compose up` with the base file and an override file. In this case, the `compose up` command can be customized as in the following example. When the `compose up` command is invoked, the `${configurationFile}` is replaced by the selected file.
 
 ```json
 "docker.commands.composeUp": [
@@ -239,7 +239,7 @@ Let's assume your workspace has a base compose file (`docker-compose.yml`) and a
 
 ### Template matching
 
-Let's assume you have  different set of input files for each environment. You could define multiple templates with regular expression match, and the selected file name will be matched against this `match` property and the corresponding template will be used.
+Let's assume you have a different set of input files for each environment. You could define multiple templates with regular expression match, and the selected file name will be matched against this `match` property and the corresponding template will be used.
 
 ```json
 "docker.commands.composeUp": [
@@ -263,7 +263,7 @@ Let's assume you have  different set of input files for each environment. You co
 
 ### Pick a template when the command is invoked
 
-If you omit the `match` property from command templates, you will be asked which template to use each time `compose up` command is invoked. For example:
+If you omit the `match` property from command templates, you're asked which template to use each time `compose up` command is invoked. For example:
 
 ```json
 "docker.commands.composeUp": [
@@ -284,7 +284,7 @@ If you omit the `match` property from command templates, you will be asked which
 
 ## Custom tasks
 
-Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](/docs/editor/tasks.md#custom-tasks) for more detail on this.
+Rather than use command customization, you can also define a task like the following to invoke a `docker-compose` command. Please refer [custom task](/docs/editor/tasks.md#custom-tasks) for more detail on this option.
 
 ```json
 {
@@ -301,3 +301,4 @@ Rather than use command customization, you can also define a task like the follo
 ## Next steps
 
 - [Overview of Docker Compose in the Docker documentation](https://docs.docker.com/compose/)
+- [Troubleshooting](/docs/containers/troubleshooting.md)

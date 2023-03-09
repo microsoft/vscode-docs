@@ -15,5 +15,5 @@ Check out previous talks about using VS Code in classrooms or other education sc
 
 With Visual Studio Code, you can code from anywhere - including your own browser! We'll show you how to start in any programming language you like, personalize the editor to fit your style, and even invite your peers to code with you in real time.
 
-<iframe src="https://youtube.com/embed/JctES9LOFx8?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://youtube.com/embed/JctES9LOFx8?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen title="Visual Studio Code - Your editor everywhere"></iframe>
 30 minutes

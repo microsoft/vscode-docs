@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -18,7 +18,7 @@ Being able to keep your hands on the keyboard when writing code is crucial for h
 
 * [Keyboard Shortcuts Reference](/docs/getstarted/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
 * [Install a Keymap extension](/docs/getstarted/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
-* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
+* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#keyboard-shortcuts-editor) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
 
@@ -45,7 +45,7 @@ The setting can be set to:
 
 There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
 
-The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
+The **Go to Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
 
 ### Shrink/expand selection
 
@@ -74,7 +74,7 @@ Key|Command|Command ID
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you want.
 
 ### Column Selection mode
 
@@ -169,15 +169,16 @@ You can configure advanced search options by clicking the ellipsis (**Toggle Sea
 
 In the two input boxes below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `,` to separate multiple patterns. Paths must use forward slashes. You can also use glob syntax:
 
-* `*` to match one or more characters in a path segment
+* `*` to match zero or more characters in a path segment
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
 * `{}` to group conditions (for example `{**/*.html,**/*.txt}` matches all HTML and text files)
 * `[]` to **declare** a range of characters to match (`example.[0-9]` to match on `example.0`, `example.1`, …)
+* `[!...]` to negate a range of characters to match (`example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
-Note that glob patterns in the search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the search view, the `**` prefix is assumed.
+Note that glob patterns in the search view work differently than in settings such as `files.exclude` and `search.exclude`. In the settings, you must use `**/example` to match a folder named `example` in subfolder `folder1/example` in your workspace. In the search view, the `**` prefix is assumed. The glob patterns in these settings are always evaluated relative to the path of the workspace folder.
 
 Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
@@ -194,6 +195,63 @@ When you type text into the Replace text box, you will see a diff display of the
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
 >**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
+
+### Case changing in regex replace
+
+VS Code supports changing the case of regex matching groups while doing Search and Replace in the editor or globally. This is done with the modifiers `\u\U\l\L`, where `\u` and `\l` will upper/lowercase a single character, and `\U` and `\L` will upper/lowercase the rest of the matching group.
+
+Example:
+
+![Changing case while doing find and replace](images/codebasics/case-change-replace.gif)
+
+The modifiers can also be stacked - for example, `\u\u\u$1` will uppercase the first three characters of the group, or `\l\U$1` will lowercase the first character, and uppercase the rest. The capture group is referenced by `$n` in the replacement string, where `n` is the order of the capture group.
+
+## Search Editor
+
+Search Editors let you view workspace search results in a full-sized editor, complete with syntax highlighting and optional lines of surrounding context.
+
+Below is a search for the word 'SearchEditor' with two lines of text before and after the match for context:
+
+![Search Editor overview](images/codebasics/search-editor-overview.png)
+
+The **Open Search Editor** command opens an existing Search Editor if one exists, or to otherwise create a new one. The **New Search Editor** command will always create a new Search Editor.
+
+In the Search Editor, results can be navigated to using **Go to Definition** actions, such as `kb(editor.action.revealDefinition)` to open the source location in the current editor group, or `kb(editor.action.revealDefinitionAside)` to open the location in an editor to the side. Additionally, double-clicking can optionally open the source location, configurable with the `search.searchEditor.doubleClickBehaviour` setting.
+
+You can also use the **Open New Search Editor** button at the top of the Search view, and can copy your existing results from a Search view over to a Search Editor with the **Open in editor** link at the top of the results tree, or the **Search Editor: Open Results in Editor** command.
+
+![Search Editor Button](images/codebasics/search-editor-button.png)
+
+The Search Editor above was opened by selecting the **Open New Search Editor** button (third button) on the top of the Search view.
+
+### Search Editor commands and arguments
+
+* `search.action.openNewEditor` - Opens the Search Editor in a new tab.
+* `search.action.openInEditor` - Copy the current Search results into a new Search Editor.
+* `search.action.openNewEditorToSide` - Opens the Search Editor in a new window next to the window you currently have opened.
+
+There are two arguments that you can pass to the Search Editor commands (`search.action.openNewEditor`, `search.action.openNewEditorToSide`) to allow keybindings to configure how a new Search Editor should behave:
+
+* `triggerSearch` - Whether a search be automatically run when a Search Editor is opened. Default is true.
+* `focusResults` - Whether to put focus in the results of a search or the query input. Default is true.
+
+For example, the following keybinding runs the search when the Search Editor is opened but leaves the focus in the search query control.
+
+```json
+{
+    "key": "ctrl+o",
+    "command": "search.action.openNewEditor",
+    "args": { "query": "VS Code", "triggerSearch":true, "focusResults": false }
+}
+```
+
+### Search Editor context default
+
+The `search.searchEditor.defaultNumberOfContextLines` setting has a default value of 1, meaning one context line will be shown before and after each result line in the Search Editor.
+
+### Reuse last Search Editor configuration
+
+The `search.searchEditor.reusePriorSearchConfiguration` setting (default is `false`) lets you reuse the last active Search Editor's configuration when creating a new Search Editor.
 
 ## IntelliSense
 
@@ -216,7 +274,7 @@ VS Code has great support for source code formatting. The editor has two explici
 
 You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
 
-VS Code has default formatters for JavaScript, TypeScript, JSON, and HTML. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
+VS Code has default formatters for JavaScript, TypeScript, JSON, HTML, and CSS. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
 ```json
 "html.format.enable": false
@@ -230,7 +288,7 @@ Along with manually invoking code formatting, you can also trigger formatting ba
 
 >Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
 
-In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Downloads). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
+In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Installs). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
 ## Folding
 
@@ -252,7 +310,7 @@ You can also use the following actions:
 
 Folding regions are by default evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
-Since the 1.22 release, folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
+Folding regions can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding: Markdown, HTML, CSS, LESS, SCSS, and JSON.
 
 If you prefer to switch back to indentation-based folding for one (or all) of the languages above, use:
 
@@ -286,6 +344,14 @@ To fold and unfold only the regions defined by markers use:
 * Fold Marker Regions (`kb(editor.foldAllMarkerRegions)`) folds all marker regions.
 * Unfold Marker Regions (`kb(editor.unfoldAllMarkerRegions)`) unfolds all marker regions.
 
+### Fold selection
+
+The command **Create Manual Folding Ranges from Selection** (`kb(editor.createFoldingRangeFromSelection)`) creates a folding range from the currently selected lines and collapses it. That range is called a **manual** folding range that goes on top of the ranges computed by folding providers.
+
+Manual folding ranges can be removed with the command **Remove Manual Folding Ranges** (`kb(editor.removeManualFoldingRanges)`).
+
+Manual folding ranges are especially useful for cases when there isn't programming language support for folding.
+
 ## Indentation
 
 VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.md).
@@ -301,7 +367,7 @@ VS Code analyzes your open file and determines the indentation used in the docum
 
 ![auto detect indentation](images/codebasics/indentation-detection.png)
 
-You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+You can click on the Status Bar indentation display to bring up a dropdown with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
 
 ![indentation commands](images/codebasics/indentation-commands.png)
 
@@ -337,7 +403,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more.
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
+* [Integrated Terminal](/docs/terminal/basics.md) - Learn about the integrated terminal for quickly performing command-line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 
@@ -360,3 +426,22 @@ You can control word wrap through the `editor.wordWrap` [setting](/docs/getstart
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting, which takes an array of column character positions where you'd like vertical rulers.
+
+### How can I avoid placing extra cursors in word wrapped lines?
+
+If you'd like to ignore line wraps when adding cursors above or below your current selection, you can pass in `{ "logicalLine": true }` to `args` on the keybinding like this:
+
+```json
+{
+  "key": "shift+alt+down",
+  "command": "editor.action.insertCursorBelow",
+  "when": "textInputFocus",
+  "args": { "logicalLine": true },
+},
+{
+  "key": "shift+alt+up",
+  "command": "editor.action.insertCursorAbove",
+  "when": "textInputFocus",
+  "args": { "logicalLine": true },
+},
+```

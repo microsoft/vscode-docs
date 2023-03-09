@@ -1,0 +1,7 @@
+stages:
+- stage: Build
+  jobs:
+  - template: ..\jobs\build.yml
+    parameters:
+      jobDisplayName: vscode-site-prod
+      artifactName: vscode-website-prod

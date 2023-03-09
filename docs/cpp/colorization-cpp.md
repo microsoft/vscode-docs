@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Enhanced colorization
 ContentId: 2C406EA6-87DC-4A2D-AEC2-90BAA491697C
 PageTitle: Enhanced colorization in Visual Studio Code C++ projects
-DateApproved: 07/29/2019
+DateApproved: 2/23/2023
 MetaDescription: How to customize semantic colorization of C++ code in Visual Studio Code.
 ---
 # Enhanced colorization
@@ -40,7 +40,7 @@ We've created a set of VS Code themes that closely resemble the default Light an
 | Local Variable | variable.local | variable.other.local |
 | Macro | macro | entity.name.function.preprocessor |
 | Member Field | property | variable.other.property |
-| Member Function | member | entity.name.function.member |
+| Member Function | method | entity.name.function.member |
 | Namespace | namespace | entity.name.namespace |
 | New / Delete | newOperator | keyword.operator.new |
 | Operator Overload Function | operatorOverload | entity.name.function.operator |
@@ -49,7 +49,7 @@ We've created a set of VS Code themes that closely resemble the default Light an
 | Property (C++/CLI) | cliProperty | variable.other.property.cli |
 | Reference Type (C++/CLI) | referenceType | entity.name.type.class.reference |
 | Static Member Field | property.static | variable.other.property.static |
-| Static Member Function | member.static | entity.name.function.member.static |
+| Static Member Function | method.static | entity.name.function.member.static |
 | Type | type | entity.name.type |
 | User-Defined Literal - Number | numberLiteral | entity.name.operator.custom-literal.number |
 | User-Defined Literal - Raw | customLiteral | entity.name.operator.custom-literal |

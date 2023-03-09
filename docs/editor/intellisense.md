@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -17,7 +17,7 @@ IntelliSense is a general term for various code editing features including: code
 
 Visual Studio Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, SCSS, and Less out of the box. VS Code supports word based completions for any programming language but can also be configured to have richer IntelliSense by installing a language extension.
 
-Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Click on an extension tile below to read the description and reviews to decide which extension is best for you.
+Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Select an extension tile below to read the description and reviews to decide which extension is best for you.
 
 <div class="marketplace-extensions-languages-curated"></div>
 
@@ -51,7 +51,7 @@ The JavaScript code below illustrates IntelliSense completions. IntelliSense giv
 
 VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
 
-|       |         |       |
+| Icon | Name | Symbol type |
 | ----- | ------- | ----- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods and Functions | `method`, `function`, `constructor`  |
 | ![variable icon](images/intellisense/Variable_16x.svg) | Variables | `variable` |
@@ -111,7 +111,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.suggest.localityBonus": true,
 
     // Controls how suggestions are pre-selected when showing the suggest list
-    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggestSelection": "first",
 
     // Enable word based suggestions
     "editor.wordBasedSuggestions": true,
@@ -143,15 +143,17 @@ In above images you can see that `count`, `context`, and `colocated` are sorted 
 
 ### Suggestion selection
 
-By default, VS Code pre-selects the previously used suggestion in the suggestion list. This is very useful as you can quickly insert the same completion multiple times. If you'd like different behavior, for example, always select the top item in the suggestion list, you can use the `editor.suggestSelection` setting.
+By default, VS Code pre-selects the first suggestion in the suggestion list. If you'd like different behavior, for example, to always select the most recently used item in the suggestion list, you can use the `editor.suggestSelection` setting.
 
 The available `editor.suggestSelection` values are:
 
-* `first` - Always select the top list item.
-* `recentlyUsed` - (default) The previously used item is selected unless a prefix (type to select) selects a different item.
+* `first` - (default) Always select the top list item.
+* `recentlyUsed` - The previously used item is selected unless a prefix (type to select) selects a different item.
 * `recentlyUsedByPrefix` - Select items based on previous prefixes that have completed those suggestions.
 
-"Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed` it will be given precedence.
+Selecting the most recently used item is very useful as you can quickly insert the same completion multiple times.
+
+"Type to select" means that the current prefix (roughly the text left of the cursor) is used to filter and sort suggestions. When this happens and when its result differs from the result of `recentlyUsed`, it will be given precedence.
 
 When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
 
@@ -185,13 +187,23 @@ The key bindings shown below are the default key bindings. You can change these 
 ]
 ```
 
+## Enhance completions with AI
+
+In VS Code, you can enhance your coding with artificial intelligence (AI), such as suggestions for lines of code or entire functions, fast documentation creation, and help creating code-related artifacts like tests.
+
+[GitHub Copilot](https://copilot.github.com/) is an AI-powered code completion tool that helps you write code faster and smarter. You can use the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code to generate code, or to learn from the code it generates.
+
+![Copilot extension in the VS Code Marketplace](images/intellisense/copilot-extension.png)
+
+You can learn more about how to get started with Copilot in the [Copilot documentation](/docs/editor/artificial-intelligence.md).
+
 ## Troubleshooting
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
 > **Tip:** For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).
 
-A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click the `Support` link.
+A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's Details page and select the **Support** link.
 
 ## Next steps
 
@@ -201,6 +213,7 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 * [Creating Language extensions](/api/language-extensions/programmatic-language-features.md) - Learn how to create extensions that add IntelliSense for new programming languages.
+* [Artificial Intelligence](/docs/editor/artificial-intelligence.md) - Learn how to use AI with GitHub Copilot to enhance your coding.
 
 ## Common questions
 

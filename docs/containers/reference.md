@@ -4,14 +4,14 @@ Area: containers
 TOCTitle: Customize
 ContentId: 6784FBBE-9EE4-44A8-AC48-A52617EB1968
 PageTitle: Reference for Visual Studio Code Docker extension properties and tasks.
-DateApproved: 3/5/2020
+DateApproved: 4/18/2022
 MetaDescription: Reference for Docker build and Docker run tasks and properties in the Visual Studio Code Docker extension.
 ---
 # Customize the Docker extension
 
 The Docker extension includes several Visual Studio Code tasks to control the behavior of Docker [build](#docker-build-task) and [run](#docker-run-task), and form the basis of container startup for debugging.
 
-The tasks allow for a great deal of control and customization. The final configuration is a combination of general defaults, platform-specific defaults (such as Node.js, Python, or .NET Core), and user input. User input takes precedence when it conflicts with defaults.
+The tasks allow for a great deal of control and customization. The final configuration is a combination of general defaults, platform-specific defaults (such as Node.js, Python, or .NET), and user input. User input takes precedence when it conflicts with defaults.
 
 All common features of Visual Studio Code tasks (for example, grouping tasks into compound tasks) are supported by Docker extension tasks. For more information on common task features and properties, see the Visual Studio Code [custom task](/docs/editor/tasks.md#custom-tasks) documentation.
 
@@ -88,11 +88,11 @@ For Python Docker images, the `docker-build` task infers the following options:
 | `dockerBuild.tag` | The base name of the root workspace folder. |
 | `dockerBuild.pull` | Defaults to true in order to pull new base images before building. |
 
-### .NET Core (docker-build)
+### .NET (docker-build)
 
 **Minimal configuration using defaults**
 
-When you build a .NET Core-based Docker image, you can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
+When you build a .NET-based Docker image, you can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
 
 ```json
 {
@@ -111,7 +111,7 @@ When you build a .NET Core-based Docker image, you can omit the `platform` prope
 
 **Platform defaults**
 
-For .NET Core-based images, the `docker-build` task infers the following options:
+For .NET-based images, the `docker-build` task infers the following options:
 
 | Property | Inferred Value |
 | --- | --- |
@@ -126,10 +126,10 @@ Here are all properties available for configuring `docker-build` task. All prope
 | Property | Description |
 | --- | --- |
 | `dockerBuild` | Options for controlling the `docker build` command executed ([see below](#dockerbuild-object-properties)). <br/> Required unless `platform` is set. |
-| `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
+| `platform` | Determines the platform: .NET (`netcore`) or Node.js (`node`) and default settings for `docker build` command. |
 | `node` | Determines options specific for Node.js projects ([see below](#node-object-properties-dockerbuild-task)). |
 | `python` | There are no object properties for Python in the `docker-build` task. |
-| `netCore` | Determines options specific for .NET Core projects ([see below](#netcore-object-properties-dockerbuild-task)). |
+| `netCore` | Determines options specific for .NET projects ([see below](#netcore-object-properties-dockerbuild-task)). |
 
 ### dockerBuild object properties
 
@@ -154,7 +154,7 @@ Here are all properties available for configuring `docker-build` task. All prope
 
 | Property | Description |
 | --- | --- |
-| `appProject` | The .NET Core project file (`.csproj`, `.fsproj`, etc.) associated with the Dockerfile and `docker-build` task. <br/> Required always.  |
+| `appProject` | The .NET project file (`.csproj`, `.fsproj`, etc.) associated with the Dockerfile and `docker-build` task. <br/> Required always.  |
 
 ## Docker run task
 
@@ -167,9 +167,9 @@ The most important configuration settings for the `docker-run` task are `dockerR
 
 See [property reference](#run-task-reference) for full list of all task properties.
 
-### Platform support
+### Docker run platform support
 
-While the `docker-run` task can be used to run any Docker image, the extension has explicit support (and simplified configuration) for Node.js, Python, and .NET Core.
+While the `docker-run` task can be used to run any Docker image, the extension has explicit support (and simplified configuration) for Node.js, Python, and .NET.
 
 ### Node.js (docker-run)
 
@@ -277,11 +277,11 @@ For Python-based Docker images, the `docker-run` task infers the following optio
 | `dockerRun.containerName` | Derived from the base name of the root workspace folder. |
 | `dockerRun.image` | The tag from a dependent docker-build task (if one exists) or derived from the base name of the root workspace folder. |
 
-### .NET Core (docker-run)
+### .NET (docker-run)
 
 **Minimal configuration using defaults**
 
-When building a .NET Core-based Docker image, you can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
+When building a .NET-based Docker image, you can omit the `platform` property and just set the `netCore` object (`platform` is implicitly set to `netcore` when `netCore` object is present). Note that `appProject` is a required property:
 
 ```json
 {
@@ -300,7 +300,7 @@ When building a .NET Core-based Docker image, you can omit the `platform` proper
 
 **Platform defaults**
 
-For .NET Core-based images, the `docker-run` task infers the following options:
+For .NET-based images, the `docker-run` task infers the following options:
 
 | Property | Inferred Value |
 | --- | --- |
@@ -317,10 +317,10 @@ Here are all properties available for configuring `docker-run` task. All propert
 | Property | Description |
 | --- | --- |
 | `dockerRun` | Options for controlling the `docker run` command executed ([see below](#dockerrun-object-properties)). <br/> Required unless `platform` is set. |
-| `platform` | Determines the platform: .NET Core (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
+| `platform` | Determines the platform: .NET (`netcore`) or Node.js (`node`) and default settings for `docker run` command. |
 | `node` | For Node.js projects, this controls various options ([see below](#node-object-properties-dockerrun-task)). |
 | `python` | For Python projects, this controls various options ([see below](#python-object-properties-dockerrun-task)). |
-| `netCore` | For .NET Core projects, this controls various options ([see below](#netcore-object-properties-dockerrun-task)). |
+| `netCore` | For .NET projects, this controls various options ([see below](#netcore-object-properties-dockerrun-task)). |
 
 ### dockerRun object properties
 
@@ -388,7 +388,7 @@ Here are all properties available for configuring `docker-run` task. All propert
 
 | Property | Description |
 | --- | --- |
-| `appProject` | The .NET Core project file (`.csproj`, `.fsproj`, etc.) associated with `docker-run` task. <br/> Required. |
+| `appProject` | The .NET project file (`.csproj`, `.fsproj`, etc.) associated with `docker-run` task. <br/> Required. |
 | `configureSsl` | Whether to configure ASP.NET Core SSL certificates and other settings to enable SSL on the service in the container. |
 | `enableDebugging` | Whether to enable the started container for debugging. This will infer additional volume mappings and other options necessary for debugging. |
 
@@ -403,6 +403,7 @@ The most important configuration setting for the `docker-compose` task is `docke
 See [property reference](#compose-task-reference) for full list of all task properties.
 
 **Example configuration**
+
 ```json
 {
     "version": "2.0.0",
@@ -443,6 +444,8 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `up` | Run a `docker-compose up` command. <br/> Either this or `down` must be specified, but not both. | `docker-compose up` |
 | `down` | Run a `docker-compose down` command. <br/> Either this or `up` must be specified, but not both. | `docker-compose down` |
 | `files` | The list of Docker Compose YAML files to use in the `docker-compose` command. If not specified, the Docker Compose CLI looks for `docker-compose.yml` and `docker-compose.override.yml`. | `-f <file>` |
+| `envFile` | File of environment variables read in and applied to the containers. | `--env-file <file>` |
+| `projectName` | Alternate project name to use when naming and labeling Docker objects. If using an alternate project name when composing up, the same project name must be specified when composing down. | `--project-name <name>` |
 
 ### up object properties
 
@@ -451,7 +454,8 @@ Here are all properties available for configuring `docker-compose` task. All pro
 | `detached` | Whether or not to run detached. | `-d` | `true` |
 | `build` | Whether or not to build before running. | `--build` | `true` |
 | `scale` | Number of instances of each service to run. This is a list of key-value pairs. | `--scale SERVICE=NUM` |
-| `services` | A subset of the services to start. | `[SERVICE...]` | (all) |
+| `services` | A subset of the services to start. Cannot be combined with `profiles`. | `[SERVICE...]` | (all) |
+| `profiles` | A subset of the profiles to start. Cannot be combined with `services`. | `--profile <profile>` | (all) |
 | `customOptions` | Any extra parameters to add after the `up` argument. No attempt is made to resolve conflicts with other options or validate this option. | (any) |
 
 ### down object properties
@@ -466,7 +470,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 
 The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
 
-For example, the token `${serviceList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
+For example, the tokens `${serviceList}` and `${profileList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
 
 For each of these customizable Docker commands, a configuration setting is available to set the template of what to execute. Alternatively, you can define multiple templates, optionally with a regular expression, which when matched, hints the context in which a template should be used. The templates support some tokens similar to `launch.json` and `tasks.json`, for example, `${workspaceFolder}`.
 
@@ -480,7 +484,7 @@ You have two options for configuring each of the templates (listed below). The f
 }
 ```
 
-The second option is multiple templates that will be chosen based on the `match` regular expression, the `contextTypes` in which it is applicable, as well as user input. The `contextTypes` property is a list of Docker context types in which a command template applies. If it is undefined or empty, the template is applicable in all Docker contexts.
+The second option is multiple templates that will be chosen based on the `match` regular expression, as well as user input.
 
 For example, three templates are shown in the following example:
 
@@ -495,11 +499,6 @@ For example, three templates are shown in the following example:
             "label": "Alpine-specific build command",
             "template": "docker build -p 1234:1234 -f \"${dockerfile}\" -t ${tag} \"${context}\"",
             "match": "alpine"
-        },
-        {
-            "label": "Context-specific build command",
-            "template": "docker build -f \"${dockerfile}\" .",
-            "contextTypes": ["moby"]
         }
     ]
 }
@@ -512,21 +511,22 @@ The command template chosen to execute is selected based on the following rules:
 1. If no setting is configured, the default command template is chosen.
 1. If only a single template is configured (the first example above), that template is chosen.
 1. If multiple templates are configured:
-    1. Constrained templates are checked. A constrained template has either `match` or `contextTypes`, or both. The `match` regular expression is compared against contextual hints--for example, image name, container name, etc. The `contextTypes` property causes the template to apply only in certain context types, for example, `moby` or `aci` (or both).
+    1. Constrained templates are checked. A constrained template has `match`. The `match` regular expression is compared against contextual hints--for example, image name, container name, etc.
     1. If multiple constrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
-    1. If there no applicable constrained templates, unconstrained templates are checked. An unconstrained template has neither `match` nor `contextTypes`, and is therefore always applicable.
+    1. If there no applicable constrained templates, unconstrained templates are checked. An unconstrained template does not have `match`, and is therefore always applicable.
     1. If multiple unconstrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
 
 ### Docker Build
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.build` | `docker build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
+| `docker.commands.build` | `${containerCommand} build --rm -f "${dockerfile}" -t ${tag} "${context}"` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${dockerfile}` | The workspace-relative path of the selected `Dockerfile`. |
 | `${tag}` | The value entered/confirmed by the user upon invoking the build command. If previously built, defaults to the previously entered value for that `Dockerfile`. |
 | `${context}` | If set, the value of the `docker.imageBuildContextPath` configuration setting. Otherwise, the workspace-relative folder in which the `Dockerfile` resides. |
@@ -539,13 +539,14 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.run` | `docker run --rm -d ${exposedPorts} ${tag}` |
-| `docker.commands.runInteractive` | `docker run --rm -it ${exposedPorts} ${tag}` |
+| `docker.commands.run` | `${containerCommand} run --rm -d ${exposedPorts} ${tag}` |
+| `docker.commands.runInteractive` | `${containerCommand} run --rm -it ${exposedPorts} ${tag}` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${exposedPorts}` | Generated from the list of exposed ports in the image (ultimately from the `Dockerfile`), where each exposed port is mapped to the same port on the local machine.  For example, `"EXPOSE 5000 5001"` would generate `"-p 5000:5000 -p 5001:5001"`. |
 | `${tag}` | The full tag of the selected image. |
 
@@ -555,12 +556,13 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.attach` | `docker exec -it ${containerId} ${shellCommand}`
+| `docker.commands.attach` | `${containerCommand} exec -it ${containerId} ${shellCommand}`
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${containerId}` | The ID of the container to attach to. |
 | `${shellCommand}` | If `bash` is present in the container, it is substituted here, otherwise `sh`. In Windows containers, `cmd` is always used. |
 
@@ -570,12 +572,13 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.logs` | `docker logs -f ${containerId}`
+| `docker.commands.logs` | `${containerCommand} logs -f ${containerId}`
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
+| `${containerCommand}` | The CLI command / executable used to execute container commands. |
 | `${containerId}` | The ID of the container to view the logs for. |
 
 > **Note**: The `match` regular expression will be compared against the container name and full tag of the container image.
@@ -584,7 +587,7 @@ Supported tokens:
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.composeUp` | `docker-compose ${configurationFile} up ${detached} ${build}` |
+| `docker.commands.composeUp` | `${composeCommand} ${configurationFile} up ${detached} ${build}` |
 
 Supported tokens:
 
@@ -594,18 +597,21 @@ Supported tokens:
 | `${detached}` | Set to `-d` if the configuration setting `docker.dockerComposeDetached` is set to `true`. Otherwise, set to `""`. |
 | `${build}` | Set to `--build` if the configuration setting `docker.dockerComposeBuild` is set to `true`. Otherwise, set to `""`. |
 | `${serviceList}` | If specified, prompts for a subset of the services to start when the command is run. |
+| `${profileList}` | If specified and the Docker Compose YAML file contains profiles, prompts for a subset of the profiles to start when the command is run. |
+| `${composeCommand}` | Set to the value of the `docker.composeCommand` setting if set, otherwise the extension will try to automatically determine the command to use (`docker compose` or `docker-compose`). |
 
 ### Docker Compose Down
 
 | Configuration Setting | Default Value |
 |--|--|
-| `docker.commands.composeDown` | `docker-compose ${configurationFile} down` |
+| `docker.commands.composeDown` | `${composeCommand} ${configurationFile} down` |
 
 Supported tokens:
 
 | Token | Description |
 | -- | -- |
 | `${configurationFile}` | Set to `-f` plus the workspace-relative path to the selected Docker Compose YAML file. |
+| `${composeCommand}` | Set to the value of the `docker.composeCommand` setting if set, otherwise the extension will try to automatically determine the command to use (`docker compose` or `docker-compose`). |
 
 ### Additional supported tokens
 

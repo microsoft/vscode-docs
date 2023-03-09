@@ -1,0 +1,50 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+    - .config
+    - .devcontainer
+    - .pipelines
+    - .vscode
+pr: none
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: OneBranch.Pipelines/GovernedTemplates
+      ref: refs/heads/main
+
+  pipelines:
+    - pipeline: vscode-website-prod
+      source: vscode-website (official)
+      trigger:
+        branches:
+          - release/prod
+
+variables:
+  WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'
+  Codeql.enabled: true
+  Codeql.SourceRoot: $(Pipeline.Workspace)/vscode-website
+  Codeql.TSAEnabled: true
+  Codeql.TSAOptionsPath: $(Build.SourcesDirectory)\.config\tsaoptions.json
+
+extends:
+  template: v2/OneBranch.Official.CrossPlat.yml@templates
+  parameters:
+    git:
+      fetchDepth: 1
+      lfs: true
+      retryCount: 3
+
+    globalSdl:
+      credscan:
+        suppressionsFile: $(Build.SourcesDirectory)\.config\CredScanSuppressions.json
+      policheck:
+        break: true
+
+    stages:
+    - template: templates\stages\build-official.yml

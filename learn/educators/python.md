@@ -4,7 +4,7 @@ Area: educators
 TOCTitle: Python
 ContentId: e58523d5-e243-45c2-8306-7114077d81ae
 PageTitle: Python in Visual Studio Code
-DateApproved: 02/17/2021
+DateApproved: 2/17/2021
 MetaDescription: Python in Visual Studio Code
 ---
 
@@ -73,7 +73,7 @@ Unsure which extensions to recommend to your students? You can point your studen
 The extension pack contains:
 
 * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for basic Python functionality like compiling, debugging support, linting, Jupyter Notebooks, unit tests, and more.
-* [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to enable real-time collaboration and [Live Share Audio](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio) to enable audio calls as well.
+* [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) to enable real-time collaboration.
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) to work on remote projects (for example, to access lab machines) through SSH with full VS Code functionality.
 * [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) for full LaTeX support in Markdown.
 * [Python Test Explorer for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=LittleFoxTeam.vscode-python-test-adapter) to visualize and run Python tests in the side bar.
@@ -101,12 +101,12 @@ Give an introduction to Python with "Wonder Woman 1984"-inspired lessons that he
 
 ### Python in Notebooks
 
-Learn the basics of Python. View the full lesson on [Microsoft Learn: Write basic Python in Notebooks in Visual Studio Code](https://docs.microsoft.com/learn/modules/basic-python-nasa/).
+Learn the basics of Python. View the full lesson at [Write basic Python in Notebooks in Visual Studio Code](https://learn.microsoft.com/training/modules/basic-python-nasa/).
 
 ![Basics of Python lesson](images/python/basic-python-lesson.png)
 
 ### Set up your Python beginner development environment
 
-A step-by-step guide to installing and setting up your Python and VS Code environment. View the full lesson on [Microsoft Learn: Set up your Python beginner development environment with Visual Studio Code](https://docs.microsoft.com/learn/modules/python-install-vscode/).
+A step-by-step guide to installing and setting up your Python and VS Code environment. View the full lesson at [Set up your Python beginner development environment with Visual Studio Code](https://learn.microsoft.com/training/modules/python-install-vscode/).
 
 ![Set up Python lesson](images/python/setup-python-lesson.png)

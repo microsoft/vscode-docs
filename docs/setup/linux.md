@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -14,24 +14,6 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 See the [Download Visual Studio Code](/download) page for a complete list of available installation options.
 
 By downloading and using Visual Studio Code, you agree to the [license terms](https://code.visualstudio.com/license) and [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409).
-
-### Snap
-
-Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
-
-[![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
-
-You can install it by running:
-
-```bash
-sudo snap install --classic code # or code-insiders
-```
-
-Once installed, the Snap daemon will take care of automatically updating VS Code in the background. You will get an in-product update notification whenever a new update is available.
-
-**Note:** If `snap` isn't available in your Linux distribution, please check the following [Installing snapd guide](https://docs.snapcraft.io/installing-snapd), which can help you get that set up.
-
-Learn more about snaps from the [official Snap Documentation](https://docs.snapcraft.io).
 
 ### Debian and Ubuntu based distributions
 
@@ -50,9 +32,11 @@ Note that other binaries are also available on the [VS Code download page](/Down
 Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Alternatively, the repository and key can also be installed manually with the following script:
 
 ```bash
+sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
 ```
 
 Then update the package cache and install the package using:
@@ -75,7 +59,7 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
 ```bash
-sudo dnf check-update
+dnf check-update
 sudo dnf install code
 ```
 
@@ -87,6 +71,24 @@ sudo yum install code
 ```
 
 Due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.
+
+### Snap
+
+Visual Studio Code is officially distributed as a Snap package in the [Snap Store](https://snapcraft.io/store):
+
+[![Get it from the Snap Store](images/linux/snap-store.png)](https://snapcraft.io/code)
+
+You can install it by running:
+
+```bash
+sudo snap install --classic code # or code-insiders
+```
+
+Once installed, the Snap daemon will take care of automatically updating VS Code in the background. You will get an in-product update notification whenever a new update is available.
+
+**Note:** If `snap` isn't available in your Linux distribution, please check the following [Installing snapd guide](https://docs.snapcraft.io/installing-snapd), which can help you get that set up.
+
+Learn more about snaps from the [official Snap Documentation](https://docs.snapcraft.io).
 
 ### openSUSE and SLE-based distributions
 
@@ -113,7 +115,7 @@ To get more information about the installation from the AUR, please consult the 
 
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 
-There is a community maintained [VS Code Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/default.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
+There is a community maintained [VS Code Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/vscode.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
 
 ```bash
 nix-env -i vscode
@@ -164,18 +166,18 @@ sudo update-alternatives --set editor /usr/bin/code
 If Visual Studio Code doesn't show up as an alternative to `editor`, you need to register it:
 
 ```bash
-sudo update-alternatives --install editor /usr/bin/editor $(which code)
+sudo update-alternatives --install /usr/bin/editor editor $(which code) 10
 ```
 
 ## Windows as a Linux developer machine
 
-Another option for Linux development with VS Code is to use a Windows machine with the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL).
+Another option for Linux development with VS Code is to use a Windows machine with the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL).
 
 ### Windows Subsystem for Linux
 
 With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on a Windows machine. WSL supports Linux distributions such as Ubuntu, Debian, SUSE, and Alpine available from the Microsoft Store.
 
-When coupled with the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of a Linux distro on WSL.
+When coupled with the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension, you get full VS Code editing and debugging support while running in the context of a Linux distro on WSL.
 
 See the [Developing in WSL](/docs/remote/wsl.md) documentation to learn more or try the [Working in WSL](/docs/remote/wsl-tutorial.md) introductory tutorial.
 
@@ -205,6 +207,16 @@ Run these commands to solve this issue:
 sudo apt-get install gvfs-bin
 ```
 
+### Conflicts with VS Code packages from other repositories
+
+Some distributions, for example [Pop!\_OS](https://pop.system76.com) provide their own `code` package. To ensure the official VS Code repository is used, create a file named `/etc/apt/preferences.d/code` with the following content:
+
+```
+Package: code
+Pin: origin "packages.microsoft.com"
+Pin-Priority: 9999
+```
+
 ### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
 When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. Before adjusting platform limits, make sure that potentially large folders, such as Python `.venv`, are added to the `files.watcherExclude` setting (more details below). The current limit can be viewed by running:
@@ -221,7 +233,7 @@ fs.inotify.max_user_watches=524288
 
 The new value can then be loaded in by running `sudo sysctl -p`.
 
-While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 1080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
+While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may want to lower the number. Each file watch [takes up 1080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
 
 [Arch](https://www.archlinux.org/)-based distros (including Manjaro) require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
 

@@ -1,0 +1,14 @@
+{
+    "instanceUrl": "https://msazure.visualstudio.com/defaultcollection",
+    "projectName": "One",
+    "areaPath": "One\\VSCode\\Visual Studio Code Services\\VS Code Website",
+    "iterationPath": "One",
+    "notificationAliases": [
+        "stbatt@microsoft.com",
+        "lszomoru@microsoft.com",
+        "gregvanl@microsoft.com"
+    ],
+    "ppe": "false",
+    "template": "TFSMSAzure",
+    "codebaseName": "vscode-docs_main"
+}

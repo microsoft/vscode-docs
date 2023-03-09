@@ -1,6 +1,6 @@
 ---
 ContentId: f00c4913-58e3-4a61-aa42-e769c3430906
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: A guide to migrating extension projects from the TSLint linter to ESLint.
@@ -15,6 +15,12 @@ You need to install ESLint. ESLint doesn't natively support TypeScript, so you w
 
 ```bash
 npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+or if you're using yarn as your package manager:
+
+```bash
+yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev
 ```
 
 The command above adds ESLint, adds a parser that makes ESLint understand TypeScript, and adds some TypeScript-specific rules.

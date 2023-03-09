@@ -1,15 +1,15 @@
 ---
-Order: 13
+Order: 16
 Area: remote
 TOCTitle: Tips and Tricks
 PageTitle: Visual Studio Code Remote Development Troubleshooting Tips and Tricks
 ContentId: 42e65445-fb3b-4561-8730-bbd19769a160
 MetaDescription: Visual Studio Code Remote Development troubleshooting tips and tricks for SSH, Containers, and the Windows Subsystem for Linux (WSL)
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 ---
 # Remote Development Tips and Tricks
 
-This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/remote/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
+This article covers troubleshooting tips and tricks for each of the Visual Studio Code [Remote Development](https://aka.ms/vscode-remote/download/extension) extensions. See the [SSH](/docs/remote/ssh.md), [Containers](/docs/devcontainers/containers.md), and [WSL](/docs/remote/wsl.md) articles for details on setting up and working with each specific extension. Or try the introductory [Tutorials](/docs/remote/ssh-tutorial.md) to help get you running quickly in a remote environment.
 
 For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
 
@@ -29,7 +29,7 @@ To set up SSH key based authentication for your remote host. First we'll create 
 
 **Create your local SSH key pair**
 
- Check to see if you already have an SSH key on your **local** machine. This is typically located at `~/.ssh/id_rsa.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_rsa.pub`).
+ Check to see if you already have an SSH key on your **local** machine. This is typically located at `~/.ssh/id_ed25519.pub` on macOS / Linux, and the `.ssh` directory in your user profile folder on Windows (for example `C:\Users\your-user\.ssh\id_ed25519.pub`).
 
 If you do not have a key, run the following command in a **local** terminal / PowerShell to generate an SSH key pair:
 
@@ -47,7 +47,7 @@ Run one of the following commands, in a **local terminal window** replacing user
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
-    export PUBKEYPATH="$HOME/.ssh/id_rsa.pub"
+    export PUBKEYPATH="$HOME/.ssh/id_ed25519.pub"
 
     ssh-copy-id -i "$PUBKEYPATH" "$USER_AT_HOST"
     ```
@@ -56,12 +56,12 @@ Run one of the following commands, in a **local terminal window** replacing user
 
     ```bash
     export USER_AT_HOST="your-user-name-on-host@hostname"
-    export PUBKEYPATH="$HOME/.ssh/id_rsa.pub"
+    export PUBKEYPATH="$HOME/.ssh/id_ed25519.pub"
 
     ssh $USER_AT_HOST "powershell New-Item -Force -ItemType Directory -Path \"\$HOME\\.ssh\"; Add-Content -Force -Path \"\$HOME\\.ssh\\authorized_keys\" -Value '$(tr -d '\n\r' < "$PUBKEYPATH")'"
     ```
 
-    You may want to validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+    You may want to validate that the `authorized_keys` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
 
 **Authorize your Windows machine to connect**
 
@@ -71,7 +71,7 @@ Run one of the following commands, in a **local PowerShell** window replacing us
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
-    $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
+    $PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
 
     $pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
     ```
@@ -80,12 +80,12 @@ Run one of the following commands, in a **local PowerShell** window replacing us
 
     ```powershell
     $USER_AT_HOST="your-user-name-on-host@hostname"
-    $PUBKEYPATH="$HOME\.ssh\id_rsa.pub"
+    $PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
 
     Get-Content "$PUBKEYPATH" | Out-String | ssh $USER_AT_HOST "powershell `"New-Item -Force -ItemType Directory -Path `"`$HOME\.ssh`"; Add-Content -Force -Path `"`$HOME\.ssh\authorized_keys`" `""
     ```
 
-    Validate that the `authorized_key` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
+    Validate that the `authorized_keys` file in the `.ssh` folder for your **remote user on the SSH host** is owned by you and no other user has permission to access it. See the [OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH#authorized_keys) for details.
 
 ### Improving your security with a dedicated key
 
@@ -96,16 +96,16 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     **macOS / Linux**: Run the following command in a **local terminal**:
 
     ```bash
-    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa-remote-ssh
+    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519-remote-ssh
     ```
 
     **Windows**: Run the following command in a **local PowerShell**:
 
     ```powershell
-    ssh-keygen -t rsa -b 4096 -f "$HOME\.ssh\id_rsa-remote-ssh"
+    ssh-keygen -t ed25519 -f "$HOME\.ssh\id_ed25519-remote-ssh"
     ```
 
-2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_rsa-remote-ssh.pub` file instead.
+2. Follow the same steps in the [quick start](#quick-start-using-ssh-keys) to authorize the key on the SSH host, but set the `PUBKEYPATH` to the `id_ed25519-remote-ssh.pub` file instead.
 
 3. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select an SSH config file, and add (or modify) a host entry as follows:
 
@@ -113,10 +113,10 @@ While using a single SSH key across all your SSH hosts can be convenient, if any
     Host name-of-ssh-host-here
         User your-user-name-on-host
         HostName host-fqdn-or-ip-goes-here
-        IdentityFile ~/.ssh/id_rsa-remote-ssh
+        IdentityFile ~/.ssh/id_ed25519-remote-ssh
     ```
 
-    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_rsa`.
+    > **Tip:** You can use `/` for Windows paths as well. If you use `\` you will need to use two slashes. For example, `C:\\path\\to\\my\\id_ed25519`.
 
 ### Reusing a key generated in PuTTYGen
 
@@ -125,7 +125,7 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 1. Open PuTTYGen **locally** and load the private key you want to convert.
 2. Select **Conversions > Export OpenSSH key** from the application menu. Save the converted key to a **local** location under the`.ssh` directory in your user profile folder (for example `C:\Users\youruser\.ssh`).
 3. Validate that this new **local** file is owned by you and no other user has permissions to access it.
-4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you wish to change, and add (or modify) a host entry in the config file as follows to point to the file:
+4. In VS Code, run **Remote-SSH: Open Configuration File...** in the Command Palette (`kbstyle(F1)`), select the SSH config file you want to change, and add (or modify) a host entry in the config file as follows to point to the file:
 
     ```yaml
     Host name-of-ssh-host-here
@@ -136,11 +136,11 @@ If you used PuTTYGen to set up SSH public key authentication for the host you ar
 
 ### Improving security on multi-user servers
 
-By default, the "VS Code Server" is installed and maintained by the Remote - Containers extension when it connects to `localhost` on a random TCP port that is then forwarded to your local machine. This means only those users on the machine can access the port. However, if the host is being used by many users at once, you may want to further lock down access to reduce the chances of one user discovering the port number and attempting to access another user's VS Code Server instance.
+The Remote - SSH extension installs and maintains the "VS Code Server". The server is started with a randomly generated key, and any new connection to the server needs to provide the key. The key is stored on the remote's disk, readable only by the current user. There is one HTTP path that is available without authentication at `/version`.
 
-If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
+By default, the server listens to `localhost` on a random TCP port that is then forwarded to your local machine. If you are connecting to a **Linux or macOS** host, you can switch to using Unix sockets that are locked down to a particular user. This socket is then forwarded instead of the port.
 
-> **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is strongly recommended.
+> **Note:** This setting **disables connection multiplexing** so configuring [public key authentication](#configuring-key-based-authentication) is recommended.
 
 To configure it:
 
@@ -162,6 +162,10 @@ If you encounter an error when connecting, you may need to enable socket forward
 ### Troubleshooting hanging or failing connections
 
 If you are running into problems with VS Code hanging while trying to connect (and potentially timing out), there are a few things you can do to try to resolve the issue.
+
+**General troubleshooting: Remove the server**
+
+One command helpful to troubleshoot a variety of Remote-SSH issues is **Remote-SSH: Kill VS Code Server on Host**. This will remove the server, which can fix a wide range of issues and error messages you may see, such as "Could not establish connection to `server_name`: The VS Code Server failed to start."
 
 **See if VS Code is waiting on a prompt**
 
@@ -198,7 +202,7 @@ A fix has been merged so this problem should be resolved in a version of the ser
 
 Remote - SSH extension makes use of an SSH tunnel to facilitate communication with the host. In some cases, this may be disabled on your SSH server. To see if this is the problem, open the **Remote - SSH** category in the output window and check for the following message:
 
-```text
+```
 open failed: administratively prohibited: open failed
 ```
 
@@ -246,7 +250,7 @@ One workaround for this is to use the `ControlMaster` option in OpenSSH (macOS/L
 
 **Contact your system administrator for configuration help**
 
-SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the `Remote-SSH` output window, they could be due to a missing setting.
+SSH is a very flexible protocol and supports many configurations. If you see other errors, in either the login terminal or the **Remote-SSH** output window, they could be due to a missing setting.
 
 Contact your system administrator for information about the required settings for your SSH host and client. Specific command-line arguments for connecting to your SSH host can be added to an [SSH config file](https://linux.die.net/man/5/ssh_config).
 
@@ -329,6 +333,21 @@ fi
 
 The agent should be running by default on macOS.
 
+### Making local SSH Agent available on the remote
+
+An SSH Agent on your local machine allows the Remote - SSH extension to connect to your chosen remote system without repeatedly prompting for a passphrase, but tools like Git that run on the remote, don't have access to your locally-unlocked private keys.
+
+You can see this by opening the integrated terminal on the remote and running `ssh-add -l`. The command should list the unlocked keys, but instead reports an error about not being able to connect to the authentication agent. Setting `ForwardAgent yes` makes the local SSH Agent available in the remote environment, solving this problem.
+
+You can do this by editing your `.ssh/config` file (or whatever `Remote.SSH.configFile` is set to - use the **Remote-SSH: Open SSH Configuration File...** command to be sure) and adding:
+
+```ssh-config
+Host *
+    ForwardAgent yes
+```
+
+Note that you might want to be more restrictive and only set the option for particular named hosts.
+
 ### Fixing SSH file permission errors
 
 SSH can be strict about file permissions and if they are set incorrectly, you may see errors such as "WARNING: UNPROTECTED PRIVATE KEY FILE!". There are several ways to update file permissions in order to fix this, which are described in the sections below.
@@ -343,12 +362,12 @@ On your local machine, make sure the following permissions are set:
 |---------------|---------------------------|
 | `.ssh` in your user folder | `chmod 700 ~/.ssh` |
 | `.ssh/config` in your user folder | `chmod 600 ~/.ssh/config` |
-| `.ssh/id_rsa.pub` in your user folder | `chmod 600 ~/.ssh/id_rsa.pub` |
+| `.ssh/id_ed25519.pub` in your user folder | `chmod 600 ~/.ssh/id_ed25519.pub` |
 | Any other key file | `chmod 600 /path/to/key/file` |
 
 **Windows:**
 
-The specific expected permissions can vary depending on the exact SSH implementation you are using. We strongly recommend using the out of box [Windows 10 OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview).
+The specific expected permissions can vary depending on the exact SSH implementation you are using. We recommend using the out of box [Windows 10 OpenSSH Client](https://learn.microsoft.com/windows-server/administration/openssh/openssh_overview).
 
 In this case, make sure that all of the files in the `.ssh` folder for your remote user on the SSH host is owned by you and no other user has permissions to access it. See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/Security-protection-of-various-files-in-Win32-OpenSSH) for details.
 
@@ -375,7 +394,7 @@ See the [Windows OpenSSH wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki/
 
 | OS | Instructions |
 |----|--------------|
-| Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
+| Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Client](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 | Earlier Windows | Install [Git for Windows](https://git-scm.com/download/win). |
 | macOS | Comes pre-installed. |
 | Debian/Ubuntu | Run `sudo apt-get install openssh-client` |
@@ -390,7 +409,7 @@ VS Code will look for the `ssh` command in the PATH. Failing that, on Windows it
 | Debian 8+ / Ubuntu 16.04+ | Run `sudo apt-get install openssh-server` |  See the [Ubuntu SSH](https://help.ubuntu.com/community/SSH?action=show) documentation for details. |
 | RHEL / CentOS 7+ | Run `sudo yum install openssh-server && sudo systemctl start sshd.service && sudo systemctl enable sshd.service` | See the [RedHat SSH](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-openssh) documentation for details. |
 | SuSE 12+ / openSUSE 42.3+ |  In Yast, go to Services Manager, select "sshd" in the list, and click **Enable**. Next go to Firewall, select the **Permanent** configuration, and under services check **sshd**. | See the [SuSE SSH](https://en.opensuse.org/OpenSSH) documentation for details. |
-| Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
+| Windows 10 1803+ / Server 2016/2019 1803+ | Install the [Windows OpenSSH Server](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). |
 | macOS 10.14+ (Mojave) | Enable [Remote Login](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac). | |
 
 ### Resolving hangs when doing a Git push or sync on an SSH host
@@ -411,7 +430,15 @@ On Linux, you can use your distribution's package manager to install SSHFS. For 
 
 > **Note:** WSL 1 does not support FUSE or SSHFS, so the instructions differ for Windows currently. **WSL 2 does include FUSE and SSHFS support**, so this will change soon.
 
-On macOS, you can install SSHFS using [Homebrew](https://brew.sh/): `brew install sshfs` In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
+On macOS, you can install SSHFS using [Homebrew](https://brew.sh/):
+
+```bash
+brew install --cask macfuse
+brew install gromgit/fuse/sshfs-mac
+brew link --overwrite sshfs-mac
+```
+
+In addition, if you would prefer not to use the command line to mount the remote filesystem, you can also install [SSHFS GUI](https://github.com/dstuecken/sshfs-gui).
 
 To use the command line, run the following commands from a local terminal (replacing `user@hostname` with the remote user and hostname / IP):
 
@@ -449,16 +476,24 @@ Once a host has been configured, you can connect to it directly from the termina
 For example, to connect to `remote_server` and open the `/code/my_project` folder, run:
 
 ```bash
-code --folder-uri "vscode-remote://ssh-remote+remote_server/code/my_project"
+code --remote ssh-remote+remote_server /code/my_project
 ```
 
-You can also use the `--file-uri` switch to open a specific file instead.
+We need to do some guessing on whether the input path is a file or a folder. If it has a file extension, it is considered a file.
+
+To force that a folder is opened, add slash to the path or use:
+
+`code --folder-uri vscode-remote://ssh-remote+remote_server/code/folder.with.dot`
+
+To force that a file is opened, add `--goto` or use:
+
+`code --file-uri vscode-remote://ssh-remote+remote_server/code/fileWithoutExtension`
 
 ### Using rsync to maintain a local copy of your source code
 
 An alternative to [using SSHFS to access remote files](#using-sshfs-to-access-files-on-your-remote-host) is to [use `rsync`](https://rsync.samba.org/) to copy the entire contents of a folder on remote host to your local machine. The `rsync` command will determine which files need to be updated each time it is run, which is far more efficient and convenient than using something like `scp` or `sftp`. This is primarily something to consider if you really need to use multi-file or performance intensive local tools.
 
-The `rsync` command is available out of box on macOS and can be installed using Linux package managers (for example `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://docs.microsoft.com/windows/wsl/install-win10) or [Cygwin](https://www.cygwin.com/) to access the command.
+The `rsync` command is available out of box on macOS and can be installed using Linux package managers (for example `sudo apt-get install rsync` on Debian/Ubuntu). For Windows, you'll need to either use [WSL](https://learn.microsoft.com/windows/wsl/install) or [Cygwin](https://www.cygwin.com/) to access the command.
 
 To use the command, navigate to the folder you want to store the synched contents and run the following replacing `user@hostname` with the remote user and hostname / IP and `/remote/source/code/path` with the remote source code location.
 
@@ -489,9 +524,10 @@ The SSH extension provides a command for cleaning up the VS Code Server from the
 If you want to run these steps manually, or if the command isn't working for you, you can run a script like this:
 
 ```bash
-kill -9 `ps ax | grep "remoteExtensionHostAgent.js" | grep -v grep | awk '{print $1}'`
-kill -9 `ps ax | grep "watcherService" | grep -v grep | awk '{print $1}'`
-rm -rf ~/.vscode-server # Or ~/.vscode-server-insiders
+# Kill server processes
+kill -9 `ps aux | \grep vscode-server | \grep USER | \grep -v grep | awk '{print $2}'`
+# Delete related files and folder
+rm -rf $HOME/.vscode-server # Or ~/.vscode-server-insiders
 ```
 
 The VS Code Server was previously installed under `~/.vscode-remote` so you can check that location too.
@@ -500,251 +536,9 @@ The VS Code Server was previously installed under `~/.vscode-remote` so you can 
 
 You may want to use SSH to connect to a WSL distro running on your remote machine. Check out [this guide](https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine) to learn how to SSH into Bash and WSL 2 on Windows 10 from an external machine.
 
-## Container tips
+## Dev Containers tips
 
-This section includes some tips and tricks for getting the Remote - Containers extension up and running in different environments.
-
-If you are running into Docker issues or would prefer not to run Docker locally, you may want to try the preview of [GitHub Codespaces managed cloud-based environments](https://github.com/features/codespaces). Over time this service will support an increasing number of `devcontainer.json` properties and you can also use its browser-based editor in addition to VS Code.
-
-### Docker Desktop for Windows tips
-
-[Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
-
-1. **Consider using the new Docker WSL 2 back-end on Windows 10 (2004+).** If you are using [Docker Desktop's WSL 2 back-end](https://aka.ms/vscode-remote/containers/docker-wsl), you can you to open folders inside WSL as well as locally. Containers are also shared between Windows and inside WSL and this new engine is less susceptible to file sharing issues. See the [quick start](/docs/remote/containers.md#open-a-wsl-2-folder-in-a-container-on-windows) for details.
-
-2. **Switch out of "Linux Containers on Windows (LCOW)" mode.** While disabled by default, recent versions of Docker support [Linux Containers on Windows (LCOW)](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers) that can allow you to use both Windows and Linux containers at the same time. However, this is a new feature, so you may encounter issues and the Remote - Containers extension only supports Linux containers currently. You can switch out of LCOW mode at any time by right-clicking on the Docker task bar item and selecting **Switch to Linux Containers...** from the context menu.
-
-3. **Make sure your firewall allows Docker to set up a shared drive.** Docker only needs to connect between two machine local IPs, but some firewall software may still block any drive sharing or the needed ports. See [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps on resolving this problem.
-
-Here are some tips that applied to older versions of Docker for Windows but should now be resolved. If you run into strage behaviors due to a possible regression, these tips have solved problems in the past.
-
-1. **Use an AD domain account or local administrator account when sharing drives. Do not use an AAD (email-based) account.** AAD (email-based) accounts have well-known issues, as documented in Docker [issue #132](https://github.com/docker/for-win/issues/132) and [issue #1352](https://github.com/docker/for-win/issues/1352). If you must use an AAD account, create a separate local administrator account on your machine that you use purely for the purpose of sharing drives. Follow  the [steps in this blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/) to get everything set up.
-
-2. **Stick with alphanumeric passwords to avoid drive sharing problems.** When asked to share your drives on Windows, you will be prompted for the username and password of an account with admin privileges on the machine. If you are warned about an incorrect username or password, this may be due to special characters in the password. For example, `!`, `[` and `]` are known to cause issues. Change your password to alphanumeric characters to resolve. See this issue about [Docker volume mounting problems](https://github.com/moby/moby/issues/23992#issuecomment-234979036) for details.
-
-3. **Use your Docker ID to sign in to Docker (not your email).** The Docker CLI only supports using your Docker ID, so using your email can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
-
-If you are still having trouble, see the [Docker Desktop for Windows troubleshooting guide](https://docs.docker.com/docker-for-windows/troubleshoot/#volumes).
-
-### Enabling file sharing in Docker Desktop
-
-The VS Code [Remote - Containers](https://aka.ms/vscode-remote/download/containers) extension can only automatically mount your source code into a container if your code is in a folder or drive shared with Docker. If you open a dev container from a non-shared location, the container will successfully start but the workspace will be empty.
-
-Note that this step is **not required** with [Docker Desktop's WSL 2 engine](https://aka.ms/vscode-remote/containers/docker-wsl).
-
-To change Docker's drive and folder sharing settings:
-
-**Windows:**
-
-1. Right-click on the Docker task bar item and select **Settings**.
-2. Go to **Resources > File Sharing** and check the drive(s) where your source code is located.
-3. If you see a message about your local firewall blocking the sharing action, see [this Docker KB article](https://success.docker.com/article/error-a-firewall-is-blocking-file-sharing-between-windows-and-the-containers) for next steps.
-
-**macOS:**
-
-1. Click on the Docker menu bar item and select **Preferences**.
-2. Go to **Resources > File Sharing**. Confirm that the folder containing your source code is under one of the shared folders listed.
-
-### Resolving Git line ending issues in containers (resulting in many modified files)
-
-Since Windows and Linux use different default line endings, Git may report a large number of modified files that have no differences aside from their line endings. To prevent this from happening, you can disable line ending conversion using a `.gitattributes` file or globally on the Windows side.
-
-Typically adding or modifying a  `.gitattributes` file in your repository is the most reliable way to solve this problem. Committing this file to source control will help others and allows you to vary behaviors by repository as appropriate. For example, adding the following to `.gitattributes` file to the root of your repository will force everything to be LF, except for Windows batch files that require CRLF:
-
-```yaml
-* text=auto eol=lf
-*.{cmd,[cC][mM][dD]} text eol=crlf
-*.{bat,[bB][aA][tT]} text eol=crlf
-```
-
-Note that this works in **Git v2.10+**, so if you are running into problems, be sure you've got a recent Git client installed. You can add other file types in your repository that require CRLF to this same file.
-
-If you would prefer to still always upload Unix-style line endings (LF), you can use the `input` option.
-
-```bash
-git config --global core.autocrlf input
-```
-
-If you'd prefer to disable line-ending conversion entirely, run the following instead:
-
-```bash
-git config --global core.autocrlf false
-```
-
-Finally, you may need to clone the repository again for these settings to take effect.
-
-### Avoid setting up Git in a container when using Docker Compose
-
-See [Sharing Git credentials with your container](/docs/remote/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
-
-### Resolving hangs when doing a Git push or sync from a Container
-
-If you clone a Git repository using SSH and your SSH key has a passphrase, VS Code's pull and sync features may hang when running remotely.
-
-Either use an SSH key without a passphrase, clone using HTTPS, or run `git push` from the command line to work around the issue.
-
-### Resolving errors about missing Linux dependencies
-
-Some extensions rely on libraries not found in the certain Docker images. See the [Containers](/docs/remote/create-dev-container.md#install-additional-software) article for a few options on resolving this issue.
-
-### Speeding up containers in Docker Desktop
-
-By default, Docker Desktop only gives containers a fraction of your machine capacity. In most cases, this is enough, but if you are doing something that requires more capacity, you can increase memory, CPU, or disk use.
-
-First, try [stopping any running containers](/docs/remote/containers.md#managing-containers) you are no longer using.
-
-If this doesn't solve your problem, you may want to see if CPU usage is actually the issue or if there is something else going on. An easy way to check this is to install the [Resource Monitor extension](https://marketplace.visualstudio.com/items?itemName=mutantdino.resourcemonitor&ssr=false#overview). When installed in a container, it provides information about capacity for your containers in the Status bar.
-
-![Resource use Status bar](images/troubleshooting/resource-monitor.png)
-
-If you'd like this extension to always be installed, add this to your `settings.json`:
-
-```json
-"remote.containers.defaultExtensions": [
-    "mutantdino.resourcemonitor"
-]
-```
-
-If you determine that you need to give your container more of your machine's capacity, follow these steps:
-
-1. Right-click on the Docker task bar item and select **Settings** / **Preferences**.
-2. Go to **Advanced** to increase CPU, Memory, or Swap.
-3. On macOS, go to **Disk** to increase the amount of disk Docker is allowed to consume on your machine. On Windows, this is located under Advanced with the other settings.
-
-Finally, if your container is **doing disk intensive** operations or you are just looking for faster response times, see [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance) for tips. VS Code's defaults optimize for convenience and universal support, but can be optimized.
-
-### Cleaning out unused containers and images
-
-If you see an error from Docker reporting that you are out of disk space, you can typically resolve this by cleaning out unused containers and images. There are a few ways to do this:
-
-**Option 1: Use the Remote Explorer**
-
-You can delete containers by selecting the **Remote Explorer**, right-click on the container you want to remove, and select **Remove Container**.
-
-![Remote Explorer screenshot](images/containers/containers-explorer-remove.png)
-
-However, this does not clean up any images you may have downloaded, which can clutter up your system.
-
-**Option 2: Use the Docker extension**
-
-1. Open a **local** window in VS Code (**File > New Window**).
-
-2. Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) from the Extensions view if not already present.
-
-3. You can then go to the Docker view and expand the **Containers** or **Images** node, right-click, and select **Remove Container / Image**.
-
-     ![Docker Explorer screenshot](images/containers/docker-remove.png)
-
-**Option 3: Use the Docker CLI to pick containers to delete**
-
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
-2. Type `docker ps -a` to see a list of all containers.
-3. Type `docker rm <Container ID>` from this list to remove a container.
-4. Type `docker image prune` to remove any unused images.
-
-If `docker ps` does not provide enough information to identify the container you want to delete, the following command will list all development containers managed by VS Code and the folder used to generate them.
-
-```bash
-docker ps -a --filter="label=vsch.quality" --format "table \{{.ID}}\t\{{.Status}}\t\{{.Image}}\tvscode-\{{.Label \"vsch.quality\"}}\t\{{.Label \"vsch.local.folder\"}}"
-```
-
-**Option 4: Use Docker Compose**
-
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
-2. Go to the directory with your `docker-compose.yml` file.
-3. Type `docker-compose down` to stop and delete the containers. If you have more than one Docker Compose file, you can specify additional Docker Compose files with the `-f` argument.
-
-**Option 4: Delete all containers and images that are not running:**
-
-1. Open a **local** terminal/command prompt (or use a local window in VS Code).
-2. Type `docker system prune --all`.
-
-### Resolving Dockerfile build failures for images using Debian 8
-
-When building containers that use images based on Debian 8/Jessie — such as older versions of the `node:8` image — you may encounter the following error:
-
-```text
-...
-W: Failed to fetch http://deb.debian.org/debian/dists/jessie-updates/InRelease  Unable to find expected entry 'main/binary-amd64/Packages' in Release file (Wrong sources.list entry or malformed file)
-E: Some index files failed to download. They have been ignored, or old ones used instead.
-...
-```
-
-This is a [well known issue](https://github.com/debuerreotype/docker-debian-artifacts/issues/66) caused by the Debian 8 being "archived". More recent versions of images typically resolve this problem, often by upgrading to Debian 9/Stretch.
-
-There are two ways to resolve this error:
-
-- **Option 1**: Remove any containers that depend on the image, remove the image, and then try building again. This should download an updated image that is not affected by the problem. See [cleaning out unused containers and images](#cleaning-out-unused-containers-and-images) for details.
-
-- **Option 2**: If you don't want to delete your containers or images, add this line into your Dockerfile before any `apt` or `apt-get` command. It adds the needed source lists for Jessie:
-
-    ```Dockerfile
-    # Add archived sources to source list if base image uses Debian 8 / Jessie
-    RUN cat /etc/*-release | grep -q jessie && printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
-    ```
-
-### Resolving Docker Hub sign in errors when an email is used
-
-The Docker CLI only supports using your Docker ID, so using your email to sign in can cause problems. See Docker [issue #935](https://github.com/docker/hub-feedback/issues/935#issuecomment-300361781) for details.
-
-As a workaround, use your Docker ID to sign in to Docker rather than your email.
-
-### High CPU utilization of Hyperkit on macOS
-
-There is [known issue with Docker for Mac](https://github.com/docker/for-mac/issues/1759) that can drive high CPU spikes. In particular, high CPU usage occurring when watching files and building. If you see high CPU usage for `com.docker.hyperkit` in Activity Monitor while very little is going on in your dev container, you are likely hitting this issue. Follow the [Docker issue](https://github.com/docker/for-mac/issues/1759) for updates and fixes.
-
-### Using an SSH tunnel to connect to a remote Docker host
-
-The [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host) article covers how to setup VS Code when working with a remote Docker host. This is often as simple as setting the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) `docker.host` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
-
-However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
-
-**Using an SSH tunnel as a fallback option**
-
-You can set up an SSH tunnel and forward the Docker socket from your remote host to your local machine.
-
-Follow these steps:
-
-1. Install an [OpenSSH compatible SSH client](/docs/remote/troubleshooting.md#installing-a-supported-ssh-client).
-
-2. Update the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)  `docker.host` property in your user or workspace `settings.json` as follows:
-
-    ```json
-    "docker.host":"tcp://localhost:23750"
-    ```
-
-3. Run the following command from a local terminal / PowerShell (replacing `user@hostname` with the remote user and hostname / IP for your server):
-
-    ```bash
-    ssh -NL localhost:23750:/var/run/docker.sock user@hostname
-    ```
-
-VS Code will now be able to [attach to any running container](/docs/remote/attach-container.md) on the remote host. You can also [use specialized, local `devcontainer.json` files to create / connect to a remote dev container](/docs/remote/containers-advanced.md#converting-an-existing-or-predefined-devcontainerjson).
-
-Once you are done, press `kbstyle(Ctrl+C)` in the terminal / PowerShell to close the tunnel.
-
-> **Note:** If the `ssh` command fails, you may need to `AllowStreamLocalForwarding` on your SSH host.
->
-> 1. Open `/etc/ssh/sshd_config` in an editor  (like Vim, nano, or Pico) on the **SSH host** (not locally).
-> 2. Add the setting  `AllowStreamLocalForwarding yes`.
-> 3. Restart the SSH server (on Ubuntu, run `sudo systemctl restart sshd`).
-> 4. Retry.
-
-### Advanced container configuration tips
-
-See the [Advanced Container Configuration](/docs/remote/containers-advanced.md) article for information on the following topics:
-
-* [Adding environment variables](/docs/remote/containers-advanced.md#adding-environment-variables)
-* [Adding another volume mount](/docs/remote/containers-advanced.md#adding-another-volume-mount)
-* [Changing or removing the default source code mount](/docs/remote/containers-advanced.md#changing-the-default-source-code-mount)
-* [Adding a non-root user to your dev container](/docs/remote/containers-advanced.md#adding-a-nonroot-user-to-your-dev-container)
-* [Improving container disk performance](/docs/remote/containers-advanced.md#improving-container-disk-performance)
-* [Avoiding extension reinstalls on container rebuild](/docs/remote/containers-advanced.md#avoiding-extension-reinstalls-on-container-rebuild)
-* [Setting the project name for Docker Compose](/docs/remote/containers-advanced.md#setting-the-project-name-for-docker-compose)
-* [Using Docker or Kubernetes from inside a container](/docs/remote/containers-advanced.md#using-docker-or-kubernetes-from-a-container)
-* [Connecting to multiple containers at once](/docs/remote/containers-advanced.md#connecting-to-multiple-containers-at-once)
-* [Developing inside a container on a remote Docker Machine or SSH host](/docs/remote/containers-advanced.md#developing-inside-a-container-on-a-remote-docker-host)
-* [Reducing Dockerfile build warnings](/docs/remote/containers-advanced.md#reducing-dockerfile-build-warnings)
+If you'd like to read about tips for using Dev Containers, you can go to Dev Containers [Tips and Tricks](/docs/devcontainers/tips-and-tricks.md).
 
 ## WSL tips
 
@@ -774,15 +568,15 @@ On Windows 10 April 2018 Update (build 1803) and older, `/bin/bash` is required:
 apk update && apk add bash
 ```
 
-### Selecting the distribution used by Remote - WSL
+### Selecting the distribution used by the WSL extension
 
-**Remote-WSL: New Window** will open the WSL distro registered as default.
+**WSL: New Window** will open the WSL distro registered as default.
 
-To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **Remote-WSL: New Window using Distro**.
+To open a non-default distro, run `code .` from the WSL shell of the distro to use or use **WSL: New Window using Distro**.
 
- With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the Remote- WSL might prompt you if you agree to change the default distro.
+ With WSL versions older than Windows 10, May 2019 Update (version 1903), the WSL command can only use the **default distro**. For this reason, the WSL extension might prompt you if you agree to change the default distro.
 
-You can always use [wslconfig.exe](https://docs.microsoft.com/windows/wsl/wsl-config) to change your default.
+You can always use [wslconfig.exe](https://learn.microsoft.com/windows/wsl/wsl-config) to change your default.
 
 For example:
 
@@ -798,7 +592,7 @@ wslconfig /l
 
 ### Configure the environment for the server startup
 
-When the Remote WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
+When the WSL extension starts the VS Code server in WSL, it does not run any shell configuration scripts. This was done to avoid that custom configuration scripts can prevent the startup.
 
 If you need to configure the startup environment, you can use the environment setup script as described [here](/docs/remote/wsl.md#advanced-environment-setup-script).
 
@@ -859,7 +653,7 @@ Please file an issue and attach the full output.
 
 When the WSL window fails to connect to the remote server, you can get more information in the WSL log. When filing an issue, it is important to always send the full content of the WSL log.
 
-Open the WSL log by running the command **Remote-WSL: Open Log**. The log will show in the terminal view under the WSL tab.
+Open the WSL log by running the command **WSL: Open Log**. The log will show in the terminal view under the WSL tab.
 
 ![WSL Log](images/troubleshooting/wsl-log.png)
 
@@ -871,16 +665,16 @@ You can help us investigate this problem by sending us the core dump file. To ge
 
 In a Windows command prompt:
 
-* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the Remote-WSL extension folder.
+* Run `code --locate-extension ms-vscode-remote.remote-wsl` to determine the WSL extension folder.
 * `cd` to the path that is returned.
 * Open the `wslServer.sh` script with VS Code, `code .\scripts\wslServer.sh`.
-* On the 3rd last line (before `export VSCODE_AGENT_FOLDER="$HOME/$DATAFOLDER"`), add
+* Before the last line (before `"$VSCODE_REMOTE_BIN/$COMMIT/bin/$SERVER_APPNAME" "$@"`), add
 `ulimit -C unlimited`.
-* Start the Remote-WSL window running the remote server and wait for the segmentation fault.
+* Start the WSL window running the remote server and wait for the segmentation fault.
 
-The core file will be in the Remote-WSL extension folder from above.
+The core file will be in the WSL extension folder from above.
 
-### I see EACCESS: permission denied error trying to rename a folder in the open workspace
+### I see EACCES: permission denied error trying to rename a folder in the open workspace
 
 This is a known problem with the WSL file system implementation ([Microsoft/WSL#3395](https://github.com/microsoft/WSL/issues/3395), [Microsoft/WSL#1956](https://github.com/microsoft/WSL/issues/1956)) caused by the file watcher active by VS Code. The issue will only be fixed in WSL 2.
 
@@ -888,7 +682,7 @@ To avoid the issue, set `remote.WSL.fileWatcher.polling` to true. However, polli
 
 For large workspace you may want to increase the polling interval, `remote.WSL.fileWatcher.pollingInterval`, and control the folders that are watched with `files.watcherExclude`.
 
-[WSL 2](https://docs.microsoft.com/windows/wsl/wsl2-index) does not have that file watcher problem and is not affected by the new setting.
+[WSL 2](https://learn.microsoft.com/windows/wsl/compare-versions#whats-new-in-wsl-2) does not have that file watcher problem and is not affected by the new setting.
 
 ### Resolving Git line ending issues in WSL (resulting in many modified files)
 
@@ -920,7 +714,7 @@ Finally, you may need to clone the repository again for these settings to take e
 
 ### Sharing Git credentials between Windows and WSL
 
-If you use HTTPS to clone your repositories and **have a [credential helper configured](https://help.github.com/articles/caching-your-github-password-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
+If you use HTTPS to clone your repositories and **have a [credential helper configured](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) in Windows**, you can share this with WSL so that passwords you enter are persisted on both sides. (Note that this does not apply to using SSH keys.)
 
 Just follow these steps:
 
@@ -933,7 +727,7 @@ Just follow these steps:
 2. Configure WSL to use the same credential helper, but running the following in a **WSL terminal**:
 
     ```bash
-     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
+     git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"
     ```
 
 Any password you enter when working with Git on the Windows side will now be available to WSL and vice versa.
@@ -946,7 +740,7 @@ Either use an SSH key without a passphrase, clone using HTTPS, or run `git push`
 
 ## GitHub Codespaces tips
 
-For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces).
+For tips and questions about [GitHub Codespaces](https://github.com/features/codespaces), see the [GitHub Codespaces documentation](https://docs.github.com/github/developing-online-with-codespaces). You can also check out the [known web limitations and adaptations](/docs/remote/codespaces.md#known-limitations-and-adaptations) that may impact your Codespaces.
 
 ## Extension tips
 
@@ -1000,19 +794,11 @@ If you are trying to connect to a localhost port from an external application, t
 
 **Resolution:** VS Code 1.40 introduced a new `vscode.env.asExternalUri` API for extensions to programmatically forward arbitrary ports.  See the [extension author's guide](/api/advanced-topics/remote-extensions#forwarding-localhost) for details. As a workaround, you can use the **Forward a Port** command to do so manually.
 
-### Websockets do not work in port forwarded content in the Codespaces browser-based editor
-
-Currently the forwarding mechanism in the GitHub Codespaces browser-based editor only supports http and https requests. Web sockets will not work even if served up in forwarded web content or used in JavaScript code. This can affect both user applications and extensions that use websockets from webviews.
-
-However, the Remote Development and Codespaces extensions for VS Code itself do not have this limitation.
-
-**Resolution:** Use the Codespaces extension for VS Code when working with something that requires web sockets instead of the browser-based editor. The Codespaces team is investigating solutions to this problem. See [MicrosoftDocs/vscodespaces#19](https://github.com/MicrosoftDocs/vscodespaces/issues/19) for details.
-
 ### Errors storing extension data
 
 Extensions may try to persist global data by looking for the `~/.config/Code` folder on Linux. This folder may not exist, which can cause the extension to throw errors like `ENOENT: no such file or directory, open '/root/.config/Code/User/filename-goes-here`.
 
-**Resolution:** Extensions can use the `context.globalStoragePath` or `context.storagePath` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
+**Resolution:** Extensions can use the `context.globalStorageUri` or `context.storageUri` property to resolve this problem. See the [extension author's guide](/api/advanced-topics/remote-extensions#persisting-extension-data-or-state) for details.
 
 ### Cannot sign in / have to sign in each time I connect to a new endpoint
 
@@ -1030,8 +816,8 @@ If an incompatible extension has been installed on a remote host, container, or 
 
 2. Next, use a separate terminal / command prompt to connect to the remote host, container, or WSL.
 
-   - If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
-   - If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
+   * If SSH or WSL, connect to the environment accordingly (run `ssh` to connect to the server or open WSL terminal).
+   * If using a container, identify the container ID by calling `docker ps -a` and looking through the list for an image with the correct name. If the container is stopped, run `docker run -it <id> /bin/sh`. If it is running, run `docker exec -it <id> /bin/sh`.
 
 3. Once you are connected, run `rm -rf ~/.vscode-server/extensions` for VS Code stable and/or `rm -rf ~/.vscode-server-insiders/extensions` for VS Code Insiders to remove all extensions.
 
@@ -1058,7 +844,7 @@ Extensions that rely on Electron or VS Code base modules (not exposed by the ext
 
 Extensions that open workspace files in external applications may encounter errors because the external application cannot directly access the remote files.
 
-**Resolution:** None currently. We are investigating options for how extensions might be able to transfer files from the remote workspace to solve this problem.
+**Resolution:** If you create a "UI" extension designed to run locally, you can use the `vscode.workspace.fs` API to interact with the remote workspace filesystem. You can then make this a dependency of your "Workspace" extension and invoke it using a command as needed. See the [extension author's guide](/api/advanced-topics/remote-extensions) for details on different types of extensions and how to use commands to communicate between them.
 
 ### Cannot access attached device from extension
 
@@ -1068,6 +854,26 @@ Extensions that access locally attached devices will be unable to connect to the
 
 ## Questions and feedback
 
-- See [Remote Development FAQ](/docs/remote/faq.md).
-- Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
-- Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).
+### Reporting issues
+
+If you run into an issue with one of the remote development extensions, it's important to collect the correct logs so that we'll be able to help [diagnose your issue](https://aka.ms/vscode-remote/issues/new).
+
+Each remote extension has a command to view its logs.
+
+You can get the Remote - SSH extension logs with **Remote-SSH: Show Log** from the Command Palette (`kbstyle(F1)`). When reporting Remote - SSH issues, please also verify if you're able to SSH into your machine from an external terminal (not using Remote - SSH).
+
+Similarly, you can get the Dev Containers extension logs with **Dev Containers: Show Container Log**.
+
+Like the two above, you can get the WSL extension logs with **WSL: Show Log**. Also check whether your issue is being tracked upstream in the [WSL repo](https://github.com/microsoft/WSL/issues) (and is not due to the WSL extension).
+
+If you're experiencing issues using other extensions remotely (for example, other extensions aren't loading or installing properly in a remote context), it's helpful to grab the log from the **Remote Extension Host** output channel (**Output: Focus on Output View**), and select **Log (Remote Extension Host)** from the dropdown.
+
+> **Note**: If you only see **Log (Extension Host)**, this is the local extension host, and the remote extension host didn't launch. This is because the log channel is created only after the log file is created, so if the remote extension host does not launch, the remote extension host log file was not created and is not shown in the Output view. This is still helpful information to include in your issue.
+
+### Remote question and feedback resources
+
+We have a variety of other remote resources:
+
+* See [Remote Development FAQ](/docs/remote/faq.md).
+* Search on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode-remote).
+* Add a [feature request](https://aka.ms/vscode-remote/feature-requests) or [report a problem](https://aka.ms/vscode-remote/issues/new).

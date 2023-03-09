@@ -1,23 +1,23 @@
 ---
-Order: 15
+Order: 19
 Area: editor
-TOCTitle: Command Line
+TOCTitle: Command Line Interface
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
-PageTitle: The Visual Studio Code command-line options
-DateApproved: 3/4/2021
-MetaDescription: Visual Studio Code command-line options (switches).
+PageTitle: The Visual Studio Code command-line interface
+DateApproved: 3/1/2023
+MetaDescription: Visual Studio Code command-line interface (switches).
 ---
 # Command Line Interface (CLI)
 
-Visual Studio Code has a powerful command line interface built-in that lets you control how you launch the editor. You can open files, install extensions, change the display language, and output diagnostics through command-line options (switches).
+Visual Studio Code has a powerful command-line interface built-in that lets you control how you launch the editor. You can open files, install extensions, change the display language, and output diagnostics through command-line options (switches).
 
 ![command line example](images/command-line/hero.png)
 
-If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
+If you are looking for how to run command-line tools inside VS Code, see the [Integrated Terminal](/docs/terminal/basics.md).
 
 ## Command line help
 
-To get an overview of the VS Code command line interface, open a terminal or command prompt and type `code --help`. You will see the version, usage example, and list of command line options.
+To get an overview of the VS Code command-line interface, open a terminal or command prompt and type `code --help`. You will see the version, usage example, and list of command line options.
 
 ![command line help](images/command-line/command-line-help.png)
 
@@ -29,7 +29,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 **Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
-Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
+Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
 > **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
 
@@ -40,11 +40,12 @@ Here are optional arguments you can use when starting VS Code at the command lin
 Argument|Description
 ------------------|-----------
 `-h` or `--help` | Print usage
-`-v` or `--version` | Print VS Code version (for example, 1.22.2), GitHub commit id, and architecture (for example, x64).
+`-v` or `--version` | Print VS Code version (for example, 1.22.2), GitHub commit ID, and architecture (for example, x64).
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
-`-g` or `--goto` | When used with *file:line[:character]*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
-`-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
+`-g` or `--goto` | When used with *file:line{:character}*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
+`-d` or `--diff <file1> <file2>` | Open a file difference editor. Requires two file paths as arguments.
+`-m` or `--merge  <path1> <path2> <base> <result>` | Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions, and the output file to save merge results.
 `-w` or `--wait` | Wait for the files to be closed before returning.
 `--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
 
@@ -67,14 +68,22 @@ If you specify more than one folder at the command line, VS Code will create a [
 Argument|Description
 ------------------|-----------
 `file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
-`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the `file:line[:character]` specifier.
+`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position.
 `folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
 
 ![go to line and column](images/command-line/goto-line-column.png)
 
+## Select a profile
+
+You can launch VS Code with a specific [profile](/docs/editor/profiles.md) via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
+
+`code ~/projects/web-sample --profile "Web Development"`
+
+If the profile specified does not exist, a new empty profile with the given name is created.
+
 ## Working with extensions
 
-You can install and manage VS Code [extensions](/docs/editor/extension-gallery.md) from the command line.
+You can install and manage VS Code [extensions](/docs/editor/extension-marketplace.md) from the command line.
 
 Argument|Description
 ------------------|-----------
@@ -103,6 +112,28 @@ Argument|Description
 `--upload-logs` | Uploads logs from current session to a secure endpoint.
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
+
+### Create remote tunnel
+
+VS Code integrates with other [remote environments](/docs/remote/remote-overview.md) to become even more powerful and flexible. Our goal is to provide a cohesive experience that allows you to manage both local and remote machines from one, unified CLI.
+
+The Visual Studio Code [Remote - Tunnels](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-server)  extension lets you connect to a remote machine, like a desktop PC or VM, via a secure tunnel. Tunneling securely transmits data from one network to another. You can then securely connect to that machine from anywhere, without the requirement of SSH.
+
+We've built functionality into the `code` CLI that will initiate tunnels on remote machines. You can run:
+
+```bash
+code tunnel
+```
+
+to create a tunnel on your remote machine. You may connect to this machine through a web or desktop VS Code client.
+
+You can review the other tunneling commands by running `code tunnel -help`:
+
+![Output of tunnel help CLI command](images/command-line/tunnel-help.png)
+
+As you may need to run the CLI on a remote machine that can't install VS Code Desktop, the CLI is also available for standalone install on the [VS Code download page](https://code.visualstudio.com/insiders/).
+
+For more information on Remote Tunnels, you can review the [Remote Tunnels documentation](/docs/remote/tunnels.md).
 
 ## Opening VS Code with URLs
 
@@ -142,7 +173,7 @@ You can use the URL in applications such as browsers or file explorers that can 
 
 Read on to find out about:
 
-* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Run command-line tools from inside VS Code.
+* [Integrated Terminal](/docs/terminal/basics.md) - Run command-line tools from inside VS Code.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn the basics of the VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - VS Code lets you quickly understand and move through your source code.
 
@@ -150,14 +181,14 @@ Read on to find out about:
 
 ### 'code' is not recognized as an internal or external command
 
-Your OS cannot find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
+Your OS cannot find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform-specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
 
 On macOS, you need to manually run the **Shell Command: Install 'code' command in PATH** command (available through the **Command Palette** `kb(workbench.action.showCommands)`). Consult the [macOS](/docs/setup/mac.md) specific setup topic for details.
 
 ### How do I get access to a command line (terminal) from within VS Code?
 
-VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command-line tools from within VS Code.
+VS Code has an [Integrated Terminal](/docs/terminal/basics.md) where you can run command-line tools from within VS Code.
 
 ### Can I specify the settings location for VS Code in order to have a portable version?
 
-Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
+Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md), which lets you keep settings and data in the same location as your installation, for example, on a USB drive.

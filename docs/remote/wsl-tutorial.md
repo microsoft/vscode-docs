@@ -1,15 +1,15 @@
 ---
-Order: 8
+Order: 10
 Area: remote
 TOCTitle: WSL Tutorial
 PageTitle: Work in Windows Subsystem for Linux with Visual Studio Code
 ContentId: 44988826-46b8-498a-b1c9-f821378c2870
 MetaDescription: Work in Windows Subsystem for Linux with Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 ---
 # Remote development in WSL
 
-This tutorial walks you through enabling [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) (WSL) and running Visual Studio Code in WSL using the [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
+This tutorial walks you through enabling [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/install) (WSL) and running Visual Studio Code in WSL using the [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) extension.
 
 ## Prerequisites
 
@@ -17,21 +17,21 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 ### Install the extension
 
-The Remote - WSL extension enables you to run Visual Studio Code within the Windows Subsystem for Linux (WSL).
+The WSL extension enables you to run Visual Studio Code within the Windows Subsystem for Linux (WSL).
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the Remote - WSL extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-wsl">Install the WSL extension</a>
 
-![Remote - WSL extension](images/wsl-tutorial/remote-wsl-extension.png)
+![WSL extension](images/wsl-tutorial/remote-wsl-extension.png)
 
 ### Prerequisite check
 
-With the Remote - WSL extension installed, you will see a new Status bar item at the far left.
+With the WSL extension installed, you will see a new Status bar item at the far left.
 
 ![Remote Status bar item](images/wsl-tutorial/remote-status-bar.png)
 
-The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Remote - WSL commands.
+The Remote Status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the WSL extension commands.
 
-![Remote - WSL commands](images/wsl-tutorial/remote-wsl-commands.png)
+![WSL extension commands](images/wsl-tutorial/wsl-commands.png)
 
 ## Enable WSL
 
@@ -114,7 +114,7 @@ Remember, Python is installed in the Linux distro, which means if you're editing
 
 ## Run in WSL
 
-In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder.
+In the WSL terminal, make sure you are in the helloWorld folder, and type in `'code .'` to launch Visual Studio Code. The `'.'` argument tells VS Code to open the current folder. If you use the [Insiders](/insiders) version of VS Code, you will have to run `'code-insiders .'` instead.
 
 > **Note:** If this command does not work, you may need to restart your terminal, or you may not have added VS Code to your path when it was installed.
 
@@ -140,7 +140,7 @@ You'll start a new instance of the bash shell in WSL, again from VS Code running
 
 **Tip**: In the lower left corner of the Status Bar, you can see that you're connected to your **WSL: Ubuntu** instance.
 
-![Remote - WSL Status bar](images/wsl-tutorial/wsl-status-bar.png)
+![WSL extension Status bar](images/wsl-tutorial/wsl-status-bar.png)
 
 ## Edit and debug
 
@@ -194,14 +194,14 @@ If you want to switch back to the Windows, select the **Show Local** option and 
 
 You can end your session in WSL and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
-### Congratulations!
+### Congratulations
 
 Congratulations, you've successfully completed this tutorial!
 
 Next, check out the other Remote Development extensions.
 
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
-* [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.

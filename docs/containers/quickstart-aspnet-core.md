@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: ASP.NET Core
 ContentId: 29F731D4-C6FE-4742-A1E7-7288FDB81CB9
 PageTitle: Build and run an ASP.NET Core app in a container
-DateApproved: 01/29/2020
+DateApproved: 12/13/2022
 MetaDescription: Develop, build, and debug an ASP.NET Core app in a Docker container, using Visual Studio Code.
 ---
 # ASP.NET Core in a container
@@ -18,10 +18,10 @@ In this guide you will learn how to:
 ## Prerequisites
 
 - Docker and the VS Code Docker extension must be installed as described on the [overview](/docs/containers/overview.md#installation).
-- For .NET development, install [.NET Core SDK](https://dotnet.microsoft.com/download).
+- For .NET development, install [.NET SDK](https://dotnet.microsoft.com/download).
 - Microsoft [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extension.
 
-## Create a .NET Core Web API project
+## Create a .NET Web API project
 
 1. Create a folder for the project.
 1. Open developer command prompt in the project folder and initialize the project:
@@ -52,22 +52,23 @@ In this guide you will learn how to:
 1. Open terminal prompt (`kb(workbench.action.terminal.toggleTerminal)`).
 1. Issue `dotnet build` command to build the application:
 
-   ``` output
-   ~/code/scratch/netcorerest$ dotnet build
-   Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
-   Copyright (C) Microsoft Corporation. All rights reserved.
+   ```
+   PS C:\source\repos\net> dotnet build
+   MSBuild version 17.4.0-preview-22470-08+6521b1591 for .NET
+     Determining projects to restore...
+     All projects are up-to-date for restore.
+     net -> C:\source\repos\net\bin\Debug\net7.0\net.dll
 
-   Restore completed in 18.97 ms for ~/code/scratch/netcorerest/netcorerest.csproj.
-   netcorerest -> ~/code/scratch/netcorerest/bin/Debug/netcoreapp3.0/netcorerest.dll
+   Build succeeded.
+       0 Warning(s)
+       0 Error(s)
 
-    Build succeeded.
-        0 Warning(s)
-        0 Error(s)
+   Time Elapsed 00:00:08.96
    ```
 
 ## Add an environment variable to the image
 
-You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these:
+You can use the Docker extension to author Docker files. The extension provides completions and contextual help. To see these capabilities add an environment variable to your service image by following these steps:
 
 1. Open the `Dockerfile` file.
 1. Use `ENV` instruction to add an environment variable to the service container image. The instruction should be placed in the `base` stage of the `Dockerfile` (the first stage in the file). Set the `ASPNETCORE_URLS` variable to `http://*:5000`:
@@ -169,7 +170,8 @@ You can use specific port on the host by changing the Docker run options used by
 
 You're done! Now that your container is ready, you may want to:
 
-- [Learn about debugging .NET Core in a container](/docs/containers/debug-netcore.md)
+- [Learn about debugging .NET in a container](/docs/containers/debug-netcore.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
-- [Deploy a containerized app to Azure App Service](/docs/containers/app-service.md)
+- [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
+- [Deploy a containerized app to Azure App Service or Azure Container Apps](/docs/containers/app-service.md)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)

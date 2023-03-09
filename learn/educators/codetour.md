@@ -4,7 +4,7 @@ Area: educators
 TOCTitle: CodeTour
 ContentId: 38c539c1-7e0c-4a1f-aa32-64b6ea07447a
 PageTitle: Visual Studio Code CodeTour Extension
-DateApproved: 01/21/2021
+DateApproved: 1/21/2021
 MetaDescription: Visual Studio CodeTour Extension
 ---
 # CodeTour
@@ -22,11 +22,11 @@ Essentially, a "code tour" is simply a series of interactive steps, each of whic
 
 ## Case study
 
-We've used CodeTour in the Microsoft partnered Space Jam lessons: [Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY](https://docs.microsoft.com/learn/paths/optimize-basketball-games-with-machine-learning)
+We've used CodeTour in the Microsoft partnered Space Jam lessons: [Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY](https://learn.microsoft.com/training/paths/optimize-basketball-games-with-machine-learning)
 
 ![Microsoft partners Space Jam coding lessons](images/codetour/space-jam-lessons-home.png)
 
-CodeTour helps guide the self-paced learners through [module 2](https://docs.microsoft.com/learn/modules/optimize-basketball-player-rest-breaks), where they are [creating a web app](https://docs.microsoft.com/learn/modules/optimize-basketball-player-rest-breaks/7-codetour) that uses basketball stats to make decisions on the basketball court.
+CodeTour helps guide the self-paced learners through [module 2](https://learn.microsoft.com/training/modules/optimize-basketball-player-rest-breaks), where they are [creating a web app](https://learn.microsoft.com/training/modules/optimize-basketball-player-rest-breaks/7-codetour) that uses basketball stats to make decisions on the basketball court.
 
 Here is a short clip of a student using CodeTour to start working on their basketball web app:
 ![CodeTour in a Space Jam lesson](images/codetour/codetour-space-jam.gif)

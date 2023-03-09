@@ -64,7 +64,7 @@ Within these folders, you'll find the Markdown files used for the content. Each 
 
 ### Branches
 
-We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline work flow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic, both to streamline workflow, and to reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new topic (and associated images).
 * Spelling and grammar edits on a topic.
@@ -89,7 +89,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **TOCTitle** - The title used in the left rail Table of Contents for this page.
 * **PageTitle** - The title used in the HTML title for the page and in search results.
 * **ContentId** - A GUID that uniquely identifies the topic to DevDiv doc reporting.
-* **DateApproved** - This is set when the page is published on the VS Code website. You can ignore it.
+* **DateApproved** - The date of the most recent update or review. It is displayed at the bottom of an article to indicate freshness. The date should be updated in a significant PR.
 * **MetaDescription** - The meta description for this page, which helps for search. Use sentence structure limited to 300 characters.
 * **MetaSocialImage** - Optional. Used for og:image in page header for sharing on social media. Should be 1024 x 512 .png.
 * **MetaTags** - Optional. Further tags for this page again for search.
@@ -107,6 +107,28 @@ Use the full product name "Visual Studio Code" in the topic MetaDescription and 
 **For Doc Maintainer**:
 
 * **DateApproved** - This is set when the page is published on the VS Code website.
+
+## File and Folder names
+
+Use lowercase for file and folder names and dashes `-` as separators.
+
+For example:
+
+* `/docs/editor/workspace-trust.md`
+* `/docs/supporting/troubleshoot-terminal-launch.md`
+* `/api/extension-guides/custom-editors.md`
+
+### Moving or renaming content
+
+Before moving or renaming content, a redirect should be added in case people have bookmarked the topic. Redirects are added in the private website repo.
+
+It seems to improve CSAT if, when a topic title or intent is changed, the filename is also updated. resulting in a new, more appropriate URL.
+
+For example: `/docs/editor/extension-gallery.md` -> `/docs/editor/extension-marketplace.md`
+
+### sitemap
+
+The code.visualstudio.com sitemap is authored in `/build/sitemap.xml` and should be updated when new topics are added or existing content moved or renamed.
 
 ## Formatting
 
@@ -156,9 +178,9 @@ Images are important to bring the product to life and clarify the written conten
 
 For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
-When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase.
+When you link to an image, the path and filename are case-sensitive. The convention is for image filenames to be all lowercase and use dashes `-` for separators.
 
->For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
+>For example: `![Debug Breakpoints](images/debugging/breakpoints-view.png)`
 
 ### Key bindings
 

@@ -4,12 +4,12 @@ Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
-DateApproved: 5/2/2017
+DateApproved: 11/4/2022
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 # Unity Development with VS Code
 
-Visual Studio Code can be a great companion to Unity for editing and debugging C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
+Visual Studio Code can be a great companion to Unity for editing C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
 
 ![Unity Example](images/unity/wow.gif)
 
@@ -17,9 +17,9 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 ## Prerequisites
 
-From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
+From [Using .NET in Visual Studio Code](/docs/languages/dotnet.md):
 
-1. Install the [.NET Core SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
+1. Install the [.NET SDK](https://dotnet.microsoft.com/download), which includes the Runtime and the `dotnet` command.
 
 1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 
@@ -28,6 +28,15 @@ From [Using .NET Core in Visual Studio Code](/docs/languages/dotnet.md):
    **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
 1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the VS Code Marketplace.
+
+1. In the VS Code Settings editor (`kb(workbench.action.openSettings)`), uncheck the C# extension's **Omnisharp: Use Modern Net** [setting](/docs/getstarted/settings.md) (`"omnisharp.useModernNet": false`).
+
+### Install Build Tools for Visual Studio (Windows only)
+
+The C# extension no longer ships with Microsoft Build Tools so they must be installed manually.
+
+1. Download the [Build Tools for Visual Studio 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).
+1. Install the **.NET desktop build tools** workload. No other components are required.
 
 ## Setup VS Code as Unity Script Editor
 
@@ -41,7 +50,7 @@ Open up **Unity Preferences**, **External Tools**, then browse for the Visual St
 
 ## Unity version 2019.2 or above
 
-[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the Visual Studio Code editor package. The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
+[Since 2019.2](https://unity.com/releases/2019-2/), it is required to use the [Visual Studio Code Editor package](https://docs.unity3d.com/Manual/com.unity.ide.vscode.html). The built-in support for opening scripts from Unity and getting `csproj` and `sln` files generated has been removed.
 
 ## Editing Evolved
 
@@ -62,21 +71,13 @@ Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) an
 
 ![editing evolved example](images/unity/peekreferences.png)
 
-## Unity Extensions
-
-The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can search for more extensions in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/search?term=Unity&target=VSCode).
-
-<div class="marketplace-extensions-unity"></div>
-
-The extensions shown above are dynamically queried. Select an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-
 ## Enabling code completion (For recent versions of Unity)
 
 If you are installing VS Code for the first time, you might be missing targeting packs required for Unity's code-completion (IntelliSense) in VS Code.
 
 Targeting pack download links:
 
-* [Windows: .NET Framework 4.6 Targeting Pack](https://www.microsoft.com/download/details.aspx?id=48136)
+* [Windows: .NET Framework 4.7.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net471)
 * [macOS: Download .NET SDK](https://dotnet.microsoft.com/download)
 
 Steps:
@@ -90,7 +91,11 @@ Steps:
 
 Unity has [a set of custom C# warnings](https://github.com/microsoft/Microsoft.Unity.Analyzers), called analyzers, that check for common issues with your source code. These analyzers ship out of the box with Visual Studio but need to be set up manually in Visual Studio Code.
 
-Due to how Unity handles its `.csproj` files, it does not seem possible to install packages automatically. You will need to download the analyzers from the [NuGet website](https://www.nuget.org/packages/Microsoft.Unity.Analyzers/) manually. When you're done, open the package file using a tool such as 7zip and extract `Microsoft.Unity.Analyzers.dll` onto your project's root folder. You can place it inside a folder named `NuGet`, for example. Do not place it inside `Assets` or `Packages`, as that will cause Unity to try to process the `.dll`, which will make it output an error in the console.
+Due to how Unity handles its `.csproj` files, it does not seem possible to install packages automatically. You will need to download the analyzers from the [NuGet website](https://www.nuget.org/packages/Microsoft.Unity.Analyzers/) manually. Make sure to download the `.nupkg` file, the source code from GitHub will not work.
+
+When you're done, open the package file using a tool such as 7zip and extract `Microsoft.Unity.Analyzers.dll` onto your project's root folder. You can place it inside a folder named `NuGet`, for example. Do not place it inside `Assets` or `Packages`, as that will cause Unity to try to process the `.dll`, which will make it output an error in the console.
+
+>**Note**: 7zip cannot open a `.nupkg` file by right-click and **Open with**. Instead, you have to open the 7zip application, navigate to the file, and then select **Extract**.
 
 Next, create an `omnisharp.json` file at the root folder of your project, as explained [here](https://www.strathweb.com/2019/04/roslyn-analyzers-in-code-fixes-in-omnisharp-and-vs-code/). Analyzer support in OmniSharp is experimental at the moment, so we need to enable it explicitly. We also need to point it to the `.dll` file we just extracted.
 
@@ -101,13 +106,13 @@ Your `omnisharp.json` file should end up looking like this:
     "RoslynExtensionsOptions": {
         "EnableAnalyzersSupport": true,
         "LocationPaths": [
-            "./NuGet/microsoft.unity.analyzers.1.9.0"
+            "./NuGet/microsoft.unity.analyzers.1.14.0/analyzers/dotnet/cs"
         ]
     }
 }
 ```
 
-where `"./NuGet/microsoft.unity.analyzers.1.9.0"` is a relative path pointing to the folder containing the `.dll` file. Depending on where you placed it, your path may look different.
+where `"./NuGet/microsoft.unity.analyzers.1.14.0/analyzers/dotnet/cs"` is a relative path pointing to the folder containing the `.dll` file. Depending on where you placed it, your path may look different.
 
 The Unity analyzers should now be working in your project. You can test them by creating an empty `FixedUpdate()` method inside one of your `MonoBehavior` classes, which should trigger a `The Unity message 'FixedUpdate' is empty` warning ([UNT0001](https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/UNT0001.md)).
 
@@ -125,7 +130,7 @@ dotnet_diagnostic.IDE0051.severity = none
 
 `root=true` tells OmniSharp that this is your project root and it should stop looking for parent `.editorconfig` files outside of this folder.
 
-`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://docs.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you wish to this file.
+`dotnet_diagnostic.IDE0051.severity = none` is an example of turning off the analyzer with ID `IDE0051` by setting its severity level to `none`. You can read more about these settings in the [Analyzer overview](https://learn.microsoft.com/visualstudio/code-quality/use-roslyn-analyzers). You can add as many of these rules as you want to this file.
 
 `[*.cs]` indicates that our custom rules should apply to all C# scripts (files with the `.cs` extension).
 
@@ -137,7 +142,6 @@ Read on to learn more about:
 
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Debugging](/docs/editor/debugging.md) - how to use the debugger with your project
 * [C#](/docs/languages/csharp.md) - learn about the C# support in VS Code
 
 ## Common questions
@@ -156,7 +160,7 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
 
-To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
+To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md). By adding these excludes to your workspace settings, you will not change your global user settings and it allows anyone also working on the project to have the same file excludes.
 
 ```json
     // Configure glob patterns for excluding files and folders.
@@ -185,6 +189,19 @@ Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
 
-### How can I debug Unity?
+To edit this directly within VS Code Settings editor, go to **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS). Switch to the **Workspace** tab and then type "files exclude" into the Settings editor search bar.  Add a glob pattern similar to the pattern shown below by clicking the **Add Pattern** button for the **Files: Exclude** setting.  You will need to add each pattern separately.
 
-Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension. And check out [Debugging with VS Code](/docs/editor/debugging.md) to learn more about VS Code debugging support.
+```
+**/.git
+**/*.fbx
+**/*.FBX
+**/*.mat
+**/*.*.meta
+**/*.meta
+**/*.prefab
+**/*.unityproj
+**/Library
+**/Packages
+**/ProjectSettings
+**/Temp
+```

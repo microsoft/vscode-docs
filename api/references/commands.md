@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Visual Studio Code built-in commands reference.
@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code built-in commands reference.
 
 This document lists a subset of Visual Studio Code commands that you might use with `vscode.commands.executeCommand` API.
 
-Read the [Commands Guide](/api/extension-guides/command) for how to use the commands API.
+Read the [Commands guide](/api/extension-guides/command) for how to use the commands API.
 
 The following is a sample of how to open a new folder in VS Code:
 
@@ -20,18 +20,20 @@ let uri = Uri.file('/some/path/to/folder');
 let success = await commands.executeCommand('vscode.openFolder', uri);
 ```
 
+>**Note**: You can review the full set of VS Code commands via the Keyboard Shortcuts editor **File** > **Preferences** > **Keyboard Shortcuts** (on macOS **Code** > **Preferences** > **Keyboard Shortcuts**). The Keyboard Shortcuts editor lists all commands built into VS Code or contributed by extensions, along with their keybindings and visibility when clauses.
+
 ## Commands
 
 `vscode.executeDocumentHighlights` - Execute document highlight provider.
 
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
-* _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
+* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
 
 `vscode.executeDocumentSymbolProvider` - Execute document symbol provider.
 
 * _uri_ - Uri of a text document
-* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
+* _(returns)_ - A promise that resolves to an array of SymbolInformation and DocumentSymbol instances.
 
 `vscode.executeFormatDocumentProvider` - Execute document format provider.
 
@@ -105,17 +107,23 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 * _uri_ - Uri of a text document
 * _position_ - A position in a text document
-* _(returns)_ - A CallHierarchyItem or undefined
+* _(returns)_ - A promise that resolves to an array of CallHierarchyItem-instances
 
 `vscode.provideIncomingCalls` - Compute incoming calls for an item
 
 * _item_ - A call hierarchy item
-* _(returns)_ - A CallHierarchyItem or undefined
+* _(returns)_ - A promise that resolves to an array of CallHierarchyIncomingCall-instances
 
 `vscode.provideOutgoingCalls` - Compute outgoing calls for an item
 
 * _item_ - A call hierarchy item
-* _(returns)_ - A CallHierarchyItem or undefined
+* _(returns)_ - A promise that resolves to an array of CallHierarchyOutgoingCall-instances
+
+`vscode.prepareRename` - Execute the prepareRename of rename provider
+
+* _uri_ - Uri of a text document
+* _position_ - A position in a text document
+* _(returns)_  A promise that resolves to a range and placeholder text.
 
 `vscode.executeDocumentRenameProvider` - Execute rename provider.
 
@@ -191,15 +199,21 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _context_ - Context object with uri and range
 * _(returns)_ - A promise that resolves to an array of ColorPresentation objects.
 
-`vscode.executeInlineHintProvider` - Execute inline hints provider
+`vscode.executeInlayHintProvider` - Execute inlay hints provider
 
 * _uri_ - Uri of a text document
 * _range_ - A range in a text document
-* _(returns)_ - A promise that resolves to an array of InlineHint objects
+* _(returns)_ - A promise that resolves to an array of Inlay objects
 
 `vscode.resolveNotebookContentProviders` - Resolve Notebook Content Providers
 
 * _(returns)_ - A promise that resolves to an array of NotebookContentProvider static info objects.
+
+`vscode.executeInlineValueProvider` - Execute inline value provider
+
+* _uri_ - Uri of a text document
+* _range_ - A range in a text document
+* _(returns)_ - A promise that resolves to an array of InlineValue objects
 
 `vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or an http(s) URL. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
 
@@ -223,7 +237,27 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _columnOrOptions_ - (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
 * _(returns)_ - no result
 
-`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
+`vscode.prepareTypeHierarchy` - Prepare type hierarchy at a position inside a document
+
+* _uri_ - Uri of a text document
+* _position_ - A position in a text document
+* _(returns)_ - A promise that resolves to an array of TypeHierarchyItem-instances
+
+`vscode.provideSupertypes` - Compute supertypes for an item
+
+* _item_ - A type hierarchy item
+* _(returns)_ - A promise that resolves to an array of TypeHierarchyItem-instances
+
+`vscode.provideSubtypes` - Compute subtypes for an item
+
+* _item_ - A type hierarchy item
+* _(returns)_ - A promise that resolves to an array of TypeHierarchyItem-instances
+
+`vscode.revealTestInExplorer` - Reveals a test instance in the explorer
+
+* _testItem_ - A VS Code TestItem.
+
+`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list
 
 * _path_ - Path to remove from recently opened.
 
@@ -236,7 +270,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _Cursor move argument object_ - Property-value pairs that can be passed through this argument:
   * 'to': A mandatory logical position value providing where to move the cursor.
     ```
-    'left', 'right', 'up', 'down'
+    'left', 'right', 'up', 'down', 'prevBlankLine', 'nextBlankLine',
     'wrappedLineStart', 'wrappedLineEnd', 'wrappedLineColumnCenter'
     'wrappedLineFirstNonWhitespaceCharacter', 'wrappedLineLastNonWhitespaceCharacter'
     'viewPortTop', 'viewPortCenter', 'viewPortBottom', 'viewPortIfOutside'
@@ -304,7 +338,7 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 
 `workbench.action.quickOpen` - Quick access
 
-* _prefix_ -
+* _prefix_ - String value indicating the value to fill into the quick access input field when opening
 
 `moveActiveEditor` - Move the active editor by tabs or groups
 

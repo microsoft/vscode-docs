@@ -4,7 +4,7 @@ Area: containers
 TOCTitle: Node.js
 ContentId: A963901F-BF3F-455F-AD75-AB54EAE72BEF
 PageTitle: Build and run a Node.js app in a container
-DateApproved: 07/31/2020
+DateApproved: 12/13/2022
 MetaDescription: Develop, build, and debug a Node.js app in a Docker container, using Visual Studio Code.
 ---
 # Node.js in a container
@@ -38,9 +38,9 @@ In this guide you will learn how to:
    ![Add Dockerfile to a Node.js project](images/quickstarts/node-add-node-dark.png)
 
 1. Select **Node.js** when prompted for the application platform.
-1. Select either **Yes** or **No** when prompted to include Docker Compose files. Compose is typically used when running multiple containers at once.
-
+1. Choose the default **package.json** file.
 1. Enter `3000` when prompted for the application port.
+1. Select either **Yes** or **No** when prompted to include Docker Compose files. Compose is typically used when running multiple containers at once.
 
 The extension creates `Dockerfile` and `.dockerignore` files. If you elected to include Docker Compose files, `docker-compose.yml` and `docker-compose.debug.yml` will be generated as well. Finally, the extension will create a set of **VS Code tasks** in `.vscode/tasks.json` for building and running the container (in both debug- and release-configurations) and a **launch debug configuration** in `.vscode/launch.json` for debugging the service within the container.
 
@@ -63,7 +63,7 @@ The Docker extension helps you author Dockerfiles by using [IntelliSense](/docs/
 1. Open a terminal (`kb(workbench.action.terminal.toggleTerminal)`).
 1. Enter `npm run start` to start the application:
 
-   ```output
+   ```
    > express-app@0.0.0 start /Users/user/code/scratch/express-app
    > node ./bin/www
    ```
@@ -109,7 +109,7 @@ When the Docker extension adds files to the application, it also adds a **VS Cod
     - The browser opens to the (random) port mapped to the service container.
     - The debugger stops at the breakpoint in `index.js`.
 
-    > Note that, because the debugger attaches *after* the application starts, the breakpoint may missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
+    > Note that, because the debugger attaches *after* the application starts, the breakpoint may be missed the first time around; you might have to refresh the browser to see the debugger break on the second try.
     >
     > You can configure the application to wait for the debugger to attach before starting execution by setting the [inspectMode](/docs/containers/reference.md#node-object-properties-dockerrun-task) property to `break` in the `docker-run: debug` task in `tasks.json` under the `node` object.
 
@@ -130,4 +130,5 @@ You're done! Now that your container is ready, you may want to:
 
 - [Learn about debugging Node.js in a container](/docs/containers/debug-node.md)
 - [Customize your Docker build and run tasks](/docs/containers/reference.md)
+- [Push your image to a container registry](/docs/containers/quickstart-container-registries.md#push-an-image-to-a-container-registry)
 - [Learn about using Docker Compose](/docs/containers/docker-compose.md)

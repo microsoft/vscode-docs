@@ -1,11 +1,11 @@
 ---
-Order: 6
+Order: 8
 Area: remote
 TOCTitle: SSH Tutorial
 PageTitle: Connect over SSH with Visual Studio Code
 ContentId: beb86509-a36f-4e3b-a32e-b3d8c3966dd7
 MetaDescription: Connect over SSH with Visual Studio Code
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 ---
 # Remote development over SSH
 
@@ -25,7 +25,7 @@ To get started, you need to have done the following steps:
 
 The Remote - SSH extension is used to connect to SSH hosts.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
+> <a class="install-extension-btn" href="vscode:extension/ms-vscode-remote.remote-ssh">Install the Remote - SSH extension</a>
 
 ![Remote - SSH extension](images/ssh-tutorial/remote-ssh-extension.png)
 
@@ -53,25 +53,27 @@ Now you can specify details of your VM, such as the name, the size, and the base
 
 ## Set up SSH
 
-There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We strongly recommend using key-based authentication (if you use a username/password, you'll be prompted to enter your credentials more than once by the extension). If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
+There are several authentication methods into a VM, including an SSH public/private key pair or a username and password. We recommend using key-based authentication (if you use a username/password, you'll be prompted to enter your credentials more than once by the extension). If you're on Windows and have already created keys using PuttyGen, you can [reuse them](/docs/remote/troubleshooting.md#reusing-a-key-generated-in-puttygen).
 
 ### Create an SSH key
 
 If you don't have an SSH key pair, open a bash shell or the command line and type in:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -t ed25519
 ```
 
 This will generate the SSH key. Press `kbstyle(Enter)` at the following prompt to save the key in the default location (under your user directory as a folder named `.ssh`).
 
 ![ssh-keygen output](images/ssh-tutorial/ssh-keygen.png)
 
-You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_rsa.pub` file which contains your new public SSH key.
+You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_ed25519.pub` file which contains your new public SSH key.
+
+>**Note**: If you are using a legacy system that doesn't support the Ed25519 algorithm, you can use rsa instead: `ssh-keygen -t rsa -b 4096`.
 
 ## Add SSH key to your VM
 
-In the previous step, you generated an SSH key pair. Select **Use existing public key** in the drop down for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_rsa.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
+In the previous step, you generated an SSH key pair. Select **Use existing public key** in the dropdown for **SSH public key source** so that you can use the public key you just generated. Take the public key and paste it into your VM setup, by copying the entire contents of the `id_ed25519.pub` in the **SSH public key**. You also want to allow your VM to accept inbound SSH traffic by selecting **Allow selected ports** and choosing **SSH (22)** from the **Select inbound ports** dropdown list.
 
 ![Add SSH public key to VM](images/ssh-tutorial/add-ssh-public-key.png)
 
@@ -91,9 +93,9 @@ Now that you've created an SSH host, let's connect to it!
 
 You'll have noticed an indicator on the bottom-left corner of the Status bar. This indicator tells you in which context VS Code is running (local or remote). Click on the indicator to bring up a list of Remote extension commands.
 
-![Remote extension commands](images/ssh-tutorial/remote-commands.png)
+![Remote extension commands](images/ssh-tutorial/remote-commands-simple.png)
 
-Choose the **Remote-SSH: Connect to Host** command and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
+Choose the **Connect to Host...** command in the **Remote-SSH** section and connect to the host by entering connection information for your VM in the following format: `user@hostname`.
 
 The `user` is the username you set when adding the SSH public key to your VM. For the `hostname`, go back to the [Azure portal](https://portal.azure.com) and in the **Overview** pane of the VM you created, copy the **Public IP address**.
 
@@ -189,7 +191,7 @@ The Express app by default runs on [http://localhost:3000](http://localhost:3000
 
 ### Port forwarding
 
-To be able to browse to the web app on your local machine, you can leverage another feature called [Port forwarding](/docs/remote/ssh.md#forwarding-a-port-creating-ssh-tunnel).
+To be able to browse to the web app on your local machine, you can leverage another feature called [Port forwarding](/docs/remote/ssh.md#temporarily-forwarding-a-port).
 
 To be able to access a port on the remote machine that may not be publicly exposed, you need to establish a connection or a tunnel between a port on your local machine and the server. With the app still running, open the SSH Explorer and find the **Forwarded Ports** view. Click on the **Forward a port** link and indicate that you want to forward port 3000:
 
@@ -237,14 +239,14 @@ You get the full development experience of Visual Studio Code connected over SSH
 
 You can end your session over SSH and go back to running VS Code locally with **File** > **Close Remote Connection**.
 
-### Congratulations!
+### Congratulations
 
 Congratulations, you've successfully completed this tutorial!
 
 Next, check out the other Remote Development extensions.
 
-* [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
-* [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 Or get them all by installing the
 [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extension Pack.

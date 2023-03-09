@@ -4,7 +4,7 @@ Area: cpp
 TOCTitle: Pipe transport
 ContentId: 59BE5FF7-563F-4044-A562-294E75A75F96
 PageTitle: Pipe transport for remote communication in C++ projects
-DateApproved: 07/25/2019
+DateApproved: 7/25/2019
 MetaDescription: How to set up pipe transport for debugging C++ code in Visual Studio Code.
 ---
 # Pipe transport
@@ -41,7 +41,7 @@ You may also need to add a `sourceFileMap` to map the path of where the code exi
 
 ## Attach
 
-You can also use the above `pipeTransport` block to attach to a remote process. In the attach case, you need to specify a `processId`. The extension can query processes from the remote machine. To do this, change `processId": "${command:pickProcess}` to `processId": "${command:pickRemoteProcess}`. The `pipeTransport` settings will be used to query the processes on the remote machine. Then select the process from the drop-down list. As with `launch`, you may need to configure `sourceFileMap`.
+You can also use the above `pipeTransport` block to attach to a remote process. In the attach case, you need to specify a `processId`. The extension can query processes from the remote machine. To do this, change `processId": "${command:pickProcess}` to `processId": "${command:pickRemoteProcess}`. The `pipeTransport` settings will be used to query the processes on the remote machine. Then select the process from the dropdown list. As with `launch`, you may need to configure `sourceFileMap`.
 
 ## Docker example
 

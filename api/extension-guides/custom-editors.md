@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 6eb86aa4-0f4c-4168-b34a-6ec6b204e960
-DateApproved: 3/4/2021
+DateApproved: 3/1/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Use the Custom Editor API to create customizable editors within Visual Studio Code.
@@ -24,7 +24,7 @@ But if you're feeling ready and are thinking about all the cool custom editors y
 
 ## Links
 
-- [Custom Editor Sample][sample]
+- [Custom Editor sample][sample]
 
 ### VS Code API Usage
 
@@ -45,7 +45,7 @@ Custom editors have a single document model per resource but there may be multip
 
 There are two classes of custom editors: custom text editors and custom editors. The main difference between these is how they define their document model.
 
-A `CustomTextEditorProvider` uses VS Code's standard [`TextDocument`](https://code.visualstudio.com/api/references/vscode-api#TextDocument) as its data model. You can use a `CustomTextEditor` for any text based file types. `CustomTextEditor` are considerably easier to implement because VS Code already know about how to work with text files and can therefore implement operations such as save and backing up files for hot exit.
+A `CustomTextEditorProvider` uses VS Code's standard [`TextDocument`](https://code.visualstudio.com/api/references/vscode-api#TextDocument) as its data model. You can use a `CustomTextEditor` for any text based file types. `CustomTextEditor` are considerably easier to implement because VS Code already knows how to work with text files and can therefore implement operations such as save and backing up files for hot exit.
 
 With a `CustomEditorProvider` on the other hand, your extension brings its own document model. This means that you can use a `CustomEditor` for binary formats such as images, but it also means that your extension is responsible for a lot more, including implementing save and backing. You can skip over much of this complexity if your custom editor is readonly, such as custom editors for previews.
 
@@ -246,7 +246,7 @@ When an extension fires a `CustomDocumentContentChangeEvent` from `onDidChangeCu
 
 A `CustomDocumentEditEvent` is a more complex edit that allows for undo/redo. You should always try to implement your custom editor using `CustomDocumentEditEvent` and only fallback to using `CustomDocumentContentChangeEvent` if implementing undo/redo is not possible.
 
-A `CustomDocumentContentChangeEvent` has the following fields:
+A `CustomDocumentEditEvent` has the following fields:
 
 - `document` — The `CustomDocument` the edit was for.
 - `label` — Optional text that that describes what type of edit was made (for example: "Crop", "Insert", ...)

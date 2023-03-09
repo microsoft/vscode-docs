@@ -129,9 +129,9 @@ If VS Code identifies an issue with an installed extension, it will display an `
 
 ![extension issues](images/December/extension-issues.png)
 
-## Extension Gallery
+## Extension Marketplace
 
-There is now [proxy support for the extension gallery](https://github.com/microsoft/vscode/issues/69).
+There is now [proxy support for the Extension Marketplace](https://github.com/microsoft/vscode/issues/69).
 
 ## Extension Deactivation
 

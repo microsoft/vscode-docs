@@ -17,9 +17,9 @@ VS Code has its roots in the web (built using TypeScript and Node.js) and one th
 
 This is why VS Code has automatic updates on by default. We periodically query the update service to see if a new version is available, download it when ready, and then gently prompt you to restart.
 
-Of course, it has always been possible to turn off automatic updates. It has also always been possible to subscribe to what we called the “Insiders Channel” which gave you get early access to monthly drops, letting you check out new features, test an extension, or even help us find that last-minute show stopper issue.
+Of course, it has always been possible to turn off automatic updates. It has also always been possible to subscribe to what we called the "Insiders Channel" which gave you get early access to monthly drops, letting you check out new features, test an extension, or even help us find that last-minute show stopper issue.
 
-There were two shortcomings to this model. First, you needed to join the “Insiders Program” to learn about the “updateChannel”: “insiders” setting. Second, you had to choose whether you want to work with the Stable (the official monthly release) or the Insiders version. You could not easily switch back to Stable if you hit a blocking issue with the Insiders drop, without having to change settings.
+There were two shortcomings to this model. First, you needed to join the "Insiders Program" to learn about the "updateChannel": "insiders" setting. Second, you had to choose whether you want to work with the Stable (the official monthly release) or the Insiders version. You could not easily switch back to Stable if you hit a blocking issue with the Insiders drop, without having to change settings.
 
 With the open sourcing of VS Code in November, we are retiring the Insiders Program. With the upcoming January 2016 release, we are introducing a new Insiders build that installs side by side with the monthly, stable VS Code release.
 
@@ -33,6 +33,6 @@ The features included in the Insiders build is tracked in [our iteration plans](
 
 [Download the Insiders build](/insiders) today! Again, you only need to install it once and it will update itself when we push new builds each month.
 
-Note: If you have been an “Insider”, you will need to manually download this new drop to keep testing the latest and greatest of VS Code. Your current build will upgrade to the latest stable release when we ship at the end of the month.
+Note: If you have been an "Insider", you will need to manually download this new drop to keep testing the latest and greatest of VS Code. Your current build will upgrade to the latest stable release when we ship at the end of the month.
 
 Chris Dias

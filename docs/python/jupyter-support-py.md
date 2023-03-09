@@ -4,18 +4,18 @@ Area: python
 TOCTitle: Python Interactive
 ContentId: C26E4F82-C6CD-4C52-818F-31A95F58207E
 PageTitle: Working with Jupyter code cells in the Python Interactive window
-DateApproved: 10/02/2019
+DateApproved: 12/1/2021
 MetaDescription: Working with Jupyter code cells in the Python Interactive window
 MetaSocialImage: images/tutorial/social.png
 ---
 
-# Working with the Python Interactive window
+# Python Interactive window
 
-[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/python/jupyter-support.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
+[Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/) (formerly IPython Notebook) is an open-source project that lets you easily combine Markdown text and executable Python source code on one canvas called a **notebook**. Visual Studio Code supports working with [Jupyter Notebooks natively](/docs/datascience/jupyter-notebooks.md), as well as through Python code files. This topic covers the support offered through Python code files and demonstrates how to:
 
 - Work with Jupyter-like code cells
 - Run code in the Python Interactive Window
-- View, inspect, and filter variables using the Variable explorer and data viewer
+- View, inspect, and filter variables using the Variables Explorer and Data Viewer
 - Connect to a remote Jupyter server
 - Debug a Jupyter notebook
 - Export a Jupyter notebook
@@ -54,7 +54,7 @@ Selecting a command starts Jupyter (if necessary, which might take a minute), th
 
 You can also run code cells using (`kbstyle(Ctrl+Enter)`) or the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). After using this command, the Python extension automatically moves the cursor to the next cell. If you're in the last cell in the file, the extension automatically inserts another `# %%` delimiter for a new cell, mimicking the behavior of a Jupyter notebook.
 
-You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](debugging.md) for details).
+You can also click in the margin to the left of line numbers to set breakpoints. Then you can use **Debug Cell** to start a debugging session for that code cell. The debugger stops execution at breakpoints and allows you to step through code one line at a time and inspect variables (see [Debugging](/docs/editor/debugging.md) for details).
 
 ### Additional commands and keyboard shortcuts
 
@@ -75,10 +75,9 @@ The following table lists additional commands and keyboard shortcuts supported w
 |Python: Change Cell to Code              | `kbstyle(Ctrl+; C)`        |
 |Python: Change Cell to Markdown          | `kbstyle(Ctrl+; M)`        |
 
-## Python Interactive window
+## Using the Python Interactive window
 
-The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells).
-To use the window as a console, open it with the **Jupyter: Create Interactive Window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
+The **Python Interactive** window, mentioned in the previous section, can be used as a standalone console with arbitrary code (with or without code cells). To use the window as a console, open it with the **Jupyter: Create Interactive Window** command from the Command Palette. You can then type in code, using `kbstyle(Enter)` to go to a new line and `kbstyle(Shift+Enter)` to run the code.
 
 To use the window with a file, use the **Jupyter: Run Current File in Python Interactive Window** command from the Command Palette.
 
@@ -93,30 +92,45 @@ The Python Interactive window has full IntelliSense – code completions, member
 The Plot Viewer gives you the ability to work more deeply with your plots. In the viewer you can pan, zoom, and navigate plots in the current session. You can also export plots to PDF, SVG, and PNG formats.
 
 Within the Python Interactive window, double-click any plot to open it in the viewer, or select the expand button on the upper left corner of the plot.
+<!--
+```
+#%%
+import matplotlib.pyplot as plt
+
+#%%
+cat = ["bored", "happy", "bored"]
+dog = ["happy", "bored", "happy"]
+activity = ["combing", "drinking", "feeding"]
+
+fig = ax = plt.subplot()
+ax.plot(activity, dog, label="dog")
+ax.plot(activity, cat, label="cat")
+ax.legend()
+
+plt.show()
+``` -->
 
 ![Plot Viewer with the Python Interactive window](images/jupyter/plot-viewer.gif)
 
 > **Note:** The Python Interactive window supports rendering plots created with [matplotlib](https://matplotlib.org/) and [Altair](https://altair-viz.github.io/index.html).
 
-### Live Share for Python Interactive
+<!-- ### Live Share for Python Interactive
 
 The Python Interactive window also supports [Visual Studio Live Share](https://visualstudio.microsoft.com/services/live-share/) for real-time collaboration. Live Share lets you co-edit and co-debug while sharing audio, servers, terminals, diffs, comments, and more.
 
 ![Live Share for the Python Interactive window](images/jupyter/live-share-and-interactive.gif)
 
-This feature requires the [Live Share extensions](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) to be installed on both host and guest machines.
+This feature requires the [Live Share extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) to be installed on both host and guest machines. -->
 
-## Variable explorer and data viewer
+## Variables Explorer and Data Viewer
 
-Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. By expanding the **Variables** section after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
+Within the Python Interactive window, it's possible to view, inspect, and filter the variables within your current Jupyter session. Select the **Variables** button in the interactive window toolbar to open the Variables explorer after running code and cells, you'll see a list of the current variables, which will automatically update as variables are used in code.
 
-![Variable Explorer](images/jupyter/jupyter-variable-explorer.png)
+![Variables Explorer](images/jupyter/jupyter-variable-explorer.png)
 
 For additional information about your variables, you can also double-click on a row or use the **Show variable in data viewer** button to see a more detailed view of a variable in the Data Viewer. Once open, you can filter the values by searching over the rows.
 
 ![Data Viewer](images/jupyter/jupyter-data-viewer.png)
-
-> **Note:** Variable explorer is enabled by default, but can be turned off in settings (Python > Data Science: Show Jupyter Variable Explorer).
 
 ## Connect to a remote Jupyter server
 
@@ -135,7 +149,7 @@ To connect to a remote Jupyter server:
 
     ![The Python Interactive window showing that code is running on a remote Jupyter server](images/jupyter/jupyter-running-remotely.png)
 
-> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remoter server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
+> **Note:** For added security, Microsoft recommends configuring your Jupyter server with security precautions such as SSL and token support. This helps ensure that requests sent to the Jupyter server are authenticated and connections to the remote server are encrypted. For guidance about securing a notebook server, see the [Jupyter docs](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#securing-a-notebook-server).
 
 ## Convert Jupyter notebooks to Python code file
 
@@ -157,7 +171,7 @@ The Visual Studio Code debugger lets you step through your code, set breakpoints
 
 1. In VS Code, activate a Python environment in which Jupyter is installed, as described at the beginning of this article.
 
-1. Import the notebook's `.ipynb` file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).)
+1. Import the notebook's `.ipynb` file into VS Code as described in the previous section. (Download the file first if you're using a cloud-based Jupyter environment such as [Azure Notebooks](https://learn.microsoft.com/azure/notebooks).)
 
 1. To start the debugger, use one of the following options:
 
