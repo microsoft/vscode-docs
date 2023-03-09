@@ -59,12 +59,11 @@ To use Polyglot Notebooks in VS Code, you will need:
 
 ### Why do I need the .NET SDK?
 
-The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology, that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
+The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
 
 ## Getting started
 
-1. To create your first polyglot notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and select **Polyglot Notebooks: Create new blank
-notebook**, select `.ipynb`, and select the language you'd like to start with.
+1. To create your first polyglot notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and select **Polyglot Notebooks: Create new blank notebook**, select `.ipynb`, and select the language you'd like to start with.
 
    You can also create a notebook by creating a new file and giving it the extension `.ipynb`. In this case, make sure that **.NET Interactive** is selected as the kernel of the notebook in the top right.
 
