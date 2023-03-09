@@ -57,7 +57,7 @@ Path IntelliSense can also help you link to headers within the current file or w
 
 You can disable path IntelliSense with `"markdown.suggest.paths.enabled": false`.
 
-### Creating link to a header in another file
+### Creating links to a header in another file
 
 Need to link to a header in another Markdown document but don't remember or want to type out the full file path? Try using workspace header completions! To start, just type `##` in a Markdown link to see a list of all Markdown headers from the current workspace:
 
