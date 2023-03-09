@@ -81,11 +81,11 @@ Here are two tips to consider:
 
 This document includes 3 quick starts - we recommend starting with the one that fits your workflow and interests the best:
 
-1. Want to try out a dev container in a quick sample repo? Check out [Quick start 1: Try a development container](#quick-start-1-try-a-development-container).
-2. Want to add a dev container to one of your existing locally cloned projects? Check out [Quick start 2: Open an existing folder in a container](#quick-start-2-open-an-existing-folder-in-a-container).
-3. Want to work with an isolated copy of a repo, i.e. to review a PR or investigate a branch without impacting your local work? Check out [Quick start 3: Open a git repo or PR in an isolated container volume](#quick-start-3-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
+1. Want to try out a dev container in a quick sample repo? Check out [Quick start 1: Try a development container](#quick-start-try-a-development-container).
+2. Want to add a dev container to one of your existing locally cloned projects? Check out [Quick start 2: Open an existing folder in a container](#quick-start-open-an-existing-folder-in-a-container).
+3. Want to work with an isolated copy of a repo, i.e. to review a PR or investigate a branch without impacting your local work? Check out [Quick start 3: Open a git repo or PR in an isolated container volume](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
 
-## Quick start 1: Try a development container
+## Quick start: Try a development container
 
 The easiest way to get started is to try one of the sample development containers. The [Containers tutorial](/docs/devcontainers/tutorial.md) will walk you through setting up Docker and the Dev Containers extension and let you select a sample:
 
@@ -93,7 +93,7 @@ The easiest way to get started is to try one of the sample development container
 
 > Note: If you already have VS Code and Docker installed, then you may use [open in dev container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-python). You can learn more about this and how to add it to your repos in the [create a dev container guide](/docs/devcontainers/create-dev-container.md#add-configuration-files-to-a-repository).
 
-## Quick start 2: Open an existing folder in a container
+## Quick start: Open an existing folder in a container
 
 This quick start covers how to set up a dev container for an existing project to use as your full-time development environment using existing source code on your filesystem. Follow these steps:
 
@@ -169,7 +169,7 @@ Once connected, you may want to **add the `.devcontainer` folder** to the worksp
 
 Also note that, while you cannot use multiple containers for the same workspace in the same VS Code window, you can use [multiple Docker Compose managed containers at once](/remote/advancedcontainers/connect-multiple-containers.md) from separate windows.
 
-## Quick start 3: Open a Git repository or GitHub PR in an isolated container volume
+## Quick start: Open a Git repository or GitHub PR in an isolated container volume
 
 While you can [open a locally cloned repository in a container](#quick-start-open-an-existing-folder-in-a-container), you may want to work with an isolated copy of a repository for a PR review or to investigate another branch without impacting your work.
 
