@@ -1,19 +1,19 @@
 ---
 Order: 20
 Area: languages
-TOCTitle: Polyglot Notebooks
+TOCTitle: Polyglot
 ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
-PageTitle: Polyglot Notebooks in Visual Studio Code
+PageTitle: Polyglot Programming with Notebooks in Visual Studio Code
 DateApproved: 3/15/2022
 MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
 ---
-# Polyglot Notebooks
+# Polyglot Notebooks in VS Code
 
-## What is Polyglot Programming?
+**What is Polyglot Programming?**
 
 Polyglot programming is the practice of using multiple programming languages to leverage the strength of each language for different tasks.
 
-## What are Notebooks?
+**What are Notebooks?**
 
 Notebooks are interactive files that allow the mixing of executable code, visualizations, equations, and narrative text. Notebooks are composed of code cells that make it easy to quickly iterate on code. Popularized by the open-source project [Jupyter](https://jupyter.org/), they have become the de facto tool for [Python data science](/docs/datascience/overview.md) and a great resource for teaching or learning a new programming language and quick prototyping.
 
@@ -23,7 +23,7 @@ When polyglot programming meets notebooks, you get Polyglot Notebooks! As oppose
 
 ![Polyglot Notebooks Extension](images/polyglot/polyglot_ext.png)
 
-### Languages Supported
+### Languages supported
 
 - C#
 - F#
@@ -42,9 +42,7 @@ In addition to executing the code for the languages above, you can take advantag
 
 - **Language server support** such as IntelliSense, autocompletion, and syntax highlighting _for each language_.
 
-- **Variable sharing** between languages that ensures a continuous workflow within the notebook.
-
-    - Variable sharing not available for HTML and Mermaid
+- **Variable sharing** between languages that ensures a continuous workflow within the notebook. (Variable sharing not available for HTML and Mermaid)
 
 - **Variable Explorer** to check state of variables and the subkernel variables exist in.
 
@@ -63,7 +61,7 @@ To use Polyglot Notebooks in VS Code, you will need:
 
 The Polyglot Notebooks extension is powered by .NET Interactive, which is a cutting edge and innovative engine built on .NET technology, that can run multiple languages and share variables between them. In Polyglot Notebooks, this engine behaves as the notebook's kernel and is the reason that the .NET 7 SDK is required.
 
-## Getting Started
+## Getting started
 
 1. To create your first polyglot notebook, open the Command Palette (`kb(workbench.action.showCommands)`) and select **Polyglot Notebooks: Create new blank
 notebook**, select `.ipynb`, and select the language you'd like to start with.
@@ -80,7 +78,7 @@ notebook**, select `.ipynb`, and select the language you'd like to start with.
 
    ![Example of Polyglot Notebook](images/polyglot/polyglot_nb_example.png)
 
-## Working with Data
+## Working with data
 
 Connect to and query Microsoft SQL Server databases and Kusto clusters.
 
@@ -88,11 +86,11 @@ To get more detailed instructions on connecting to and working with data sources
 
 ![Connecting to SQL Example](images/polyglot/SQL_connection_example.png)
 
-## Language Server Support
+## Language server support
 
 Each language in Polyglot Notebooks gets a first-class editing experience with language server support such as autocompletion, syntax highlighting, and signature help.
 
-## Variable Sharing & Variable Explorer
+## Variable Sharing and Variable Explorer
 
 Share variables between languages using the `#!set` command and check on the values of variables for each language using the Variable explorer. Note that if you were previously using the `#!share` command, it will continue to work. Select the **Variables** icon in the global toolbar to open the Variable explorer.
 
@@ -102,8 +100,6 @@ Share variables between languages using the `#!set` command and check on the val
 
 To learn more about variable sharing, visit the [Variable Sharing](https://github.com/dotnet/interactive/blob/main/docs/variable-sharing.md) documentation.
 
-## Features Requests & Features
+## Feature requests and feedback
 
 The Polyglot Notebooks extension is powered by .NET Interactive and you can provide feedback and enter issues on the [.NET Interactive GitHub repository](https://github.com/dotnet/interactive/issues).
-
-
