@@ -30,7 +30,7 @@ If you installed VS Code via the Windows Installer, either the User or System ve
 
 ### .zip file installation
 
-If you installed VS Code on Windows by downloading and extracting one of the `.zip` files, you can uninstall by deleting the folder where you extracted the `.zip` contents.
+If you installed VS Code on Windows by downloading and extracting one of the `.zip` files found on the [Visual Studio Code website](https://code.visualstudio.com/#alt-downloads), you can uninstall by deleting the folder where you extracted the `.zip` contents.
 
 ## macOS
 
