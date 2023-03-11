@@ -115,6 +115,38 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
+## 3 Way Merge Editor
+
+The 3 Way Merge Editor can be opened by clicking on the button **Resolve Merge Conflict** in the bottom right corner of a file with git merge conflicts.
+
+It features separate views for incoming changes (on the left), current changes (on the right) and the result of the merge (at the bottom). Conflicts are highlighted and can be resolved by using the code-lens buttons.
+
+![3 Way Merge Editor](images/overview/merge-editor-overview.png)
+
+### Resolving conflicts
+
+The 3 Way Merge Editor allows you to resolve conflicts by accepting either one or both changes. You can also manually edit the result of the merge.
+
+For some conflicts, the merge editor shows an **Accept Combination** button. Accepting the combination resolves the current conflict by smartly merging both changes. This is especially useful for changes in the same line that don't touch the same characters.
+
+Use the **Ignore** buttons to accept neither the incoming nor current change, but mark the conflict as resolved. This will reset the conflicting area to the state before any changes were made.
+
+### Completing the merge
+
+You can use the conflict counter in the right of the result editor to keep track of how many unresolved conflicts are remaining. Clicking on it will jump to the next unresolved conflict. Once all conflicts are resolved, you can complete the merge by clicking the **Complete Merge** button in the bottom right corner. This will stage the file and close the merge editor.
+
+### Alternative Layouts and More
+
+Clicking on the three dots (**···**) in the top right corner of the merge editor will open a context menu with additional options. You can switch to a vertical layout and enable the base view, which shows the state of the file before any changes were made.
+
+The three dots next to incoming, current and result offer options regarding to the corresponding view, such as showing a side-by-side diff against base, accepting all changes, or resetting the result.
+
+### Understanding conflicts
+
+If you want to learn more about the details of how 3 way merge editors work, we can recommend the following video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HosPml1qkrg" title="The EXTREMELY helpful guide to merge conflicts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Viewing diffs
 
 Our Git tooling supports viewing of diffs within VS Code.
