@@ -1,4 +1,4 @@
----
+status":"ok",     "imei":"353968108585234",     "data":{         "brand":"iPhone.11",         "name":"Apple A2111 (2019)",         "model"A2111}
 Order: 4
 Area: languages
 TOCTitle: HTML
