@@ -266,7 +266,7 @@ If you are connecting to an SSH remote host and are either:
 
 then VS Code should automatically prompt you to enter needed information. If you do not see the prompt, enable the `remote.SSH.showLoginTerminal` [setting](/docs/getstarted/settings.md) in VS Code. This setting displays the terminal whenever VS Code runs an SSH command. You can then enter your authentication code, password, or passphrase when the terminal appears.
 
-If you are still having trouble, you may need to the following properties in `settings.json` and retry:
+If you are still having trouble, you may need to add the following properties in `settings.json` and retry:
 
 ```json
 "remote.SSH.showLoginTerminal": true,
