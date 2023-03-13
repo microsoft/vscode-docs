@@ -9,7 +9,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 ---
 # Profiles in Visual Studio Code
 
-Visual Studio Code has 100s of [settings](/docs/getstarted/settings.md), 1000s of [extensions](/docs/editor/extension-marketplace.md), and unnumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles.
+Visual Studio Code has hundreds of [settings](/docs/getstarted/settings.md), thousands of [extensions](/docs/editor/extension-marketplace.md), and innumerable ways to adjust the UI layout to customize the editor. VS Code **Profiles** let you create sets of customizations and quickly switch between them or share them with others. This topic explains how to create, modify, export, and import profiles.
 
 ## Create a Profile
 

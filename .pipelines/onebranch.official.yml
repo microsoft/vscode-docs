@@ -23,7 +23,7 @@ resources:
       source: vscode-website (official)
       trigger:
         branches:
-          - prod
+          - release/prod
 
 variables:
   WindowsContainerImage: 'onebranch.azurecr.io/windows/ltsc2019/vse2022:latest'
