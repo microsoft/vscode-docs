@@ -55,7 +55,7 @@ You can create a new file in the web just as you would in a VS Code Desktop en
 
 Support for Azure Repos (part of Azure DevOps) in Visual Studio Code for the Web is in preview, and the experience will continue to grow and evolve over time.
 
-When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read and search the files in the repo. You can fetch, pull, and sync changes, and view branches.
+When you navigate to a URL with the schema `https://vscode.dev/azurerepos/organization/project/repo`, you will be able to read, search the files in the repo, and commit your changes to Azure Repos. You can fetch, pull, and sync changes, and view branches.
 
 You can open any repository, branch, or tag from Azure Repos in VS Code for the Web by prefixing `vscode.dev` to the Azure Repos URL.
 
