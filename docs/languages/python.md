@@ -74,7 +74,7 @@ The Python extension can apply a number of different linters including Pylint, p
 
 ## Debugging
 
-No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console as you run your program step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
+No more `print` statement debugging! VS Code comes with great debugging support for Python, allowing you to set breakpoints, inspect variables, and use the debug console for an in-depth look at how your program is executing step by step. Debug a number of different types of Python applications, including multi-threaded, web, and remote applications.
 
 For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md). The [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials also demonstrate debugging in the context of those web apps, including debugging Django page templates.
 
@@ -122,11 +122,12 @@ Using either method, Notebook Editor or a Python file, you can also connect to a
 
 ## Testing
 
-The Python extension supports [testing](/docs/python/testing.md) with unittest and pytest.
+The Python extension supports [testing](/docs/python/testing.md) with Python's built-in unittest framework and pytest.
 
-To run tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
+In order to run tests, you must enable one of the supported testing frameworks in the settings of your project. Each framework has its own specific settings, such as arguments for identifying the paths and patterns for test discovery.
 
-Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including the ability to run individual test files and individual methods.
+Once the tests have been discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests. These commands also allow you to run individual test files and methods
+
 
 ## Configuration
 
