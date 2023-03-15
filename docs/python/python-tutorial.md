@@ -10,25 +10,25 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial, you will use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
+In this tutorial, you will use Python 3 to create a simple Python "Hello World" application in Visual Studio Code. By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor (which you may find a productive alternative to PyCharm).
 
-This tutorial introduces you to VS Code as a Python environment - primarily how to edit, run, and debug code through the following tasks:
+This tutorial introduces you to VS Code for Python development - primarily how to edit, run, and debug code through the following tasks:
 
 - Write, run, and debug a Python "Hello World" Application
 - Learn how to install packages by creating Python virtual environments
 - Write a simple Python script to plot figures within VS Code
 
-This tutorial is not intended to teach you Python itself. Once you are familiar with the basics of VS Code, you can then follow any of the [programming tutorials on python.org](https://wiki.python.org/moin/BeginnersGuide/Programmers) within the context of VS Code for an introduction to the language.
+This tutorial is not intended to teach you Python itself. Once you are familiar with the basics of VS Code, you can then follow any of the [programming tutorials on python.org](https://wiki.python.org/moin/BeginnersGuide) within the context of VS Code for an introduction to the language.
 
 If you have any problems, you can search for answers or ask a question on the [Python extension Discussions Q&A](https://github.com/microsoft/vscode-python/discussions/categories/q-a).
 
 ## Prerequisites
 
-To successfully complete this tutorial, you need to first setup your Python  development environment. Specifically, this tutorial requires:
+To successfully complete this tutorial, you need to first setup your Python development environment. Specifically, this tutorial requires:
 
 - Python 3
-- VS Code application
-- VS Code Python extension
+- VS Code
+- [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## Install Visual Studio Code and the Python Extension
 
