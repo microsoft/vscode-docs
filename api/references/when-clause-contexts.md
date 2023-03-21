@@ -28,11 +28,11 @@ Equality | `==` | `"editorLangId == typescript"`
 Inequality | `!=` | `"resourceExtname != .js"`
 Or | <code>\|\|</code> | `"isLinux`<code>\|\|</code>`isWindows"`
 And | `&&` | `"textInputFocus && !editorReadonly"`
-Not | `!` | `!editorReadonly`
+Not | `!` | `"!editorReadonly"`
 Matches | `=~` | `"resourceScheme =~ /^untitled$\|^file$/"`
 Greater than | `>` `>=` | `"gitOpenRepositoryCount >= 1"`
 Less than | `<` `<=` | `"workspaceFolderCount < 2"`
-In | `in` | `resourceFilename in supportedFolders` ([details](#in-and-not-in-conditional-operators) below)
+In | `in` | `"resourceFilename in supportedFolders"` ([details](#in-and-not-in-conditional-operators) below)
 
 ### key-value when clause operator
 
