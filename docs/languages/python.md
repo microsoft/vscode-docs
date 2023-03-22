@@ -19,7 +19,7 @@ This article provides only an overview of the different capabilities of the Pyth
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
+Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
 You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
 
@@ -108,17 +108,15 @@ Packages are installed using the **Terminal** panel and commands like `pip insta
 
 ## Jupyter notebooks
 
-If you open a [Jupyter notebook](https://jupyter.org/) file (`.ipynb`) in VS Code, you can use the Jupyter Notebook Editor to directly view, modify, and run code cells.
+To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python and the Jupyter extensions work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
 
 ![Jupyter notebook running in VS code in the Notebook Editor](images/python/native-jupyter.png)
 
-You can also convert and open the notebook as a Python code file. The notebook's cells are delimited in the Python file with `#%%` comments, and the Python extension shows **Run Cell** or **Run All Cells** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+You can also convert and open the notebook as a Python code file through the **Jupyter: Export to Python Script** command. The notebook's cells are delimited in the Python file with `#%%` comments, and the Jupyter extension shows **Run Cell** or **Run Below** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
-Opening a notebook as a Python file allows you to use all of VS Code's debugging capabilities. You can then save the notebook file and open it again as a notebook in the Notebook Editor, Jupyter, or even upload it to a service like [Azure Notebooks](https://learn.microsoft.com/azure/notebooks).
-
-Using either method, Notebook Editor or a Python file, you can also connect to a remote Jupyter server for running the code. For more information, see [Jupyter support](/docs/datascience/jupyter-notebooks.md).
+You can also connect to a remote Jupyter server to run your notebooks. For more information, see [Jupyter support](/docs/datascience/jupyter-notebooks.md).
 
 ## Testing
 

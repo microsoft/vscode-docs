@@ -111,7 +111,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 
 1. Stop the app by using `kbstyle(Ctrl+C)` in the terminal.
 
-> **Tip**: If you want to use a different filename than `app.py`, such as `program.py`, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](https://flask.palletsprojects.com/en/1.1.x/cli/).
+> **Tip**: When using a different filename than `app.py`, such as `webapp.py`, you will need to define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](https://flask.palletsprojects.com/en/1.1.x/cli/).
 
 ## Run the app in the debugger
 
@@ -634,7 +634,7 @@ Throughout this Flask tutorial, all the app code is contained in a single `app.p
     ![Flask tutorial: modified project structure with separate files and folders for parts of the app](images/flask-tutorial/project-structure.png)
 
 1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps from a terminal:
-    1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
+    1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use `export set FLASK_APP=webapp`; on Windows use `$env:FLASK_APP=webapp` if you're using PowerShell, or `set FLASK_APP=webapp` if you're using Command Prompt.
     1. Navigate into the `hello_app` folder, then launch the program using `python -m flask run`.
 
 ### Create a container for a Flask app using the Docker extension
