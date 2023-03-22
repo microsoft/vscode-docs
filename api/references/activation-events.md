@@ -55,6 +55,16 @@ Multiple languages can be declared with separate `onLanguage` entries in the `ac
 
 > **Note**: Beginning with VS Code 1.74.0, languages contributed by your extension do not require a corresponding `onLanguage` activation event declaration for your extension to be activated.
 
+Additionally, if your extension needs to be activated before any language is used, you can use the generic `onLanguage` activation event to ensure this:
+
+```json
+"activationEvents": [
+    "onLanguage"
+]
+```
+
+> **Note**: It is best practice to activate only when a user needs your extension. If your extension works on a subset of languages, it is better for the user to list that subset than to activate on all languages.
+
 ## onCommand
 
 This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
