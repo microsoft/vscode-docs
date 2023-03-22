@@ -108,11 +108,11 @@ Packages are installed using the **Terminal** panel and commands like `pip insta
 
 ## Jupyter notebooks
 
-To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python extension and the Jupyter extension work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
+To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python and the Jupyter extensions work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
 
 ![Jupyter notebook running in VS code in the Notebook Editor](images/python/native-jupyter.png)
 
-You can also convert and open the notebook as a Python code file through the **Jupyter: Export to Python Script** command. The notebook's cells are delimited in the Python file with `#%%` comments, and the Jupyter extension shows **Run Cell** or **Run Bellow** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
+You can also convert and open the notebook as a Python code file through the **Jupyter: Export to Python Script** command. The notebook's cells are delimited in the Python file with `#%%` comments, and the Jupyter extension shows **Run Cell** or **Run Below** CodeLens. Selecting either CodeLens starts the Jupyter server and runs the cell(s) in the Python interactive window:
 
 ![Jupyter notebook running in VS Code and the Python interactive window](images/python/jupyter.png)
 
