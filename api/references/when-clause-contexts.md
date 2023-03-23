@@ -20,9 +20,7 @@ Above, the built-in **Start Debugging** command has the keyboard shortcut `kb(wo
 
 ## Composing when-clauses with operators
 
-A when-clause can consist of a single context key, e.g., `inDebugMode`, or can use various operators to express more nuanced editor state.
-
-_Note_: When-clauses, starting from VS Code version 1.77, can include parentheses. Extensions that use parentheses in when-clauses should be specified as compatible with VS Code version 1.77 and up only.
+A when-clause can consist of a context key (for example, `inDebugMode`) or can use various operators to express more nuanced editor state.
 
 ### Logical operators
 
@@ -46,7 +44,7 @@ Written as                             | Interpreted as
 
 ### Equality operators
 
-You can check for equality a context key's value in the current editor context against a value. Note that the right-hand side is a value and not interpreted as a context key, i.e., it is not looked up in the context.
+You can check for equality of a context key's value against a specified value. Note that the right-hand side is a value and not interpreted as a context key, meaning it is not looked up in the context.
 
 Operator   | Symbol | Example
 --------   | ------ | -----
@@ -55,12 +53,12 @@ Inequality | `!=`   | `"resourceExtname != .js"` or `"resourceExtname != '.js'"`
 
 Notes:
 
-- If the value on the right-hand side is a string containing whitespace, it must be wrapped in single-quotes, e.g., `"resourceFilename == 'My New File.md'"`
+- If the value on the right-hand side is a string containing whitespace, it must be wrapped in single-quotes - `"resourceFilename == 'My New File.md'"`.
 - `===` has the same behavior as `==`, and `!==` has the same behavior as `!=`
 
 ### Comparison operators
 
-You can compare a context key's value against a number. Note that left- and right-hand side of the operator must be separated by whitespace, i.e., `foo < 1` not `foo<1`.
+You can compare a context key's value against a number. Note that left- and right-hand side of the operator must be separated by whitespace - `foo < 1`, but not `foo<1`.
 
 Operator | Symbols | Example
 -------- | ------ | -----
@@ -83,16 +81,16 @@ There is a match operator (`=~`) for when clauses. The expression `key =~ regula
 
 Notes:
 
-- The right-hand side of the `=~` operator follows _almost_ the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)). It is "almost the same rules" because when clauses are written within a JSON string, so the value needs to follow both encoding of JSON strings and regular expressions. For example, `/file:\/\/\//` should become `file:\\/\\/\\/`. In other words, if one wants to use a slash within their regular expression, they need to escape it with two backslash characters as in the example.
-- There does _not_ exist an operator `!=~`, but you can negate the match expression `!(foo =~ /baz/)`
+- The right-hand side of the `=~` operator follows almost the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)). It is "almost the same rules" because when clauses are written within a JSON string, so the value needs to follow both encoding of JSON strings and regular expressions. For example, `/file:\/\/\//` should become `file:\\/\\/\\/`. In other words, if one wants to use a slash within their regular expression, they need to escape it with two backslash characters as in the example.
+- There does not exist an operator `!=~`, but you can negate the match expression `!(foo =~ /baz/)`.
 
 #### Regular expression flags
 
-It is possible to use flags with the regular expression literals, e.g., `resourceFilename =~ /json/i` or `myContextKey =~ /baz/si`.
+It is possible to use flags with the regular expression literals. For example, `resourceFilename =~ /json/i` or `myContextKey =~ /baz/si`.
 
 Supported flags are `i` and since VS Code version 1.77: `s`, `m`, `u`.
 
-_Not_ supported flags: `g`, `y`. <!-- let's be more explicit with unsupported flags -->
+Flags not supported: `g`, `y`. <!-- let's be more explicit with unsupported flags -->
 
 ### 'in' and 'not in' conditional operators
 
@@ -268,7 +266,7 @@ View identifiers:
 * `workbench.explorer.openEditorsView` - Open Editors
 * `outline` - Outline view
 * `timeline` - Timeline view
-* `workbench.scm - Source Contr`ol
+* `workbench.scm` - Source Control
 * `workbench.scm.repositories` - Source Control Repositories
 * `workbench.debug.variablesView` - Variables
 * `workbench.debug.watchExpressionsView` - Watch
