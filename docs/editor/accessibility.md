@@ -126,6 +126,8 @@ All elements in the workbench support tab navigation, but workbench toolbars and
 
 By default, pressing the `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your Indentation setting) and does not leave the open file. You can toggle the trapping of `kbstyle(Tab)` with `kb(editor.action.toggleTabFocusMode)` and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see an indicator in the Status Bar.
 
+Tab trapping also exists in the integrated terminal. The default behavior for each feature can be configured with `editor.tabFocusMode` and `terminal.integrated.tabFocusMode`.
+
 ![tab moves focus](images/accessibility/tab-moves-focus.png)
 
 You can also toggle `kbstyle(Tab)` trapping from the **Command Palette** (`kb(workbench.action.showCommands)`) with the **Toggle Tab Key Moves Focus** action.
@@ -167,6 +169,8 @@ A useful accessibility setting, `terminal.integrated.tabFocusMode`, controls whe
 ### Shell integration
 
 The terminal has a feature called [shell integration](/docs/terminal/shell-integration.md) that enables many additional features that are not found in other terminals. When using a screen reader, the [Run Recent Command](/docs/terminal/shell-integration.md#run-recent-command) and [Go to Recent Directory](/docs/terminal/shell-integration.md#go-to-recent-directory) features are particularly useful.
+
+Another shell integration powered command, **Terminal: Navigate Accessible Buffer** (`kb(workbench.action.terminal.navigateAccessibleBuffer)`), enables navigation between terminal commands similar to how editors can be navigated with **Go to Symbol in Editor...**.
 
 ### Minimum contrast ratio
 
