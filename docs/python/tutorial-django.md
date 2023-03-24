@@ -410,22 +410,6 @@ Static files are pieces of content that your web app returns as-is for certain r
 
 Serving static files in Django is something of an art, especially when deploying to production. What's shown here is a simple approach that works with the Django development server and also a production server like Gunicorn. A full treatment of static files, however, is beyond the scope of this tutorial, so for more information, see [Managing static files](https://docs.djangoproject.com/en/3.1/howto/static-files/) in the Django documentation.
 
-When switching to production, navigate to `settings.py`, set `DEBUG=False`, and change `ALLOWED_HOSTS = ['*']` to allow specific hosts. This may result in additional work when using containers. For details, see [Issue 13](https://github.com/microsoft/python-sample-vscode-django-tutorial/issues/13).
-
-### Ready the app for static files
-
-1. In the project's `web_project/urls.py`, add the following `import` statement:
-
-    ```python
-    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-    ```
-
-1. In that same file, add the following line at the end, which includes standard static file URLs to the list that the project recognizes:
-
-    ```python
-    urlpatterns += staticfiles_urlpatterns()
-    ```
-
 ### Refer to static files in a template
 
 1. In the `hello` folder, create a folder named `static`.
