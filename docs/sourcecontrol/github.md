@@ -193,6 +193,8 @@ One difference from working with a local repository is that when you commit a ch
 
 Another feature of the GitHub Repositories extension is that every time you open a repository or branch, you get the up-to-date sources available from GitHub. You don't need to remember to pull to refresh as you would with a local repository.
 
+The GitHub Repositories extension supports viewing and even committing LFS-tracked files without needing to install Git LFS locally. Simply add the file types you want tracked with LFS to a [`.gitattributes` file](https://git-lfs.com), then commit your changes directly to GitHub using the source control view.
+
 ### Switching branches
 
 You can easily switch between branches by clicking on the branch indicator in the Status bar. One great feature of the GitHub Repositories extension is that you can switch branches without needing to stash uncommitted changes. The extension remembers your changes and reapplies them when you switch branches.
