@@ -81,16 +81,16 @@ There is a match operator (`=~`) for when clauses. The expression `key =~ regula
 
 Notes:
 
-- The right-hand side of the `=~` operator follows almost the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)). It is "almost the same rules" because when clauses are written within a JSON string, so the value needs to follow both encoding of JSON strings and regular expressions. For example, `/file:\/\/\//` should become `file:\\/\\/\\/`. In other words, if one wants to use a slash within their regular expression, they need to escape it with two backslash characters as in the example.
-- There does not exist an operator `!=~`, but you can negate the match expression `!(foo =~ /baz/)`.
+- The right-hand side of the `=~` operator follows the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)), except characters need to follow escaping rules both of JSON strings and regular expressions. Hence, using a slash within the regular expression requires double escaping. For example, what is written as `/file:\/\//` in JavaScript needs to become `/file:\\/\\//` when used within a when clause.
+- There does not exist an operator `!=~`, but you can negate the match expression - `!(foo =~ /baz/)`.
 
 #### Regular expression flags
 
 It is possible to use flags with the regular expression literals. For example, `resourceFilename =~ /json/i` or `myContextKey =~ /baz/si`.
 
-Supported flags are `i` and since VS Code version 1.77: `s`, `m`, `u`.
+Supported flags: `i`, `s`, `m`, `u`.
 
-Flags not supported: `g`, `y`. <!-- let's be more explicit with unsupported flags -->
+Ignored flags: `g`, `y`. <!-- let's be more explicit with unsupported flags -->
 
 ### 'in' and 'not in' conditional operators
 
