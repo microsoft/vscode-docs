@@ -1,5 +1,5 @@
 ---
-Order: 15
+Order: 16
 Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
