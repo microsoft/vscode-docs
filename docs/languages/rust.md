@@ -1,5 +1,5 @@
 ---
-Order: 15
+Order: 16
 Area: languages
 TOCTitle: Rust
 ContentId: 643d022e-9370-4ca5-bccd-c3a583c5df75
@@ -231,8 +231,8 @@ The rust-analyzer extension supports debugging Rust from within VS Code.
 
 To start debugging, you will first need to install one of two language extension with debugging support:
 
-* [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools)
-* [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb)
+* [Microsoft C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) (ms-vscode.cpptools) – *on Windows*
+* [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) (vadimcn.vscode-lldb) – *on macOS/Linux*
 
 If you forget to install one of these extensions, rust-analyzer will provide a notification with links to the VS Code Marketplace when you try to start a debug session.
 

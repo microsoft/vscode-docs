@@ -17,6 +17,11 @@ Workspace files are mounted from the local file system or copied or cloned into 
 
 This lets VS Code provide a **local-quality development experience** including full IntelliSense (completions), code navigation, and debugging **regardless of where your tools (or code) are located**.
 
+The Dev Containers extension supports two primary operating models:
+
+* You can use a container as your full-time development environment
+* You can [attach to a running container](/docs/devcontainers/attach-container.md) to inspect it.
+
 ## Getting started
 
 **Note**: You can learn how to get up-and-running quickly with dev containers in the introductory [Dev Containers tutorial](/docs/devcontainers/tutorial.md).
@@ -72,12 +77,13 @@ Here are two tips to consider:
 * If you are working with the same repository both locally in Windows and inside a container, be sure to set up consistent line endings. See [tips and tricks](/docs/remote/troubleshooting.md#resolving-git-line-ending-issues-in-wsl-resulting-in-many-modified-files) for details.
 * If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt in to sharing them. See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md) for details.
 
-### Working with Containers
+## Picking your quick start
 
-The Dev Containers extension supports two primary operating models:
+This document includes 3 quick starts - we recommend starting with the one that fits your workflow and interests the best:
 
-* You can use a container as your [full-time development environment](/docs/devcontainers/create-dev-container.md#create-a-devcontainerjson-file).
-* You can [attach to a running container](/docs/devcontainers/attach-container.md) to inspect it.
+1. Want to try out a dev container in a quick sample repo? Check out [Quick start 1: Try a development container](#quick-start-try-a-development-container).
+2. Want to add a dev container to one of your existing locally cloned projects? Check out [Quick start 2: Open an existing folder in a container](#quick-start-open-an-existing-folder-in-a-container).
+3. Want to work with an isolated copy of a repo, i.e. to review a PR or investigate a branch without impacting your local work? Check out [Quick start 3: Open a git repo or PR in an isolated container volume](#quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
 
 ## Quick start: Try a development container
 
@@ -240,7 +246,11 @@ This implies trusting [the machine the Docker daemon runs on](/remote/advancedco
 
 VS Code's container configuration is stored in a [devcontainer.json](https://containers.dev/implementors/json_reference) file. This file is similar to the `launch.json` file for debugging configurations, but is used for launching (or attaching to) your development container instead. You can also specify any extensions to install once the container is running or post-create commands to prepare the environment. The dev container configuration is either located under `.devcontainer/devcontainer.json` or stored as a `.devcontainer.json` file (note the dot-prefix) in the root of your project.
 
-You can use any image, Dockerfile, or set of Docker Compose files as a starting point. Here is a simple example that uses one of the pre-built [Development Container images](https://github.com/devcontainers/images/tree/main/src/typescript-node):
+Selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
+
+![Select a node Dev Container Template](images/containers/select-dev-container-def.png)
+
+You can also create a devcontainer.json by hand and use any image, Dockerfile, or set of Docker Compose files as a starting point. Here is a simple example that uses one of the pre-built [Development Container images](https://github.com/devcontainers/images/tree/main/src/typescript-node):
 
 ```json
 {
@@ -259,8 +269,6 @@ You can use any image, Dockerfile, or set of Docker Compose files as a starting 
 ```
 
 > **Note:** Additional configuration will already be added to the container based on what's in the base image. For example, we add the `streetsidesoftware.code-spell-checker` extension above, and the container will also include `"dbaeumer.vscode-eslint"` as [that's part of `mcr.microsoft.com/devcontainers/typescript-node`](https://github.com/devcontainers/images/blob/main/src/javascript-node/.devcontainer/devcontainer.json#L27). This happens automatically when pre-building using `devcontainer.json`, which you may read more about in the [pre-build section](#prebuilding-dev-container-images).
-
-Selecting the **Dev Containers: Add Dev Container Configuration Files...** command from the Command Palette (`kbstyle(F1)`) will add the needed files to your project as a starting point, which you can further customize for your needs. The command lets you pick a pre-defined container configuration from a list based on your folder's contents, reuse an existing Dockerfile, or reuse an existing Docker Compose file.
 
 To learn more about creating `devcontainer.json` files, see [Create a Development Container](/docs/devcontainers/create-dev-container.md).
 

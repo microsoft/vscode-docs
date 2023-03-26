@@ -3,7 +3,7 @@ Area: java
 TOCTitle: Java Spring Apps
 ContentId: d34d8d3a-2093-4c67-a0a8-e02525fae8ab
 PageTitle: Build and Deploy Java Spring Boot Apps to Azure Spring Cloud with Visual Studio Code
-DateApproved: 6/14/2022
+DateApproved: 3/2/2023
 MetaDescription: Java Spring app tutorial showing how to build and deploy a Java Spring Boot microservices to Azure Spring Cloud with Visual Studio Code
 ---
 
@@ -111,13 +111,9 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 <a class="install-extension-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
 
-To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign in to your account using the **Device Login** flow. Select **Copy & Open** to open your default browser.
+To sign in to Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). Or you can sign in to your Azure Account by clicking **Sign in to Azure...** in **SPRING APPS** Explorer.
 
-![Azure sign in code](images/java-webapp/devicelogin.png)
-
-Paste in the access code and continue the sign in process.
-
-![Azure Device Login](images/java-webapp/devicelogin2.png)
+![Azure sign in code](images/java-spring-cloud/signinasa.png)
 
 ### Create an app on Azure Spring Apps
 

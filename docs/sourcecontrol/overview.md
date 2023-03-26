@@ -73,7 +73,7 @@ You'll also see the option to **Clone from GitHub**. Once you authenticate with 
 
 <iframe src="https://www.youtube.com/embed/b9LTz6joMf8?clip=Ugkxcq7zDGA4aMi8p7lICNMzTANn_8ozU5gK&amp;clipt=EPiBAxj08QU" width="640" height="320" allowFullScreen="true" frameBorder="0" title="Create Git Branches in Visual Studio Code"></iframe>
 
-You can create and checkout branches directly within VS code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
+You can create and checkout branches directly within VS Code through the **Git: Create Branch** and **Git: Checkout to** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 If you run **Git: Checkout to**, you will see a dropdown list containing all of the branches or tags in the current repository. It will also give you the option to create a new branch if you decide that's a better option, or checkout a branch in detached mode.
 
@@ -114,6 +114,38 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 ![Git merge](images/overview/merge-conflict.png)
 
 Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either one or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
+
+## 3-way merge editor
+
+To help you resolve merge conflicts, VS Code provides a 3-way merge editor where you can interactively accept incoming and current changes and view and edit the resulting merged file. The 3-way merge editor is opened by selecting the **Resolve in Merge Editor** button in the bottom right corner of a file with Git merge conflicts.
+
+The 3-way merge editor displays separate views for **Incoming** changes (on the left), **Current** changes (on the right), and the **Result** of the merge (at the bottom). Conflicts are highlighted and can be resolved by using the CodeLens buttons.
+
+![3-way merge editor](images/overview/merge-editor-overview.png)
+
+### Resolving conflicts
+
+The 3-way merge editor allows you to resolve conflicts by accepting either one or both changes. You can also manually edit the result of the merge.
+
+For some conflicts, the merge editor shows an **Accept Combination** button. Accepting the combination resolves the current conflict by smartly merging both changes. This is especially useful for changes in the same line that don't touch the same characters.
+
+Use the **Ignore** buttons to accept neither the incoming nor current change, but mark the conflict as resolved. This resets the conflicting area to the state before any changes were made.
+
+### Completing the merge
+
+You can use the conflict counter in the right of the result editor to keep track of how many unresolved conflicts are remaining. Clicking on the counter jumps to the next unresolved conflict. Once all conflicts are resolved, you can complete the merge by selecting **Complete Merge** in the bottom right corner. This stages the file and closes the merge editor.
+
+### Alternative layouts and more
+
+Selecting the three dots (**···**) in the top right corner of the merge editor opens a context menu with additional options. You can switch to a vertical layout and display the base view, which shows the state of the file before any changes were made.
+
+The three dots next to **Incoming**, **Current**, and **Result** offer options for each view, such as showing a side-by-side diff against base, accepting all changes, or resetting the result.
+
+### Understanding conflicts
+
+If you want to learn more about the details of how 3-way merge editors work, we can recommend the following video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HosPml1qkrg" title="The EXTREMELY helpful guide to merge conflicts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Viewing diffs
 

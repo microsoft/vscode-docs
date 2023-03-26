@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 10/12/2022
+DateApproved: 3/6/2023
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -24,13 +24,15 @@ For general information about working with settings in VS Code, refer to [User a
 | pipenvPath | `"pipenv"` | Path to the pipenv executable to use for activation. |
 | venvFolders | `[]` | Paths to folders where virtual environments are created. <br> Depending on the virtualization tool used, it can be the project itself: `${workspaceFolder}`, or separate folders for all virtual environments located side by side: `.\envs`, `~/.virtualenvs`, and so on. |
 | envFile | `"${workspaceFolder}/`<br/>`.env"` | Absolute path to a file containing environment variable definitions. <br> See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file). |
-| globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. <br> For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
+| globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. <br> For more information on the `--user` argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
 | poetryPath | `"poetry"` | Specifies the location of the [Poetry dependency manager](https://poetry.eustace.io/) executable, if installed. The default value `"poetry"` assumes the executable is in the current path. <br> The Python extension uses this setting to install packages when Poetry is available and there's a `poetry.lock` file in the workspace folder. |
-| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**.<br> In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). <br> For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. <br> Note that Visual Studio code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
+| terminal.launchArgs | `[]` | Launch arguments that are given to the Python interpreter when you run a file using commands such as **Python: Run Python File in Terminal**.<br> In the `launchArgs` list, each item is a top-level command-line element that's separated by a space (quoted values that contain spaces are a single top-level element and are thus one item in the list). <br> For example, for the arguments `--a --b --c {"value1" : 1, "value2" : 2}`, the list items should be `["--a", "--b", "--c", "{\"value1\" : 1, \"value2\" : 2}\""]`. <br> Note that VS Code ignores this setting when debugging because it instead uses arguments from your selected debugging configuration in `launch.json`. |
 | terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | terminal.activateEnvironment | `true` | Indicates whether to automatically activate the environment you select using the **Python: Select Interpreter** command when a new terminal is created.<br> For example, when this setting is `true` and you select a virtual environment, the extension automatically runs the environment's *activate* command when creating a new terminal (`source env/bin/activate` on macOS/Linux; `env\scripts\activate` on Windows). |
 | terminal.activateEnvInCurrentTerminal | `false` | Specifies whether to activate the currently open terminal when the Python extension is activated, using the virtual environment selected. |
+| terminal.focusAfterLaunch | `false` | Whether to switch the cursor focus to the terminal when launching a Python terminal. |
 | logging.level| `error` | Specifies the level of logging to be performed by the extension.<br> The possible levels of logging, in increasing level of information provided, are `off`, `error`, `warn`, `info`, and `debug`.<br> When set to `off`, which is not recommended, basic information will still be shown such as startup information and commands run by the Python extension.<br> At the `error` level, basic information and errors will be shown.<br> At the `warn` level, basic, error, and warning information will be shown. At the `info` level, basic, error, warning, and additional information like method execution times and return values will be shown. At this time, the `debug` level doesn't display additional information. |
+| experiments.enabled | `true` |  Enables [A/B experiments in the Python extension](https://aka.ms/AAjvt9q). If enabled, you may be provided with proposed enhancements and/or features. |
 
 ## Code analysis settings
 
@@ -68,6 +70,8 @@ The language server settings apply when `python.languageServer` is `Pylance` or 
 | inlayHints.functionReturnTypes | false |  Whether to display inlay hints for function return types.  Accepted values are `true` or `false`. |
 | inlayHints.pytestParameters | false | Whether to display inlay hints for pytest fixture argument types. Accepted values are `true` or `false`. |
 | diagnosticSeverityOverrides | {} | Allows a user to override the severity levels for individual diagnostics. <br> For each rule, the available severity levels are `error` (red squiggle), `warning` (yellow squiggle), `information` (blue squiggle), and `none` (rule disabled). <br> For information about the keys to use for the diagnostic severity rules, see the **Diagnostic severity rules** section below. |
+| fixAll | `[]` | A list of code actions to run when running the **Fix All** command or the `source.fixAll` code action. <br> Accepted values in this list: <ul><li> `source.unusedImports`: removes all unused imports in the open file</li> <li> `source.convertImportFormat`: converts the imports according to the `python.analysis.importFormat` setting </li> |
+| logLevel | `Error` | Specifies the level of logging to be performed by the language server.<br> The possible levels of logging, in increasing level of information provided, are `Error`, `Warning`, `Information`, and `Trace`.|
 
 **Diagnostic severity rules**
 
@@ -132,14 +136,6 @@ This section details all the available rules that can be customized using the `p
 | reportUnsupportedDunderAll | Diagnostics for unsupported operations performed on `__all__`. |
 | reportUnusedCoroutine | Diagnostics for call expressions that return a Coroutine and whose results are not consumed. |
 
-#### Jedi Language Server
-
-The language server settings apply when `python.languageServer` is `Jedi`.
-| Setting | Default | Description |
-| --- | --- | --- |
-| jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
-| jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024 MB. -1 disables the memory limit check. |
-
 ## AutoComplete settings
 
 | Setting<br/>(python.autoComplete.) | Default | Description | See also |
@@ -157,13 +153,6 @@ The language server settings apply when `python.languageServer` is `Jedi`.
 | blackArgs| `[]` | Arguments for black, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
 | yapfPath | `"yapf"` | Path to yapf | [Editing - Formatting](/docs/python/editing.md#formatting) |
 | yapfArgs| `[]` | Arguments for yapf, where each top-level element that's separated by a space is a separate item in the list. | [Editing - Formatting](/docs/python/editing.md#formatting) |
-
-## Refactoring - Sort Imports settings
-
-| Setting<br/>(python.sortImports.) | Default | Description | See also |
-| --- | --- | --- | --- |
-| path | `""` | Path to isort script | [Editing - Refactoring - Sort Imports](/docs/python/editing.md#sort-imports) |
-| args | `[]` | Arguments for isort, each argument as a separate item in the array. | [Editing - Refactoring - Sort Imports](/docs/python/editing.md#sort-imports) |
 
 ## Linting settings
 
