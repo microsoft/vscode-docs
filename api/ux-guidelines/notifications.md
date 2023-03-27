@@ -72,4 +72,4 @@ When needing to display progress for an indeterminate timeframe (for example, se
 ## Links
 
 * [Hello World extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/helloworld-sample)
-* [Notification extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/notifications-sample)
+* [Notifications extension sample](https://github.com/microsoft/vscode-extension-samples/tree/main/notifications-sample)
