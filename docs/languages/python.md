@@ -33,9 +33,9 @@ To experience Python, create a file (using the [File Explorer](/docs/getstarted/
 print("Hello World")
 ```
 
-The Python extension then provides shortcuts to run Python code using the currently selected interpreter (**Python: Select Interpreter** in the Command Palette), just click the **Run Python File in Terminal** play button in the top-right side of the editor.
+The Python extension then provides shortcuts to run Python code using the currently selected interpreter (**Python: Select Interpreter** in the Command Palette). To run the active Python file, click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-![Using the run python file in terminal button](images/tutorial/run-python-file-in-terminal-button.png)
+![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
 You can also use the **Terminal: Create New Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
