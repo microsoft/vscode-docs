@@ -350,6 +350,12 @@ Find colors depend on the current find string in the Find/Replace dialog.
 - `editor.findMatchHighlightBorder`: Border color of the other search matches.
 - `editor.findRangeHighlightBorder`: Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
 
+Search colors are used in the search viewlet's global search results.
+
+![Search Results](images/theme-color/search-colors.png)
+
+- `search.resultsInfoForeground`: Color of the text in the search viewlet's completion message. For example, this color is used in the text that says "`{x} results in {y} files`".
+
 Search Editor colors highlight results in a Search Editor. This can be configured separately from other find matches in order to better differentiate between different classes of match in the same editor.
 
 ![Search Editor Matches](images/theme-color/searchEditorMatches.png)
