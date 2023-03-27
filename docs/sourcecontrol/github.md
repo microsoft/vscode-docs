@@ -193,7 +193,7 @@ One difference from working with a local repository is that when you commit a ch
 
 Another feature of the GitHub Repositories extension is that every time you open a repository or branch, you get the up-to-date sources available from GitHub. You don't need to remember to pull to refresh as you would with a local repository.
 
-The GitHub Repositories extension supports viewing and even committing LFS-tracked files without needing to install Git LFS locally. Simply add the file types you want tracked with LFS to a [`.gitattributes` file](https://git-lfs.com), then commit your changes directly to GitHub using the source control view.
+The GitHub Repositories extension supports viewing and even committing LFS-tracked files without needing to install [Git LFS](https://git-lfs.github.com) (Large File System) locally. Add the file types you want tracked with LFS to a [`.gitattributes` file](https://git-lfs.com), then commit your changes directly to GitHub using the Source Control view.
 
 ### Switching branches
 
