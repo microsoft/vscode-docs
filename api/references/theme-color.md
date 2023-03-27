@@ -891,7 +891,6 @@ The following customizations are available:
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 - `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
-- `welcomeOverlay.background`: welcomeOverlay Background color.
 
 ## Source Control colors
 
