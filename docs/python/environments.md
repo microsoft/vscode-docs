@@ -176,7 +176,7 @@ The selected interpreter version will show on the right side of the Status Bar.
 
 The Status Bar also reflects when no interpreter is selected.
 
-![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
+![Status bar showing no selected Python interpreter](images/environments/no-interpreter-selected-statusbar.png)
 
 In either case, clicking this area of the Status Bar is a convenient shortcut for the **Python: Select Interpreter** command.
 

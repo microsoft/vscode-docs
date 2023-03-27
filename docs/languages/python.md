@@ -86,25 +86,21 @@ Additionally, the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/py
 
 The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md).
 
-The current environment is shown on the left side of the VS Code Status Bar:
+The current environment is shown on the right side of the VS Code Status Bar:
 
-![Selected Python interpreter in the Status Bar](images/python/selected-interpreter-status-bar.png)
+![Status Bar showing a selected interpreter](images/environments/selected-interpreter-status-bar.png)
 
 The Status Bar also indicates if no interpreter is selected:
 
-![Status bar showing no selected Python interpreter](images/python/no-interpreter-selected-statusbar.png)
+![Status bar showing no selected Python interpreter](images/environments/no-interpreter-selected-statusbar.png)
 
-The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you run Python in a terminal.
+The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature. It is also activated when you run or debug Python in a terminal.
 
 To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the Status Bar or use the **Python: Select Interpreter** command.
 
 ![Python: Select Interpreter command](images/python/select-interpreters-command.png)
 
 VS Code prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Configuring Python environments](/docs/python/environments.md)).
-
-### Installing packages
-
-Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies. Examples are given in the [Python tutorial](/docs/python/python-tutorial.md#install-and-use-packages) as well as the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials.
 
 ## Jupyter notebooks
 
