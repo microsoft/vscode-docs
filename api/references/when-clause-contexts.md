@@ -18,9 +18,9 @@ For example, VS Code uses when clauses to enable or disable command keybindings,
 
 Above, the built-in **Start Debugging** command has the keyboard shortcut `kb(workbench.action.debug.start)`, which is only enabled when there is an appropriate debugger available (context key `debuggersAvailable` is true) and the editor isn't in debug mode (context key `inDebugMode` is false).
 
-## Composing when-clauses with operators
+## Conditional operators
 
-A when-clause can consist of a context key (for example, `inDebugMode`) or can use various operators to express more nuanced editor state.
+A when clause can consist of a context key (for example, `inDebugMode`) or can use various operators to express more nuanced editor state.
 
 ### Logical operators
 
@@ -81,7 +81,7 @@ There is a match operator (`=~`) for when clauses. The expression `key =~ regula
 
 Notes:
 
-- The right-hand side of the `=~` operator follows the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)), except characters need to follow escaping rules both of JSON strings and regular expressions. Hence, using a slash within the regular expression requires double escaping. For example, what is written as `/file:\/\//` in JavaScript needs to become `/file:\\/\\//` when used within a when clause.
+- The right-hand side of the `=~` operator follows the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)), except characters need to follow escaping rules both of JSON strings and regular expressions. Hence, using a slash within the regular expression requires double escaping. For example, what is written as `/file:\/\//` in JavaScript needs to become `/file:\\/\\//` when used within a when clause.
 - There does not exist an operator `!=~`, but you can negate the match expression - `!(foo =~ /baz/)`.
 
 #### Regular expression flags
@@ -94,7 +94,7 @@ Ignored flags: `g`, `y`. <!-- let's be more explicit with unsupported flags -->
 
 ### 'in' and 'not in' conditional operators
 
-The `in` operator for when-clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it. You can use the `not in` operator to check the opposite condition.
+The `in` operator for when clauses allows for a dynamic lookup of a context key's value within another context key's value. For example, if you wanted to add a context menu command to folders that contain a certain type of file (or something that can't be statically known), you can now use the `in` operator to achieve it. You can use the `not in` operator to check the opposite condition.
 
 Operator | Symbol | Example
 -------- | ------ | -----
@@ -284,7 +284,7 @@ View identifiers:
 
 ## Visible view container when clause context
 
-You can have a when-clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
+You can have a when clause that checks if a specific [View Container](/api/ux-guidelines/views#view-containers) is visible
 
 Context key     | True when
 --------------- | ------------
@@ -305,9 +305,9 @@ View container identifiers:
 * `terminal` - Integrated Terminal
 * `workbench.panel.comments` - Comments
 
-If you want a when-clause that is enabled only when a specific view container has focus, use `sideBarFocus` or `panelFocus` or `auxiliaryBarFocus` in combination with `activeViewlet` or `activePanel` or `activeAuxiliary` context keys.
+If you want a when clause that is enabled only when a specific view container has focus, use `sideBarFocus` or `panelFocus` or `auxiliaryBarFocus` in combination with `activeViewlet` or `activePanel` or `activeAuxiliary` context keys.
 
-For example, the when-clause below is true only when the File Explorer has focus:
+For example, the when clause below is true only when the File Explorer has focus:
 
 ```json
 "sideBarFocus && activeViewlet == 'workbench.view.explorer'"
@@ -315,13 +315,13 @@ For example, the when-clause below is true only when the File Explorer has focus
 
 ## Check a setting in a when clause
 
-In a when-clause, you can reference a configuration (setting) value by prefixing it with `config.`, for example `config.editor.tabCompletion` or `config.breadcrumbs.enabled`.
+In a when clause, you can reference a configuration (setting) value by prefixing it with `config.`, for example `config.editor.tabCompletion` or `config.breadcrumbs.enabled`.
 
 ## Add a custom when clause context
 
-If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views using a when-clause context and none of the existing keys suit your needs, you can add your own context key with the `setContext` command.
+If you are authoring your own VS Code extension and need to enable/disable commands, menus, or views using a when clause context and none of the existing keys suit your needs, you can add your own context key with the `setContext` command.
 
-The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a when-clause to check if the number of cool open things is greater than 2.
+The first example below sets the key `myExtension.showMyCommand` to true, which you can use in enablement of commands or with the `when` property. The second example stores a value that you could use with a when clause to check if the number of cool open things is greater than 2.
 
 ```js
 vscode.commands.executeCommand('setContext', 'myExtension.showMyCommand', true);
