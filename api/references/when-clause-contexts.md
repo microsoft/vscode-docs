@@ -81,7 +81,7 @@ There is a match operator (`=~`) for when clauses. The expression `key =~ regula
 
 Notes:
 
-- The right-hand side of the `=~` operator follows the same rules as JavaScript regular expression literals ([reference](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)), except characters need to follow escaping rules both of JSON strings and regular expressions. Hence, using a slash within the regular expression requires double escaping. For example, what is written as `/file:\/\//` in JavaScript needs to become `/file:\\/\\//` when used within a when clause.
+- The right-hand side of the `=~` operator follows the same rules as regular expression literals ([reference](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)) in JavaScript, except characters need to follow escaping rules both of JSON strings and regular expressions. For example, a regular expression literal to match a substring `file://` would be `/file:\/\//` in JavaScript but `/file:\\/\\//` in a when clause because a backslash needs to be escaped in a JSON string and a slash needs to be escaped in the regular expression pattern.
 - There does not exist an operator `!=~`, but you can negate the match expression - `!(foo =~ /baz/)`.
 
 #### Regular expression flags
