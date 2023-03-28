@@ -37,7 +37,11 @@ The Python extension then provides shortcuts to run Python code using the curren
 
 ![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
-You can also use the **Terminal: Create New Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, the line where your cursor is on focus will be run in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed.
+
+The Python extension automatically removes indents based on the first non-empty line of the selection, shifting all other lines left when needed.
+
+The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command, which activates a terminal with the currently selected interpreter and then runs the Python REPL.
 
 For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md#run-hello-world).
 
@@ -93,7 +97,7 @@ The Status Bar also indicates if no interpreter is selected:
 
 ![Status bar showing no selected Python interpreter](images/python/no-interpreter-selected-statusbar.png)
 
-The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature. It is also activated when you run or debug Python in a terminal.
+The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature. It is also activated when you run or debug Python in a terminal, or when you create a new terminal with the **Terminal: Create New Terminal** command.
 
 To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the Status Bar or use the **Python: Select Interpreter** command.
 
