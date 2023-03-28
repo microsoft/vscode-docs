@@ -522,7 +522,8 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
-- `editorGutter.commentGlyphForground`: Editor gutter decoration color for commenting glyphs.
+- `editorGutter.commentGlyphForeground`: Editor gutter decoration color for commenting glyphs.
+- `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 
 
