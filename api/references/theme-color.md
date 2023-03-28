@@ -840,6 +840,7 @@ The following customizations are available:
 - `terminal.findMatchBorder`: Border color of the current search match in the terminal.
 - `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.
 - `terminal.findMatchHighlightBorder`: Border color of the other search matches in the terminal.
+- `terminal.hoverHighlightBackground`: Color of the highlight when hovering a link in the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
