@@ -24,7 +24,7 @@ If the **Auto Attach** feature is enabled, the Node debugger automatically attac
 
 There are three modes for auto attach, which you can select in the resulting Quick Pick and via the **debug.javascript.autoAttachFilter** setting:
 
-* `smart` (default) - If you execute a script outside of your `node_modules` folder or use a common 'runner' script like mocha or ts-node, the process will be debugged. You can configure the 'runner' script allow list using the **Auto Attach Smart Pattern** setting (`debug.javascript.autoAttachSmartPattern`).
+* `smart` - If you execute a script outside of your `node_modules` folder or use a common 'runner' script like mocha or ts-node, the process will be debugged. You can configure the 'runner' script allow list using the **Auto Attach Smart Pattern** setting (`debug.javascript.autoAttachSmartPattern`).
 * `always` - All Node.js processes launched in the Integrated Terminal will be debugged.
 * `onlyWithFlag` - Only processes launched with the `--inspect` or `--inspect-brk` flag will be debugged.
 
