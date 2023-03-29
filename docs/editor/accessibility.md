@@ -94,7 +94,7 @@ The accessibility of colors is subjective to the type of anomalous trichromacy (
 
 One of the best approaches to selecting the best colors for a specific condition is to apply complementary colors. These are colors located opposite of one another on a color wheel.
 
-![A color wheel highlighting complementary colors for regular vision, deuteranopia, protanopia, tritanopia and monochromacy](images/accessibility/accessibility-color-wheels.png)
+![Color wheel highlighting complementary colors](images/accessibility/accessibility-color-wheels.png)
 
 >**Note**: For more information on finding complementary colors, go to [Adobe Color](https://color.adobe.com/create/color-accessibility) to access the color blind simulator and interactive color wheel.
 
@@ -102,9 +102,9 @@ One of the best approaches to selecting the best colors for a specific condition
 
 You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (for example 'git') to filter the list of commands.
 
-VS Code also has many preset keyboard shortcuts for commands.
+VS Code also has many preset keyboard shortcuts for commands. These are displayed to the right of the command in the **Command Palette**.
 
-![Keybindings for commands are displayed at the end of the command palette entry](images/accessibility/keyboard-shortcuts.png)
+![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) brings up the Keyboard Shortcuts editor where you can discover and modify keybindings for VS Code actions. See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
@@ -126,7 +126,7 @@ All elements in the workbench support tab navigation, but workbench toolbars and
 
 By default, pressing the `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your Indentation setting) and does not leave the open file. You can toggle the trapping of `kbstyle(Tab)` with `kb(editor.action.toggleTabFocusMode)` and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see an indicator in the Status Bar.
 
-![A Tab moves focus status bar item shows when the mode is active](images/accessibility/tab-moves-focus.png)
+![tab moves focus](images/accessibility/tab-moves-focus.png)
 
 You can also toggle `kbstyle(Tab)` trapping from the **Command Palette** (`kb(workbench.action.showCommands)`) with the **Toggle Tab Key Moves Focus** action.
 
@@ -146,15 +146,15 @@ The **Go to Next/Previous Difference** actions (`kb(editor.action.diffReview.nex
 
 ## Accessibility help
 
-You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code.
+You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code:
 
-![When triggered, a dialog will appear that explains how to enable screen reader mode explicitly, tab focus mode and other details](images/accessibility/status.png)
+![accessibility status](images/accessibility/status.png)
 
 ## Screen reader mode
 
 When VS Code detects that a screen reader is being used, it goes into screen reader optimized mode for the UI such as the editor and Integrated Terminal. The Status Bar displays **Screen Reader Optimized** in the lower right and you can exit screen reader mode by clicking on the display text.
 
-![Activating the screen reader optimized status bar will show a notification that allows disabling the mode](images/accessibility/screen-reader-mode.png)
+![screen reader optimized mode](images/accessibility/screen-reader-mode.png)
 
 Certain features such as folding and minimap (code overview) are disabled when in screen reader mode. You can control whether VS Code uses screen reader mode with the **Editor: Accessibility Support** setting (`editor.accessibilitySupport`) and the values are `on`, `off`, or the default `auto` to automatically detect a screen reader through querying the platform.
 
