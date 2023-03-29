@@ -53,8 +53,8 @@ Inequality | `!=`   | `"resourceExtname != .js"` or `"resourceExtname != '.js'"`
 
 Notes:
 
-- If the value on the right-hand side is a string containing whitespace, it must be wrapped in single-quotes - `"resourceFilename == 'My New File.md'"`.
-- `===` has the same behavior as `==`, and `!==` has the same behavior as `!=`
+* If the value on the right-hand side is a string containing whitespace, it must be wrapped in single-quotes - `"resourceFilename == 'My New File.md'"`.
+* `===` has the same behavior as `==`, and `!==` has the same behavior as `!=`
 
 ### Comparison operators
 
@@ -81,8 +81,8 @@ There is a match operator (`=~`) for when clauses. The expression `key =~ regula
 
 Notes:
 
-- The right-hand side of the `=~` operator follows the same rules as regular expression literals ([reference](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)) in JavaScript, except characters need to follow escaping rules both of JSON strings and regular expressions. For example, a regular expression literal to match a substring `file://` would be `/file:\/\//` in JavaScript but `/file:\\/\\//` in a when clause because a backslash needs to be escaped in a JSON string and a slash needs to be escaped in the regular expression pattern.
-- There does not exist an operator `!=~`, but you can negate the match expression - `!(foo =~ /baz/)`.
+* The right-hand side of the `=~` operator follows the same rules as regular expression literals ([reference](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions#creating_a_regular_expression)) in JavaScript, except characters need to follow escaping rules both of JSON strings and regular expressions. For example, a regular expression literal to match a substring `file://` would be `/file:\/\//` in JavaScript but `/file:\\/\\//` in a when clause because a backslash needs to be escaped in a JSON string and a slash needs to be escaped in the regular expression pattern.
+* There does not exist an operator `!=~`, but you can negate the match expression - `!(foo =~ /baz/)`.
 
 #### Regular expression flags
 
@@ -137,7 +137,7 @@ In that example, we are taking the value of `resourceFilename` (which is the nam
 
 Below are some of the available context keys, which evaluate to Boolean true/false.
 
-The list here isn't exhaustive and you can find other when clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts**) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**). You can also identify context keys you are interested in using the [Inspect Context Keys utility](#Inspect-Context-Keys-utility).
+The list here isn't exhaustive and you can find other when clause contexts by searching and filtering in the Keyboard Shortcuts editor (**Preferences: Open Keyboard Shortcuts**) or reviewing the Default Keybindings JSON file (**Preferences: Open Default Keyboard Shortcuts (JSON)**). You can also identify context keys you are interested in using the [Inspect Context Keys utility](#inspect-context-keys-utility).
 
 Context name | True when
 ------------ | ------------
