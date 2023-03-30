@@ -115,7 +115,6 @@ You can prepend your chat inputs with a specific topic name to help Copilot give
 
 ![Copilot slash command list in chat](images/artificial-intelligence/slash-commands.png)
 
-* /debug: Look for common bugs in the selected code.
 * /explain: Explain step-by-step how the selected code works.
 * /fix: Propose a fix for the bugs in the selected code.
 * /help: Prints general help about GitHub Copilot.
@@ -133,7 +132,7 @@ In any file, you can press `kb(interactiveEditor.start)` on your keyboard to bri
 
 ![Copilot inline chat in devcontainer.json file](images/artificial-intelligence/inline-chat.png)
 
-You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" [Slash commands](#slash-commands) also work in inline chat.
+You can ask Copilot questions that emerge as you write and iterate on code, such as "Explain this piece of code" or "How do I add functionality to do X?" Several [slash commands](#slash-commands) also work in inline chat.
 
 ## Additional resources
 
