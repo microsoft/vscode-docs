@@ -4,7 +4,7 @@ Area: sourcecontrol
 TOCTitle: Collaborate on GitHub
 ContentId: bd1be8cf-b745-4737-be48-db381ec3acc6
 PageTitle: Collaborate on GitHub
-DateApproved: 3/1/2023
+DateApproved: 3/30/2023
 MetaDescription: Working with GitHub Pull Requests and Issues in Visual Studio Code
 ---
 # Working with GitHub in VS Code
@@ -192,6 +192,8 @@ Once you have selected a repository or Pull Request, the VS Code window will rel
 One difference from working with a local repository is that when you commit a change with the GitHub Repository extension, the changes are pushed directly to the remote repository, similar to if you were working in the GitHub web interface.
 
 Another feature of the GitHub Repositories extension is that every time you open a repository or branch, you get the up-to-date sources available from GitHub. You don't need to remember to pull to refresh as you would with a local repository.
+
+The GitHub Repositories extension supports viewing and even committing LFS-tracked files without needing to install [Git LFS](https://git-lfs.github.com) (Large File System) locally. Add the file types you want tracked with LFS to a [`.gitattributes` file](https://git-lfs.com), then commit your changes directly to GitHub using the Source Control view.
 
 ### Switching branches
 

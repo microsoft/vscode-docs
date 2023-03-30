@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
-DateApproved: 3/1/2023
+DateApproved: 3/30/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Theme Color reference that lists all themable colors in Visual Studio Code.
@@ -350,6 +350,12 @@ Find colors depend on the current find string in the Find/Replace dialog.
 - `editor.findMatchHighlightBorder`: Border color of the other search matches.
 - `editor.findRangeHighlightBorder`: Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
 
+Search colors are used in the search viewlet's global search results.
+
+![Search Results](images/theme-color/search-colors.png)
+
+- `search.resultsInfoForeground`: Color of the text in the search viewlet's completion message. For example, this color is used in the text that says "`{x} results in {y} files`".
+
 Search Editor colors highlight results in a Search Editor. This can be configured separately from other find matches in order to better differentiate between different classes of match in the same editor.
 
 ![Search Editor Matches](images/theme-color/searchEditorMatches.png)
@@ -516,7 +522,8 @@ The gutter contains the glyph margins and the line numbers:
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
 - `editorGutter.commentRangeForeground`: Editor gutter decoration color for commenting ranges.
-- `editorGutter.commentGlyphForground`: Editor gutter decoration color for commenting glyphs.
+- `editorGutter.commentGlyphForeground`: Editor gutter decoration color for commenting glyphs.
+- `editorGutter.commentUnresolvedGlyphForeground`: Editor gutter decoration color for commenting glyphs for unresolved comment threads.
 - `editorGutter.foldingControlForeground`: Color of the folding control in the editor gutter.
 
 
@@ -834,6 +841,7 @@ The following customizations are available:
 - `terminal.findMatchBorder`: Border color of the current search match in the terminal.
 - `terminal.findMatchHighlightBackground`: Color of the other search matches in the terminal. The color must not be opaque so as not to hide underlying terminal content.
 - `terminal.findMatchHighlightBorder`: Border color of the other search matches in the terminal.
+- `terminal.hoverHighlightBackground`: Color of the highlight when hovering a link in the terminal.
 - `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `terminalCursor.foreground`: The foreground color of the terminal cursor.
 - `terminal.dropBackground`: The background color when dragging on top of terminals. The color should have transparency so that the terminal contents can still shine through.
@@ -891,7 +899,6 @@ The following customizations are available:
 
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 - `walkthrough.stepTitle.foreground`: Foreground color of the heading of each walkthrough step.
-- `welcomeOverlay.background`: welcomeOverlay Background color.
 
 ## Source Control colors
 
