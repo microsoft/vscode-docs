@@ -53,7 +53,7 @@ No need to express your intentions to Copilot using a comment or an overly descr
 
 ## Embracing the Chat view
 
-As the excitement around ChatGPT grew, so did the number of internal and external extensions with custom Chat views. We worried that these would not scale, it's hard to support the basics like key bindings and themes in a web view, and for those using the Monaco editor for code blocks, it is very hard to scale to hundreds of instances, not to mention there is no extension support in those editor instances. As a result, we partnered closely with the GitHub Copilot team to build a Chat View into the core of VS Code.
+As the excitement around ChatGPT grew, so did the number of internal and external extensions with custom Chat views. We worried that these would not scale, it's hard to support the basics like key bindings and themes in a web view, and for those using the Monaco editor for code blocks, it is very hard to scale to hundreds of instances, not to mention there is no extension support in those editor instances. As a result, we partnered closely with the GitHub Copilot team to build a Chat view into the core of VS Code.
 
 Over time and despite our initial hesitation, the full Chat view experience started to win us over. I mean, who doesn't want to start off their day with a greeting like this?
 
