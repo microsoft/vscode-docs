@@ -11,11 +11,9 @@ Author: Chris Dias
 
 March 30, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-## TL&DR
-
 **AI did not write this blog post, but it will make your development experiences incredible.**
 
-There is a lot of buzz, excitement, and some concerns around Artificial Intelligence today. Advancements are happening almost daily, it's hard to keep up. But, if you cut through all the noise and give it a try even with ChatGPT, you quickly realize what more than a million Copilot users see daily, that this technology does not disappoint, especially with Large Language Models (LLMs) like OpenAI's GPT-3.5/4.
+There is a lot of buzz, excitement, and some concerns around Artificial Intelligence today. Advancements are happening almost daily, it's hard to keep up. But, if you cut through all the noise and give it a try with ChatGPT, you quickly realize what more than a million Copilot users see daily, that this technology does not disappoint, especially with Large Language Models (LLMs) like OpenAI's GPT-3.5/4.
 
 In this post, we want to give a little background on AI in VS Code, show you some exciting new experiences powered by GitHub Copilot, and give a peek into where and how we see things going forward.
 
@@ -35,7 +33,7 @@ It turns out, this was just the beginning.
 
 ## In-Editor Chat
 
-We knew it was just a matter of time before AI permeated the development process. We had been working with the GitHub Next team on Copilot and the [Copilot Labs extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs), but the release of ChatGPT back in November 2022 significantly accelerated the timetable.
+We knew it was just a matter of time before AI permeated the development process. We had been working with the GitHub Next team on Copilot and the [Copilot Labs extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs), but the release of ChatGPT in November 2022 significantly accelerated the timetable.
 
 The VS Code team had an internal hackathon to explore how to could integrate AI into VS Code more deeply and came up with many cool ideas such as improved renaming and refactorings, code transformations based on examples, and ways to create file glob patterns or regex expressions using natural language.
 
@@ -63,7 +61,7 @@ Over time and despite our initial reluctance, the full Chat view experience star
 
 We started to realize more and more benefits of a Chat view.
 
-The most obvious value of an integrated experience over a browser-based chat is that we can provide context to the model, helping to ground the conversation and provide better answers. For example, you can't easily ask the browser-based ChatGPT to optimize code that spans multiple files. VS Code already knows a lot about the workspace; this is how you can do refactorings across files, **Find All References**, **Go to Definition**, and more. Key information can be responsibly embedded in the prompt and given to the model so that it can give more relevant answers, ultimately letting you ask Copilot to optimize or refactor code that has dependencies across multiple files.
+The most obvious value of an integrated experience over a browser-based chat is that we can provide context to the model, helping to ground the conversation and provide better answers. For example, you can't easily ask the browser-based ChatGPT to optimize code that spans multiple files. VS Code already knows a lot about the workspace; this is how you can do refactorings across files, **Find All References**, **Go to Definition**, and more. Key information can be responsibly embedded in the prompt so that the model can give more relevant answers, ultimately letting you ask Copilot to optimize or refactor code that has dependencies across multiple files.
 
 Answers to many programming questions often include multiple steps. Think about how some blog posts walk you through a process, a Chat view is well suited for this type of interaction. A great example is debugging. If we're being honest (we are), it isn't easy to configure `launch.json` and `tasks.json` for debugging. Instead of us writing more documentation or adding dialogs and wizardry to the editor, it turns out you can simply ask "Please add debugging support" that in turn tells you how to open the Debug view, create a `launch.json`, and so on, until you are hitting break points and inspecting variables.
 
@@ -79,12 +77,12 @@ Naming is hard. We should know, our product is called "Code". However, "GitHub C
 
 So, if you think of yourself as the Pilot of VS Code and GitHub Copilot as…well…the Copilot, you start to get a sense of how to think about the service and ways to interact with it to get the most from your seatmate.
 
-* We can't repeat this enough: As the Pilot, remember you are in charge. You decide which suggestions to take and what code is integrated into your workspace.
+* We can't repeat this enough: As the Pilot, you are in charge. You decide which suggestions to take and what code is integrated into your workspace.
 * Copilot's primary job is to assist you, taking care of mundane or repetitive tasks. Let it write test cases, craft sample data, or scaffold out code based on existing patterns.
-* Copilot can do more with more context. We're all accustomed to quick keyword-based web searches, but the more details you provide, the better results you will get. For example, instead of "Node Express TypeScript", ask Copilot to "scaffold out a Node.js website using the Express.js framework using TypeScript".
-* You can scope interactions to specific topics by pressing `/` in the Chat input field. For example, to learn how to change VS Code's theme, type in `/vscode change to dark theme`
+* Copilot can do more with more context. We're all accustomed to quick keyword-based web searches, but the more details you provide, the better results you will get. For example, instead of "Node Express TypeScript", ask Copilot to "scaffold out a Node.js website using the Express.js framework using TypeScript" and then iterate!
+* You can scope interactions to specific topics by pressing `/` in the Chat input field. For example, to learn how to turn on or off breadcrumbs in the editor, type in `/vscode Turn off breadcrumbs`.
 
- ![Asking Copilot how to change to the VS Code dark theme ](change-to-dark-theme.png)
+ ![Asking Copilot how to turn off VS Code breadcrumbs in the editor](turn-off-breadcrumbs.png)
 
 * You can also use topics as shortcuts. Instead of typing "explain this code" in the inline chat, simply type "/" + `kbstyle(Tab)` (a shortcut to `/explain`) and hit `kbstyle(Enter)`. The Chat view will open with an explanation of the selected code.
 * Know that Copilot isn't perfect and will give wrong answers. Ask clarifying questions to help decide which are right, which are wrong, and use the **Up/Down** vote buttons to help us improve the experience.
@@ -92,11 +90,11 @@ So, if you think of yourself as the Pilot of VS Code and GitHub Copilot as…wel
 
 ## Getting started today
 
-To see Copilot in action and get more tips on how to get the most out of Copilot, [check out this awesome video](LINK TO BURKE'S VIDEO).
+To see Copilot in action and get more tips on how to get the most out of Copilot, [check out this awesome video](https://youtu.be/gDJzr9DBKTI).
 
 The inline completions experience discussed above is available today. If you don't have Copilot through your organization, you can sign up [here](https://github.com/features/copilot) and start a free trial. From there:
 
-* Open VS Code (even better, use [VS Code Insiders](https://code.visualstudio.com/insiders/)).
+* Open VS Code (even better, use [Insiders](https://code.visualstudio.com/insiders/)).
 * Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot and install the extension.
 * When prompted, authenticate with your GitHub ID.
 * Open a code file and let the magic happen!
