@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 3/1/2023
+DateApproved: 3/30/2023
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -938,8 +938,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Keep peek editors open even when double-clicking their content or when hitting `Escape`.
     "editor.stablePeek": false,
 
-	// Defines the model to use for determining which lines to stick. If the outline model does not exist, it will fall back on the folding provider model which falls back on the indentation model. This order is respected in all three cases.
-	"editor.stickyScroll.defaultModel": "outlineModel",
+    // Defines the model to use for determining which lines to stick. If the outline model does not exist, it will fall back on the folding provider model which falls back on the indentation model. This order is respected in all three cases.
+    "editor.stickyScroll.defaultModel": "outlineModel",
 
     // Shows the nested current scopes during the scroll at the top of the editor.
     "editor.stickyScroll.enabled": false,
@@ -1867,8 +1867,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the font size (in pixels) of the screencast mode keyboard.
     "screencastMode.fontSize": 56,
 
-	// Hide the single editor cursor move commands in screencast mode.
-	"screencastMode.hideSingleEditorCursorMoves": false,
+    // Hide the single editor cursor move commands in screencast mode.
+    "screencastMode.hideSingleEditorCursorMoves": false,
 
     // Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.
     "screencastMode.keyboardOverlayTimeout": 800,
@@ -3356,8 +3356,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Settings for code editors used in notebooks. This can be used to customize most editor.* settings.
     "notebook.editorOptionsCustomizations": {},
 
-	// Format a notebook on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
-	"notebook.formatOnSave.enabled": false,
+    // Format a notebook on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
+    "notebook.formatOnSave.enabled": false,
 
     // Control whether to render a global toolbar inside the notebook editor.
     "notebook.globalToolbar": true,
@@ -3384,26 +3384,26 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled notebook outline shows code cells.
     "notebook.outline.showCodeCells": false,
 
-	// The font family of the output text within notebook cells. When set to empty, the `editor.fontFamily` is used.
-	"notebook.output.fontFamily": "",
+    // The font family of the output text within notebook cells. When set to empty, the `editor.fontFamily` is used.
+    "notebook.output.fontFamily": "",
 
-	// Font size for the output text within notebook cells. When set to 0, `editor.fontSize` is used.
-	"notebook.output.fontSize": 0,
+    // Font size for the output text within notebook cells. When set to 0, `editor.fontSize` is used.
+    "notebook.output.fontSize": 0,
 
-	// Line height of the output text within notebook cells.
+    // Line height of the output text within notebook cells.
     //  - When set to 0, editor line height is used.
     //  - Values between 0 and 8 will be used as a multiplier with the font size.
     //  - Values greater than or equal to 8 will be used as effective values.
-	"notebook.output.lineHeight": 0,
+    "notebook.output.lineHeight": 0,
 
-	// Use a scrollable region for notebook output when longer than the limit.
-	"notebook.output.scrolling": true,
+    // Use a scrollable region for notebook output when longer than the limit.
+    "notebook.output.scrolling": true,
 
-	// Controls how many lines of text are displayed in a text output.
-	"notebook.output.textLineLimit": 30,
+    // Controls how many lines of text are displayed in a text output.
+    "notebook.output.textLineLimit": 30,
 
-	// Controls whether the lines in output should wrap.
-	"notebook.output.wordWrap": false,
+    // Controls whether the lines in output should wrap.
+    "notebook.output.wordWrap": false,
 
     // Whether the cell status bar should be shown.
     //  - hidden: The cell Status bar is always hidden.
@@ -3498,7 +3498,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls the width of the cursor when `terminal.integrated.cursorStyle` is set to `line`.
     "terminal.integrated.cursorWidth": 1,
 
-	// Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work when `terminal.integrated.gpuAcceleration` is disabled.
+    // Whether to draw custom glyphs for block element and box drawing characters instead of using the font, which typically yields better rendering with continuous lines. Note that this doesn't work when `terminal.integrated.gpuAcceleration` is disabled.
     "terminal.integrated.customGlyphs": true,
 
     // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
@@ -3693,8 +3693,8 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - inherited: On macOS and Linux, a new split terminal will use the working directory of the parent terminal. On Windows, this behaves the same as initial.
     "terminal.integrated.splitCwd": "inherited",
 
-	// Controls whether the terminal receives tabs or defers them to the workbench for navigation. When set, this overrides `editor.tabFocusMode` when the terminal is focused.
-	"terminal.integrated.tabFocusMode": null,
+    // Controls whether the terminal receives tabs or defers them to the workbench for navigation. When set, this overrides `editor.tabFocusMode` when the terminal is focused.
+    "terminal.integrated.tabFocusMode": null,
 
     // A theme color ID to associate with terminal icons by default.
     "terminal.integrated.tabs.defaultColor": null,
@@ -3778,7 +3778,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "terminal.integrated.windowsEnableConpty": true,
 
     // A string containing all characters to be considered word separators by the double-click to select word feature.
-	"terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’|",
+    "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’|",
 
 // Tasks
 
