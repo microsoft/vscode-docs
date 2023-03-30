@@ -43,6 +43,7 @@ Here are the guides on the VS Code website, including their usage of the [VS Cod
 | [Markdown Extension](https://code.visualstudio.com/api/extension-guides/markdown-extension) | markdown.previewStyles<br>markdown.markdownItPlugins<br>markdown.previewScripts |
 | [Test Extension](https://code.visualstudio.com/api/extension-guides/testing) | [TestController](https://code.visualstudio.com/api/references/vscode-api#TestController)<br>[TestItem](https://code.visualstudio.com/api/references/vscode-api#TestItem) |
 | [Custom Data Extension](https://code.visualstudio.com/api/extension-guides/custom-data-extension) | contributes.html.customData<br>contributes.css.customData |
+<br>
 
 Here is a list of additional samples from the [VS Code Extensions samples repo](https://github.com/microsoft/vscode-extension-samples).
 
@@ -75,4 +76,5 @@ These samples are [Language Extensions](/api/language-extensions/overview) sampl
 | [Language Configuration Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/language-configuration-sample) | [/api/language-extensions/language-configuration-guide](https://code.visualstudio.com/api/language-extensions/language-configuration-guide)       | [contributes.languages](https://code.visualstudio.com/api/references/contribution-points#contributes.languages) |
 | [LSP Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-sample)                                       | [/api/language-extensions/language-server-extension-guide](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide) |  |
 | [LSP Log Streaming Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-log-streaming-sample)           | N/A                                                                                                                                               |  |
-| [LSP Multi Root Server Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-multi-server-sample)        | https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs#language-client--language-server                                      |  |
+| [LSP Multi Root Server Sample](https://github.com/microsoft/vscode-extension-samples/tree/main/lsp-multi-server-sample)        | [https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs#language-client--language-server](https://github.com/microsoft/vscode/wiki/Adopting-Multi-Root-Workspace-APIs#language-client--language-server) (GitHub repo wiki)                                     |  |
+| [LSP Web Extension Sample](https://github.com/Microsoft/vscode-extension-samples/tree/main/lsp-web-extension-sample) | [/api/language-extensions/language-server-extension-guide](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide) |  |

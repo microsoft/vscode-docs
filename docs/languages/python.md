@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 10/8/2021
+DateApproved: 3/22/2023
 MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, linting).
 ---
 # Python in Visual Studio Code
@@ -33,14 +33,17 @@ To experience Python, create a file (using the [File Explorer](/docs/getstarted/
 print("Hello World")
 ```
 
-The Python extension then provides shortcuts to run Python code in the currently selected interpreter (**Python: Select Interpreter** in the Command Palette):
+The Python extension then provides shortcuts to run Python code using the currently selected interpreter (**Python: Select Interpreter** in the Command Palette). To run the active Python file, click the **Run Python File in Terminal** play button in the top-right side of the editor.
 
-- In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
-- In Explorer: right-click a Python file and select **Run Python File in Terminal**.
+![Using the run python file in terminal button](images/python/run-python-file-in-terminal-button.png)
 
-You can also use the **Terminal: Create New Terminal** command to create a terminal in which VS Code automatically activates the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+You can also run individual lines or a selection of code with the **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`). If there isn't a selection, the line with your cursor will be run in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is available on the context menu for a selection in the editor. The same terminal will be used every time you run a selection or a line in the terminal/REPL, until that terminal is closed.
 
-For a more specific walkthrough on running code, see the [tutorial](/docs/python/python-tutorial.md).
+The Python extension automatically removes indents based on the first non-empty line of the selection, shifting all other lines left as needed.
+
+The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command that activates a terminal with the currently selected interpreter and then runs the Python REPL.
+
+For a more specific walkthrough and other ways of running code, see the [run code tutorial](/docs/python/python-tutorial.md#run-hello-world).
 
 ## Autocomplete and IntelliSense
 
@@ -86,15 +89,15 @@ Additionally, the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/py
 
 The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md).
 
-The current environment is shown on the left side of the VS Code Status Bar:
+The current environment is shown on the right side of the VS Code Status Bar:
 
-![Selected Python interpreter in the Status Bar](images/python/selected-interpreter-status-bar.png)
+![Status Bar showing a selected interpreter](images/python/selected-interpreter-status-bar.png)
 
 The Status Bar also indicates if no interpreter is selected:
 
 ![Status bar showing no selected Python interpreter](images/python/no-interpreter-selected-statusbar.png)
 
-The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you run Python in a terminal.
+The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature. It is also activated when you run or debug Python in a terminal, or when you create a new terminal with the **Terminal: Create New Terminal** command.
 
 To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the Status Bar or use the **Python: Select Interpreter** command.
 
@@ -102,13 +105,9 @@ To change the current interpreter, which includes switching to conda or virtual 
 
 VS Code prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Configuring Python environments](/docs/python/environments.md)).
 
-### Installing packages
-
-Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies. Examples are given in the [Python tutorial](/docs/python/python-tutorial.md#install-and-use-packages) as well as the [Django](/docs/python/tutorial-django.md) and [Flask](/docs/python/tutorial-flask.md) tutorials.
-
 ## Jupyter notebooks
 
-To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python and the Jupyter extensions work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
+To enable Python support for [Jupyter notebook](https://jupyter.org/) files (`.ipynb`) in VS Code, you can install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). The Python and Jupyter extensions work together to give you a great Notebook experience in VS Code, providing you the ability to directly view and modify code cells with IntelliSense support, as well as run and debug them.
 
 ![Jupyter notebook running in VS code in the Notebook Editor](images/python/native-jupyter.png)
 

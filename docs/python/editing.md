@@ -106,18 +106,6 @@ The import suggestions list is ordered with import statements for packages (or m
 
 Just like with auto imports, only top-levels symbols are suggested by default. You can customize this behavior through the `python.analysis.packageIndexDepths` setting.
 
-## Run Selection/Line in Terminal (REPL)
-
-The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
-
-VS Code automatically removes indents based on the first non-empty line of the selection, shifting all other lines left when needed.
-
-Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
-
-The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. (Initial startup might take a few moments especially if the first statement you run is an `import`.)
-
-On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line isn't run. If you come across this behavior, try the command again when the REPL has finished loading.
-
 ## Formatting
 
 Formatting makes code easier to read by human beings. It applies specific rules and conventions for line spacing, indents, spacing around operators, and so on. You can view an example on the [autopep8](https://pypi.org/project/autopep8/) page. Keep in mind, formatting doesn't affect the functionality of the code itself.
@@ -156,10 +144,10 @@ In the second example, the top-level element `{based_on_style: chromium, indent_
 
 If formatting fails, check the following possible causes:
 
-| Cause | Solution |
+| Problem | Solution |
 | --- | --- |
-| The path to the python interpreter is incorrect. | Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
-| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selected interpreter is, and run `pip install` for the formatter.
+| The formatter is not installed in the current environment. |Open a command prompt, navigate to the location where your selected interpreter is, and run `pip install` for the formatter.|
+| The formatter is installed in an environment but a notification is displayed saying it still needs to be installed. | You might have the wrong Python interpreter selected in your workspace. Make sure you selected a valid interpreter path by running the **Python: Select Interpreter** command. |
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual top-level argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"]`. |
 | Pop up with warning message `Black does not support the "Format Select" command.` | `black` does not support formatting sections of code, it can be prevented with the following settings `"[python]": {"editor.formatOnPaste": false, "editor.formatOnSaveMode": "file"}`.|
@@ -198,7 +186,7 @@ To customize which references need to be updated, you can toggle the checkboxes 
 
 The Python extension supports extensions such as [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) and [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) that implement the **Sort Imports** functionality. This command consolidates specific imports from the same module into a single `import` statement,  and organizes `import` statements in alphabetical order.
 
-You can invoke this by opening the Command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
+You can invoke this by installing an extension that supports sorting imports, then opening the Command Palette (`kb(workbench.action.showCommands)`) and running **Organize Imports**.
 
 > **Tip**: you can assign a keyboard shortcut to the `editor.action.organizeImports` command.
 

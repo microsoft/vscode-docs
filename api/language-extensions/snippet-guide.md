@@ -30,8 +30,6 @@ The [Creating snippets](https://code.visualstudio.com/docs/editor/userdefinedsni
 }
 ```
 
-You can find the complete source code at: [https://github.com/microsoft/vscode-extension-samples/tree/main/snippet-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/snippet-sample).
-
 **Tip**: Tag your extension as a snippet extension with the following config in your `package.json`:
 
 ```json
@@ -39,6 +37,8 @@ You can find the complete source code at: [https://github.com/microsoft/vscode-e
   "categories": ["Snippets"]
 }
 ```
+
+You can find the complete source code at: [https://github.com/microsoft/vscode-extension-samples/tree/main/snippet-sample](https://github.com/microsoft/vscode-extension-samples/tree/main/snippet-sample).
 
 ## Using TextMate snippets
 

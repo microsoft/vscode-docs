@@ -126,8 +126,6 @@ export class NodeDependenciesProvider implements vscode.TreeDataProvider<Depende
      */
     private getDepsInPackageJson(packageJsonPath: string): Dependency[] {
         if (this.pathExists(packageJsonPath)) {
-            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-
             const toDep = (moduleName: string, version: string): Dependency => {
                 if (this.pathExists(path.join(this.workspaceRoot, 'node_modules', moduleName))) {
                     return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.Collapsed);
@@ -135,6 +133,8 @@ export class NodeDependenciesProvider implements vscode.TreeDataProvider<Depende
                     return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None);
                 }
             };
+
+            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
 
             const deps = packageJson.dependencies
                 ? Object.keys(packageJson.dependencies).map(dep => toDep(dep, packageJson.dependencies[dep]))
