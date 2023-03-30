@@ -13,7 +13,7 @@ March 30, 2023 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 **AI did not write this blog post, but it will make your development experiences incredible.**
 
-There is a lot of buzz, excitement, and some concerns around Artificial Intelligence today. Advancements are happening almost daily, it's hard to keep up. But, if you cut through all the noise and give it a try with ChatGPT, you quickly realize what more than a million Copilot users see daily, that this technology does not disappoint, especially with Large Language Models (LLMs) like OpenAI's GPT-3.5/4.
+There is a lot of buzz, excitement, and some concerns around Artificial Intelligence today. Advancements are happening almost daily, it's hard to keep up. But once you give it a try, you quickly realize what more than a million Copilot users see daily, that this technology does not disappoint, especially with Large Language Models (LLMs) like OpenAI's GPT-3.5/4.
 
 In this post, we want to give a little background on AI in VS Code, show you some exciting new experiences powered by GitHub Copilot, and give a peek into where and how we see things going forward.
 
