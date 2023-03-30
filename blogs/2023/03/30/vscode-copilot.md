@@ -45,7 +45,7 @@ One exploration we did find interesting, involved building Chat directly into th
 
 As we iterated on the design, we realized this user model has advantages. It's easily invoked from the keyboard, you stay in your code, and the output is code (and only code).
 
-In the example below, we first selected the `users` array and then pressed `kbstyle(Cmd+I)` on macOS (or `kbstyle(Ctrl+I)` on Windows/Linux) to bring up the Chat input. We then asked Copilot to split the `username` field into both `firstName` and `lastName`, and last we clicked on the `6 changes` link to see the changes Copilot made as an inline diff.
+In the example below, we first selected the `users` array and then pressed `kbstyle(Cmd+I)` on macOS (or `kbstyle(Ctrl+I)` on Windows/Linux) to bring up the Chat input. We then asked Copilot to split the `username` field into both `firstName` and `lastName`, and last we clicked on **Inline Diff** to see the changes Copilot made.
 
 ![Inline change with preview of update](inline-chat-preview.png)
 
