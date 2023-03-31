@@ -22,6 +22,23 @@ To open the terminal:
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
+## Opening terminals from the Explorer
+
+You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
+
+![Open in Integrated Terminal command in the Explorer context menu](images/basics/open-in-terminal-command.png)
+
+By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
+
+The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+J T)` for `openInTerminal`.
+
+```json
+{
+  "key": "ctrl+j t",
+  "command": "openInTerminal"
+}
+```
+
 ## Terminal shells
 
 The integrated terminal can use various shells installed on your machine, with the default being pulled from your system defaults. Shells are detected and presented in the terminal profiles dropdown.
@@ -57,7 +74,7 @@ Multiple terminals can be placed side-by-side are called a group and are created
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
+Dragging and dropping tabs in the list rearranges them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
 
 Moving a terminal into its own group can be done with the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
@@ -111,7 +128,7 @@ There are several built-in link handlers that are used in the following priority
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
+* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
@@ -321,6 +338,10 @@ The basics of the terminal have been covered in this document. Read on to find o
 
 There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
 
+### How do I create an Admin terminal?
+
+The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
 nvm (Node Version Manager) users often see this error for the first time inside VS Code's integrated terminal:
@@ -407,10 +428,10 @@ The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle
 
 ```json
 {
-	"key": "cmd+.",
-	"command": "workbench.action.terminal.sendSequence",
-	"when": "terminalFocus",
-	"args": { "text": "\u0003" }
+  "key": "cmd+.",
+  "command": "workbench.action.terminal.sendSequence",
+  "when": "terminalFocus",
+  "args": { "text": "\u0003" }
 }
 ```
 
