@@ -17,27 +17,11 @@ To open the terminal:
 * Use the `kb(workbench.action.terminal.new)` keyboard shortcut to create a new terminal.
 * Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
+* Open a new terminal from a folder in the Explorer via the **Open in Integrated Terminal** context menu command.
 
 ![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
 > **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
-
-## Opening terminals from the Explorer
-
-You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
-
-![Open in Integrated Terminal command in the Explorer context menu](images/basics/open-in-terminal-command.png)
-
-By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
-
-The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+J T)` for `openInTerminal`.
-
-```json
-{
-  "key": "ctrl+j t",
-  "command": "openInTerminal"
-}
-```
 
 ## Terminal shells
 
@@ -341,6 +325,26 @@ There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-termin
 ### How do I create an Admin terminal?
 
 The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+
+You can learn more about customizing terminals via terminal profiles in [Configuring Profiles](/docs/terminal/profiles.md#configuring-profiles).
+
+### Can I add a keyboard shortcut for the Open in Integrated Terminal command?
+
+You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
+
+![A folder selected in the Explorer displaying the context menu with the Open in Integrated Terminal command](images/basics/open-in-terminal-command.png)
+
+By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
+
+The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+T)` for `openInTerminal`.
+
+```json
+{
+  "key": "ctrl+t",
+  "command": "openInTerminal",
+  "when": "filesExplorerFocus"
+}
+```
 
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
