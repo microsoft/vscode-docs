@@ -105,7 +105,7 @@ Today, access to the chat experiences (in-editor and Chat view), you'll need to 
 * Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot Nightly and install the extension.
 * When prompted, authenticate with your GitHub ID.
 * To open the in-editor Chat, optionally select a block of code and press `kbstyle(Cmd+I)` on macOS or `kbstyle(Ctrl+I)` on Windows/Linux. Ask Copilot to write a Quick Sort function.
-* A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask what the airspeed velocity is of an unladen swallow.
+* A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask Copilot to "write a program to calculate the airspeed velocity of an unladen swallow".
 
 ## Responsible AI
 
