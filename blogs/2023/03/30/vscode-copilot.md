@@ -61,9 +61,9 @@ Over time and despite our initial hesitation, the full Chat view experience star
 
 We started to realize more and more benefits of a Chat view.
 
-The most obvious value of an integrated experience over a browser-based chat is that we can provide context to the model, helping to ground the conversation and provide better answers. For example, you can't easily ask the browser-based ChatGPT to optimize code that spans multiple files. VS Code already knows a lot about the workspace; this is how you can do refactorings across files, **Find All References**, **Go to Definition**, and more. Key information can be responsibly embedded in the prompt so that the model can give more relevant answers, ultimately letting you ask Copilot to optimize or refactor code that has dependencies across multiple files.
+The most obvious value of an integrated experience over a browser-based chat is that we can provide context to the model, helping to ground the conversation and provide better answers. For example, you can't easily ask the browser-based ChatGPT to optimize code that spans multiple files. VS Code already knows a lot about the workspace as this is how you can do refactorings across files, **Find All References**, **Go to Definition**, and more. Key information can be responsibly embedded in the prompt so that the model can give more relevant answers, ultimately letting you ask Copilot to optimize or refactor code that has dependencies across multiple files.
 
-Answers to many programming questions often include multiple steps. Think about how some blog posts walk you through a process, a Chat view is well suited for this type of interaction. A great example is debugging. If we're being honest (we are), it isn't easy to configure `launch.json` and `tasks.json` for debugging. Instead of us writing more documentation or adding dialogs and wizardry to the editor, it turns out you can simply ask "Please add debugging support" that in turn tells you how to open the Debug view, create a `launch.json`, and so on, until you are hitting break points and inspecting variables.
+Answers to many programming questions often include multiple steps. Think about how many blog posts walk you through a process - a Chat View is well suited for this type of interaction. A great example is debugging. If we’re being honest (and we are), it isn’t easy to configure `launch.json` and `tasks.json` for debugging. Instead of us writing more documentation or adding dialogs and wizardry to the editor, it turns out you can simply ask "/vscode add a `launch.json` and a `tasks.json`" which then provides instructions on how to create the files, content to add, and so on, until you are hitting break points and inspecting variables like a boss.
 
 ![A GitHub Copilot chat asking how to add debugging support](add-debugging-support.png)
 
@@ -73,7 +73,7 @@ As the Pilot, you are always in charge, and you decide which of Copilot's sugges
 
 ## Getting the most out of Copilot
 
-Naming is hard. We should know, our product is called "Code". However, "GitHub Copilot", is a great name. Rather than "pair programmer" or "auto pilot" or simply "chat", "Copilot" conveys multiple important concepts in a single word.
+Naming is hard (we should know, our product is called "Code"). However, "GitHub Copilot", is a great name. Rather than "pair programmer" or "auto pilot" or simply "chat", "Copilot" conveys multiple important concepts in a single word.
 
 So, if you think of yourself as the Pilot of VS Code and GitHub Copilot as…well…the Copilot, you start to get a sense of how to think about the service and ways to interact with it to get the most from your seatmate.
 
