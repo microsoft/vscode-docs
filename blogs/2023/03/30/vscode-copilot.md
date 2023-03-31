@@ -45,7 +45,7 @@ One exploration we did find interesting, involved building Chat directly into th
 
 As we iterated on the design, we realized this user model has advantages. It's easily invoked from the keyboard, you stay in your code, and the output is code (and only code).
 
-In the example below, we first selected the `users` array and then pressed `kbstyle(Cmd+I)` on macOS (or `kbstyle(Ctrl+I)` on Windows/Linux) to bring up the Chat input. We then asked Copilot to split the `username` field into both `firstName` and `lastName`, and last we clicked on the `6 changes` link to see the changes Copilot made as an inline diff.
+In the example below, we first selected the `users` array and then pressed `kbstyle(Cmd+I)` on macOS (or `kbstyle(Ctrl+I)` on Windows/Linux) to bring up the Chat input. We then asked Copilot to split the `username` field into both `firstName` and `lastName`, and last we clicked on **Inline Diff** to see the changes Copilot made.
 
 ![Inline change with preview of update](inline-chat-preview.png)
 
@@ -53,9 +53,9 @@ No need to express your intentions to Copilot using a comment or an overly descr
 
 ## Embracing the Chat view
 
-As the excitement around ChatGPT grew, so did the number of internal and external extensions with custom Chat views. We worried that these would not scale, it's hard to support the basics like key bindings and themes in a web view, and for those using the Monaco editor for code blocks, it is very hard to scale to hundreds of instances, not to mention there is no extension support in those editor instances. As a result, we also started to build a Chat view into the core of VS Code, primarily to maintain the integrity of the product.
+As the excitement around ChatGPT grew, so did the number of internal and external extensions with custom Chat views. We worried that these would not scale, it's hard to support the basics like key bindings and themes in a web view, and for those using the Monaco editor for code blocks, it is very hard to scale to hundreds of instances, not to mention there is no extension support in those editor instances. As a result, we partnered closely with the GitHub Copilot team to build a Chat view into the core of VS Code.
 
-Over time and despite our initial reluctance, the full Chat view experience started to win us over. I mean, who doesn't want to start off their day with a greeting like this?
+Over time and despite our initial hesitation, the full Chat view experience started to win us over. I mean, who doesn't want to start off their day with a greeting like this?
 
 ![A GitHub Copilot conversation within an extension's chat view](extension-chat-view.png)
 
@@ -102,7 +102,7 @@ The inline completions experience discussed above is available today. If you don
 Today, access to the chat experiences (in-editor and Chat view), you'll need to [join the waitlist]( https://github.com/github-copilot/chat_waitlist_signup/join) for access to the technical preview as we ramp up the service. Once admitted:
 
 * You must use [VS Code Insiders](https://code.visualstudio.com/insiders/).
-* Open the Extensions view (``kb(workbench.view.extensions)`), search for GitHub Copilot Nightly and install the extension.
+* Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot Nightly and install the extension.
 * When prompted, authenticate with your GitHub ID.
 * To open the in-editor Chat, optionally select a block of code and press `kbstyle(Cmd+I)` on macOS or `kbstyle(Ctrl+I)` on Windows/Linux. Ask Copilot to write a Quick Sort function.
 * A "Chat" icon will appear in the Activity Bar, click on it to open the Chat view. Go ahead, ask what the airspeed velocity is of an unladen swallow.
