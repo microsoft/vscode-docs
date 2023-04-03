@@ -17,6 +17,7 @@ To open the terminal:
 * Use the `kb(workbench.action.terminal.new)` keyboard shortcut to create a new terminal.
 * Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
+* Open a new terminal from a folder in the Explorer via the **Open in Integrated Terminal** context menu command.
 
 ![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
@@ -57,7 +58,7 @@ Multiple terminals can be placed side-by-side are called a group and are created
 
 Navigate between terminals in a group by focusing the previous pane, `kb(workbench.action.terminal.focusPreviousPane)`, or the next pane, `kb(workbench.action.terminal.focusNextPane)`.
 
-Dragging and dropping tabs in the list will rearrange them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
+Dragging and dropping tabs in the list rearranges them. Dragging a tab into the main terminal area allows moving a terminal from one group to another.
 
 Moving a terminal into its own group can be done with the **Terminal: Unsplit Terminal** command through the Command Palette or in the right-click context menu.
 
@@ -111,7 +112,7 @@ There are several built-in link handlers that are used in the following priority
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link will search the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
+* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
@@ -321,6 +322,30 @@ The basics of the terminal have been covered in this document. Read on to find o
 
 There's a [dedicated troubleshooting guide](/docs/supporting/troubleshoot-terminal-launch.md) for these sorts of problems.
 
+### How do I create an Admin terminal?
+
+The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, use platform utilities such as `runas.exe` within a terminal.
+
+You can learn more about customizing terminals via terminal profiles in [Configuring Profiles](/docs/terminal/profiles.md#configuring-profiles).
+
+### Can I add a keyboard shortcut for the Explorer's Open in Integrated Terminal command?
+
+You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
+
+![A folder selected in the Explorer displaying the context menu with the Open in Integrated Terminal command](images/basics/open-in-terminal-command.png)
+
+By default, there is no keyboard shortcut associated with **Open in Integrated Terminal** but you can add your own via the Keyboard Shortcuts editor (`kb(workbench.action.openGlobalKeybindings)`) to add a keybinding to your `keybindings.json`.
+
+The `keybindings.json` example below adds the keyboard shortcut `kbstyle(Ctrl+T)` for `openInTerminal`.
+
+```json
+{
+  "key": "ctrl+t",
+  "command": "openInTerminal",
+  "when": "filesExplorerFocus"
+}
+```
+
 ### Why is nvm complaining about a prefix option when the integrated terminal is launched?
 
 nvm (Node Version Manager) users often see this error for the first time inside VS Code's integrated terminal:
@@ -407,10 +432,10 @@ The macOS default terminal uses `kbstyle(Cmd+.)` to perform the same as `kbstyle
 
 ```json
 {
-	"key": "cmd+.",
-	"command": "workbench.action.terminal.sendSequence",
-	"when": "terminalFocus",
-	"args": { "text": "\u0003" }
+  "key": "cmd+.",
+  "command": "workbench.action.terminal.sendSequence",
+  "when": "terminalFocus",
+  "args": { "text": "\u0003" }
 }
 ```
 
