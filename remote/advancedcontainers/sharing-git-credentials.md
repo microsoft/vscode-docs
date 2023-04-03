@@ -85,6 +85,9 @@ If you do not have GPG set up, you can configure it for your platform:
   * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
   * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
 
+> **Note**
+> For Windows user, the gpg signing key must be setup in the WSL distro and not in the Git Bash.
+
 Next, install `gnupg2` in your container by updating your Dockerfile.
 
 For example:
@@ -101,4 +104,5 @@ RUN sudo apt-get update && sudo apt-get install gnupg2 -y
 
 The next time the container starts, your GPG keys should be accessible inside the container as well.
 
-> **Note:** If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
+> **Note** 
+> If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
