@@ -14,9 +14,9 @@ Linting highlights syntactical and stylistic problems in your Python source code
 
 > **Note**: Stylistic and syntactical code detection is enabled by the Language Server. To enable third-party linters for additional problem detection, you can enable them by using the **Python: Select Linter** command and selecting the appropriate linter.
 
-## Getting a linter
+## Choosing a linter
 
-You can install linting tools from the marketplace. Look for the linter you want to use. Install the extension for it. We support following linting extensions:
+You can install the linting tool of your choice from the marketplace. We support following linting extensions:
 
 | Linter | Extension |
 | --- | --- |
@@ -44,12 +44,12 @@ Offered by community:
 
 ## Disabling Linter
 
-Linters if installed are enabled by default. You can disable them by disabling the extension per workspace.
+Linters, if installed, are enabled by default. You can disable them by disabling the extension per workspace.
 
 
 ## Run linting
 
-Linter will automatically run on any file on Open or Save. It will clear out the problems for a file on Close.
+Linting will automatically run on any file on Open or Save. It will clear out the problems for a file on Close.
 
 Issues are shown in the **Problems** panel and as wavy underlines in the code editor. Hovering over an underlined issue displays the details:
 
@@ -62,7 +62,7 @@ Some linters may offer code actions on problems, which can halp address the issu
 
 ## Logging
 
-Logs for linter should be available in the `Output` tab. Select `<linter name>` from the drop down.
+Logs for linters should be available in the `Output` tab. Select `<linter name>` from the drop down.
 
 You can change the log level for a linter extension by running the command pallet commmand `Developer: Set Log Level` select the extension from the entension logs group. and change the level.
 
