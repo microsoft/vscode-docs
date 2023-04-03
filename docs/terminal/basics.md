@@ -328,7 +328,7 @@ The integrated terminal shell is running with the permissions of VS Code. If you
 
 You can learn more about customizing terminals via terminal profiles in [Configuring Profiles](/docs/terminal/profiles.md#configuring-profiles).
 
-### Can I add a keyboard shortcut for the Open in Integrated Terminal command?
+### Can I add a keyboard shortcut for the Explorer's Open in Integrated Terminal command?
 
 You can open new terminals for specific folders from the Explorer via the **Open in Integrated Terminal** context menu command.
 
