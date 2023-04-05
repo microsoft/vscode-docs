@@ -44,25 +44,25 @@ Offered by community:
 
 ## Disabling Linter
 
-Linters, if installed, are enabled by default. You can disable them by disabling the extension per workspace.
+Linters, if installed, are enabled by default. You can disable them by [disabling the extension](/docs/editor/extension-marketplace.md#disable-an-extension) per workspace.
 
 
 ## Run linting
 
-Linting will automatically run on any file on Open or Save. It will clear out the problems for a file on Close.
+Linting will automatically run when a Python file is opened or saved. 
 
-Issues are shown in the **Problems** panel and as wavy underlines in the code editor. Hovering over an underlined issue displays the details:
+Errors and warnings are shown in the **Problems** panel for open files, and are also highlighted in the code editor. Hovering over an underlined issue displays the details:
 
 ![Linting messages in the editor and the Problems panel](images/linting/lint-messages.png)
 
 
 ## Code Actions
 
-Some linters may offer code actions on problems, which can halp address the issue.
+Some linters may offer code actions that can help address reported problems.
 
 ## Logging
 
-Logs for linters should be available in the `Output` tab. Select `<linter name>` from the drop down.
+Logs for linters are available in the `Output` panel when you select `<linter name>` from the drop down menu.
 
 You can change the log level for a linter extension by running the command pallet commmand `Developer: Set Log Level` select the extension from the entension logs group. and change the level.
 
