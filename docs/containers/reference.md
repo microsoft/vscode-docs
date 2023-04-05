@@ -468,7 +468,7 @@ Here are all properties available for configuring `docker-compose` task. All pro
 
 ## Command customization
 
-The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. Many of these commands can be customized.
+The Docker extension executes a number of Docker CLI commands when you perform various operations, such as to build images, run containers, attach to containers, and view container logs. Some of these commands have a large number of optional arguments, often used in very specific scenarios. As an alternative to the above Visual Studio Code tasks, several commands can be customized when tasks are not in use.
 
 For example, the tokens `${serviceList}` and `${profileList}` in the [Compose Up](#docker-compose-up) command allows for easily starting a subset of the services within your Docker Compose YAML file(s).
 
