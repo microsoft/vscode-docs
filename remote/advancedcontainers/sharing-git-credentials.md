@@ -87,7 +87,7 @@ If you do not have GPG set up, you can configure it for your platform:
 
 > **Note**
 > For Windows user, the gpg signing key must be setup using the Windows GUI or cli (powershell/cmd) and not in the Git Bash.
-> For some unknown reason, the DevContainer can't access the gpg keys configured in Git Bash even though it is in your `~/.gnupg/` folder, accessible in the Windows explorer.
+> The DevContainer can't access the gpg keys configured in Git Bash even though it is in your `~/.gnupg/` folder, accessible in the Windows explorer.
 
 Next, install `gnupg2` in your container by updating your Dockerfile.
 
@@ -103,7 +103,8 @@ Or if running as a [non-root user](/remote/advancedcontainers/add-nonroot-user.m
 RUN sudo apt-get update && sudo apt-get install gnupg2 -y
 ```
 
+To apply your config changes, you need to rebuild the container. You can do this by running **Dev Containers: Rebuild Container** from the Command Palette (`F1`).
 The next time the container starts, your GPG keys should be accessible inside the container as well.
 
-> **Note** 
+> **Note**
 > If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
