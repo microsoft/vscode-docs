@@ -86,7 +86,8 @@ If you do not have GPG set up, you can configure it for your platform:
   * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
 
 > **Note**
-> For Windows user, the gpg signing key must be setup in the WSL distro and not in the Git Bash.
+> For Windows user, the gpg signing key must be setup using the Windows GUI or cli (powershell/cmd) and not in the Git Bash.
+> For some unknown reason, the DevContainer can't access the gpg keys configured in Git Bash even though it is in your `~/.gnupg/` folder, accessible in the Windows explorer.
 
 Next, install `gnupg2` in your container by updating your Dockerfile.
 
