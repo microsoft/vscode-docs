@@ -54,9 +54,9 @@ The Dev Containers extension lets you run Visual Studio Code inside a Docker con
 
 With the Dev Containers extension installed, you will see a new Status bar item at the far left.
 
-![Remote Host bar item](images/tutorial/remote-status-bar.png)
+![Remote Host status bar item](images/tutorial/remote-status-bar.png)
 
-The Remote Host bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Dev Containers commands.
+The Remote Host status bar item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the Dev Containers commands.
 
 ![Dev Containers commands](images/tutorial/dev-containers-commands-simple.png)
 
