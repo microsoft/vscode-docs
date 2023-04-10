@@ -252,7 +252,7 @@ To install the `matplotlib` package (which also installs `numpy` as a dependency
 A best practice among Python developers is to avoid installing packages into a global interpreter environment. You instead use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments. Such isolation reduces many complications that can arise from conflicting package versions. To create a *virtual environment* and install the required packages, enter the following commands as appropriate for your operating system:
 
 > **Note**: For additional information about virtual environments, see [Environments](/docs/python/environments.md#creating-environments).
-v
+
 1. Create a virtual environment using the Create Environment command
 
    From within VS Code, you can create non-global environments, using Venv or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command. You can also trigger the **Python: Create Environment** command through the Getting Started with Python page.
