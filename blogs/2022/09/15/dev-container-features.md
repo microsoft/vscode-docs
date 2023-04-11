@@ -61,7 +61,7 @@ If you'd like to not only use publicly available Features but also create your o
 
 ## Authoring
 
-A great place to get started with creating your own Features is the new [Features template](https://github.com/devcontainers/feature-template) repository.  Beyond including a good template for the contents of a given Feature, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) (GHCR) for your account to get you up and running as fast as possible. We'll talk more about publishing in a minute.
+A great place to get started with creating your own Features is the new [Features template](https://github.com/devcontainers/feature-template) repository.  Beyond including a good template for the contents of a given Feature, the template also includes a GitHub Actions workflow to quickly publish them too, using the [GitHub Container Registry](https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-container-registry) (GHCR) for your account to get you up and running as fast as possible. We'll talk more about publishing in a minute.
 
 The source code of a Feature has two components: An install script (`install.sh`) and a configuration file (`devcontainer-feature.json`).
 

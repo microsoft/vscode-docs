@@ -46,7 +46,7 @@ Use the [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vst
 
 This usually means there is no credential management configured in Git and you're not getting credential prompts for some reason.
 
-You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
+You can always set up a [credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
 ### How can I sign in to Git with my Azure DevOps organization that requires multi-factor authentication?
 
@@ -61,7 +61,7 @@ VS Code only supports the [official Git distribution](https://git-scm.com/) for 
 
 VS Code automatically fetches changes from the server in order to present you with a summary of incoming changes. The Git authentication dialog is independent from VS Code itself and is a part of your current Git credential helper.
 
-One way to avoid these prompts is to set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) that remembers your credentials.
+One way to avoid these prompts is to set up a [credential helper](https://docs.github.com/get-started/getting-started-with-git/caching-your-github-credentials-in-git) that remembers your credentials.
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
 
