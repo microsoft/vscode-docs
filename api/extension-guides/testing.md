@@ -160,7 +160,7 @@ enum ItemType {
 
 const testData = new WeakMap<vscode.TestItem, ItemType>();
 
-const getType = (testItem: vscode.TestItem) => testData.get(ItemType)!;
+const getType = (testItem: vscode.TestItem) => testData.get(testItem)!;
 ```
 
 ## Running tests
