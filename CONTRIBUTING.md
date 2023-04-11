@@ -21,10 +21,10 @@ Thank you for your interest in VS Code documentation!
 
 To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
 
-* [How to fork a repository](https://help.github.com/articles/fork-a-repo)
-* [How to make a pull request](https://help.github.com/articles/creating-a-pull-request/)
-* [Changing a commit message](https://help.github.com/articles/changing-a-commit-message/)
-* [How to squash commits](https://help.github.com/articles/about-pull-request-merges/)
+* [How to fork a repository](https://docs.github.com/get-started/quickstart/fork-a-repo)
+* [How to make a pull request](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+* [Changing a commit message](https://docs.github.com/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
+* [How to squash commits](https://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-commits)
 
 The vscode-docs repository supports [Git LFS](https://git-lfs.github.com/) to allow you to avoid bringing down large image files when you clone the repository. See the [README](README.md#contributing) section for details on enabling Git LFS for your local repository.
 
@@ -78,7 +78,7 @@ In fact, VS Code and its core documentation are written using VS Code.
 
 ## How to use Markdown to format your topic
 
-The topics in this repository use Markdown.  Here is a good overview of [Markdown basics](https://help.github.com/articles/markdown-basics/).
+The topics in this repository use Markdown.  Here is a good overview of [Markdown basics](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ## Topic Metadata
 
@@ -202,7 +202,7 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code, we use the fenced code block notation ```` ``` ````.
 
->**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. For example, ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
+>**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. For example, ```` ```json ```` or ```` ```javascript ````. [Read more →](https://docs.github.com/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting)
 
 An example of JavaScript source code:
 
