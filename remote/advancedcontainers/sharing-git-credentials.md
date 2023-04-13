@@ -85,9 +85,7 @@ If you do not have GPG set up, you can configure it for your platform:
   * Register a `pinentry` GUI in your WSL distro. `echo pinentry-program /mnt/c/Program\ Files\ \(x86\)/Gpg4win/bin/pinentry.exe > ~/.gnupg/gpg-agent.conf`
   * Reload the `gpg` agent in WSL. `gpg-connect-agent reloadagent /bye`
 
-> **Note**
-> For Windows user, the gpg signing key must be setup using the Windows GUI or cli (powershell/cmd) and not in the Git Bash.
-> The DevContainer can't access the gpg keys configured in Git Bash even though it is in your `~/.gnupg/` folder, accessible in the Windows explorer.
+>**Note**: For Windows user, the gpg signing key must be configured using the Windows GUI or CLI (powershell/cmd) and not in Git Bash. A Dev Container can't access the gpg keys set in Git Bash even though it is in your `~/.gnupg/` folder, accessible in the Windows Explorer.
 
 Next, install `gnupg2` in your container by updating your Dockerfile.
 
@@ -103,8 +101,6 @@ Or if running as a [non-root user](/remote/advancedcontainers/add-nonroot-user.m
 RUN sudo apt-get update && sudo apt-get install gnupg2 -y
 ```
 
-To apply your config changes, you need to rebuild the container. You can do this by running **Dev Containers: Rebuild Container** from the Command Palette (`F1`).
-The next time the container starts, your GPG keys should be accessible inside the container as well.
+To apply your configuration changes, you need to rebuild the container. You can do this by running **Dev Containers: Rebuild Container** from the Command Palette (`F1`). The next time the container starts, your GPG keys should be accessible inside the container as well.
 
-> **Note**
-> If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
+>**Note**: If you used `gpg` previously in the container, you may need to run **Dev Containers: Rebuild Container** for the update to take effect.
