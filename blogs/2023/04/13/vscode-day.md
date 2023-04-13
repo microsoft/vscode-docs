@@ -31,7 +31,7 @@ We're following that with a full schedule of sessions on AI, Remote Development,
 | Data Science for everyone and everywhere | [Soojin Choi](https://www.linkedin.com/in/soojinmin)    |
 | Writing Python web apps with VS Code | [Pamela Fox](https://twitter.com/pamelafox)    |
 | What's new in GitHub Next | [Amelia Wattenberger](https://twitter.com/Wattenberger)    |
-| GitHub integration in VS Code for Web | [Joyce Er](https://www.joyceer.com/)   |
+| GitHub integration in VS Code for Web | [Joyce Er](https://twitter.com/joyceerhl)   |
 
 We're very excited about VS Code Day. But we're also engineers. We can't help but think about efficiency and simplicity, so we've taken a step back (like you may have at this point) and thought, do we need an event...for an editor?
 
