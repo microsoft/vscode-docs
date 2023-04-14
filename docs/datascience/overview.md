@@ -22,11 +22,11 @@ The VS Code Marketplace offers a family of extensions that provide a first-class
 
 ### Build an extension for notebooks
 
-We welcome (and encourage you to!) build Visual Studio Code extensions for your favorite notebooks tools. After going through [Your First Extension](https://github.com/microsoft/vscode-docs/blob/main/api/get-started/your-first-extension.md) tutorial, check out some of the extensions that augments the notebooks development experience in VS Code:
+We welcome (and encourage you to!) build Visual Studio Code extensions for your favorite notebooks tools. After going through [Your First Extension](/api/get-started/your-first-extension.md) tutorial, check out some of the extensions that augment the notebooks development experience in VS Code:
 
 <div class="marketplace-extensions-notebook-tools-curated"></div>
 
-You can explore the source code for these extensions by clicking on the repository link under the **Project Details** section in the Visual Studio Marketplace.
+You can explore the source code for these extensions by selecting the repository link under the **Project Details** section in the Visual Studio Marketplace.
 
 You can also contribute directly to the [Jupyter extension](https://github.com/microsoft/vscode-jupyter).
 
