@@ -5,12 +5,12 @@ TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial for Python in Visual Studio Code
 DateApproved: 1/20/2023
-MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
+MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial, you will use Python 3 to create a simple Python "Hello World" application in Visual Studio Code. By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor (which you may find a productive alternative to PyCharm).
+In this tutorial, you will use Python 3 to create a simple Python "Hello World" application in Visual Studio Code. By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
 
 This tutorial introduces you to VS Code for Python development - primarily how to edit, run, and debug code through the following tasks:
 
