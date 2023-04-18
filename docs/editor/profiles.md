@@ -128,6 +128,45 @@ Profiles can be used to customize VS Code for students to ease the use in a clas
 
 One use of an Empty Profile is to reset your editor when you want to report an issue with VS Code. An Empty Profile disables all extensions and modified settings so you can quickly see if the issue is due to an extension, a setting, or is in VS Code core.
 
+## Profile Templates
+
+VS Code comes with a predefined set of profile templates that you can use to customise VS Code for your specific workflow. To create a new profile based on a template select a Profile Template when going through the Create Profile flow.
+
+### Python Profile Template
+
+This profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions: [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring), [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh), [Remote Extension Pack](https://vscode.dev/profile/github/c8c826aca68c0bf263554e1bafa955d0), [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff). This profile also sets the following settings:
+```json
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.fixAll": ["source.unusedImports"],
+    "workbench.colorTheme": "Default Dark+ Experimental",
+    "editor.defaultFormatter": "ms-python.black-formatter"
+```
+
+
+### Data Science Profile Template
+
+TODO@isidorn
+
+### Doc Writer Profile Template
+
+TODO@isidorn
+
+### Node.js Profile Template
+
+TODO@isidorn
+
+### Angular Profile Template
+
+TODO@isidorn
+
+### Java General Profile Template
+
+TODO@isidorn
+
+### Java Spring Profile Template
+
+TODO@isidorn
+
 ## Command line
 
 You can launch VS Code with a specific profile via the `--profile` command-line interface option. You pass the name of the profile after the `--profile` argument and open a folder or a workspace using that profile. The command line below opens the `web-sample` folder with the "Web Development" profile:
