@@ -209,7 +209,6 @@ The Doc Writer profile is a good lightweight setup for writing documentation. It
 
 This profile also sets the following settings:
 ```json
-{
 	"workbench.colorTheme": "Default Light+ Experimental",
 	"editor.minimap.enabled": false,
 	"breadcrumbs.enabled": false,
@@ -225,7 +224,6 @@ This profile also sets the following settings:
 	"markdown.validate.enabled": true,
 	"markdown.updateLinksOnFileMove.enabled": "prompt",
 	"workbench.startupEditor": "none"
-}
 ```
 
 ### Node.js Profile Template
@@ -234,7 +232,48 @@ TODO@isidorn
 
 ### Angular Profile Template
 
-TODO@isidorn
+The Angular profile is a good starting point for all Angular work. It comes with the following extensions:
+* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) - Editor services for Angular templates.
+* [Angular Schematics](https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics) - Angular schematics (CLI commands) from files Explorer or Command Palette.
+* [angular2-switcher](https://marketplace.visualstudio.com/items?itemName=infinity1207.angular2-switcher) - Easily navigate to `typescript`|`template`|`style` in angular2 project.
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Open any folder or repository inside a Docker container and take advantage of Visual Studio Code's full feature set.
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+* [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
+* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Use Facebook's Jest With Pleasure.
+* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Material Design Icons for Visual Studio Code.
+* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code to see your site's runtime HTML structure, alter its layout, fix styling issues as well as see your site's network requests.
+* [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) - Run Playwright Test tests in Visual Studio Code.
+* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using prettier.
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
+* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML Language Support by Red Hat, with built-in Kubernetes syntax support.
+
+This profile sets the following settings:
+```json
+    "editor.formatOnPaste": true,
+    "git.autofetch": true,
+    "[markdown]":  {
+        "editor.wordWrap": "on"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Default Dark+ Experimental",
+```
+
 
 ### Java General Profile Template
 
@@ -247,7 +286,7 @@ The Java Spring profile is a good starting point for all Java Spring work. It co
 * [https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack](Extension Pack for Java) - Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more
 * [https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack](Spring Boot Extension Pack) - A collection of extensions for developing Spring Boot applications
 
-This profile also sets the following settings:
+This profile sets the following settings:
 ```json
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
