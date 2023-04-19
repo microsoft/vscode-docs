@@ -130,18 +130,30 @@ One use of an Empty Profile is to reset your editor when you want to report an i
 
 ## Profile Templates
 
-VS Code comes with a predefined set of profile templates that you can use to customise VS Code for your specific workflow. To create a new profile based on a template select a Profile Template when going through the Create Profile flow.
+VS Code comes with a predefined set of profile templates that you can use to customize VS Code for your specific workflow. To create a new profile based on a template, select a Profile Template when going through the **Create Profile** flow.
 
 ### Python Profile Template
 
-This profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions: [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring), [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter), [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml), [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager), [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh), [Remote Extension Pack](https://vscode.dev/profile/github/c8c826aca68c0bf263554e1bafa955d0), [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff). This profile also sets the following settings:
+The Python profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions:
+
+* [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Generate Python docstrings automatically.
+* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
+* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support.
+* [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) - Rich Python language support.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
+* [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Manage Python environments and packages.
+* [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter.
+
+This profile also sets the following settings:
+
 ```json
     "python.analysis.autoImportCompletions": true,
     "python.analysis.fixAll": ["source.unusedImports"],
     "workbench.colorTheme": "Default Dark+ Experimental",
     "editor.defaultFormatter": "ms-python.black-formatter"
 ```
-
 
 ### Data Science Profile Template
 
