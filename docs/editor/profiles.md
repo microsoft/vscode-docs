@@ -316,13 +316,13 @@ This profile sets the following settings:
 ### Java General Profile Template
 
 The Java General profile is a good starting point for all Java work. It customises the layout to improve the Java experience and comes with the following extension pack:
-* [https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack](Extension Pack for Java) - Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more
+* [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) - Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more
 
 ### Java Spring Profile Template
 
 The Java Spring profile is a good starting point for all Java Spring work. It comes with the following extensions:
-* [https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack](Extension Pack for Java) - Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more
-* [https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack](Spring Boot Extension Pack) - A collection of extensions for developing Spring Boot applications
+* [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) - Popular extensions for Java development that provides Java IntelliSense, debugging, testing, Maven/Gradle support, project management and more
+* [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) - A collection of extensions for developing Spring Boot applications
 
 This profile sets the following settings:
 ```json
