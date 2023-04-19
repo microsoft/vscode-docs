@@ -195,7 +195,38 @@ This profile also sets the following settings:
 
 ### Doc Writer Profile Template
 
-TODO@isidorn
+The Doc Writer profile is a good lightweight setup for writing documentation. It comes with the following extensions:
+* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - Spelling checker for source code.
+* [GitHub Markdown Preview](https://marketplace.visualstudio.com/items?itemName=bierner.github-markdown-preview) - Changes VS Code's built-in markdown preview to match GitHub.
+* [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox) - Adds checkbox support to the built-in markdown preview.
+* [Markdown Emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) - Adds emoji syntax support to VS Code's built-in markdown preview and markdown cells in notebook
+* [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) - Adds ^footnote syntax support to VS Code's built-in markdown preview.
+* [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) - Changes VS Code's built-in markdown preview to match Github's style.
+* [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Adds Mermaid diagram and flowchart support to VS Code's builtin markdown preview.
+* [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders yaml front matter as a table in the built-in markdown preview.
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
+* [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount) - Markdown Word Count Example - a status bar contribution that reports out the number of works in a Markdown document as you interact with it.
+
+This profile also sets the following settings:
+```json
+{
+	"workbench.colorTheme": "Default Light+ Experimental",
+	"editor.minimap.enabled": false,
+	"breadcrumbs.enabled": false,
+	"editor.glyphMargin": false,
+	"explorer.decorations.badges": false,
+	"explorer.decorations.colors": false,
+	"editor.fontLigatures": true,
+	"files.autoSave": "afterDelay",
+	"git.enableSmartCommit": true,
+	"window.commandCenter": true,
+	"editor.renderWhitespace": "none",
+	"workbench.editor.untitled.hint": "hidden",
+	"markdown.validate.enabled": true,
+	"markdown.updateLinksOnFileMove.enabled": "prompt",
+	"workbench.startupEditor": "none"
+}
+```
 
 ### Node.js Profile Template
 
