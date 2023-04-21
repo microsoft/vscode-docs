@@ -230,6 +230,12 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 * `git add -p` followed by `kbstyle(e)` for interactive add
 * `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
 
+Comparing changes after *fetching* changes from a remote branch:
+
+* `git checkout main`
+* `git fetch`
+* `git difftool main origin/main`
+
 ## Working with GitHub Pull Requests and Issues
 
 Visual Studio Code can also bring in GitHub's pull requests and issues. Create your PRs in VS Code, review with comments, and approve them without switching context. Learn more about [GitHub PRs and Issues in VS Code](/docs/sourcecontrol/github.md).
