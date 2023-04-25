@@ -63,7 +63,7 @@ VS Code extensions can also define schemas and schema mapping. That's why VS Cod
 
 ### Mapping in the JSON
 
-In the following example, the JSON file specifies that its contents follow the [CoffeeLint](http://www.coffeelint.org/) schema.
+In the following example, the JSON file specifies that its contents follow the [CoffeeLint](https://coffeelint.github.io/) schema.
 
 ```json
 {
