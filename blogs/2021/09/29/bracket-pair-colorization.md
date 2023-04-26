@@ -55,7 +55,7 @@ Additionally, by reusing the existing tokens from the renderer and its increment
 
 ### VS Code for the Web
 
-Besides being more performant, the new implementation is also supported in [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web), which you can see in action with [vscode.dev](https://vscode.dev) and  [github.dev](https://docs.github.com/en/codespaces/developing-in-codespaces/web-based-editor). Due to the way Bracket Pair Colorizer 2 reuses the VS Code token engine, it was not possible to migrate the extension to be what we call a [web extension](https://code.visualstudio.com/api/extension-guides/web-extensions).
+Besides being more performant, the new implementation is also supported in [VS Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web), which you can see in action with [vscode.dev](https://vscode.dev) and  [github.dev](https://docs.github.com/codespaces/the-githubdev-web-based-editor). Due to the way Bracket Pair Colorizer 2 reuses the VS Code token engine, it was not possible to migrate the extension to be what we call a [web extension](https://code.visualstudio.com/api/extension-guides/web-extensions).
 
 Not only does our new implementation work in VS Code for the Web, but also directly in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)!
 

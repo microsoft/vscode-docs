@@ -11,7 +11,7 @@ jobs:
     type: windows
 
   variables:
-    ob_outputDirectory: '$(Pipeline.Workspace)/vscode-website/dist'
+    ob_outputDirectory: $(Build.ArtifactStagingDirectory)/out
     ob_artifactSuffix: ${{ parameters.jobDisplayName }}
     ob_git_path: vscode-website/vscode-docs
     ob_sdl_codeSignValidation_excludes: -|**\*.js;-|**\*.ps1
@@ -64,3 +64,10 @@ jobs:
   - task: CodeQL3000Finalize@0
     displayName: CodeQL Finalize
     condition: eq(variables['Codeql.enabled'], 'True')
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: $(Pipeline.Workspace)/vscode-website/dist
+      archiveType: 'zip'
+      includeRootFolder: false
+      archiveFile: $(Build.ArtifactStagingDirectory)/out/website.zip

@@ -15,19 +15,22 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 ## Basic Layout
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five main areas:
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
-* **Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
-* **Panels** - You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal. Panel can also be moved to the right for more vertical space.
+* **Panel** - An additional space for views below the editor region. By default, it houses output, debug information, errors and warnings, and an integrated terminal. Panel can also be moved to the left or right for more vertical space.
+
+>**Tip:** A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)`.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
->**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Side Bar Right**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+
+>**Tip:** You can move the Primary Side Bar to the right hand side (**View** > **Toggle Primary Side Bar Position**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by side editing
 

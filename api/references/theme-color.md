@@ -203,7 +203,6 @@ The Activity Bar is displayed either on the far left or right of the workbench a
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
-- `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 
 
 ## Profiles
