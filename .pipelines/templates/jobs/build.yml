@@ -11,7 +11,7 @@ jobs:
     type: windows
 
   variables:
-    ob_outputDirectory: $(Build.ArtifactStagingDirectory)
+    ob_outputDirectory: $(Build.ArtifactStagingDirectory)/out
     ob_artifactSuffix: ${{ parameters.jobDisplayName }}
     ob_git_path: vscode-website/vscode-docs
     ob_sdl_codeSignValidation_excludes: -|**\*.js;-|**\*.ps1
@@ -70,4 +70,4 @@ jobs:
       rootFolderOrFile: $(Pipeline.Workspace)/vscode-website/dist
       archiveType: 'zip'
       includeRootFolder: false
-      archiveFile: $(Build.ArtifactStagingDirectory)/website.zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/out/website.zip
