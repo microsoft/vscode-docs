@@ -183,7 +183,7 @@ No. The license states that you may not "provide the software as a stand-alone o
 
 ### I have a question about whether I can use the extensions for X, who can I ask?
 
-Please email us at [VSCode@microsoft.com](mailto:VSCode@microsoft.com) with any questions you may have.
+Please file an [issue](https://github.com/microsoft/vscode-remote-release/issues).
 
 ### GDPR and VS Code Remote Development
 

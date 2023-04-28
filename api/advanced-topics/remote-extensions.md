@@ -297,7 +297,7 @@ export async function activate(context: vscode.ExtensionContext) {
         vscode.env.openExternal(vscode.Uri.parse('http://localhost:3000'));
 
         // Example 3 - Open the default email application.
-        vscode.env.openExternal(vscode.Uri.parse('mailto:vscode@microsoft.com'));
+        vscode.env.openExternal(vscode.Uri.parse('mailto:<fill in your email here>'));
     }));
 }
 ```
