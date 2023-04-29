@@ -512,8 +512,6 @@
                                         "when": "editorFocus" },
 { "key": "ctrl+enter",            "command": "interactiveEditor.applyEdits",
                                         "when": "interactiveEditorHasProvider && interactiveEditorVisible" },
-{ "key": "ctrl+z",                "command": "interactiveEditor.undo",
-                                        "when": "interactiveEditorHasProvider && interactiveEditorVisible && interactiveEditorLastEditKind == 'simple'" },
 { "key": "ctrl+shift+z",          "command": "interactiveEditor.undoToClipboard",
                                         "when": "interactiveEditorHasProvider && interactiveEditorVisible && interactiveEditorLastEditKind == 'simple'" },
 { "key": "tab",                   "command": "jumpToNextSnippetPlaceholder",
