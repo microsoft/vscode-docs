@@ -448,7 +448,7 @@ export USER_AT_HOST=user@hostname
 mkdir -p "$HOME/sshfs/$USER_AT_HOST"
 # Mount the remote filesystem
 sshfs "$USER_AT_HOST:" "$HOME/sshfs/$USER_AT_HOST" -ovolname="$USER_AT_HOST" -p 22  \
-    -o workaround=nonodelay -o transform_symlinks -o idmap=user  -C
+    -o workaround=nonodelay,transform_symlinks,idmap=user -C
 ```
 
 This will make your home folder on the remote machine available under the `~/sshfs`. When you are done, you can unmount it using your OS's Finder / file explorer or by using the command line:
