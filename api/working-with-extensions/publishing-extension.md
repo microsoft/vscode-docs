@@ -66,20 +66,28 @@ Visual Studio Code uses [Azure DevOps](https://azure.microsoft.com/services/devo
 
 First off, follow the documentation to [create your own organization](https://learn.microsoft.com/azure/devops/organizations/accounts/create-organization) in Azure DevOps. In the following examples, the organization's name is `vscode`, you should use your new organization name as appropriate. Note that the organization's name doesn't necessarily have to be same as your publisher name.
 
-From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
+1. From your organization's home page (for example: `https://dev.azure.com/vscode`), open the User settings dropdown menu next to your profile image and select **Personal access tokens**:
 
-![Personal settings menu](images/publishing-extension/token1.png)
+    ![Personal settings menu](images/publishing-extension/menu-pat.png)
 
-On the **Personal Access Tokens** page, select **New Token** to create a new Personal Access Token and set the following details:
+1. On the **Personal Access Tokens** page, select **New Token**:
 
-- Give it a Name
-- Set Organization to **All accessible organizations**
-- Optionally extend its expiration date
-- Set Scopes to **Custom defined** and choose the **Marketplace > Manage** scope
+    ![Create new token button](images/publishing-extension/new-token.png)
 
-![Create personal access token](images/publishing-extension/token2.png)
+1. In the Create a new personal access token modal, select the following details for the token:
 
-Select **Create** and you'll be presented with your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
+    - Name: any name you want for the token
+    - Organization: **All accessible organizations**
+    - Expiration (optional): set the desired expiration date for the token
+    - Scopes: **Custom defined**:
+      - click **Show all scopes** link below the **Scopes** section
+      - in the Scopes list, scroll to **Marketplace** and select **Manage** scope
+
+    ![Create personal access token](images/publishing-extension/create-token.png)
+
+1. Click **Create**.
+
+    You'll be presented with your newly created Personal Access Token. **Copy** it to the safe location, you'll need it to [create a publisher](#create-a-publisher).
 
 ### Create a publisher
 
