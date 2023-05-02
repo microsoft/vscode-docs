@@ -19,6 +19,8 @@ This article provides only an overview of the different capabilities of the Pyth
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
+>**Note**: To help get you started with Python development, you can use the [Python project template](/docs/editor/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
+
 Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
 You can configure the Python extension through settings. Learn more in the [Python Settings reference](/docs/python/settings-reference.md).
@@ -125,10 +127,19 @@ In order to run tests, you must enable one of the supported testing frameworks i
 
 Once the tests have been discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests. These commands also allow you to run individual test files and methods
 
-
 ## Configuration
 
 The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), and [Testing](/docs/python/testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
+
+## Python profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Python development, you can use the [Python profile templates](/docs/editor/profiles.md#python-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/python/profile-template-dropdown.png)
+
+Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are added to your profile.
 
 ## Other popular Python extensions
 

@@ -30,7 +30,7 @@ To successfully complete this tutorial, you need to first setup your Python deve
 - VS Code
 - [VS Code Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-## Install Visual Studio Code and the Python Extension
+## Install Visual Studio Code and the Python extension
 
 1. If you have not already done so, install [VS Code](https://code.visualstudio.com/).
 2. Next, install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from the Visual Studio Marketplace. For additional details on installing extensions, see [Extension Marketplace](/docs/editor/extension-marketplace.md). The Python extension is named **Python** and it's published by Microsoft.
@@ -315,6 +315,7 @@ To learn to build web apps with the Django and Flask frameworks, see the followi
 
 There is then much more to explore with Python in Visual Studio Code:
 
+- [Python profile template](/docs/editor/profiles.md#python-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

@@ -200,6 +200,7 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 
 There is much more to explore with Visual Studio Code, please try the following topics:
 
+* [Node.js project template](/docs/editor/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
 * [Settings](/docs/getstarted/settings.md) - Learn how to customize VS Code for how you like to work.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 * [Video: Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Learn how to attach to a running Node.js process.

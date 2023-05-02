@@ -30,6 +30,16 @@ You can explore the source code for these extensions by selecting the repository
 
 You can also contribute directly to the [Jupyter extension](https://github.com/microsoft/vscode-jupyter).
 
+## Data Science project template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Data Science in VS Code, you can use the [Data Science profile templates](/docs/editor/profiles.md#data-science-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/overview/profile-template-dropdown.png)
+
+Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are added to your profile.
+
 ## What else can you use notebooks for?
 
 The support for mixing executable code, equations, visualizations, and rich Markdown makes notebooks useful for breaking down new concepts in a story telling form. This makes notebooks an exceptional tool for educators and students!

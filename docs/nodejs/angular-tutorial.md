@@ -14,6 +14,8 @@ MetaSocialImage: images/angular/Welcome-to-app.png
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
+>**Note**: To help get you started with Angular development, you can use the [Angular project template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
+
 ## Welcome to Angular
 
 We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [Node.js downloads](https://nodejs.org/en/download/).
@@ -145,6 +147,16 @@ You can step through your source code (`kb(workbench.action.debug.stepOver)`), i
 ![debug variable](images/angular/debug-variable.png)
 
 For more information about the debugger and its available options, check out our documentation on [browser debugging](/docs/nodejs/browser-debugging.md).
+
+## Angular profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile templates](/docs/editor/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/angular/profile-template-dropdown.png)
+
+Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are added to your profile.
 
 ## Popular Starter Kits
 

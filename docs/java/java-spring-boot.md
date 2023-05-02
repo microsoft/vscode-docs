@@ -34,6 +34,8 @@ To develop a Spring Boot application in Visual Studio Code, you need to install 
 
 >**Note**: More information about how to get started can be found at [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
+To help get you started with Java Spring Boot development, you can use the [Java Spring project template](/docs/editor/profiles.md#java-spring-profile-template) that includes useful extensions, settings, and Java Spring Boot code snippets.
+
 ## Create the project
 
 The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension allows you to search for dependencies and generate new Spring Boot projects.
@@ -88,6 +90,7 @@ In addition to using `kb(workbench.action.debug.start)` to run your application,
 
 ## Next steps
 
+* [Java Spring project template](/docs/editor/profiles.md#nodejs-profile-template) - Create a new [profile](/docs/editor/profiles) with a curated set of extensions, settings, and snippets.
 * To deploy your web app, see [Java Web Apps with VS Code](/docs/java/java-webapp.md).
 * To containerize a web app and deploy as a Docker container, check out [Docker in VS Code](/docs/containers/overview.md).
 * To learn more about Java debugging features, see [Running and debugging Java](/docs/java/java-debugging.md).
