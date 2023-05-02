@@ -53,7 +53,7 @@ Alternatively, you can add Java language support to VS Code by installing the po
 
 There are also other popular Java extensions you can pick for your own needs, including:
 
-1. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack)
+1. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
 2. [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
 3. [Community Server Connectors](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-community-server-connector) (for Apache Felix, Karaf, Tomcat, Jetty, etc.)
 4. [Server Connector](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-server-connector) (Red Hat Servers, for example Wildfly)
@@ -139,7 +139,7 @@ More details about Java project support can be found in [Java Project Management
 
 ### Code Navigation
 
-Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
+Java in Visual Studio Code also supports source code navigation features such as search for symbol, Peek Definition, and Go to Definition. The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) extension provides enhanced navigation and code completion support for [Spring Boot](https://projects.spring.io/spring-boot/) projects.
 
 One of the key advantages of VS Code is speed. When you open your Java source file or folder, within a few seconds, with the help of [Lightweight Mode](/docs/java/java-project.md#lightweight-mode), you will be able to navigate your code base with the Outline view, as well as commands such as **Go to Definition** and **Go to Reference**. This is especially useful when you open a project for the first time.
 
@@ -200,7 +200,7 @@ To further improve your Java productivity in VS Code, there are extensions for m
 
 See [Application Servers](/docs/java/java-tomcat-jetty.md) to learn more about support for Tomcat and Jetty, as well as other application servers with VS Code.
 
-[Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also the [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions provided by Microsoft, to further improve your experience with Spring Boot in Visual Studio Code.
+[Spring Boot](https://projects.spring.io/spring-boot/) support is provided by [VMware](https://marketplace.visualstudio.com/search?term=publisher%3A%22VMware%22&target=VSCode&category=All%20categories&sortBy=Relevance). There are also the [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) and [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) extensions provided by Microsoft, to further improve your experience with Spring Boot in Visual Studio Code.
 
 See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support in VS Code, and also [Deploy to Azure Web Apps](/docs/java/java-webapp.md) or [Deploy to Azure Spring Apps](/docs/java/java-spring-apps.md) to learn more about deploying Spring apps to Azure from VS Code.
 
