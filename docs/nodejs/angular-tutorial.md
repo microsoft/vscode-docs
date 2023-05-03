@@ -150,7 +150,7 @@ For more information about the debugger and its available options, check out our
 
 ## Angular profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile templates](/docs/editor/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template), which is a curated profile with useful extensions and settings. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

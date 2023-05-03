@@ -133,7 +133,7 @@ The Python extension provides a wide variety of settings for its various feature
 
 ## Python profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Python development, you can use the [Python profile templates](/docs/editor/profiles.md#python-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with Python development, you can use the [Python profile template](/docs/editor/profiles.md#python-profile-template), which is a curated profile with useful extensions, settings, and snippets. You can use the profile template as is or use it as a starting point to customize further for you own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 

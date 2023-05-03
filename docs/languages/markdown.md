@@ -264,7 +264,7 @@ Disables additional security in the preview window. This allows script execution
 
 ## Doc Writer profile template
 
-[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile templates](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
 
 You select a profile template through the **Profiles** > **Create Profile...** dropdown:
 
