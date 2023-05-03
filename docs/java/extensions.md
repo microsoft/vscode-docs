@@ -34,7 +34,7 @@ You can also install the [SonarLint](https://marketplace.visualstudio.com/items?
 
 ## Spring Boot extensions
 
-Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by VMWare and Microsoft for Spring Boot development.
+Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by VMware and Microsoft for Spring Boot development.
 
 We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vvmware.vscode-boot-dev-pack) that contains the following extensions:
 
