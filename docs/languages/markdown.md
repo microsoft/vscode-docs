@@ -4,12 +4,14 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 3/30/2023
+DateApproved: 5/3/2023
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and Visual Studio Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
+
+>**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -259,6 +261,16 @@ Keeps scripts disabled but allows content to be loaded over `http`.
 ### Disable
 
 Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
+
+## Doc Writer profile template
+
+[Profiles](https://code.visualstudio.com/docs/editor/profiles) let you quickly switch your extensions, settings, and UI layout depending on your current project or task. To help you get started with editing Markdown, you can use the [Doc Writer profile templates](/docs/editor/profiles.md#doc-writer-profile-template), which is a curated profile with useful extensions and settings. You can use a profile template as is or use it as a starting point to customize further for you own workflows.
+
+You select a profile template through the **Profiles** > **Create Profile...** dropdown:
+
+![Create Profile dropdown with profile templates](images/markdown/profile-template-dropdown.png)
+
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on a template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Markdown extensions
 

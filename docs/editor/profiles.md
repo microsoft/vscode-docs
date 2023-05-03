@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Profiles
 ContentId: a65efc48-5a2d-4c7d-bd23-03f0393b53f6
 PageTitle: Profiles in Visual Studio Code
-DateApproved: 3/30/2023
+DateApproved: 5/3/2023
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Profiles in Visual Studio Code
@@ -127,6 +127,223 @@ Profiles can be used to customize VS Code for students to ease the use in a clas
 ### Report VS Code issues
 
 One use of an Empty Profile is to reset your editor when you want to report an issue with VS Code. An Empty Profile disables all extensions and modified settings so you can quickly see if the issue is due to an extension, a setting, or is in VS Code core.
+
+## Profile Templates
+
+VS Code comes with a predefined set of profile templates that you can use to customize VS Code for your specific workflow. To create a new profile based on a template, select a Profile Template when going through the **Create Profile** flow.
+
+### Python Profile Template
+
+The Python profile is a good starting point for Python development. It comes with Python specific snippets and has the following extensions:
+
+* [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - Generate Python docstrings automatically.
+* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
+* [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) - Fully-featured TOML support.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
+* [Python Environment Manager](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-environment-manager) - Manage Python environments and packages.
+* [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extension pack - Supports SSH, WSL, and Dev Containers.
+* [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff) - Integrates the [Ruff](https://github.com/charliermarsh/ruff) Python linter.
+
+This profile also sets the following settings:
+
+```json
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.fixAll": ["source.unusedImports"],
+    "workbench.colorTheme": "Default Dark+ Experimental",
+    "editor.defaultFormatter": "ms-python.black-formatter"
+```
+
+### Data Science Profile Template
+
+The Data Science profile is a good starting point for all data and notebook work. It comes with specific snippets and has the following extensions:
+
+* [Data Wrangler](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.datawrangler) - Data cleaning and preparation for tabular datasets.
+* [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) - Formatting support using the [black](https://github.com/python/black) formatter.
+* [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) - Use Jupyter notebooks within VS Code.
+* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - IntelliSense, linting, formatting, debugging, refactoring.
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
+* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - Your AI pair programmer.
+
+This profile also sets the following settings:
+
+```json
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true
+    },
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineHeight": 17,
+    "breadcrumbs.enabled": false,
+    "files.autoSave": "afterDelay",
+    "jupyter.themeMatplotlibPlots": true,
+    "jupyter.widgetScriptSources": [
+        "unpkg.com",
+        "jsdelivr.com"
+    ],
+    "notebook.experimental.outputScrolling": true,
+    // "notebook.outline.showCodeCells": true,
+    "workbench.colorTheme": "Default Dark+ Experimental",
+    "files.exclude": {
+        "**/.csv": true,
+        "**/.parquet": true,
+        "**/.pkl": true,
+        "**/.xls": true
+    }
+```
+
+### Doc Writer Profile Template
+
+The Doc Writer profile is a good lightweight setup for writing documentation. It comes with the following extensions:
+
+* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - Spelling checker for source code.
+* [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox) - Adds checkbox support to the VS Code built-in Markdown Preview.
+* [Markdown Emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) - Adds emoji syntax support to Markdown Preview and notebook Markdown cells.
+* [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes) - Adds ^footnote syntax support to the Markdown Preview.
+* [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) - Use GitHub styling in the Markdown Preview.
+* [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Mermaid diagrams and flowcharts.
+* [Markdown yaml Preamble](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-yaml-preamble) - Renders YAML front matter as a table.
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) - Markdown linting and style checking for Visual Studio Code.
+
+This profile also sets the following settings:
+
+```json
+    "workbench.colorTheme": "Default Light+ Experimental",
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "editor.glyphMargin": false,
+    "explorer.decorations.badges": false,
+    "explorer.decorations.colors": false,
+    "editor.fontLigatures": true,
+    "files.autoSave": "afterDelay",
+    "git.enableSmartCommit": true,
+    "window.commandCenter": true,
+    "editor.renderWhitespace": "none",
+    "workbench.editor.untitled.hint": "hidden",
+    "markdown.validate.enabled": true,
+    "markdown.updateLinksOnFileMove.enabled": "prompt",
+    "workbench.startupEditor": "none"
+```
+
+### Node.js Profile Template
+
+The Node.js profile is a good starting point for all Node.js work. It comes with the following extensions:
+
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Create, manage, and debug containerized applications.
+* [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - Support for dotenv file syntax.
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
+* [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
+* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) -  Use Facebook's [jest](https://jestjs.io) testing framework.
+* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
+* [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense) - Autocomplete npm modules in import statements.
+* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using [Prettier](https://prettier.io).
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
+* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
+
+This profile comes with the following settings:
+
+```json
+    "editor.formatOnPaste": true,
+    "git.autofetch": true,
+    "[markdown]":  {
+        "editor.wordWrap": "on"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorTheme": "Default Dark+ Experimental"
+```
+
+### Angular Profile Template
+
+The Angular profile is a good starting point for all Angular work. It comes with the following extensions:
+
+* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) - Editor services for Angular templates.
+* [Angular Schematics](https://marketplace.visualstudio.com/items?itemName=cyrilletuzi.angular-schematics) - Integrate Angular schematics (CLI commands).
+* [angular2-switcher](https://marketplace.visualstudio.com/items?itemName=infinity1207.angular2-switcher) - Easily navigate to `typescript`|`template`|`style` in angular2 project.
+* [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) - Create custom development environments inside a Docker container.
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support for Visual Studio Code.
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+* [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for JavaScript in ES6 syntax.
+* [Jest](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest) - Use Facebook's [jest](https://jestjs.io) testing framework.
+* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Material Design Icons for Visual Studio Code.
+* [Microsoft Edge Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-edgedevtools.vscode-edge-devtools) - Use the Microsoft Edge Tools from within VS Code.
+* [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) - Run [Playwright](https://playwright.dev) tests in Visual Studio Code.
+* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter using [Prettier](https://prettier.io).
+* [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - REST Client for Visual Studio Code.
+* [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - YAML language support with built-in Kubernetes syntax.
+
+This profile sets the following settings:
+
+```json
+    "editor.formatOnPaste": true,
+    "git.autofetch": true,
+    "[markdown]":  {
+        "editor.wordWrap": "on"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Default Dark+ Experimental",
+```
+
+### Java General Profile Template
+
+The Java General profile is a good starting point for all Java work. It customizes the layout to improve the Java experience and comes with the following extensions from the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack):
+
+* [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) - A lightweight Java debugger.
+* [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) - AI-assisted development.
+* [IntelliCode API Usage Examples](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.intellicode-api-usage-examples) - Provides code examples for over 100K different APIs.
+* [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) - Linting, Intellisense, formatting, refactoring.
+* [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) - Manage [Maven](https://maven.apache.org) projects and builds.
+* [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) - Manage Java projects within VS Code.
+* [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) - Run and debug JUnit or TestNG test cases.
+
+### Java Spring Profile Template
+
+The Java Spring profile is a good starting point for all Java Spring work. It builds on the Java General profile and add the following extensions from the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack):
+
+* [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard) - Manage Spring Boot projects in your workspace.
+* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) - Rich language support for Spring Boot files.
+* [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) - Generate Spring Boot Java projects.
+
+This profile sets the following settings:
+
+```json
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "boot-java.rewrite.reconcile": true,
+    "workbench.colorTheme": "Default Dark+ Experimental"
+```
 
 ## Command line
 

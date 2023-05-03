@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
-DateApproved: 3/30/2023
+DateApproved: 5/3/2023
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
@@ -337,7 +337,7 @@ vsce package --pre-release
 vsce publish --pre-release
 ```
 
-We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Support for this will arrive in the future.
+We only support `major.minor.patch` for extension versions and `semver` pre-release tags are not supported. Thus, if you publish `major.minor.patch-tag` release to the Marketplace, it will be treated as `major.minor.patch` and the `tag` will be ignored. Versions must be different between pre-release and regular releases. That is, if 1.2.3 is uploaded as a pre-release, the next regular release must be uploaded with a distinct version, such as 1.2.4. Full `semver` support will arrive in the future.
 
 VS Code will auto update extensions to the highest version available, so even if a user opted into a pre-release version and there is an extension release with a higher version, that user will be updated to the released version.
 Because of this we recommend that extensions use `major.EVEN_NUMBER.patch` for release versions and `major.ODD_NUMBER.patch` for pre-release versions. For example: `0.2.*` for release and `0.3.*` for pre-release.
@@ -358,7 +358,7 @@ Platform-specific extensions are useful if your extension has platform-specific 
 
 When publishing platform-specific extensions, a separate package needs to be published for every platform that has platform-specific content. You can still publish a package without the `--target` flag and that package will be used as a fallback for all platforms for which there is no specific platform-specific package.
 
-The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64` and `darwin-arm64`.
+The currently available platforms are: `win32-x64`, `win32-ia32`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
 
 If you want a platform-specific extension to also support running in the browser as a [web extension](/api/extension-guides/web-extensions), it **must** target the `web` platform when publishing. The `web` platform will respect the `browser` entry point in the `package.json`. The extension capabilites that are not supported in the `web` should use `when` clauses in the `package.json` to make sure that they are disabled. We do not recommend that extensions ship a different `package.json` for the web platform or to remove parts of the VSIX that do not work in the `web`.
 
