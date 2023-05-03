@@ -12,11 +12,11 @@ MetaDescription: Spring Boot extensions for Java developer using Visual Studio C
 
 Visual Studio Code is an ideal lightweight development environment for Spring Boot application developers and there are several useful VS Code extensions including:
 
-* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+* [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
 * [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 * [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack) that includes all of the extensions above.
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) that includes all of the extensions above.
 
 If you run into any issues when using the features below, you can contact us by [opening an issue](https://github.com/microsoft/vscode-java-pack/issues).
 
@@ -26,11 +26,11 @@ To develop a Spring Boot application in Visual Studio Code, you need to install 
 
 * [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-* [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=pivotal.vscode-boot-dev-pack)
+* [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
 
 <a class="install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Extension Pack for Java</a>
 
-<a class="install-extension-btn" href="vscode:extension/pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
+<a class="install-extension-btn" href="vscode:extension/vmware.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
 >**Note**: More information about how to get started can be found at [Getting Started with Java](/docs/java/java-tutorial.md) tutorial.
 
@@ -60,7 +60,7 @@ Navigate to your `pom.xml` file and right-click to select **Add starters...**. A
 
 ## Develop the application
 
-The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml`, and `.java` files.
 
 The extension supports the following features:
 
