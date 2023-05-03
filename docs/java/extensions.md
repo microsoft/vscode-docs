@@ -34,15 +34,15 @@ You can also install the [SonarLint](https://marketplace.visualstudio.com/items?
 
 ## Spring Boot extensions
 
-Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by Pivotal and Microsoft for Spring Boot development.
+Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by VMWare and Microsoft for Spring Boot development.
 
-We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack) that contains the following extensions:
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vvmware.vscode-boot-dev-pack) that contains the following extensions:
 
-1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Spring Boot Dashboard](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-boot-dashboard)
 
-<a class="install-extension-btn" href="vscode:extension/Pivotal.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
+<a class="install-extension-btn" href="vscode:extension/vmware.vscode-boot-dev-pack">Install the Spring Boot Extension Pack</a>
 
 More Spring Boot related information can be found at the [Spring Boot](/docs/java/java-spring-boot.md) page.
 
