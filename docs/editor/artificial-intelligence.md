@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: AI Tools
 ContentId: 0aefcb70-7884-487f-953e-46c3e07f7cbe
 PageTitle: Enhance your coding with artificial intelligence
-DateApproved: 3/30/2023
+DateApproved: 5/3/2023
 MetaDescription: Enhance your coding with AI-powered suggestions from GitHub Copilot in Visual Studio Code.
 ---
 # AI Tools in VS Code
