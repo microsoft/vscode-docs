@@ -322,4 +322,4 @@ You select a profile template through the **Profiles** > **Create Profile...** d
 
 ![Create Profile dropdown with profile templates](images/jupyter/profile-template-dropdown.png)
 
-Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are added to your profile.
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are persisted in your profile.

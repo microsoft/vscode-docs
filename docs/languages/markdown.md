@@ -11,7 +11,7 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
->**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer project template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
+>**Note**: To help get you started with editing Markdown files, you can use the [Doc Writer profile template](/docs/editor/profiles.md#doc-writer-profile-template) to install useful extensions (spell checker, Markdown linter) and configure appropriate setting values.
 
 ## Editing Markdown
 
@@ -270,7 +270,7 @@ You select a profile template through the **Profiles** > **Create Profile...** d
 
 ![Create Profile dropdown with profile templates](images/markdown/profile-template-dropdown.png)
 
-Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on a template, changes made to settings, extensions, or UI are added to your profile.
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on a template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Markdown extensions
 

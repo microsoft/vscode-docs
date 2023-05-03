@@ -19,7 +19,7 @@ This article provides only an overview of the different capabilities of the Pyth
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
->**Note**: To help get you started with Python development, you can use the [Python project template](/docs/editor/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
+>**Note**: To help get you started with Python development, you can use the [Python profile template](/docs/editor/profiles.md#python-profile-template) that includes useful extensions,  settings, and Python code snippets.
 
 Once you have a version of Python installed, select it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
@@ -139,7 +139,7 @@ You select a profile template through the **Profiles** > **Create Profile...** d
 
 ![Create Profile dropdown with profile templates](images/python/profile-template-dropdown.png)
 
-Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are added to your profile.
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new Profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Other popular Python extensions
 

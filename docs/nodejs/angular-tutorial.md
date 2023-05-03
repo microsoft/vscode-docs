@@ -14,7 +14,7 @@ MetaSocialImage: images/angular/Welcome-to-app.png
 
 ![Welcome to app](images/angular/Welcome-to-app.png)
 
->**Note**: To help get you started with Angular development, you can use the [Angular project template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
+>**Note**: To help get you started with Angular development, you can use the [Angular profile template](/docs/editor/profiles.md#angular-profile-template) that includes useful extensions,  settings, and code snippets.
 
 ## Welcome to Angular
 
@@ -156,7 +156,7 @@ You select a profile template through the **Profiles** > **Create Profile...** d
 
 ![Create Profile dropdown with profile templates](images/angular/profile-template-dropdown.png)
 
-Once you select a project template, you can review the extensions and settings, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are added to your profile.
+Once you select a profile template, you can review the settings and extensions, and remove individual items if you don't want to include them in your new profile. After creating the new profile based on the template, changes made to settings, extensions, or UI are persisted in your profile.
 
 ## Popular Starter Kits
 
