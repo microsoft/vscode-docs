@@ -108,7 +108,7 @@ You can learn more about the details of Java semantic highlighting on the [Java 
 
 ## Navigating code with Spring Boot
 
-The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
+The [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) extension provides enhanced navigation and code completion support for Spring Boot projects.
 
 * `@/` shows all defined request mappings (mapped path, request method, source location)
 * `@+` shows all defined beans (bean name, bean type, source location)
