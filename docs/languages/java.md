@@ -68,6 +68,8 @@ Thanks to the great Java community around VS Code, the list doesn't end there. Y
 
 This document describes some of the key features included in those Java extensions.
 
+>**Note**: To help get you started with Java development, you can use the [Java General profile template](/docs/editor/profiles.md#java-general-profile-template) to install useful extensions. You can learn more about profiles and how they let you quickly reconfigure your editor for different programming languages and workflows at [Profiles in VS Code](/docs/editor/profiles.md).
+
 ## Getting started
 
 **NOTE:** If you are using VS Code on Windows and want to take advantage of the Windows Subsystem for Linux, see [Developing in WSL](/docs/remote/wsl).

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 3/30/2023
+DateApproved: 5/3/2023
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -369,6 +369,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Controls whether the editor shows CodeLens.
     "diffEditor.codeLens": false,
 
+    //  - legacy: Uses the legacy diffing algorithm.
+    //  - advanced: Uses the advanced diffing algorithm.
+    "diffEditor.diffAlgorithm": "advanced",
+
     // When enabled, the diff editor ignores changes in leading or trailing whitespace.
     "diffEditor.ignoreTrimWhitespace": true,
 
@@ -524,6 +528,11 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Controls whether you can drag and drop a file into a text editor by holding down `shift` (instead of opening the file in an editor).
     "editor.dropIntoEditor.enabled": true,
+
+    // Controls if a widget is shown when dropping files into the editor. This widget lets you control how the file is dropped.
+    //  - afterDrop: Show the drop selector widget after a file is dropped into the editor.
+    //  - never: Never show the drop selector widget. Instead the default drop provider is always used.
+    "editor.dropIntoEditor.showDropSelector": "afterDrop",
 
     // Controls whether copying without a selection copies the current line.
     "editor.emptySelectionClipboard": true,
@@ -1319,7 +1328,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.colorCustomizations": {},
 
     // Specifies the color theme used in the workbench.
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Default Dark Modern",
 
     // Controls the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.
     "workbench.commandPalette.history": 50,
@@ -1583,7 +1592,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.panel.opensMaximized": "preserve",
 
     // Specifies the preferred color theme for dark OS appearance when `window.autoDetectColorScheme` is enabled.
-    "workbench.preferredDarkColorTheme": "Default Dark+",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
 
     // Specifies the preferred color theme used in high contrast dark mode when `window.autoDetectHighContrast` is enabled.
     "workbench.preferredHighContrastColorTheme": "Default High Contrast",
@@ -1592,7 +1601,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     "workbench.preferredHighContrastLightColorTheme": "Default High Contrast Light",
 
     // Specifies the preferred color theme for light OS appearance when `window.autoDetectColorScheme` is enabled.
-    "workbench.preferredLightColorTheme": "Default Light+",
+    "workbench.preferredLightColorTheme": "Default Light Modern",
 
     // Specifies the product icon theme used.
     //  - Default: Default
@@ -2611,7 +2620,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - auto: Use project settings to select a default.
     //  - minimal: Shorten `./component/index.js` to `./component`.
     //  - index: Shorten `./component/index.js` to `./component/index`.
-    //  - js: Do not shorten path endings; include the `.js` extension.
+    //  - js: Do not shorten path endings; include the `.js` or `.ts` extension.
     "javascript.preferences.importModuleSpecifierEnding": "auto",
 
     // Preferred style for JSX attribute completions.
@@ -2626,12 +2635,18 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - double: Always use double quotes: `"`
     "javascript.preferences.quoteStyle": "auto",
 
+    // When on a JSX tag, try to rename the matching tag instead of renaming the symbol.
+    "javascript.preferences.renameMatchingJsxTags": true,
+
     // The setting 'typescript.preferences.renameShorthandProperties' has been deprecated in favor of 'typescript.preferences.useAliasesForRenames'
     // Enable/disable introducing aliases for object shorthand properties during renames.
     "javascript.preferences.renameShorthandProperties": true,
 
     // Enable/disable introducing aliases for object shorthand properties during renames.
     "javascript.preferences.useAliasesForRenames": true,
+
+    // Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.
+    "javascript.preferGoToSourceDefinition": false,
 
     // Enable/disable references CodeLens in JavaScript files.
     "javascript.referencesCodeLens.enabled": false,
@@ -2710,6 +2725,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable/disable default TypeScript formatter.
     "typescript.format.enable": true,
+
+    // Indent case clauses in switch statements.
+    "typescript.format.indentSwitchCase": true,
 
     // Defines space handling after a comma delimiter.
     "typescript.format.insertSpaceAfterCommaDelimiter": true,
@@ -2812,7 +2830,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - auto: Use project settings to select a default.
     //  - minimal: Shorten `./component/index.js` to `./component`.
     //  - index: Shorten `./component/index.js` to `./component/index`.
-    //  - js: Do not shorten path endings; include the `.js` extension.
+    //  - js: Do not shorten path endings; include the `.js` or `.ts` extension.
     "typescript.preferences.importModuleSpecifierEnding": "auto",
 
     // Enable/disable searching `package.json` dependencies for available auto imports.
@@ -2833,8 +2851,14 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - double: Always use double quotes: `"`
     "typescript.preferences.quoteStyle": "auto",
 
+    // When on a JSX tag, try to rename the matching tag instead of renaming the symbol.
+    "typescript.preferences.renameMatchingJsxTags": true,
+
     // Enable/disable introducing aliases for object shorthand properties during renames.
     "typescript.preferences.useAliasesForRenames": true,
+
+    // Makes Go to Definition avoid type declaration files when possible by triggering Go to Source Definition instead. This allows Go to Source Definition to be triggered with the mouse gesture.
+    "typescript.preferGoToSourceDefinition": false,
 
     // Enable/disable references CodeLens in TypeScript files.
     "typescript.referencesCodeLens.enabled": false,
@@ -2901,9 +2925,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Additional paths to discover TypeScript Language Service plugins.
     "typescript.tsserver.pluginPaths": [],
-
-    // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
-    "typescript.tsserver.trace": "off",
 
     // Controls if TypeScript launches a dedicated server to more quickly handle syntax related operations, such as computing code folding.
     //  - always: Use a lighter weight syntax server to handle all IntelliSense operations. This syntax server can only provide IntelliSense for opened files.
@@ -3332,6 +3353,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Control whether the notebook editor should be rendered in a compact form. For example, when turned on, it will decrease the left margin width.
     "notebook.compactView": true,
 
+    // Control whether a confirmation prompt is required to delete a running cell.
+    "notebook.confirmDeleteRunningCell": true,
+
     // Control whether outputs action should be rendered in the output toolbar.
     "notebook.consolidatedOutputButton": true,
 
@@ -3347,6 +3371,9 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Hide Outputs Differences
     "notebook.diff.ignoreOutputs": false,
 
+    // Whether to render the overview ruler in the diff editor for notebook.
+    "notebook.diff.overviewRuler": false,
+
     // Priority list for output mime types
     "notebook.displayOrder": [],
 
@@ -3355,6 +3382,14 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Settings for code editors used in notebooks. This can be used to customize most editor.* settings.
     "notebook.editorOptionsCustomizations": {},
+
+    // Customize the Find Widget behavior for searching within notebook cells. When both markup source and markup preview are enabled, the Find Widget will search either the source code or preview based on the current state of the cell.
+    "notebook.find.scope": {
+        "markupSource": true,
+        "markupPreview": true,
+        "codeSource": true,
+        "codeOutput": true
+    },
 
     // Format a notebook on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
     "notebook.formatOnSave.enabled": false,
@@ -3396,7 +3431,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     //  - Values greater than or equal to 8 will be used as effective values.
     "notebook.output.lineHeight": 0,
 
-    // Use a scrollable region for notebook output when longer than the limit.
+    // Initially render notebook outputs in a scrollable region when longer than the limit.
     "notebook.output.scrolling": true,
 
     // Controls how many lines of text are displayed in a text output.
@@ -3431,6 +3466,7 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When opening a file from the Explorer in a terminal, determines what kind of terminal will be launched
     //  - integrated: Use VS Code's integrated terminal.
     //  - external: Use the configured external terminal.
+    //  - both: Use the other two together.
     "terminal.explorerKind": "integrated",
 
 // External Terminal
@@ -4059,6 +4095,11 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.maxTokenizationLineLength": 2500
     },
 
+    // Configure settings to be overridden for the css language.
+    "[css]":  {
+        "editor.suggest.insertMode": "replace"
+    },
+
     // Configure settings to be overridden for the dockercompose language.
     "[dockercompose]":  {
         "editor.insertSpaces": true,
@@ -4142,6 +4183,19 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.insertSpaces": false
     },
 
+    // Configure settings to be overridden for the markdown language.
+    "[markdown]":  {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+                "comments": "off",
+                "strings": "off",
+                "other": "off"
+        }
+    },
+
     // Configure settings to be overridden for the plaintext language.
     "[plaintext]":  {
         "editor.unicodeHighlight.ambiguousCharacters": false,
@@ -4151,6 +4205,11 @@ Below are the Visual Studio Code default settings and their values. You can also
     // Configure settings to be overridden for the python language.
     "[python]":  {
         "diffEditor.ignoreTrimWhitespace": false
+    },
+
+    // Configure settings to be overridden for the scss language.
+    "[scss]":  {
+        "editor.suggest.insertMode": "replace"
     },
 
     // Configure settings to be overridden for the search-result language.
@@ -4170,6 +4229,14 @@ Below are the Visual Studio Code default settings and their values. You can also
         "editor.autoIndent": "advanced",
         "diffEditor.ignoreTrimWhitespace": false
     },
+
+// Accessibility
+
+    // Provide information about how to navigate changes in the diff editor when it is focused
+    "accessibility.verbosity.diff-editor": true,
+
+    // Provide information about how to access the terminal accessibility help menu when the terminal is focused
+    "accessibility.verbosity.terminal": true,
 
 // Audio Cues
 
@@ -4286,9 +4353,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     // When enabled, new running processes are detected and ports that they listen on are automatically forwarded. Disabling this setting will not prevent all ports from being forwarded. Even when disabled, extensions will still be able to cause ports to be forwarded, and opening some URLs will still cause ports to forwarded.
     "remote.autoForwardPorts": true,
 
-    // Sets the source from which ports are automatically forwarded when `remote.autoForwardPorts` is true. On Windows and Mac remotes, the `process` option has no effect and `output` will be used. Requires a reload to take effect.
+    // Sets the source from which ports are automatically forwarded when `remote.autoForwardPorts` is true. On Windows and Mac remotes, the `process` and `hybrid` options have no effect and `output` will be used. Requires a reload to take effect.
     //  - process: Ports will be automatically forwarded when discovered by watching for processes that are started and include a port.
     //  - output: Ports will be automatically forwarded when discovered by reading terminal and debug output. Not all processes that use ports will print to the integrated terminal or debug console, so some ports will be missed. Ports forwarded based on output will not be "un-forwarded" until reload or until the port is closed by the user in the Ports view.
+    //  - hybrid: Ports will be automatically forwarded when discovered by reading terminal and debug output. Not all processes that use ports will print to the integrated terminal or debug console, so some ports will be missed. Ports will be "un-forwarded" by watching for processes that listen on that port to be terminated.
     "remote.autoForwardPortsSource": "process",
 
     // When enabled extensions are downloaded locally and installed on remote.
@@ -4317,6 +4385,10 @@ Below are the Visual Studio Code default settings and their values. You can also
     "remote.restoreForwardedPorts": true,
 
 // Merge Editor
+
+    //  - legacy: Uses the legacy diffing algorithm.
+    //  - advanced: Uses the advanced diffing algorithm.
+    "mergeEditor.diffAlgorithm": "advanced",
 
     // Controls if deletions in base or one of the inputs should be indicated by a vertical bar.
     "mergeEditor.showDeletionMarkers": true,
@@ -4668,6 +4740,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
     // Enable verbose output when `git.useEditorAsCommitInput` is enabled.
     "git.verboseCommit": false,
+
+    // Controls whether to query repository rules for GitHub repositories
+    "github.branchProtection": false,
 
     // Controls whether to enable automatic GitHub authentication for git commands within VS Code.
     "github.gitAuthentication": true,
