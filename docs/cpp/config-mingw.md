@@ -148,7 +148,7 @@ Your new `tasks.json` file should look similar to the JSON below:
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "command": "C:\\msys64\\ucrt\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -308,7 +308,7 @@ VS Code creates a `launch.json` file, which looks something like this:
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+      "miDebuggerPath": "C:\\msys64\\ucrt\\bin\\gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -360,7 +360,7 @@ Visual Studio Code places these settings in `.vscode\c_cpp_properties.json`. If 
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "compilerPath": "C:/msys64/ucrt/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64"
@@ -390,7 +390,7 @@ If you have Visual Studio or WSL installed, you may need to change `compilerPath
 
 ### MSYS2 is installed, but g++ and gdb are still not found
 
-You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install Mingw-w64, which contains those tools. You will also need to install the full Mingw-w64 toolchain (`pacman -S --needed base-devel mingw-w64-x86_64-toolchain`) to get the `gdb` debugger.
+You must follow the steps on the [MSYS2 website](https://www.msys2.org/) and use the MSYS CLI to install Mingw-w64, which contains those tools. You will also need to install the full Mingw-w64 toolchain (`pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`) to get the `gdb` debugger.
 
 ### MinGW 32-bit
 
