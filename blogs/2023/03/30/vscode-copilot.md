@@ -101,7 +101,7 @@ The inline completions experience discussed above is available today. If you don
 
 Today, access to the chat experiences (in-editor and Chat view), you'll need to [join the waitlist]( https://github.com/github-copilot/chat_waitlist_signup/join) for access to the technical preview as we ramp up the service. Once admitted:
 
-* You must use [VS Code Insiders](https://code.visualstudio.com/insiders/).
+* You must use [VS Code Insiders](https://code.visualstudio.com/insiders/).responsibleresponsible/-aiAi)
 * Open the Extensions view (`kb(workbench.view.extensions)`), search for GitHub Copilot Nightly and install the extension.
 * When prompted, authenticate with your GitHub ID.
 * To open the in-editor Chat, optionally select a block of code and press `kbstyle(Cmd+I)` on macOS or `kbstyle(Ctrl+I)` on Windows/Linux. Ask Copilot to write a Quick Sort function.
@@ -113,7 +113,7 @@ Monumental advancements in technology like this really are few and far between. 
 
 AI is not perfect (neither are we!) and it will improve over time. Microsoft and GitHub Copilot follow [Responsible AI](https://www.microsoft.com/ai/responsible-ai) principles and employ controls to ensure that your experience with the service is appropriate, pleasant, and useful. We understand there is hesitation and concern surrounding the rapid expansion of AI's capabilities, and fully respect those who don't want or can't use Copilot.
 
-## Connecting the dots
+
 
 The combination of a Chat assistant, in-editor Chat, and inline completions let you leverage the power of Copilot no matter what coding "zone" you are in. Just getting started or have questions? Use the Chat view. Furiously writing code and want to do some refactoring, updating, or scaffolding? Smash `kbstyle(Ctrl+I)` and ask Copilot to do it for you. Working your way through a problem step by step? Use inline completions to Tab-Tab-Tab your way to success.
 
@@ -126,3 +126,5 @@ Thanks,
 Chris and the VS Code team
 
 Happy **Smart** Coding!
+(httpshttps://wwwhttpshttps://www.miwww.microsoft.comwww.miwww.microsoft.com/aiai/) 
+

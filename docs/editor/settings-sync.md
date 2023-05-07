@@ -29,6 +29,7 @@ After making this selection, the browser will open so that you can sign in to yo
 
 After signing in, Settings Sync will be turned on and continue to synchronize your preferences automatically in the background.
 
+
 ## Merge or Replace
 
 If you already synced from a machine and turning on sync from another machine, you will be shown with following **Merge or Replace** dialog.
