@@ -116,7 +116,19 @@ Placeholders can have choices as values. The syntax is a comma-separated enumera
 
 ### Variables
 
-With `$name` or `${name:default}`, you can insert the value of a variable. When a variable isn't set, its **default** or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) the name of the variable is inserted and it is transformed into a placeholder.
+With `$name` or `${name:default}`, you can insert the value of a variable. When a variable isn't set, its **default** or the empty string is inserted. When a variable is unknown (that is, its name isn't defined) and the variable has no default set, the name of the variable is inserted and it is transformed into a placeholder. When a variable is unknown and has a **default** set, it's **default** is inserted.
+
+Example | 'name' Value | Output | Explanation
+-----|-------|--------|------------
+`"$name"`|'text'|'text'|name's value is inserted
+&nbsp;|unset|''|an empty string is inserted
+&nbsp;|unknown|'name'|name's name is inserted as a placeholder
+`"$name:default"`|'text'|'text'|name's value is inserted
+&nbsp;|unset|''|an empty string is inserted
+&nbsp;|unknown|'default'|name's default is inserted
+`"${name:${1:placeholder}}"`|'text'|'text'|name's value is inserted
+&nbsp;|unset|'placeholder'|name's default (in this case, a placeholder) is inserted
+&nbsp;|unknown|'name'|name's default (in this case, a placeholder) is inserted
 
 The following variables can be used:
 
