@@ -300,7 +300,7 @@ To see your extension on vscode.dev, you first need to host it from your machine
 
 First, you'll need to [install `mkcert`](https://github.com/FiloSottile/mkcert#installation).
 
-Then, generate the `localhost.pem` and `localhost-key.pem` files into a location you won't lose them (eg. `$HOME/certs`):
+Then, generate the `localhost.pem` and `localhost-key.pem` files into a location you won't lose them (for example `$HOME/certs`):
 
 ```
 $ mkdir -p $HOME/certs
@@ -327,7 +327,7 @@ npx: installed 78 in 2.196s
    └────────────────────────────────────────────────────┘
 ```
 
-Finally, open [vscode.dev](https://vscode.dev), run `F1 > Developer: Install Extension From Location...`, paste the URL from above, eg `https://localhost:5000`, and select **Install**.
+Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Extension From Location...** from the Command Palette (`kb(workbench.action.showCommands)`), paste the URL from above, `https://localhost:5000` in the example, and select **Install**.
 
 **Check the logs**
 
