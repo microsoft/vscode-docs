@@ -39,7 +39,7 @@ to do so run the following commands:
 ```bash
 cat << EOF >> ~/.bash_profile
 # Add Visual Studio Code (code)
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 EOF
 ```
 
@@ -52,7 +52,7 @@ Start a new terminal to pick up your `.bash_profile` changes.
 ```zsh
 cat << EOF >> ~/.zprofile
 # Add Visual Studio Code (code)
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 EOF
 ```
 
