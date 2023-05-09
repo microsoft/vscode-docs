@@ -292,45 +292,42 @@ Check the [@vscode/test-web README](https://www.npmjs.com/package/@vscode/test-w
 
 The web bits of VS Code are downloaded to a folder `.vscode-test-web`. You want to add this to your `.gitignore` file.
 
-### Test your web extension in on vscode.dev
+### Test your web extension in vscode.dev
 
 Before you publish your extension for everyone to use on VS Code for the Web, you can verify how your extension behaves in the actual [vscode.dev](https://vscode.dev) environment.
 
 To see your extension on vscode.dev, you first need to host it from your machine for vscode.dev to download and run.
 
-From your extension's path, start an HTTP server by running `npx serve --cors -l 5000`:
+First, you'll need to [install `mkcert`](https://github.com/FiloSottile/mkcert#installation).
 
-```bash
-$ npx serve --cors -l 5000
+Then, generate the `localhost.pem` and `localhost-key.pem` files into a location you won't lose them (eg. `$HOME/certs`):
+
+```
+$ mkdir -p $HOME/certs
+$ cd $HOME/certs
+$ mkcert -install
+$ mkcert localhost
+```
+
+Then, from your extension's path, start an HTTP server by running `npx serve`:
+
+```
+$ npx serve --cors -l 5000 --ssl-cert $HOME/certs/localhost.pem --ssl-key $HOME/certs/localhost-key.pem
 npx: installed 78 in 2.196s
 
-   ┌───────────────────────────────────────────────────┐
-   │                                                   │
-   │   Serving!                                        │
-   │                                                   │
-   │   - Local:            http://localhost:5000       │
-   │   - On Your Network:  http://172.19.255.26:5000   │
-   │                                                   │
-   │   Copied local address to clipboard!              │
-   │                                                   │
-   └───────────────────────────────────────────────────┘
-
+   ┌────────────────────────────────────────────────────┐
+   │                                                    │
+   │   Serving!                                         │
+   │                                                    │
+   │   - Local:            https://localhost:5000       │
+   │   - On Your Network:  https://172.19.255.26:5000   │
+   │                                                    │
+   │   Copied local address to clipboard!               │
+   │                                                    │
+   └────────────────────────────────────────────────────┘
 ```
 
-Open another terminal and run `npx localtunnel -p 5000`:
-
-```bash
-$ npx localtunnel -p 5000
-npx: installed 22 in 1.048s
-your url is: https://hungry-mole-48.loca.lt/
-
-```
-
-**Important:** Now click on the generated URL (`https://hungry-mole-48.loca.lt/` in this case) and select **Click to Continue**.
-
-![Screenshot showing button with the text "Click to Continue" highlighted to click.](images/web-extensions/localtunnel.png)
-
-Finally, open [vscode.dev](https://vscode.dev), run **Developer: Install Web Extension...** from the Command Palette (`kb(workbench.action.showCommands)`) and paste the generated URL shown above, `https://hungry-mole-48.loca.lt/` in the example, and select **Install**.
+Finally, open [vscode.dev](https://vscode.dev), run `F1 > Developer: Install Extension From Location...`, paste the URL from above, eg `https://localhost:5000`, and select **Install**.
 
 **Check the logs**
 
