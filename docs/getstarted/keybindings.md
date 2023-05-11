@@ -260,11 +260,16 @@ Here is an example:
 
 ```
 
-To override a specific key binding rule with an empty action, you can specify an empty command:
+To remove all key bindings for a specific key, you have two options. You can bind the key to `noop`, which will prevent that key doing anything, as the keypress is captured and discarded. Alternatively, you can bind the key to `^noop`, which will prevent that key from actioning a command, but then allow the keypress to propagate to the system.
+
+For example:
 
 ```json
-// To override and disable any `tab` keybinding, for example, add in keybindings.json:
-{ "key": "tab", "command": "" }
+// To prevent the `tab` key from having _any_ effect, essentially disabling the key, add in keybindings.json:
+{ "key": "tab", "command": "noop" }
+...
+// To just remove all `tab` key bindings, without disabling `tab`, add in keybindings.json:
+{ "key": "tab", "command": "^noop" }
 ```
 
 ## Keyboard layouts
