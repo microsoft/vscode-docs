@@ -276,7 +276,7 @@ If you want to use the full set of debugging features supported in VS Code, such
 
 ### Search through notebook
 
-You can search `kbstyle(Ctrl/Cmd + F)` through an entire notebook or you can search parts of your notebook by filtering your search options. When searching through your notebook, click the Filter option (funnel icon) to search across:
+You can search through a notebook (or parts of it by filtering the search options) by using the keyboard shortcut `kbstyle(Ctrl/Cmd + F)`. Click the Filter option (funnel icon) to search across:
 - Markdown cell input (**Markdown Source**)
 - Markdown cell output (**Rendered Markdown**)
 - Code cell input (**Code Cell Source**)
