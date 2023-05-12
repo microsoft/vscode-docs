@@ -51,7 +51,7 @@ If you have an existing Jupyter Notebook, you can open it by right-clicking on t
 
 Once you have a notebook, you can run a code cell using the **Run** icon to the left of the cell and the output will appear directly below the code cell.
 
-To run code, you can also use keyboard shortcuts in both command and edit mode. To run the current cell, use `kbstyle(Ctrl+Enter)`. To run the current cell and advance to the next, use the keyboard shortcut `kbstyle(Shift+Enter)`.
+To run code, you can also use keyboard shortcuts in both command and edit mode. To run the current cell, use the keyboard shortcut `kbstyle(Ctrl+Enter)`. To run the current cell and advance to the next, use the keyboard shortcut `kbstyle(Shift+Enter)`.
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
