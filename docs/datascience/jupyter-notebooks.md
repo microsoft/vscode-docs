@@ -51,7 +51,7 @@ If you have an existing Jupyter Notebook, you can open it by right-clicking on t
 
 Once you have a notebook, you can run a code cell using the **Run** icon to the left of the cell and the output will appear directly below the code cell.
 
-To run code, you can also use keyboard shortcuts in both command and edit mode. To run the current cell, use the keyboard shortcut `kbstyle(Ctrl+Enter)`. To run the current cell and advance to the next, use the keyboard shortcut `kbstyle(Shift+Enter)`.
+To run code, you can also use keyboard shortcuts in both command and edit mode. To run the current cell, use `kbstyle(Ctrl+Enter)`. To run the current cell and advance to the next, use `kbstyle(Shift+Enter)`.
 
 ![Run Jupyter code cell](images/jupyter/native-code-cells-03.png)
 
@@ -100,7 +100,7 @@ In edit mode, a solid vertical bar is joined by a border around the cell editor.
 
 ![Code cell in edit mode](images/jupyter/native-code-cells-04.png)
 
-To switch modes, you can use keyboard shortcuts or the mouse. On your keyboard, press the `kbstyle(Enter)` key to move to edit mode or the `kbstyle(Esc)` key to move to command mode. With your mouse, click the vertical bar to the left of the cell or out of the code/Markdown region in the code cell.
+To switch modes, you can use your keyboard or mouse. On your keyboard, press the `kbstyle(Enter)` key to move to edit mode or the `kbstyle(Esc)` key to move to command mode. With your mouse, click the vertical bar to the left of the cell or out of the code/Markdown region in the code cell.
 
 ### Add additional code cells
 
@@ -144,7 +144,7 @@ You can move cells up or down within a notebook via dragging and dropping. For c
 
 To move multiple cells, you can use the same drag and drop areas in any cell included in the selection.
 
-`kbstyle(Alt+Arrow)` also moves one or multiple selected cells.
+The keyboard shortcut `kbstyle(Alt+Arrow)` also moves one or multiple selected cells.
 
 ### Delete a code cell
 
