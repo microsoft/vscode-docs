@@ -64,7 +64,7 @@ The Remote Status bar item can quickly show you in which context VS Code is runn
 
 To create a Docker container, we are going to open a GitHub repository with a Node.js project.
 
-Select **Dev Containers: Try a Dev Container Sample...** from the command list that appears and select the Node sample from the list.
+Open the Command Palette (`F1`) to run the command **Dev Containers: Try a Dev Container Sample...** and select the Node sample from the list.
 
 ![Select a sample from the list](images/containers/select-a-sample.png)
 
