@@ -29,7 +29,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 **Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
-Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
+Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, the default VS Code binaries location is `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform-specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
 > **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
 
@@ -102,8 +102,8 @@ There are several CLI options that help with reproducing errors and advanced set
 
 Argument|Description
 ------------------|-----------
-`--extensions-dir <dir>` | Set the root path for extensions. Has no effect in [Portable Mode](/docs/editor/portable.md).
-`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root. Has no effect in [Portable Mode](/docs/editor/portable.md).
+`--extensions-dir <dir>` | Set the root path for extensions. (Overridden in [Portable Mode](/docs/editor/portable.md) by the presence of the data folder\*).
+`--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root. (Overridden in [Portable Mode](/docs/editor/portable.md) by the presence of the data folder\*).
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
