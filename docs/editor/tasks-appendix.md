@@ -250,6 +250,12 @@ interface ProblemMatcher {
     owner?: string;
 
     /**
+     * A human-readable string describing the source of this problem.
+     * E.g. 'typescript' or 'super lint'.
+     */
+    source?: string;
+
+    /**
      * The severity of the VS Code problem produced by this problem matcher.
      *
      * Valid values are:
