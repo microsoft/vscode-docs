@@ -21,4 +21,17 @@ The [WebAssembly](https://webassembly.org/) technology can be used to execute co
 - the executed code should have access to the files in the VS Code workspace
 - standard input and output should be nicely integrated into VS Code's terminal.
 
-To make things concrete we decided to try to get [Python](https://www.python.org/) code executed in a browser.  Luckily the Python team already started working on compiling [CPython to WASM](https://github.com/tiran/cpython-wasm-test/releases) and we happily piggybacked on their effort.
+To make things concrete we decided to try to get [Python](https://www.python.org/) code executed in a browser. Luckily the Python team already started working on compiling [CPython to WASM](https://github.com/tiran/cpython-wasm-test/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
+
+![Execute a Python file in VS Code for the Web](./run-python-file.gif)
+
+So, doesn't look really different to executing Python code in VS Code desktop. So why is this cool?
+
+- the Python code (`app.py` and `hello.py`) is actually hosted in a [GitHub repository](https://github.com/dbaeumer/wasm-wasi-sample) and directly read from GitHub.
+- the sample code is multi file. `app.py` depends on `hello.py`.
+- the output shows up in VS Code's terminal.
+- you can run a Python REPL and fully interact with it.
+
+## How does it work
+
+As said earlier we are using the Python WebAssembly executable provided by the Python team. But how does the web assembly talk to the files in the workspace and gets access to VS Code's terminal?
