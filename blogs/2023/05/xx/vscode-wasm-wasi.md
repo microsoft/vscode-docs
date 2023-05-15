@@ -8,12 +8,12 @@ Author: Dirk Bäumer
 ---
 # Using WebAssemblies to execute non JavaScript code in VS Code Web
 
-[VS Code for the Web](https://vscode.dev/) is around for a while now and it was always our goal to provide more than simple code editing featues in vscode.dev. The biggest challenges to support more phases of the edit / compile / debug cycle for langauges other than JavaScript and TypeScript are:
+[VS Code for the Web](https://vscode.dev/) is around for a while now and it was always our goal to provide more than simple code editing features in vscode.dev. The biggest challenges to support more phases of the edit / compile / debug cycle for languages other than JavaScript and TypeScript are:
 
 - having language smarts support through language servers.
 - being able to execute and debug the code.
 
-Today the first item gets partly adressed by generic language supports like [AnyCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode.anycode). In the future we will see [GitHub Copilt](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) being available in the Web which further reduces the need to get a specific language server running in the Web.
+Today the first item gets partly addressed by generic language supports like [AnyCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode.anycode). In the future we will see [GitHub Copilt](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) being available in the Web which further reduces the need to get a specific language server running in the Web.
 
 The [WebAssembly](https://webassembly.org/) technology can be used to execute code other than JavaScript in a web browser. So we decided to explore how far we can get with WebAssemblies today. Our goals where as follows:
 
@@ -35,3 +35,5 @@ So, doesn't look really different to executing Python code in VS Code desktop. S
 ## How does it work
 
 As said earlier we are using the Python WebAssembly executable provided by the Python team. But how does the web assembly talk to the files in the workspace and gets access to VS Code's terminal?
+
+When starting the endeavor we looked at the tool chains available to create web assemblies from C/C++ and Rust.
