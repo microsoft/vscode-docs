@@ -82,7 +82,7 @@ Alternately, you can create a folder through the operating system UI, then use V
 
 A best practice among Python developers is to use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in VS Code using Venv or Anaconda with **Python: Create Environment**.
 
-Open the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command. You can also trigger the **Python: Create Environment** command through the Getting Started with Python page.
+Open the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
 
 The command presents a list of environment types, Venv or Conda. For this example, select **Venv**.
 
@@ -93,7 +93,7 @@ The command then presents a list of interpreters that can be used for your proje
 ![Virtual environment interpreter selection](images/environments/interpreters-list.png)
 
 
-After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder will appear in your workspace.
+After selecting the interpreter, a notification will show the progress of the environment creation and the environment folder (`/.venv`) will appear in your workspace.
 
 ![Create environment status notification](images/environments/create_environment_prompt_status.png)
 
@@ -110,7 +110,7 @@ From the File Explorer toolbar, select the **New File** button on the `hello` fo
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
-Name the file `hello.py`, and it automatically opens in the editor:
+Name the file `hello.py`, and VS Code will automatically open it in the editor:
 
 ![File Explorer hello.py](images/tutorial/hello-py-file-created.png)
 
@@ -232,7 +232,7 @@ plt.show()                   # Display the plot
 
 Next, run the file in the debugger using the "Python: Current file" configuration as described in the last section.
 
-Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. Such a message indicates that the required package isn't available in your system.
+You should see the message, **"ModuleNotFoundError: No module named 'matplotlib'"**. This message indicates that the required package isn't available in your system. If you're using an Anaconda distribution or have previously installed the `matplotlib` package you may not see this message.
 
 To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and use the Command Palette to run **Terminal: Create New Terminal** (`kb(workbench.action.terminal.new)`). This command opens a command prompt for your selected interpreter.
 
