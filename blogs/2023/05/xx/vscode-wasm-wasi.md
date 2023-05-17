@@ -71,7 +71,7 @@ clang hello.c -o ./hello.wasm
 
 This will generated a `hello.wasm` file next to the `hello.c` file.
 
-VS Code is extended using extensions and we follow the same model when integrating WebAssemblies into VS Code. So we need to define an extension that loads and runs the WebAssembly. The important parts of the extension's `package.json` manifest look like this:
+New feature are added to VS Code via extensions and we follow the same model when integrating WebAssemblies into VS Code. So we need to define an extension that loads and runs the WebAssembly code. The important parts of the extension's `package.json` manifest look like this:
 
 ```json
 {
@@ -142,3 +142,19 @@ The screen cast below shows the extension running in VS Code for the Web.
 
 ## Under the hood
 
+WebAssembly code execution is sync. So once the execution started it is not interrupted until the execution finished. This characteristic caused two problems for the execution inside VS Code:
+
+- we need to avoid that the extension host is blocked when executing WebAssemblies since this would block other extensions from being executed.
+- the whole VS Code API is async. So we need a mechanism to map the sync behavior of WebAssemblies onto the async VS Code API.
+
+The first problem is easy to solve: we simply run the WebAssembly code in a separate worker thread. The second one is harder since mapping sync code onto async code needs suspending the sync executing thread and resuming it when the asynchronously computed result is available. The [JavaScript-Promise Integration Proposal for WebAssembly](https://github.com/WebAssembly/js-promise-integration) will solve this problem on the WASM layer and there is an experimental implementation of the proposal in [V8](https://v8.dev/blog/jspi). However when we started the effort that implementation was not available yet and even today it is still limited to V8. So we choose a different implementation which uses [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) and [`Atomics`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics) to map the sync WASI API onto VS Code's async API. The approach works as follows:
+
+- the WASM worker thread creates a `SharedArrayBuffer` with the necessary information about the code that should be called on the VS Code side.
+- it post that memory to VS Code's extension host worker and then waits for the extension host worker to write the result back into the `SharedArrayBuffer` by using [`Atomics.wait`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/wait)
+- the extension host worker takes the message, calls the appropriate VS Code API, writes results back into the `SharedArrayBuffer` and then notifies the WASM worker thread to wake up using [`Atomics.store`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/store) and [`Atomics.notify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/notify).
+
+The only difficulty with this approach is that `SharedArrayBuffer` and `Atomics` require that the site is [cross-origin isolated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) which, due to the fact that CORS is very viral, can be an endeavour by itself. This is why it is currently only enabled by default on https://insiders.vscode.dev/ and must be enabled using the query parameter `?vscode-coi=` on https://vscode.dev/
+
+![Interaction between the WASM worker and the extension host](./diagram.png)
+
+## A Web Shell
