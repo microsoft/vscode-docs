@@ -17,8 +17,8 @@ Today the first item gets partly addressed by generic language supports like [An
 
 The [WebAssembly](https://webassembly.org/) technology can be used to execute code other than JavaScript in a web browser. So we decided to explore how far we can get with WebAssemblies today. Our goals where as follows:
 
-- we should be able to run the code without modifications
-- the executed code should have access to the files in the VS Code workspace
+- we should be able to run the code we compile to WebAssembly without modifying it.
+- the executed code should have access to the files in the VS Code workspace.
 - standard input and output should be nicely integrated into VS Code's terminal.
 
 To make things concrete we decided to try to get [Python](https://www.python.org/) code executed in a browser. Luckily the Python team already started working on compiling [CPython to WASM](https://github.com/tiran/cpython-wasm-test/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
@@ -32,7 +32,7 @@ So, doesn't look really different to executing Python code in VS Code desktop. S
 - the output shows up in VS Code's terminal.
 - you can run a Python REPL and fully interact with it.
 
-## How does it work
+## How does it work - the bird's eye view
 
 As said earlier we are using the Python WebAssembly executable provided by the Python team. But how does the web assembly talk to the files in the workspace and gets access to VS Code's terminal?
 
@@ -45,11 +45,11 @@ For VS Code we decided to support WASI. Although our primary focus is to execute
 
 Our current implementation of VS Code's WASI host is based on the [WASI snapshot preview1](https://github.com/WebAssembly/WASI/blob/main/legacy/preview1/docs.md). So all implementation details described in this blog post refer to that version.
 
-Rust, like C/C++, also supports `wasm32-wasi` and `emscripten` as compile targets. So basing our implementation on WASI allows using Rust as a programming language to compile to WASM as well.
+Rust, like C/C++, also supports `wasm32-wasi` and `emscripten` as compile targets. So basing our implementation on WASI also allows using Rust as a programming language to compile to WASM.
 
-## Run your own WASM program
+## Run your own WebAssembly
 
-Before digging deeper into technical details the blog post will outline how you can compile your own little C program to `wasm32-wasi` and execute inside VS Codes extension host. The example assumes that the reader is familiar with [VS Code's Extension API](https://code.visualstudio.com/api) and knows how to write an extension for [VS Code for the Web](https://code.visualstudio.com/api/extension-guides/web-extensions).
+Before digging deeper into technical details the blog post will outline how you can compile your own little C program to `wasm32-wasi` and execute it inside VS Code's extension host. The example assumes that the reader is familiar with [VS Code's Extension API](https://code.visualstudio.com/api) and knows how to write an extension for [VS Code for the Web](https://code.visualstudio.com/api/extension-guides/web-extensions).
 
 The C program we want to run is a simple Hello World program which looks like this:
 
@@ -71,7 +71,74 @@ clang hello.c -o ./hello.wasm
 
 This will generated a `hello.wasm` file next to the `hello.c` file.
 
-VS Code is extended using extensions and we follow the same model when integrating WebAssemblies into VS Code. So we need to define an extension that loads and runs the WebAssembly. The extensions `package.json` manifest looks like this:
+VS Code is extended using extensions and we follow the same model when integrating WebAssemblies into VS Code. So we need to define an extension that loads and runs the WebAssembly. The important parts of the extension's `package.json` manifest look like this:
 
 ```json
+{
+    "name": "...",
+    ...,
+	"extensionDependencies": [
+		"ms-vscode.wasm-wasi-core"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "wasm-c-example.run",
+				"category": "WASM Example",
+				"title": "Run C Hello World"
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/vscode": "1.77.0",
+	},
+	"dependencies": {
+		"@vscode/wasm-wasi": "0.11.0-next.0"
+	}
+}
 ```
+
+The [`ms-vscode.wasm-wasi-core`](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wasm-wasi-core) extension provides the WebAssembly execution engine that wires the WASI host up the the VS Code API. The node module `@vscode/wasm-wasi` provides a facade to call the API exported by the execution engine.
+
+The actual TypeScript code to run the WebAssembly is as follows:
+
+```typescript
+import { Wasm } from '@vscode/wasm-wasi';
+import { commands, ExtensionContext, Uri, window, workspace } from 'vscode';
+
+export async function activate(context: ExtensionContext) {
+
+	// Load the WASM API
+	const wasm: Wasm = await Wasm.api();
+
+	// Register a command that runs the C example
+	commands.registerCommand('wasm-wasi-c-example.run', async () => {
+		// Create a pseudoterminal to provide stdio to the WASM process.
+		const pty = wasm.createPseudoterminal();
+		const terminal = window.createTerminal({ name: 'Run C Example', pty, isTransient: true });
+		terminal.show(true);
+
+		try {
+			// Load the WASM module. It is stored alongside the extension's JS code.
+			// So we can use VS Code's file system API to load it. Makes it
+			// independent of whether the code runs in the desktop or the web.
+			const bits = await workspace.fs.readFile(Uri.joinPath(context.extensionUri, 'hello.wasm'));
+			const module = await WebAssembly.compile(bits);
+			// Create a WASM process.
+			const process = await wasm.createProcess('hello', module, { stdio: pty.stdio });
+			// Run the process and wait for its result.
+			const result = await process.run();
+		} catch (error) {
+			// Show an error message if something goes wrong.
+			await window.showErrorMessage(error.message);
+		}
+	});
+}
+```
+
+The screen cast below shows the extension running in VS Code for the Web.
+
+![Run Hello World](./helloWorld.gif)
+
+## Under the hood
+
