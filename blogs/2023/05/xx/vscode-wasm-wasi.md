@@ -155,6 +155,8 @@ The first problem is easy to solve: we simply run the WebAssembly code in a sepa
 
 The only difficulty with this approach is that `SharedArrayBuffer` and `Atomics` require that the site is [cross-origin isolated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) which, due to the fact that CORS is very viral, can be an endeavour by itself. This is why it is currently only enabled by default on https://insiders.vscode.dev/ and must be enabled using the query parameter `?vscode-coi=` on https://vscode.dev/
 
+Below a diagram showing the interaction between the extension host and WASM worker in more detailed for the little C program from above that we compiled to WebAssembly. The code in the orange box is WebAssembly code and all the code in greenish boxes run in JavaScript. The yellow box represents the `SharedArrayBuffer`
+
 ![Interaction between the WASM worker and the extension host](./diagram.png)
 
 ## A Web Shell
