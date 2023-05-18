@@ -47,7 +47,7 @@ Our current implementation of VS Code's WASI host is based on the [WASI snapshot
 
 Rust, like C/C++, also supports `wasm32-wasi` and `emscripten` as compile targets. So basing our implementation on WASI also allows using Rust as a programming language to compile to WASM.
 
-## Run your own WebAssembly
+## How can I try it?
 
 Before digging deeper into technical details the blog post will outline how you can compile your own little C program to `wasm32-wasi` and execute it inside VS Code's extension host. The example assumes that the reader is familiar with [VS Code's Extension API](https://code.visualstudio.com/api) and knows how to write an extension for [VS Code for the Web](https://code.visualstudio.com/api/extension-guides/web-extensions).
 
@@ -140,9 +140,9 @@ The screen cast below shows the extension running in VS Code for the Web.
 
 ![Run Hello World](./helloWorld.gif)
 
-## Under the hood
+## VS Code's WASI Implementation
 
-WebAssembly code execution is sync. So once the execution started it is not interrupted until the execution finished. This characteristic caused two problems for the execution inside VS Code:
+WebAssembly code execution is sync. So once a WebAssembly execution started the JavaScript worker is blocked until the execution finished. This characteristic caused two problems for the execution inside VS Code:
 
 - we need to avoid that the extension host is blocked when executing WebAssemblies since this would block other extensions from being executed.
 - the whole VS Code API is async. So we need a mechanism to map the sync behavior of WebAssemblies onto the async VS Code API.
@@ -152,11 +152,16 @@ The first problem is easy to solve: we simply run the WebAssembly code in a sepa
 - the WASM worker thread creates a `SharedArrayBuffer` with the necessary information about the code that should be called on the VS Code side.
 - it post that memory to VS Code's extension host worker and then waits for the extension host worker to write the result back into the `SharedArrayBuffer` by using [`Atomics.wait`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/wait)
 - the extension host worker takes the message, calls the appropriate VS Code API, writes results back into the `SharedArrayBuffer` and then notifies the WASM worker thread to wake up using [`Atomics.store`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/store) and [`Atomics.notify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics/notify).
+- the WASM worker then reads any result data out of the `SharedArrayBuffer` and returns it to the WASI callback.
 
 The only difficulty with this approach is that `SharedArrayBuffer` and `Atomics` require that the site is [cross-origin isolated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#security_requirements) which, due to the fact that CORS is very viral, can be an endeavour by itself. This is why it is currently only enabled by default on https://insiders.vscode.dev/ and must be enabled using the query parameter `?vscode-coi=` on https://vscode.dev/
 
-Below a diagram showing the interaction between the extension host and WASM worker in more detailed for the little C program from above that we compiled to WebAssembly. The code in the orange box is WebAssembly code and all the code in greenish boxes run in JavaScript. The yellow box represents the `SharedArrayBuffer`
+Below a diagram showing the interaction between the extension host and WASM worker in more detail for the little C program from above that we compiled to WebAssembly. The code in the orange box is WebAssembly code and all the code in green boxes runs in JavaScript. The yellow box represents the `SharedArrayBuffer`
 
 ![Interaction between the WASM worker and the extension host](./diagram.png)
 
 ## A Web Shell
+
+Now that we were able to compile C/C++ and Rust code to WebAssembly and execute it in VS Code we started to think about whether it would be possible to run a shell in VS Code for the Web as well. At the beginning we looked into compiling one of the *nix shells to WebAssembly however they rely on OS features not available in WASI. So we took a slightly different approach: we looked into compiling the *nix core utils like ls, cat, date, ... to WebAssembly. Since Rust has very good support for WASM and WASI we gave the [uutils/coreutils](https://github.com/uutils/coreutils), a cross-platform re-implementation of the GNU coreutils in Rust, a try. And voila we had a first minimal web shell.
+
+![A web shell](./webshell.gif)
