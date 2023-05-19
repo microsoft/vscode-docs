@@ -102,7 +102,7 @@ There are several CLI options that help with reproducing errors and advanced set
 
 Argument|Description
 ------------------|-----------
-`--extensions-dir <dir>` | Set the root path for extensions. (Overridden in [Portable Mode](/docs/editor/portable.md) by the presence of the data folder\*).
+`--extensions-dir <dir>` | Set the root path for extensions. (Overridden in [Portable Mode](/docs/editor/portable.md) by the presence of the data folder in the VS Code installation).
 `--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root. (Overridden in [Portable Mode](/docs/editor/portable.md) by the presence of the data folder\*).
 `-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
