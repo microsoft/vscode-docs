@@ -14,7 +14,7 @@ Visual Studio Code has the ability to integrate with common shells, allowing the
 
 Supported shells:
 
-- Linux/macOS: bash, pwsh, zsh
+- Linux/macOS: bash, fish, pwsh, zsh
 - Windows: pwsh
 
 ## Installation
@@ -41,6 +41,15 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in bash to open
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
 ```
 
+**fish**
+
+Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
+
+```sh
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
+```
+
 **pwsh**
 
 Add the following to your [PowerShell profile](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2). Run `code $Profile` in pwsh to open the file in VS Code.
@@ -65,17 +74,6 @@ Add the following to your `~/.bashrc` file. Run `code ~/.bashrc` in Git Bash to 
 
 ```sh
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
-```
-
-**fish**
-
-⚠️ This is currently experimental and automatic injection is not supported
-
-Add the following to your `config.fish`. Run `code $__fish_config_dir/config.fish` in fish to open the file in VS Code.
-
-```sh
-string match -q "$TERM_PROGRAM" "vscode"
-and . (code --locate-shell-integration-path fish)
 ```
 
 #### Portability versus performance
