@@ -34,6 +34,7 @@ If you are behind a firewall that needs to allow specific domains used by VS Cod
 * `vscode-sync.trafficmanager.net` - Visual Studio Code Settings Sync service
 * `vscode-sync-insiders.trafficmanager.net` - Visual Studio Code Settings Sync service (Insiders)
 * `vscode.dev` - Used when logging in with GitHub or Microsoft for an extension or Settings Sync
+* `*.vscode-unpkg.net` - Used when loading web extensions
 * `default.exp-tas.com` - Visual Studio Code Experiment Service, used to provide experimental user experiences
 
 ## Proxy server support
