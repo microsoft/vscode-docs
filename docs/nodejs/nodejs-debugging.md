@@ -152,7 +152,7 @@ You can also bring up the snippets with the **Add Configuration...** button in t
 The following snippets are available:
 
 * **Launch Program**: Launch a Node.js program in debug mode.
-* **Launch via npm**: Launch a Node.js program through an npm 'debug' script. If you have defined an npm debug script in your package.json, you can use it directly from your launch configuration. Make sure that the debug port used in the npm script, corresponds to the port specified in the snippet.
+* **Launch via npm**: Launch a Node.js program through an npm 'debug' script. You can use an npm debug script from your launch configuration if it has been defined in your package.json. The debug port used in the npm script must correspond to the port specified in the snippet.
 * **Attach**: Attach to the debug port of a locally running Node.js program. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet.
 * **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet. To help VS Code map source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
 * **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration, you can even attach to a node or gulp process that was not started in debug mode.
@@ -270,7 +270,7 @@ or if the program shouldn't start running, but must wait for the debugger to att
 node --inspect-brk program.js
 ```
 
-Your options to attach the debugger to your program:
+Options to attach the debugger to your program:
 
 * Open a "process picker" that lists all potential candidate processes and let you pick one, or
 * Create an "attach" configuration that explicitly specifies all configuration options and then press **F5**.
@@ -348,7 +348,7 @@ On Windows, pressing **Stop** always forcibly kills the debuggee and its child p
 
 The JavaScript debugger of VS Code supports source maps that help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it's possible to single step through or set breakpoints in the original source. If no source map exists for the original source, or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
 
-The `sourceMaps` attribute that defaults to `true` controles the source map feature. The debugger always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
+The `sourceMaps` attribute that defaults to `true` controls the source map feature. The debugger always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
 ### Tool Configuration
 
