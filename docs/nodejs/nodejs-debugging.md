@@ -342,7 +342,7 @@ If the debug session is in "launch" mode, pressing **Stop** does the following:
 
 If you see that a debug session doesn't end when you press the red **Stop** button, then press the button again to force a shutdown of the debuggee.
 
-On Windows, pressing **Stop** always forcibly kills the debuggee and its child processes.
+On Windows, pressing **Stop** forcibly kills the debuggee and its child processes.
 
 ## Source maps
 
