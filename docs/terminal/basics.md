@@ -13,9 +13,11 @@ Visual Studio Code includes a full featured integrated terminal that convenientl
 
 To open the terminal:
 
-* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut to toggle the terminal panel.
-* Use the `kb(workbench.action.terminal.new)` keyboard shortcut to create a new terminal.
-* Use the **View** > **Terminal** or **Terminal** > **New Terminal** menu commands.
+* To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut .
+* To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
+
+* Use the **Terminal** > **New Terminal** menu.
+* Use the **View** > **Terminal** menu.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
 * Open a new terminal from a folder in the Explorer via the **Open in Integrated Terminal** context menu command.
 
@@ -37,7 +39,7 @@ The terminal tabs UI is on the right side of the terminal view. Each terminal ha
 
 ![Activating the Launch Profile button will show all detected and manually configured profiles](images/basics/tabs.png)
 
-Terminal instances can be added by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
+Add terminal instances by selecting the **+** icon on the top-right of the **TERMINAL** panel, selecting a profile from the terminal dropdown, or by triggering the `kb(workbench.action.terminal.new)` command. This action creates another entry in the tab list associated with that terminal.
 
 Remove terminal instances by hovering a tab and selecting the **Trash Can** button, selecting a tab item and pressing `kbstyle(Delete)`, using **Terminal: Kill the Active Terminal Instance** command, or via the right-click context menu.
 
@@ -47,12 +49,12 @@ Icons may appear to the right of the terminal title on the tab label when a term
 
 ### Groups (split panes)
 
-Multiple terminals can be placed side-by-side are called a group and are created by splitting a terminal:
+Place multiple terminals side-by-side and create a group by splitting a terminal:
 
-* On hover, selecting the inline split button.
-* Right-clicking the context menu and selecting the **Split** menu option.
+* Select the inline split button.
+* Right-click the context menu and selecting the **Split** menu option.
 * `kbstyle(Alt)` and click on a tab, the **+** button, or the single tab on the terminal panel.
-* Triggering the `kb(workbench.action.terminal.split)` command.
+* Trigger the `kb(workbench.action.terminal.split)` command.
 
 > **Tip:** The working directory for the new terminal depends on the `terminal.integrated.splitCwd` [setting](/docs/getstarted/settings.md).
 
@@ -64,15 +66,15 @@ Moving a terminal into its own group can be done with the **Terminal: Unsplit Te
 
 ## Terminals in editor area
 
-Terminal in the editor area, also known as terminal editors, can be created through the **Terminal: Create New Terminal in Editor Area** and **Terminal: Create New Terminal in Editor Area to the Side** commands or by dragging a terminal from the terminal view into the editor area.
+You can open terminals in the editor area (terminal editors). To create a terminal editor, use the **Terminal: Create New Terminal in Editor Area** or **Terminal: Create New Terminal in Editor Area to the Side** command. Or, drag a terminal from the terminal view into the editor area. Terminal editors are presented like regular editor tabs:
 
 ![Terminal editors are presented like regular text file tabs](images/basics/terminal-editor.png)
 
-Terminal editors are ideal if you want a complex workbench layout such as terminals on either side of an editor or terminals arranged in two dimensions. Below PowerShell and WSL terminals are stacked in an editor group to the right of a group of file editors.
+You can have terminal editors on either side or arranged in multiple dimensions using the editor group layout system, e.g. PowerShell and WSL terminals stacked to the right of file editors:
 
 ![Terminal editors are can be layed out using the editor group layout system, for example 2 terminals could sit to the right of a text editor](images/basics/terminal-editor-grid.png)
 
-The `terminal.integrated.defaultLocation` setting can change the default terminal location to be in either the `view` or `editor` areas.
+The `terminal.integrated.defaultLocation` setting can change the default `view` or `editor` area terminal location.
 
 ## Navigating the buffer
 
@@ -146,7 +148,7 @@ The keybindings for copy and paste follow platform standards:
 
 Copying is done automatically on selection when `terminal.integrated.copyOnSelection` is enabled.
 
-By default there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
+By default, there is a warning when pasting multiple lines, which can be disabled with the `terminal.integrated.enableMultiLinePasteWarning` setting. This is only done when the shell does not support "bracketed paste mode". When that mode is enabled, the shell is indicating that it can handle multiple line pasting.
 
 ## Using the mouse
 
