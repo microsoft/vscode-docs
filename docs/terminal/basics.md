@@ -9,21 +9,21 @@ MetaDescription: Visual Studio Code has an integrated terminal to enable working
 ---
 # Terminal Basics
 
-Visual Studio Code includes a full featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md).
+Visual Studio Code includes a full featured integrated terminal that conveniently starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/editor/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
 
-To open the terminal:
+You can open a terminal as follows:
 
-* To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut .
+* From the menu, use the **Terminal** > **New Terminal** or **View** > **Terminal** menu commands.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
+* In the Explorer, you can use the **Open in Integrated Terminal** context menu command to open a new terminal from a folder.
+* To toggle the terminal panel, use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
 * To create a new terminal, use the `kb(workbench.action.terminal.new)` keyboard shortcut.
 
-* Use the **Terminal** > **New Terminal** menu.
-* Use the **View** > **Terminal** menu.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Terminal** command.
-* Open a new terminal from a folder in the Explorer via the **Open in Integrated Terminal** context menu command.
+VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar:
 
 ![The integrated terminal can run commands such as mkdir and git just like a standalone terminal. VS Code's terminal has additional functionality called shell integration that tracks where commands are run with decorations on the left of a command and in the scrollbar.](images/basics/integrated-terminal.png)
 
-> **Note:** Open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
+If you prefer to work outside VS Code, open an external terminal with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut
 
 ## Terminal shells
 
