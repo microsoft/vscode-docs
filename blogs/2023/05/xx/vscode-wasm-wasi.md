@@ -142,7 +142,7 @@ The screen cast below shows the extension running in VS Code for the Web.
 
 ## VS Code's WASI Implementation
 
-One of the big differences between WASI and VS Code's API is: WebAssembly code execution is sync (e.g. once a WebAssembly execution started the JavaScript worker is blocked until the execution finished) whereas most of VS Code's API (especially around file access) is async. This characteristic causes two problems for the execution of WebAssembly code inside VS Code extension host worker:
+As said earlier WASI is a specification and basing our WebAssembly support on it requires that VS Code implements that specification. This sounds somewhat easy but one of the big differences between WASI and VS Code's API is: WebAssembly code execution is sync (e.g. once a WebAssembly execution started the JavaScript worker is blocked until the execution finished) whereas most of VS Code's API (especially around file access) is async. This characteristic causes two problems for the execution of WebAssembly code inside VS Code extension host worker:
 
 - we need to avoid that the extension host is blocked when executing WebAssemblies since this would block other extensions from being executed.
 - as said most of the VS Code API is async. So we need a mechanism to map the sync behavior of WebAssemblies / WASI onto the async VS Code API.
