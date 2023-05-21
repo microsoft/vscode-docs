@@ -98,23 +98,23 @@ Scrolling will happen instantaneously, but can be configured to animate over a s
 
 ## Links
 
-The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Links are activated by mousing over the link so an underline appears, then hold `kbstyle(Ctrl)`/`kbstyle(Cmd)` and click.
+The terminal features sophisticated link detection with editor integration and even extension contributed link handlers. Hover over a link to display an underline, then hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key and click.
 
-There are several built-in link handlers that are used in the following priority order:
+These built-in link handlers are used in the following priority order:
 
-* URIs/URLs: These are links that look like URIs, such as `https://code.visualstudio.com`, `vscode://file/path/to/file` or `file://path/to/file`. These will open using the standard handler for the protocol. For example, `https` links will open the system browser at that location.
+* URIs/URLs: Links that look like URIs, such as `https://code.visualstudio.com`, `vscode://path/to/file` or `file://path/to/file` will open using the standard handler for the protocol. For example, `https` links will open the browser.
 
   ![Opening a URI link will open it in the system browser](images/basics/link-uri.png)
 
-* File links: These are links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
+* File links: Links to files that have been verified to exist on the system. These will open the file in a new editor tab and support many common line/column formats such as `file:1:2`, `file:line 1, column 2`.
 
   ![Activating a file link will open it in an editor](images/basics/link-file.png)
 
-* Folder links: These are similar to file links but will open a new VS Code window at the folder.
+* Folder links: Links to folders are similar to file links but will open a new VS Code window at the folder.
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-* Word links: This is the fallback link type and uses the `terminal.integrated.wordSeparators` setting to define word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word, if there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless `kbstyle(Ctrl)`/`kbstyle(Cmd)` is held. They also have limited support for line and column suffixes.
+* Word links: Fallback link type that uses the `terminal.integrated.wordSeparators` setting. The setting defines word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 
@@ -122,7 +122,7 @@ The **Open Detected Link** command (`kb(workbench.action.terminal.openDetectedLi
 
 ![Open Detected Link opens a quick pick with all links in the viewport, split into categories](images/basics/link-open-detected.png)
 
-> **Tip:** If link verification causes performance issues, like in high latency remote environments, it can be disabled via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
+> **Tip:** If link verification causes performance issues, like in high latency remote environments, disable it via the `terminal.integrated.enableFileLinks` [setting](/docs/getstarted/settings.md).
 
 ### Extensions handling links
 
