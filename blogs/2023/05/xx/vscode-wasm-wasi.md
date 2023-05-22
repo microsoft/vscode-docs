@@ -142,7 +142,7 @@ The screen cast below shows the extension running in VS Code for the Web.
 
 ## VS Code's WASI Implementation
 
-As said earlier WASI is a specification and basing our WebAssembly support on it requires that VS Code implements that specification. This sounds somewhat easy but one of the big differences between WASI and VS Code's API is: WebAssembly code execution is sync (e.g. once a WebAssembly execution started the JavaScript worker is blocked until the execution finished) whereas most of VS Code's API (especially around file access) is async. This characteristic causes two problems for the execution of WebAssembly code inside VS Code extension host worker:
+As said earlier WASI is a specification and basing our WebAssembly support on it requires that VS Code implements that specification. This sounds somewhat easy but there is a big differences between WASI and VS Code's API: WebAssembly code execution is sync (e.g. once a WebAssembly execution started the JavaScript worker is blocked until the execution finished) whereas most of VS Code's API (especially around file access) is async. This characteristic causes two problems for the execution of WebAssembly code inside VS Code extension host worker:
 
 - we need to avoid that the extension host is blocked when executing WebAssemblies since this would block other extensions from being executed.
 - as said most of the VS Code API is async. So we need a mechanism to map the sync behavior of WebAssemblies / WASI onto the async VS Code API.
@@ -162,15 +162,26 @@ Below a diagram showing the interaction between the WASM worker and the extensio
 
 ## A Web Shell
 
-Now that we were able to compile C/C++ and Rust code to WebAssembly and execute it in VS Code we started to think about whether it would be possible to run a shell in VS Code for the Web as well.
-So we looked into compiling one of the *nix shells to WebAssembly. However shells rely on OS features (spawning processes, ...) not available in WASI right now. So we took a slightly different approach: we looked into compiling the *nix core utils like ls, cat, date, ... to WebAssembly and implemented a basic shell in TypeScript. Since Rust has very good support for WASM and WASI we gave the [uutils/coreutils](https://github.com/uutils/coreutils), a cross-platform re-implementation of the GNU coreutils in Rust, a try. And voila we had a first minimal web shell.
+Now that we were able to compile C/C++ and Rust code to WebAssembly and execute it in VS Code we explored whether we can run a shell in VS Code for the Web as well.
+
+We looked into compiling one of the *nix shells to WebAssembly. However shells rely on OS features (spawning processes, ...) not available in WASI right now. So we took a slightly different approach: we implemented a basic shell in TypeScript and tried to compile only the *nix core utils like ls, cat, date, ... to WebAssembly. Since Rust has very good support for WASM and WASI we gave the [uutils/coreutils](https://github.com/uutils/coreutils), a cross-platform re-implementation of the GNU coreutils in Rust, a try. And voila we had a first minimal web shell.
 
 ![A web shell](./webshell.gif)
 
+A shell is very limited if you can't execute custom WebAssemblies or commands. To extend the web shell extensions can contribute additional mount points to the file system as well as commands that are invoked when they are typed into the web shell. The indirection via commands supports to decouple the concrete WebAssembly execution from what is type in the terminal. Using this support in the Python extension form above allows two execute Python code from the shell (e.g. `python app.py`) or listing the default python 3.11 library which is usually mounted under `/usr/local/lib/python3.11`
 
-## Outlook
+![Python integration into web shell](./python-webshell.gif)
 
-They are both experimental and in preview mode and shouldn't be used right now to implement production ready extensions using WebAssemblies. We made them publicly available to get early feedback on the technology. If you have any please open issues in the corresponding [GitHub repository](https://github.com/microsoft/vscode-wasm/issues) What are out next steps:
+## What comes next
 
-- preview2
-- support to run language servers compiled to WebAssembly
+The WASM execution engine extension and the Web Shell extension are both experimental and in preview mode and shouldn't be used right now to implement production ready extensions using WebAssemblies. We made them publicly available to get early feedback on the technology. If you have any please open issues in the corresponding [GitHub repository](https://github.com/microsoft/vscode-wasm/issues).
+
+We do already know that we will extend the exploration into the following directions:
+- the WASI team is working on a preview2 of the specification which we want to support as well. Version 2 will change the way how a WASI host is implemented. However, we are confident that we can keep the API which we expose in the WASM execution engine extension mostly stable.
+- lots of language servers for VS Code are implemented in languages different than JavaScript or TypeScript. We would like to explore the possiblity to compile these language server to `wasm-wasi` and run them in VS Code for the Web as well.
+
+Thanks,
+
+Dirk and the VS Code team
+
+Happy Coding!
