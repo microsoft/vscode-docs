@@ -177,8 +177,8 @@ A shell is very limited if you can't execute custom WebAssemblies or commands. T
 The WASM execution engine extension and the Web Shell extension are both experimental and in preview mode and shouldn't be used right now to implement production ready extensions using WebAssemblies. We made them publicly available to get early feedback on the technology. If you have any please open issues in the corresponding [GitHub repository](https://github.com/microsoft/vscode-wasm/issues).
 
 We do already know that we will extend the exploration into the following directions:
-- the WASI team is working on a preview2 of the specification which we want to support as well. Version 2 will change the way how a WASI host is implemented. However, we are confident that we can keep the API which we expose in the WASM execution engine extension mostly stable.
-- lots of language servers for VS Code are implemented in languages different than JavaScript or TypeScript. We would like to explore the possiblity to compile these language server to `wasm-wasi` and run them in VS Code for the Web as well.
+- the WASI team is working on a preview2 of the specification which we want to support that version as well. Version 2 will change the way how a WASI host is implemented. However, we are confident that we can keep the API, which we expose in the WASM execution engine extension, mostly stable.
+- lots of language servers for VS Code are implemented in languages different than JavaScript or TypeScript. We would like to explore the possibility to compile these language server to `wasm-wasi` and run them in VS Code for the Web as well.
 
 Thanks,
 
