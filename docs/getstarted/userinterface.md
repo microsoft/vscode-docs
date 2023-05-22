@@ -288,7 +288,6 @@ By default, files will always open in the active editor group. Locked editor gro
   "default": false,
   "terminalEditor": true
 }
-´´´
 
 Terminals are configured by default to cause a new group to lock automatically. A lock icon in the action toolbar (top right) indicates a locked group. The locked state of an editor group is persisted and restored across restarts. You can lock empty groups for a more stable editor layout.
 
