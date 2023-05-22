@@ -279,6 +279,36 @@ You can Drag and Drop editor groups on the workbench, move individual Tabs betwe
 
 >**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
+### Locked editor groups
+
+By default, files will always open in the active editor group. Locked editor groups help to avoid this. The `workbench.editor.autoLockGroups` setting allows you to select editors that should lock a group automatically when they open. This only applies when the editor is the first to open in an otherwise empty or new group.
+
+```json
+"workbench.editor.autoLockGroups": {
+  "default": false,
+  "terminalEditor": true
+}
+´´´
+
+Terminals are configured by default to cause a new group to lock automatically. A lock icon in the action toolbar (top right) indicates a locked group. The locked state of an editor group is persisted and restored across restarts. You can lock empty groups for a more stable editor layout.
+
+<!-- Required? Locked editor https://code.visualstudio.com/assets/updates/1_61/editor-readonly-deleted.png -->
+
+You can control the behavior of locked editor groups with these settings:
+
+`workbench.action.lockEditorGroup`
+`workbench.action.unlockEditorGroup`
+`workbench.action.toggleEditorGroupLock`
+
+Locked groups behave differently than unlocked groups:
+
+- New editors will not open in a locked group unless explicitly moved there.
+- If an editor skips a locked group, the new editor will either open in the most recently used unlocked group or create a new group to the side of the locked one.
+
+If you have more than one editor group opened, you can lock it from the "..." overflow menu or using the **View: Toggle Editor Group Lock** or **View: Lock Editor Lock** commands.
+
+<!-- Required?  Lock group option in overflow menu https://code.visualstudio.com/assets/updates/1_60/locked-editor-group.png -->
+
 ## Grid editor layout
 
 By default, editor groups are laid out in vertical columns (for example when you split an editor to open it to the side). You can easily arrange editor groups in any layout you like, both vertically and horizontally:
