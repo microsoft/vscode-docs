@@ -104,17 +104,17 @@ To switch modes, you can use your keyboard or mouse. On your keyboard, press the
 
 ### Add additional code cells
 
-You can add Code cells using the main toolbar, a cell's add cell toolbar (visible with hover), and through keyboard commands.
+You can add code cells using the main toolbar, a cell's add cell toolbar (visible with hover), and through keyboard commands.
 
 ![Add code cells](images/jupyter/native-add-cells.png)
 
-To add a new cell below the currently selected cell, use the plus icons in the main toolbar or a cell's hover toolbar.
+To add a new cell below the currently selected cell, use the plus icon in the main toolbar or a cell's hover toolbar.
 
 When a code cell is in command mode, use the `kbstyle(A)` key to add a cell above and the `kbstyle(B)` key to add a cell below the selected cell.
 
 ### Select a code cell
 
-You can change a selected code cell using the mouse, the up/down arrow keys on the keyboard. When a code cell is in command mode, you can also use the `kbstyle(J)` key (down) and `kbstyle(K)` key (up).
+You can change a selected code cell using the mouse or the up/down arrow keys on the keyboard. When a code cell is in command mode, you can also use the `kbstyle(J)` key (down) and `kbstyle(K)` key (up).
 
 ### Select multiple code cells
 
@@ -277,6 +277,7 @@ If you want to use the full set of debugging features supported in VS Code, such
 ### Search through notebook
 
 You can search through a notebook (or parts of it by filtering the search options) by using the keyboard shortcut `kbstyle(Ctrl/Cmd + F)`. Click the Filter option (funnel icon) to search across:
+
 - Markdown cell input (**Markdown Source**)
 - Markdown cell output (**Rendered Markdown**)
 - Code cell input (**Code Cell Source**)
