@@ -66,7 +66,7 @@ Moving a terminal into its own group can be done with the **Terminal: Unsplit Te
 
 ## Terminals in editor area
 
-You can open terminals in the editor area (terminal editors). To create a terminal editor, use the **Terminal: Create New Terminal in Editor Area** or **Terminal: Create New Terminal in Editor Area to the Side** command. Or, drag a terminal from the terminal view into the editor area. Terminal editors are presented like regular editor tabs:
+You can open terminals in the editor area (terminal editors) with the **Terminal: Create New Terminal in Editor Area** command, the **Terminal: Create New Terminal in Editor Area to the Side** command, or by dragging a terminal from the terminal view into the editor area. Terminal editors are presented like regular editor tabs:
 
 ![Terminal editors are presented like regular text file tabs](images/basics/terminal-editor.png)
 
