@@ -281,7 +281,7 @@ You can Drag and Drop editor groups on the workbench, move individual Tabs betwe
 
 ### Locked editor groups
 
-By default, files will always open in the active editor group. Locked editor groups help to avoid this. The `workbench.editor.autoLockGroups` setting allows you to select editors that should lock a group automatically when they open. This only applies when the editor is the first to open in an otherwise empty or new group.
+By default, files will always open in the active editor group. Locked editor groups help to avoid this. The `workbench.editor.autoLockGroups` setting allows you to select editor types that should lock a group automatically when they open. This only applies when the editor is the first to open in an otherwise empty or new group.
 
 ```json
 "workbench.editor.autoLockGroups": {
@@ -305,7 +305,7 @@ Locked groups behave differently than unlocked groups:
 - New editors will not open in a locked group unless explicitly moved there.
 - If an editor skips a locked group, the new editor will either open in the most recently used unlocked group or create a new group to the side of the locked one.
 
-If you have more than one editor group opened, you can lock it from the "..." overflow menu or using the **View: Toggle Editor Group Lock** or **View: Lock Editor Lock** commands.
+If you have more than one editor group opened, you can lock it manually from the "..." overflow menu or using the **View: Toggle Editor Group Lock** or **View: Lock Editor Lock** commands.
 
 <!-- Required?  Lock group option in overflow menu https://code.visualstudio.com/assets/updates/1_60/locked-editor-group.png -->
 
