@@ -315,7 +315,7 @@ To attach to a Node.js process that hasn't been started in debug mode, you can d
 }
 ```
 
-To avoid to enter a new process ID in the launch configuration, Node debug supports a command variable `PickProcess` that will open the process picker (from above).
+To avoid repeatedly entering a new process ID in the launch configuration, Node debug supports a command variable `PickProcess` that will open the process picker (from above).
 
 Using the `PickProcess` variable the launch configuration looks like this:
 

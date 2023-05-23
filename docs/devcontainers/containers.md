@@ -31,12 +31,13 @@ The Dev Containers extension supports two primary operating models:
 **Local / Remote Host:**
 
 You can use Docker with the Dev Containers extension in a few ways, including:
-* Docker installed locally
-* Docker installed on a remote environment
-* Other Docker compliant CLIs, installed locally or remotely
-   * While other CLIs may work, they are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/devcontainers/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [`kubectl` CLI](https://kubernetes.io/docs/reference/kubectl/overview/)
 
-You can learn more in the [alternative Docker options doc](../../remote/advancedcontainers/docker-options.md).
+* Docker installed locally.
+* Docker installed on a remote environment.
+* Other Docker compliant CLIs, installed locally or remotely.
+  * While other CLIs may work, they are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/devcontainers/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [kubectl CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
+
+You can learn more in the [alternative Docker options doc](/remote/advancedcontainers/docker-options.md).
 
 Below are some specific ways you can configure Docker on a local or remote host:
 
@@ -56,7 +57,7 @@ Other `glibc` based Linux containers may work if they have [needed Linux prerequ
 
 To get started, follow these steps:
 
-1. Install and configure [Docker](https://www.docker.com/get-started) for your operating system, using one of the paths below or an [alternative Docker option](../../remote/advancedcontainers/docker-options.md), like Docker on a remote host or Docker compliant CLI.
+1. Install and configure [Docker](https://www.docker.com/get-started) for your operating system, using one of the paths below or an [alternative Docker option](/remote/advancedcontainers/docker-options.md), like Docker on a remote host or Docker compliant CLI.
 
     **Windows / macOS**:
 
