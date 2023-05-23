@@ -28,7 +28,7 @@ There are three modes for auto attach, which you can select in the resulting Qui
 * `always` - All Node.js processes launched in the Integrated Terminal will be debugged.
 * `onlyWithFlag` - Only processes launched with the `--inspect` or `--inspect-brk` flag will be debugged.
 
-After enabling **Auto Attach**, you'll need to restart your terminal. This can be done by clicking the ⚠ icon in the top right of the terminal, or just creating a new one. Then, the debugger should attach to your program within a second:
+After enabling **Auto Attach**, you'll need to restart your terminal by clicking the ⚠ icon in the top right of the terminal, or just creating a new one. Then, the debugger should attach to your program within a second:
 
 ![Auto Attach](images/nodejs-debugging/auto-attach.gif)
 
@@ -149,10 +149,10 @@ You can also bring up the snippets with the **Add Configuration...** button in t
 
 ![Add Configuration button](images/nodejs-debugging/add-configuration-button.png)
 
-These are the available snippets:
+The following snippets are available:
 
 * **Launch Program**: Launch a Node.js program in debug mode.
-* **Launch via npm**: Launch a Node.js program through an npm 'debug' script. If you have defined an npm debug script in your package.json, you can use it directly from your launch configuration. Make sure that the debug port used in the npm script, corresponds to the port specified in the snippet.
+* **Launch via npm**: Launch a Node.js program through an npm 'debug' script. You can use an npm debug script from your launch configuration if it has been defined in your package.json. The debug port used in the npm script must correspond to the port specified in the snippet.
 * **Attach**: Attach to the debug port of a locally running Node.js program. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet.
 * **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode, and the debug port used is the same as the one specified in the snippet. To help VS Code map source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
 * **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration, you can even attach to a node or gulp process that was not started in debug mode.
@@ -166,13 +166,13 @@ These are the available snippets:
 
 By default, Node.js debug sessions launch the target in the internal VS Code Debug Console. Since the Debug Console does not support programs that need to read input from the console, you can enable either an external terminal or use the VS Code Integrated Terminal by setting the `console` attribute in your launch configuration to `externalTerminal` or `integratedTerminal` respectively. The default is `internalConsole`.
 
-If an external terminal is used, you can configure which terminal program to use via the `terminal.external.windowsExec`, `terminal.external.osxExec`, and `terminal.external.linuxExec` settings.
+In an external terminal, you can configure which terminal program to use via the `terminal.external.windowsExec`, `terminal.external.osxExec`, and `terminal.external.linuxExec` settings.
 
 ### Launch configuration support for 'npm' and other tools
 
 Instead of launching the Node.js program directly with node, you can use 'npm' scripts or other task runner tools directly from a launch configuration:
 
-* Any program available on the PATH (for example 'npm', 'mocha', 'gulp', etc.) can be used for the `runtimeExecutable` attribute and arguments can be passed via `runtimeArgs`.
+* You can use any program available on the PATH (for example 'npm', 'mocha', 'gulp', etc.) for the `runtimeExecutable` attribute and arguments can be passed via `runtimeArgs`.
 * You do not have to set the `program` attribute if your npm script or other tool implicitly specifies the program to launch.
 
 Let's look at an 'npm' example. If your `package.json` has a 'debug' script, for example:
@@ -270,7 +270,7 @@ or if the program shouldn't start running, but must wait for the debugger to att
 node --inspect-brk program.js
 ```
 
-Now you have a couple options for attaching the debugger to your program:
+Options to attach the debugger to your program:
 
 * Open a "process picker" that lists all potential candidate processes and let you pick one, or
 * Create an "attach" configuration that explicitly specifies all configuration options and then press **F5**.
@@ -304,7 +304,7 @@ The simplest "attach" configuration looks like this:
 
 The port `9229` is the default debug port of the `--inspect` and `--inspect-brk` options. To use a different port (for example `12345`), add it to the options like this: `--inspect=12345` and `--inspect-brk=12345` and change the `port` attribute in the launch configuration to match.
 
-If you want to attach to a Node.js process that hasn't been started in debug mode, you can do this by specifying the process ID of the Node.js process as a string:
+To attach to a Node.js process that hasn't been started in debug mode, you can do this by specifying the process ID of the Node.js process as a string:
 
 ```json
 {
@@ -315,7 +315,7 @@ If you want to attach to a Node.js process that hasn't been started in debug mod
 }
 ```
 
-Since it is a bit laborious to repeatedly find the process ID and enter it in the launch configuration, Node debug supports a command variable `PickProcess` that will open the process picker (from above).
+To avoid to enter a new process ID in the launch configuration, Node debug supports a command variable `PickProcess` that will open the process picker (from above).
 
 Using the `PickProcess` variable the launch configuration looks like this:
 
@@ -338,17 +338,17 @@ If the debug session is in "launch" mode, pressing **Stop** does the following:
 
 1. When pressing **Stop** for the first time, the debuggee is requested to shut down gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal and clean up anything as necessary and then shut down. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
 
-2. However if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case, pressing **Stop** again will force terminate the debuggee and its child processes (`SIGKILL`).
+2. However, if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case, pressing **Stop** again will force terminate the debuggee and its child processes (`SIGKILL`).
 
-So if you see that a debug session doesn't end when you press the red **Stop** button, then press the button again to force a shutdown of the debuggee.
+If you see that a debug session doesn't end when you press the red **Stop** button, then press the button again to force a shutdown of the debuggee.
 
-Note that on the Windows operating system, pressing **Stop** always forcibly kills the debuggee and its child processes.
+On Windows, pressing **Stop** forcibly kills the debuggee and its child processes.
 
 ## Source maps
 
 The JavaScript debugger of VS Code supports source maps that help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it's possible to single step through or set breakpoints in the original source. If no source map exists for the original source, or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
 
-The source map feature is controlled by the `sourceMaps` attribute that defaults to `true`. This means that the debugger always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
+The `sourceMaps` attribute that defaults to `true` controls the source map feature. The debugger always tries to use source maps (if it can find any) and as a consequence, you can even specify a source file (for example, app.ts) with the `program` attribute. If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
 ### Tool Configuration
 
@@ -501,7 +501,7 @@ you can attach the VS Code debugger to it with the following launch configuratio
 }
 ```
 
-Alternatively you can start your program `server.js` via **nodemon** directly with a launch config and attach the VS Code debugger:
+Alternatively, you can start your program `server.js` via **nodemon** directly with a launch config and attach the VS Code debugger:
 
 ```json
 {
