@@ -294,11 +294,11 @@ Terminals are configured by default to cause a new group to lock automatically. 
 
 <!-- Required? Locked editor https://code.visualstudio.com/assets/updates/1_61/editor-readonly-deleted.png -->
 
-You can control the behavior of locked editor groups with these settings:
+You can control the lock state of editor groups with these commands:
 
-`workbench.action.lockEditorGroup`
-`workbench.action.unlockEditorGroup`
-`workbench.action.toggleEditorGroupLock`
+- `workbench.action.lockEditorGroup` - locks a group
+- `workbench.action.unlockEditorGroup` - unlocks a group
+- `workbench.action.toggleEditorGroupLock` - toggles the current lock state of the group
 
 Locked groups behave differently than unlocked groups:
 
