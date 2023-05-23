@@ -290,7 +290,7 @@ By default, files will always open in the active editor group. Locked editor gro
 }
 ```
 
-Terminals are configured by default to cause a new group to lock automatically. A lock icon in the action toolbar (top right) indicates a locked group. The locked state of an editor group is persisted and restored across restarts. You can lock empty groups for a more stable editor layout.
+Terminals are configured by default to cause a new group to lock automatically. A lock icon in the action toolbar (top right) indicates a locked group. The locked state of an editor group is persisted and restored across restarts.
 
 <!-- Required? Locked editor https://code.visualstudio.com/assets/updates/1_61/editor-readonly-deleted.png -->
 
@@ -305,7 +305,9 @@ Locked groups behave differently than unlocked groups:
 - New editors will not open in a locked group unless explicitly moved there.
 - If an editor skips a locked group, the new editor will either open in the most recently used unlocked group or create a new group to the side of the locked one.
 
-If you have more than one editor group opened, you can lock it manually from the "..." overflow menu or using the **View: Toggle Editor Group Lock** or **View: Lock Editor Lock** commands.
+If you have more than one editor group opened, you can lock it manually from the "..." overflow menu or using the **View: Toggle Editor Group Lock** or **View: Lock Editor Lock** commands. 
+
+You can also lock empty groups for a more stable editor layout. With setting `workbench.editor.closeEmptyGroups` you can control whether an empty group is closed when the last tab in a group is closed. When disabled, empty groups will remain part of the grid.  
 
 <!-- Required?  Lock group option in overflow menu https://code.visualstudio.com/assets/updates/1_60/locked-editor-group.png -->
 
