@@ -22,7 +22,7 @@ The [WebAssembly](https://webassembly.org/) technology can be used to execute co
 - standard input and output should be nicely integrated into VS Code's terminal.
 - the WebAssembly code should be distributed as a normal VS Code extension.
 
-To make things concrete we decided to try to get [Python](https://www.python.org/) code executed in a browser. Luckily the Python team already started working on compiling [CPython to WASM](https://github.com/tiran/cpython-wasm-test/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
+To make things concrete we decided to try to get [Python](https://www.python.org/) code executed in a browser. Luckily the Python team already started working on compiling [CPython to WASM](https://github.com/brettcannon/cpython-wasi-build/releases) and we happily piggybacked on their effort. The outcome of the exploration can be seen in the screen cast below:
 
 ![Execute a Python file in VS Code for the Web](./run-python-file.gif)
 
