@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Python environments in VS Code
 
-An "environment" in Python is the context in which a Python program runs which consists of an interpreter and any number of installed packages.
+An "environment" in Python is the context in which a Python program runs that consists of an interpreter and any number of installed packages.
 
 > **Note**: If you'd like to become more familiar with the Python programming language, review [More Python resources](#more-python-resources).
 
@@ -50,7 +50,7 @@ The following table lists the various tools involved with Python environments:
 
 ### Using the Create Environment command
 
-From within VS Code, you can create local environments, using virtual environments or Anaconda, by opening the Command Palette (`kb(workbench.action.showCommands)`), typing **Python: Create Environment** command to search, and then selecting the command.
+To create local environments in VS Code using virtual environments or Anaconda, you can follow these steps: open the Command Palette (`kb(workbench.action.showCommands)`), search for the **Python: Create Environment** command, and select it.
 
 The command presents a list of environment types: **Venv** or **Conda**.
 
@@ -108,7 +108,7 @@ Additional notes:
 
 ![Conda environment refresh icon](images/environments/conda-environment-refresh.png)
 
-- To ensure the environment is set up well from a shell perspective, one option is to use an Anaconda prompt with the activated environment to launch VS Code using the `code .` command. At that point you need to select the interpreter using the Command Palette or by clicking on the status bar.
+- To ensure the environment is properly set up from a shell perspective, use an Anaconda prompt and activate the desired environment. Then, you can launch VS Code by entering the `code .` command. Once VS Code is open, you can select the interpreter either by using the Command Palette or by clicking on the status bar.
 
 - Although the Python extension for VS Code doesn't currently have direct integration with conda `environment.yml` files, VS Code itself is a great YAML editor.
 
@@ -175,7 +175,6 @@ If you want to manually specify a default interpreter that will be used when you
 
 Additionally, if you'd like to set up a default interpreter to all of your Python applications, you can add an entry for `python.defaultInterpreterPath` manually inside your User Settings. To do so, open the Command Palette (`kb(workbench.action.showCommands)`) and enter **Preferences: Open User Settings**. Then set `python.defaultInterpreterPath`, which is in the Python extension section of User Settings, with the appropriate interpreter.
 
-## Helpful Information
 
 ### How the extension looks for environments
 

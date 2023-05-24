@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python in VS Code
 
-In this tutorial, you will use Python 3 to create, run, and debug a Python "Hello World" application in Visual Studio Code, work with virtual environments, and use packages to create plots. By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
+In this tutorial, you will learn how to use Python 3 in Visual Studio Code to create, run, and debug a Python "Hello World" application, work with virtual environments, use packages, and more! By using the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you turn VS Code into a great, lightweight Python editor.
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ Alternately, you can create a folder through the operating system UI, then use V
 
 ## Create a virtual environment using the Create Environment command
 
-A best practice among Python developers is to use a project-specific `virtual environment` that contains a copy of a global interpreter. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in VS Code using Venv or Anaconda with **Python: Create Environment**.
+A best practice among Python developers is to use a project-specific `virtual environment`. Once you activate that environment, any packages you then install are isolated from other environments, including the global interpreter environment, reducing many complications that can arise from conflicting package versions. You can create non-global environments in VS Code using Venv or Anaconda with **Python: Create Environment**.
 
 Open the Command Palette (`kb(workbench.action.showCommands)`), start typing the **Python: Create Environment** command to search, and then select the command.
 
@@ -215,7 +215,7 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 Let's build upon the previous example by using packages.
 
-In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
+In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/), that provide additional functionality to your program. For this example, you use the `matplotlib` and `numpy` packages to create a graphical plot as is commonly done with data science. (Note that `matplotlib` cannot show graphs when running in the [Windows Subsystem for Linux](https://learn.microsoft.com/windows/wsl/about) as it lacks the necessary UI support.)
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
