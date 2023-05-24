@@ -25,7 +25,7 @@ To modify user settings, you'll use the Settings editor to review and change VS 
 To open the Settings editor, use the following VS Code menu command:
 
 * On Windows/Linux - **File** > **Preferences** > **Settings**
-* On macOS - **Code** > **Preferences** > **Settings**
+* On macOS - **Code** > **Settings** > **Settings**
 
 You can also open the Settings editor from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
