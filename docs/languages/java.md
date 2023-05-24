@@ -125,7 +125,7 @@ For example, Maven, Eclipse, and Gradle Java projects are supported through [Lan
 
 With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer. Projects can also be created and managed with the [Project Manager for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-dependency) extension.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Using the Java Projects view from the Project Manager for Java extension">
   <source src="/docs/languages/java/package-viewer.mp4" type="video/mp4">
 </video>
 
@@ -149,7 +149,7 @@ One of the key advantages of VS Code is speed. When you open your Java source fi
 
 [IntelliSense](/docs/editor/intellisense.md) is a general term for language features, including intelligent code completion (in-context method and variable suggestions) across all your files and for both built-in and third-party modules. VS Code supports code completion and IntelliSense for Java through [Language Support for Java™ by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). It also provides AI-assisted IntelliSense called [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) by putting what you're most likely to use at the top of your completion list.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Java inline code completions and hovers">
   <source src="/docs/languages/java/intellisense.mp4" type="video/mp4">
 </video>
 
@@ -180,7 +180,7 @@ We support a wide range of code snippet shortcuts and postfix completion feature
 
 Starting a debugging session is easy: click the **Run|Debug** button available at the CodeLens of your `main()` function, or press `kb(workbench.action.debug.start)`. The debugger will automatically generate the proper configuration for you.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Setting a breakpoint, launching the debugging, and using Hot Code Replace">
   <source src="/docs/languages/java/resolve-main.mp4" type="video/mp4">
 </video>
 
@@ -190,7 +190,7 @@ Although it's lightweight, the Java debugger supports advanced features such as 
 
 With the support from the [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension, you can easily run, debug, and manage your JUnit and TestNG test cases.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Running tests and investigating a failed test">
   <source src="/docs/languages/java/testng.mp4" type="video/mp4">
 </video>
 
