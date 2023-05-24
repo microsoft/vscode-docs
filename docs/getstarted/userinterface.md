@@ -23,7 +23,7 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Activity Bar** -  Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
 * **Panel** - An additional space for views below the editor region. By default, it houses output, debug information, errors and warnings, and an integrated terminal. Panel can also be moved to the left or right for more vertical space.
 
->**Tip:** A [Secondary Side Bar](/docs/getstarted/userinterface.md#secondary-side-bar) is also available to display views opposite the Primary Side Bar.
+>**Tip:** A Secondary Side Bar is also available to display views opposite the Primary Side Bar. Learn more on how to open and drag elements into it in the [Secondary Side Bar](/docs/getstarted/userinterface.md#secondary-side-bar) section.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
