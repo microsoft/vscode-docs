@@ -23,7 +23,7 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Activity Bar** -  Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
 * **Panel** - An additional space for views below the editor region. By default, it houses output, debug information, errors and warnings, and an integrated terminal. Panel can also be moved to the left or right for more vertical space.
 
->**Tip:** A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can show it with `kb(workbench.action.toggleAuxiliaryBar)`.
+>**Tip:** A [Secondary Side Bar](/docs/getstarted/userinterface.md#secondary-side-bar) is also available to display views opposite the Primary Side Bar.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
@@ -52,6 +52,17 @@ By default editors will open to the right-hand side of the active one. You can c
 When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
+
+## Secondary Side Bar
+
+A Secondary Side Bar is also available to display views opposite the Primary Side Bar. You can open it by using one of the following ways:
+
+- Use the keyboard shortcut `kb(workbench.action.toggleAuxiliaryBar)`.
+- Open the [Command Palette](/docs/getstarted/userinterface.md#command-palette) with the keyboard shortcut `kb(workbench.action.showCommands)` and run the `View: Toggle Secondary Side Bar Visibility` command.
+
+You can drag Activity Bar icons onto the new Secondary Side Bar that has appeared opposite your Primary Side Bar. Create more tabs by dragging more Activity Bar icons into the top tab area of the Secondary Side Bar.
+
+![primary side bar on the left, secondary sidebar on the right](images/userinterface/secondary-side-bar.png)
 
 ## Minimap
 
@@ -325,7 +336,7 @@ If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed he
 
 ### Disable Preview mode
 
-Without Tabs, the **OPEN EDITORS** section of the File Explorer is a quick way to do file navigation.  With [preview editor mode](/docs/getstarted/userinterface.md#preview-mode), files are not added to the **OPEN EDITOR** list nor editor group on single-click open. You can disable this feature through the `workbench.editor.enablePreview` and `workbench.editor.enablePreviewFromQuickOpen` settings.
+Without Tabs, the **OPEN EDITORS** section of the File Explorer is a quick way to do file navigation. With [preview editor mode](/docs/getstarted/userinterface.md#preview-mode), files are not added to the **OPEN EDITOR** list nor editor group on single-click open. You can disable this feature through the `workbench.editor.enablePreview` and `workbench.editor.enablePreviewFromQuickOpen` settings.
 
 ### Ctrl+Tab to navigate in entire editor history
 
