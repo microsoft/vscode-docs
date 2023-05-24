@@ -60,7 +60,9 @@ A Secondary Side Bar is also available to display views opposite the Primary Sid
 - Use the keyboard shortcut `kb(workbench.action.toggleAuxiliaryBar)`.
 - Open the [Command Palette](/docs/getstarted/userinterface.md#command-palette) with the keyboard shortcut `kb(workbench.action.showCommands)` and run the `View: Toggle Secondary Side Bar Visibility` command.
 
-You can drag Activity Bar icons onto the new Secondary Side Bar that has appeared opposite your Primary Side Bar. Create more tabs by dragging more Activity Bar icons into the top tab area of the Secondary Side Bar.
+You can drag Activity Bar icons onto the new Secondary Side Bar that has appeared opposite your Primary Side Bar. Create more tabs by dragging more icons or views into the top tab area of the Secondary Side Bar. 
+
+> **Tip:** Tip You can open all available views using the `View: Open View` command or the **View** > **Open View** menu command.
 
 ![primary side bar on the left, secondary sidebar on the right](images/userinterface/secondary-side-bar.png)
 
