@@ -150,6 +150,7 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute as two digits
 * `CURRENT_SECOND` The current second as two digits
 * `CURRENT_SECONDS_UNIX` The number of seconds since the Unix epoch
+* `CURRENT_TIMEZONE_OFFSET` The current UTC time zone offset as `+HHMM` or `-HHMM` (example `-0700`).
 
 For inserting random values:
 
