@@ -161,7 +161,7 @@ For inserting random values:
 For inserting line or block comments, honoring the current language:
 
 * `BLOCK_COMMENT_START` Example output: in PHP `/*` or in HTML `<!--`
-* `BLOCK_COMMENT_END ` Example output: in PHP `*/` or in HTML `-->`
+* `BLOCK_COMMENT_END` Example output: in PHP `*/` or in HTML `-->`
 * `LINE_COMMENT` Example output: in PHP `//`
 
 The snippet below inserts `/* Hello World */` in JavaScript files and `<!-- Hello World -->` in HTML files:
