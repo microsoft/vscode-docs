@@ -23,7 +23,7 @@ Docker is needed to create and manage your containers.
 
 ### Docker Desktop
 
-Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop), or an [alternative Docker option](/remote/advancedcontainers/docker-options.md), like Docker on a remote host or Docker compliant CLI.
 
 ### Start Docker
 

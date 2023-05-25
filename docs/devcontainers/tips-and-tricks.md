@@ -11,6 +11,17 @@ DateApproved: 5/3/2023
 
 This article includes some tips and tricks for getting the Dev Containers extension up and running in different environments.
 
+## Alternate ways to install Docker
+
+You can use Docker with the Dev Containers extension in a few ways, including:
+
+* Docker installed locally.
+* Docker installed on a remote environment.
+* Other Docker compliant CLIs, installed locally or remotely.
+  * While other CLIs may work, they are not officially supported. Note that [attaching to a Kubernetes cluster](/docs/devcontainers/attach-container.md#attach-to-a-container-in-a-kubernetes-cluster) only requires a properly configured [kubectl CLI](https://kubernetes.io/docs/reference/kubectl/overview/).
+
+You can learn more in the [alternative Docker options doc](/remote/advancedcontainers/docker-options.md).
+
 ## Docker Desktop for Windows tips
 
 [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows works well in most setups, but there are a few "gotchas" that can cause problems. Here are some tips on avoiding them:
@@ -80,7 +91,7 @@ Finally, you may need to clone the repository again for these settings to take e
 
 ## Avoid setting up Git in a container when using Docker Compose
 
-See [Sharing Git credentials with your container](/docs/devcontainers/containers.md#sharing-git-credentials-with-your-container) in the main containers article for information on resolving this issue.
+See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md) in the main containers article for information on resolving this issue.
 
 ## Resolving hangs when doing a Git push or sync from a Container
 
