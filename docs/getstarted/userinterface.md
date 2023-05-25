@@ -58,7 +58,7 @@ When you have more than one editor open you can switch between them quickly by h
 The Secondary Side Bar can display views opposite the Primary Side Bar. You can open it as follows:
 
 - Use the keyboard shortcut `kb(workbench.action.toggleAuxiliaryBar)`.
-- Open the [Command Palette](/docs/getstarted/userinterface.md#command-palette) with the keyboard shortcut `kb(workbench.action.showCommands)` and run the `View: Toggle Secondary Side Bar Visibility` command.
+- Open the [Command Palette](/docs/getstarted/userinterface.md#command-palette) with the keyboard shortcut `kb(workbench.action.showCommands)` and run the **View: Toggle Secondary Side Bar Visibility** command.
 
 You can drag Activity Bar icons onto the new Secondary Side Bar that has appeared opposite your Primary Side Bar. Create more tabs by dragging more icons or views into the top tab area of the Secondary Side Bar. 
 
