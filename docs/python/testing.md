@@ -348,7 +348,7 @@ The settings that affect the UI of the testing features are provided by VS Code 
 
 ### unittest configuration settings
 
-| Unitest setting<br/>(python.testing.) | Default | Description |
+| Unittest setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether unittest is enabled as the test framework. The equivalent setting for pytest should be disabled. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
