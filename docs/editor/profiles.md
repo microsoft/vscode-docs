@@ -76,7 +76,7 @@ The **Profiles: Show Contents** command (available in the Command Palette or Pro
 A profile can include:
 
 * Settings - In a profile-specific `settings.json` file.
-* Extensions - The list of extensions included in current profile.
+* Extensions - The list of extensions included in the current profile.
 * UI state - View layout (positions), visible views and actions.
 * Keybindings - In a profile-specific `keybindings.json` file.
 * Snippets - In a profile-specific `{language}.json` files.
