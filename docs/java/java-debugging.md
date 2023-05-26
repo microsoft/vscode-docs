@@ -78,7 +78,7 @@ Pressing `kb(workbench.action.debug.start)`, the debugger will automatically fin
 
 In addition to support for debugging Java projects managed by build tools, VS Code also supports for debugging single Java files without any project.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Debugging a single Main.java file">
   <source src="/docs/java/java-debugging/single-file-debugging.mp4" type="video/mp4">
 </video>
 
@@ -86,7 +86,7 @@ In addition to support for debugging Java projects managed by build tools, VS Co
 
 The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it. You can also use the user setting `java.debug.settings.console` to configure a global console for all Java debug sessions.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Debugging a Java app that takes input via the Integrated Terminal">
   <source src="/docs/java/java-debugging/launch-in-terminal.mp4" type="video/mp4">
 </video>
 
@@ -98,7 +98,7 @@ The Debugger for Java supports various breakpoints, such as line breakpoints, co
 
 With the help of expression evaluation, the debugger also supports conditional breakpoint. You can set your breakpoint to break when expression evaluates to true.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Setting a conditional breakpoint when i==1000">
   <source src="/docs/java/java-debugging/conditional-bp.mp4" type="video/mp4">
 </video>
 
@@ -112,7 +112,7 @@ You can have the debugger break when a variable changes its value. Note that the
 
 [Logpoints](/blogs/2018/07/12/introducing-logpoints-and-auto-attach.md#introducing-logpoints) is also supported by Java Debugger. Logpoints allow you to send output to Debug Console without editing code. They're different from breakpoints because they don't stop the execution flow of your application.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Adding a Logpoint that outputs the value of result.size to the Debug Console">
   <source src="/docs/java/java-debugging/logpoints.mp4" type="video/mp4">
 </video>
 
@@ -120,7 +120,7 @@ You can have the debugger break when a variable changes its value. Note that the
 
 The debugger also lets you evaluate expressions in the **WATCH** window as well as the Debug Console.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Add an expression to the WATCH window to display the owner object">
   <source src="/docs/java/java-debugging/expression-evaluation.mp4" type="video/mp4">
 </video>
 
@@ -128,7 +128,7 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 
 Another advanced feature the debugger supports is 'Hot Code' replacement. Hot Code Replace (HCR) is a debugging technique whereby the Debugger for Java transmits the class changes over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it's called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Using Hot Code replacement to change string output during a debug session">
   <source src="/docs/java/java-debugging/hcr.mp4" type="video/mp4">
 </video>
 
@@ -142,7 +142,7 @@ You may use the debug setting `java.debug.settings.hotCodeReplace` to control ho
 
 Step filter is supported by the extension to filter out types that you do not want to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they could be skipped when you step through.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Adding a stepfilter to avoid stepping into java.lang.ClassLoader">
   <source src="/docs/java/java-debugging/step-filter.mp4" type="video/mp4">
 </video>
 
@@ -150,7 +150,7 @@ Step filter is supported by the extension to filter out types that you do not wa
 
 There are many options and settings available to configure the debugger. For example, configuring the JVM arguments and environment variables is easily done with launch options.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Adding various configuration options to the workspace launch.json file">
   <source src="/docs/java/java-debugging/launch-configuration.mp4" type="video/mp4">
 </video>
 

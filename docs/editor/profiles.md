@@ -49,7 +49,7 @@ You can edit a profile just as you would normally change any VS Code configurati
 
 ### Workspace associations
 
-When you select create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
+When you create or select an existing profile, it is associated with the current workspace and whenever you open that folder, the workspace's profile is active. If you open another folder, the profile switches to that folder's associated profile if one has been set or remains on the last used profile.
 
 ## Managing profiles
 

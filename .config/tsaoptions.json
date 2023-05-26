@@ -1,14 +1,13 @@
 {
-    "instanceUrl": "https://msazure.visualstudio.com/defaultcollection",
-    "projectName": "One",
-    "areaPath": "One\\VSCode\\Visual Studio Code Services\\VS Code Website",
-    "iterationPath": "One",
+    "instanceUrl": "https://devdiv.visualstudio.com/defaultcollection",
+    "projectName": "OnlineServices",
+    "areaPath": "OnlineServices\\VS Code (compliance tracking only)\\Visual Studio Code Services",
     "notificationAliases": [
         "stbatt@microsoft.com",
-        "lszomoru@microsoft.com",
+        "raymondzhao@microsoft.com",
         "gregvanl@microsoft.com"
     ],
     "ppe": "false",
-    "template": "TFSMSAzure",
-    "codebaseName": "vscode-docs_main"
+    "template": "TFSDEVDIV",
+    "codebaseName": "devdiv_vscode-docs"
 }

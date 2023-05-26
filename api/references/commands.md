@@ -74,6 +74,12 @@ let success = await commands.executeCommand('vscode.openFolder', uri);
 * _position_ - A position in a text document
 * _(returns)_ - A promise that resolves to an array of Location or LocationLink instances.
 
+`vscode.executeFoldingRangeProvider` - Execute folding range provider.
+
+* _uri_ - Uri of a text document
+* _(returns)_ - A Promise that resolves to an array of FoldingRange instances.
+
+
 `vscode.executeImplementationProvider` - Execute all implementation providers.
 
 * _uri_ - Uri of a text document

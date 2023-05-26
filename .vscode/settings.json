@@ -1,6 +1,10 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "editor.wordWrap": "on",
+  "git.branchProtection": [
+    "main"
+  ],
+  "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
+  "editor.wordWrap": "on",
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "files.associations": {
@@ -10,5 +14,11 @@
     "markdown.validate.ignoredLinks": [
         "/Download",
         "/insiders"
-    ]
+    ],
+    "markdown.copyFiles.destination": {
+        "/release-notes/**/*": "/release-notes/images/${documentBaseName}/"
+    },
+    "editor.codeActionsOnSave": {
+        "source.organizeLinkDefinitions": true
+    }
 }

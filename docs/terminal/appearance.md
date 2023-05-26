@@ -128,7 +128,7 @@ When on Linux VMs, browsers that don't support WebGL, or machines with outdated 
 
 The default `terminal.integrated.gpuAcceleration` value of `"auto"` tries the WebGL, canvas, and DOM renderers sequentially, settling at the first without detected issues.
 
-Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"dom"` typically resolves rendering-related problems like these at the cost of performance.
+Sometimes this detection doesn't work and requires manual intervention, setting `terminal.integrated.gpuAcceleration` to `"off"` typically resolves rendering-related problems like these at the cost of performance.
 
 ### Custom glyphs
 
