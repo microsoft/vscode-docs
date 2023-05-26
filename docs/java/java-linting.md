@@ -17,7 +17,7 @@ In addition, there are also the [Checkstyle for Java](https://marketplace.visual
 
 You can use **Format Document** command to format a Java file. If you didn't specify a formatter profile before, the Java file will be formatted using default settings.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls video="Format document">
   <source src="/docs/java/java-linting/formatting.mp4" type="video/mp4">
 </video>
 
@@ -41,7 +41,7 @@ After setting the formatter profile, the **Format Document** command will use th
 
 The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) provides an editor to help users edit an existing formatter profile. You can open the editor with the command **Java: Open Java Formatter Settings with Preview**. In the editor, you can change the formatter settings and preview the effects. After saving the current editor, the changes will be saved to the formatter profile.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Editing formatter settings">
   <source src="/docs/java/java-linting/formatting-editing.mp4" type="video/mp4">
 </video>
 
@@ -49,13 +49,13 @@ The [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemNam
 
 When editing settings in the editor, you can preview the changes' effects in the right **Preview** panel.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Preview formatting effects">
   <source src="/docs/java/java-linting/formatting-preview.mp4" type="video/mp4">
 </video>
 
 You can also undo and redo changes.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Undo and redo changes to formatting effects">
   <source src="/docs/java/java-linting/formatting-undoredo.mp4" type="video/mp4">
 </video>
 
@@ -67,7 +67,7 @@ You can also undo and redo changes.
 
 Issues are highlighted directly in the editor with hovers to provide detailed explanations.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Code analysis on the fly">
   <source src="/docs/java/java-linting/sonarlint.mp4" type="video/mp4">
 </video>
 
@@ -77,7 +77,7 @@ Issues found in the opened file can also be reviewed through the Problems panel 
 
 For any issues detected, SonarLint provides full documentation about the rule that was violated, and the best coding practice it relates to. This allows you to understand why an issue is raised, and how to fix it.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Rule documentation and remediation guidance">
   <source src="/docs/java/java-linting/sonarlint-description.mp4" type="video/mp4">
 </video>
 
@@ -85,7 +85,7 @@ For any issues detected, SonarLint provides full documentation about the rule th
 
 By default, SonarLint provides a wide array of rules to detect bugs and vulnerabilities. More checks can be enabled through the **SonarLint Rules** view.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Enabling more quality and security rules">
   <source src="/docs/java/java-linting/sonarlint-rules.mp4" type="video/mp4">
 </video>
 
@@ -97,19 +97,19 @@ With the [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemNa
 
 Set Checkstyle configuration file using the **Checkstyle: Set the Checkstyle Configuration File** command and selecting the Checkstyle file from the dropdown.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Set checkstyle configuration file command">
   <source src="/docs/java/java-linting/checkstyle.mp4" type="video/mp4">
 </video>
 
 The [Checkstyle for Java](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle) extension supports live linting.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Live linting">
   <source src="/docs/java/java-linting/checkstyle-live-linting.mp4" type="video/mp4">
 </video>
 
 And batch check.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Batch check">
   <source src="/docs/java/java-linting/checkstyle-batch.mp4" type="video/mp4">
 </video>
 
@@ -128,7 +128,7 @@ You can also trigger the command **Checkstyle: Set Checkstyle Configuration File
 
 The command **Checkstyle: Set the Checkstyle Configuration** detects potential **Checkstyle** configuration files and lists them. You can also provide a configuration file by directly writing a URL in the input box.
 
-<video autoplay loop muted playsinline controls>
+<video autoplay loop muted playsinline controls title="Set checkstyle configuration">
   <source src="/docs/java/java-linting/checkstyle-configuration.mp4" type="video/mp4">
 </video>
 
