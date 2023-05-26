@@ -670,3 +670,11 @@ If you use esm or pass `--experimental-modules` to Node.js in order to use ECMAS
 
 * `"runtimeArgs": ["--experimental-modules"]` - Use the [experimental ECMAScript modules support](https://nodejs.org/api/esm.html) in Node v8.5.0+
 * `"runtimeArgs": ["-r", "esm"]` - Use the [esm ES module loader](https://github.com/standard-things/esm) (`["-r esm"]` without a comma won't work)
+
+### How can I set NODE_OPTIONS?
+
+The debugger uses the special `NODE_OPTIONS` environment variable to set up debugging with your application, and overwriting it will prevent debugging from working correctly. Instead of overwriting it, you should append to it instead. For example, a `.bashrc` file might have something like this:
+
+```bash
+export NODE_OPTIONS="$NODE_OPTIONS --some-other-option=here"
+```
