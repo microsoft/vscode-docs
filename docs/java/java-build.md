@@ -32,7 +32,7 @@ Once a Maven project is loaded, the extension will be activated and it will auto
 The Maven extension also supports searching Maven Central to resolve unknown types in your source code. You can do this by selecting the **Resolve unknown type** link shown on hover.
 
 <video autoplay loop muted playsinline controls>
-  <source src="/docs/java/java-build/maven-resolve-unknown-type.mp4" type="video/mp4">
+  <source src="/docs/java/java-build/maven-resolve-unknown-type.mp4" type="video/mp4" title="Resolve unknown type">
 </video>
 
 ### Working with POM.xml
