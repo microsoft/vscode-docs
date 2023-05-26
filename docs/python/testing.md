@@ -314,6 +314,7 @@ Below are all the supported commands for testing with the Python extension in VS
 |  **Test: Stop Refreshing Tests** | Cancel test discovery. |
 
 ## IntelliSense for pytest
+
 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) offers IntelliSense features that can help you work more efficiently with [pytest fixtures](https://docs.pytest.org/en/6.2.x/fixture.html) and [parameterized tests](https://docs.pytest.org/en/6.2.x/parametrize.html).
 
 As you're typing the parameters for your test function, Pylance will offer you a list of [completions](/docs/python/editing.md#autocomplete-and-intellisense) that includes argument names from `@pytest.mark.parametrize` decorators, as well as existing pytest fixtures defined in your tests file or in `conftest.py`. [Code navigation](/docs/python/editing.md#navigation) features such as **Go to Definition** and **Find All References** and [rename symbol refactoring](/docs/editor/refactoring.md#rename-symbol) are also supported.
@@ -347,7 +348,7 @@ The settings that affect the UI of the testing features are provided by VS Code 
 
 ### unittest configuration settings
 
-| Setting<br/>(python.testing.) | Default | Description |
+| Unitest setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether unittest is enabled as the test framework. The equivalent setting for pytest should be disabled. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
@@ -364,7 +365,7 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 
 ### pytest configuration settings
 
-| Setting<br/>(python.testing.) | Default | Description |
+| pytest setting<br/>(python.testing.) | Default | Description |
 | --- | --- | --- |
 | pytestEnabled | `false` | Specifies whether pytest is enabled as the test framework. The equivalent setting for unittest should be disabled. |
 | pytestPath | `"pytest"` | Path to pytest. Use a full path if pytest is located outside the current environment. |
@@ -377,7 +378,7 @@ You can also configure pytest using a `pytest.ini` file as described on [pytest 
 
 ### IntelliSense settings
 
-| Setting<br/>(python.analysis.) | Default | Description |
+| IntelliSense setting<br/>(python.analysis.) | Default | Description |
 | --- | --- | --- |
 | inlayHints.pytestParameters | false | Whether to display inlay hints for pytest fixture argument types. Accepted values are `true` or `false`. |
 
