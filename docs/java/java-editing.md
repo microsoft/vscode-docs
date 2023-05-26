@@ -81,7 +81,7 @@ A Type Hierarchy view shows the inheritance relationships between Java Objects. 
 
 Folding regions allows you to fold or unfold code snippet to better view the source code.
 
-<video autoplay loop muted playsinline controls title="Folding regins">
+<video autoplay loop muted playsinline controls title="Folding regions">
   <source src="/docs/java/java-editing/folding-range.mp4" type="video/mp4">
 </video>
 
