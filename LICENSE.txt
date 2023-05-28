@@ -1,4 +1,4 @@
-Copyright (c) Microsoft Corporation. All rights reserved. Distributed under the following terms:
+Copyright (c) Microsoft Corporation. All rights reserved. Distributed under copyright:
 
 1.	Documentation is licensed under the [copyright ]licensed under the [copyright].
 
